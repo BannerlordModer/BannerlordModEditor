@@ -2,15 +2,25 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Masa.Blazor" Version="1.0.2" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.WindowsForms" Version="7.0.86" />
+		<PackageReference Include="Masa.Blazor" Version="1.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.WindowsForms" Version="8.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+		<PackageReference Include="MSBuildTasks" Version="1.5.0.235">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -19,4 +29,10 @@
 	  </Content>
 	</ItemGroup>
 
+	<Target Name="DoPublish">
+		<MSBuild Projects="$(ProjectFileName)" Targets="Publish" Properties="ApplicationVersion=$(BUILD_VERSION)" />
+		<!-- Write publish.htm file for ClickOnce -->
+		<Copy SourceFiles="$(ProjectDir)\Publish.html" DestinationFiles="$(PublishDir)\Publish.html" />
+		<FileUpdate Files="$(PublishDir)\Publish.html" IgnoreCase="true" Multiline="true" Singleline="false" Regex="{VERSION}" ReplacementText="$(BUILD_VERSION)" />
+	</Target>
 </Project>
