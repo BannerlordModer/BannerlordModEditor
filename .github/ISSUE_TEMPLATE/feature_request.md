@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: 为这个项目提出一个新功能建议
-title: "[Feature]"
+title: "[Feature] "
 labels: enhancement
 assignees: ModerRAS
 
