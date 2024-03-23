@@ -8,7 +8,7 @@ namespace BannerlordModEditor {
     internal static class Program {
         public static IHost host { get; private set; }
         private static async Task UpdateMyApp() {
-            var mgr = new UpdateManager(new GithubSource("https://github.com/ModerRAS/WeMeetRecorder", null, false));
+            var mgr = new UpdateManager(new GithubSource("https://github.com/BannerlordModer/BannerlordModEditor", null, false));
 
             // check for new version
             var newVersion = await mgr.CheckForUpdatesAsync();
