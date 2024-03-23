@@ -26,5 +26,5 @@ jobs:
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
         dotnet tool install -g vpk
         vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor
-        vpk pack -u BannerlordModEditor -v $Version -p publish --framework net8.0-x64-desktop,webview2
+        vpk pack -u BannerlordModEditor --channel nightly -v $Version -p publish --framework net8.0-x64-desktop,webview2
         vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --releaseName "BannerlordModEditor $Version" --tag v$Version --token ${{ secrets.GITHUB_TOKEN }}
