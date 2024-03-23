@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Components.WebView.WindowsForms;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BannerlordModEditor {
-    public partial class MainFrom : Form {
-        public MainFrom() {
+    public partial class MainForm : Form {
+        public MainForm() {
             InitializeComponent();
 
             var services = new ServiceCollection();

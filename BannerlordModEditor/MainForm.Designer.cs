@@ -1,5 +1,5 @@
 ﻿namespace BannerlordModEditor {
-    partial class MainFrom {
+    partial class MainForm {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
