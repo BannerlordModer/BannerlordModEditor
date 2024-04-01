@@ -23,6 +23,7 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrom));
             blazorWebView1 = new Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView();
             SuspendLayout();
             // 
@@ -32,6 +33,7 @@
             blazorWebView1.Location = new Point(0, 0);
             blazorWebView1.Name = "blazorWebView1";
             blazorWebView1.Size = new Size(800, 450);
+            blazorWebView1.StartPath = "/";
             blazorWebView1.TabIndex = 0;
             blazorWebView1.Text = "blazorWebView1";
             // 
@@ -41,6 +43,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(blazorWebView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainFrom";
             Text = "Form1";
             ResumeLayout(false);
