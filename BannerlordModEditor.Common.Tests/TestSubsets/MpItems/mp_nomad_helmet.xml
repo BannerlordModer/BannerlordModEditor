@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_nomad_helmet" name="{=WvDZMmaj}Nomad Helmet" subtype="head_armor" mesh="khuzait_helmet_j" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="2.1" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="17" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

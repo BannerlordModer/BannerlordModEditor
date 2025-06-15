@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_plated_strip_gauntlets" name="{=a3vHlztg}Plated Strip Gauntlets" mesh="empire_plated_gauntlets" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.4" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="15" covers_hands="false" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_varangian_bra_padded" name="{=qaKGuHSt}Decorated Leather Harness with Padding" mesh="varangian_bra_padded" culture="Culture.empire" value="1" is_merchandise="false" weight="3.2" appearance="3" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="10" arm_armor="8" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags />
+</Item>

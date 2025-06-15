@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_woodland_boots" name="{=SRZzySbP}Highland Woodland Boots" mesh="battania_woodland_boots" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.0" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="10" covers_legs="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

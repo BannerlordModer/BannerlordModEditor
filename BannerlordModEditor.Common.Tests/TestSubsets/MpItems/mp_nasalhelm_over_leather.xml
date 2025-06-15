@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_nasalhelm_over_leather" name="{=ONaWEKSy}Nasalhelm over Leather" mesh="sturgia_helmet_f" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.4" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="16" has_gender_variations="false" hair_cover_type="type3" beard_cover_type="none" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

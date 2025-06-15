@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_merchants_hat" name="{=S9htzkbe}Merchant Hat" mesh="costume_merchant_v4_head" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.1" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="2" has_gender_variations="false" hair_cover_type="type1" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags Civilian="true" />
+</Item>

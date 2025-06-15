@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_imperial_lamellar" name="{=LMo6MaQS}Cataphract Lamellar Armor" mesh="imperial_lamellar_a" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="22.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="43" leg_armor="17" arm_armor="11" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

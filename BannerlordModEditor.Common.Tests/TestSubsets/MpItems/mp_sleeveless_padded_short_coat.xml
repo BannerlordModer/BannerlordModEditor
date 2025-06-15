@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_sleeveless_padded_short_coat" name="{=bz5lXkHS}Sleeveless Padded Short Coat" mesh="padded_coat_d" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="11.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="19" leg_armor="6" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_civil_cloak" name="{=0Pxq8UqX}Highland Cloak" mesh="battania_civil_cloak" culture="Culture.battania" value="1" is_merchandise="false" subtype="body_armor" weight="4.0" difficulty="0" appearance="0.7" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="13" arm_armor="13" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

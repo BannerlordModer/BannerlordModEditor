@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_burlap_sack_dress" name="{=IuD9SaQM}Burlap Dress" mesh="burlap_sack_dress" culture="Culture.looters" value="1" is_merchandise="false" weight="0.5" difficulty="0" appearance="0.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="1" leg_armor="1" has_gender_variations="true" covers_body="false" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" DoesNotHideChest="true" />
+</Item>

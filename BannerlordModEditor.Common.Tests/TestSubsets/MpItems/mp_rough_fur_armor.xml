@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_rough_fur_armor" name="{=qo8hwDNU}Rough Fur Armor" mesh="bandit_3_a" culture="Culture.looters" value="1" is_merchandise="false" weight="3.3" appearance="0.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="11" leg_armor="4" arm_armor="2" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

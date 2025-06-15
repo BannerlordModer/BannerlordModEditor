@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_steppe_helmet" name="{=EOz0edW4}Steppe Helmet" subtype="head_armor" mesh="khuzait_helmet_l" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="18" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

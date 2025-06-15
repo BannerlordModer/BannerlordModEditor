@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_camel" name="{=Goloz0Vm}Husnphree" mesh="camel_mesh" culture="Culture.neutral_culture" item_category="horse" value="1" is_merchandise="false" weight="500" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.camel" maneuver="70" speed="40" charge_damage="7" body_length="95" extra_health="70" is_mountable="true" />
+  </ItemComponent>
+</Item>

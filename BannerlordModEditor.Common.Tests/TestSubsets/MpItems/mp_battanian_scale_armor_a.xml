@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battanian_scale_armor_a" name="{=QlvnKQbc}Highland Scale Armor over Mail Armor" subtype="body_armor" mesh="battanian_scale_armor_a" culture="Culture.battania" value="1" is_merchandise="false" weight="22.4" difficulty="0" appearance="3" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="42" leg_armor="15" arm_armor="12" has_gender_variations="true" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

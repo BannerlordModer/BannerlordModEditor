@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_archer_armor" name="{=2cSOn9qb}Gambeson over Mail Armor" subtype="body_armor" mesh="aserai_archer_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="18.6" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="36" leg_armor="14" arm_armor="11" has_gender_variations="true" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

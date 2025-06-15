@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_rough_tied_boots" name="{=Oo0baNaq}Rough Tied Boots" mesh="bandit_3_boot" culture="Culture.battania" value="1" is_merchandise="false" weight="0.9" appearance="0.1" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="9" covers_legs="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_battle_crown" name="{=fBAf3OWb}Ornate Desert Battle Crown" subtype="head_armor" mesh="aserai_battle_crown" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="2.8" difficulty="0" appearance="9" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="44" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="type3" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_aserai_civil_e_hscarf" name="{=spcj3XIw}Wrapped Keffiyeh" mesh="aserai_civil_e_hscarf" culture="Culture.aserai" value="1" weight="0.1" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="2" has_gender_variations="true" hair_cover_type="all" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags Civilian="true" UseTeamColor="true" />
+</Item>

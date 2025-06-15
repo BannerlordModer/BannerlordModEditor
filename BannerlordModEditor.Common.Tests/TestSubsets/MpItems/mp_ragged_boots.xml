@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_ragged_boots" name="{=Szuxa9Bs}Ragged Boots" mesh="sneak_costume_foot" culture="Culture.battania" value="1" is_merchandise="false" weight="0.8" difficulty="0" appearance="0.3" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="8" covers_legs="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

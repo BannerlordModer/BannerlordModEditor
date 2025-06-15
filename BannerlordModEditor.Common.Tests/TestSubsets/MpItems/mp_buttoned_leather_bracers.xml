@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_buttoned_leather_bracers" name="{=iD0ePqi7}Buttoned Leather Bracers" mesh="bandit_leather_wristbands" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="5" covers_hands="false" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

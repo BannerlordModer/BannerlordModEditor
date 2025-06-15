@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_vlandian_faceguard_helmet_a" name="{=axaK9y6E}Closed Knight Helmet" subtype="head_armor" mesh="vlandian_faceguard_helmet_a" culture="Culture.vlandia" value="1" is_merchandise="false" weight="2.2" difficulty="0" appearance="1" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="45" has_gender_variations="false" hair_cover_type="all" beard_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

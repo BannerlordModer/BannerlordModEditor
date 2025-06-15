@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_steppe_leather_shoulders" name="{=4a99jSHC}Steppe Leather Shoulders" mesh="khuzait_leather_armor_shoulder" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="0.7" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="2" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

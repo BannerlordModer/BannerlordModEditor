@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="ballista_projectile" name="{=6Db7aDbF}Ballista Arrows" body_name="bo_ballista_projectile_a" holster_body_name="bo_axe_short" mesh="ballista_projectile_a" holster_mesh="quiver" subtype="arrows" value="1" is_merchandise="false" weight="3" difficulty="0" appearance="0.5" Type="Arrows" item_holsters="">
+  <ItemComponent>
+    <Weapon weapon_class="Arrow" stack_amount="20" physics_material="ballista_missile" thrust_speed="0" speed_rating="0" missile_speed="80" weapon_length="95" thrust_damage="400" thrust_damage_type="Pierce" item_usage="" flying_sound_code="event:/mission/combat/missile/foley/passby" sticking_rotation="90,0,0" sticking_position="0,-1.2,0" center_of_mass="0,0,-0.3">
+      <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" MultiplePenetration="true" CanPenetrateShield="true" />
+    </Weapon>
+  </ItemComponent>
+  <Flags CannotBePickedUp="true" />
+</Item>

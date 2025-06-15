@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_eastern_studded_leather" name="{=UHItyOQY}Steppe Studded Leather" mesh="khuzait_leather_armor_b" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="14" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="27" leg_armor="8" arm_armor="3" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_warlord_armor" name="{=erlrhK2a}Scale Warlord Armor" subtype="body_armor" mesh="battania_warlord_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="20.9" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="41" leg_armor="16" arm_armor="4" has_gender_variations="true" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

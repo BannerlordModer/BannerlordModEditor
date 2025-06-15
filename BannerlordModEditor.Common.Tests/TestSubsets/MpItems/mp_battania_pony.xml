@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_pony" name="{=OL1oJ9j5}Dale Pony" mesh="horse_brown" subtype="horse" item_category="horse" value="1" is_merchandise="false" weight="370" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="62" speed="42" charge_damage="4" body_length="97" is_mountable="true" extra_health="25" skeleton_scale="battania_horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane_2" affected_by_cover="true" />
+        <Mesh name="horse_trotter" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="dales_pony_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF08080B" percentage="1.0" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="dales_pony_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF010101" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

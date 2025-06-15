@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_nomad_padded_hood" name="{=yMi4ijgI}Nomad Padded Hood" subtype="head_armor" mesh="khuzait_helmet_p" culture="Culture.khuzait" value="1" is_merchandise="false" weight="0.4" difficulty="0" appearance="0.3" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="4" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+</Item>

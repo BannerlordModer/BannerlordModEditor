@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_woodland_long_bow" name="{=ZFwKlHIJ}Woodland Longbow" body_name="bo_composite_longbow_a" mesh="longbow_d" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.0" difficulty="0" appearance="0.3" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
+  <ItemComponent>
+    <Weapon weapon_class="Bow" ammo_class="Arrow" missile_speed="75" accuracy="97" thrust_damage="67" thrust_speed="75" speed_rating="86" weapon_length="95" ammo_limit="1" thrust_damage_type="Pierce" item_usage="long_bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow">
+      <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" />
+    </Weapon>
+  </ItemComponent>
+  <Flags ForceAttachOffHandPrimaryItemBone="true" />
+</Item>

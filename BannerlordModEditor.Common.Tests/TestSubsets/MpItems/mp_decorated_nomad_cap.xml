@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_decorated_nomad_cap" name="{=smHA8Apa}Decorated Nomad Cap" mesh="khuzait_helmet_i" culture="Culture.khuzait" value="1" is_merchandise="false" weight="0.4" appearance="1.6" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="6" has_gender_variations="false" hair_cover_type="type1" beard_cover_type="none" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+</Item>

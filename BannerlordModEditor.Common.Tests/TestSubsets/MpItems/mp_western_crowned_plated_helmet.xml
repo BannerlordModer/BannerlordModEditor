@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_western_crowned_plated_helmet" name="{=PxVFJaEM}Crowned Plated Helmet" mesh="vlandia_lord_helmet_c" culture="Culture.neutral_culture" subtype="head_armor" value="1" is_merchandise="false" weight="3.9" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type4" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_green_hood" name="{=UvOa4elc}Green Hood" mesh="shoulder_cape_a" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="4" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="3" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

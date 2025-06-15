@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_open_padded_coif" name="{=WUArer5A}Open Padded Coif" subtype="head_armor" mesh="vlandia_helmet_y" culture="Culture.vlandia" value="1" is_merchandise="false" weight="0.6" difficulty="0" appearance="1" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="cloth" material_type="Cloth" beard_cover_type="type2" />
+  </ItemComponent>
+  <Flags Civilian="true" UseTeamColor="true" />
+</Item>

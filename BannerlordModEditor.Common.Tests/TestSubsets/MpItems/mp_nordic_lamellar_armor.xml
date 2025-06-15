@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_nordic_lamellar_armor" name="{=abGJeb3q}Sturgian Lamellar Armor" subtype="body_armor" mesh="sturgia_costume_i" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="22.2" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="42" leg_armor="13" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

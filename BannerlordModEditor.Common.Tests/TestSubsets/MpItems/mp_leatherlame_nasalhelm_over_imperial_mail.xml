@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leatherlame_nasalhelm_over_imperial_mail" name="{=c1a5Pt8j}Bronze Nasalhelm over Mail" mesh="empire_helmet_h_fa" culture="Culture.empire" value="1" is_merchandise="false" weight="3.7" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="35" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

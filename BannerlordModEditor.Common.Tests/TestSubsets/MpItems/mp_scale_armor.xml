@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_scale_armor" name="{=4eOHPops}Rugged Scale Armor" subtype="body_armor" mesh="battania_scale_armor_a" culture="Culture.battania" value="1" is_merchandise="false" weight="8.7" difficulty="0" appearance="0.3" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="19" leg_armor="1" arm_armor="0" has_gender_variations="true" covers_body="false" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

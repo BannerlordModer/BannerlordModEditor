@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_light_armor_e" name="{=yDykmlS7}Tartan Toga" subtype="body_armor" mesh="battania_light_armor_e" culture="Culture.battania" value="1" is_merchandise="false" weight="0.7" difficulty="0" appearance="1.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="4" leg_armor="9" arm_armor="0" has_gender_variations="true" covers_body="false" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags DoesNotHideChest="true" UseTeamColor="true" />
+</Item>

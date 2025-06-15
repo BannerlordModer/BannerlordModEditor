@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leather_studdedhelm" name="{=TGpFbISX}Leather Studded Helm" subtype="head_armor" mesh="battania_helmet_k" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="9" has_gender_variations="false" hair_cover_type="type1" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

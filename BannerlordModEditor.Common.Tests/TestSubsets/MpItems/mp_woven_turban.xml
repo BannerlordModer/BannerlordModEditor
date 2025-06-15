@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_woven_turban" name="{=ArPvuBYK}Woven Turban" subtype="head_armor" mesh="aserai_helmet_h" culture="Culture.aserai" value="1" is_merchandise="false" weight="0.8" appearance="0.5" difficulty="0" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="8" has_gender_variations="false" hair_cover_type="all" modifier_group="cloth_unarmoured" material_type="Cloth" beard_cover_type="type4" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

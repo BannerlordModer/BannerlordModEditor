@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_sturgia_heavy_cavalry_helmet" name="{=xl5MgK49}Sturgia Heavy Cavalry Helmet" mesh="sturgia_helmet_o" culture="Culture.sturgia" value="1" is_merchandise="false" weight="1.8" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="30" has_gender_variations="false" hair_cover_type="all" beard_cover_type="none" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

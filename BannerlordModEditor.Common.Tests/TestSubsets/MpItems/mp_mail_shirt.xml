@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_mail_shirt" name="{=GzgUzrFY}Mail Shirt" mesh="armor_roman_mail_shirt" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="22" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="35" leg_armor="8" arm_armor="3" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

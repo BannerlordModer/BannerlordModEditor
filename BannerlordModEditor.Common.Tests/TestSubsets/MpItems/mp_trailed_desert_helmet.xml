@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_trailed_desert_helmet" name="{=2N0ZP2GB}Helmet with Turban and Coif" subtype="head_armor" mesh="aserai_helmet_g" culture="Culture.aserai" value="1" is_merchandise="false" weight="1.1" difficulty="0" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type1" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

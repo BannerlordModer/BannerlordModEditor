@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_ironlame_feathered_spangenhelm_over_mail" name="{=inYBaDwu}Iron Feathered Spangenhelm over Mail" subtype="head_armor" mesh="empire_helmet_i_fb" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="3.3" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="35" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="type2" />
+  </ItemComponent>
+  <Flags />
+</Item>

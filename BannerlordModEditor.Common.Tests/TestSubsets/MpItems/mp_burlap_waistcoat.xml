@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_burlap_waistcoat" name="{=mkoMUmLh}Burlap Waistcoat" mesh="walker_costume_c" subtype="body_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="12" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="8" leg_armor="2" arm_armor="2" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_cervelliere_over_arming_coif" name="{=7dAy51ln}Cervelliere over Arming Coif" mesh="vlandia_helmet_n_f" culture="Culture.vlandia" weight="0.9" value="1" is_merchandise="false" appearance="0.3" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="16" has_gender_variations="false" hair_cover_type="type2" beard_cover_type="none" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

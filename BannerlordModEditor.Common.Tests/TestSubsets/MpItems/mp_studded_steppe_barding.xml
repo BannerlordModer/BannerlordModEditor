@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_studded_steppe_barding" name="{=lspv3mUE}Studded Steppe Barding" mesh="horse_harness_khuzait_c_clotest" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="90" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="26" mane_cover_type="all" family_type="1" modifier_group="chain" reins_mesh="horse_harness_khuzait_c_rein" material_type="Chainmail" />
+  </ItemComponent>
+</Item>

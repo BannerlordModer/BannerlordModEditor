@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_half_mail_and_plate_barding" name="{=hCBCLp0e}Half Mail and Plate Barding" mesh="horse_harness_aserai_d_clotest" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="70" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="15" mane_cover_type="all" family_type="1" modifier_group="plate" reins_mesh="horse_harness_aserai_d_rein" material_type="Plate" />
+  </ItemComponent>
+</Item>

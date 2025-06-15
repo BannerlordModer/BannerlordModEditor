@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_long_desert_robe" name="{=DnhVJl4d}Long Desert Robe" mesh="aserai_tunic_long" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="10" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="7" leg_armor="1" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

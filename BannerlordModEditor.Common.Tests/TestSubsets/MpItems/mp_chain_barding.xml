@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_chain_barding" name="{=aHQCG5Tn}Chain Barding" mesh="horse_harness_vlandia_a_clotest" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="95" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="25" mane_cover_type="all" family_type="1" modifier_group="chain" reins_mesh="horse_harness_vlandia_a_rein" material_type="Chainmail" />
+  </ItemComponent>
+</Item>

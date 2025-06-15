@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_ringed_desert_armor" name="{=7EAEIUIY}Heavy Ring Mail" mesh="aserai_bigchain_armor" culture="Culture.aserai" value="1" is_merchandise="false" weight="10.5" appearance="0.6" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="25" leg_armor="11" arm_armor="1" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

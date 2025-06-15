@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_southern_lamellar_armor" name="{=3lauB1HH}Bronze Lamellar Vest over Gambeson" subtype="body_armor" mesh="sturgia_costume_i_yellow" culture="Culture.aserai" value="1" weight="8.8" difficulty="0" appearance="0.7" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="25" leg_armor="4" arm_armor="1" has_gender_variations="true" modifier_group="plate" covers_body="true" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

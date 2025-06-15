@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_thick_sleeved_robe" name="{=MKT5IzWm}Thick Sleeved Robe" mesh="aserai_robe_b" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="6.8" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="8" leg_armor="1" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

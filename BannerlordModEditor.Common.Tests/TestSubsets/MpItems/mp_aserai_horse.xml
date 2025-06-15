@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_horse" name="{=84gnexLb}Desert horse" mesh="horse_brown" subtype="horse" item_category="horse" value="1" is_merchandise="false" weight="400" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="55" speed="49" charge_damage="4" body_length="105" is_mountable="true" extra_health="-5" skeleton_scale="aserai_horse" modifier_group="horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane" affected_by_cover="true" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="horse_brown_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_brown_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF08080B" percentage="1.0" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_brown_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF010101" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_empire_horse_war_agile" name="{=Cw5N7rK6}War Courser" mesh="horse_brown" subtype="horse" item_category="horse" value="1" is_merchandise="false" weight="410" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="69" speed="44" charge_damage="7" body_length="118" is_mountable="true" extra_health="90" skeleton_scale="empire_horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane_2" affected_by_cover="true" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="horse_grey_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_white_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="1.0" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_grey_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF010101" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

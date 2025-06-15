@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_brass_lamellar_shoulder_white" name="{=8frVbv2b}Northlander Lamellar Shoulders" mesh="brass_lamellar_shoulder_white" culture="Culture.sturgia" value="1" is_merchandise="false" weight="5.0" appearance="2" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="16" arm_armor="6" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

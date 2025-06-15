@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_steppe_harness" name="{=vw9qbiER}Steppe Harness" mesh="horse_harness_khuzait_b_clotest" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="30" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="0" mane_cover_type="none" family_type="1" modifier_group="chain" reins_mesh="horse_harness_khuzait_b_rein" material_type="Chainmail" />
+  </ItemComponent>
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_mail_coif" name="{=Qywm0F8B}Mail Coif with Helmet Padding" subtype="head_armor" mesh="vlandia_helmet_a" culture="Culture.empire" value="1" is_merchandise="false" weight="1.7" difficulty="0" appearance="1" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="18" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="type4" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_baggy_trunks" name="{=IH9GsYzv}Baggy Trousers" mesh="bandit_1_a" subtype="body_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.4" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="2" leg_armor="4" covers_body="false" has_gender_variations="false" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags DoesNotHideChest="true" UseTeamColor="true" />
+</Item>

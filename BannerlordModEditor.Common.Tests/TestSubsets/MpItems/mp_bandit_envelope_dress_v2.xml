@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_bandit_envelope_dress_v2" name="{=qILO0HdK}Sleeveless Enveloped Padded Garments" mesh="bandit_envelope_dress_v2" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="6.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="4" leg_armor="1" has_gender_variations="true" covers_body="false" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" DoesNotHideChest="true" />
+</Item>

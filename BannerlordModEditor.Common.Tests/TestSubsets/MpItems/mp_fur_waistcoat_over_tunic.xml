@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_fur_waistcoat_over_tunic" name="{=XH9f3yOX}Fur Waistcoat over Tunic" subtype="body_armor" mesh="fur_vaegir_short" culture="Culture.looters" value="1" is_merchandise="false" weight="2.3" difficulty="0" appearance="0.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="8" leg_armor="2" arm_armor="2" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

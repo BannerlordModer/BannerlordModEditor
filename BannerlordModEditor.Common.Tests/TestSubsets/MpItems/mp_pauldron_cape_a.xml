@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_pauldron_cape_a" name="{=3qF14kaR}Empire Pauldron Cape" mesh="pauldron_cape_a" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="5.5" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="11" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

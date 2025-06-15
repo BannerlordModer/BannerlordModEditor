@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_khuzait_noble_helmet_with_neckguard" name="{=LyaWykYa}Noble Helmet with Neckguard" mesh="khuzait_lord_helmet_b" culture="Culture.khuzait" subtype="head_armor" value="1" is_merchandise="false" weight="4" difficulty="0" appearance="0.9" Type="headArmor">
+  <ItemComponent>
+    <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type4" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

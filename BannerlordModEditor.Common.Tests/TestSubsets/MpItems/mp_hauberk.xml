@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_hauberk" name="{=FHakBPXw}Hauberk" subtype="body_armor" mesh="mail_hauberk" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="23.7" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="34" leg_armor="12" arm_armor="3" has_gender_variations="true" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

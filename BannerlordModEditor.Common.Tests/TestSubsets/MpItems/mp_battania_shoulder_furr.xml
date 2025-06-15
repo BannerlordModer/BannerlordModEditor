@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_shoulder_furr" name="{=cwC8Jp99}Highland Shoulder Furr" mesh="battania_shoulder_furr" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="3.6" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="6" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

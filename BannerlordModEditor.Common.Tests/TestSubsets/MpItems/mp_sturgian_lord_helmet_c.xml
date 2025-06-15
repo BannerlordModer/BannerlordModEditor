@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_sturgian_lord_helmet_c" name="{=vmJLhccb}Decorated Helmet" mesh="sturgian_lord_helmet_c" culture="Culture.neutral_culture" subtype="head_armor" value="1" is_merchandise="false" weight="4.4" Type="headArmor">
+  <ItemComponent>
+    <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" beard_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

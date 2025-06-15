@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_rough_bearskin" name="{=KKWEkA4P}Rough Bearskin" mesh="cloak_fur_c" culture="Culture.battania" value="1" weight="2.3" appearance="0.7" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="7" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags />
+</Item>

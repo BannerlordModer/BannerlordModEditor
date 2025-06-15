@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_scarf_a" name="{=Ur3Q4U5x}Heavy Tartan Cape" mesh="battania_scarf_a" culture="Culture.battania" value="1" is_merchandise="false" subtype="body_armor" weight="0.55" difficulty="0" appearance="1.5" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="3" arm_armor="1" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+</Item>

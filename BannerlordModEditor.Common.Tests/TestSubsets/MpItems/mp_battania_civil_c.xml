@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_civil_c" name="{=dVekhkIU}Fur Coat over Tunic" mesh="battania_civil_c" culture="Culture.battania" value="1" is_merchandise="false" weight="0.4" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="2" leg_armor="1" arm_armor="1" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

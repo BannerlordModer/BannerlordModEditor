@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_imperial_robes" name="{=R45H8quo}Toga" mesh="empire_outfit_a" culture="Culture.empire" value="1" is_merchandise="false" weight="0.9" appearance="1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="8" leg_armor="3" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags Civilian="true" UseTeamColor="true" />
+</Item>

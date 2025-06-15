@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_nasal_helmet_with_leather" name="{=TxAYmCjr}Nasal Helmet with Leather" subtype="head_armor" mesh="nasal_helmet_neckguard" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.2" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="16" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

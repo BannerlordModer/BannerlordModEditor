@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_scale_armor_on_cloth" name="{=JbV0WoO7}Mastercrafted Southern Scale Mail" lod_atlas_index="3" mesh="aserai_scale_armor_on_cloth" culture="Culture.aserai" value="1" is_merchandise="false" weight="18.0" appearance="6" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="35" leg_armor="6" arm_armor="7" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

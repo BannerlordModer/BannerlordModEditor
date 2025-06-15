@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_peasant_hood" name="{=lbVB6KPl}Hood" culture="Culture.neutral_culture" mesh="shoulder_cape_multicolor" subtype="body_armor" value="1" is_merchandise="false" weight="0.4" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="2" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

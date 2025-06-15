@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_fine_town_boots" name="{=uUGAMReu}Fine Town Boots" mesh="casual_02_boots" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="7" covers_legs="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

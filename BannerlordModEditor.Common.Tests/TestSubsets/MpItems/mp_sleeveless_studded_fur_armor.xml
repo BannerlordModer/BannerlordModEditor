@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_sleeveless_studded_fur_armor" name="{=4AfHO0BA}Sleeveless Studded Fur Armor" mesh="bandit_1_c" subtype="body_armor" culture="Culture.battania" value="1" is_merchandise="false" weight="0.4" difficulty="0" appearance="0.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="3" leg_armor="3" arm_armor="0" covers_body="false" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" DoesNotHideChest="true" />
+</Item>

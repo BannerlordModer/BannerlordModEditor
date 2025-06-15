@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_desert_fabric_shoulderpad" name="{=FyXM8Iob}Desert Fabric Shoulderpad" mesh="aserai_bigchain_shoulder_fabric" culture="Culture.aserai" value="1" weight="1.8" appearance="0.1" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="8" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags Civilian="true" UseTeamColor="true" />
+</Item>

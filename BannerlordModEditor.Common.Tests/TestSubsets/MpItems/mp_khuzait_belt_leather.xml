@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_khuzait_belt_leather" name="{=4B2i8oxo}Coat with Mirrored Belt" mesh="khuzait_belt_leather" culture="Culture.khuzait" value="1" is_merchandise="false" weight="2.4" appearance="0.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="12" leg_armor="7" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_a_battania_cloak_a" name="{=Jm3AiUo3}Simple Cape" mesh="battania_cloak_a" culture="Culture.battania" value="1" is_merchandise="false" weight="0.5" appearance="1" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="1" arm_armor="1" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags Civilian="true" />
+</Item>

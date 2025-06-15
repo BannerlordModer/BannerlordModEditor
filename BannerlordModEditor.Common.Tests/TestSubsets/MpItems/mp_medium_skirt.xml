@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_medium_skirt" name="{=z7oMeRl3}Thick Brigandine Vest" mesh="khuzait_leather_stitch_a" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="10.6" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="33" leg_armor="33" arm_armor="33" head_armor="33" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

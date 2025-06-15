@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leather_strips_over_padded_robe" name="{=iVataLxL}Leather Strips over Padded Robe" lod_atlas_index="9" subtype="body_armor" mesh="sarranid_gambeson_v1" culture="Culture.aserai" value="1" is_merchandise="false" weight="4.1" difficulty="0" appearance="0.6" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="34" leg_armor="9" arm_armor="1" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

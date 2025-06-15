@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_horse_war" name="{=1X2X0Qe4}Barb Horse" mesh="horse_brown" subtype="horse" item_category="war_horse" value="1" is_merchandise="false" weight="420" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="57" speed="45" charge_damage="7" body_length="108" is_mountable="true" extra_health="65" skeleton_scale="aserai_horse" modifier_group="horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane_2" affected_by_cover="true" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="horse_brown_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_brown_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF08080B" percentage="1.0" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

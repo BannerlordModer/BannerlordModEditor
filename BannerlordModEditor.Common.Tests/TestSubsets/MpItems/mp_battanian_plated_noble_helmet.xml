@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battanian_plated_noble_helmet" name="{=KpyTaAwL}Highland Plated Noble Helmet" mesh="battania_lord_helmet_a" culture="Culture.neutral_culture" subtype="head_armor" value="1" is_merchandise="false" weight="2.9" Type="headArmor">
+  <ItemComponent>
+    <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

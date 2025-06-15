@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_buckled_wildsman_armor" name="{=8oKVhtth}Buckled Brigandine Armor" mesh="bandit_2" subtype="body_armor" culture="Culture.looters" value="1" is_merchandise="false" weight="12.3" difficulty="0" appearance="0.2" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="29" leg_armor="2" arm_armor="2" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

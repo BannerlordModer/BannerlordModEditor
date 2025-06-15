@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_tall_heater_shield" name="{=Lbm7asY3}Tall Heater Shield" body_name="bo_cap_heater_shield_k" shield_body_name="bo_heater_shield_k" recalculate_body="false" mesh="heater_shield_k" culture="Culture.neutral_culture" using_tableau="true" value="1" is_merchandise="false" weight="2.1" Type="Shield" item_holsters="shield:shield_2:shield_3:shield_4" has_lower_holster_priority="true" holster_position_shift="-0.1,-0.05,-0.025">
+  <ItemComponent>
+    <Weapon weapon_class="LargeShield" body_armor="20" thrust_speed="82" thrust_damage_type="Blunt" speed_rating="82" physics_material="wood_shield" item_usage="shield" position="0.0, 0.00, 0.00" rotation="0.0,10.0,40.00" weapon_length="105" center_of_mass="-0.0,0.1,0.05" hit_points="245">
+      <WeaponFlags CanBlockRanged="true" HasHitPoints="true" />
+    </Weapon>
+  </ItemComponent>
+  <Flags WoodenParry="true" HeldInOffHand="true" ForceAttachOffHandSecondaryItemBone="true" />
+</Item>

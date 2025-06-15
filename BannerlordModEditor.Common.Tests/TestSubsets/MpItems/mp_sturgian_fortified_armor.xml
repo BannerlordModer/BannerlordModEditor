@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_sturgian_fortified_armor" name="{=KwbnODoT}Brigandine over Hauberk" subtype="body_armor" mesh="sturgian_fortified_armor" culture="Culture.sturgia" value="1" is_merchandise="false" weight="28.6" difficulty="0" appearance="2.4" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="49" leg_armor="25" arm_armor="20" has_gender_variations="true" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

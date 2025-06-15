@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_rough_fur_over_chain" name="{=KIxX6dH2}Rough Fur over Chain" mesh="bandit_3_b" culture="Culture.looters" value="1" is_merchandise="false" weight="12.0" appearance="0.2" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="30" leg_armor="11" arm_armor="11" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+</Item>

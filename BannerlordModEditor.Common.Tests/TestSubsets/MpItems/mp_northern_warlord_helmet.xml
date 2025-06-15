@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_northern_warlord_helmet" name="{=y9uZrJv2}Sturgian Warlord Helmet" mesh="sturgia_helmet_i" culture="Culture.sturgia" value="1" is_merchandise="false" weight="3.6" appearance="0.6" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type3" beard_cover_type="type1" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

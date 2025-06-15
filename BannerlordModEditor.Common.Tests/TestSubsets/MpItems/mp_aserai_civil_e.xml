@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_aserai_civil_e" name="{=FAPHmzxQ}Thawb" mesh="aserai_civil_e" culture="Culture.aserai" value="1" is_merchandise="false" weight="1.1" appearance="0.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="4" leg_armor="1" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

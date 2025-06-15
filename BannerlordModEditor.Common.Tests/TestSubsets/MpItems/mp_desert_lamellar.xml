@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_desert_lamellar" name="{=bAXuK5eG}Aserai Lamellar Armor" subtype="body_armor" mesh="aserai_cavalry_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="25.8" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="40" leg_armor="10" arm_armor="4" has_gender_variations="true" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

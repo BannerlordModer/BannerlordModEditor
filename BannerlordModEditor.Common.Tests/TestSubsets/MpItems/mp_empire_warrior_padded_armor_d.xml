@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_empire_warrior_padded_armor_d" name="{=CLTk2CMs}Infantryman Gambeson with Straps" mesh="empire_warrior_padded_armor_d" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="12.3" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="29" leg_armor="9" arm_armor="4" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

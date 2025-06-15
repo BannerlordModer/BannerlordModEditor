@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_tied_head_wrapping" name="{=ndfDy5B8}Tied Head Wrapping" subtype="head_armor" mesh="aserai_helmet_p" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="8" has_gender_variations="false" hair_cover_type="all" modifier_group="cloth_unarmoured" material_type="Cloth" beard_cover_type="type4" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

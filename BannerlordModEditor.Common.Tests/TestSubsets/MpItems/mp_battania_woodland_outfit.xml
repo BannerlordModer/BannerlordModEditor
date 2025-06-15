@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_woodland_outfit" name="{=46orXtt0}Woodland Garments" subtype="body_armor" mesh="battania_woodland_outfit" culture="Culture.neutral_culture" weight="1.2" value="1" is_merchandise="false" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="4" leg_armor="2" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_northern_brass_lamellar_over_mail" name="{=2w09rN4S}Heavy Bronze Lamellar over Mail" mesh="brass_lamellar_white" culture="Culture.sturgia" value="1" is_merchandise="false" weight="11.4" appearance="0.7" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="38" leg_armor="13" arm_armor="13" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_padded_leather_overcoat" name="{=CtJPuRDa}Padded Leather Overcoat" mesh="bandit_10" culture="Culture.looters" value="1" is_merchandise="false" weight="3.2" appearance="0.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="13" leg_armor="7" arm_armor="3" has_gender_variations="true" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

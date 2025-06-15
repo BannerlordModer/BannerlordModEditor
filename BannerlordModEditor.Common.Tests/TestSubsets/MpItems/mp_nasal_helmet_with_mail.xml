@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_nasal_helmet_with_mail" name="{=EWR2MNeM}Nasal Helmet with Mail" subtype="head_armor" mesh="nasal_helmet_reinforced" value="1" is_merchandise="false" weight="1.5" difficulty="0" appearance="0.6" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="20" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

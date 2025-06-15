@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leatherlame_feathered_spangenhelm_over_mail" name="{=aoPbMKwB}Feathered Spangenhelm over Mail" subtype="head_armor" mesh="empire_helmet_i_aa" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="3.4" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="36" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

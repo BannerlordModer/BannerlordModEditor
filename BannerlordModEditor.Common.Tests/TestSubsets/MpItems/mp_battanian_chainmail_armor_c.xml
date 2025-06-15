@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battanian_chainmail_armor_c" name="{=MTB2BunA}Highland Reinforced Mail over Tartan" subtype="body_armor" mesh="battanian_chainmail_armor_c" culture="Culture.battania" value="1" is_merchandise="false" weight="14.7" difficulty="0" appearance="1.7" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="32" leg_armor="8" arm_armor="4" has_gender_variations="true" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

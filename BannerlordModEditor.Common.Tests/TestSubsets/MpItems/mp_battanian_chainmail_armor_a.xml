@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battanian_chainmail_armor_a" name="{=6fA31IxF}Heavy Mail Vest" subtype="body_armor" mesh="battanian_chainmail_armor_a" culture="Culture.battania" value="1" is_merchandise="false" weight="10.7" difficulty="0" appearance="1.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="28" leg_armor="8" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

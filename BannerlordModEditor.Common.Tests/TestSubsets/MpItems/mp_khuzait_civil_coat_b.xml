@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_khuzait_civil_coat_b" name="{=S1XL4KJh}Luxury Thick Coat" mesh="khuzait_civil_coat_b" culture="Culture.khuzait" value="1" weight="2.7" appearance="0.2" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="6" leg_armor="1" arm_armor="0" has_gender_variations="true" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags Civilian="true" UseTeamColor="true" />
+</Item>

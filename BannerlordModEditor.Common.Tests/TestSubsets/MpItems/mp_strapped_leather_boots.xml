@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_strapped_leather_boots" name="{=tMwsE9IR}Strapped Leather Boots" mesh="boot_g" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.9" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="5" covers_legs="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+</Item>

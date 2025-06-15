@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_rough_tied_bracers" name="{=uEPRE33m}Rough Tied Bracers" mesh="bandit_3_wrist" culture="Culture.battania" value="1" is_merchandise="false" weight="0.6" appearance="0.3" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="4" covers_hands="false" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

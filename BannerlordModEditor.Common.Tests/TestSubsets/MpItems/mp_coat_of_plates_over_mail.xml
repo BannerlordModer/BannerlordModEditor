@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_coat_of_plates_over_mail" name="{=PtfbqMeg}Brigandine over Mail" mesh="tunic_ironplate_armor" subtype="body_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="25.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="45" leg_armor="19" arm_armor="11" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

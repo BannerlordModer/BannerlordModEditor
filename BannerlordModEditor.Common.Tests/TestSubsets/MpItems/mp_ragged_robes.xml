@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_ragged_robes" name="{=tVyuxl8e}Ragged Robes" mesh="sneak_costume" subtype="body_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="4" leg_armor="2" arm_armor="2" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_heavy_nordic_coat" name="{=h5IlkYck}Heavy Coat" subtype="body_armor" mesh="sturgia_costume_d" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="11.3" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="14" leg_armor="3" arm_armor="2" has_gender_variations="true" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

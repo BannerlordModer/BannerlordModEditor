@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_roughhide_cap" name="{=p6NIgRpk}Roughhide Cap" mesh="sturgia_helmet_d" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="5" has_gender_variations="false" hair_cover_type="type2" beard_cover_type="none" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+</Item>

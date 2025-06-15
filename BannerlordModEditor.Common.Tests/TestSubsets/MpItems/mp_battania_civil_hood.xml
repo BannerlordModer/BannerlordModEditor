@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_civil_hood" name="{=UC2XfY7V}Cloth Hood" subtype="head_armor" mesh="battania_civil_hood" culture="Culture.battania" value="1" is_merchandise="false" weight="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="9" has_gender_variations="false" hair_cover_type="type3" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

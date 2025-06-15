@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_northern_noble_harness" name="{=lZZOQsxc}Rough Cavalry Saddle" mesh="horse_harness_sturgia_b_clotest" value="1" is_merchandise="false" weight="20" culture="Culture.neutral_culture" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="4" reins_mesh="horse_harness_sturgia_b_rein" mane_cover_type="all" family_type="1" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

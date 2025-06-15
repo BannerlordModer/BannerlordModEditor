@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_studded_leather_vambraces" name="{=bxa4JHlU}Studded Leather Vambraces" mesh="crossbow_armor_leather_hand_a" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.9" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="10" covers_hands="false" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

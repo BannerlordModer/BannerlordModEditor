@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_roughtied_leather_bracers" name="{=e4lKZhgv}Roughtied Leather Bracers" mesh="sea_raider_leather_wristband" culture="Culture.battania" value="1" is_merchandise="false" weight="0.5" appearance="1" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="3" covers_hands="false" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags Civilian="true" />
+</Item>

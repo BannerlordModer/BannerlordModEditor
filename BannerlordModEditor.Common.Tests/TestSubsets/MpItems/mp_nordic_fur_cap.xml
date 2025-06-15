@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_nordic_fur_cap" name="{=cjH1WFwy}Fur Rimmed Cap" mesh="sturgia_helmet_m" culture="Culture.sturgia" value="1" weight="0.3" appearance="0.3" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="10" has_gender_variations="false" hair_cover_type="type2" beard_cover_type="none" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

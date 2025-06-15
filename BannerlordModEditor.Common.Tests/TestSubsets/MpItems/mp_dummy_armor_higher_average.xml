@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_dummy_armor_higher_average" name="{=gT8WENO3}Dummy Higher Average" mesh="vlandia_leather_armor" culture="Culture.looters" value="1" is_merchandise="false" weight="30" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="37" leg_armor="37" head_armor="37" arm_armor="37" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

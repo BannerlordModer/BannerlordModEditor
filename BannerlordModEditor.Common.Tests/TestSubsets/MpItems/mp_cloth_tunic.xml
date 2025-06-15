@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_cloth_tunic" name="{=OJIRIm4j}Simple Cloth Tunic" mesh="clothing_a" culture="Culture.vlandia" value="1" is_merchandise="false" subtype="body_armor" weight="0.4" appearance="0.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="1" leg_armor="1" arm_armor="1" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

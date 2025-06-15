@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leopard_pelt" name="{=QxzcuhmA}Leopard Pelt" mesh="leopard_pelt" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="2.0" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="9" arm_armor="5" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

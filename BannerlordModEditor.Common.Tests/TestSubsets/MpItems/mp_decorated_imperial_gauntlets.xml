@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_decorated_imperial_gauntlets" name="{=2XEbqNQz}Decorated Imperial Gauntlets" mesh="empire_plate_armor_gauntlets" culture="Culture.empire" value="1" is_merchandise="false" weight="1.5" appearance="0.9" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="29" covers_hands="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

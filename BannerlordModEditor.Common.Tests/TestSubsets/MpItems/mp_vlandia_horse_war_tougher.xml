@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_vlandia_horse_war_tougher" name="{=I1faIdpc}Brawler" mesh="horse_brown" subtype="horse" item_category="horse" value="1" is_merchandise="false" weight="420" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="63" speed="38" charge_damage="9" body_length="113" is_mountable="true" extra_health="100" skeleton_scale="vlandia_horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane_2" affected_by_cover="true" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="horse_black_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF010101" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_black_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

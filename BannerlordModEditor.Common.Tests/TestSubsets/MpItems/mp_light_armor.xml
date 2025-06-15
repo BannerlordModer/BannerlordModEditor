@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_light_armor" name="{=!}mp_light_armor" mesh="roman_cloth_tunic_a" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="1.9" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="18" leg_armor="18" arm_armor="18" head_armor="18" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

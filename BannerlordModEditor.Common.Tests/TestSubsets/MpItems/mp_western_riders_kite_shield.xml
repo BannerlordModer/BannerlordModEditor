@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_western_riders_kite_shield" name="{=FxnFBhrF}Cavalry Kite Shield" body_name="bo_cap_shield_vlandia_cavalary_a" shield_body_name="bo_shield_vlandia_cavalary_a" recalculate_body="false" mesh="shield_vlandia_cavalary_a" culture="Culture.neutral_culture" using_tableau="true" value="1" is_merchandise="false" weight="4.7" Type="Shield" item_holsters="shield_kite:shield_2:shield_3:shield_4" has_lower_holster_priority="true" holster_position_shift="-0.1,-0.1,0">
+  <ItemComponent>
+    <Weapon weapon_class="LargeShield" body_armor="5" thrust_speed="82" thrust_damage_type="Blunt" speed_rating="82" physics_material="wood_shield" item_usage="shield" position="0.0, 0.00, 0.00" rotation="0.0,10.0,40.00" weapon_length="85" center_of_mass="0.0,0.1,0.05" hit_points="105">
+      <WeaponFlags CanBlockRanged="true" HasHitPoints="true" />
+    </Weapon>
+  </ItemComponent>
+  <Flags WoodenParry="true" HeldInOffHand="true" ForceAttachOffHandSecondaryItemBone="true" />
+</Item>

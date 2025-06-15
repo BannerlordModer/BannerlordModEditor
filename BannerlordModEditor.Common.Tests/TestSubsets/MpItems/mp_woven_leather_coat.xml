@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_woven_leather_coat" name="{=wE7RWmIF}Boarskin Leather Coat" mesh="vlandia_leather_stripes" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="12.2" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="31" leg_armor="11" arm_armor="2" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

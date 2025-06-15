@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_northern_lamellar_armor" name="{=hXB6gvD2}Cured Leather Lamellar Shirt " subtype="body_armor" mesh="sturgia_costume_h" culture="Culture.sturgia" value="1" weight="1.9" difficulty="0" appearance="0.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="25" leg_armor="3" arm_armor="1" has_gender_variations="true" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

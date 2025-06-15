@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leather_scale_armor" name="{=PL5SG9hI}Leather Scale Armor" mesh="vlandia_leather_scale_armor" subtype="body_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="8.6" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="18" leg_armor="5" arm_armor="7" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

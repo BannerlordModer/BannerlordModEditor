@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_empire_lord_helmet" name="{=Ia7K4egV}Lordly Helmet" mesh="empire_lord_helmet_a" culture="Culture.empire" value="1" is_merchandise="false" subtype="head_armor" weight="3.5" difficulty="0" appearance="0.9" Type="headArmor">
+  <ItemComponent>
+    <Armor head_armor="37" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type4" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

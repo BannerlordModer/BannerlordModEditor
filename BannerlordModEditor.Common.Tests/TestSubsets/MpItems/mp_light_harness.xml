@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_light_harness" name="{=O37kzdXO}Light Harness" mesh="horse_harness_b" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="20" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="0" mane_cover_type="none" maneuver_bonus="0" speed_bonus="0" charge_bonus="0" family_type="1" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_pointed_skullcap_over_laced_coif" name="{=6n44BIll}Pointed Skullcap over Laced Coif" subtype="head_armor" mesh="vlandia_helmet_l_c" culture="Culture.aserai" value="1" is_merchandise="false" weight="1.2" difficulty="0" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="22" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="type2" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

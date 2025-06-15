@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_leather_cavalier_boots" name="{=oEvhhNNR}Leather Cavalier Boots" mesh="cav_boots" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.9" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="10" covers_legs="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_imperial_lamellar_shoulders" name="{=Lt8nT1hb}Lamellar Shoulders" mesh="imperial_shoulders" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="3.5" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="13" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

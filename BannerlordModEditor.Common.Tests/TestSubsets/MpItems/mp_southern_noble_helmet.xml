@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_southern_noble_helmet" name="{=GFKPrrb8}Aserai Noble Helmet" mesh="aserai_lord_helmet_b" culture="Culture.aserai" value="1" weight="3.7" appearance="0.9" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="43" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type3" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

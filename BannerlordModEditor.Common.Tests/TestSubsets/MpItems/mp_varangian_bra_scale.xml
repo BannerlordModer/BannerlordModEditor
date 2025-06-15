@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_varangian_bra_scale" name="{=eN1eFdhF}Decorated Leather Harness over Scale" mesh="varangian_bra_scale" culture="Culture.empire" value="1" is_merchandise="false" weight="14" appearance="6" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="19" arm_armor="12" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_armored_bearskin" name="{=FOx5vZSJ}Armored Bearskin" subtype="body_armor" mesh="battania_helmet_j" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="7" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="15" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

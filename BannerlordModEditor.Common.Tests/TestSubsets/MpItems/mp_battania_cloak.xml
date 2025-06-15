@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_cloak" name="{=0Pxq8UqX}Highland Cloak" mesh="battania_cloak" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="2" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_peaked_helmet_over_laced_coif" name="{=Rhfp7ath}Peaked Helmet over Laced Coif" subtype="head_armor" mesh="vlandia_helmet_t_c" culture="Culture.vlandia" value="1" is_merchandise="false" weight="2.8" difficulty="0" appearance="1.8" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="37" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

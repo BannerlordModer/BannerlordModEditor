@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_earmuff_helmet_d" name="{=wQY1oqdK}Ridged Decorated Steel Cap with Cheek Guards" mesh="battania_earmuff_helmet_d" culture="Culture.battania" value="1" is_merchandise="false" subtype="head_armor" weight="3.2" difficulty="0" appearance="3" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="41" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_northern_goggled_helmet" name="{=RIswqnuJ}Goggled Helmet" mesh="sturgia_helmet_k" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.8" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" beard_cover_type="none" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

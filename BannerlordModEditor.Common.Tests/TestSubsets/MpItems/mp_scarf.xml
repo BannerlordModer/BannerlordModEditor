@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_scarf" name="{=GNdVXMue}Scarf" mesh="sturgia_cape_a" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="0.5" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="2" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_studded_leather_over_aketon" name="{=dS4zm0UT}Studded Leather over Aketon" mesh="crossbow_armor_leather" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="13.7" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="29" leg_armor="11" arm_armor="6" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

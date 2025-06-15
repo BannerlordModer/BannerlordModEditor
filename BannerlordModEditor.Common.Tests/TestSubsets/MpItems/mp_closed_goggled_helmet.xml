@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_closed_goggled_helmet" name="{=TjoKgbV6}Closed Goggled Helmet" mesh="sturgia_helmet_l" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="4" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="41" has_gender_variations="false" hair_cover_type="all" beard_cover_type="all" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+</Item>

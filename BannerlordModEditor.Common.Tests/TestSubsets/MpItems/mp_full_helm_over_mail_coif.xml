@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_full_helm_over_mail_coif" name="{=FsDZC8Yl}Full Helm over Mail Coif" subtype="head_armor" mesh="vlandia_helmet_s_a" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="4.7" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type3" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

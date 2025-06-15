@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_khuzait_leather_stitched" name="{=wD3Yuvfc}Steppe Stitched Leather" mesh="khuzait_leather_stitch_a" culture="Culture.empire" value="1" is_merchandise="false" weight="2.5" appearance="0.5" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="12" leg_armor="2" arm_armor="2" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

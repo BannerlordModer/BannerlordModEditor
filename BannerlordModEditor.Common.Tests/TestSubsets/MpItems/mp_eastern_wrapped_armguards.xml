@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_eastern_wrapped_armguards" name="{=b2EDkbhD}Wrapped Armguards" mesh="plated_leather_armor_glove_a" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.5" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="3" covers_hands="false" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_western_scale_mail" name="{=AJjEnCGN}Scale Mail" mesh="vlandia_scale_armor" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="27.7" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="43" leg_armor="19" arm_armor="2" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

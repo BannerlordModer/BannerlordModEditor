@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_guarded_armwraps" name="{=a1BGHdaU}Guarded Armwraps" mesh="battania_armwraps_b" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.4" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="3" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_a_aserai_scale_b_shoulder_d" name="{=SIdCIRfG}Brass Scale Pauldrons" mesh="aserai_scale_b_shoulder_d" culture="Culture.aserai" value="1" is_merchandise="false" weight="2.2" appearance="3" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="2" arm_armor="7" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

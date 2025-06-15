@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_highland_gloves" name="{=4HcrY0S2}Fur Rimmed Leather Gloves" mesh="pict_armor_glove" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.0" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="7" covers_hands="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

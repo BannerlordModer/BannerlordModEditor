@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_warlord_pauldrons" name="{=Ldqb9oAF}Highland Warlord Pauldrons" mesh="battania_warlord_pauldrons" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="4.0" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="13" arm_armor="13" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

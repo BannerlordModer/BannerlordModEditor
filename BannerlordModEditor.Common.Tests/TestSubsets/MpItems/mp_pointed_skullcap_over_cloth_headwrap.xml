@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_pointed_skullcap_over_cloth_headwrap" name="{=LqA9uBH9}Pointed Skullcap over Cloth Headwrap" subtype="head_armor" mesh="vlandia_helmet_l_d" culture="Culture.aserai" value="1" is_merchandise="false" weight="1.1" difficulty="0" appearance="0.1" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="16" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

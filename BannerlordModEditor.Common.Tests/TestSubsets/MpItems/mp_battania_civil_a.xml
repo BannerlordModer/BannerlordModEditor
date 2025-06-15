@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_civil_a" name="{=l5JDrvbW}Tartan Tunic" mesh="battania_civil_a" culture="Culture.battania" value="1" is_merchandise="false" weight="0.6" appearance="0.2" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="1" leg_armor="1" arm_armor="1" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

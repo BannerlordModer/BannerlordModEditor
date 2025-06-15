@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_fur_armor_with_strap" name="{=eWf7bFGo}Fur Armor with Strap" mesh="pict_armor_b" subtype="body_armor" culture="Culture.battania" value="1" is_merchandise="false" weight="2.1" difficulty="0" appearance="0.4" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="8" leg_armor="2" arm_armor="2" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

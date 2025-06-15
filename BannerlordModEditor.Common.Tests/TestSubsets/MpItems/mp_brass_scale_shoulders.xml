@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_brass_scale_shoulders" name="{=CyJiWngO}Bronze Scale Shoulders" mesh="sturgia_leather_brass_shoulder" culture="Culture.sturgia" value="1" weight="2.2" appearance="0.9" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="12" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_dummy_armor_max" name="{=wSUN0Dmo}Dummy Max Armor" mesh="vlandia_scale_armor" culture="Culture.looters" value="1" is_merchandise="false" weight="40" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="55" leg_armor="55" head_armor="55" arm_armor="55" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

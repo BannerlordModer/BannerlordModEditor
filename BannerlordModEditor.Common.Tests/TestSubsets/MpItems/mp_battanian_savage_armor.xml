@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battanian_savage_armor" name="{=Jt0Mcn4D}Savage Armor" subtype="body_armor" mesh="battanian_savage_armor" culture="Culture.battania" value="1" is_merchandise="false" weight="0.8" difficulty="0" appearance="0.3" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="10" leg_armor="6" arm_armor="3" has_gender_variations="false" covers_body="false" modifier_group="cloth" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" DoesNotHideChest="true" Civilian="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_pointed_skullcap_with_mail" name="{=3DV3GoHb}Pointed Skullcap with Mail" subtype="head_armor" mesh="vlandia_helmet_l_v" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="2.8" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="29" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_mail_cavalier_boots" name="{=tWfAPrPa}Mail Cavalier Boots" mesh="cav_boots_reinforced" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.8" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="15" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+</Item>

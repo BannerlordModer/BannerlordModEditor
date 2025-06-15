@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_empire_legion_b" name="{=7HbspP6x}Ornate Legionary Scale Mail" mesh="empire_legion_b" subtype="body_armor" culture="Culture.empire" value="1" is_merchandise="false" weight="28.0" difficulty="0" appearance="6.0" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="36" leg_armor="18" arm_armor="8" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_legionary_mail" name="{=PTKyNh2O}Legionary Mail" mesh="empire_armor_b" subtype="body_armor" culture="Culture.neutral_culture" weight="9.5" value="1" is_merchandise="false" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="29" leg_armor="7" arm_armor="2" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

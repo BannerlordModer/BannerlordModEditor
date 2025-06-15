@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_folded_town_boots" name="{=oH8iFEv7}Folded Town Boots" mesh="casual_01_boots" culture="Culture.empire" value="1" is_merchandise="false" weight="1.0" appearance="0.7" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="7" covers_legs="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

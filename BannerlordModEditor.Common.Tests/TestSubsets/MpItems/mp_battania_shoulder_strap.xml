@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_shoulder_strap" name="{=y1YTxkmn}Shoulder Harness" mesh="battania_shoulder_strap" culture="Culture.battania" value="1" is_merchandise="false" weight="1.0" appearance="1" Type="Cape">
+  <ItemComponent>
+    <Armor body_armor="4" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags />
+</Item>

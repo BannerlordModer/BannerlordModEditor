@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_vlandia_horse_agile" name="{=BDGbu59Q}Jaculan Horse" mesh="horse_brown" subtype="horse" item_category="sumpter_horse" value="1" is_merchandise="false" weight="385" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="72" speed="43" charge_damage="3" body_length="104" is_mountable="true" extra_health="15" skeleton_scale="vlandia_horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane_2" affected_by_cover="true" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="horse_grey_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_white_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="1.0" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="horse_grey_mat">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF010101" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

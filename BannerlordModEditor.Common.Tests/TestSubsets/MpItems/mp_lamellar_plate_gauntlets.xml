@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_lamellar_plate_gauntlets" name="{=XGX6DbFL}Lamellar Plate Gauntlets" mesh="imperial_gauntlets" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.8" Type="HandArmor">
+  <ItemComponent>
+    <Armor arm_armor="20" covers_hands="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+</Item>

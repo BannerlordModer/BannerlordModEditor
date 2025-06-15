@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_kilt_over_plated_leather" name="{=fptsl0Qn}Kilt over Plated Leather" mesh="leather_armor_kilt" subtype="body_armor" culture="Culture.battania" value="1" is_merchandise="false" weight="7.8" difficulty="0" appearance="0.4" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="30" leg_armor="16" arm_armor="2" covers_body="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

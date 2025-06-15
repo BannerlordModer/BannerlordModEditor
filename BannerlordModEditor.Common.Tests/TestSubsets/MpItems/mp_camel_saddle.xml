@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_camel_saddle" name="{=q1z4FQub}Camel Saddle" mesh="camel_saddle1" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="30" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="0" mane_cover_type="none" family_type="2" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+</Item>

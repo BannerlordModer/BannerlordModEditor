@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_desert_helmet" name="{=BryUh6yQ}Steel Cap" mesh="aserai_helmet_n" culture="Culture.aserai" value="1" weight="1.2" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="17" has_gender_variations="false" hair_cover_type="type1" beard_cover_type="none" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

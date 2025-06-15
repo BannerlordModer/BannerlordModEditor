@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_khuzait_horse_war" name="{=PZPphq6H}Steppe Warhorse" mesh="horse_brown" item_category="horse" subtype="horse" value="1" is_merchandise="false" weight="390" difficulty="0" Type="Horse">
+  <ItemComponent>
+    <Horse monster="Monster.horse" maneuver="69" speed="39" charge_damage="6" body_length="100" is_mountable="true" extra_health="50" skeleton_scale="khuzait_horse">
+      <AdditionalMeshes>
+        <Mesh name="horse_mane" affected_by_cover="true" />
+      </AdditionalMeshes>
+      <Materials>
+        <Material name="steppe_horse">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF010101" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+        <Material name="steppe_horse">
+          <MeshMultipliers>
+            <MeshMultiplier mesh_multiplier="FF303030" percentage="0.75" />
+            <MeshMultiplier mesh_multiplier="FF909090" percentage="0.25" />
+          </MeshMultipliers>
+        </Material>
+      </Materials>
+    </Horse>
+  </ItemComponent>
+</Item>

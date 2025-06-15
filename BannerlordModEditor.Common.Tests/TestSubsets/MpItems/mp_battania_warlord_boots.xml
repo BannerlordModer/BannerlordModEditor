@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_battania_warlord_boots" name="{=eTKxlDl1}Highland Warlord Boots" mesh="battania_warlord_boots" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="2.6" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="16" covers_legs="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

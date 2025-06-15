@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_empire_short_dress" name="{=KdbHrcQx}Short Tunic" mesh="empire_short_dress" culture="Culture.empire" value="1" is_merchandise="false" weight="1.0" difficulty="0" appearance="0.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="6" leg_armor="0" has_gender_variations="true" covers_body="false" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags Civilian="true" UseTeamColor="true" DoesNotHideChest="true" />
+</Item>

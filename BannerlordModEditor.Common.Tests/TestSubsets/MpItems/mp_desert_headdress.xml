@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_desert_headdress" name="{=4n6n3KL7}Desert Headdress" mesh="aserai_female_costume_headdress" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="0.2" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="3" hair_cover_type="all" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

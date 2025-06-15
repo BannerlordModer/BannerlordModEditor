@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_sling_stone" name="{=bDfKz5SZ}Sling" body_name="bo_throwing_stone_01" holster_body_name="bo_axe_short" holster_mesh="stone_holster" holster_mesh_with_weapon="stone_holster" mesh="throwing_stone" value="1" is_merchandise="false" weight="0.1" appearance="0.1" Type="Thrown" item_holsters="throwing_stone:throwing_stone_2">
+  <ItemComponent>
+    <Weapon weapon_class="Stone" ammo_class="Stone" stack_amount="20" physics_material="missile" accuracy="88" thrust_speed="102" speed_rating="102" missile_speed="45" weapon_length="10" thrust_damage="16" item_usage="stone" rotation="100,30,20" passby_sound_code="" rotation_speed="0, -3.0, 0">
+      <WeaponFlags RangedWeapon="true" Consumable="true" AutoReload="true" UseHandAsThrowBase="true" UnloadWhenSheathed="true" AmmoBreaksOnBounceBack="true" />
+    </Weapon>
+  </ItemComponent>
+</Item>

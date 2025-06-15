@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_kettle_helmet_over_padded_cap" name="{=2qisE5ys}Kettle Helmet over Padded Cap" subtype="head_armor" mesh="vlandia_helmet_h_e" culture="Culture.vlandia" value="1" is_merchandise="false" weight="1.2" difficulty="0" appearance="0.6" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="20" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

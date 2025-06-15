@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_heavy_nasalhelm_over_laced_cloth" name="{=z6eTba5h}Heavy Nasalhelm over Laced Cloth" mesh="empire_helmet_g_c" culture="Culture.empire" value="1" is_merchandise="false" weight="3.1" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="13" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

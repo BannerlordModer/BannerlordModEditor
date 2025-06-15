@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_pointed_skullcap_over_mail" name="{=xS7m37o7}Pointed Skullcap over Mail" mesh="vlandia_helmet_l_b" culture="Culture.aserai" value="1" weight="1.3" appearance="0.5" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="19" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Leather" />
+  </ItemComponent>
+  <Flags />
+</Item>

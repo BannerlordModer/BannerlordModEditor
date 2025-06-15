@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_full_helm_over_arming_coif" name="{=WYytQbvS}Full Helm over Arming Coif" mesh="vlandia_helmet_s_f" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="6" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="26" has_gender_variations="false" hair_cover_type="type4" beard_cover_type="all" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

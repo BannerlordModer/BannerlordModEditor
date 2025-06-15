@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item id="mp_bandit_fur_b" name="{=8nuXQ9F9}Fur Coat" mesh="bandit_fur_b" culture="Culture.looters" value="1" is_merchandise="false" weight="1" difficulty="0" appearance="0.1" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="6" leg_armor="0" has_gender_variations="true" covers_body="false" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags Civilian="true" DoesNotHideChest="true" />
+</Item>

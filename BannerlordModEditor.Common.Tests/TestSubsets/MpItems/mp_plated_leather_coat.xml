@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_plated_leather_coat" name="{=OvlG2Vu1}Rough Brigandine" subtype="body_armor" mesh="cop_a" culture="Culture.neutral_culture" weight="10.7" value="1" is_merchandise="false" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="37" leg_armor="1" arm_armor="1" has_gender_variations="true" covers_body="true" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

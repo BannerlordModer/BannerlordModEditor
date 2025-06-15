@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_eastern_leather_boots" name="{=D9JrTpwU}Curved Boots" mesh="plated_leather_armor_boot" culture="Culture.neutral_culture" value="1" is_merchandise="false" weight="1.1" Type="LegArmor">
+  <ItemComponent>
+    <Armor leg_armor="11" covers_legs="true" modifier_group="leather" material_type="Leather" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" />
+</Item>

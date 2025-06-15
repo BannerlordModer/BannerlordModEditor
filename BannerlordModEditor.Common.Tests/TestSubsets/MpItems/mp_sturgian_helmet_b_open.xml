@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_sturgian_helmet_b_open" name="{=LRbGXEw2}Plumed Decorated Mailed Nasal Helmet" mesh="sturgian_helmet_b_open" culture="Culture.sturgia" value="1" is_merchandise="false" weight="3.2" appearance="3.4" Type="HeadArmor">
+  <ItemComponent>
+    <Armor head_armor="49" has_gender_variations="false" hair_cover_type="all" beard_cover_type="type2" modifier_group="plate" material_type="Plate" />
+  </ItemComponent>
+  <Flags />
+</Item>

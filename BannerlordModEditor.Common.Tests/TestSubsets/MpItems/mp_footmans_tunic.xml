@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_footmans_tunic" name="{=2AcfBbCR}Military Tunic" mesh="armor_roman_military_tunic" culture="Culture.neutral_culture" subtype="body_armor" value="1" is_merchandise="false" weight="8" Type="BodyArmor">
+  <ItemComponent>
+    <Armor body_armor="11" leg_armor="3" arm_armor="2" covers_body="true" modifier_group="cloth_unarmoured" material_type="Cloth" />
+  </ItemComponent>
+  <Flags UseTeamColor="true" Civilian="true" />
+</Item>

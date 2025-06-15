@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item multiplayer_item="true" id="mp_northern_ring_barding" name="{=Hm7D4Z6v}Northlander Ring Barding" mesh="horse_harness_sturgia_a_clotest" value="1" is_merchandise="false" weight="70" culture="Culture.neutral_culture" Type="HorseHarness">
+  <ItemComponent>
+    <Armor body_armor="15" mane_cover_type="all" family_type="1" modifier_group="chain" reins_mesh="horse_harness_sturgia_a_rein" material_type="Chainmail" />
+  </ItemComponent>
+</Item>
