@@ -15,7 +15,7 @@ namespace BannerlordModEditor.Common.Tests
         public SkillsXmlTests()
         {
             var solutionRoot = TestUtils.GetSolutionRoot();
-            _testFilePath = Path.Combine(solutionRoot, "example", "ModuleData", "skills.xml");
+            _testFilePath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skills.xml");
             _outputFilePath = Path.Combine(Path.GetTempPath(), "skills.output.xml");
         }
 

@@ -10,7 +10,7 @@ namespace BannerlordModEditor.Common.Tests
         public void SplitMpItemsXmlIntoIndividualFiles()
         {
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var sourceFilePath = Path.Combine(solutionRoot, "example", "ModuleData", "mpitems.xml");
+            var sourceFilePath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "mpitems.xml");
             var outputDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestSubsets", "MpItems");
 
             // Create output directory if it doesn't exist
