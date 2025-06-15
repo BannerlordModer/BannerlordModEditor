@@ -22,6 +22,8 @@ This directory contains test data files used by the unit tests.
 - **special_meshes.xml**: Special mesh definitions with type hierarchies
 - **soundfiles.xml**: Sound bank file definitions with decompress settings
 - **managed_core_parameters.xml**: Core game parameters (combat, physics, damage)
+- **module_sounds.xml**: Module sound definitions with categories and sound variations
+- **gog_achievement_data.xml**: Achievement definitions with requirements and thresholds
 
 ## XML Format Coverage:
 
@@ -41,6 +43,8 @@ The following XML formats from Bannerlord are currently supported:
 13. **SpecialMeshes** - Special mesh definitions with nested type structures
 14. **SoundFiles** - Sound bank file definitions with decompress settings and asset/bank structure
 15. **ManagedCoreParameters** - Core game parameters including combat, physics, and damage calculations
+16. **ModuleSounds** - Module sound definitions with categories, variations, and pitch control
+17. **AchievementData** - Achievement definitions with stat-based requirements and numeric thresholds
 
 ## Note:
 

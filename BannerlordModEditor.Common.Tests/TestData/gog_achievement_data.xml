@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Achievements>
+	<Achievement
+		name="Entrepreneur">
+		<!-- Entrepreneur -->
+		<Requirements>
+			<Requirement
+				statName="HasOwnedCaravanAndWorkshop"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Apple_of_my_eye">
+		<!-- Apple of my eye -->
+		<Requirements>
+			<Requirement
+				statName="NumberOfChildrenBorn"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Landlord">
+		<!-- Landlord -->
+		<Requirements>
+			<Requirement
+				statName="OwnedFortificationCount"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="My_way">
+		<!-- My way -->
+		<Requirements>
+			<Requirement
+				statName="CreatedKingdomCount"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Trained">
+		<!-- Trained -->
+		<Requirements>
+			<Requirement
+				statName="FinishedTutorial"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Duelist">
+		<!-- Duelist -->
+		<Requirements>
+			<Requirement
+				statName="RadagosDefeatedInDuel"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Against_all_odds">
+		<!-- Against all odds -->
+		<Requirements>
+			<Requirement
+				statName="DefeatedSuperiorForce"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Long_live_the_Empire">
+		<!-- Long live the Empire! -->
+		<Requirements>
+			<Requirement
+				statName="ImperialVictory"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Freedom">
+		<!-- Freedom! -->
+		<Requirements>
+			<Requirement
+				statName="BarbarianVictory"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Supreme_Emperor">
+		<!-- Supreme Emperor -->
+		<Requirements>
+			<Requirement
+				statName="OwnedFortificationCount"
+				threshold="120"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="King_Solomon">
+		<!-- King Solomon -->
+		<Requirements>
+			<Requirement
+				statName="MaxDailyIncome"
+				threshold="10000"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Bannerlord">
+		<!-- Bannerlord -->
+		<Requirements>
+			<Requirement
+				statName="AssembledDragonBanner"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="I_can_do_it">
+		<!-- I can do it -->
+		<Requirements>
+			<Requirement
+				statName="CapturedATownAloneCount"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="I_spit_on_your_grave">
+		<!-- I spit on your grave -->
+		<Requirements>
+			<Requirement
+				statName="ExecutedLordRelation100"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Dynasty">
+		<!-- Micromanager -->
+		<Requirements>
+			<Requirement
+				statName="ReachedClanTierSix"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Lawbringer">
+		<!-- Lawbringer -->
+		<Requirements>
+			<Requirement
+				statName="ClearedHideoutCount"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Lawmaker">
+		<!-- Lawmaker -->
+		<Requirements>
+			<Requirement
+				statName="ProposedAndWonAPolicy"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Kingslayer">
+		<!-- Kingslayer -->
+		<Requirements>
+			<Requirement
+				statName="KingOrQueenKilledInBattle"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="What_have_the_Romans_ever_done_for_us">
+		<!--  What have the Romans ever done for us? -->
+		<Requirements>
+			<Requirement
+				statName="CompletedAllProjects"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="This_Is_Our_Land">
+		<!-- This Is Our Land -->
+		<Requirements>
+			<Requirement
+				statName="RepelledSiegeAssaultCount"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Heartbreaker">
+		<!-- Heartbreaker -->
+		<Requirements>
+			<Requirement
+				statName="Hearthbreaker"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="God_of_the_Arena">
+		<!--  God of the Arena -->
+		<Requirements>
+			<Requirement
+				statName="LeaderOfTournament"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Ride_it_like_you_stole_it">
+		<!-- Ride it like you stole it -->
+		<Requirements>
+			<Requirement
+				statName="StoleHorseFromAliveEnemy"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Strike">
+		<!-- Strike! -->
+		<Requirements>
+			<Requirement
+				statName="MaxMultiKillsWithSingleMangonelShot"
+				threshold="3"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Head_hunter">
+		<!-- Head hunter -->
+		<Requirements>
+			<Requirement
+				statName="KillsWithRangedHeadshots"
+				threshold="100"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Mastery">
+		<!-- Mastery -->
+		<Requirements>
+			<Requirement
+				statName="HighestSkillValue"
+				threshold="300"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Butterlord">
+		<!-- Butterlord -->
+		<Requirements>
+			<Requirement
+				statName="ButtersInInventoryCount"
+				threshold="100"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Explorer">
+		<!-- Explorer -->
+		<Requirements>
+			<Requirement
+				statName="EnteredEverySettlement"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Crush_your_enemies">
+		<!-- Crush your enemies -->
+		<Requirements>
+			<Requirement
+				statName="DefeatedTroopCount"
+				threshold="10000"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Swordbearer">
+		<!-- Swordbearer -->
+		<Requirements>
+			<Requirement
+				statName="HighestTierSwordCrafted"
+				threshold="6"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Minor_Clan">
+		<!-- Minor Clan -->
+		<Requirements>
+			<Requirement
+				statName="NumberOfChildrenBorn"
+				threshold="7"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Crackshot">
+		<!-- Crackshot -->
+		<Requirements>
+			<Requirement
+				statName="FarthestHeadShot"
+				threshold="200"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Butcher_of_Calradia">
+		<!-- Butcher of Calradia -->
+		<Requirements>
+			<Requirement
+				statName="KillCountCaptain"
+				threshold="10000"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Horde_breaker">
+		<!-- Horde breaker -->
+		<Requirements>
+			<Requirement
+				statName="DefeatedArmyWhileAloneCount"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Great_Granny">
+		<!-- Great Granny -->
+		<Requirements>
+			<Requirement
+				statName="GreatGranny"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Best_served_cold">
+		<!-- Best served cold -->
+		<Requirements>
+			<Requirement
+				statName="BestServedCold"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Know_your_enemy">
+		<!-- Know your enemy -->
+		<Requirements>
+			<Requirement
+				statName="SuccessfulBattlesAgainstArmyCount"
+				threshold="100"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Real_Estate">
+		<!-- Real Estate -->
+		<Requirements>
+			<Requirement
+				statName="SuccessfulSiegeCount"
+				threshold="100"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="The_king_is_pleased">
+		<!-- The king is pleased -->
+		<Requirements>
+			<Requirement
+				statName="MaxDailyTributeGain"
+				threshold="1000"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Veni_vidi_vici">
+		<!-- Veni vidi vici -->
+		<Requirements>
+			<Requirement
+				statName="ClansUnderPlayerKingdomCount"
+				threshold="21"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Crowdfunded">
+		<!-- Champion -->
+		<Requirements>
+			<Requirement
+				statName="WonTournamentCount"
+				threshold="100"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Catch">
+		<!-- Catch -->
+		<Requirements>
+			<Requirement
+				statName="KillsWithBoulder"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Mounted_Archery">
+		<!-- Mounted Combat -->
+		<Requirements>
+			<Requirement
+				statName="KillsWithRangedMounted"
+				threshold="500"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Lance-a-lot">
+		<!-- Lance-a-lot -->
+		<Requirements>
+			<Requirement
+				statName="KillsWithCouchedLance"
+				threshold="500"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Fat_Cat">
+		<!-- Fat Cat -->
+		<Requirements>
+			<Requirement
+				statName="TotalTradeProfit"
+				threshold="1000000"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Slice_n_dice">
+		<!-- Slice n dice -->
+		<Requirements>
+			<Requirement
+				statName="KillsWithChainAttack"
+				threshold="10"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="This_is_Sparta">
+		<!-- This is Sparta! -->
+		<Requirements>
+			<Requirement
+				statName="PushedSomeoneOffLedge"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Roadkill">
+		<!-- Roadkill -->
+		<Requirements>
+			<Requirement
+				statName="KillsWithHorseCharge"
+				threshold="100"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Jack_of_All_Trades">
+		<!-- Jack of All Trades -->
+		<Requirements>
+			<Requirement
+				statName="SatisfiedJackOfAllTrades"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+	<Achievement
+		name="Undercover">
+		<!-- Undercover -->
+		<Requirements>
+			<Requirement
+				statName="CompletedAnIssueInHostileTown"
+				threshold="1"></Requirement>
+		</Requirements>
+	</Achievement>
+</Achievements>
