@@ -1,15 +1,15 @@
 # Bannerlord XML Format Coverage Report
 
 **Generated Date:** 2024
-**Total Tests:** 785 (100% passing)
+**Total Tests:** 794 (100% passing)
 
 ## 📊 Overview Statistics
 
 - **Files Analyzed:** 90+ XML files
-- **Currently Adapted:** 35 XML formats
-- **Adaptation Coverage:** ~39% of total files
-- **Test Files:** 30 different XML structures covered
-- **Lines of Test Data:** 30 representative test files
+- **Currently Adapted:** 36 XML formats
+- **Adaptation Coverage:** ~40% of total files
+- **Test Files:** 31 different XML structures covered
+- **Lines of Test Data:** 31 representative test files
 
 ## ✅ Successfully Adapted Formats
 
@@ -34,56 +34,61 @@
    - Complex character skills, body properties, resistances and multiple equipment rosters
    - **Tests:** 9 comprehensive unit tests covering character validation, skills, face properties, equipment
 
+5. **weapon_descriptions.xml** (189KB, 7363 lines) - ⭐⭐ **COMPLEX**
+   - Weapon crafting system descriptions with weapon classes and available pieces
+   - Complex weapon flags, usage features and extensive piece collections for all weapon types
+   - **Tests:** 9 comprehensive unit tests covering weapon validation, flags, pieces, classes and usage features
+
 ### Game Configuration Files
-5. **skills.xml** (2.4KB) - Character skill definitions
-6. **attributes.xml** (2.7KB) - Character and equipment attributes  
-7. **mpcultures.xml** (4KB) - Multiplayer culture/faction data
-8. **objects.xml** (2.5KB) - Game object definitions
-9. **parties.xml** (715B) - Game party definitions with optional fields
+6. **skills.xml** (2.4KB) - Character skill definitions
+7. **attributes.xml** (2.7KB) - Character and equipment attributes  
+8. **mpcultures.xml** (4KB) - Multiplayer culture/faction data
+9. **objects.xml** (2.5KB) - Game object definitions
+10. **parties.xml** (715B) - Game party definitions with optional fields
 
 ### Engine & System Files
-10. **siegeengines.xml** (4.9KB) - Siege engine definitions with weapon stats
-11. **physics_materials.xml** (10KB) - Physical material properties
-12. **music.xml** (8.2KB) - Music file configurations with hex flags
-13. **gpu_particle_systems.xml** (854B) - GPU particle system configs
-14. **special_meshes.xml** (903B) - Special mesh definitions
+11. **siegeengines.xml** (4.9KB) - Siege engine definitions with weapon stats
+12. **physics_materials.xml** (10KB) - Physical material properties
+13. **music.xml** (8.2KB) - Music file configurations with hex flags
+14. **gpu_particle_systems.xml** (854B) - GPU particle system configs
+15. **special_meshes.xml** (903B) - Special mesh definitions
 
 ### Simple Container Types
-15. **native_skill_sets.xml** (66B) - Native skill set definitions
-16. **mpbodypropertytemplates.xml** (76B) - Body property templates  
-17. **native_equipment_sets.xml** (80B) - Equipment set definitions
-18. **bone_body_types.xml** (758B) - Bone body type definitions
-19. **managed_campaign_parameters.xml** (425B) - Campaign parameters
+16. **native_skill_sets.xml** (66B) - Native skill set definitions
+17. **mpbodypropertytemplates.xml** (76B) - Body property templates  
+18. **native_equipment_sets.xml** (80B) - Equipment set definitions
+19. **bone_body_types.xml** (758B) - Bone body type definitions
+20. **managed_campaign_parameters.xml** (425B) - Campaign parameters
 
 ### Sound & Core System Files
-20. **soundfiles.xml** (1.8KB) - Sound bank file definitions with decompress settings
-21. **managed_core_parameters.xml** (7KB) - Core game parameters (combat, physics, damage)
-22. **module_sounds.xml** (2.8KB) - Module sound definitions with categories and variations
-23. **gog_achievement_data.xml** (10KB) - Achievement definitions with requirements
+21. **soundfiles.xml** (1.8KB) - Sound bank file definitions with decompress settings
+22. **managed_core_parameters.xml** (7KB) - Core game parameters (combat, physics, damage)
+23. **module_sounds.xml** (2.8KB) - Module sound definitions with categories and variations
+24. **gog_achievement_data.xml** (10KB) - Achievement definitions with requirements
 
 ### Multiplayer System Files
-24. **Multiplayer/MultiplayerScenes.xml** (3.9KB) - Multiplayer scene definitions with game types
-25. **Multiplayer/taunt_usage_sets.xml** (13KB) - Taunt usage definitions with complex conditionals
+25. **Multiplayer/MultiplayerScenes.xml** (3.9KB) - Multiplayer scene definitions with game types
+26. **Multiplayer/taunt_usage_sets.xml** (13KB) - Taunt usage definitions with complex conditionals
 
 ### Map & Visual Systems  
-26. **map_icons.xml** (28KB) - Map icon definitions with faction-specific variants and visual properties
+27. **map_icons.xml** (28KB) - Map icon definitions with faction-specific variants and visual properties
 
 ### Game Mechanics
-27. **item_modifiers.xml** (26KB) - Item modifier definitions with quality levels and stat effects
+28. **item_modifiers.xml** (26KB) - Item modifier definitions with quality levels and stat effects
 
 ### Core Game Data Files
-28. **skills.xml** (2.4KB) - Character skill definitions with attribute modifiers
-29. **scenes.xml** (37KB) - Scene definitions for single and multiplayer environments  
-30. **voices.xml** (44KB) - Face animation records with animation flags
+29. **skills.xml** (2.4KB) - Character skill definitions with attribute modifiers
+30. **scenes.xml** (37KB) - Scene definitions for single and multiplayer environments  
+31. **voices.xml** (44KB) - Face animation records with animation flags
 
 ### Banner & Visual Systems
-31. **banner_icons.xml** (38KB) - Banner icon and color definitions with culture-specific elements
+32. **banner_icons.xml** (38KB) - Banner icon and color definitions with culture-specific elements
 
 ### Environment & Effects Systems  
-32. **water_prefabs.xml** (4.7KB) - Water prefab definitions with global/local variants
-33. **special_meshes.xml** (903B) - Special mesh type definitions with outer meshes
-34. **worldmap_color_grades.xml** (851B) - World map color grade definitions for different regions
-35. **skinned_decals.xml** (1.5KB) - Skinned decal definitions with blood texture and material mappings
+33. **water_prefabs.xml** (4.7KB) - Water prefab definitions with global/local variants
+34. **special_meshes.xml** (903B) - Special mesh type definitions with outer meshes
+35. **worldmap_color_grades.xml** (851B) - World map color grade definitions for different regions
+36. **skinned_decals.xml** (1.5KB) - Skinned decal definitions with blood texture and material mappings
 
 ## 🔶 High Priority Files for Next Adaptation
 
@@ -93,9 +98,6 @@
 ### Important Game Data Files (Updated Priorities)
 1. **Multiplayer/mpclassdivisions.xml** (219KB) - ⭐⭐⭐ **COMPLEX** 
    - Multiplayer class division definitions
-   
-2. **weapon_descriptions.xml** (189KB) - ⭐⭐ **MEDIUM**
-   - Weapon description data
 
 ## 🔴 Large Files (Lower Priority - Very Complex)
 
@@ -176,7 +178,7 @@
 
 ## 📈 Quality Metrics
 
-- **Test Coverage:** 100% pass rate (785/785)
+- **Test Coverage:** 100% pass rate (794/794)
 - **Field Coverage:** All required and optional fields tested
 - **Value Precision:** Numeric precision maintained
 - **Format Compatibility:** Hex, boolean, vector formats preserved

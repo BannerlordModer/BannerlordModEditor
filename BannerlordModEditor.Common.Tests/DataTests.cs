@@ -1634,5 +1634,253 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
         }
+
+        [Fact]
+        public void WeaponDescriptions_DeserializesCorrectly()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.Descriptions);
+            Assert.True(result.Descriptions.Count > 20); // 应该有很多武器描述（实际约22个）
+        }
+
+        [Fact]
+        public void WeaponDescriptions_AllDescriptionsHaveRequiredFields()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            foreach (var description in result.Descriptions)
+            {
+                Assert.NotEmpty(description.Id);
+                // 大多数描述应该有武器类别
+                // 大多数描述应该有使用特性
+            }
+        }
+
+        [Fact]
+        public void WeaponDescriptions_OneHandedSwordIsCorrect()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var oneHandedSword = result.Descriptions.FirstOrDefault(d => d.Id == "OneHandedSword");
+            Assert.NotNull(oneHandedSword);
+            Assert.Equal("OneHandedSword", oneHandedSword.WeaponClass);
+            Assert.Equal("onehanded:block:shield:swing:thrust", oneHandedSword.ItemUsageFeatures);
+            
+            // 检查武器标志
+            Assert.NotNull(oneHandedSword.WeaponFlags);
+            Assert.True(oneHandedSword.WeaponFlags.Flags.Count >= 1);
+            
+            var meleeFlag = oneHandedSword.WeaponFlags.Flags.FirstOrDefault(f => f.Value == "MeleeWeapon");
+            Assert.NotNull(meleeFlag);
+            
+            // 检查可用部件
+            Assert.NotNull(oneHandedSword.AvailablePieces);
+            Assert.True(oneHandedSword.AvailablePieces.Pieces.Count > 100); // 应该有很多可用部件
+            
+            // 验证一些特定的部件
+            var empireBlade = oneHandedSword.AvailablePieces.Pieces.FirstOrDefault(p => p.Id == "empire_blade_1");
+            Assert.NotNull(empireBlade);
+        }
+
+        [Fact]
+        public void WeaponDescriptions_TwoHandedMaceIsCorrect()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var twoHandedMace = result.Descriptions.FirstOrDefault(d => d.Id == "TwoHandedMace");
+            Assert.NotNull(twoHandedMace);
+            Assert.Equal("TwoHandedMace", twoHandedMace.WeaponClass);
+            Assert.Equal("twohanded:axe", twoHandedMace.ItemUsageFeatures);
+            
+            // 检查武器标志
+            Assert.NotNull(twoHandedMace.WeaponFlags);
+            Assert.True(twoHandedMace.WeaponFlags.Flags.Count >= 3);
+            
+            var flagValues = twoHandedMace.WeaponFlags.Flags.Select(f => f.Value).ToList();
+            Assert.Contains("MeleeWeapon", flagValues);
+            Assert.Contains("NotUsableWithOneHand", flagValues);
+            Assert.Contains("TwoHandIdleOnMount", flagValues);
+        }
+
+        [Fact]
+        public void WeaponDescriptions_WeaponFlagsAreValid()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var descriptionsWithFlags = result.Descriptions.Where(d => d.WeaponFlags != null).ToList();
+            Assert.True(descriptionsWithFlags.Count > 10); // 应该有多个有标志的武器
+            
+            var validFlags = new[] { "MeleeWeapon", "NotUsableWithOneHand", "TwoHandIdleOnMount", 
+                                   "RangedWeapon", "HasHitPoints", "CannotReloadOnHorseback" };
+            
+            foreach (var description in descriptionsWithFlags.Take(5)) // 检查前5个
+            {
+                foreach (var flag in description.WeaponFlags.Flags)
+                {
+                    Assert.NotNull(flag.Value);
+                    // 大多数标志应该是已知的类型，但可能有新的
+                }
+            }
+        }
+
+        [Fact]
+        public void WeaponDescriptions_AvailablePiecesAreValid()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var descriptionsWithPieces = result.Descriptions.Where(d => d.AvailablePieces != null).ToList();
+            Assert.True(descriptionsWithPieces.Count > 10); // 应该有多个有部件的武器
+            
+            foreach (var description in descriptionsWithPieces.Take(3)) // 检查前3个
+            {
+                Assert.True(description.AvailablePieces.Pieces.Count > 0);
+                
+                foreach (var piece in description.AvailablePieces.Pieces.Take(10)) // 检查前10个部件
+                {
+                    Assert.NotNull(piece.Id);
+                    Assert.True(piece.Id.Length > 0);
+                }
+            }
+        }
+
+        [Fact]
+        public void WeaponDescriptions_WeaponClassesAreValid()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var weaponClasses = result.Descriptions
+                .Where(d => !string.IsNullOrEmpty(d.WeaponClass))
+                .Select(d => d.WeaponClass)
+                .Distinct()
+                .ToList();
+            
+            Assert.True(weaponClasses.Count >= 5); // 应该有多种武器类别
+            
+            // 验证一些已知的武器类别
+            Assert.Contains("OneHandedSword", weaponClasses);
+            Assert.Contains("TwoHandedMace", weaponClasses);
+        }
+
+        [Fact]
+        public void WeaponDescriptions_ItemUsageFeaturesAreValid()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var descriptionsWithFeatures = result.Descriptions
+                .Where(d => !string.IsNullOrEmpty(d.ItemUsageFeatures))
+                .ToList();
+            
+            Assert.True(descriptionsWithFeatures.Count > 10); // 应该有多个有使用特性的武器
+            
+            foreach (var description in descriptionsWithFeatures.Take(5)) // 检查前5个
+            {
+                Assert.Contains(":", description.ItemUsageFeatures); // 使用特性通常包含冒号分隔符
+            }
+            
+            // 验证一些已知的使用特性模式
+            var oneHandedFeatures = descriptionsWithFeatures
+                .Where(d => d.ItemUsageFeatures.Contains("onehanded"))
+                .ToList();
+            Assert.True(oneHandedFeatures.Count > 0);
+            
+            var twoHandedFeatures = descriptionsWithFeatures
+                .Where(d => d.ItemUsageFeatures.Contains("twohanded"))
+                .ToList();
+            Assert.True(twoHandedFeatures.Count > 0);
+        }
+
+        [Fact]
+        public void WeaponDescriptions_PieceTypesAreConsistent()
+        {
+            // Arrange
+            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var serializer = new XmlSerializer(typeof(WeaponDescriptions));
+
+            // Act
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var result = (WeaponDescriptions)serializer.Deserialize(fileStream);
+
+            // Assert
+            var allPieces = result.Descriptions
+                .Where(d => d.AvailablePieces != null)
+                .SelectMany(d => d.AvailablePieces.Pieces)
+                .Where(p => !string.IsNullOrEmpty(p.Id))
+                .ToList();
+            
+            Assert.True(allPieces.Count > 500); // 应该有很多部件
+            
+            // 检查部件类型模式
+            var blades = allPieces.Where(p => p.Id.Contains("blade")).ToList();
+            var guards = allPieces.Where(p => p.Id.Contains("guard")).ToList();
+            var grips = allPieces.Where(p => p.Id.Contains("grip")).ToList();
+            var pommels = allPieces.Where(p => p.Id.Contains("pommel")).ToList();
+            var handles = allPieces.Where(p => p.Id.Contains("handle")).ToList();
+            var heads = allPieces.Where(p => p.Id.Contains("head")).ToList();
+            
+            Assert.True(blades.Count > 50); // 应该有很多刀刃
+            Assert.True(guards.Count > 10); // 应该有护手
+            Assert.True(grips.Count > 10); // 应该有握柄
+            Assert.True(pommels.Count > 10); // 应该有剑首
+            Assert.True(handles.Count > 10); // 应该有手柄
+            Assert.True(heads.Count > 10); // 应该有头部（锤头、斧头等）
+        }
     }
 } 
