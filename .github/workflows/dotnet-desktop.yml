@@ -17,7 +17,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Publish Application
-      run: dotnet publish BannerlordModEditor/BannerlordModEditor.csproj -c Release -o publish -r win-x64 --self-contained false
+      run: dotnet publish BannerlordModEditor.UI/BannerlordModEditor.UI.csproj -c Release -o publish -r win-x64 --self-contained false
     - name: Create Velopack Release
       env:
         BUILD_NUMBER: ${{github.run_number}}
