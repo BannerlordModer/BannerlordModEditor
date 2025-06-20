@@ -5,26 +5,26 @@ namespace BannerlordModEditor.Common.Models.Game;
 
 // managed_campaign_parameters.xml - Campaign parameter definitions
 [XmlRoot("base")]
-public class ManagedCampaignParametersBase
+public class ManagedCampaignParameters
 {
     [XmlAttribute("type")]
-    public string Type { get; set; } = "campaign_parameters";
+    public string Type { get; set; } = string.Empty;
 
     [XmlElement("managed_campaign_parameters")]
-    public ManagedCampaignParametersContainer ManagedCampaignParameters { get; set; } = new ManagedCampaignParametersContainer();
+    public CampaignParametersContainer Parameters { get; set; } = new CampaignParametersContainer();
 }
 
-public class ManagedCampaignParametersContainer
+public class CampaignParametersContainer
 {
     [XmlElement("managed_campaign_parameter")]
-    public List<ManagedCampaignParameter> ManagedCampaignParameter { get; set; } = new List<ManagedCampaignParameter>();
+    public List<CampaignParameter> ParameterList { get; set; } = new List<CampaignParameter>();
 }
 
-public class ManagedCampaignParameter
+public class CampaignParameter
 {
     [XmlAttribute("id")]
-    public string? Id { get; set; }
+    public string Id { get; set; } = string.Empty;
 
     [XmlAttribute("value")]
-    public string? Value { get; set; }
+    public string Value { get; set; } = string.Empty;
 } 
