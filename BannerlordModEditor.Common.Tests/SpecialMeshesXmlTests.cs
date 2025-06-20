@@ -1,4 +1,4 @@
-using BannerlordModEditor.Common.Models.Engine;
+using BannerlordModEditor.Common.Models.Data;
 using System;
 using System.IO;
 using System.Linq;
@@ -16,16 +16,16 @@ namespace BannerlordModEditor.Common.Tests
         public void SpecialMeshes_LoadAndSave_ShouldBeLogicallyIdentical()
         {
             // Arrange
-            var solutionRoot = FindSolutionRoot();
+            var solutionRoot = TestUtils.GetSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "special_meshes.xml");
             
             // Act - 反序列化
-            var serializer = new XmlSerializer(typeof(SpecialMeshesBase));
-            SpecialMeshesBase specialMeshes;
+            var serializer = new XmlSerializer(typeof(SpecialMeshes));
+            SpecialMeshes specialMeshes;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                specialMeshes = (SpecialMeshesBase)serializer.Deserialize(reader)!;
+                specialMeshes = (SpecialMeshes)serializer.Deserialize(reader)!;
             }
             
             // Act - 序列化
@@ -49,27 +49,27 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(specialMeshes);
             Assert.Equal("special_meshes", specialMeshes.Type);
             Assert.NotNull(specialMeshes.Meshes);
-            Assert.NotNull(specialMeshes.Meshes.Mesh);
-            Assert.True(specialMeshes.Meshes.Mesh.Count > 0, "应该有至少一个特殊网格");
+            Assert.NotNull(specialMeshes.Meshes.MeshList);
+            Assert.True(specialMeshes.Meshes.MeshList.Count > 0, "应该有至少一个特殊网格");
             
             // Assert - 验证具体的特殊网格数据
-            var outerMeshForest = specialMeshes.Meshes.Mesh.FirstOrDefault(m => m.Name == "outer_mesh_forest");
+            var outerMeshForest = specialMeshes.Meshes.MeshList.FirstOrDefault(m => m.Name == "outer_mesh_forest");
             Assert.NotNull(outerMeshForest);
             Assert.NotNull(outerMeshForest.Types);
-            Assert.NotNull(outerMeshForest.Types.Type);
-            Assert.True(outerMeshForest.Types.Type.Count > 0, "应该有至少一个类型");
+            Assert.NotNull(outerMeshForest.Types.TypeList);
+            Assert.True(outerMeshForest.Types.TypeList.Count > 0, "应该有至少一个类型");
             
-            var outerMeshType = outerMeshForest.Types.Type.FirstOrDefault(t => t.Name == "outer_mesh");
+            var outerMeshType = outerMeshForest.Types.TypeList.FirstOrDefault(t => t.Name == "outer_mesh");
             Assert.NotNull(outerMeshType);
             Assert.Equal("outer_mesh", outerMeshType.Name);
             
-            var mainMapOuter = specialMeshes.Meshes.Mesh.FirstOrDefault(m => m.Name == "main_map_outer");
+            var mainMapOuter = specialMeshes.Meshes.MeshList.FirstOrDefault(m => m.Name == "main_map_outer");
             Assert.NotNull(mainMapOuter);
             Assert.NotNull(mainMapOuter.Types);
-            Assert.NotNull(mainMapOuter.Types.Type);
-            Assert.True(mainMapOuter.Types.Type.Count > 0, "应该有至少一个类型");
+            Assert.NotNull(mainMapOuter.Types.TypeList);
+            Assert.True(mainMapOuter.Types.TypeList.Count > 0, "应该有至少一个类型");
             
-            var mainMapOuterType = mainMapOuter.Types.Type.FirstOrDefault(t => t.Name == "outer_mesh");
+            var mainMapOuterType = mainMapOuter.Types.TypeList.FirstOrDefault(t => t.Name == "outer_mesh");
             Assert.NotNull(mainMapOuterType);
             Assert.Equal("outer_mesh", mainMapOuterType.Name);
             
@@ -94,27 +94,27 @@ namespace BannerlordModEditor.Common.Tests
         public void SpecialMeshes_ValidateDataIntegrity_ShouldPassBasicChecks()
         {
             // Arrange
-            var solutionRoot = FindSolutionRoot();
+            var solutionRoot = TestUtils.GetSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "special_meshes.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(SpecialMeshesBase));
-            SpecialMeshesBase specialMeshes;
+            var serializer = new XmlSerializer(typeof(SpecialMeshes));
+            SpecialMeshes specialMeshes;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                specialMeshes = (SpecialMeshesBase)serializer.Deserialize(reader)!;
+                specialMeshes = (SpecialMeshes)serializer.Deserialize(reader)!;
             }
             
             // Assert - 验证所有特殊网格都有基本属性
-            foreach (var mesh in specialMeshes.Meshes.Mesh)
+            foreach (var mesh in specialMeshes.Meshes.MeshList)
             {
                 Assert.False(string.IsNullOrEmpty(mesh.Name), "特殊网格名称不能为空");
                 
                 // 验证类型数据完整性
-                if (mesh.Types != null && mesh.Types.Type.Count > 0)
+                if (mesh.Types != null && mesh.Types.TypeList.Count > 0)
                 {
-                    foreach (var type in mesh.Types.Type)
+                    foreach (var type in mesh.Types.TypeList)
                     {
                         Assert.False(string.IsNullOrEmpty(type.Name), $"类型名称不能为空：网格{mesh.Name}");
                     }
@@ -125,27 +125,18 @@ namespace BannerlordModEditor.Common.Tests
             var requiredMeshes = new[] { "outer_mesh_forest", "main_map_outer" };
             foreach (var requiredMesh in requiredMeshes)
             {
-                Assert.True(specialMeshes.Meshes.Mesh.Any(m => m.Name == requiredMesh),
+                Assert.True(specialMeshes.Meshes.MeshList.Any(m => m.Name == requiredMesh),
                     $"必需的特殊网格缺失：{requiredMesh}");
             }
             
             // 验证outer_mesh类型存在
-            foreach (var mesh in specialMeshes.Meshes.Mesh.Where(m => requiredMeshes.Contains(m.Name)))
+            foreach (var mesh in specialMeshes.Meshes.MeshList.Where(m => requiredMeshes.Contains(m.Name)))
             {
-                Assert.True(mesh.Types?.Type.Any(t => t.Name == "outer_mesh") == true,
+                Assert.True(mesh.Types?.TypeList.Any(t => t.Name == "outer_mesh") == true,
                     $"网格{mesh.Name}应该有outer_mesh类型");
             }
         }
-        
-        private static string FindSolutionRoot()
-        {
-            var directory = new DirectoryInfo(AppContext.BaseDirectory);
-            while (directory != null && !directory.GetFiles("*.sln").Any())
-            {
-                directory = directory.Parent;
-            }
-            return directory?.FullName ?? throw new DirectoryNotFoundException("找不到解决方案根目录");
-        }
+
 
         private static void RemoveWhitespaceNodes(XElement? element)
         {

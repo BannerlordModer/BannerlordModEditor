@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("base")]
-    public class SpecialMeshesBase
+    public class SpecialMeshes
     {
         [XmlAttribute("type")]
         public string Type { get; set; } = string.Empty;
