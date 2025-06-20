@@ -15,7 +15,7 @@ jobs:
     - name: Install .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 9.0.x
     - name: Publish Application
       run: dotnet publish BannerlordModEditor.UI/BannerlordModEditor.UI.csproj -c Release -o publish -r win-x64 --self-contained false
     - name: Create Velopack Release
@@ -26,5 +26,5 @@ jobs:
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
         dotnet tool install -g vpk
         vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --channel nightly-win-x64
-        vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net8.0-x64-desktop,webview2
+        vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net9.0-x64-desktop,webview2
         vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor $Version" --tag v$Version --token ${{ secrets.GITHUB_TOKEN }}
