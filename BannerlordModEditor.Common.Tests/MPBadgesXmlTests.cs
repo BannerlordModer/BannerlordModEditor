@@ -6,7 +6,7 @@ using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
-    public class WeaponDescriptionsXmlTests
+    public class MPBadgesXmlTests
     {
         private static string FindSolutionRoot()
         {
@@ -21,12 +21,12 @@ namespace BannerlordModEditor.Common.Tests
         private string TestDataPath => Path.Combine(FindSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData");
 
         [Fact]
-        public void WeaponDescriptions_RoundTripTest()
+        public void MPBadges_RoundTripTest()
         {
-            var filePath = Path.Combine(TestDataPath, "weapon_descriptions.xml");
+            var filePath = Path.Combine(TestDataPath, "mpbadges.xml");
             var originalXml = File.ReadAllText(filePath);
 
-            var deserialized = XmlTestUtils.Deserialize<WeaponDescriptions>(originalXml);
+            var deserialized = XmlTestUtils.Deserialize<MPBadges>(originalXml);
             Assert.NotNull(deserialized);
 
             var serializedXml = XmlTestUtils.Serialize(deserialized);

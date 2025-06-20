@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Collection of badge definitions
         /// </summary>
         [XmlElement("Badge")]
-        public List<Badge> BadgeList { get; set; } = new List<Badge>();
+        public Badge[]? Badges { get; set; }
     }
 
     /// <summary>
@@ -27,7 +27,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// </summary>
         [XmlAttribute("id")]
         [Required]
-        public string Id { get; set; } = string.Empty;
+        public string? Id { get; set; }
 
         /// <summary>
         /// Type of badge (Custom, Conditional, etc.)
@@ -71,11 +71,8 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("period_end")]
         public string? PeriodEnd { get; set; }
 
-        /// <summary>
-        /// Collection of conditions that must be met to earn this badge
-        /// </summary>
         [XmlElement("Condition")]
-        public List<BadgeCondition> Conditions { get; set; } = new List<BadgeCondition>();
+        public BadgeCondition[]? Conditions { get; set; }
     }
 
     /// <summary>
@@ -100,12 +97,9 @@ namespace BannerlordModEditor.Common.Models.Data
         /// </summary>
         [XmlAttribute("description")]
         public string? Description { get; set; }
-
-        /// <summary>
-        /// Collection of parameters that define the specific requirements
-        /// </summary>
+        
         [XmlElement("Parameter")]
-        public List<BadgeParameter> Parameters { get; set; } = new List<BadgeParameter>();
+        public BadgeParameter[]? Parameters { get; set; }
     }
 
     /// <summary>

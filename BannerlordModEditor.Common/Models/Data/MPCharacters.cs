@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Collection of NPC character definitions
         /// </summary>
         [XmlElement("NPCCharacter")]
-        public List<NPCCharacter> Characters { get; set; } = new List<NPCCharacter>();
+        public NPCCharacter[]? Characters { get; set; }
     }
 
     /// <summary>
@@ -33,7 +33,8 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Character level
         /// </summary>
         [XmlAttribute("level")]
-        public string? Level { get; set; }
+        public int? Level { get; set; }
+        public bool ShouldSerializeLevel() => Level.HasValue;
 
         /// <summary>
         /// Display name of the character (may include localization keys)
@@ -45,7 +46,8 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Character age
         /// </summary>
         [XmlAttribute("age")]
-        public string? Age { get; set; }
+        public int? Age { get; set; }
+        public bool ShouldSerializeAge() => Age.HasValue;
 
         /// <summary>
         /// Character voice type
@@ -63,7 +65,8 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Whether the character is a hero
         /// </summary>
         [XmlAttribute("is_hero")]
-        public string? IsHero { get; set; }
+        public bool? IsHero { get; set; }
+        public bool ShouldSerializeIsHero() => IsHero.HasValue;
 
         /// <summary>
         /// Character's culture
@@ -83,17 +86,13 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlElement("face")]
         public CharacterFace? Face { get; set; }
 
-        /// <summary>
-        /// Character's skills collection
-        /// </summary>
-        [XmlElement("skills")]
-        public CharacterSkills? Skills { get; set; }
+        [XmlArray("skills")]
+        [XmlArrayItem("skill")]
+        public CharacterSkill[]? Skills { get; set; }
 
-        /// <summary>
-        /// Character's equipment sets
-        /// </summary>
-        [XmlElement("Equipments")]
-        public CharacterEquipments? Equipments { get; set; }
+        [XmlArray("Equipments")]
+        [XmlArrayItem("EquipmentRoster")]
+        public EquipmentRoster[]? Equipments { get; set; }
 
         /// <summary>
         /// Character's resistances
@@ -129,43 +128,35 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Version of the body properties format
         /// </summary>
         [XmlAttribute("version")]
-        public string? Version { get; set; }
+        public int? Version { get; set; }
+        public bool ShouldSerializeVersion() => Version.HasValue;
 
         /// <summary>
         /// Character age
         /// </summary>
         [XmlAttribute("age")]
-        public string? Age { get; set; }
+        public double? Age { get; set; }
+        public bool ShouldSerializeAge() => Age.HasValue;
 
         /// <summary>
         /// Character weight (0.0 to 1.0)
         /// </summary>
         [XmlAttribute("weight")]
-        public string? Weight { get; set; }
+        public double? Weight { get; set; }
+        public bool ShouldSerializeWeight() => Weight.HasValue;
 
         /// <summary>
         /// Character build/muscle (0.0 to 1.0)
         /// </summary>
         [XmlAttribute("build")]
-        public string? Build { get; set; }
+        public double? Build { get; set; }
+        public bool ShouldSerializeBuild() => Build.HasValue;
 
         /// <summary>
         /// Encoded appearance key
         /// </summary>
         [XmlAttribute("key")]
         public string? Key { get; set; }
-    }
-
-    /// <summary>
-    /// Represents a character's skills collection
-    /// </summary>
-    public class CharacterSkills
-    {
-        /// <summary>
-        /// List of individual skills
-        /// </summary>
-        [XmlElement("skill")]
-        public List<CharacterSkill> SkillList { get; set; } = new List<CharacterSkill>();
     }
 
     /// <summary>
@@ -183,19 +174,8 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Skill value/level
         /// </summary>
         [XmlAttribute("value")]
-        public string? Value { get; set; }
-    }
-
-    /// <summary>
-    /// Represents a character's equipment collection
-    /// </summary>
-    public class CharacterEquipments
-    {
-        /// <summary>
-        /// List of equipment rosters (multiple equipment sets)
-        /// </summary>
-        [XmlElement("EquipmentRoster")]
-        public List<EquipmentRoster> Rosters { get; set; } = new List<EquipmentRoster>();
+        public int? Value { get; set; }
+        public bool ShouldSerializeValue() => Value.HasValue;
     }
 
     /// <summary>
@@ -207,7 +187,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// List of equipment pieces in this roster
         /// </summary>
         [XmlElement("equipment")]
-        public List<Equipment> EquipmentList { get; set; } = new List<Equipment>();
+        public Equipment[]? EquipmentList { get; set; }
     }
 
     /// <summary>
@@ -237,6 +217,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Dismount resistance value
         /// </summary>
         [XmlAttribute("dismount")]
-        public string? Dismount { get; set; }
+        public int? Dismount { get; set; }
+        public bool ShouldSerializeDismount() => Dismount.HasValue;
     }
 } 
