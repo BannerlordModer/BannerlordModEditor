@@ -6,7 +6,7 @@ using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
-    public class WorldmapColorGradesXmlTests
+    public class MonstersXmlTests
     {
         private static string FindSolutionRoot()
         {
@@ -21,12 +21,12 @@ namespace BannerlordModEditor.Common.Tests
         private string TestDataPath => Path.Combine(FindSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData");
 
         [Fact]
-        public void WorldmapColorGrades_RoundTripTest()
+        public void Monsters_RoundTripTest()
         {
-            var filePath = Path.Combine(TestDataPath, "worldmap_color_grades.xml");
+            var filePath = Path.Combine(TestDataPath, "monsters.xml");
             var originalXml = File.ReadAllText(filePath);
 
-            var deserialized = XmlTestUtils.Deserialize<WorldmapColorGrades>(originalXml);
+            var deserialized = XmlTestUtils.Deserialize<Monsters>(originalXml);
             Assert.NotNull(deserialized);
 
             var serializedXml = XmlTestUtils.Serialize(deserialized);

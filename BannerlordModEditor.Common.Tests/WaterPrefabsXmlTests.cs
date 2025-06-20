@@ -2,7 +2,6 @@ using BannerlordModEditor.Common.Models.Data;
 using System;
 using System.IO;
 using System.Linq;
-using System.Xml.Serialization;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
@@ -19,18 +18,20 @@ namespace BannerlordModEditor.Common.Tests
             return directory?.FullName ?? throw new DirectoryNotFoundException("Solution root not found");
         }
 
-        [Fact]
-        public void WaterPrefabs_Deserialization_Works()
-        {
-            var solutionRoot = FindSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "water_prefabs.xml");
-            var serializer = new XmlSerializer(typeof(WaterPrefabsBase));
-            using var fileStream = new FileStream(xmlPath, FileMode.Open);
-            var result = serializer.Deserialize(fileStream) as WaterPrefabsBase;
+        private string TestDataPath => Path.Combine(FindSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData");
 
-            Assert.NotNull(result);
-            Assert.NotNull(result.WaterPrefabList);
-            Assert.True(result.WaterPrefabList.Any());
+        [Fact]
+        public void WaterPrefabs_RoundTripTest()
+        {
+            var filePath = Path.Combine(TestDataPath, "water_prefabs.xml");
+            var originalXml = File.ReadAllText(filePath);
+
+            var deserialized = XmlTestUtils.Deserialize<WaterPrefabs>(originalXml);
+            Assert.NotNull(deserialized);
+
+            var serializedXml = XmlTestUtils.Serialize(deserialized);
+
+            Assert.True(XmlTestUtils.AreStructurallyEqual(originalXml, serializedXml));
         }
     }
 } 

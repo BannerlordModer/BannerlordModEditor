@@ -1,42 +1,31 @@
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("base")]
-    public class SpecialMeshesBase
+    public class SpecialMeshes
     {
         [XmlAttribute("type")]
-        public string Type { get; set; } = string.Empty;
+        public string? Type { get; set; }
 
-        [XmlElement("meshes")]
-        public MeshesContainer Meshes { get; set; } = new MeshesContainer();
-    }
-
-    public class MeshesContainer
-    {
-        [XmlElement("mesh")]
-        public List<SpecialMesh> MeshList { get; set; } = new List<SpecialMesh>();
+        [XmlArray("meshes")]
+        [XmlArrayItem("mesh")]
+        public SpecialMesh[]? Meshes { get; set; }
     }
 
     public class SpecialMesh
     {
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
-        [XmlElement("types")]
-        public MeshTypes Types { get; set; } = new MeshTypes();
-    }
-
-    public class MeshTypes
-    {
-        [XmlElement("type")]
-        public List<MeshType> TypeList { get; set; } = new List<MeshType>();
+        [XmlArray("types")]
+        [XmlArrayItem("type")]
+        public MeshType[]? Types { get; set; }
     }
 
     public class MeshType
     {
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
     }
 } 

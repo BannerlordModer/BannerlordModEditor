@@ -1,60 +1,44 @@
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("base")]
-    public class SkinnedDecalsBase
+    public class SkinnedDecals
     {
         [XmlAttribute("type")]
-        public string Type { get; set; } = string.Empty;
+        public string? Type { get; set; }
 
-        [XmlElement("skinned_decals")]
-        public SkinnedDecalsContainer SkinnedDecals { get; set; } = new SkinnedDecalsContainer();
-    }
-
-    public class SkinnedDecalsContainer
-    {
-        [XmlElement("skinned_decal")]
-        public List<SkinnedDecal> SkinnedDecalList { get; set; } = new List<SkinnedDecal>();
+        [XmlArray("skinned_decals")]
+        [XmlArrayItem("skinned_decal")]
+        public SkinnedDecal[]? Decals { get; set; }
     }
 
     public class SkinnedDecal
     {
-        [XmlElement("textures")]
-        public DecalTextures? Textures { get; set; }
+        [XmlArray("textures")]
+        [XmlArrayItem("texture")]
+        public DecalTexture[]? Textures { get; set; }
 
-        [XmlElement("materials")]
-        public DecalMaterials? Materials { get; set; }
-    }
-
-    public class DecalTextures
-    {
-        [XmlElement("texture")]
-        public List<DecalTexture> TextureList { get; set; } = new List<DecalTexture>();
+        [XmlArray("materials")]
+        [XmlArrayItem("material")]
+        public DecalMaterial[]? Materials { get; set; }
     }
 
     public class DecalTexture
     {
         [XmlAttribute("type")]
-        public string Type { get; set; } = string.Empty;
+        public string? Type { get; set; }
 
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
-    }
-
-    public class DecalMaterials
-    {
-        [XmlElement("material")]
-        public List<DecalMaterial> MaterialList { get; set; } = new List<DecalMaterial>();
+        public string? Name { get; set; }
     }
 
     public class DecalMaterial
     {
         [XmlAttribute("enum")]
-        public string Enum { get; set; } = string.Empty;
+        public string? Enum { get; set; }
 
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
     }
 } 
