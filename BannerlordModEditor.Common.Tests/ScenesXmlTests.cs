@@ -1,16 +1,15 @@
-using BannerlordModEditor.Common.Models.Data;
-using System;
 using System.IO;
 using System.Linq;
+using BannerlordModEditor.Common.Models.Data;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
-    public class VoicesXmlTests
+    public class ScenesXmlTests
     {
         private static string FindSolutionRoot()
         {
-            var directory = new DirectoryInfo(AppContext.BaseDirectory);
+            var directory = new DirectoryInfo(System.AppContext.BaseDirectory);
             while (directory != null && !directory.GetFiles("*.sln").Any())
             {
                 directory = directory.Parent;
@@ -21,16 +20,16 @@ namespace BannerlordModEditor.Common.Tests
         private string TestDataPath => Path.Combine(FindSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData");
 
         [Fact]
-        public void Voices_RoundTripTest()
+        public void Scenes_RoundTripTest()
         {
-            var filePath = Path.Combine(TestDataPath, "voices.xml");
+            var filePath = Path.Combine(TestDataPath, "scenes.xml");
             var originalXml = File.ReadAllText(filePath);
 
-            var deserialized = XmlTestUtils.Deserialize<Voices>(originalXml);
+            var deserialized = XmlTestUtils.Deserialize<Scenes>(originalXml);
             Assert.NotNull(deserialized);
 
             var serializedXml = XmlTestUtils.Serialize(deserialized);
-
+            
             Assert.True(XmlTestUtils.AreStructurallyEqual(originalXml, serializedXml));
         }
     }

@@ -1,45 +1,34 @@
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("base")]
-    public class VoicesBase
+    public class Voices
     {
         [XmlAttribute("type")]
-        public string Type { get; set; } = string.Empty;
+        public string? Type { get; set; }
 
-        [XmlElement("face_animation_records")]
-        public FaceAnimationRecords FaceAnimationRecords { get; set; } = new FaceAnimationRecords();
-    }
-
-    public class FaceAnimationRecords
-    {
-        [XmlElement("face_animation_record")]
-        public List<FaceAnimationRecord> FaceAnimationRecordList { get; set; } = new List<FaceAnimationRecord>();
+        [XmlArray("face_animation_records")]
+        [XmlArrayItem("face_animation_record")]
+        public FaceAnimationRecord[]? Records { get; set; }
     }
 
     public class FaceAnimationRecord
     {
         [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+        public string? Id { get; set; }
 
         [XmlAttribute("animation_name")]
-        public string AnimationName { get; set; } = string.Empty;
+        public string? AnimationName { get; set; }
 
-        [XmlElement("flags")]
-        public AnimationFlags? Flags { get; set; }
-    }
-
-    public class AnimationFlags
-    {
-        [XmlElement("flag")]
-        public List<AnimationFlag> FlagList { get; set; } = new List<AnimationFlag>();
+        [XmlArray("flags")]
+        [XmlArrayItem("flag")]
+        public AnimationFlag[]? Flags { get; set; }
     }
 
     public class AnimationFlag
     {
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
     }
 } 
