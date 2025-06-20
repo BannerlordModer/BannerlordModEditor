@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Collection of monster definitions
         /// </summary>
         [XmlElement("Monster")]
-        public Monster[]? MonsterList { get; set; }
+        public List<Monster> MonsterList { get; set; } = new List<Monster>();
     }
 
     /// <summary>
@@ -42,78 +42,60 @@ namespace BannerlordModEditor.Common.Models.Data
 
         // Physical Properties
         [XmlAttribute("weight")]
-        public double? Weight { get; set; }
-        public bool ShouldSerializeWeight() => Weight.HasValue;
+        public string? Weight { get; set; }
 
         [XmlAttribute("hit_points")]
-        public int? HitPoints { get; set; }
-        public bool ShouldSerializeHitPoints() => HitPoints.HasValue;
+        public string? HitPoints { get; set; }
 
         [XmlAttribute("absorbed_damage_ratio")]
-        public double? AbsorbedDamageRatio { get; set; }
-        public bool ShouldSerializeAbsorbedDamageRatio() => AbsorbedDamageRatio.HasValue;
+        public string? AbsorbedDamageRatio { get; set; }
 
         // Movement Properties
         [XmlAttribute("walking_speed_limit")]
-        public double? WalkingSpeedLimit { get; set; }
-        public bool ShouldSerializeWalkingSpeedLimit() => WalkingSpeedLimit.HasValue;
+        public string? WalkingSpeedLimit { get; set; }
 
         [XmlAttribute("crouch_walking_speed_limit")]
-        public double? CrouchWalkingSpeedLimit { get; set; }
-        public bool ShouldSerializeCrouchWalkingSpeedLimit() => CrouchWalkingSpeedLimit.HasValue;
+        public string? CrouchWalkingSpeedLimit { get; set; }
 
         [XmlAttribute("jump_acceleration")]
-        public double? JumpAcceleration { get; set; }
-        public bool ShouldSerializeJumpAcceleration() => JumpAcceleration.HasValue;
+        public string? JumpAcceleration { get; set; }
 
         [XmlAttribute("jump_speed_limit")]
-        public double? JumpSpeedLimit { get; set; }
-        public bool ShouldSerializeJumpSpeedLimit() => JumpSpeedLimit.HasValue;
+        public string? JumpSpeedLimit { get; set; }
 
         [XmlAttribute("num_paces")]
-        public int? NumPaces { get; set; }
-        public bool ShouldSerializeNumPaces() => NumPaces.HasValue;
+        public string? NumPaces { get; set; }
 
         [XmlAttribute("relative_speed_limit_for_charge")]
-        public double? RelativeSpeedLimitForCharge { get; set; }
-        public bool ShouldSerializeRelativeSpeedLimitForCharge() => RelativeSpeedLimitForCharge.HasValue;
+        public string? RelativeSpeedLimitForCharge { get; set; }
 
         // Physical Dimensions
         [XmlAttribute("standing_chest_height")]
-        public double? StandingChestHeight { get; set; }
-        public bool ShouldSerializeStandingChestHeight() => StandingChestHeight.HasValue;
+        public string? StandingChestHeight { get; set; }
 
         [XmlAttribute("standing_pelvis_height")]
-        public double? StandingPelvisHeight { get; set; }
-        public bool ShouldSerializeStandingPelvisHeight() => StandingPelvisHeight.HasValue;
+        public string? StandingPelvisHeight { get; set; }
 
         [XmlAttribute("standing_eye_height")]
-        public double? StandingEyeHeight { get; set; }
-        public bool ShouldSerializeStandingEyeHeight() => StandingEyeHeight.HasValue;
+        public string? StandingEyeHeight { get; set; }
 
         [XmlAttribute("crouch_eye_height")]
-        public double? CrouchEyeHeight { get; set; }
-        public bool ShouldSerializeCrouchEyeHeight() => CrouchEyeHeight.HasValue;
+        public string? CrouchEyeHeight { get; set; }
 
         [XmlAttribute("mounted_eye_height")]
-        public double? MountedEyeHeight { get; set; }
-        public bool ShouldSerializeMountedEyeHeight() => MountedEyeHeight.HasValue;
+        public string? MountedEyeHeight { get; set; }
 
         [XmlAttribute("rider_eye_height_adder")]
-        public double? RiderEyeHeightAdder { get; set; }
-        public bool ShouldSerializeRiderEyeHeightAdder() => RiderEyeHeightAdder.HasValue;
+        public string? RiderEyeHeightAdder { get; set; }
 
         [XmlAttribute("rider_camera_height_adder")]
-        public double? RiderCameraHeightAdder { get; set; }
-        public bool ShouldSerializeRiderCameraHeightAdder() => RiderCameraHeightAdder.HasValue;
+        public string? RiderCameraHeightAdder { get; set; }
 
         [XmlAttribute("rider_body_capsule_height_adder")]
-        public double? RiderBodyCapsuleHeightAdder { get; set; }
-        public bool ShouldSerializeRiderBodyCapsuleHeightAdder() => RiderBodyCapsuleHeightAdder.HasValue;
+        public string? RiderBodyCapsuleHeightAdder { get; set; }
 
         [XmlAttribute("rider_body_capsule_forward_adder")]
-        public double? RiderBodyCapsuleForwardAdder { get; set; }
-        public bool ShouldSerializeRiderBodyCapsuleForwardAdder() => RiderBodyCapsuleForwardAdder.HasValue;
+        public string? RiderBodyCapsuleForwardAdder { get; set; }
 
         // Offset and Position Properties
         [XmlAttribute("eye_offset_wrt_head")]
@@ -331,8 +313,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string? OffHandShoulderBone { get; set; }
 
         [XmlAttribute("hand_num_bones_for_ik")]
-        public int? HandNumBonesForIk { get; set; }
-        public bool ShouldSerializeHandNumBonesForIk() => HandNumBonesForIk.HasValue;
+        public string? HandNumBonesForIk { get; set; }
 
         // Foot and IK Bones
         [XmlAttribute("primary_foot_bone")]
@@ -354,8 +335,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string? LeftFootIkTipBone { get; set; }
 
         [XmlAttribute("foot_num_bones_for_ik")]
-        public int? FootNumBonesForIk { get; set; }
-        public bool ShouldSerializeFootNumBonesForIk() => FootNumBonesForIk.HasValue;
+        public string? FootNumBonesForIk { get; set; }
 
         // Mount-specific Properties
         [XmlAttribute("rein_handle_left_local_pos")]
@@ -428,10 +408,8 @@ namespace BannerlordModEditor.Common.Models.Data
         /// <summary>
         /// Collision capsules for the monster
         /// </summary>
-        [XmlArray("Capsules")]
-        [XmlArrayItem("body_capsule", typeof(MonsterCapsule))]
-        [XmlArrayItem("crouched_body_capsule", typeof(MonsterCapsule))]
-        public MonsterCapsule[]? Capsules { get; set; }
+        [XmlElement("Capsules")]
+        public MonsterCapsules? Capsules { get; set; }
 
         /// <summary>
         /// Flags defining monster behavior and capabilities
@@ -467,8 +445,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Radius of the collision capsule
         /// </summary>
         [XmlAttribute("radius")]
-        public double? Radius { get; set; }
-        public bool ShouldSerializeRadius() => Radius.HasValue;
+        public string? Radius { get; set; }
 
         /// <summary>
         /// First position point (x, y, z coordinates)
@@ -490,87 +467,67 @@ namespace BannerlordModEditor.Common.Models.Data
     {
         // Combat Abilities
         [XmlAttribute("CanAttack")]
-        public bool? CanAttack { get; set; }
-        public bool ShouldSerializeCanAttack() => CanAttack.HasValue;
+        public string? CanAttack { get; set; }
 
         [XmlAttribute("CanDefend")]
-        public bool? CanDefend { get; set; }
-        public bool ShouldSerializeCanDefend() => CanDefend.HasValue;
+        public string? CanDefend { get; set; }
 
         [XmlAttribute("CanKick")]
-        public bool? CanKick { get; set; }
-        public bool ShouldSerializeCanKick() => CanKick.HasValue;
+        public string? CanKick { get; set; }
 
         [XmlAttribute("CanBeCharged")]
-        public bool? CanBeCharged { get; set; }
-        public bool ShouldSerializeCanBeCharged() => CanBeCharged.HasValue;
+        public string? CanBeCharged { get; set; }
 
         [XmlAttribute("CanCharge")]
-        public bool? CanCharge { get; set; }
-        public bool ShouldSerializeCanCharge() => CanCharge.HasValue;
+        public string? CanCharge { get; set; }
 
         // Movement Abilities
         [XmlAttribute("CanClimbLadders")]
-        public bool? CanClimbLadders { get; set; }
-        public bool ShouldSerializeCanClimbLadders() => CanClimbLadders.HasValue;
+        public string? CanClimbLadders { get; set; }
 
         [XmlAttribute("CanSprint")]
-        public bool? CanSprint { get; set; }
-        public bool ShouldSerializeCanSprint() => CanSprint.HasValue;
+        public string? CanSprint { get; set; }
 
         [XmlAttribute("CanCrouch")]
-        public bool? CanCrouch { get; set; }
-        public bool ShouldSerializeCanCrouch() => CanCrouch.HasValue;
+        public string? CanCrouch { get; set; }
 
         [XmlAttribute("CanRetreat")]
-        public bool? CanRetreat { get; set; }
-        public bool ShouldSerializeCanRetreat() => CanRetreat.HasValue;
+        public string? CanRetreat { get; set; }
 
         [XmlAttribute("CanRear")]
-        public bool? CanRear { get; set; }
-        public bool ShouldSerializeCanRear() => CanRear.HasValue;
+        public string? CanRear { get; set; }
 
         [XmlAttribute("CanWander")]
-        public bool? CanWander { get; set; }
-        public bool ShouldSerializeCanWander() => CanWander.HasValue;
+        public string? CanWander { get; set; }
 
         // Group and Social Behavior
         [XmlAttribute("CanBeInGroup")]
-        public bool? CanBeInGroup { get; set; }
-        public bool ShouldSerializeCanBeInGroup() => CanBeInGroup.HasValue;
+        public string? CanBeInGroup { get; set; }
 
         [XmlAttribute("MoveAsHerd")]
-        public bool? MoveAsHerd { get; set; }
-        public bool ShouldSerializeMoveAsHerd() => MoveAsHerd.HasValue;
+        public string? MoveAsHerd { get; set; }
 
         [XmlAttribute("MoveForwardOnly")]
-        public bool? MoveForwardOnly { get; set; }
-        public bool ShouldSerializeMoveForwardOnly() => MoveForwardOnly.HasValue;
+        public string? MoveForwardOnly { get; set; }
 
         // Classification and State
         [XmlAttribute("IsHumanoid")]
-        public bool? IsHumanoid { get; set; }
-        public bool ShouldSerializeIsHumanoid() => IsHumanoid.HasValue;
+        public string? IsHumanoid { get; set; }
 
         [XmlAttribute("Mountable")]
-        public bool? Mountable { get; set; }
-        public bool ShouldSerializeMountable() => Mountable.HasValue;
+        public string? Mountable { get; set; }
 
         [XmlAttribute("CanRide")]
-        public bool? CanRide { get; set; }
-        public bool ShouldSerializeCanRide() => CanRide.HasValue;
+        public string? CanRide { get; set; }
 
         [XmlAttribute("CanWieldWeapon")]
-        public bool? CanWieldWeapon { get; set; }
-        public bool ShouldSerializeCanWieldWeapon() => CanWieldWeapon.HasValue;
+        public string? CanWieldWeapon { get; set; }
 
         // Behavioral Reactions
         [XmlAttribute("RunsAwayWhenHit")]
-        public bool? RunsAwayWhenHit { get; set; }
-        public bool ShouldSerializeRunsAwayWhenHit() => RunsAwayWhenHit.HasValue;
+        public string? RunsAwayWhenHit { get; set; }
 
         [XmlAttribute("CanGetScared")]
-        public bool? CanGetScared { get; set; }
-        public bool ShouldSerializeCanGetScared() => CanGetScared.HasValue;
+        public string? CanGetScared { get; set; }
     }
 } 

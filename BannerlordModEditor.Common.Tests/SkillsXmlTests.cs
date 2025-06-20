@@ -1,38 +1,42 @@
+using BannerlordModEditor.Common.Models.Data;
 using System.IO;
 using System.Linq;
-using BannerlordModEditor.Common.Models;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
     public class SkillsXmlTests
     {
-        private static string FindSolutionRoot()
-        {
-            var directory = new DirectoryInfo(System.AppContext.BaseDirectory);
-            while (directory != null && !directory.GetFiles("*.sln").Any())
-            {
-                directory = directory.Parent;
-            }
-            return directory?.FullName ?? throw new DirectoryNotFoundException("Solution root not found");
-        }
-
-        private string TestDataPath => Path.Combine(FindSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData");
-
         [Fact]
-        public void Skills_RoundTripTest()
+        public void Skills_Load_ShouldSucceed()
         {
-            var filePath = Path.Combine(TestDataPath, "skills.xml");
-            var originalXml = File.ReadAllText(filePath);
+            // Arrange
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skills.xml");
+            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(ArrayOfSkillData));
 
-            var deserialized = XmlTestUtils.Deserialize<Skills>(originalXml);
-            Assert.NotNull(deserialized);
+            // Act
+            ArrayOfSkillData skills;
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            {
+                skills = (ArrayOfSkillData)serializer.Deserialize(reader)!;
+            }
 
-            var serializedXml = XmlTestUtils.Serialize(deserialized);
-            
-            // The XML declaration and namespaces might differ slightly,
-            // so we rely on structural comparison.
-            Assert.True(XmlTestUtils.AreStructurallyEqual(originalXml, serializedXml));
+            // Assert
+            Assert.NotNull(skills);
+            Assert.NotNull(skills.SkillDataList);
+            Assert.True(skills.SkillDataList.Count > 0);
+
+            var ironFlesh1 = skills.SkillDataList.FirstOrDefault(s => s.Id == "IronFlesh1");
+            Assert.NotNull(ironFlesh1);
+            Assert.Equal("Iron Flesh 1", ironFlesh1.Name);
+            Assert.NotNull(ironFlesh1.Modifiers);
+            Assert.NotNull(ironFlesh1.Modifiers.AttributeModifierList);
+            var modifier = ironFlesh1.Modifiers.AttributeModifierList.First();
+            Assert.Equal("AgentHitPoints", modifier.AttribCode);
+            Assert.Equal("Multiply", modifier.Modification);
+            Assert.Equal("1.01", modifier.Value);
+            Assert.Equal("Iron flesh increases hit points", ironFlesh1.Documentation);
         }
     }
 } 

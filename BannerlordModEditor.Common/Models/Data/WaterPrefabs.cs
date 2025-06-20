@@ -1,26 +1,27 @@
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("WaterPrefabs")]
-    public class WaterPrefabs
+    public class WaterPrefabsBase
     {
         [XmlElement("WaterPrefab")]
-        public WaterPrefab[]? Prefabs { get; set; }
+        public List<WaterPrefab> WaterPrefabList { get; set; } = new List<WaterPrefab>();
     }
 
     public class WaterPrefab
     {
         [XmlAttribute("PrefabName")]
-        public string? PrefabName { get; set; }
+        public string PrefabName { get; set; } = string.Empty;
 
         [XmlAttribute("MaterialName")]
-        public string? MaterialName { get; set; }
+        public string MaterialName { get; set; } = string.Empty;
 
         [XmlAttribute("Thumbnail")]
-        public string? Thumbnail { get; set; }
+        public string Thumbnail { get; set; } = string.Empty;
 
         [XmlAttribute("IsGlobal")]
-        public bool IsGlobal { get; set; }
+        public string IsGlobal { get; set; } = string.Empty;
     }
 } 

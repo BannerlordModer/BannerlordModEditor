@@ -1,12 +1,13 @@
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models;
 
 [XmlRoot("ArrayOfSkillData")]
-public class Skills
+public class SkillsWrapper
 {
     [XmlElement("SkillData")]
-    public SkillData[]? SkillsList { get; set; }
+    public List<SkillData> Skills { get; set; } = new();
 }
 
 public class SkillData
@@ -19,7 +20,7 @@ public class SkillData
 
     [XmlArray("Modifiers")]
     [XmlArrayItem("AttributeModifier")]
-    public AttributeModifier[]? Modifiers { get; set; }
+    public List<AttributeModifier> Modifiers { get; set; } = new();
 
     [XmlElement("Documentation")]
     public string? Documentation { get; set; }
@@ -34,5 +35,5 @@ public class AttributeModifier
     public string? Modification { get; set; }
 
     [XmlAttribute("Value")]
-    public double Value { get; set; }
+    public string? Value { get; set; }
 } 
