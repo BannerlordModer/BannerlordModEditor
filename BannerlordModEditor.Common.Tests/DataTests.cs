@@ -26,11 +26,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "skills.xml");
-            var serializer = new XmlSerializer(typeof(ArrayOfSkillData));
+            var serializer = new XmlSerializer(typeof(Skills));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (ArrayOfSkillData)serializer.Deserialize(fileStream);
+            var result = (Skills)serializer.Deserialize(fileStream);
 
             // Assert
             Assert.NotNull(result);
@@ -43,11 +43,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "skills.xml");
-            var serializer = new XmlSerializer(typeof(ArrayOfSkillData));
+            var serializer = new XmlSerializer(typeof(Skills));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (ArrayOfSkillData)serializer.Deserialize(fileStream);
+            var result = (Skills)serializer.Deserialize(fileStream);
 
             // Assert
             var ironFleshSkills = result.SkillDataList.Where(s => s.Id.StartsWith("IronFlesh")).ToList();
@@ -56,9 +56,9 @@ namespace BannerlordModEditor.Common.Tests
             foreach (var skill in ironFleshSkills)
             {
                 Assert.Equal("Iron Flesh " + skill.Id.Last(), skill.Name);
-                Assert.Equal(1, skill.Modifiers.AttributeModifierList.Count);
-                Assert.Equal("AgentHitPoints", skill.Modifiers.AttributeModifierList[0].AttribCode);
-                Assert.Equal("Multiply", skill.Modifiers.AttributeModifierList[0].Modification);
+                Assert.Equal(1, skill.Modifiers.AttributeModifiers.Count);
+                Assert.Equal("AgentHitPoints", skill.Modifiers.AttributeModifiers[0].AttribCode);
+                Assert.Equal("Multiply", skill.Modifiers.AttributeModifiers[0].Modification);
                 Assert.Equal("Iron flesh increases hit points", skill.Documentation);
             }
         }
@@ -68,11 +68,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "skills.xml");
-            var serializer = new XmlSerializer(typeof(ArrayOfSkillData));
+            var serializer = new XmlSerializer(typeof(Skills));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (ArrayOfSkillData)serializer.Deserialize(fileStream);
+            var result = (Skills)serializer.Deserialize(fileStream);
 
             // Assert
             var powerStrikeSkills = result.SkillDataList.Where(s => s.Id.StartsWith("PowerStrike")).ToList();
@@ -81,10 +81,10 @@ namespace BannerlordModEditor.Common.Tests
             foreach (var skill in powerStrikeSkills)
             {
                 Assert.Equal("Power Strike", skill.Name);
-                Assert.Equal(2, skill.Modifiers.AttributeModifierList.Count);
+                Assert.Equal(2, skill.Modifiers.AttributeModifiers.Count);
                 
-                var swingModifier = skill.Modifiers.AttributeModifierList.FirstOrDefault(m => m.AttribCode == "WeaponSwingDamage");
-                var thrustModifier = skill.Modifiers.AttributeModifierList.FirstOrDefault(m => m.AttribCode == "WeaponThrustDamage");
+                var swingModifier = skill.Modifiers.AttributeModifiers.FirstOrDefault(m => m.AttribCode == "WeaponSwingDamage");
+                var thrustModifier = skill.Modifiers.AttributeModifiers.FirstOrDefault(m => m.AttribCode == "WeaponThrustDamage");
                 
                 Assert.NotNull(swingModifier);
                 Assert.NotNull(thrustModifier);
@@ -100,19 +100,19 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "skills.xml");
-            var serializer = new XmlSerializer(typeof(ArrayOfSkillData));
+            var serializer = new XmlSerializer(typeof(Skills));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (ArrayOfSkillData)serializer.Deserialize(fileStream);
+            var result = (Skills)serializer.Deserialize(fileStream);
 
             // Assert
             var runnerSkill = result.SkillDataList.FirstOrDefault(s => s.Id == "Runner");
             Assert.NotNull(runnerSkill);
             Assert.Equal("Runner", runnerSkill.Name);
-            Assert.Equal(1, runnerSkill.Modifiers.AttributeModifierList.Count);
+            Assert.Equal(1, runnerSkill.Modifiers.AttributeModifiers.Count);
             
-            var modifier = runnerSkill.Modifiers.AttributeModifierList[0];
+            var modifier = runnerSkill.Modifiers.AttributeModifiers[0];
             Assert.Equal("AgentRunningSpeed", modifier.AttribCode);
             Assert.Equal("Multiply", modifier.Modification);
             Assert.Equal("2", modifier.Value);
@@ -124,11 +124,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "skills.xml");
-            var serializer = new XmlSerializer(typeof(ArrayOfSkillData));
+            var serializer = new XmlSerializer(typeof(Skills));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (ArrayOfSkillData)serializer.Deserialize(fileStream);
+            var result = (Skills)serializer.Deserialize(fileStream);
 
             // Assert
             foreach (var skill in result.SkillDataList)
@@ -137,7 +137,7 @@ namespace BannerlordModEditor.Common.Tests
                 Assert.NotEmpty(skill.Name);
                 Assert.NotNull(skill.Modifiers);
                 Assert.NotEmpty(skill.Documentation);
-                Assert.True(skill.Modifiers.AttributeModifierList.Count > 0);
+                Assert.True(skill.Modifiers.AttributeModifiers.Count > 0);
             }
         }
 

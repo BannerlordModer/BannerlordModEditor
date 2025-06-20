@@ -92,7 +92,7 @@ public partial class SkillEditorViewModel : ViewModelBase
 
             if (foundPath != null)
             {
-                var loader = new GenericXmlLoader<ArrayOfSkillData>();
+                var loader = new GenericXmlLoader<Skills>();
                 var data = loader.Load(foundPath);
                 
                 if (data != null)
@@ -119,7 +119,7 @@ public partial class SkillEditorViewModel : ViewModelBase
                 { 
                     Id = "NewSkill", 
                     Name = "New Skill", 
-                    Documentation = $"正在编辑: {fileName}\n文件不存在，创建新的技能定义..."
+                    Documentation = $"正在编辑: {fileName}\n文件不存在，创建新的技能定�?.."
                 });
                 FilePath = fileName;
                 HasUnsavedChanges = false;
@@ -133,7 +133,7 @@ public partial class SkillEditorViewModel : ViewModelBase
             { 
                 Id = "Error", 
                 Name = "Load Error", 
-                Documentation = $"加载 {fileName} 时出错: {ex.Message}"
+                Documentation = $"加载 {fileName} 时出�? {ex.Message}"
             });
         }
     }
@@ -143,7 +143,7 @@ public partial class SkillEditorViewModel : ViewModelBase
     {
         try
         {
-            var data = new ArrayOfSkillData();
+            var data = new Skills();
             foreach (var skill in Skills)
             {
                 data.SkillDataList.Add(new SkillData
@@ -154,7 +154,7 @@ public partial class SkillEditorViewModel : ViewModelBase
                 });
             }
 
-            var loader = new GenericXmlLoader<ArrayOfSkillData>();
+            var loader = new GenericXmlLoader<Skills>();
             if (!string.IsNullOrEmpty(FilePath))
             {
                 loader.Save(data, FilePath);
