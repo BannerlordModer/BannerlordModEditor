@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
@@ -12,7 +14,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Collection of weapon description definitions
         /// </summary>
         [XmlElement("WeaponDescription")]
-        public WeaponDescription[]? Descriptions { get; set; }
+        public List<WeaponDescription> Descriptions { get; set; } = new List<WeaponDescription>();
     }
 
     /// <summary>
@@ -24,7 +26,8 @@ namespace BannerlordModEditor.Common.Models.Data
         /// Unique identifier for the weapon description
         /// </summary>
         [XmlAttribute("id")]
-        public string? Id { get; set; }
+        [Required]
+        public string Id { get; set; } = string.Empty;
 
         /// <summary>
         /// Weapon class (OneHandedSword, TwoHandedMace, etc.)
@@ -41,16 +44,14 @@ namespace BannerlordModEditor.Common.Models.Data
         /// <summary>
         /// Weapon flags collection
         /// </summary>
-        [XmlArray("WeaponFlags")]
-        [XmlArrayItem("WeaponFlag")]
-        public WeaponFlag[]? WeaponFlags { get; set; }
+        [XmlElement("WeaponFlags")]
+        public WeaponFlags? WeaponFlags { get; set; }
 
         /// <summary>
         /// Available pieces for weapon crafting
         /// </summary>
-        [XmlArray("AvailablePieces")]
-        [XmlArrayItem("AvailablePiece")]
-        public AvailablePiece[]? AvailablePieces { get; set; }
+        [XmlElement("AvailablePieces")]
+        public AvailablePieces? AvailablePieces { get; set; }
     }
 
     /// <summary>
