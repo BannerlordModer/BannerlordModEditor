@@ -222,6 +222,18 @@ namespace BannerlordModEditor.Common.Tests
             }
         }
         
+        [Fact]
+        public void DeserializationTest()
+        {
+            var serializer = new XmlSerializer(typeof(CraftingPiecesBase));
+            var path = Path.Combine("TestData", "crafting_pieces.xml");
+            using (var stream = File.OpenRead(path))
+            {
+                var obj = serializer.Deserialize(stream);
+                Assert.NotNull(obj);
+            }
+        }
+        
         private static string FindSolutionRoot()
         {
             var directory = new DirectoryInfo(AppContext.BaseDirectory);

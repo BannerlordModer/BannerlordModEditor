@@ -4,87 +4,101 @@ using System.Xml.Serialization;
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("base")]
-    public class BannerIconsBase
+    public class BannerIcons
     {
-        [XmlAttribute("type")]
-        public string Type { get; set; } = string.Empty;
+        // The type attribute is present in the XML, but seems to be a generic attribute for the loader.
+        // It's not essential for the data structure itself, so we can omit it if it simplifies things,
+        // or add it if strict validation requires it. Let's keep it simple for now.
+        // [XmlAttribute("type")]
+        // public string Type { get; set; }
 
         [XmlElement("BannerIconData")]
-        public BannerIconData BannerIconData { get; set; } = new BannerIconData();
+        public BannerIconData? BannerIconData { get; set; }
     }
 
     public class BannerIconData
     {
         [XmlElement("BannerIconGroup")]
-        public List<BannerIconGroup> BannerIconGroupList { get; set; } = new List<BannerIconGroup>();
+        public BannerIconGroup[]? BannerIconGroups { get; set; }
 
         [XmlElement("BannerColors")]
-        public BannerColors BannerColors { get; set; } = new BannerColors();
+        public BannerColors? BannerColors { get; set; }
     }
 
     public class BannerIconGroup
     {
         [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+        public int Id { get; set; }
 
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
         [XmlAttribute("is_pattern")]
-        public string IsPattern { get; set; } = string.Empty;
+        public bool IsPattern { get; set; }
 
-        [XmlElement("Background")]
-        public List<Background> BackgroundList { get; set; } = new List<Background>();
-
-        [XmlElement("Icon")]
-        public List<BannerIcon> IconList { get; set; } = new List<BannerIcon>();
+        [XmlElement("Background", typeof(Background))]
+        [XmlElement("Icon", typeof(Icon))]
+        public object[]? Items { get; set; }
     }
 
     public class Background
     {
         [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+        public int Id { get; set; }
 
         [XmlAttribute("mesh_name")]
-        public string MeshName { get; set; } = string.Empty;
+        public string? MeshName { get; set; }
 
         [XmlAttribute("is_base_background")]
-        public string? IsBaseBackground { get; set; }
+        public bool IsBaseBackground { get; set; }
+
+        public bool ShouldSerializeIsBaseBackground() => IsBaseBackground;
     }
 
-    public class BannerIcon
+    public class Icon
     {
         [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+        public int Id { get; set; }
 
         [XmlAttribute("material_name")]
-        public string MaterialName { get; set; } = string.Empty;
+        public string? MaterialName { get; set; }
 
         [XmlAttribute("texture_index")]
-        public string TextureIndex { get; set; } = string.Empty;
+        public int TextureIndex { get; set; }
 
         [XmlAttribute("is_reserved")]
-        public string? IsReserved { get; set; }
+        public bool IsReserved { get; set; }
+        
+        public bool ShouldSerializeIsReserved() => IsReserved;
     }
 
     public class BannerColors
     {
         [XmlElement("Color")]
-        public List<BannerColor> ColorList { get; set; } = new List<BannerColor>();
+        public BannerColor[]? Colors { get; set; }
     }
 
     public class BannerColor
     {
         [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+        public string? Id { get; set; }
+
+        [XmlAttribute("name")]
+        public string? Name { get; set; }
+        
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
 
         [XmlAttribute("hex")]
-        public string Hex { get; set; } = string.Empty;
-
-        [XmlAttribute("player_can_choose_for_background")]
-        public string? PlayerCanChooseForBackground { get; set; }
-
-        [XmlAttribute("player_can_choose_for_sigil")]
-        public string? PlayerCanChooseForSigil { get; set; }
+        public string? Hex { get; set; }
+        
+        [XmlAttribute("is_background_color")]
+        public bool IsBackgroundColor { get; set; }
+        
+        public bool ShouldSerializeIsBackgroundColor() => IsBackgroundColor;
+        
+        [XmlAttribute("is_player_usable")]
+        public bool IsPlayerUsable { get; set; }
+        
+        public bool ShouldSerializeIsPlayerUsable() => IsPlayerUsable;
     }
 } 
