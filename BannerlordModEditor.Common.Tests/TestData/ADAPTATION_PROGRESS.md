@@ -1,7 +1,7 @@
 # Bannerlord XML Adaptation Progress Summary
 
 ## 🎯 Current Status
-- **Total Tests:** 823 (100% passing ✅)
+- **Total Tests:** 825 (100% passing ✅)
 - **Adapted Formats:** All 41 XML files in `TestData` were already covered. Now adapting new files from `example/ModuleData`.
 - **Coverage:** ~45% of all known XML formats
 
@@ -9,9 +9,11 @@
 1.  **Test Environment Fix**: Resolved intermittent `IOException` errors during test runs by disabling parallel test execution via an `xunit.runner.json` configuration file. This provides a stable foundation for future work.
 2.  **Restoration & Verification**: Restored 5 previously deleted test files and verified that all 41 original XML files in the `TestData` directory have corresponding C# models and passing unit tests.
 3.  **New Format Adaptation**:
-    - Adapted `Adjustables.xml` with a new model and passing test.
-    - Adapted `before_transparents_graph.xml` with a new model and passing test.
-    - Adapted `cloth_materials.xml` with a new model and passing test.
+    - `Adjustables.xml`
+    - `before_transparents_graph.xml`
+    - `cloth_materials.xml`
+    - `collision_infos.xml`
+    - `combat_parameters.xml`
 
 ## 📊 Adaptation Categories
 
@@ -48,7 +50,11 @@
 ## 🎯 Next Priority Targets
 
 ### Next Priority Targets
-- Continue adapting remaining XML files from the `example/ModuleData` directory. The next planned file is `collision_infos.xml`.
+- `crafting_templates.xml`
+- `Credits.xml`
+- `decal_materials.xml`
+- `flora_canopies.xml`
+- `full_movement_sets.xml`
 
 ### Long Term
 - Investigate and resolve the numerous build warnings.
