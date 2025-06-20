@@ -1,30 +1,132 @@
-﻿name: Deploy to GitHub Releases
+﻿name: Build, Test and Deploy
 
 on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  deploy-to-github-releases:
-    permissions: write-all
+  test:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
+      
     - name: Install .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+        
+    - name: Restore Dependencies
+      run: dotnet restore
+      
+    - name: Build Solution
+      run: dotnet build --configuration ${{ matrix.configuration }} --no-restore
+      
+    - name: Run Unit Tests
+      run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+      
+    - name: Run UI Tests
+      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+      
+    - name: Generate Code Coverage Report
+      if: matrix.configuration == 'Release'
+      run: |
+        dotnet tool install -g dotnet-reportgenerator-globaltool
+        reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
+        
+    - name: Upload Coverage Reports
+      if: matrix.configuration == 'Release'
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: coverage/
+        
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ matrix.configuration }}
+        path: '**/*.trx'
+
+  security-scan:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+        
+    - name: Security Scan
+      run: |
+        dotnet list package --vulnerable --include-transitive
+        dotnet list package --deprecated
+        
+  deploy-to-github-releases:
+    needs: [test, security-scan]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    permissions: write-all
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+        
+    - name: Restore Dependencies
+      run: dotnet restore
+      
+    - name: Build Solution (Release)
+      run: dotnet build --configuration Release --no-restore
+      
+    - name: Run Final Tests Before Deploy
+      run: |
+        dotnet test BannerlordModEditor.Common.Tests --configuration Release --no-build
+        dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build
+        
     - name: Publish Application
       run: dotnet publish BannerlordModEditor.UI/BannerlordModEditor.UI.csproj -c Release -o publish -r win-x64 --self-contained false
+      
     - name: Create Velopack Release
       env:
         BUILD_NUMBER: ${{github.run_number}}
       shell: pwsh
       run: |
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
+        Write-Host "Creating release version: $Version"
+        
+        # 安装 Velopack
         dotnet tool install -g vpk
-        vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --channel nightly-win-x64
+        
+        # 下载之前的版本（如果存在）
+        try {
+          vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --channel nightly-win-x64
+        } catch {
+          Write-Host "No previous releases found, creating initial release"
+        }
+        
+        # 创建发布包
         vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net9.0-x64-desktop,webview2
-        vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor $Version" --tag v$Version --token ${{ secrets.GITHUB_TOKEN }}
+        
+        # 上传到 GitHub Releases
+        vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag v$Version --token ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: published-app
+        path: publish/
