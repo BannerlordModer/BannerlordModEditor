@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("worldmap_color_grades")]
-    public class WorldmapColorGradesBase
+    public class WorldmapColorGrades
     {
         [XmlElement("color_grade_grid")]
         public ColorGradeGrid? ColorGradeGrid { get; set; }
@@ -16,7 +16,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public ColorGradeNight? ColorGradeNight { get; set; }
 
         [XmlElement("color_grade")]
-        public List<ColorGrade> ColorGradeList { get; set; } = new List<ColorGrade>();
+        public List<ColorGrade> ColorGrades { get; set; } = new List<ColorGrade>();
     }
 
     public class ColorGradeGrid

@@ -157,7 +157,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("scene", result.Type);
             Assert.NotNull(result.Sites);
             Assert.NotNull(result.Sites.SiteList);
-            Assert.True(result.Sites.SiteList.Count > 500); // 有很多场景
+            Assert.True(result.Sites.SiteList.Count > 500); // 有很多场�?
         }
 
         [Fact]
@@ -176,7 +176,7 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Assert.NotEmpty(site.Id);
                 Assert.NotEmpty(site.Name);
-                Assert.StartsWith("scn_", site.Id); // 所有场景ID应该以scn_开头
+                Assert.StartsWith("scn_", site.Id); // 所有场景ID应该以scn_开�?
             }
         }
 
@@ -201,7 +201,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("conversation_scene", conversationScene.Name);
 
             var randomScenes = result.Sites.SiteList.Where(s => s.Id.Contains("random_scene")).ToList();
-            Assert.True(randomScenes.Count > 5); // 应该有多个随机场景
+            Assert.True(randomScenes.Count > 5); // 应该有多个随机场�?
         }
 
         [Fact]
@@ -217,10 +217,10 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var multiScenes = result.Sites.SiteList.Where(s => s.Id.StartsWith("scn_multi_scene_")).ToList();
-            Assert.True(multiScenes.Count >= 15); // 应该有至少15个多人游戏场景
+            Assert.True(multiScenes.Count >= 15); // 应该有至�?5个多人游戏场�?
 
             var quickBattleScenes = result.Sites.SiteList.Where(s => s.Id.Contains("quick_battle")).ToList();
-            Assert.True(quickBattleScenes.Count > 5); // 应该有多个快速战斗场景
+            Assert.True(quickBattleScenes.Count > 5); // 应该有多个快速战斗场�?
         }
 
         [Fact]
@@ -237,11 +237,11 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var site in result.Sites.SiteList)
             {
-                // ID应该以"scn_"开头，name不应该包含"scn_"前缀
+                // ID应该�?scn_"开头，name不应该包�?scn_"前缀
                 Assert.StartsWith("scn_", site.Id);
                 Assert.DoesNotContain("scn_", site.Name);
                 
-                // 验证特定的已知对应关系
+                // 验证特定的已知对应关�?
                 if (site.Id == "scn_world_map")
                     Assert.Equal("world_map", site.Name);
                                  if (site.Id == "scn_conversation_scene")
@@ -265,7 +265,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("face_animation_record", result.Type);
             Assert.NotNull(result.FaceAnimationRecords);
             Assert.NotNull(result.FaceAnimationRecords.FaceAnimationRecordList);
-            Assert.True(result.FaceAnimationRecords.FaceAnimationRecordList.Count > 100); // 有很多面部动画记录
+            Assert.True(result.FaceAnimationRecords.FaceAnimationRecordList.Count > 100); // 有很多面部动画记�?
         }
 
         [Fact]
@@ -303,7 +303,7 @@ namespace BannerlordModEditor.Common.Tests
             var recordsWithFlags = result.FaceAnimationRecords.FaceAnimationRecordList
                 .Where(r => r.Flags != null && r.Flags.FlagList.Count > 0).ToList();
             
-            Assert.True(recordsWithFlags.Count > 50); // 应该有很多带标志的记录
+            Assert.True(recordsWithFlags.Count > 50); // 应该有很多带标志的记�?
 
             // 检查常见的标志
             var doBlinkFlags = recordsWithFlags.SelectMany(r => r.Flags!.FlagList)
@@ -365,15 +365,15 @@ namespace BannerlordModEditor.Common.Tests
 
             var orderRecords = result.FaceAnimationRecords.FaceAnimationRecordList
                 .Where(r => r.Id.Contains("archers") || r.Id.Contains("cavalry") || r.Id.Contains("infantry")).ToList();
-            Assert.True(orderRecords.Count >= 3); // 应该有军事命令记录
+            Assert.True(orderRecords.Count >= 3); // 应该有军事命令记�?
 
             var talkingRecords = result.FaceAnimationRecords.FaceAnimationRecordList
                 .Where(r => r.Id.Contains("talking")).ToList();
-            Assert.True(talkingRecords.Count >= 3); // 应该有对话表情记录
+            Assert.True(talkingRecords.Count >= 3); // 应该有对话表情记�?
 
                          var poseRecords = result.FaceAnimationRecords.FaceAnimationRecordList
                  .Where(r => r.Id.StartsWith("pose_")).ToList();
-             Assert.True(poseRecords.Count >= 5); // 应该有姿势记录
+             Assert.True(poseRecords.Count >= 5); // 应该有姿势记�?
          }
 
         [Fact]
@@ -394,7 +394,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(result.BannerIconData.BannerIconGroupList);
             Assert.NotNull(result.BannerIconData.BannerColors);
             Assert.True(result.BannerIconData.BannerIconGroupList.Count >= 6); // 应该有多个图标组
-            Assert.True(result.BannerIconData.BannerColors.ColorList.Count > 100); // 应该有很多颜色
+            Assert.True(result.BannerIconData.BannerColors.ColorList.Count > 100); // 应该有很多颜�?
         }
 
         [Fact]
@@ -415,7 +415,7 @@ namespace BannerlordModEditor.Common.Tests
                 Assert.NotEmpty(group.Name);
                 Assert.NotEmpty(group.IsPattern);
                 
-                // 检查组的类型
+                // 检查组的类�?
                 if (group.IsPattern == "true")
                 {
                     // 如果是pattern，应该有Background元素
@@ -444,7 +444,7 @@ namespace BannerlordModEditor.Common.Tests
             var backgroundGroup = result.BannerIconData.BannerIconGroupList.FirstOrDefault(g => g.Id == "1");
             Assert.NotNull(backgroundGroup);
             Assert.Equal("true", backgroundGroup.IsPattern);
-            Assert.True(backgroundGroup.BackgroundList.Count >= 30); // 应该有很多背景
+            Assert.True(backgroundGroup.BackgroundList.Count >= 30); // 应该有很多背�?
             
             // 检查有一个base background
             var baseBackground = backgroundGroup.BackgroundList.FirstOrDefault(b => b.IsBaseBackground == "true");
@@ -473,7 +473,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(animalGroup);
             Assert.Contains("Animal", animalGroup.Name);
             Assert.Equal("false", animalGroup.IsPattern);
-            Assert.True(animalGroup.IconList.Count >= 50); // 应该有很多动物图标
+            Assert.True(animalGroup.IconList.Count >= 50); // 应该有很多动物图�?
             
             // 检查保留的图标
             var reservedIcons = animalGroup.IconList.Where(i => i.IsReserved == "true").ToList();
@@ -503,8 +503,8 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Assert.NotEmpty(color.Id);
                 Assert.NotEmpty(color.Hex);
-                Assert.StartsWith("0x", color.Hex); // 应该是十六进制格式
-                Assert.True(color.Hex.Length == 10); // 0xFFRRGGBB格式应该有10个字符
+                Assert.StartsWith("0x", color.Hex); // 应该是十六进制格�?
+                Assert.True(color.Hex.Length == 10); // 0xFFRRGGBB格式应该�?0个字�?
             }
             
             // 检查一些特定的文化颜色
@@ -512,14 +512,14 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(aseraiBgColor);
             Assert.Equal("0xffB57A1E", aseraiBgColor.Hex);
             
-            // 检查玩家可选择的颜色
+            // 检查玩家可选择的颜�?
             var playerBgColors = result.BannerIconData.BannerColors.ColorList
                 .Where(c => c.PlayerCanChooseForBackground == "true").ToList();
             var playerSigilColors = result.BannerIconData.BannerColors.ColorList
                 .Where(c => c.PlayerCanChooseForSigil == "true").ToList();
             
-            Assert.True(playerBgColors.Count >= 5); // 应该有一些玩家可选择的背景颜色
-            Assert.True(playerSigilColors.Count >= 5); // 应该有一些玩家可选择的徽记颜色
+            Assert.True(playerBgColors.Count >= 5); // 应该有一些玩家可选择的背景颜�?
+            Assert.True(playerSigilColors.Count >= 5); // 应该有一些玩家可选择的徽记颜�?
         }
 
         [Fact]
@@ -534,7 +534,7 @@ namespace BannerlordModEditor.Common.Tests
             var result = (BannerIconsBase)serializer.Deserialize(fileStream);
 
             // Assert
-            // 检查不同类别的图标组是否存在
+            // 检查不同类别的图标组是否存�?
             var categories = new[] { "Animal", "Flora", "Handmade", "Sign", "Shape" };
             
             foreach (var category in categories)
@@ -543,14 +543,14 @@ namespace BannerlordModEditor.Common.Tests
                     .FirstOrDefault(g => g.Name.Contains(category));
                 Assert.NotNull(group);
                 Assert.Equal("false", group.IsPattern); // 除了Background外都应该是false
-                Assert.True(group.IconList.Count > 0); // 应该有图标
+                Assert.True(group.IconList.Count > 0); // 应该有图�?
             }
             
             // 检查multiplayer culture colors
             var multiplayerColors = result.BannerIconData.BannerColors.ColorList
                 .Where(c => c.Id == "122" || c.Id == "126" || c.Id == "130" || c.Id == "134" || c.Id == "138" || c.Id == "142")
                 .ToList();
-                         Assert.Equal(6, multiplayerColors.Count); // 应该有6个主要文化的多人游戏颜色
+                         Assert.Equal(6, multiplayerColors.Count); // 应该�?个主要文化的多人游戏颜色
          }
 
         [Fact]
@@ -596,7 +596,7 @@ namespace BannerlordModEditor.Common.Tests
             var localPrefabs = result.WaterPrefabList.Where(p => p.IsGlobal == "false" || p.IsGlobal == "False").ToList();
             
             Assert.True(globalPrefabs.Count > 5); // 应该有全局水体
-            Assert.True(localPrefabs.Count > 5); // 应该有局部水体
+            Assert.True(localPrefabs.Count > 5); // 应该有局部水�?
             
             // 检查特定的海洋水体
             var oceanPrefab = result.WaterPrefabList.FirstOrDefault(p => p.PrefabName.Contains("Ocean"));
@@ -619,7 +619,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("special_meshes", result.Type);
             Assert.NotNull(result.Meshes);
             Assert.NotNull(result.Meshes.MeshList);
-            Assert.True(result.Meshes.MeshList.Count >= 2); // 应该有一些特殊网格
+            Assert.True(result.Meshes.MeshList.Count >= 2); // 应该有一些特殊网�?
         }
 
         [Fact]
@@ -639,7 +639,7 @@ namespace BannerlordModEditor.Common.Tests
                 Assert.NotEmpty(mesh.Name);
                 Assert.NotNull(mesh.Types);
                 Assert.NotNull(mesh.Types.TypeList);
-                Assert.True(mesh.Types.TypeList.Count > 0); // 每个网格应该有类型
+                Assert.True(mesh.Types.TypeList.Count > 0); // 每个网格应该有类�?
 
                 foreach (var type in mesh.Types.TypeList)
                 {
@@ -659,19 +659,19 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "worldmap_color_grades.xml");
-            var serializer = new XmlSerializer(typeof(WorldmapColorGradesBase));
+            var serializer = new XmlSerializer(typeof(WorldmapColorGrades));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (WorldmapColorGradesBase)serializer.Deserialize(fileStream);
+            var result = (WorldmapColorGrades)serializer.Deserialize(fileStream);
 
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.ColorGradeGrid);
             Assert.NotNull(result.ColorGradeDefault);
             Assert.NotNull(result.ColorGradeNight);
-            Assert.NotNull(result.ColorGradeList);
-            Assert.True(result.ColorGradeList.Count >= 8); // 应该有多个颜色等级
+            Assert.NotNull(result.ColorGrades);
+            Assert.True(result.ColorGrades.Count >= 8); // 应该有多个颜色等�?
         }
 
         [Fact]
@@ -679,27 +679,27 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "worldmap_color_grades.xml");
-            var serializer = new XmlSerializer(typeof(WorldmapColorGradesBase));
+            var serializer = new XmlSerializer(typeof(WorldmapColorGrades));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (WorldmapColorGradesBase)serializer.Deserialize(fileStream);
+            var result = (WorldmapColorGrades)serializer.Deserialize(fileStream);
 
             // Assert
             Assert.NotEmpty(result.ColorGradeGrid.Name);
             Assert.NotEmpty(result.ColorGradeDefault.Name);
             Assert.NotEmpty(result.ColorGradeNight.Name);
 
-            foreach (var colorGrade in result.ColorGradeList)
+            foreach (var colorGrade in result.ColorGrades)
             {
                 Assert.NotEmpty(colorGrade.Name);
                 Assert.NotEmpty(colorGrade.Value);
                 Assert.True(int.TryParse(colorGrade.Value, out int value)); // 值应该是数字
-                Assert.True(value >= 0 && value <= 200); // 值应该在合理范围内
+                Assert.True(value >= 0 && value <= 200); // 值应该在合理范围�?
             }
 
             // 检查特定的环境
-            var desertGrade = result.ColorGradeList.FirstOrDefault(g => g.Name.Contains("desert"));
+            var desertGrade = result.ColorGrades.FirstOrDefault(g => g.Name.Contains("desert"));
             Assert.NotNull(desertGrade);
             Assert.Equal("20", desertGrade.Value);
         }
@@ -720,7 +720,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("skinned_decals", result.Type);
             Assert.NotNull(result.SkinnedDecals);
             Assert.NotNull(result.SkinnedDecals.SkinnedDecalList);
-            Assert.True(result.SkinnedDecals.SkinnedDecalList.Count >= 1); // 应该有贴花
+            Assert.True(result.SkinnedDecals.SkinnedDecalList.Count >= 1); // 应该有贴�?
         }
 
         [Fact]
@@ -755,14 +755,14 @@ namespace BannerlordModEditor.Common.Tests
 
                 if (decal.Materials != null)
                 {
-                    Assert.True(decal.Materials.MaterialList.Count >= 10); // 应该有多个材质
+                    Assert.True(decal.Materials.MaterialList.Count >= 10); // 应该有多个材�?
                     
                     foreach (var material in decal.Materials.MaterialList)
                     {
                         Assert.NotEmpty(material.Enum);
                         Assert.NotEmpty(material.Name);
-                        Assert.StartsWith("material_", material.Enum); // 枚举应该以material_开头
-                        Assert.StartsWith("blood", material.Name); // 材质名应该以blood开头
+                        Assert.StartsWith("material_", material.Enum); // 枚举应该以material_开�?
+                        Assert.StartsWith("blood", material.Name); // 材质名应该以blood开�?
                     }
                 }
             }
@@ -842,7 +842,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("0.37", human.Capsules.BodyCapsule.Radius);
             Assert.Equal("0.37", human.Capsules.CrouchedBodyCapsule.Radius);
             
-            // 检查标志
+            // 检查标�?
             Assert.NotNull(human.Flags);
             Assert.Equal("true", human.Flags.CanAttack);
             Assert.Equal("true", human.Flags.CanDefend);
@@ -873,20 +873,20 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("1", horse.FamilyType);
             Assert.Equal("horse", horse.SoundAndCollisionInfoClass);
             
-            // 检查骑乘属性
+            // 检查骑乘属�?
             Assert.NotNull(horse.RiderEyeHeightAdder);
             Assert.NotNull(horse.RiderCameraHeightAdder);
             Assert.NotNull(horse.RiderBodyCapsuleHeightAdder);
             Assert.NotNull(horse.RiderBodyCapsuleForwardAdder);
             Assert.NotNull(horse.RiderSitBone);
             
-            // 检查缰绳属性
+            // 检查缰绳属�?
             Assert.NotNull(horse.ReinHandleLeftLocalPos);
             Assert.NotNull(horse.ReinHandleRightLocalPos);
             Assert.NotNull(horse.ReinSkeleton);
             Assert.NotNull(horse.ReinCollisionBody);
             
-            // 检查标志
+            // 检查标�?
             Assert.NotNull(horse.Flags);
             Assert.Equal("true", horse.Flags.Mountable);
             Assert.Equal("true", horse.Flags.CanRear);
@@ -978,7 +978,7 @@ namespace BannerlordModEditor.Common.Tests
             var human = result.MonsterList.FirstOrDefault(m => m.Id == "human");
             Assert.NotNull(human);
             
-            // 检查关键骨骼定义
+            // 检查关键骨骼定�?
             Assert.NotNull(human.HeadLookDirectionBone);
             Assert.NotNull(human.PelvisBone);
             Assert.NotNull(human.NeckRootBone);
@@ -987,12 +987,12 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(human.PrimaryFootBone);
             Assert.NotNull(human.SecondaryFootBone);
             
-            // 检查尸体检查骨骼
+            // 检查尸体检查骨�?
             Assert.NotNull(human.RagdollBoneToCheckForCorpses0);
             Assert.NotNull(human.RagdollBoneToCheckForCorpses1);
             Assert.NotNull(human.RagdollBoneToCheckForCorpses2);
             
-            // 检查坠落声音骨骼
+            // 检查坠落声音骨�?
             Assert.NotNull(human.RagdollFallSoundBone0);
             Assert.NotNull(human.RagdollFallSoundBone1);
             Assert.NotNull(human.RagdollFallSoundBone2);
@@ -1018,9 +1018,9 @@ namespace BannerlordModEditor.Common.Tests
                     Assert.NotNull(monster.Capsules.BodyCapsule.Pos1);
                     Assert.NotNull(monster.Capsules.BodyCapsule.Pos2);
                     
-                    // 检查半径是否为有效数值
+                    // 检查半径是否为有效数�?
                     Assert.True(double.TryParse(monster.Capsules.BodyCapsule.Radius, out double radius));
-                    Assert.True(radius > 0 && radius < 1.0); // 合理的半径范围
+                    Assert.True(radius > 0 && radius < 1.0); // 合理的半径范�?
                 }
                 
                 if (monster.Capsules.CrouchedBodyCapsule != null)
@@ -1048,7 +1048,7 @@ namespace BannerlordModEditor.Common.Tests
             {
                 var flags = monster.Flags;
                 
-                // 所有标志值都应该是"true"，或者为null（未设置）
+                // 所有标志值都应该�?true"，或者为null（未设置�?
                 string[] flagProperties = {
                     flags.CanAttack, flags.CanDefend, flags.CanKick, flags.CanBeCharged,
                     flags.CanCharge, flags.CanClimbLadders, flags.CanSprint, flags.CanCrouch,
@@ -1081,7 +1081,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.BadgeList);
-            Assert.Equal(137, result.BadgeList.Count); // 应该有137个徽章定义
+            Assert.Equal(137, result.BadgeList.Count); // 应该�?37个徽章定�?
         }
 
         [Fact]
@@ -1120,7 +1120,7 @@ namespace BannerlordModEditor.Common.Tests
             var customBadges = result.BadgeList.Where(b => b.Type == "Custom").ToList();
             Assert.True(customBadges.Count > 0); // 应该有自定义徽章
 
-            // 检查特定的开发者徽章
+            // 检查特定的开发者徽�?
             var devBadge = result.BadgeList.FirstOrDefault(b => b.Id == "badge_taleworlds_primary_dev");
             Assert.NotNull(devBadge);
             Assert.Equal("Custom", devBadge.Type);
@@ -1129,7 +1129,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("true", devBadge.IsVisibleOnlyWhenEarned);
             Assert.Empty(devBadge.Conditions); // 自定义徽章通常没有条件
 
-            // 检查Alpha测试者徽章
+            // 检查Alpha测试者徽�?
             var alphaBadge = result.BadgeList.FirstOrDefault(b => b.Id == "badge_alpha_tester");
             Assert.NotNull(alphaBadge);
             Assert.Equal("Custom", alphaBadge.Type);
@@ -1149,11 +1149,11 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var conditionalBadges = result.BadgeList.Where(b => b.Type == "Conditional").ToList();
-            Assert.True(conditionalBadges.Count > 0); // 应该有条件徽章
+            Assert.True(conditionalBadges.Count > 0); // 应该有条件徽�?
 
             foreach (var badge in conditionalBadges)
             {
-                Assert.True(badge.Conditions.Count > 0); // 条件徽章必须有条件
+                Assert.True(badge.Conditions.Count > 0); // 条件徽章必须有条�?
             }
         }
 
@@ -1251,7 +1251,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("true", championBadge.IsVisibleOnlyWhenEarned);
             Assert.Equal(2, championBadge.Conditions.Count);
 
-            // 检查Solo组类型条件
+            // 检查Solo组类型条�?
             var soloCondition = championBadge.Conditions.FirstOrDefault(c => c.GroupType == "Solo");
             Assert.NotNull(soloCondition);
             Assert.Equal("PlayerDataNumeric", soloCondition.Type);
@@ -1265,7 +1265,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(soloIsBestParam);
             Assert.Equal("true", soloIsBestParam.Value);
 
-            // 检查Party组类型条件
+            // 检查Party组类型条�?
             var partyCondition = championBadge.Conditions.FirstOrDefault(c => c.GroupType == "Party");
             Assert.NotNull(partyCondition);
             Assert.Equal("PlayerDataNumeric", partyCondition.Type);
@@ -1285,9 +1285,9 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var groupedBadges = result.BadgeList.Where(b => !string.IsNullOrEmpty(b.GroupId)).ToList();
-            Assert.True(groupedBadges.Count > 0); // 应该有分组徽章
+            Assert.True(groupedBadges.Count > 0); // 应该有分组徽�?
 
-            // 检查Beta胜利组
+            // 检查Beta胜利�?
             var betaWinsBadges = result.BadgeList.Where(b => b.GroupId == "beta_wins").ToList();
             if (betaWinsBadges.Count > 0) // 如果存在Beta胜利徽章
             
@@ -1329,7 +1329,7 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var levelBadges = result.BadgeList.Where(b => b.GroupId == "ea_levels").ToList();
-            if (levelBadges.Count > 0) // 如果有等级徽章
+            if (levelBadges.Count > 0) // 如果有等级徽�?
             {
                 foreach (var badge in levelBadges)
                 {
@@ -1367,7 +1367,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.Characters);
-            Assert.True(result.Characters.Count > 80); // 应该有很多角色定义（实际约89个）
+            Assert.True(result.Characters.Count > 80); // 应该有很多角色定义（实际�?9个）
         }
 
         [Fact]
@@ -1407,7 +1407,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("36", baseCharacter.Level);
             Assert.Equal("{=eFWJjaBC}Multiplayer Character", baseCharacter.Name);
             
-            // 检查技能
+            // 检查技�?
             Assert.NotNull(baseCharacter.Skills);
             Assert.True(baseCharacter.Skills.SkillList.Count >= 7);
             
@@ -1419,7 +1419,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(oneHandedSkill);
             Assert.Equal("5", oneHandedSkill.Value);
             
-            // 检查装备
+            // 检查装�?
             Assert.NotNull(baseCharacter.Equipments);
             Assert.Single(baseCharacter.Equipments.Rosters);
             
@@ -1477,7 +1477,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("Soldier", lightInfantry.Occupation);
             Assert.Equal("Culture.vlandia", lightInfantry.Culture);
             
-            // 检查抗性
+            // 检查抗�?
             Assert.NotNull(lightInfantry.Resistances);
             Assert.Equal("25", lightInfantry.Resistances.Dismount);
             
@@ -1500,11 +1500,11 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var cavalryCharacters = result.Characters.Where(c => c.DefaultGroup == "Cavalry").ToList();
-            Assert.True(cavalryCharacters.Count > 5); // 应该有多个骑兵角色
+            Assert.True(cavalryCharacters.Count > 5); // 应该有多个骑兵角�?
             
             foreach (var cavalry in cavalryCharacters)
             {
-                // 骑兵应该有装备
+                // 骑兵应该有装�?
                 Assert.NotNull(cavalry.Equipments);
                 Assert.True(cavalry.Equipments.Rosters.Count > 0);
                 
@@ -1512,7 +1512,7 @@ namespace BannerlordModEditor.Common.Tests
                 var hasHorse = cavalry.Equipments.Rosters.Any(roster => 
                     roster.EquipmentList.Any(eq => eq.Slot == "Horse"));
                 
-                // 大多数骑兵应该有马（但不是必须的，因为可能有例外）
+                // 大多数骑兵应该有马（但不是必须的，因为可能有例外�?
                 if (hasHorse)
                 {
                     Assert.True(true); // 有马是正常的
@@ -1535,7 +1535,7 @@ namespace BannerlordModEditor.Common.Tests
             var charactersWithFace = result.Characters.Where(c => c.Face != null).ToList();
             Assert.True(charactersWithFace.Count > 10); // 应该有多个有面部属性的角色
             
-            foreach (var character in charactersWithFace.Take(5)) // 检查前5个
+            foreach (var character in charactersWithFace.Take(5)) // 检查前5�?
             {
                 if (character.Face?.BodyProperties != null)
                 {
@@ -1546,7 +1546,7 @@ namespace BannerlordModEditor.Common.Tests
                     Assert.NotNull(props.Build);
                     Assert.NotNull(props.Key);
                     
-                    // 验证数值范围
+                    // 验证数值范�?
                     if (double.TryParse(props.Weight, out double weight))
                     {
                         Assert.True(weight >= 0.0 && weight <= 1.0);
@@ -1575,9 +1575,9 @@ namespace BannerlordModEditor.Common.Tests
             var charactersWithSkills = result.Characters.Where(c => c.Skills != null).ToList();
             Assert.True(charactersWithSkills.Count > 10); // 应该有多个有技能的角色
             
-            foreach (var character in charactersWithSkills.Take(3)) // 检查前3个
+            foreach (var character in charactersWithSkills.Take(3)) // 检查前3�?
             {
-                Assert.True(character.Skills.SkillList.Count >= 7); // 基本技能应该有7个
+                Assert.True(character.Skills.SkillList.Count >= 7); // 基本技能应该有7�?
                 
                 var skillIds = character.Skills.SkillList.Select(s => s.Id).ToList();
                 Assert.Contains("Riding", skillIds);
@@ -1588,7 +1588,7 @@ namespace BannerlordModEditor.Common.Tests
                 Assert.Contains("Bow", skillIds);
                 Assert.Contains("Throwing", skillIds);
                 
-                // 验证技能值
+                // 验证技能�?
                 foreach (var skill in character.Skills.SkillList)
                 {
                     Assert.NotNull(skill.Id);
@@ -1596,7 +1596,7 @@ namespace BannerlordModEditor.Common.Tests
                     
                     if (int.TryParse(skill.Value, out int value))
                     {
-                        Assert.True(value >= 0 && value <= 300); // 合理的技能范围
+                        Assert.True(value >= 0 && value <= 300); // 合理的技能范�?
                     }
                 }
             }
@@ -1615,12 +1615,12 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var charactersWithEquipment = result.Characters.Where(c => c.Equipments != null).ToList();
-            Assert.True(charactersWithEquipment.Count > 10); // 应该有多个有装备的角色
+            Assert.True(charactersWithEquipment.Count > 10); // 应该有多个有装备的角�?
             
             var validSlots = new[] { "Item0", "Item1", "Item2", "Item3", "Body", "Head", "Leg", 
                                    "Gloves", "Cape", "Horse", "HorseHarness" };
             
-            foreach (var character in charactersWithEquipment.Take(5)) // 检查前5个
+            foreach (var character in charactersWithEquipment.Take(5)) // 检查前5�?
             {
                 foreach (var roster in character.Equipments.Rosters)
                 {
@@ -1649,7 +1649,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.Descriptions);
-            Assert.True(result.Descriptions.Count > 20); // 应该有很多武器描述（实际约22个）
+            Assert.True(result.Descriptions.Count > 20); // 应该有很多武器描述（实际�?2个）
         }
 
         [Fact]
@@ -1668,7 +1668,7 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Assert.NotEmpty(description.Id);
                 // 大多数描述应该有武器类别
-                // 大多数描述应该有使用特性
+                // 大多数描述应该有使用特�?
             }
         }
 
@@ -1689,16 +1689,16 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("OneHandedSword", oneHandedSword.WeaponClass);
             Assert.Equal("onehanded:block:shield:swing:thrust", oneHandedSword.ItemUsageFeatures);
             
-            // 检查武器标志
+            // 检查武器标�?
             Assert.NotNull(oneHandedSword.WeaponFlags);
             Assert.True(oneHandedSword.WeaponFlags.Flags.Count >= 1);
             
             var meleeFlag = oneHandedSword.WeaponFlags.Flags.FirstOrDefault(f => f.Value == "MeleeWeapon");
             Assert.NotNull(meleeFlag);
             
-            // 检查可用部件
+            // 检查可用部�?
             Assert.NotNull(oneHandedSword.AvailablePieces);
-            Assert.True(oneHandedSword.AvailablePieces.Pieces.Count > 100); // 应该有很多可用部件
+            Assert.True(oneHandedSword.AvailablePieces.Pieces.Count > 100); // 应该有很多可用部�?
             
             // 验证一些特定的部件
             var empireBlade = oneHandedSword.AvailablePieces.Pieces.FirstOrDefault(p => p.Id == "empire_blade_1");
@@ -1722,7 +1722,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal("TwoHandedMace", twoHandedMace.WeaponClass);
             Assert.Equal("twohanded:axe", twoHandedMace.ItemUsageFeatures);
             
-            // 检查武器标志
+            // 检查武器标�?
             Assert.NotNull(twoHandedMace.WeaponFlags);
             Assert.True(twoHandedMace.WeaponFlags.Flags.Count >= 3);
             
@@ -1745,12 +1745,12 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var descriptionsWithFlags = result.Descriptions.Where(d => d.WeaponFlags != null).ToList();
-            Assert.True(descriptionsWithFlags.Count > 10); // 应该有多个有标志的武器
+            Assert.True(descriptionsWithFlags.Count > 10); // 应该有多个有标志的武�?
             
             var validFlags = new[] { "MeleeWeapon", "NotUsableWithOneHand", "TwoHandIdleOnMount", 
                                    "RangedWeapon", "HasHitPoints", "CannotReloadOnHorseback" };
             
-            foreach (var description in descriptionsWithFlags.Take(5)) // 检查前5个
+            foreach (var description in descriptionsWithFlags.Take(5)) // 检查前5�?
             {
                 foreach (var flag in description.WeaponFlags.Flags)
                 {
@@ -1773,13 +1773,13 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var descriptionsWithPieces = result.Descriptions.Where(d => d.AvailablePieces != null).ToList();
-            Assert.True(descriptionsWithPieces.Count > 10); // 应该有多个有部件的武器
+            Assert.True(descriptionsWithPieces.Count > 10); // 应该有多个有部件的武�?
             
-            foreach (var description in descriptionsWithPieces.Take(3)) // 检查前3个
+            foreach (var description in descriptionsWithPieces.Take(3)) // 检查前3�?
             {
                 Assert.True(description.AvailablePieces.Pieces.Count > 0);
                 
-                foreach (var piece in description.AvailablePieces.Pieces.Take(10)) // 检查前10个部件
+                foreach (var piece in description.AvailablePieces.Pieces.Take(10)) // 检查前10个部�?
                 {
                     Assert.NotNull(piece.Id);
                     Assert.True(piece.Id.Length > 0);
@@ -1805,7 +1805,7 @@ namespace BannerlordModEditor.Common.Tests
                 .Distinct()
                 .ToList();
             
-            Assert.True(weaponClasses.Count >= 5); // 应该有多种武器类别
+            Assert.True(weaponClasses.Count >= 5); // 应该有多种武器类�?
             
             // 验证一些已知的武器类别
             Assert.Contains("OneHandedSword", weaponClasses);
@@ -1830,12 +1830,12 @@ namespace BannerlordModEditor.Common.Tests
             
             Assert.True(descriptionsWithFeatures.Count > 10); // 应该有多个有使用特性的武器
             
-            foreach (var description in descriptionsWithFeatures.Take(5)) // 检查前5个
+            foreach (var description in descriptionsWithFeatures.Take(5)) // 检查前5�?
             {
-                Assert.Contains(":", description.ItemUsageFeatures); // 使用特性通常包含冒号分隔符
+                Assert.Contains(":", description.ItemUsageFeatures); // 使用特性通常包含冒号分隔�?
             }
             
-            // 验证一些已知的使用特性模式
+            // 验证一些已知的使用特性模�?
             var oneHandedFeatures = descriptionsWithFeatures
                 .Where(d => d.ItemUsageFeatures.Contains("onehanded"))
                 .ToList();
@@ -1865,9 +1865,9 @@ namespace BannerlordModEditor.Common.Tests
                 .Where(p => !string.IsNullOrEmpty(p.Id))
                 .ToList();
             
-            Assert.True(allPieces.Count > 500); // 应该有很多部件
+            Assert.True(allPieces.Count > 500); // 应该有很多部�?
             
-            // 检查部件类型模式
+            // 检查部件类型模�?
             var blades = allPieces.Where(p => p.Id.Contains("blade")).ToList();
             var guards = allPieces.Where(p => p.Id.Contains("guard")).ToList();
             var grips = allPieces.Where(p => p.Id.Contains("grip")).ToList();
@@ -1875,12 +1875,12 @@ namespace BannerlordModEditor.Common.Tests
             var handles = allPieces.Where(p => p.Id.Contains("handle")).ToList();
             var heads = allPieces.Where(p => p.Id.Contains("head")).ToList();
             
-            Assert.True(blades.Count > 50); // 应该有很多刀刃
-            Assert.True(guards.Count > 10); // 应该有护手
-            Assert.True(grips.Count > 10); // 应该有握柄
-            Assert.True(pommels.Count > 10); // 应该有剑首
-            Assert.True(handles.Count > 10); // 应该有手柄
-            Assert.True(heads.Count > 10); // 应该有头部（锤头、斧头等）
+            Assert.True(blades.Count > 50); // 应该有很多刀�?
+            Assert.True(guards.Count > 10); // 应该有护�?
+            Assert.True(grips.Count > 10); // 应该有握�?
+            Assert.True(pommels.Count > 10); // 应该有剑�?
+            Assert.True(handles.Count > 10); // 应该有手�?
+            Assert.True(heads.Count > 10); // 应该有头部（锤头、斧头等�?
         }
     }
 } 
