@@ -13,7 +13,12 @@ namespace BannerlordModEditor.Common.Loaders
             return serializer.Deserialize(reader) as T;
         }
 
-        public void Save(string filePath, T data)
+        public async Task<T?> LoadAsync(string filePath)
+        {
+            return await Task.Run(() => Load(filePath));
+        }
+
+        public void Save(T data, string filePath)
         {
             var serializer = new XmlSerializer(typeof(T));
             var settings = new XmlWriterSettings
@@ -30,6 +35,11 @@ namespace BannerlordModEditor.Common.Loaders
             ns.Add("", "");
 
             serializer.Serialize(writer, data, ns);
+        }
+
+        public async Task SaveAsync(T data, string filePath)
+        {
+            await Task.Run(() => Save(data, filePath));
         }
     }
 } 
