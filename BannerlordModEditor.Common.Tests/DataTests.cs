@@ -558,11 +558,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "water_prefabs.xml");
-            var serializer = new XmlSerializer(typeof(WaterPrefabsBase));
+            var serializer = new XmlSerializer(typeof(WaterPrefabs));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (WaterPrefabsBase)serializer.Deserialize(fileStream);
+            var result = (WaterPrefabs)serializer.Deserialize(fileStream);
 
             // Assert
             Assert.NotNull(result);
@@ -575,11 +575,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "water_prefabs.xml");
-            var serializer = new XmlSerializer(typeof(WaterPrefabsBase));
+            var serializer = new XmlSerializer(typeof(WaterPrefabs));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (WaterPrefabsBase)serializer.Deserialize(fileStream);
+            var result = (WaterPrefabs)serializer.Deserialize(fileStream);
 
             // Assert
             foreach (var prefab in result.WaterPrefabList)

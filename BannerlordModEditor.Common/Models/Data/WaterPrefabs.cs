@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("WaterPrefabs")]
-    public class WaterPrefabsBase
+    public class WaterPrefabs
     {
         [XmlElement("WaterPrefab")]
         public List<WaterPrefab> WaterPrefabList { get; set; } = new List<WaterPrefab>();
