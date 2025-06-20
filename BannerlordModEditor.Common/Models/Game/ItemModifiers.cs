@@ -18,7 +18,7 @@ namespace BannerlordModEditor.Common.Models.Game
     public class ItemModifier
     {
         [XmlAttribute("modifier_group")]
-        public string ModifierGroup { get; set; } = string.Empty;
+        public string? ModifierGroup { get; set; }
 
         [XmlAttribute("id")]
         public string Id { get; set; } = string.Empty;

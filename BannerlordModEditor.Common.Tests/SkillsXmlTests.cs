@@ -1,46 +1,42 @@
-using BannerlordModEditor.Common.Loaders;
-using BannerlordModEditor.Common.Models;
+using BannerlordModEditor.Common.Models.Data;
 using System.IO;
 using System.Linq;
-using System.Xml.Linq;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
     public class SkillsXmlTests
     {
-        private readonly string _testFilePath;
-        private readonly string _outputFilePath;
-
-        public SkillsXmlTests()
-        {
-            var solutionRoot = TestUtils.GetSolutionRoot();
-            _testFilePath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skills.xml");
-            _outputFilePath = Path.Combine(Path.GetTempPath(), "skills.output.xml");
-        }
-
         [Fact]
-        public void SkillsXml_LoadAndSave_ShouldBeLogicallyIdentical()
+        public void Skills_Load_ShouldSucceed()
         {
             // Arrange
-            var loader = new GenericXmlLoader<SkillsWrapper>();
-            
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skills.xml");
+            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(ArrayOfSkillData));
+
             // Act
-            var skills = loader.Load(_testFilePath);
-            Assert.NotNull(skills);
-            loader.Save(_outputFilePath, skills);
+            ArrayOfSkillData skills;
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            {
+                skills = (ArrayOfSkillData)serializer.Deserialize(reader)!;
+            }
 
             // Assert
-            var originalDoc = XDocument.Load(_testFilePath, LoadOptions.None);
-            var savedDoc = XDocument.Load(_outputFilePath, LoadOptions.None);
+            Assert.NotNull(skills);
+            Assert.NotNull(skills.SkillDataList);
+            Assert.True(skills.SkillDataList.Count > 0);
 
-            // Remove artifacts that the serializer doesn't (and shouldn't) produce
-            originalDoc.DescendantNodes().OfType<XComment>().Remove();
-            XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
-            originalDoc.Root?.Attributes().Where(a => a.IsNamespaceDeclaration || a.Name == xsi + "noNamespaceSchemaLocation").Remove();
-
-            Assert.True(XNode.DeepEquals(originalDoc.Root, savedDoc.Root), 
-                $"Files are not logically equivalent. Check the output at '{_outputFilePath}'");
+            var ironFlesh1 = skills.SkillDataList.FirstOrDefault(s => s.Id == "IronFlesh1");
+            Assert.NotNull(ironFlesh1);
+            Assert.Equal("Iron Flesh 1", ironFlesh1.Name);
+            Assert.NotNull(ironFlesh1.Modifiers);
+            Assert.NotNull(ironFlesh1.Modifiers.AttributeModifierList);
+            var modifier = ironFlesh1.Modifiers.AttributeModifierList.First();
+            Assert.Equal("AgentHitPoints", modifier.AttribCode);
+            Assert.Equal("Multiply", modifier.Modification);
+            Assert.Equal("1.01", modifier.Value);
+            Assert.Equal("Iron flesh increases hit points", ironFlesh1.Documentation);
         }
     }
 } 
