@@ -24,13 +24,13 @@ namespace BannerlordModEditor.Common.Tests
         {
             var solutionRoot = FindSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "water_prefabs.xml");
-            var serializer = new XmlSerializer(typeof(WaterPrefabs));
+            var serializer = new XmlSerializer(typeof(WaterPrefabsBase));
             using var fileStream = new FileStream(xmlPath, FileMode.Open);
-            var result = serializer.Deserialize(fileStream) as WaterPrefabs;
+            var result = serializer.Deserialize(fileStream) as WaterPrefabsBase;
 
             Assert.NotNull(result);
-            Assert.NotNull(result.Prefab);
-            Assert.True(result.Prefab.Any());
+            Assert.NotNull(result.WaterPrefabList);
+            Assert.True(result.WaterPrefabList.Any());
         }
     }
 } 

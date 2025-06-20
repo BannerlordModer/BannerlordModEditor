@@ -24,13 +24,14 @@ namespace BannerlordModEditor.Common.Tests
         {
             var solutionRoot = FindSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "voices.xml");
-            var serializer = new XmlSerializer(typeof(Voices));
+            var serializer = new XmlSerializer(typeof(VoicesBase));
             using var fileStream = new FileStream(xmlPath, FileMode.Open);
-            var result = serializer.Deserialize(fileStream) as Voices;
+            var result = serializer.Deserialize(fileStream) as VoicesBase;
 
             Assert.NotNull(result);
-            Assert.NotNull(result.Voice);
-            Assert.True(result.Voice.Any());
+            Assert.NotNull(result.FaceAnimationRecords);
+            Assert.NotNull(result.FaceAnimationRecords.FaceAnimationRecordList);
+            Assert.True(result.FaceAnimationRecords.FaceAnimationRecordList.Any());
         }
     }
 } 

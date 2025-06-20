@@ -24,13 +24,14 @@ namespace BannerlordModEditor.Common.Tests
         {
             var solutionRoot = FindSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skinned_decals.xml");
-            var serializer = new XmlSerializer(typeof(SkinnedDecals));
+            var serializer = new XmlSerializer(typeof(SkinnedDecalsBase));
             using var fileStream = new FileStream(xmlPath, FileMode.Open);
-            var result = serializer.Deserialize(fileStream) as SkinnedDecals;
+            var result = serializer.Deserialize(fileStream) as SkinnedDecalsBase;
 
             Assert.NotNull(result);
-            Assert.NotNull(result.Decals);
-            Assert.True(result.Decals.Any());
+            Assert.NotNull(result.SkinnedDecals);
+            Assert.NotNull(result.SkinnedDecals.SkinnedDecalList);
+            Assert.True(result.SkinnedDecals.SkinnedDecalList.Any());
         }
     }
 } 
