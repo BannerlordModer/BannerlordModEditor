@@ -21,6 +21,9 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private BoneBodyTypeEditorViewModel boneBodyTypeEditor;
 
+    [ObservableProperty]
+    private SkillEditorViewModel skillEditor;
+
     // 保留原有通用编辑器相关属性（暂时）
     public ObservableCollection<FileEntryViewModel> FileEntries { get; } = new();
 
@@ -36,11 +39,15 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private bool showBoneBodyTypeEditor = false;
 
+    [ObservableProperty]
+    private bool showSkillEditor = false;
+
     public MainWindowViewModel()
     {
         EditorManager = new EditorManagerViewModel();
         AttributeEditor = new AttributeEditorViewModel();
         BoneBodyTypeEditor = new BoneBodyTypeEditorViewModel();
+        SkillEditor = new SkillEditorViewModel();
         
         // 订阅编辑器选择事件
         EditorManager.PropertyChanged += (s, e) =>
@@ -63,6 +70,7 @@ public partial class MainWindowViewModel : ViewModelBase
         ShowDefaultContent = false;
         ShowAttributeEditor = false;
         ShowBoneBodyTypeEditor = false;
+        ShowSkillEditor = false;
         
         if (selectedEditor == null) 
         {
@@ -79,6 +87,10 @@ public partial class MainWindowViewModel : ViewModelBase
             case "BoneBodyTypeEditor":
                 BoneBodyTypeEditor.LoadXmlFile(selectedEditor.XmlFileName);
                 ShowBoneBodyTypeEditor = true;
+                break;
+            case "SkillEditor":
+                SkillEditor.LoadXmlFile(selectedEditor.XmlFileName);
+                ShowSkillEditor = true;
                 break;
             default:
                 ShowDefaultContent = true;

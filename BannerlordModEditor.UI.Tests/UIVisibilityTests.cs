@@ -57,6 +57,25 @@ public class UIVisibilityTests
     }
 
     [Fact]
+    public void Selecting_SkillEditor_Should_Show_SkillEditor()
+    {
+        // Arrange
+        var mainViewModel = new MainWindowViewModel();
+        var skillEditor = mainViewModel.EditorManager.Categories
+            .SelectMany(c => c.Editors)
+            .FirstOrDefault(e => e.EditorType == "SkillEditor");
+
+        // Act
+        mainViewModel.EditorManager.SelectEditorCommand.Execute(skillEditor);
+
+        // Assert
+        Assert.NotNull(mainViewModel.EditorManager.CurrentEditorViewModel);
+        Assert.IsType<BannerlordModEditor.UI.ViewModels.Editors.SkillEditorViewModel>(mainViewModel.EditorManager.CurrentEditorViewModel);
+        Assert.Equal(skillEditor, mainViewModel.EditorManager.SelectedEditor);
+        Assert.Contains("技能系统", mainViewModel.EditorManager.CurrentBreadcrumb);
+    }
+
+    [Fact]
     public void Switching_Between_Editors_Should_Update_Visibility()
     {
         // Arrange
@@ -67,6 +86,9 @@ public class UIVisibilityTests
         var boneBodyTypeEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "BoneBodyTypeEditor");
+        var skillEditor = mainViewModel.EditorManager.Categories
+            .SelectMany(c => c.Editors)
+            .FirstOrDefault(e => e.EditorType == "SkillEditor");
 
         // Act & Assert - 选择属性编辑器
         mainViewModel.EditorManager.SelectEditorCommand.Execute(attributeEditor);
@@ -78,6 +100,12 @@ public class UIVisibilityTests
         mainViewModel.EditorManager.SelectEditorCommand.Execute(boneBodyTypeEditor);
         Assert.False(mainViewModel.ShowAttributeEditor);
         Assert.True(mainViewModel.ShowBoneBodyTypeEditor);
+        Assert.False(mainViewModel.ShowDefaultContent);
+
+        // Act & Assert - 切换到技能编辑器
+        mainViewModel.EditorManager.SelectEditorCommand.Execute(skillEditor);
+        Assert.NotNull(mainViewModel.EditorManager.CurrentEditorViewModel);
+        Assert.IsType<BannerlordModEditor.UI.ViewModels.Editors.SkillEditorViewModel>(mainViewModel.EditorManager.CurrentEditorViewModel);
         Assert.False(mainViewModel.ShowDefaultContent);
     }
 

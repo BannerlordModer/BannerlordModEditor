@@ -112,7 +112,7 @@ public partial class EditorManagerViewModel : ViewModelBase
         {
             "AttributeEditor" => new AttributeEditorViewModel(),
             "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
-            "SkillEditor" => new AttributeEditorViewModel(), // 暂时复用，后续可以创建专门的SkillEditorViewModel
+            "SkillEditor" => new SkillEditorViewModel(),
             "ItemEditor" => new AttributeEditorViewModel(),  // 暂时复用
             "ItemModifierEditor" => new AttributeEditorViewModel(), // 暂时复用
             // TODO: 添加更多编辑器类型
@@ -140,6 +140,9 @@ public partial class EditorManagerViewModel : ViewModelBase
                     break;
                 case BoneBodyTypeEditorViewModel boneBodyTypeEditor:
                     boneBodyTypeEditor.LoadXmlFile(xmlFileName);
+                    break;
+                case SkillEditorViewModel skillEditor:
+                    skillEditor.LoadXmlFile(xmlFileName);
                     break;
                 // TODO: 添加其他编辑器的加载方法
             }

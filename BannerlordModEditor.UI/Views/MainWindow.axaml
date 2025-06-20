@@ -110,7 +110,7 @@
                 <Grid>
                     <!-- 默认内容 -->
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
-                               IsVisible="{Binding ShowDefaultContent}">
+                               IsVisible="{Binding EditorManager.CurrentEditorViewModel, Converter={x:Static ObjectConverters.IsNull}}">
                         <TextBlock Text="🎯" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,16"/>
                         <TextBlock Text="选择左侧的XML文件开始编辑" 
                                   FontSize="18" 
@@ -123,15 +123,9 @@
                                   Margin="0,8,0,0"/>
                     </StackPanel>
                     
-                    <!-- 属性编辑器 -->
-                    <editors:AttributeEditorView 
-                        DataContext="{Binding AttributeEditor}"
-                        IsVisible="{Binding $parent[Window].DataContext.ShowAttributeEditor}" />
-                        
-                    <!-- 骨骼体型编辑器 -->
-                    <editors:BoneBodyTypeEditorView 
-                        DataContext="{Binding BoneBodyTypeEditor}"
-                        IsVisible="{Binding $parent[Window].DataContext.ShowBoneBodyTypeEditor}" />
+                    <!-- 动态编辑器内容 -->
+                    <ContentControl Content="{Binding EditorManager.CurrentEditorViewModel}"
+                                   IsVisible="{Binding EditorManager.CurrentEditorViewModel, Converter={x:Static ObjectConverters.IsNotNull}}"/>
                 </Grid>
             </Border>
         </Grid>

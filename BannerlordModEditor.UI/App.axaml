@@ -2,12 +2,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="BannerlordModEditor.UI.App"
              xmlns:local="using:BannerlordModEditor.UI"
+             xmlns:vm="using:BannerlordModEditor.UI.ViewModels"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
+  
+    <Application.Resources>
+        <vm:BoolToStringConverter x:Key="BoolToStringConverter"/>
+    </Application.Resources>
   
     <Application.Styles>
         <FluentTheme />

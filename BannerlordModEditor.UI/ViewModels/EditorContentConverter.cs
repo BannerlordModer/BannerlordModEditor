@@ -6,29 +6,45 @@ using BannerlordModEditor.UI.ViewModels.Editors;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
-public class EditorContentConverter : IMultiValueConverter
+public class EditorContentConverter : IValueConverter
 {
     public static readonly EditorContentConverter Instance = new();
 
-    public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (values.Count < 3) return null;
-
-        var selectedEditor = values[0] as EditorItemViewModel;
-        var attributeEditor = values[1] as AttributeEditorViewModel;
-        var boneBodyTypeEditor = values[2] as BoneBodyTypeEditorViewModel;
-
-        if (selectedEditor == null) return null;
+        if (value is not EditorItemViewModel selectedEditor) return null;
 
         return selectedEditor.EditorType switch
         {
-            "AttributeEditor" => attributeEditor,
-            "BoneBodyTypeEditor" => boneBodyTypeEditor,
+            "AttributeEditor" => new AttributeEditorViewModel(),
+            "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
+            "SkillEditor" => new SkillEditorViewModel(),
             _ => null
         };
     }
 
-    public object[] ConvertBack(object? value, Type[] targetTypes, object? parameter, CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class BoolToStringConverter : IValueConverter
+{
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        if (value is bool boolValue && parameter is string paramStr)
+        {
+            var parts = paramStr.Split('|');
+            if (parts.Length == 2)
+            {
+                return boolValue ? parts[0] : parts[1];
+            }
+        }
+        return value?.ToString();
+    }
+
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         throw new NotImplementedException();
     }
