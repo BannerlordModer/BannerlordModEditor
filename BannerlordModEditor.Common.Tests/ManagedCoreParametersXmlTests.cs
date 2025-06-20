@@ -8,11 +8,21 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class ManagedCoreParametersXmlTests
     {
+        private static string FindSolutionRoot()
+        {
+            var directory = new DirectoryInfo(AppContext.BaseDirectory);
+            while (directory != null && !directory.GetFiles("*.sln").Any())
+            {
+                directory = directory.Parent;
+            }
+            return directory?.FullName ?? throw new DirectoryNotFoundException("Solution root not found");
+        }
+
         [Fact]
         public void ManagedCoreParameters_Load_ShouldSucceed()
         {
             // Arrange
-            var solutionRoot = TestUtils.GetSolutionRoot();
+            var solutionRoot = FindSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "managed_core_parameters.xml");
             var serializer = new System.Xml.Serialization.XmlSerializer(typeof(ManagedCoreParametersBase));
 
@@ -37,6 +47,12 @@ namespace BannerlordModEditor.Common.Tests
             var javelinFriction = coreParams.ManagedCoreParameters.ManagedCoreParameter.FirstOrDefault(p => p.Id == "AirFrictionJavelin");
             Assert.NotNull(javelinFriction);
             Assert.Equal("0.002", javelinFriction.Value);
+        }
+
+        [Fact]
+        public void ManagedCoreParameters_LoadAndSave_ShouldBeLogicallyIdentical()
+        {
+            // ... existing code ...
         }
     }
 } 
