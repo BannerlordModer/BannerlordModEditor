@@ -1,0 +1,250 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:BannerlordModEditor.UI.ViewModels.Editors"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:CraftingPieceEditorViewModel"
+             x:Class="BannerlordModEditor.UI.Views.Editors.CraftingPieceEditorView">
+
+  <Grid RowDefinitions="Auto,*" Margin="16">
+    <!-- 工具栏 -->
+    <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto,Auto" Margin="0,0,0,16">
+      <TextBlock Grid.Column="0" Text="制作部件编辑器" FontWeight="Bold" FontSize="18" VerticalAlignment="Center"/>
+      
+      <Button Grid.Column="1" Command="{Binding LoadFileCommand}" Margin="4">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Text="📂" FontSize="14" Margin="0,0,4,0"/>
+          <TextBlock Text="加载文件"/>
+        </StackPanel>
+      </Button>
+      
+      <Button Grid.Column="2" Command="{Binding SaveFileCommand}" 
+              IsEnabled="{Binding HasUnsavedChanges}" Margin="4">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Text="💾" FontSize="14" Margin="0,0,4,0"/>
+          <TextBlock Text="保存"/>
+        </StackPanel>
+      </Button>
+      
+      <Button Grid.Column="3" Command="{Binding AddCraftingPieceCommand}" Margin="4">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Text="➕" FontSize="14" Margin="0,0,4,0"/>
+          <TextBlock Text="添加部件"/>
+        </StackPanel>
+      </Button>
+    </Grid>
+
+    <!-- 状态栏 -->
+    <TextBlock Grid.Row="0" Text="{Binding FilePath}" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Bottom"
+               FontSize="12" 
+               Foreground="Gray" 
+               Margin="0,24,0,8"/>
+
+    <!-- 主内容区域 -->
+    <Grid Grid.Row="1" ColumnDefinitions="300,4,*">
+      
+      <!-- 左侧列表 -->
+      <Border Grid.Column="0" Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8">
+        <Grid RowDefinitions="Auto,*,Auto">
+          <TextBlock Grid.Row="0" Text="制作部件列表" FontWeight="SemiBold" Margin="12,12,12,8"/>
+          
+          <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding CraftingPieces}" Margin="8">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="vm:CraftingPieceDataViewModel">
+                  <Button Background="{Binding IsValid, Converter={StaticResource BoolToStringConverter}, ConverterParameter=White|#FFE6E6}"
+                          BorderBrush="#DDDDDD" 
+                          BorderThickness="1" 
+                          CornerRadius="4" 
+                          Margin="0,0,0,4" 
+                          Padding="8"
+                          Command="{Binding $parent[UserControl].((vm:CraftingPieceEditorViewModel)DataContext).SelectCraftingPieceCommand}" 
+                          CommandParameter="{Binding}"
+                          HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Left">
+                    <StackPanel>
+                      <TextBlock Text="{Binding Name}" FontWeight="Medium" FontSize="13"/>
+                      <TextBlock Text="{Binding Id}" FontSize="11" Foreground="#666666" Margin="0,2,0,0"/>
+                      <TextBlock Text="{Binding CraftingPieceType}" FontSize="10" Foreground="#888888"/>
+                    </StackPanel>
+                  </Button>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </ScrollViewer>
+          
+          <TextBlock Grid.Row="2" Text="{Binding CraftingPieces.Count, StringFormat='共 \{0\} 个部件'}" 
+                     FontSize="11" Foreground="#666666" Margin="12,8,12,12"/>
+        </Grid>
+      </Border>
+
+      <!-- 分隔条 -->
+      <GridSplitter Grid.Column="1" Background="#DDDDDD" ResizeDirection="Columns"/>
+
+      <!-- 右侧详细编辑区域 -->
+      <ScrollViewer Grid.Column="2" Margin="16,0,0,0">
+        <Grid>
+          <StackPanel IsVisible="{Binding SelectedCraftingPiece, Converter={x:Static ObjectConverters.IsNotNull}}">
+            
+            <!-- 基本信息 -->
+            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+              <StackPanel>
+                <TextBlock Text="基本信息" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
+                
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="120,*,Auto" RowSpacing="8">
+                  
+                  <!-- ID -->
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="ID:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Id}" />
+                  
+                  <!-- 名称 -->
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="名称:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Name}" />
+                  
+                  <!-- 类型 -->
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="部件类型:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <ComboBox Grid.Row="2" Grid.Column="1" SelectedItem="{Binding SelectedCraftingPiece.CraftingPieceType}">
+                    <ComboBoxItem>blade</ComboBoxItem>
+                    <ComboBoxItem>guard</ComboBoxItem>
+                    <ComboBoxItem>handle</ComboBoxItem>
+                    <ComboBoxItem>pommel</ComboBoxItem>
+                    <ComboBoxItem>bow_arm</ComboBoxItem>
+                    <ComboBoxItem>bow_string</ComboBoxItem>
+                    <ComboBoxItem>arrow_head</ComboBoxItem>
+                    <ComboBoxItem>arrow_shaft</ComboBoxItem>
+                  </ComboBox>
+                  
+                  <!-- 等级 -->
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="部件等级:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCraftingPiece.PieceTier}" />
+                  
+                  <!-- 文化 -->
+                  <TextBlock Grid.Row="4" Grid.Column="0" Text="文化:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Culture}" />
+                  
+                  <!-- 缩放因子 -->
+                  <TextBlock Grid.Row="5" Grid.Column="0" Text="缩放因子:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding SelectedCraftingPiece.ScaleFactor}" />
+                  
+                  <!-- 网格 -->
+                  <TextBlock Grid.Row="6" Grid.Column="0" Text="网格:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Mesh}" />
+                  
+                  <!-- 物理材质 -->
+                  <TextBlock Grid.Row="7" Grid.Column="0" Text="物理材质:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding SelectedCraftingPiece.PhysicsMaterial}" />
+                  
+                  <!-- 是否隐藏 -->
+                  <TextBlock Grid.Row="8" Grid.Column="0" Text="是否隐藏:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <ComboBox Grid.Row="8" Grid.Column="1" SelectedItem="{Binding SelectedCraftingPiece.IsHidden}">
+                    <ComboBoxItem>true</ComboBoxItem>
+                    <ComboBoxItem>false</ComboBoxItem>
+                    <ComboBoxItem></ComboBoxItem>
+                  </ComboBox>
+                  
+                  <!-- 删除按钮 -->
+                  <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="9" 
+                          Command="{Binding RemoveCraftingPieceCommand}" 
+                          CommandParameter="{Binding SelectedCraftingPiece}"
+                          Background="#FFC107" 
+                          Foreground="White"
+                          VerticalAlignment="Top"
+                          Margin="8,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                      <TextBlock Text="🗑️" FontSize="12" Margin="0,0,4,0"/>
+                      <TextBlock Text="删除"/>
+                    </StackPanel>
+                  </Button>
+                </Grid>
+              </StackPanel>
+            </Border>
+            
+            <!-- 武器数据 -->
+            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+              <StackPanel>
+                <TextBlock Text="武器数据" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
+                
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="120,120,120,*" RowSpacing="8" ColumnSpacing="8">
+                  <!-- 伤害类型 -->
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="刺击伤害:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCraftingPiece.ThrustDamage}" />
+                  <TextBlock Grid.Row="0" Grid.Column="2" Text="挥砍伤害:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding SelectedCraftingPiece.SwingDamage}" />
+                  
+                  <!-- 速度 -->
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="刺击速度:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCraftingPiece.ThrustSpeed}" />
+                  <TextBlock Grid.Row="1" Grid.Column="2" Text="挥砍速度:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding SelectedCraftingPiece.SwingSpeed}" />
+                  
+                  <!-- 其他属性 -->
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="武器长度:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedCraftingPiece.WeaponLength}" />
+                  <TextBlock Grid.Row="2" Grid.Column="2" Text="重量:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding SelectedCraftingPiece.Weight}" />
+                  
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="精度:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Accuracy}" />
+                  <TextBlock Grid.Row="3" Grid.Column="2" Text="武器平衡:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding SelectedCraftingPiece.WeaponBalance}" />
+                  
+                  <TextBlock Grid.Row="4" Grid.Column="0" Text="生命值:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedCraftingPiece.HitPoints}" />
+                  <TextBlock Grid.Row="4" Grid.Column="2" Text="操控性:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding SelectedCraftingPiece.Handling}" />
+                  
+                  <TextBlock Grid.Row="5" Grid.Column="0" Text="护甲等级:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding SelectedCraftingPiece.ArmorRating}" />
+                  <TextBlock Grid.Row="5" Grid.Column="2" Text="弹药限制:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding SelectedCraftingPiece.AmmoLimit}" />
+                </Grid>
+              </StackPanel>
+            </Border>
+            
+            <!-- 材料和修饰符信息 -->
+            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+              <StackPanel>
+                <TextBlock Text="附加信息" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
+                
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="120,*" RowSpacing="8">
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="材料数量:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Materials.Count, StringFormat='\{0\} 个材料'}" />
+                  
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="修饰符数量:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Modifiers.Count, StringFormat='\{0\} 个修饰符'}" />
+                  
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="标志数量:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Flags.Count, StringFormat='\{0\} 个标志'}" />
+                  
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="需求数量:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                  <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCraftingPiece.Requirements.Count, StringFormat='\{0\} 个需求'}" />
+                </Grid>
+                
+                <TextBlock Text="注意：此版本为简化编辑器，详细的材料、修饰符、标志和需求编辑功能将在后续版本中添加。" 
+                           FontSize="12" 
+                           Foreground="#666666" 
+                           FontStyle="Italic"
+                           Margin="0,12,0,0"/>
+              </StackPanel>
+            </Border>
+            
+          </StackPanel>
+          
+          <!-- 未选择提示 -->
+          <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                     IsVisible="{Binding SelectedCraftingPiece, Converter={x:Static ObjectConverters.IsNull}}">
+            <TextBlock Text="🔧" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,16"/>
+            <TextBlock Text="选择左侧的制作部件进行编辑" 
+                      FontSize="18" 
+                      HorizontalAlignment="Center"
+                      Foreground="#666666"/>
+          </StackPanel>
+        </Grid>
+      </ScrollViewer>
+      
+    </Grid>
+  </Grid>
+</UserControl> 

@@ -115,6 +115,7 @@ public partial class EditorManagerViewModel : ViewModelBase
             "SkillEditor" => new SkillEditorViewModel(),
             "ItemEditor" => new AttributeEditorViewModel(),  // 暂时复用
             "ItemModifierEditor" => new ItemModifierEditorViewModel(),
+            "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
             // TODO: 添加更多编辑器类型
             _ => null
         };
@@ -146,6 +147,9 @@ public partial class EditorManagerViewModel : ViewModelBase
                     break;
                 case ItemModifierEditorViewModel itemModifierEditor:
                     itemModifierEditor.LoadXmlFile(xmlFileName);
+                    break;
+                case CraftingPieceEditorViewModel craftingPieceEditor:
+                    craftingPieceEditor.LoadXmlFile(xmlFileName);
                     break;
                 // TODO: 添加其他编辑器的加载方法
             }
