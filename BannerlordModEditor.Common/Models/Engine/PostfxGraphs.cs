@@ -34,7 +34,7 @@ namespace BannerlordModEditor.Common.Models.Engine
         public string Id { get; set; } = string.Empty;
 
         [XmlAttribute("class")]
-        public string Class { get; set; } = string.Empty;
+        public string? Class { get; set; }
 
         [XmlAttribute("shader")]
         public string Shader { get; set; } = string.Empty;
@@ -50,6 +50,15 @@ namespace BannerlordModEditor.Common.Models.Engine
 
         [XmlAttribute("height")]
         public string Height { get; set; } = string.Empty;
+
+        [XmlAttribute("compute")]
+        public string? Compute { get; set; }
+
+        [XmlAttribute("compute_tg_size_x")]
+        public string? ComputeTgSizeX { get; set; }
+
+        [XmlAttribute("compute_tg_size_y")]
+        public string? ComputeTgSizeY { get; set; }
 
         [XmlElement("input")]
         public List<PostfxInput> Inputs { get; set; } = new List<PostfxInput>();
