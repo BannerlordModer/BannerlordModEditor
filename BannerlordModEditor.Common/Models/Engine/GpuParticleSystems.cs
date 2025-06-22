@@ -5,22 +5,22 @@ namespace BannerlordModEditor.Common.Models.Engine;
 
 // gpu_particle_systems.xml - GPU particle system definitions
 [XmlRoot("base")]
-public class GpuParticleSystemsBase
+public class GpuParticleSystemsRoot
 {
     [XmlAttribute("type")]
-    public string Type { get; set; } = "particle_system";
+    public string? Type { get; set; }
 
     [XmlElement("particle_systems")]
-    public ParticleSystemsContainer ParticleSystems { get; set; } = new ParticleSystemsContainer();
+    public GpuParticleSystems? ParticleSystems { get; set; }
 }
 
-public class ParticleSystemsContainer
+public class GpuParticleSystems
 {
     [XmlElement("particle_system")]
-    public List<ParticleSystem> ParticleSystem { get; set; } = new List<ParticleSystem>();
+    public GpuParticleSystem[]? ParticleSystem { get; set; }
 }
 
-public class ParticleSystem
+public class GpuParticleSystem
 {
     [XmlAttribute("name")]
     public string? Name { get; set; }
