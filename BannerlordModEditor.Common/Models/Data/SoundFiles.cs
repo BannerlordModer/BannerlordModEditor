@@ -1,39 +1,38 @@
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("base")]
-    public class SoundFiles
+    public class SoundFilesRoot
     {
         [XmlAttribute("type")]
-        public string Type { get; set; } = string.Empty;
+        public string? Type { get; set; }
 
         [XmlElement("bank_files")]
-        public BankFiles BankFiles { get; set; } = new BankFiles();
+        public BankFiles? BankFiles { get; set; }
 
         [XmlElement("asset_files")]
-        public AssetFiles AssetFiles { get; set; } = new AssetFiles();
+        public AssetFiles? AssetFiles { get; set; }
     }
 
     public class BankFiles
     {
         [XmlElement("file")]
-        public List<SoundFile> Files { get; set; } = new List<SoundFile>();
+        public SoundFile[]? File { get; set; }
     }
 
     public class AssetFiles
     {
         [XmlElement("file")]
-        public List<SoundFile> Files { get; set; } = new List<SoundFile>();
+        public SoundFile[]? File { get; set; }
     }
 
     public class SoundFile
     {
         [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
         [XmlAttribute("decompress_samples")]
-        public string DecompressSamples { get; set; } = string.Empty;
+        public string? DecompressSamples { get; set; }
     }
 } 

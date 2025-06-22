@@ -1,23 +1,22 @@
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Engine;
 
 // special_meshes.xml - Special mesh definitions
 [XmlRoot("base")]
-public class SpecialMeshesBase
+public class SpecialMeshesRoot
 {
     [XmlAttribute("type")]
-    public string Type { get; set; } = "special_meshes";
+    public string? Type { get; set; }
 
     [XmlElement("meshes")]
-    public MeshesContainer Meshes { get; set; } = new MeshesContainer();
+    public SpecialMeshes? Meshes { get; set; }
 }
 
-public class MeshesContainer
+public class SpecialMeshes
 {
     [XmlElement("mesh")]
-    public List<SpecialMesh> Mesh { get; set; } = new List<SpecialMesh>();
+    public SpecialMesh[]? Mesh { get; set; }
 }
 
 public class SpecialMesh
@@ -26,13 +25,13 @@ public class SpecialMesh
     public string? Name { get; set; }
 
     [XmlElement("types")]
-    public MeshTypesContainer? Types { get; set; }
+    public MeshTypes? Types { get; set; }
 }
 
-public class MeshTypesContainer
+public class MeshTypes
 {
     [XmlElement("type")]
-    public List<MeshType> Type { get; set; } = new List<MeshType>();
+    public MeshType[]? Type { get; set; }
 }
 
 public class MeshType
