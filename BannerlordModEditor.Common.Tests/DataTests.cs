@@ -566,8 +566,8 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             Assert.NotNull(result);
-            Assert.NotNull(result.WaterPrefabList);
-            Assert.True(result.WaterPrefabList.Count >= 30); // 应该有很多水体预制品
+            Assert.NotNull(result.WaterPrefab);
+            Assert.True(result.WaterPrefab.Length >= 30); // 应该有很多水体预制品
         }
 
         [Fact]
@@ -582,7 +582,7 @@ namespace BannerlordModEditor.Common.Tests
             var result = (WaterPrefabs)serializer.Deserialize(fileStream);
 
             // Assert
-            foreach (var prefab in result.WaterPrefabList)
+            foreach (var prefab in result.WaterPrefab)
             {
                 Assert.NotEmpty(prefab.PrefabName);
                 Assert.NotEmpty(prefab.MaterialName);
@@ -592,14 +592,14 @@ namespace BannerlordModEditor.Common.Tests
             }
 
             // 检查特定类型的水体
-            var globalPrefabs = result.WaterPrefabList.Where(p => p.IsGlobal == "true").ToList();
-            var localPrefabs = result.WaterPrefabList.Where(p => p.IsGlobal == "false" || p.IsGlobal == "False").ToList();
+            var globalPrefabs = result.WaterPrefab.Where(p => p.IsGlobal == "true").ToList();
+            var localPrefabs = result.WaterPrefab.Where(p => p.IsGlobal == "false" || p.IsGlobal == "False").ToList();
             
             Assert.True(globalPrefabs.Count > 5); // 应该有全局水体
             Assert.True(localPrefabs.Count > 5); // 应该有局部水�?
             
             // 检查特定的海洋水体
-            var oceanPrefab = result.WaterPrefabList.FirstOrDefault(p => p.PrefabName.Contains("Ocean"));
+            var oceanPrefab = result.WaterPrefab.FirstOrDefault(p => p.PrefabName.Contains("Ocean"));
             Assert.NotNull(oceanPrefab);
         }
 
