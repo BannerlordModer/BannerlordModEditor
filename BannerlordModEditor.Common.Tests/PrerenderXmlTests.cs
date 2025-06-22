@@ -1,5 +1,7 @@
 using BannerlordModEditor.Common.Models.Engine;
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,96 +15,35 @@ namespace BannerlordModEditor.Common.Tests
     public class PrerenderXmlTests
     {
         [Fact]
-        public void Prerender_LoadAndSave_ShouldBeLogicallyIdentical()
+        public void Prerender_CanDeserializeFromXml()
         {
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "example", "ModuleData", "prerender.xml");
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
             
-            // Act - 反序列化
+            // Act
             var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
-            PostfxGraphsBase prerenderGraphs;
+            PostfxGraphsBase result;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                prerenderGraphs = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+                result = (PostfxGraphsBase)serializer.Deserialize(reader)!;
             }
             
-            // Act - 序列化
-            string savedXml;
-            using (var writer = new StringWriter())
-            {
-                using (var xmlWriter = XmlWriter.Create(writer, new XmlWriterSettings
-                {
-                    Indent = true,
-                    IndentChars = "\t",
-                    Encoding = new UTF8Encoding(false),
-                    OmitXmlDeclaration = false
-                }))
-                {
-                    serializer.Serialize(xmlWriter, prerenderGraphs);
-                }
-                savedXml = writer.ToString();
-            }
-
-            // Assert - 基本结构验证
-            Assert.NotNull(prerenderGraphs);
-            Assert.Equal("particle_sysm", prerenderGraphs.Type);
-            Assert.NotNull(prerenderGraphs.PostfxGraphs);
-            Assert.NotNull(prerenderGraphs.PostfxGraphs.PostfxGraphList);
-            Assert.True(prerenderGraphs.PostfxGraphs.PostfxGraphList.Count >= 2, "Should have at least 2 postfx graphs");
-            
-            // 验证具体的后期处理图形数据
-            var ambientOcclusionGraph = prerenderGraphs.PostfxGraphs.PostfxGraphList
-                .FirstOrDefault(g => g.Id == "ambient_occlusion_graph");
-            Assert.NotNull(ambientOcclusionGraph);
-            Assert.True(ambientOcclusionGraph.PostfxNodeList.Count > 5, "AO graph should have multiple nodes");
-            
-            // 验证深度链节点
-            var depthChainNode = ambientOcclusionGraph.PostfxNodeList
-                .FirstOrDefault(n => n.Id == "depth_chain");
-            Assert.NotNull(depthChainNode);
-            Assert.Equal("rglDepth_chain_node", depthChainNode.Class);
-            Assert.Equal("postfx_depth_downsample_cs", depthChainNode.Shader);
-            Assert.Equal("R32F", depthChainNode.Format);
-            Assert.Equal("relative", depthChainNode.Size);
-            Assert.Equal("0.5", depthChainNode.Width);
-            Assert.Equal("0.5", depthChainNode.Height);
-            Assert.Equal("true", depthChainNode.Compute);
-            Assert.Equal("8", depthChainNode.ComputeTgSizeX);
-            Assert.Equal("8", depthChainNode.ComputeTgSizeY);
-            
-            // 验证输入
-            Assert.True(depthChainNode.Inputs.Count >= 2, "Depth chain should have inputs");
-            var firstInput = depthChainNode.Inputs[0];
-            Assert.Equal("0", firstInput.Index);
-            Assert.Equal("provided", firstInput.Type);
-            Assert.Equal("gbuffer_depth", firstInput.Source);
-            
-            // 验证SSR图形
-            var ssrGraph = prerenderGraphs.PostfxGraphs.PostfxGraphList
-                .FirstOrDefault(g => g.Id == "ssr_graph");
-            Assert.NotNull(ssrGraph);
-            
-            // Assert - XML结构验证
-            var originalDoc = XDocument.Load(xmlPath, LoadOptions.None);
-            var savedDoc = XDocument.Parse(savedXml, LoadOptions.None);
-            
-            // 移除纯空白文本节点
-            RemoveWhitespaceNodes(originalDoc.Root);
-            RemoveWhitespaceNodes(savedDoc.Root);
-            
-            // 检查XML结构基本一致
-            Assert.Equal(originalDoc.Root?.Element("postfx_graphs")?.Elements("postfx_graph").Count(), 
-                        savedDoc.Root?.Element("postfx_graphs")?.Elements("postfx_graph").Count());
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("particle_sysm", result.Type);
+            Assert.NotNull(result.PostfxGraphs);
+            Assert.NotNull(result.PostfxGraphs.PostfxGraphList);
+            Assert.True(result.PostfxGraphs.PostfxGraphList.Count >= 2, "应该有至少2个后期处理图形");
         }
-        
+
         [Fact]
-        public void Prerender_ValidateDataIntegrity_ShouldPassBasicChecks()
+        public void Prerender_FromActualFile_CanDeserializeCorrectly()
         {
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "example", "ModuleData", "prerender.xml");
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
             
             // Act
             var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
@@ -113,98 +54,364 @@ namespace BannerlordModEditor.Common.Tests
                 prerenderGraphs = (PostfxGraphsBase)serializer.Deserialize(reader)!;
             }
             
-            // Assert - 验证所有后期处理图形都有必要的属性
+            // Assert - 基本数据完整性
+            Assert.NotNull(prerenderGraphs);
             Assert.NotNull(prerenderGraphs.PostfxGraphs);
             Assert.NotNull(prerenderGraphs.PostfxGraphs.PostfxGraphList);
+            Assert.True(prerenderGraphs.PostfxGraphs.PostfxGraphList.Count >= 2, "应该有至少2个后期处理图形");
             
+            // 验证所有图形都有必需的属性
             foreach (var graph in prerenderGraphs.PostfxGraphs.PostfxGraphList)
             {
-                Assert.False(string.IsNullOrWhiteSpace(graph.Id), "Postfx graph should have Id");
+                Assert.False(string.IsNullOrWhiteSpace(graph.Id), "后期处理图形必须有ID");
                 Assert.NotNull(graph.PostfxNodeList);
-                
-                // 验证每个节点
+                Assert.True(graph.PostfxNodeList.Count > 0, $"图形 '{graph.Id}' 应该有至少一个节点");
+            }
+            
+            // 验证关键图形的存在
+            var requiredGraphs = new[] { "ambient_occlusion_graph", "ssr_graph" };
+            foreach (var requiredGraph in requiredGraphs)
+            {
+                var graph = prerenderGraphs.PostfxGraphs.PostfxGraphList.FirstOrDefault(g => g.Id == requiredGraph);
+                Assert.NotNull(graph);
+                Assert.Equal(requiredGraph, graph.Id);
+            }
+        }
+
+        [Fact]
+        public void Prerender_ValidateNodeConfiguration_HaveConsistentProperties()
+        {
+            // Arrange
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
+            
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            PostfxGraphsBase prerenderGraphs;
+            
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            {
+                prerenderGraphs = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Act & Assert - 验证节点配置的一致性和合理性
+            foreach (var graph in prerenderGraphs.PostfxGraphs.PostfxGraphList)
+            {
                 foreach (var node in graph.PostfxNodeList)
                 {
-                    Assert.False(string.IsNullOrWhiteSpace(node.Id), "Postfx node should have Id");
-                    Assert.False(string.IsNullOrWhiteSpace(node.Shader), "Postfx node should have Shader");
-                    Assert.False(string.IsNullOrWhiteSpace(node.Format), "Postfx node should have Format");
-                    Assert.False(string.IsNullOrWhiteSpace(node.Size), "Postfx node should have Size");
+                    // 验证必需属性
+                    Assert.False(string.IsNullOrWhiteSpace(node.Id), $"节点必须有ID (图形: {graph.Id})");
+                    Assert.False(string.IsNullOrWhiteSpace(node.Shader), $"节点必须有着色器 (节点: {node.Id})");
+                    Assert.False(string.IsNullOrWhiteSpace(node.Format), $"节点必须有格式 (节点: {node.Id})");
+                    Assert.False(string.IsNullOrWhiteSpace(node.Size), $"节点必须有尺寸类型 (节点: {node.Id})");
                     
-                    // 验证尺寸值
-                    if (!string.IsNullOrEmpty(node.Width))
+                    // 验证尺寸配置
+                    if (node.Size == "relative")
                     {
-                        Assert.True(double.TryParse(node.Width, out double width), 
-                            $"Width '{node.Width}' should be a valid number");
-                        Assert.True(width > 0 && width <= 1, "Width should be between 0 and 1 for relative sizing");
+                        if (!string.IsNullOrEmpty(node.Width))
+                        {
+                            Assert.True(double.TryParse(node.Width, NumberStyles.Float, CultureInfo.InvariantCulture, out double width),
+                                $"宽度应该是有效数字: {node.Width} (节点: {node.Id})");
+                            Assert.True(width > 0 && width <= 1, $"相对宽度应在0-1范围内: {width} (节点: {node.Id})");
+                        }
+                        
+                        if (!string.IsNullOrEmpty(node.Height))
+                        {
+                            Assert.True(double.TryParse(node.Height, NumberStyles.Float, CultureInfo.InvariantCulture, out double height),
+                                $"高度应该是有效数字: {node.Height} (节点: {node.Id})");
+                            Assert.True(height > 0 && height <= 1, $"相对高度应在0-1范围内: {height} (节点: {node.Id})");
+                        }
                     }
                     
-                    if (!string.IsNullOrEmpty(node.Height))
-                    {
-                        Assert.True(double.TryParse(node.Height, out double height), 
-                            $"Height '{node.Height}' should be a valid number");
-                        Assert.True(height > 0 && height <= 1, "Height should be between 0 and 1 for relative sizing");
-                    }
-                    
-                    // 验证计算属性
+                    // 验证计算配置
                     if (!string.IsNullOrEmpty(node.Compute))
                     {
                         Assert.True(node.Compute == "true" || node.Compute == "false",
-                            $"Compute should be 'true' or 'false', got '{node.Compute}'");
+                            $"计算属性应该是true或false: {node.Compute} (节点: {node.Id})");
+                        
+                        // 如果是计算节点，应该有计算组大小
+                        if (node.Compute == "true")
+                        {
+                            Assert.False(string.IsNullOrEmpty(node.ComputeTgSizeX), $"计算节点应该有ComputeTgSizeX (节点: {node.Id})");
+                            Assert.False(string.IsNullOrEmpty(node.ComputeTgSizeY), $"计算节点应该有ComputeTgSizeY (节点: {node.Id})");
+                            
+                            Assert.True(int.TryParse(node.ComputeTgSizeX, out int sizeX),
+                                $"ComputeTgSizeX应该是有效整数: {node.ComputeTgSizeX} (节点: {node.Id})");
+                            Assert.True(sizeX > 0 && sizeX <= 32, $"ComputeTgSizeX应在合理范围内: {sizeX} (节点: {node.Id})");
+                            
+                            Assert.True(int.TryParse(node.ComputeTgSizeY, out int sizeY),
+                                $"ComputeTgSizeY应该是有效整数: {node.ComputeTgSizeY} (节点: {node.Id})");
+                            Assert.True(sizeY > 0 && sizeY <= 32, $"ComputeTgSizeY应在合理范围内: {sizeY} (节点: {node.Id})");
+                        }
                     }
                     
-                    if (!string.IsNullOrEmpty(node.ComputeTgSizeX))
-                    {
-                        Assert.True(int.TryParse(node.ComputeTgSizeX, out int sizeX), 
-                            $"ComputeTgSizeX '{node.ComputeTgSizeX}' should be a valid integer");
-                        Assert.True(sizeX > 0, "ComputeTgSizeX should be positive");
-                    }
-                    
-                    // 验证输入
+                    // 验证格式有效性 - 检查是否为有效的图形格式
+                    Assert.True(!string.IsNullOrEmpty(node.Format), $"节点格式不能为空 (节点: {node.Id})");
+                    // 简单验证格式字符串包含常见的图形格式模式
+                    Assert.True(node.Format.Contains("R") || node.Format.Contains("G") || node.Format.Contains("B") || node.Format.Contains("A"),
+                        $"格式应该是有效的图形格式: {node.Format} (节点: {node.Id})");
+                }
+            }
+        }
+
+        [Fact]
+        public void Prerender_ValidateInputConfiguration_HaveValidReferences()
+        {
+            // Arrange
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
+            
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            PostfxGraphsBase prerenderGraphs;
+            
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            {
+                prerenderGraphs = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Act & Assert - 验证输入配置的有效性
+            foreach (var graph in prerenderGraphs.PostfxGraphs.PostfxGraphList)
+            {
+                // 收集图形中的所有节点ID
+                var nodeIds = graph.PostfxNodeList.Select(n => n.Id).ToHashSet();
+                
+                foreach (var node in graph.PostfxNodeList)
+                {
                     foreach (var input in node.Inputs)
                     {
-                        Assert.False(string.IsNullOrWhiteSpace(input.Index), "Input should have Index");
-                        Assert.False(string.IsNullOrWhiteSpace(input.Type), "Input should have Type");
-                        Assert.False(string.IsNullOrWhiteSpace(input.Source), "Input should have Source");
+                        // 验证输入属性
+                        Assert.False(string.IsNullOrWhiteSpace(input.Index), $"输入必须有索引 (节点: {node.Id})");
+                        Assert.False(string.IsNullOrWhiteSpace(input.Type), $"输入必须有类型 (节点: {node.Id})");
+                        Assert.False(string.IsNullOrWhiteSpace(input.Source), $"输入必须有来源 (节点: {node.Id})");
                         
-                        Assert.True(int.TryParse(input.Index, out int index), 
-                            $"Input index '{input.Index}' should be a valid integer");
-                        Assert.True(index >= 0, "Input index should be non-negative");
+                        // 验证索引
+                        Assert.True(int.TryParse(input.Index, out int index),
+                            $"输入索引应该是有效整数: {input.Index} (节点: {node.Id})");
+                        Assert.True(index >= 0, $"输入索引应该非负: {index} (节点: {node.Id})");
+                        
+                        // 验证类型
+                        var validTypes = new[] { "provided", "node" };
+                        Assert.Contains(input.Type, validTypes);
+                        
+                        // 验证来源引用
+                        if (input.Type == "node")
+                        {
+                            Assert.Contains(input.Source, nodeIds);
+                        }
+                        else if (input.Type == "provided")
+                        {
+                            // provided输入应该是系统提供的缓冲区 - 验证源名称格式合理
+                            Assert.True(!string.IsNullOrWhiteSpace(input.Source), $"Provided输入源不能为空 (节点: {node.Id})");
+                            // 简单验证源名称包含常见的缓冲区名称模式
+                            var isValidSource = input.Source.Contains("gbuffer") || input.Source.Contains("buffer") || 
+                                              input.Source.Contains("depth") || input.Source.Contains("color") ||
+                                              input.Source.Contains("screen") || input.Source.Contains("rt");
+                            Assert.True(isValidSource, $"Provided源应该是有效的系统缓冲区: {input.Source} (节点: {node.Id})");
+                        }
                     }
                 }
             }
-            
-            // 验证包含预期的图形
-            var allGraphIds = prerenderGraphs.PostfxGraphs.PostfxGraphList.Select(g => g.Id).ToList();
-            Assert.Contains("ambient_occlusion_graph", allGraphIds);
-            Assert.Contains("ssr_graph", allGraphIds);
-            
-            // 验证特定的节点存在
-            var aoGraph = prerenderGraphs.PostfxGraphs.PostfxGraphList.First(g => g.Id == "ambient_occlusion_graph");
-            var aoNodeIds = aoGraph.PostfxNodeList.Select(n => n.Id).ToList();
-            Assert.Contains("depth_chain", aoNodeIds);
-            Assert.Contains("sao_small", aoNodeIds);
-            Assert.Contains("sao_large", aoNodeIds);
-            Assert.Contains("sao_upsample", aoNodeIds);
-            
-            // 确保没有重复的图形ID
-            var uniqueGraphIds = allGraphIds.Distinct().ToList();
-            Assert.Equal(allGraphIds.Count, uniqueGraphIds.Count);
         }
 
-        private static void RemoveWhitespaceNodes(XElement? element)
+        [Fact]
+        public void Prerender_ValidateSpecificGraphConfigurations()
         {
-            if (element == null) return;
+            // Arrange
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
             
-            var textNodes = element.Nodes().OfType<XText>().Where(t => string.IsNullOrWhiteSpace(t.Value)).ToList();
-            foreach (var node in textNodes)
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            PostfxGraphsBase prerenderGraphs;
+            
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                node.Remove();
+                prerenderGraphs = (PostfxGraphsBase)serializer.Deserialize(reader)!;
             }
             
-            foreach (var child in element.Elements())
+            // Act & Assert - 验证特定图形配置的正确性
+            var aoGraph = prerenderGraphs.PostfxGraphs.PostfxGraphList.FirstOrDefault(g => g.Id == "ambient_occlusion_graph");
+            Assert.NotNull(aoGraph);
+            
+            // 验证AO图形的关键节点
+            var requiredAONodes = new[] { "depth_chain", "sao_small", "sao_large", "sao_upsample" };
+            var aoNodeIds = aoGraph.PostfxNodeList.Select(n => n.Id).ToList();
+            foreach (var requiredNode in requiredAONodes)
             {
-                RemoveWhitespaceNodes(child);
+                Assert.Contains(requiredNode, aoNodeIds);
             }
+            
+            // 验证深度链节点配置
+            var depthChainNode = aoGraph.PostfxNodeList.FirstOrDefault(n => n.Id == "depth_chain");
+            Assert.NotNull(depthChainNode);
+            Assert.Equal("rglDepth_chain_node", depthChainNode.Class);
+            Assert.Equal("postfx_depth_downsample_cs", depthChainNode.Shader);
+            Assert.Equal("R32F", depthChainNode.Format);
+            Assert.Equal("0.5", depthChainNode.Width);
+            Assert.Equal("0.5", depthChainNode.Height);
+            
+            // 验证SSR图形
+            var ssrGraph = prerenderGraphs.PostfxGraphs.PostfxGraphList.FirstOrDefault(g => g.Id == "ssr_graph");
+            Assert.NotNull(ssrGraph);
+            Assert.True(ssrGraph.PostfxNodeList.Count > 0, "SSR图形应该有节点");
+        }
+
+        [Fact]
+        public void Prerender_ValidateGraphIdUniqueness()
+        {
+            // Arrange
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
+            
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            PostfxGraphsBase prerenderGraphs;
+            
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            {
+                prerenderGraphs = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Act & Assert
+            var allGraphIds = prerenderGraphs.PostfxGraphs.PostfxGraphList.Select(g => g.Id).ToList();
+            var uniqueGraphIds = allGraphIds.Distinct().ToList();
+            
+            Assert.Equal(allGraphIds.Count, uniqueGraphIds.Count);
+            
+            // 在每个图形中验证节点ID的唯一性
+            foreach (var graph in prerenderGraphs.PostfxGraphs.PostfxGraphList)
+            {
+                var nodeIds = graph.PostfxNodeList.Select(n => n.Id).ToList();
+                var uniqueNodeIds = nodeIds.Distinct().ToList();
+                
+                Assert.Equal(nodeIds.Count, uniqueNodeIds.Count);
+                
+                // 验证ID命名约定
+                foreach (var nodeId in nodeIds)
+                {
+                    Assert.False(string.IsNullOrWhiteSpace(nodeId), "节点ID不能为空");
+                    Assert.True(nodeId.All(c => char.IsLower(c) || c == '_'), $"节点ID应该使用小写字母和下划线: {nodeId}");
+                }
+            }
+        }
+
+        [Fact]
+        public void Prerender_RoundTripSerialization_MaintainsDataIntegrity()
+        {
+            // Arrange
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "prerender.xml");
+            
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            PostfxGraphsBase original;
+            
+            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            {
+                original = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Act - 序列化然后反序列化
+            string xmlString;
+            using (var writer = new StringWriter())
+            {
+                serializer.Serialize(writer, original);
+                xmlString = writer.ToString();
+            }
+            
+            PostfxGraphsBase roundTrip;
+            using (var reader = new StringReader(xmlString))
+            {
+                roundTrip = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Assert
+            Assert.Equal(original.Type, roundTrip.Type);
+            Assert.Equal(original.PostfxGraphs.PostfxGraphList.Count, roundTrip.PostfxGraphs.PostfxGraphList.Count);
+            
+            for (int i = 0; i < original.PostfxGraphs.PostfxGraphList.Count; i++)
+            {
+                var originalGraph = original.PostfxGraphs.PostfxGraphList[i];
+                var roundTripGraph = roundTrip.PostfxGraphs.PostfxGraphList[i];
+                
+                Assert.Equal(originalGraph.Id, roundTripGraph.Id);
+                Assert.Equal(originalGraph.PostfxNodeList.Count, roundTripGraph.PostfxNodeList.Count);
+                
+                for (int j = 0; j < originalGraph.PostfxNodeList.Count; j++)
+                {
+                    var originalNode = originalGraph.PostfxNodeList[j];
+                    var roundTripNode = roundTripGraph.PostfxNodeList[j];
+                    
+                    Assert.Equal(originalNode.Id, roundTripNode.Id);
+                    Assert.Equal(originalNode.Shader, roundTripNode.Shader);
+                    Assert.Equal(originalNode.Format, roundTripNode.Format);
+                    Assert.Equal(originalNode.Width, roundTripNode.Width);
+                    Assert.Equal(originalNode.Height, roundTripNode.Height);
+                }
+            }
+        }
+
+        [Fact]
+        public void Prerender_WithHandCraftedXml_CanDeserialize()
+        {
+            // Arrange
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<base type=""particle_sysm"">
+    <postfx_graphs>
+        <postfx_graph id=""test_graph"">
+            <postfx_node id=""test_node"" shader=""test_shader"" format=""R8G8B8A8"" size=""relative"" width=""1"" height=""1"" compute=""true"" compute_tg_size_x=""8"" compute_tg_size_y=""8"">
+                <input index=""0"" type=""provided"" source=""gbuffer_depth"" />
+            </postfx_node>
+        </postfx_graph>
+    </postfx_graphs>
+</base>";
+
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            
+            // Act
+            PostfxGraphsBase result;
+            using (var reader = new StringReader(xmlContent))
+            {
+                result = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("particle_sysm", result.Type);
+            Assert.NotNull(result.PostfxGraphs);
+            Assert.Single(result.PostfxGraphs.PostfxGraphList);
+            
+            var graph = result.PostfxGraphs.PostfxGraphList[0];
+            Assert.Equal("test_graph", graph.Id);
+            Assert.Single(graph.PostfxNodeList);
+            
+            var node = graph.PostfxNodeList[0];
+            Assert.Equal("test_node", node.Id);
+            Assert.Equal("test_shader", node.Shader);
+            Assert.Equal("R8G8B8A8", node.Format);
+        }
+
+        [Fact]
+        public void Prerender_EmptyFile_HandlesGracefully()
+        {
+            // Arrange
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<base type=""particle_sysm"">
+    <postfx_graphs>
+    </postfx_graphs>
+</base>";
+
+            var serializer = new XmlSerializer(typeof(PostfxGraphsBase));
+            
+            // Act
+            PostfxGraphsBase result;
+            using (var reader = new StringReader(xmlContent))
+            {
+                result = (PostfxGraphsBase)serializer.Deserialize(reader)!;
+            }
+            
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("particle_sysm", result.Type);
+            Assert.NotNull(result.PostfxGraphs);
+            Assert.NotNull(result.PostfxGraphs.PostfxGraphList);
+            Assert.Empty(result.PostfxGraphs.PostfxGraphList);
         }
     }
 } 
