@@ -1,23 +1,22 @@
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data;
 
 // hard_coded_sounds.xml - Hard-coded sound definitions for game events
 [XmlRoot("base")]
-public class HardCodedSounds
+public class HardCodedSoundsRoot
 {
     [XmlAttribute("type")]
     public string? Type { get; set; }
 
     [XmlElement("hard_coded_sounds")]
-    public HardCodedSoundsContainer? HardCodedSoundsContainer { get; set; }
+    public HardCodedSounds? HardCodedSounds { get; set; }
 }
 
-public class HardCodedSoundsContainer
+public class HardCodedSounds
 {
     [XmlElement("hard_coded_sound")]
-    public List<HardCodedSound> HardCodedSound { get; set; } = new();
+    public HardCodedSound[]? HardCodedSound { get; set; }
 }
 
 public class HardCodedSound
