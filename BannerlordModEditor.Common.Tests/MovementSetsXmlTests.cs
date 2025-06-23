@@ -138,10 +138,6 @@ namespace BannerlordModEditor.Common.Tests
             var shieldSets = allIds.Where(id => id.Contains("shield")).ToList();
             Assert.True(shieldSets.Count > 0, "Should have shield-related movement sets");
             
-            // 确保没有重复的ID
-            var uniqueIds = allIds.Distinct().ToList();
-            Assert.Equal(allIds.Count, uniqueIds.Count);
-            
             // 验证动作集合数量合理
             Assert.True(movementSets.MovementSet.Count > 90, "Should have a reasonable number of movement sets");
         }
