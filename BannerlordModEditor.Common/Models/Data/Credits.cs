@@ -27,6 +27,9 @@ public class CreditsCategory
 
     [XmlElement("EmptyLine")]
     public List<EmptyLine> EmptyLine { get; set; } = new();
+
+    [XmlElement("Image")]
+    public List<CreditsImage> Image { get; set; } = new();
 }
 
 public class CreditsSection
@@ -62,4 +65,10 @@ public class LoadFromFile
 
     [XmlAttribute("PlatformSpecific")]
     public string? PlatformSpecific { get; set; }
+}
+
+public class CreditsImage
+{
+    [XmlAttribute("Text")]
+    public string? Text { get; set; }
 } 
