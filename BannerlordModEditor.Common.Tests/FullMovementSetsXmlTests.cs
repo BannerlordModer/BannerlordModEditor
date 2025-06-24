@@ -65,7 +65,9 @@ namespace BannerlordModEditor.Common.Tests
                 Encoding = new UTF8Encoding(false)
             }))
             {
-                serializer.Serialize(xmlWriter, model);
+                var ns = new XmlSerializerNamespaces();
+                ns.Add("", "");
+                serializer.Serialize(xmlWriter, model, ns);
                 serializedXml = stringWriter.ToString();
             }
 
