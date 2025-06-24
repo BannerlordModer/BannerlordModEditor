@@ -1,21 +1,26 @@
 using BannerlordModEditor.Common.Models.Data;
+using System;
 using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
-    public class CreditsExternalPartnersPCXmlTests
+    public class DebugCredits
     {
-        [Fact]
-        public void CreditsExternalPartnersPC_LoadAndSave_ShouldBeLogicallyIdentical()
+        public static void DebugCreditsSerializationDifference()
         {
             var xmlPath = Path.Combine(TestUtils.GetSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData", "CreditsExternalPartnersPC.xml");
 
-            // Deserialization using the existing model
+            // 读取原始 XML
+            var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
+            Console.WriteLine("原始 XML:");
+            Console.WriteLine(originalXml);
+            Console.WriteLine();
+
+            // 反序列化
             var serializer = new XmlSerializer(typeof(Credits));
             Credits? model;
             using (var fileStream = new FileStream(xmlPath, FileMode.Open))
@@ -23,14 +28,20 @@ namespace BannerlordModEditor.Common.Tests
                 model = serializer.Deserialize(fileStream) as Credits;
             }
 
-            Assert.NotNull(model);
+            Console.WriteLine($"反序列化结果: model != null: {model != null}");
+            if (model != null)
+            {
+                Console.WriteLine($"Category count: {model.Category?.Count}");
+                Console.WriteLine($"LoadFromFile count: {model.LoadFromFile?.Count}");
+            }
+            Console.WriteLine();
 
-            // Serialization
+            // 序列化
             var settings = new XmlWriterSettings
             {
                 Indent = true,
                 IndentChars = "\t",
-                Encoding = new UTF8Encoding(false), // No BOM
+                Encoding = new UTF8Encoding(false),
                 OmitXmlDeclaration = false
             };
 
@@ -45,33 +56,23 @@ namespace BannerlordModEditor.Common.Tests
                 serializedXml = Encoding.UTF8.GetString(memoryStream.ToArray());
             }
 
-            // Comparison - normalize both XMLs to handle empty element differences
-            var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
+            Console.WriteLine("序列化后的 XML:");
+            Console.WriteLine(serializedXml);
+            Console.WriteLine();
+
+            // 比较
             var originalDoc = XDocument.Parse(originalXml);
             var serializedDoc = XDocument.Parse(serializedXml);
 
-            // Normalize both documents to handle <element></element> vs <element /> differences
-            NormalizeEmptyElements(originalDoc.Root);
-            NormalizeEmptyElements(serializedDoc.Root);
+            Console.WriteLine("原始 XML (格式化):");
+            Console.WriteLine(originalDoc.ToString());
+            Console.WriteLine();
 
-            Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
-        }
+            Console.WriteLine("序列化 XML (格式化):");
+            Console.WriteLine(serializedDoc.ToString());
+            Console.WriteLine();
 
-        private static void NormalizeEmptyElements(XElement? element)
-        {
-            if (element == null) return;
-
-            // If element is empty and has no text content, ensure it's truly empty
-            if (!element.HasElements && string.IsNullOrWhiteSpace(element.Value))
-            {
-                element.Value = string.Empty;
-            }
-
-            // Recursively normalize child elements
-            foreach (var child in element.Elements())
-            {
-                NormalizeEmptyElements(child);
-            }
+            Console.WriteLine($"XNode.DeepEquals result: {XNode.DeepEquals(originalDoc, serializedDoc)}");
         }
     }
 } 

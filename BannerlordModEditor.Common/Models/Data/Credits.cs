@@ -12,6 +12,9 @@ public class Credits
 
     [XmlElement("LoadFromFile")]
     public List<LoadFromFile> LoadFromFile { get; set; } = new();
+
+    public bool ShouldSerializeCategory() => Category?.Count > 0;
+    public bool ShouldSerializeLoadFromFile() => LoadFromFile?.Count > 0;
 }
 
 public class CreditsCategory
@@ -30,6 +33,11 @@ public class CreditsCategory
 
     [XmlElement("Image")]
     public List<CreditsImage> Image { get; set; } = new();
+
+    public bool ShouldSerializeSection() => Section?.Count > 0;
+    public bool ShouldSerializeEntry() => Entry?.Count > 0;
+    public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
+    public bool ShouldSerializeImage() => Image?.Count > 0;
 }
 
 public class CreditsSection
@@ -42,6 +50,9 @@ public class CreditsSection
 
     [XmlElement("EmptyLine")]
     public List<EmptyLine> EmptyLine { get; set; } = new();
+
+    public bool ShouldSerializeEntry() => Entry?.Count > 0;
+    public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
 }
 
 public class CreditsEntry
@@ -51,6 +62,8 @@ public class CreditsEntry
 
     [XmlElement("EmptyLine")]
     public List<EmptyLine> EmptyLine { get; set; } = new();
+
+    public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
 }
 
 public class EmptyLine
