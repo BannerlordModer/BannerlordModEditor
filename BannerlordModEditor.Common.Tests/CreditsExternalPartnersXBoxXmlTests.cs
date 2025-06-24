@@ -16,11 +16,11 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(TestUtils.GetSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData", "CreditsExternalPartnersXBox.xml");
 
             // Deserialization using the existing model
-            var serializer = new XmlSerializer(typeof(CreditsLegalConsole));
-            CreditsLegalConsole? model;
+            var serializer = new XmlSerializer(typeof(Credits));
+            Credits? model;
             using (var fileStream = new FileStream(xmlPath, FileMode.Open))
             {
-                model = serializer.Deserialize(fileStream) as CreditsLegalConsole;
+                model = serializer.Deserialize(fileStream) as Credits;
             }
 
             Assert.NotNull(model);
