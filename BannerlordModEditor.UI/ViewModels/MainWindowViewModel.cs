@@ -6,6 +6,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BannerlordModEditor.UI.ViewModels.Editors;
+using System;
+using System.Windows.Input;
+using Avalonia.Controls;
+using BannerlordModEditor.Common.Models.Configuration;
+using CommunityToolkit.Mvvm.Input;
+using Velopack;
+using Velopack.Sources;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
@@ -42,6 +49,9 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private bool showSkillEditor = false;
 
+    public ICommand OpenSettingsCommand { get; }
+    public ICommand CheckForUpdatesCommand { get; }
+
     public MainWindowViewModel()
     {
         EditorManager = new EditorManagerViewModel();
@@ -60,6 +70,9 @@ public partial class MainWindowViewModel : ViewModelBase
         
         // 初始化示例数据（可删除）
         InitializeSampleData();
+
+        OpenSettingsCommand = new RelayCommand(OpenSettings);
+        CheckForUpdatesCommand = new AsyncRelayCommand(CheckForUpdatesAsync);
     }
 
     private void LoadSelectedEditor()
@@ -103,6 +116,37 @@ public partial class MainWindowViewModel : ViewModelBase
         // 这些数据现在主要用于向后兼容，实际界面使用EditorManager
         FileEntries.Add(new FileEntryViewModel { DisplayName = "Sample Entry 1" });
         FileEntries.Add(new FileEntryViewModel { DisplayName = "Sample Entry 2" });
+    }
+
+    private void OpenSettings()
+    {
+        // TODO: Implement settings logic
+    }
+
+    private async Task CheckForUpdatesAsync()
+    {
+        try
+        {
+            var mgr = new UpdateManager(new GithubSource("https://github.com/BannerlordModer/BannerlordModEditor", null, false));
+
+            // check for new version
+            var newVersion = await mgr.CheckForUpdatesAsync();
+            if (newVersion == null)
+            {
+                // TODO: Show a message to the user that they are on the latest version.
+                return; // no update available
+            }
+
+            // download new version
+            await mgr.DownloadUpdatesAsync(newVersion);
+
+            // install new version and restart app
+            mgr.ApplyUpdatesAndRestart(newVersion);
+        }
+        catch (Exception e)
+        {
+            // TODO: Log the exception or show a message to the user.
+        }
     }
 }
 

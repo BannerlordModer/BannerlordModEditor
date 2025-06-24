@@ -15,6 +15,17 @@
     </Application.Resources>
   
     <Application.Styles>
-        <FluentTheme />
+        <SimpleTheme />
+        <Style Selector="Button.danger /template/ ContentPresenter">
+            <Setter Property="Background" Value="#FDE7E9"/>
+        </Style>
+        <Style Selector="Button.danger:light /template/ ContentPresenter">
+            <Setter Property="Background" Value="#FDE7E9"/>
+            <Setter Property="TextBlock.Foreground" Value="#B32424"/>
+        </Style>
+        <Style Selector="Button.danger:dark /template/ ContentPresenter">
+            <Setter Property="Background" Value="#4A1919"/>
+            <Setter Property="TextBlock.Foreground" Value="#F4C7C7"/>
+        </Style>
     </Application.Styles>
 </Application>

@@ -6,7 +6,16 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:ItemModifierEditorViewModel"
              x:Class="BannerlordModEditor.UI.Views.Editors.ItemModifierEditorView">
-  
+  <UserControl.Styles>
+    <Style Selector="Button.item-modifier">
+      <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundBaseLowBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundBaseLowBrush}"/>
+    </Style>
+    <Style Selector="Button.item-modifier.invalid">
+      <Setter Property="Background" Value="{DynamicResource SystemControlErrorBackgroundBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource SystemControlErrorTextForegroundBrush}"/>
+    </Style>
+  </UserControl.Styles>
   <Grid RowDefinitions="Auto,*" Margin="16">
     <!-- 工具栏 -->
     <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto,Auto" Margin="0,0,0,16">
@@ -40,14 +49,14 @@
                HorizontalAlignment="Left" 
                VerticalAlignment="Bottom"
                FontSize="12" 
-               Foreground="Gray" 
+               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" 
                Margin="0,24,0,8"/>
 
     <!-- 主内容区域 -->
     <Grid Grid.Row="1" ColumnDefinitions="300,4,*">
       
       <!-- 左侧列表 -->
-      <Border Grid.Column="0" Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8">
+      <Border Grid.Column="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8">
         <Grid RowDefinitions="Auto,*,Auto">
           <TextBlock Grid.Row="0" Text="修饰符列表" FontWeight="SemiBold" Margin="12,12,12,8"/>
           
@@ -55,8 +64,8 @@
             <ItemsControl ItemsSource="{Binding ItemModifiers}" Margin="8">
               <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:ItemModifierDataViewModel">
-                  <Button Background="{Binding IsValid, Converter={StaticResource BoolToStringConverter}, ConverterParameter=White|#FFE6E6}"
-                          BorderBrush="#DDDDDD" 
+                  <Button Classes="item-modifier"
+                          Classes.invalid="{Binding !IsValid}"
                           BorderThickness="1" 
                           CornerRadius="4" 
                           Margin="0,0,0,4" 
@@ -67,8 +76,8 @@
                           HorizontalContentAlignment="Left">
                     <StackPanel>
                       <TextBlock Text="{Binding Name}" FontWeight="Medium" FontSize="13"/>
-                      <TextBlock Text="{Binding Id}" FontSize="11" Foreground="#666666" Margin="0,2,0,0"/>
-                      <TextBlock Text="{Binding Quality}" FontSize="10" Foreground="#888888"/>
+                      <TextBlock Text="{Binding Id}" FontSize="11" Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" Margin="0,2,0,0"/>
+                      <TextBlock Text="{Binding Quality}" FontSize="10" Foreground="{DynamicResource SystemControlForegroundBaseLowBrush}"/>
                     </StackPanel>
                   </Button>
                 </DataTemplate>
@@ -77,12 +86,12 @@
           </ScrollViewer>
           
           <TextBlock Grid.Row="2" Text="{Binding ItemModifiers.Count, StringFormat='共 {0} 个修饰符'}" 
-                     FontSize="11" Foreground="#666666" Margin="12,8,12,12"/>
+                     FontSize="11" Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" Margin="12,8,12,12"/>
         </Grid>
       </Border>
 
       <!-- 分隔条 -->
-      <GridSplitter Grid.Column="1" Background="#DDDDDD" ResizeDirection="Columns"/>
+      <GridSplitter Grid.Column="1" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" ResizeDirection="Columns"/>
 
       <!-- 右侧详细编辑区域 -->
       <ScrollViewer Grid.Column="2" Margin="16,0,0,0">
@@ -90,7 +99,7 @@
           <StackPanel IsVisible="{Binding SelectedItemModifier, Converter={x:Static ObjectConverters.IsNotNull}}">
             
             <!-- 基本信息 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="基本信息" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -135,8 +144,7 @@
                   <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="7" 
                           Command="{Binding RemoveItemModifierCommand}" 
                           CommandParameter="{Binding SelectedItemModifier}"
-                          Background="#FFC107" 
-                          Foreground="White"
+                          Classes="danger"
                           VerticalAlignment="Top"
                           Margin="8,0,0,0">
                     <StackPanel Orientation="Horizontal">
@@ -149,7 +157,7 @@
             </Border>
             
             <!-- 武器属性 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="武器属性" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -170,7 +178,7 @@
             </Border>
             
             <!-- 护甲属性 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="护甲属性" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -182,7 +190,7 @@
             </Border>
             
             <!-- 马匹属性 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="马匹属性" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -211,7 +219,7 @@
             <TextBlock Text="选择左侧的修饰符进行编辑" 
                       FontSize="18" 
                       HorizontalAlignment="Center"
-                      Foreground="#666666"/>
+                      Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
           </StackPanel>
         </Grid>
       </ScrollViewer>

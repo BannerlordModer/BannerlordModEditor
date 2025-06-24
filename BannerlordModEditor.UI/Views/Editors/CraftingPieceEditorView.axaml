@@ -7,6 +7,17 @@
              x:DataType="vm:CraftingPieceEditorViewModel"
              x:Class="BannerlordModEditor.UI.Views.Editors.CraftingPieceEditorView">
 
+  <UserControl.Styles>
+    <Style Selector="Button.crafting-piece">
+      <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundBaseLowBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundBaseLowBrush}"/>
+    </Style>
+    <Style Selector="Button.crafting-piece.invalid">
+      <Setter Property="Background" Value="{DynamicResource SystemControlErrorBackgroundBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource SystemControlErrorTextForegroundBrush}"/>
+    </Style>
+  </UserControl.Styles>
+
   <Grid RowDefinitions="Auto,*" Margin="16">
     <!-- 工具栏 -->
     <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto,Auto" Margin="0,0,0,16">
@@ -40,14 +51,14 @@
                HorizontalAlignment="Left" 
                VerticalAlignment="Bottom"
                FontSize="12" 
-               Foreground="Gray" 
+               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" 
                Margin="0,24,0,8"/>
 
     <!-- 主内容区域 -->
     <Grid Grid.Row="1" ColumnDefinitions="300,4,*">
       
       <!-- 左侧列表 -->
-      <Border Grid.Column="0" Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8">
+      <Border Grid.Column="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8">
         <Grid RowDefinitions="Auto,*,Auto">
           <TextBlock Grid.Row="0" Text="制作部件列表" FontWeight="SemiBold" Margin="12,12,12,8"/>
           
@@ -55,8 +66,8 @@
             <ItemsControl ItemsSource="{Binding CraftingPieces}" Margin="8">
               <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:CraftingPieceDataViewModel">
-                  <Button Background="{Binding IsValid, Converter={StaticResource BoolToStringConverter}, ConverterParameter=White|#FFE6E6}"
-                          BorderBrush="#DDDDDD" 
+                  <Button Classes="crafting-piece"
+                          Classes.invalid="{Binding !IsValid}"
                           BorderThickness="1" 
                           CornerRadius="4" 
                           Margin="0,0,0,4" 
@@ -67,8 +78,8 @@
                           HorizontalContentAlignment="Left">
                     <StackPanel>
                       <TextBlock Text="{Binding Name}" FontWeight="Medium" FontSize="13"/>
-                      <TextBlock Text="{Binding Id}" FontSize="11" Foreground="#666666" Margin="0,2,0,0"/>
-                      <TextBlock Text="{Binding CraftingPieceType}" FontSize="10" Foreground="#888888"/>
+                      <TextBlock Text="{Binding Id}" FontSize="11" Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" Margin="0,2,0,0"/>
+                      <TextBlock Text="{Binding CraftingPieceType}" FontSize="10" Foreground="{DynamicResource SystemControlForegroundBaseLowBrush}"/>
                     </StackPanel>
                   </Button>
                 </DataTemplate>
@@ -77,12 +88,12 @@
           </ScrollViewer>
           
           <TextBlock Grid.Row="2" Text="{Binding CraftingPieces.Count, StringFormat='共 \{0\} 个部件'}" 
-                     FontSize="11" Foreground="#666666" Margin="12,8,12,12"/>
+                     FontSize="11" Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" Margin="12,8,12,12"/>
         </Grid>
       </Border>
 
       <!-- 分隔条 -->
-      <GridSplitter Grid.Column="1" Background="#DDDDDD" ResizeDirection="Columns"/>
+      <GridSplitter Grid.Column="1" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" ResizeDirection="Columns"/>
 
       <!-- 右侧详细编辑区域 -->
       <ScrollViewer Grid.Column="2" Margin="16,0,0,0">
@@ -90,7 +101,7 @@
           <StackPanel IsVisible="{Binding SelectedCraftingPiece, Converter={x:Static ObjectConverters.IsNotNull}}">
             
             <!-- 基本信息 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="基本信息" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -149,8 +160,7 @@
                   <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="9" 
                           Command="{Binding RemoveCraftingPieceCommand}" 
                           CommandParameter="{Binding SelectedCraftingPiece}"
-                          Background="#FFC107" 
-                          Foreground="White"
+                          Classes="danger"
                           VerticalAlignment="Top"
                           Margin="8,0,0,0">
                     <StackPanel Orientation="Horizontal">
@@ -163,7 +173,7 @@
             </Border>
             
             <!-- 武器数据 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="武器数据" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -205,7 +215,7 @@
             </Border>
             
             <!-- 材料和修饰符信息 -->
-            <Border Background="White" BorderBrush="#E9ECEF" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,16">
               <StackPanel>
                 <TextBlock Text="附加信息" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
                 
@@ -225,7 +235,7 @@
                 
                 <TextBlock Text="注意：此版本为简化编辑器，详细的材料、修饰符、标志和需求编辑功能将在后续版本中添加。" 
                            FontSize="12" 
-                           Foreground="#666666" 
+                           Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" 
                            FontStyle="Italic"
                            Margin="0,12,0,0"/>
               </StackPanel>
@@ -240,7 +250,7 @@
             <TextBlock Text="选择左侧的制作部件进行编辑" 
                       FontSize="18" 
                       HorizontalAlignment="Center"
-                      Foreground="#666666"/>
+                      Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
           </StackPanel>
         </Grid>
       </ScrollViewer>

@@ -7,7 +7,7 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="骑砍2模组编辑器 - Bannerlord Mod Editor"
-        Width="1200" Height="800"
+        WindowStartupLocation="CenterScreen"
         MinWidth="800" MinHeight="600">
 
     <Design.DataContext>
@@ -16,120 +16,131 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" MinWidth="250"/>
-            <ColumnDefinition Width="4"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="文件(_F)">
+                <MenuItem Header="设置(_S)" Command="{Binding OpenSettingsCommand}"/>
+            </MenuItem>
+            <MenuItem Header="帮助(_H)">
+                <MenuItem Header="检查更新(_C)" Command="{Binding CheckForUpdatesCommand}"/>
+            </MenuItem>
+        </Menu>
 
-        <!-- 左侧导航面板 -->
-        <Border Grid.Column="0" Background="#F5F5F5" BorderBrush="#DDDDDD" BorderThickness="0,0,1,0">
-            <DockPanel>
-                <!-- 搜索框 -->
-                <Border DockPanel.Dock="Top" Background="White" Margin="8" Padding="8" CornerRadius="4" BorderBrush="#CCCCCC" BorderThickness="1">
-                    <TextBox Text="{Binding EditorManager.SearchText}" 
-                             Watermark="搜索编辑器..." 
-                             BorderThickness="0"
-                             Background="Transparent"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" MinWidth="250"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 左侧导航面板 -->
+            <Border Grid.Column="0" Background="{DynamicResource SystemControlPageBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,0,1,0">
+                <DockPanel>
+                    <!-- 搜索框 -->
+                    <Border DockPanel.Dock="Top" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" Margin="8" Padding="8" CornerRadius="4" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1">
+                        <TextBox Text="{Binding EditorManager.SearchText}" 
+                                 Watermark="搜索编辑器..." 
+                                 BorderThickness="0"
+                                 Background="Transparent"/>
+                    </Border>
+
+                    <!-- 分类树形列表 -->
+                    <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding EditorManager.Categories}" Margin="8,0">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander IsExpanded="{Binding IsExpanded}" Margin="0,4">
+                                        <Expander.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Icon}" FontSize="16" Margin="0,0,8,0"/>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
+                                                    <TextBlock Text="{Binding Description}" FontSize="11" Foreground="#666666" Margin="0,2,0,0"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Expander.Header>
+                                        
+                                        <ItemsControl ItemsSource="{Binding Editors}" Margin="20,4,0,4">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button Command="{Binding $parent[Window].DataContext.EditorManager.SelectEditorCommand}"
+                                                            CommandParameter="{Binding}"
+                                                            Classes="editor-item"
+                                                            IsVisible="{Binding IsAvailable}"
+                                                            Margin="0,2">
+                                                        <Button.Template>
+                                                            <ControlTemplate>
+                                                                <Border Background="{TemplateBinding Background}"
+                                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                                        BorderThickness="1"
+                                                                        CornerRadius="4"
+                                                                        Padding="8,6">
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <TextBlock Text="{Binding Icon}" FontSize="14" Margin="0,0,8,0"/>
+                                                                        <StackPanel>
+                                                                            <TextBlock Text="{Binding Name}" FontSize="12" FontWeight="Medium"/>
+                                                                            <TextBlock Text="{Binding XmlFileName}" FontSize="10" Foreground="#666666"/>
+                                                                        </StackPanel>
+                                                                    </StackPanel>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Button.Template>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Expander>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+
+            <!-- 分隔条 -->
+            <GridSplitter Grid.Column="1" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" ResizeDirection="Columns"/>
+
+            <!-- 右侧编辑器区域 -->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- 面包屑导航 -->
+                <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,0,0,1" Padding="16,12">
+                    <TextBlock Text="{Binding EditorManager.CurrentBreadcrumb}" 
+                               FontSize="14" 
+                               FontWeight="Medium"
+                               Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
                 </Border>
 
-                <!-- 分类树形列表 -->
-                <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding EditorManager.Categories}" Margin="8,0">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Expander IsExpanded="{Binding IsExpanded}" Margin="0,4">
-                                    <Expander.Header>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Icon}" FontSize="16" Margin="0,0,8,0"/>
-                                            <StackPanel>
-                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock Text="{Binding Description}" FontSize="11" Foreground="#666666" Margin="0,2,0,0"/>
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Expander.Header>
-                                    
-                                    <ItemsControl ItemsSource="{Binding Editors}" Margin="20,4,0,4">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Button Command="{Binding $parent[Window].DataContext.EditorManager.SelectEditorCommand}"
-                                                        CommandParameter="{Binding}"
-                                                        Classes="editor-item"
-                                                        IsVisible="{Binding IsAvailable}"
-                                                        Margin="0,2">
-                                                    <Button.Template>
-                                                        <ControlTemplate>
-                                                            <Border Background="{TemplateBinding Background}"
-                                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                                    BorderThickness="1"
-                                                                    CornerRadius="4"
-                                                                    Padding="8,6">
-                                                                <StackPanel Orientation="Horizontal">
-                                                                    <TextBlock Text="{Binding Icon}" FontSize="14" Margin="0,0,8,0"/>
-                                                                    <StackPanel>
-                                                                        <TextBlock Text="{Binding Name}" FontSize="12" FontWeight="Medium"/>
-                                                                        <TextBlock Text="{Binding XmlFileName}" FontSize="10" Foreground="#666666"/>
-                                                                    </StackPanel>
-                                                                </StackPanel>
-                                                            </Border>
-                                                        </ControlTemplate>
-                                                    </Button.Template>
-                                                </Button>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </Expander>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </DockPanel>
-        </Border>
-
-        <!-- 分隔条 -->
-        <GridSplitter Grid.Column="1" Background="#DDDDDD" ResizeDirection="Columns"/>
-
-        <!-- 右侧编辑器区域 -->
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!-- 面包屑导航 -->
-            <Border Grid.Row="0" Background="#FFFFFF" BorderBrush="#DDDDDD" BorderThickness="0,0,0,1" Padding="16,12">
-                <TextBlock Text="{Binding EditorManager.CurrentBreadcrumb}" 
-                           FontSize="14" 
-                           FontWeight="Medium"
-                           Foreground="#333333"/>
-            </Border>
-
-            <!-- 动态编辑器内容 -->
-            <Border Grid.Row="1" Background="White">
-                <Grid>
-                    <!-- 默认内容 -->
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
-                               IsVisible="{Binding EditorManager.CurrentEditorViewModel, Converter={x:Static ObjectConverters.IsNull}}">
-                        <TextBlock Text="🎯" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,16"/>
-                        <TextBlock Text="选择左侧的XML文件开始编辑" 
-                                  FontSize="18" 
-                                  HorizontalAlignment="Center"
-                                  Foreground="#666666"/>
-                        <TextBlock Text="支持搜索功能，快速找到需要的配置文件" 
-                                  FontSize="12" 
-                                  HorizontalAlignment="Center"
-                                  Foreground="#999999"
-                                  Margin="0,8,0,0"/>
-                    </StackPanel>
-                    
-                    <!-- 动态编辑器内容 -->
-                    <ContentControl Content="{Binding EditorManager.CurrentEditorViewModel}"
-                                   IsVisible="{Binding EditorManager.CurrentEditorViewModel, Converter={x:Static ObjectConverters.IsNotNull}}"/>
-                </Grid>
-            </Border>
+                <!-- 动态编辑器内容 -->
+                <Border Grid.Row="1" Background="{DynamicResource SystemControlBackgroundAltHighBrush}">
+                    <Grid>
+                        <!-- 默认内容 -->
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   IsVisible="{Binding EditorManager.CurrentEditorViewModel, Converter={x:Static ObjectConverters.IsNull}}">
+                            <TextBlock Text="🎯" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,16"/>
+                            <TextBlock Text="选择左侧的XML文件开始编辑" 
+                                      FontSize="18" 
+                                      HorizontalAlignment="Center"
+                                      Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
+                            <TextBlock Text="支持搜索功能，快速找到需要的配置文件" 
+                                      FontSize="12" 
+                                      HorizontalAlignment="Center"
+                                      Foreground="{DynamicResource SystemControlForegroundBaseLowBrush}"
+                                      Margin="0,8,0,0"/>
+                        </StackPanel>
+                        
+                        <!-- 动态编辑器内容 -->
+                        <ContentControl Content="{Binding EditorManager.CurrentEditorViewModel}"
+                                       IsVisible="{Binding EditorManager.CurrentEditorViewModel, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
-    </Grid>
+    </DockPanel>
 
     <!-- 样式定义 -->
     <Window.Styles>
@@ -141,12 +152,12 @@
         </Style>
         
         <Style Selector="Button.editor-item:pointerover">
-            <Setter Property="Background" Value="#E8F4FD"/>
-            <Setter Property="BorderBrush" Value="#B3D9F7"/>
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemControlHighlightAccentBrush}"/>
         </Style>
         
         <Style Selector="Button.editor-item:pressed">
-            <Setter Property="Background" Value="#D1E7F5"/>
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListMediumBrush}"/>
         </Style>
         
         <Style Selector="Expander">

@@ -40,7 +40,7 @@
                HorizontalAlignment="Left" 
                VerticalAlignment="Bottom"
                FontSize="12" 
-               Foreground="Gray" 
+               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" 
                Margin="0,24,0,8"/>
 
     <!-- 技能列表 -->
@@ -48,8 +48,8 @@
       <ItemsControl ItemsSource="{Binding Skills}">
         <ItemsControl.ItemTemplate>
           <DataTemplate x:DataType="vm:SkillDataViewModel">
-            <Border Background="#F8F9FA" 
-                    BorderBrush="#E9ECEF" 
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+                    BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" 
                     BorderThickness="1" 
                     CornerRadius="8" 
                     Margin="0,0,0,8" 
@@ -89,19 +89,23 @@
                            Margin="0,12,0,0">
                   
                   <!-- 验证状态 -->
-                  <TextBlock FontSize="12" 
+                  <TextBlock Text="✅ 有效" 
+                             IsVisible="{Binding IsValid}"
+                             FontSize="12" 
                              VerticalAlignment="Center" 
-                             Margin="0,0,8,0">
-                    <TextBlock.Text>
-                      <Binding Path="IsValid" Converter="{StaticResource BoolToStringConverter}" ConverterParameter="✅ 有效|❌ 无效"/>
-                    </TextBlock.Text>
-                  </TextBlock>
+                             Foreground="{DynamicResource SystemControlSuccessTextForegroundBrush}"
+                             Margin="0,0,8,0" />
+                  <TextBlock Text="❌ 无效" 
+                             IsVisible="{Binding !IsValid}"
+                             FontSize="12" 
+                             VerticalAlignment="Center" 
+                             Foreground="{DynamicResource SystemControlErrorTextForegroundBrush}"
+                             Margin="0,0,8,0" />
                   
                   <!-- 删除按钮 -->
                   <Button Command="{Binding $parent[UserControl].((vm:SkillEditorViewModel)DataContext).RemoveSkillCommand}" 
                           CommandParameter="{Binding}" 
-                          Background="#FFC107" 
-                          Foreground="White">
+                          Classes="danger">
                     <StackPanel Orientation="Horizontal">
                       <TextBlock Text="🗑️" FontSize="12" Margin="0,0,4,0"/>
                       <TextBlock Text="删除"/>

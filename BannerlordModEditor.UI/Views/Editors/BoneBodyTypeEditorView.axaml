@@ -6,22 +6,24 @@
 
   <Grid RowDefinitions="Auto,*">
     <!-- 工具栏 -->
-    <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="10">
-      <Button Content="加载文件" Command="{Binding LoadFileCommand}" />
-      <Button Content="保存文件" Command="{Binding SaveFileCommand}" />
-      <Button Content="添加骨骼类型" Command="{Binding AddBoneBodyTypeCommand}" />
-      <TextBlock Text="{Binding FilePath}" VerticalAlignment="Center" />
-      <TextBlock Text="*" IsVisible="{Binding HasUnsavedChanges}" 
-                 Foreground="Red" FontWeight="Bold" VerticalAlignment="Center" />
-    </StackPanel>
+    <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,0,0,1" Padding="10">
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <Button Content="加载文件" Command="{Binding LoadFileCommand}" />
+        <Button Content="保存文件" Command="{Binding SaveFileCommand}" />
+        <Button Content="添加骨骼类型" Command="{Binding AddBoneBodyTypeCommand}" />
+        <TextBlock Text="{Binding FilePath}" VerticalAlignment="Center" />
+        <TextBlock Text="*" IsVisible="{Binding HasUnsavedChanges}" 
+                   Foreground="{DynamicResource SystemControlErrorTextForegroundBrush}" FontWeight="Bold" VerticalAlignment="Center" />
+      </StackPanel>
+    </Border>
 
     <!-- 骨骼类型列表 -->
     <ScrollViewer Grid.Row="1" Margin="10">
       <ItemsControl ItemsSource="{Binding BoneBodyTypes}">
         <ItemsControl.ItemTemplate>
           <DataTemplate x:DataType="vm:BoneBodyTypeViewModel">
-            <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="5" 
-                    Margin="0,5" Padding="10" Background="WhiteSmoke">
+            <Border BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="5" 
+                    Margin="0,5" Padding="10" Background="{DynamicResource SystemControlBackgroundAltHighBrush}">
               <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="180,*,Auto">
                 
                 <!-- Type -->
@@ -66,20 +68,20 @@
                         Content="删除" 
                         Command="{Binding $parent[ItemsControl].((vm:BoneBodyTypeEditorViewModel)DataContext).RemoveBoneBodyTypeCommand}"
                         CommandParameter="{Binding}"
-                        Background="LightCoral"
+                        Classes="danger"
                         VerticalAlignment="Center" />
                 
                 <!-- 验证指示器 -->
                 <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"
-                        Background="LightPink" CornerRadius="3" Padding="5" Margin="0,5,0,0"
+                        Background="{DynamicResource SystemControlErrorBackgroundBrush}" CornerRadius="3" Padding="5" Margin="0,5,0,0"
                         IsVisible="{Binding !IsValid}">
-                  <TextBlock Text="错误: 骨骼类型和优先级(1-5)不能为空" Foreground="DarkRed" FontWeight="Bold" />
+                  <TextBlock Text="错误: 骨骼类型和优先级(1-5)不能为空" Foreground="{DynamicResource SystemControlErrorForegroundBrush}" FontWeight="Bold" />
                 </Border>
                 
                 <!-- 帮助信息 -->
                 <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"
-                        Background="LightBlue" CornerRadius="3" Padding="5" Margin="0,5,0,0">
-                  <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="DarkBlue">
+                        Background="{DynamicResource SystemControlAccentAcrylicWindowAccentBrush}" CornerRadius="3" Padding="5" Margin="0,5,0,0">
+                  <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
                     <Run Text="优先级: 1=低, 5=高 | "/>
                     <Run Text="激活扫描: 是否启用碰撞扫描 | "/>
                     <Run Text="可选字段留空表示使用默认值"/>
