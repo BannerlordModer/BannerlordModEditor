@@ -15,84 +15,44 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void CreditsLegalConsole_LoadAndSave_ShouldBeLogicallyIdentical()
         {
-            // Arrange
-            var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "CreditsLegalConsole.xml");
-            
-            // Act - 反序列化
-            var serializer = new XmlSerializer(typeof(Credits));
-            Credits credits;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            var xmlPath = Path.Combine(TestUtils.GetSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData", "CreditsLegalConsole.xml");
+
+            // Deserialization
+            var serializer = new XmlSerializer(typeof(CreditsLegalConsole));
+            CreditsLegalConsole? model;
+            using (var fileStream = new FileStream(xmlPath, FileMode.Open))
             {
-                credits = (Credits)serializer.Deserialize(reader)!;
-            }
-            
-            // Act - 序列化
-            string savedXml;
-            using (var writer = new StringWriter())
-            {
-                using (var xmlWriter = XmlWriter.Create(writer, new XmlWriterSettings
-                {
-                    Indent = true,
-                    IndentChars = "\t",
-                    Encoding = new UTF8Encoding(false),
-                    OmitXmlDeclaration = false
-                }))
-                {
-                    serializer.Serialize(xmlWriter, credits);
-                }
-                savedXml = writer.ToString();
+                model = serializer.Deserialize(fileStream) as CreditsLegalConsole;
             }
 
-            // Assert - 基本结构检查
-            Assert.NotNull(credits);
-            Assert.NotNull(credits.Category);
-            Assert.True(credits.Category.Count > 0, "应该有至少一个Category");
+            Assert.NotNull(model);
+
+            // Serialization
+            var settings = new XmlWriterSettings
+            {
+                Indent = true,
+                IndentChars = "\t",
+                Encoding = new UTF8Encoding(false),
+                OmitXmlDeclaration = false
+            };
             
-            // 验证Legal Notices类别
-            var legalCategory = credits.Category.FirstOrDefault(c => c.Text == "{=!}Legal Notices");
-            Assert.NotNull(legalCategory);
-            
-            // 验证包含Image元素
-            Assert.True(legalCategory.Image.Count > 0, "Legal Notices category应该包含Image元素");
-            
-            // 验证特定的Image元素
-            var nvidiaImage = legalCategory.Image.FirstOrDefault(i => i.Text == "nvidia");
-            Assert.NotNull(nvidiaImage);
-            
-            var physxImage = legalCategory.Image.FirstOrDefault(i => i.Text == "nvidia_physx");
-            Assert.NotNull(physxImage);
-            
-            var simplygonImage = legalCategory.Image.FirstOrDefault(i => i.Text == "simplygon");
-            Assert.NotNull(simplygonImage);
-            
-            // 验证包含Entry元素
-            Assert.True(legalCategory.Entry.Count > 0, "Legal Notices category应该包含Entry元素");
-            
-            // 验证特定的Entry元素
-            var primeEntry = legalCategory.Entry.FirstOrDefault(e => e.Text?.Contains("Prime Matter") == true);
-            Assert.NotNull(primeEntry);
-            
-            // 验证包含Section元素
-            Assert.True(legalCategory.Section.Count > 0, "Legal Notices category应该包含Section元素");
-            
-            // 验证MIT License Section
-            var mitSection = legalCategory.Section.FirstOrDefault(s => s.Text == "{=!}MIT License");
-            Assert.NotNull(mitSection);
-            Assert.True(mitSection.Entry.Count > 0, "MIT License section应该包含Entry元素");
-            
-            // Assert - XML结构验证
-            var originalDoc = XDocument.Load(xmlPath, LoadOptions.None);
-            var savedDoc = XDocument.Parse(savedXml, LoadOptions.None);
-            
-            // 移除纯空白文本节点
-            RemoveWhitespaceNodes(originalDoc.Root);
-            RemoveWhitespaceNodes(savedDoc.Root);
-            
-            // 检查XML结构基本一致
-            Assert.True(originalDoc.Root?.Elements().Count() == savedDoc.Root?.Elements().Count(),
-                "根元素子元素数量应该相同");
+            string serializedXml;
+            using (var stringWriter = new StringWriter())
+            using (var xmlWriter = XmlWriter.Create(stringWriter, settings))
+            {
+                var ns = new XmlSerializerNamespaces();
+                ns.Add("", ""); // Remove default namespaces
+                serializer.Serialize(xmlWriter, model, ns);
+                serializedXml = stringWriter.ToString();
+            }
+
+            // Comparison
+            var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
+
+            var originalDoc = XDocument.Parse(originalXml);
+            var serializedDoc = XDocument.Parse(serializedXml);
+
+            Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
         }
         
         [Fact]
