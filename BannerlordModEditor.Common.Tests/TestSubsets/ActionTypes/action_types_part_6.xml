@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action_types><action name="act_defend_shield_down_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_pike_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_pike_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_pike_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_pike_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_pike_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_pike_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_pike_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_pike_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_pike_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_pike_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_down_against_missile" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_up_against_missile" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_right_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_right_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_left_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_left_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_up_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_up_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_down_1h_parry_down_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_h_shield_down_1h_parry_up_against_missile_lstance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	
+	<action name="act_defend_hand_shield_right_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_right_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_right_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_left_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_left_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_pike_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_pike_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_pike_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_up_pike_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_up_pike_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_pike_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_pike_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_pike_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_hand_shield_down_pike_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_hand_shield_down_pike_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_2h_passive" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_2h_active" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_2h_parry_light" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_2h_parry_heavy" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_2h_passive_left_stance" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_2h_active_left_stance" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_2h_parry_light_left_stance" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_2h_parry_heavy_left_stance" type="actt_defend_forward_2h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_up_2h_passive" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_2h_active" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_2h_parry_light" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_2h_parry_heavy" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_2h_passive_left_stance" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_2h_active_left_stance" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_2h_parry_light_left_stance" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_2h_parry_heavy_left_stance" type="actt_defend_up_2h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_right_2h_passive" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_2h_active" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_2h_parry_light" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_2h_parry_heavy" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_2h_passive_left_stance" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_2h_active_left_stance" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_2h_parry_light_left_stance" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_2h_parry_heavy_left_stance" type="actt_defend_right_2h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_left_2h_passive" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_2h_active" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_2h_parry_light" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_2h_parry_heavy" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_2h_passive_left_stance" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_2h_active_left_stance" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_2h_parry_light_left_stance" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_2h_parry_heavy_left_stance" type="actt_defend_left_2h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_1h_passive" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_1h_active" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_1h_parry_light" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_1h_parry_heavy" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_1h_passive_left_stance" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_1h_active_left_stance" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_1h_parry_light_left_stance" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_1h_parry_heavy_left_stance" type="actt_defend_forward_1h" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_up_1h_passive" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_1h_active" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_1h_parry_light" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_1h_parry_heavy" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_1h_passive_left_stance" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_1h_active_left_stance" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_1h_parry_light_left_stance" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_1h_parry_heavy_left_stance" type="actt_defend_up_1h" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_right_1h_passive" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_1h_active" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_1h_parry_light" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_1h_parry_heavy" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_1h_passive_left_stance" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_1h_active_left_stance" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_1h_parry_light_left_stance" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_1h_parry_heavy_left_stance" type="actt_defend_right_1h" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_left_1h_passive" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_1h_active" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_1h_parry_light" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_1h_parry_heavy" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_1h_passive_left_stance" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_1h_active_left_stance" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_1h_parry_light_left_stance" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_1h_parry_heavy_left_stance" type="actt_defend_left_1h" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_passive_horseback" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_staff_active_horseback" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_parry_light_horseback" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_parry_heavy_horseback" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_passive" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_staff_active" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_parry_light" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_parry_heavy" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_passive_left_stance" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_staff_active_left_stance" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_parry_light_left_stance" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_staff_parry_heavy_left_stance" type="actt_defend_forward_staff" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_passive_horseback" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_staff_active_horseback" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_parry_light_horseback" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_parry_heavy_horseback" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_passive" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_staff_active" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_parry_light" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_parry_heavy" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_passive_left_stance" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_staff_active_left_stance" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_parry_light_left_stance" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_staff_parry_heavy_left_stance" type="actt_defend_up_staff" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_passive_horseback" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_staff_active_horseback" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_parry_light_horseback" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_parry_heavy_horseback" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_passive" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_staff_active" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_parry_light" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_parry_heavy" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_passive_left_stance" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_staff_active_left_stance" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_parry_light_left_stance" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_staff_parry_heavy_left_stance" type="actt_defend_right_staff" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_passive_horseback" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_staff_active_horseback" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_parry_light_horseback" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_parry_heavy_horseback" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_passive" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_staff_active" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_parry_light" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_parry_heavy" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_passive_left_stance" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_staff_active_left_stance" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_parry_light_left_stance" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_staff_parry_heavy_left_stance" type="actt_defend_left_staff" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_pike_passive" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_pike_active" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_pike_parry_light" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_pike_parry_heavy" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_pike_passive_left_stance" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_forward_pike_active_left_stance" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_pike_parry_light_left_stance" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_forward_pike_parry_heavy_left_stance" type="actt_defend_forward_pike" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_up_pike_passive" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_pike_active" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_pike_parry_light" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_pike_parry_heavy" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_pike_passive_left_stance" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_pike_active_left_stance" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_pike_parry_light_left_stance" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_pike_parry_heavy_left_stance" type="actt_defend_up_pike" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_guard_right_unarmed" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_shield_unarmed" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_shield_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_left_unarmed" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_shield_unarmed" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_shield_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_up_unarmed" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_shield_unarmed" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_shield_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_bottom_unarmed" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_shield_unarmed" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_shield_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_unarmed_left_stance" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_right_1h" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_1h_left_stance" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_left_1h" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_1h_left_stance" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_up_1h" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_1h_left_stance" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_bottom_1h" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_1h_left_stance" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_right_2h" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_2h_left_stance" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_left_2h" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_2h_left_stance" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_up_2h" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_2h_left_stance" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_bottom_2h" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_2h_left_stance" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_right_staff" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_staff_horseback" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_right_staff_left_stance" type="actt_guard" usage_direction="ud_defend_right" />
+	<action name="act_guard_left_staff" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_staff_horseback" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_left_staff_left_stance" type="actt_guard" usage_direction="ud_defend_left" />
+	<action name="act_guard_up_staff" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_staff_horseback" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_up_staff_left_stance" type="actt_guard" usage_direction="ud_defend_up" />
+	<action name="act_guard_bottom_staff" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_staff_horseback" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bottom_staff_left_stance" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_bow" type="actt_guard" usage_direction="ud_defend_down" />
+	<action name="act_guard_staff_shield" type="actt_guard" usage_direction="ud_defend_any" />
+	<action name="act_guard_staff_shield_left_stance" type="actt_guard" usage_direction="ud_defend_any" />
+	<action name="act_stand_thrown" />
+	<action name="act_guard_staff_hand_shield" type="actt_guard" usage_direction="ud_defend_any" />
+	<action name="act_guard_staff_hand_shield_left_stance" type="actt_guard" usage_direction="ud_defend_any" />
+	<action name="act_guard_idle_spear_lord_loop" />
+	<action name="act_guard_idle_spear" />
+	<action name="act_troop_cavalry_sword" />
+	<action name="act_strike_head_left" type="actt_strike_light" />
+	<action name="act_strike_head_left_left_stance" type="actt_strike_light" />
+	<action name="act_strike_head_right" type="actt_strike_light" />
+	<action name="act_strike_head_right_left_stance" type="actt_strike_light" />
+	<action name="act_strike_head_front" type="actt_strike_light" />
+	<action name="act_strike_head_front_left_stance" type="actt_strike_light" />
+	<action name="act_strike_head_back" type="actt_strike_light" />
+	<action name="act_strike_head_back_left_stance" type="actt_strike_light" />
+	<action name="act_strike_chest_left" type="actt_strike_light" />
+	<action name="act_strike_chest_left_left_stance" type="actt_strike_light" />
+	<action name="act_strike_chest_right" type="actt_strike_light" />
+	<action name="act_strike_chest_right_left_stance" type="actt_strike_light" />
+	<action name="act_strike_chest_front" type="actt_strike_light" />
+	<action name="act_strike_chest_front_left_stance" type="actt_strike_light" />
+	<action name="act_strike_chest_back" type="actt_strike_light" />
+	<action name="act_strike_chest_back_left_stance" type="actt_strike_light" />
+	<action name="act_strike_right_arm_front" type="actt_strike_light" />
+	<action name="act_strike_right_arm_front_left_stance" type="actt_strike_light" />
+	<action name="act_strike_right_arm_back" type="actt_strike_light" />
+	<action name="act_strike_right_arm_back_left_stance" type="actt_strike_light" />
+	<action name="act_strike_left_arm_front" type="actt_strike_light" />
+	<action name="act_strike_left_arm_front_left_stance" type="actt_strike_light" />
+	<action name="act_strike_left_arm_back" type="actt_strike_light" />
+	<action name="act_strike_left_arm_back_left_stance" type="actt_strike_light" />
+	<action name="act_strike_abdomen_left" type="actt_strike_light" />
+	<action name="act_strike_abdomen_left_left_stance" type="actt_strike_light" />
+	<action name="act_strike_abdomen_right" type="actt_strike_light" />
+	<action name="act_strike_abdomen_right_left_stance" type="actt_strike_light" />
+	<action name="act_strike_abdomen_front" type="actt_strike_light" />
+	<action name="act_strike_abdomen_front_left_stance" type="actt_strike_light" />
+	</action_types>

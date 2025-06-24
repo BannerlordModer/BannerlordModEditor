@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action_types><action name="act_usage_trebuchet_idle" />
+	<action name="act_usage_trebuchet_reload" />
+	<action name="act_usage_trebuchet_reload_2" />
+	<action name="act_usage_trebuchet_reload_idle" />
+	<action name="act_usage_trebuchet_reload_2_idle" />
+	<action name="act_usage_trebuchet_load_ammo" />
+	<action name="act_usage_trebuchet_shoot" />
+	<action name="act_usage_ladder_lift_from_right_1_start" type="actt_ladder_raise" />
+	<action name="act_usage_ladder_lift_from_right_1_end" type="actt_ladder_raise_end" />
+	<action name="act_usage_ladder_lift_from_right_2_start" type="actt_ladder_raise" />
+	<action name="act_usage_ladder_lift_from_right_2_end" type="actt_ladder_raise_end" />
+	<action name="act_usage_ladder_lift_from_left_1_start" type="actt_ladder_raise" />
+	<action name="act_usage_ladder_lift_from_left_1_end" type="actt_ladder_raise_end" />
+	<action name="act_usage_ladder_lift_from_left_2_start" type="actt_ladder_raise" />
+	<action name="act_usage_ladder_lift_from_left_2_end" type="actt_ladder_raise_end" />
+	<action name="act_usage_ladder_push_back" />
+	<action name="act_usage_ladder_push_back_stopped" />
+	<action name="act_usage_ladder_pick_up_fork_begin" />
+	<action name="act_usage_ladder_pick_up_fork_end" />
+	<action name="act_usage_attach_flag_to_pole_begin_placeholder" />
+	<action name="act_cheer_1" />
+	<action name="act_cheer_2" />
+	<action name="act_cheer_3" />
+	<action name="act_cheer_4" />
+	<action name="act_taunt_cheer_1_leftstance" />
+	<action name="act_taunt_cheer_2_leftstance" />
+	<action name="act_taunt_cheer_3_leftstance" />
+	<action name="act_taunt_cheer_4_leftstance" />
+	<action name="act_taunt_cheer_1_bow" />
+	<action name="act_taunt_cheer_2_bow" />
+	<action name="act_taunt_cheer_3_bow" />
+	<action name="act_taunt_cheer_4_bow" />
+	<action name="act_cheering_high_01" />
+	<action name="act_cheering_high_02" />
+	<action name="act_cheering_high_03" />
+	<action name="act_cheering_high_04" />
+	<action name="act_cheering_high_05" />
+	<action name="act_cheering_high_06" />
+	<action name="act_cheering_high_07" />
+	<action name="act_cheering_high_08" />
+	<action name="act_cheering_low_01" />
+	<action name="act_cheering_low_02" />
+	<action name="act_cheering_low_03" />
+	<action name="act_cheering_low_04" />
+	<action name="act_cheering_low_05" />
+	<action name="act_cheering_low_06" />
+	<action name="act_cheering_low_07" />
+	<action name="act_cheering_low_08" />
+	<action name="act_cheering_low_09" />
+	<action name="act_cheering_low_10" />
+	<action name="act_taunt_cheer_1" />
+	<action name="act_taunt_cheer_2" />
+	<action name="act_taunt_cheer_3" />
+	<action name="act_taunt_cheer_4" />
+	<action name="act_horse_stand_for_movement_data" />
+	<action name="act_horse_stand_1" />
+	<action name="act_horse_stand_2" />
+	<action name="act_horse_stand_3" />
+	<action name="act_horse_stand_4" />
+	<action name="act_horse_stand_5" />
+	<action name="act_horse_idle_1" type="actt_idle" />
+	<action name="act_horse_idle_2" type="actt_idle" />
+	<action name="act_horse_idle_3" type="actt_idle" />
+	<action name="act_horse_idle_4" type="actt_idle" />
+	<action name="act_horse_idle_5" type="actt_idle" />
+	<action name="act_horse_riderless_idle_1" type="actt_idle" />
+	<action name="act_horse_riderless_idle_2" type="actt_idle" />
+	<action name="act_horse_riderless_idle_3" type="actt_idle" />
+	<action name="act_horse_riderless_idle_4" type="actt_idle" />
+	<action name="act_rider_idle_spear_1" type="actt_idle" />
+	<action name="act_rider_idle_spear_2" type="actt_idle" />
+	<action name="act_rider_idle_spear_3" type="actt_idle" />
+	<action name="act_rider_idle_spear_4" type="actt_idle" />
+	<action name="act_rider_idle_lance_1" type="actt_idle" />
+	<action name="act_rider_idle_lance_2" type="actt_idle" />
+	<action name="act_rider_idle_lance_3" type="actt_idle" />
+	<action name="act_rider_idle_lance_4" type="actt_idle" />
+	<action name="act_rider_idle_bow_1" type="actt_idle" />
+	<action name="act_rider_idle_bow_2" type="actt_idle" />
+	<action name="act_rider_idle_bow_3" type="actt_idle" />
+	<action name="act_rider_idle_bow_4" type="actt_idle" />
+	<action name="act_rider_idle_crossbow_1" type="actt_idle" />
+	<action name="act_rider_idle_crossbow_2" type="actt_idle" />
+	<action name="act_rider_idle_crossbow_3" type="actt_idle" />
+	<action name="act_rider_idle_crossbow_4" type="actt_idle" />
+	<action name="act_rider_stand_spear_1" />
+	<action name="act_rider_stand_spear_2" />
+	<action name="act_rider_stand_spear_3" />
+	<action name="act_rider_stand_spear_4" />
+	<action name="act_rider_stand_lance_1" />
+	<action name="act_rider_stand_lance_2" />
+	<action name="act_rider_stand_lance_3" />
+	<action name="act_rider_stand_lance_4" />
+	<action name="act_rider_stand_bow_1" />
+	<action name="act_rider_stand_bow_2" />
+	<action name="act_rider_stand_bow_3" />
+	<action name="act_rider_stand_bow_4" />
+	<action name="act_rider_stand_crossbow_1" />
+	<action name="act_rider_stand_crossbow_2" />
+	<action name="act_rider_stand_crossbow_3" />
+	<action name="act_rider_stand_crossbow_4" />
+	<action name="act_camel_stand_for_movement_data" />
+	<action name="act_camel_stand_1" />
+	<action name="act_camel_stand_2" />
+	<action name="act_camel_stand_3" />
+	<action name="act_camel_stand_4" />
+	<action name="act_camel_stand_5" />
+	<action name="act_camel_idle_1" type="actt_idle" />
+	<action name="act_camel_idle_2" type="actt_idle" />
+	<action name="act_camel_idle_3" type="actt_idle" />
+	<action name="act_camel_idle_4" type="actt_idle" />
+	<action name="act_camel_idle_5" type="actt_idle" />
+	<action name="act_hero_mount_idle_horse" />
+	<action name="act_hero_mount_idle_camel" />
+	<action name="act_horse_backward_walk_stand" />
+	<action name="act_horse_backward_walk" />
+	<action name="act_horse_backward_walk_strafe_right" />
+	<action name="act_horse_backward_walk_strafe_left" />
+	<action name="act_horse_forward_walk_stand" />
+	<action name="act_horse_forward_walk" />
+	<action name="act_horse_forward_walk_strafe_right" />
+	<action name="act_horse_forward_walk_strafe_left" />
+	<action name="act_horse_forward_trot_stand" />
+	<action name="act_horse_forward_trot" />
+	<action name="act_horse_forward_trot_strafe_right" />
+	<action name="act_horse_forward_trot_strafe_left" />
+	<action name="act_horse_forward_canter_stand" />
+	<action name="act_horse_forward_canter" />
+	<action name="act_horse_forward_canter_strafe_right" />
+	<action name="act_horse_forward_canter_strafe_left" />
+	<action name="act_horse_forward_gallop_left_foot_stand" />
+	<action name="act_horse_forward_gallop_left_foot" />
+	<action name="act_horse_forward_gallop_left_foot_strafe_right" />
+	<action name="act_horse_forward_gallop_left_foot_strafe_left" />
+	<action name="act_horse_forward_gallop_right_foot_stand" />
+	<action name="act_horse_forward_gallop_right_foot" />
+	<action name="act_horse_forward_gallop_right_foot_strafe_right" />
+	<action name="act_horse_forward_gallop_right_foot_strafe_left" />
+	<action name="act_camel_backward_walk_stand" />
+	<action name="act_camel_rider_walk_backward_adder" />
+	<action name="act_camel_backward_walk" />
+	<action name="act_camel_backward_walk_strafe_right" />
+	<action name="act_camel_backward_walk_strafe_left" />
+	<action name="act_camel_forward_walk_stand" />
+	<action name="act_camel_rider_walk_forward_adder" />
+	<action name="act_camel_forward_walk" />
+	<action name="act_camel_forward_walk_strafe_right" />
+	<action name="act_camel_forward_walk_strafe_left" />
+	<action name="act_camel_forward_trot_stand" />
+	<action name="act_camel_rider_trot_adder" />
+	<action name="act_camel_forward_trot" />
+	<action name="act_camel_forward_trot_strafe_right" />
+	<action name="act_camel_forward_trot_strafe_left" />
+	<action name="act_camel_forward_canter_stand" />
+	<action name="act_camel_rider_canter_adder" />
+	<action name="act_camel_forward_canter" />
+	<action name="act_camel_forward_canter_strafe_right" />
+	<action name="act_camel_forward_canter_strafe_left" />
+	<action name="act_camel_forward_gallop_left_foot_stand" />
+	<action name="act_camel_rider_gallop_adder" />
+	<action name="act_camel_forward_gallop_left_foot" />
+	<action name="act_camel_forward_gallop_left_foot_strafe_right" />
+	<action name="act_camel_forward_gallop_left_foot_strafe_left" />
+	<action name="act_camel_forward_gallop_right_foot_stand" />
+	<action name="act_camel_forward_gallop_right_foot" />
+	<action name="act_camel_forward_gallop_right_foot_strafe_right" />
+	<action name="act_camel_forward_gallop_right_foot_strafe_left" />
+	<action name="act_camel_rear" type="actt_rear" />
+	<action name="act_camel_rear_damaged" type="actt_rear" />
+	<action name="act_camel_kick" type="actt_kick" />
+	<action name="act_horse_rear" type="actt_rear" />
+	<action name="act_horse_rear_damaged" type="actt_rear" />
+	<action name="act_horse_kick" type="actt_kick" />
+	<action name="act_horse_command" />
+	<action name="act_horse_command_unarmed" />
+	<action name="act_horse_command_follow" />
+	<action name="act_horse_command_follow_2h" />
+	<action name="act_horse_command_follow_unarmed" />
+	<action name="act_horse_command_follow_unarmed" />
+	<action name="act_horse_command_bow" />
+	<action name="act_horse_command_follow_bow" />
+	<action name="act_horse_command_2h" />
+	<action name="act_command_bow" />
+	<action name="act_command_follow_bow" />
+	<action name="act_command_unarmed" />
+	<action name="act_command_unarmed_leftstance" />
+	<action name="act_command_follow_unarmed" />
+	<action name="act_command_follow_unarmed_leftstance" />
+	<action name="act_command_2h" />
+	<action name="act_command_2h_leftstance" />
+	<action name="act_command" />
+	<action name="act_command_follow" />
+	<action name="act_command_leftstance" />
+	<action name="act_command_follow_2h" />
+	<action name="act_command_follow_2h_leftstance" />
+	<action name="act_command_follow_leftstance" />
+	<action name="act_horse_jump_start" type="actt_dash" />
+	<action name="act_horse_dash" type="actt_dash" />
+	<action name="act_horse_quick_stop" type="actt_mount_quick_stop" />
+	<action name="act_horse_quick_stop_when_fast" type="actt_mount_quick_stop" />
+	<action name="act_horse_hit_object" type="actt_hit_object" />
+	<action name="act_horse_hit_object_while_falling" type="actt_hit_object" />
+	<action name="act_horse_turn_right" />
+	<action name="act_horse_turn_left" />
+	<action name="act_horse_strafe_right" />
+	<action name="act_horse_strafe_left" />
+	<action name="act_horse_turn_right_head" />
+	<action name="act_horse_turn_left_head" />
+	<action name="act_horse_walk_turn_right_head" />
+	<action name="act_horse_walk_turn_left_head" />
+	<action name="act_horse_trot_turn_right_head" />
+	<action name="act_horse_trot_turn_left_head" />
+	<action name="act_horse_canter_turn_right_head" />
+	<action name="act_horse_canter_turn_left_head" />
+	<action name="act_horse_gallop_turn_right_head" />
+	<action name="act_horse_gallop_turn_left_head" />
+	<action name="act_horse_gallop_acceleration_head" />
+	<action name="act_horse_rider_walk_forward_adder" />
+	<action name="act_horse_rider_trot_forward_adder" />
+	<action name="act_horse_rider_canter_forward_adder" />
+	<action name="act_horse_rider_gallop_forward_adder" />
+	<action name="act_horse_fall_right" type="actt_fall" />
+	<action name="act_horse_fall_left" type="actt_fall" />
+	<action name="act_horse_fall_right_continue" type="actt_fall" />
+	<action name="act_horse_fall_left_continue" type="actt_fall" />
+	<action name="act_horse_fall_backwards" type="actt_fall" />
+	<action name="act_horse_fall_roll" type="actt_fall" />
+	<action name="act_horse_fall_roll_continue" type="actt_fall" />
+	<action name="act_horse_fall_jump_roll" type="actt_fall" />
+	<action name="act_horse_fall_jump_roll_continue" type="actt_fall" />
+	<action name="act_horse_fall_slow_right" type="actt_fall" />
+	<action name="act_horse_fall_slow_right_continue" type="actt_fall" />
+	<action name="act_horse_fall_slow_left" type="actt_fall" />
+	<action name="act_horse_fall_slow_left_continue" type="actt_fall" />
+	
+	<action name="act_camel_jump_start" type="actt_dash" />
+	<action name="act_camel_dash" type="actt_dash" />
+	<action name="act_camel_quick_stop" type="actt_mount_quick_stop" />
+	<action name="act_camel_quick_stop_when_fast" type="actt_mount_quick_stop" />
+	<action name="act_camel_hit_object" type="actt_hit_object" />
+	<action name="act_camel_hit_object_while_falling" type="actt_hit_object" />
+	<action name="act_camel_turn_right" />
+	<action name="act_camel_turn_left" />
+	<action name="act_camel_strafe_right" />
+	<action name="act_camel_strafe_left" />
+	<action name="act_camel_walk_turn_right_head" />
+	<action name="act_camel_walk_turn_left_head" />
+	<action name="act_camel_trot_turn_right_head" />
+	<action name="act_camel_trot_turn_left_head" />
+	<action name="act_camel_canter_turn_right_head" />
+	<action name="act_camel_canter_turn_left_head" />
+	<action name="act_camel_gallop_turn_right_head" />
+	<action name="act_camel_gallop_turn_left_head" />
+	
+	<action name="act_camel_fall_right" type="actt_fall" />
+	<action name="act_camel_fall_left" type="actt_fall" />
+	<action name="act_camel_fall_left_continue" type="actt_fall" />
+	
+	<action name="act_camel_fall_roll" type="actt_fall" />
+	<action name="act_camel_fall_roll_continue" type="actt_fall" />
+	<action name="act_camel_tableau_pose" />
+	
+	
+	<action name="act_horse_conversation_start" />
+	<action name="act_camel_conversation_start" />
+	<action name="act_strike_ladder" type="actt_strike_light" />
+	<action name="act_strike_bent_over" type="actt_strike_light" />
+	<action name="act_death_ladder_left" type="actt_fall" />
+	<action name="act_death_ladder_right" type="actt_fall" />
+	<action name="act_damage_bent_over" />
+	<action name="act_inventory_idle_start" />
+	<action name="act_character_creation_female_default_0" />
+	<action name="act_character_creation_female_default_1" />
+	<action name="act_character_creation_female_default_2" />
+	<action name="act_character_creation_female_default_3" />
+	<action name="act_character_creation_female_default_4" />
+	<action name="act_character_creation_female_default_5" />
+	<action name="act_character_creation_female_default_6" />
+	<action name="act_character_creation_male_default_0" />
+	<action name="act_character_creation_male_default_1" />
+	<action name="act_character_creation_male_default_2" />
+	<action name="act_character_creation_male_default_3" />
+	<action name="act_character_creation_male_default_4" />
+	<action name="act_character_creation_male_default_5" />
+	<action name="act_character_creation_male_default_6" />
+	<action name="act_character_creation_toddler_0" />
+	<action name="act_character_creation_toddler_1" />
+	<action name="act_character_creation_toddler_2" />
+	<action name="act_character_creation_toddler_3" />
+	<action name="act_character_creation_toddler_4" />
+	<action name="act_character_creation_toddler_5" />
+	<action name="act_character_creation_toddler_6" />
+	<action name="act_rider_story_background_1" />
+	<action name="act_rider_story_background_2" />
+	<action name="act_rider_story_background_3" />
+	<action name="act_rider_story_background_4" />
+	<action name="act_rider_story_background_5" />
+	<action name="act_rider_story_background_6" />
+	<action name="act_horse_story_background_1" />
+	<action name="act_horse_story_background_2" />
+	<action name="act_horse_story_background_3" />
+	<action name="act_horse_story_background_4" />
+	<action name="act_horse_story_background_5" />
+	<action name="act_horse_story_background_6" />
+	<action name="act_cutscene_kingdom_made_pose_01" />
+	<action name="act_cutscene_kingdom_made_pose_02" />
+	<action name="act_cutscene_kingdom_made_pose_03" />
+	<action name="act_cutscene_kingdom_made_pose_04" />
+	<action name="act_cutscene_kingdom_made_pose_05" />
+	<action name="act_cutscene_kingdom_made_pose_06" />
+	<action name="act_cutscene_born_baby_father" />
+	<action name="act_cutscene_born_baby_maid" />
+	<action name="act_cutscene_born_baby_father_loop" />
+	<action name="act_cutscene_born_baby_maid_loop" />
+	<action name="act_cutscene_born_baby_mom" />
+	<action name="act_cutscene_born_baby_mom_loop" />
+	<action name="act_cutscene_born_baby_mom_loop1" />
+	<action name="act_cutscene_executioner_idle" />
+	<action name="act_cutscene_execution_prisoner_idle" />
+	<action name="act_cutscene_executioner_action" />
+	
+	
+	<action name="act_main_story_conspiracy_walk_1" />
+	<action name="act_main_story_conspiracy_talk_1" />
+	<action name="act_main_story_king_taking_letter_for_conspiracy" />
+	<action name="act_main_story_giving_letter_to_king_for_conspiracy" />
+	<action name="act_main_story_king_taking_letter_for_conspiracy_1" />
+	<action name="act_main_story_giving_letter_to_king_for_conspiracy_1" />
+	<action name="act_main_story_king_taking_letter_for_conspiracy_2" />
+	<action name="act_main_story_king_taking_letter_for_conspiracy_3" />
+	<action name="act_main_story_giving_letter_to_king_for_conspiracy_2" />
+	<action name="act_main_story_conspirator_01_walk" />
+	<action name="act_main_story_conspirator_01_talk" />
+	<action name="act_main_story_conspirator_01_walk_1" />
+	<action name="act_main_story_conspirator_01_talk_1" />
+	<action name="act_main_story_conspirator_02_walk" />
+	<action name="act_main_story_conspirator_02_talk" />
+	<action name="act_main_story_conspirator_02_walk_1" />
+	<action name="act_main_story_conspirator_02_talk_1" />
+	<action name="act_main_story_conspirator_03_walk" />
+	<action name="act_main_story_conspirator_03_talk" />
+	<action name="act_main_story_conspirator_03_walk_1" />
+	<action name="act_main_story_conspirator_03_talk_1" />
+	<action name="act_main_story_conspirator_04_walk" />
+	<action name="act_main_story_conspirator_04_talk" />
+	<action name="act_main_story_conspirator_04_walk_1" />
+	<action name="act_main_story_conspirator_04_talk_1" />
+	<action name="act_main_story_pledge_troop_walk_loop" />
+	<action name="act_main_story_pledge_troop_walk_with_banner_loop" />
+	<action name="act_main_story_horse_stand_1" />
+	<action name="act_main_story_horse_stand_2" />
+	<action name="act_main_story_troop_stand_spear_1" />
+	<action name="act_main_story_troop_stand_spear_2" />
+	<action name="act_main_story_troop_stand_spear_3" />
+	<action name="act_main_story_troop_stand_spear_4" />
+	<action name="act_main_story_troop_stand_spear_5" />
+	<action name="act_main_story_troop_stand_spear_6" />
+	<action name="act_main_story_pledge_troop_guard_idle" />
+	<action name="act_main_story_troop_guard_idle_2" />
+	<action name="act_main_story_dragon_banner_idle_start" />
+	<action name="act_main_story_dragon_banner_idle_end" />
+	<action name="act_main_story_dragon_banner_assemble" />
+	<action name="act_main_story_dragon_banner_camera_idle_start" />
+	<action name="act_main_story_dragon_banner_camera_assemble" />
+	<action name="act_main_story_banner_head_only_animation" />
+	<action name="act_main_story_conspiracy_supports_camera_anim" />
+	<action name="act_main_story_become_king" />
+	<action name="act_main_story_become_king_idle" />
+	<action name="act_main_story_become_king_crowd_03" />
+	<action name="act_main_story_become_king_crowd_04" />
+	<action name="act_main_story_become_king_crowd_05" />
+	<action name="act_main_story_become_king_crowd_06" />
+	<action name="act_main_story_become_king_crowd_07" />
+	<action name="act_main_story_become_king_crowd_08" />
+	<action name="act_main_story_become_king_crowd_09" />
+	<action name="act_main_story_become_king_crowd_10" />
+	<action name="act_main_story_become_king_crowd_11" />
+	<action name="act_main_story_become_king_female_crowd_1" />
+	<action name="act_main_story_become_king_female_crowd_2" />
+	<action name="act_main_story_become_king_female_crowd_3" />
+	<action name="act_main_story_become_king_female_crowd_4" />
+	<action name="act_main_story_become_king_female_crowd_5" />
+	<action name="act_main_story_become_king_female_crowd_6" />
+	<action name="act_main_story_king_throne_sit" />
+	<action name="act_main_story_king_throne_sit_continue" />
+	<action name="act_main_story_conspirator_kneel_down_1" />
+	<action name="act_main_story_conspirator_kneel_down_2" />
+	<action name="act_main_story_conspirator_kneel_down_3" />
+	<action name="act_main_story_conspirator_kneel_down_1_continue" />
+	<action name="act_main_story_conspirator_kneel_down_2_continue" />
+	<action name="act_main_story_conspirator_kneel_down_3_continue" />
+	<action name="act_cutscene_declare_dragon_banner_pose_01" />
+	<action name="act_cutscene_declare_dragon_banner_pose_02" />
+	<action name="act_cutscene_declare_dragon_banner_pose_03" />
+	<action name="act_cutscene_declare_dragon_banner_pose_04" />
+	<action name="act_cutscene_declare_dragon_banner_pose_05" />
+	<action name="act_cutscene_declare_dragon_banner_pose_06" />
+	<action name="act_cutscene_declare_dragon_banner_pose_07" />
+	<action name="act_cutscene_declare_dragon_banner_pose_08" />
+	<action name="act_cutscene_declare_dragon_banner_pose_09" />
+	<action name="act_cutscene_declare_dragon_banner_pose_10" />
+	<action name="act_cutscene_declare_dragon_banner_pose_11" />
+	<action name="act_cutscene_declare_dragon_banner_pose_12" />
+	<action name="act_cutscene_declare_dragon_banner_pose_13" />
+	<action name="act_cutscene_declare_dragon_banner_pose_14" />
+	<action name="act_cutscene_declare_dragon_banner_pose_15" />
+	<action name="act_cutscene_wedding_female" />
+	<action name="act_cutscene_wedding_female_loop" />
+	<action name="act_cutscene_wedding_male" />
+	<action name="act_cutscene_wedding_male_loop" />
+	<action name="act_cutscene_wedding_priest" />
+	<action name="act_cutscene_wedding_priest_loop" />
+	<action name="act_cutscene_wedding_crowd_01" />
+	<action name="act_cutscene_wedding_crowd_02" />
+	<action name="act_cutscene_wedding_crowd_03" />
+	<action name="act_cutscene_wedding_crowd_04" />
+	<action name="act_cutscene_wedding_crowd_05" />
+	<action name="act_cutscene_join_faction_leader" />
+	<action name="act_cutscene_join_faction_leader_loop" />
+	<action name="act_cutscene_join_faction_player" />
+	<action name="act_cutscene_join_faction_player_loop" />
+	<action name="act_cutscene_join_faction_crew_a" />
+	<action name="act_cutscene_join_faction_crew_a_loop" />
+	<action name="act_cutscene_join_faction_crew_b" />
+	<action name="act_cutscene_join_faction_crew_b_loop" />
+	<action name="act_cutscene_join_faction_crew_c" />
+	<action name="act_cutscene_join_faction_crew_c_loop" />
+	<action name="act_cutscene_join_faction_crew_d" />
+	<action name="act_cutscene_join_faction_crew_d_loop" />
+	<action name="act_cutscene_death_old_age_player" />
+	<action name="act_cutscene_death_old_age_npc_left_1" />
+	<action name="act_cutscene_death_old_age_npc_left_1_loop" />
+	<action name="act_cutscene_death_old_age_npc_left_2" />
+	<action name="act_cutscene_death_old_age_npc_left_2_loop" />
+	<action name="act_cutscene_death_old_age_npc_left_3" />
+	<action name="act_cutscene_death_old_age_npc_left_3_loop" />
+	<action name="act_cutscene_death_old_age_npc_right_1" />
+	<action name="act_cutscene_death_old_age_npc_right_1_loop" />
+	<action name="act_cutscene_death_old_age_npc_right_2" />
+	<action name="act_cutscene_death_old_age_npc_right_2_loop" />
+	<action name="act_cutscene_death_old_age_npc_right_3" />
+	<action name="act_cutscene_death_old_age_npc_right_3_loop" />
+	<action name="act_cutscene_family_member_death_player" />
+	<action name="act_cutscene_family_member_death_war_player" />
+	<action name="act_cutscene_family_member_death_war_player_loop" />
+	<action name="act_cutscene_main_hero_battle_death_01" />
+	<action name="act_cutscene_main_hero_battle_death_02" />
+	<action name="act_cutscene_main_hero_battle_death_03" />
+	<action name="act_cutscene_main_hero_battle_death_04" />
+	<action name="act_cutscene_main_hero_battle_death_05" />
+	<action name="act_cutscene_main_hero_battle_death_06" />
+	<action name="act_cutscene_main_hero_battle_death_07" />
+	<action name="act_cutscene_main_hero_battle_death_08" />
+	<action name="act_cutscene_main_hero_battle_death_09" />
+	<action name="act_cutscene_main_hero_battle_death_10" />
+	<action name="act_cutscene_main_hero_battle_death_11" />
+	<action name="act_cutscene_main_hero_battle_death_12" />
+	<action name="act_cutscene_main_hero_battle_death_13" />
+	<action name="act_cutscene_main_hero_battle_death_14" />
+	<action name="act_cutscene_main_hero_battle_death_cam" />
+	<action name="act_cutscene_mainhero_death_victory" />
+	<action name="act_cutscene_mainhero_death_victory_troop_01" />
+	<action name="act_cutscene_mainhero_death_victory_troop_02" />
+	<action name="act_cutscene_mainhero_death_victory_troop_03" />
+	<action name="act_cutscene_heir_coming_of_age_father" />
+	<action name="act_cutscene_heir_coming_of_age_father_loop" />
+	<action name="act_cutscene_heir_coming_of_age_heir_stage_1" />
+	<action name="act_cutscene_heir_coming_of_age_heir_stage_2" />
+	<action name="act_cutscene_heir_coming_of_age_heir_stage_2_girl" />
+	<action name="act_cutscene_heir_coming_of_age_heir_stage_3" />
+	<action name="act_cutscene_heir_coming_of_age_heir_stage_3_girl" />
+	<action name="act_cutscene_heir_coming_of_age_heir_stage_3_loop" />
+	<action name="act_cutscene_enemy_kingdom_destroyed_winner" />
+	<action name="act_cutscene_enemy_kingdom_destroyed_fallen" />
+	<action name="act_inventory_idle" />
+	<action name="act_character_developer_idle" />
+	<action name="act_inventory_cloth_equip" />
+	<action name="act_inventory_glove_equip" />
+	<action name="act_tableau_pose_1" />
+	<action name="act_tableau_pose_2" />
+	<action name="act_tableau_pose_3" />
+	<action name="act_tableau_pose_4" />
+	<action name="act_tableau_pose_5" />
+	<action name="act_tableau_pose_6" />
+	<action name="act_tableau_pose_7" />
+	<action name="act_tableau_pose_8" />
+	<action name="act_tableau_hand_armor_pose" />
+	<action name="act_pose_archer_crossbow" />
+	<action name="act_pose_infantry_javelin" />
+	<action name="act_pose_archer_bow" />
+	<action name="act_pose_infantry_sword_twohanded" />
+	<action name="act_pose_infantry_sword_shield" />
+	<action name="act_pose_infantry_staff" />
+	<action name="act_pose_infantry_staff_shield" />
+	<action name="act_pose_cavalry_sword" />
+	<action name="act_taunt_01" />
+	<action name="act_taunt_02" />
+	<action name="act_taunt_03" />
+	<action name="act_taunt_04" />
+	<action name="act_taunt_05" />
+	<action name="act_taunt_06" />
+	<action name="act_taunt_07" />
+	<action name="act_taunt_08" />
+	<action name="act_taunt_09" />
+	<action name="act_taunt_10" />
+	<action name="act_taunt_11" />
+	<action name="act_taunt_12" />
+	</action_types>

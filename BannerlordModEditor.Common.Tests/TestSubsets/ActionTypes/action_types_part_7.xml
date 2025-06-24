@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action_types><action name="act_strike_abdomen_back" type="actt_strike_light" />
+	<action name="act_strike_abdomen_back_left_stance" type="actt_strike_light" />
+	<action name="act_strike_legs_left" type="actt_strike_light" />
+	<action name="act_strike_legs_left_left_stance" type="actt_strike_light" />
+	<action name="act_strike_legs_right" type="actt_strike_light" />
+	<action name="act_strike_legs_right_left_stance" type="actt_strike_light" />
+	<action name="act_strike_legs_front" type="actt_strike_light" />
+	<action name="act_strike_legs_front_left_stance" type="actt_strike_light" />
+	<action name="act_strike_legs_back" type="actt_strike_light" />
+	<action name="act_strike_legs_back_left_stance" type="actt_strike_light" />
+	<action name="act_strike2_head_left" type="actt_strike_medium" />
+	<action name="act_strike2_head_left_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_head_right" type="actt_strike_medium" />
+	<action name="act_strike2_head_right_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_head_front" type="actt_strike_medium" />
+	<action name="act_strike2_head_front_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_head_back" type="actt_strike_medium" />
+	<action name="act_strike2_head_back_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_right_arm_front" type="actt_strike_medium" />
+	<action name="act_strike2_right_arm_front_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_right_arm_back" type="actt_strike_medium" />
+	<action name="act_strike2_right_arm_back_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_left_arm_front" type="actt_strike_medium" />
+	<action name="act_strike2_left_arm_front_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_left_arm_back" type="actt_strike_medium" />
+	<action name="act_strike2_left_arm_back_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_chest_left" type="actt_strike_medium" />
+	<action name="act_strike2_chest_left_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_chest_right" type="actt_strike_medium" />
+	<action name="act_strike2_chest_right_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_chest_front" type="actt_strike_medium" />
+	<action name="act_strike2_chest_front_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_chest_back" type="actt_strike_medium" />
+	<action name="act_strike2_chest_back_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_left" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_left_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_right" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_right_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_front" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_front_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_back" type="actt_strike_medium" />
+	<action name="act_strike2_abdomen_back_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_legs_left" type="actt_strike_medium" />
+	<action name="act_strike2_legs_left_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_legs_right" type="actt_strike_medium" />
+	<action name="act_strike2_legs_right_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_legs_front" type="actt_strike_medium" />
+	<action name="act_strike2_legs_front_left_stance" type="actt_strike_medium" />
+	<action name="act_strike2_legs_back" type="actt_strike_medium" />
+	<action name="act_strike2_legs_back_left_stance" type="actt_strike_medium" />
+	<action name="act_strike3_head_left" type="actt_strike_heavy" />
+	<action name="act_strike3_head_left_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_head_right" type="actt_strike_heavy" />
+	<action name="act_strike3_head_right_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_head_front" type="actt_strike_heavy" />
+	<action name="act_strike3_head_front_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_head_back" type="actt_strike_heavy" />
+	<action name="act_strike3_head_back_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_right_arm_front" type="actt_strike_heavy" />
+	<action name="act_strike3_right_arm_front_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_right_arm_back" type="actt_strike_heavy" />
+	<action name="act_strike3_right_arm_back_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_left_arm_front" type="actt_strike_heavy" />
+	<action name="act_strike3_left_arm_front_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_left_arm_back" type="actt_strike_heavy" />
+	<action name="act_strike3_left_arm_back_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_left" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_left_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_right" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_right_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_front" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_front_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_back" type="actt_strike_heavy" />
+	<action name="act_strike3_chest_back_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_left" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_left_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_right" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_right_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_front" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_front_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_back" type="actt_strike_heavy" />
+	<action name="act_strike3_abdomen_back_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_left" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_left_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_right" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_right_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_front" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_front_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_back" type="actt_strike_heavy" />
+	<action name="act_strike3_legs_back_left_stance" type="actt_strike_heavy" />
+	<action name="act_strike_knock_back_head_left" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_left_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_right" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_right_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_front" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_front_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_back" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_head_back_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_left" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_left_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_right" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_right_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_front" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_front_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_back" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_chest_back_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_left" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_left_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_right" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_right_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_front" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_front_left_stance" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_back" type="actt_strike_knock_back" />
+	<action name="act_strike_knock_back_abdomen_back_left_stance" type="actt_strike_knock_back" />
+	<action name="act_horse_strike_back" type="actt_mount_strike" />
+	<action name="act_horse_strike_front" type="actt_mount_strike" />
+	<action name="act_camel_strike_back" type="actt_mount_strike" />
+	<action name="act_camel_strike_front" type="actt_mount_strike" />
+	<action name="act_mount_strike_back_while_moving" />
+	<action name="act_mount_strike_front_while_moving" />
+	<action name="act_death_by_arrow_head1" type="actt_fall" />
+	<action name="act_death_by_arrow_head2" type="actt_fall" />
+	<action name="act_death_by_arrow_head3" type="actt_fall" />
+	<action name="act_death_by_arrow_head4" type="actt_fall" />
+	<action name="act_death_by_arrow_head1_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_head2_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_head3_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_head4_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck1" type="actt_fall" />
+	<action name="act_death_by_arrow_neck1_cont" type="actt_fall" />
+	<action name="act_death_by_arrow_neck2" type="actt_fall" />
+	<action name="act_death_by_arrow_neck2_cont" type="actt_fall" />
+	<action name="act_death_by_arrow_neck3" type="actt_fall" />
+	<action name="act_death_by_arrow_neck3_cont" type="actt_fall" />
+	<action name="act_death_by_arrow_neck4" type="actt_fall" />
+	<action name="act_death_by_arrow_neck4_cont" type="actt_fall" />
+	<action name="act_death_by_arrow_neck1_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck1_cont_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck2_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck2_cont_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck3_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck3_cont_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck4_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_neck4_cont_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_head_back1" type="actt_fall" />
+	<action name="act_death_by_arrow_head_back1_left_stance" type="actt_fall" />
+	
+	<action name="act_arrow_death_arm_left_back_1" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_back_2" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_back_1" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_back_2" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_back_1_left_stance" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_back_2_left_stance" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_back_1_left_stance" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_back_2_left_stance" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_front1" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_front2" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_front3" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_front4" type="actt_fall" />
+	<action name="act_arrow_death_arm_left_front5" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_front1" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_front2" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_front3" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_front4" type="actt_fall" />
+	<action name="act_arrow_death_arm_right_front5" type="actt_fall" />
+	<action name="act_death_by_arrow_pelvis" type="actt_fall" />
+	<action name="act_death_by_arrow_pelvis_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_pelvis_back" type="actt_fall" />
+	<action name="act_death_by_arrow_pelvis_back_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_head_left" type="actt_fall" />
+	<action name="act_death_by_arrow_head_left_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_head_right" type="actt_fall" />
+	<action name="act_death_by_arrow_head_right_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_legs_back1" type="actt_fall" />
+	<action name="act_death_by_arrow_legs_back2" type="actt_fall" />
+	<action name="act_death_by_arrow_chest1" type="actt_fall" />
+	<action name="act_death_by_arrow_chest1_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_chest1_cont_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_chest2" type="actt_fall" />
+	<action name="act_death_by_arrow_chest2_cont" type="actt_fall" />
+	<action name="act_death_by_arrow_chest2_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_chest2_cont_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_chest3" type="actt_fall" />
+	<action name="act_death_by_arrow_chest3_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_chest4" type="actt_fall" />
+	<action name="act_death_by_arrow_chest4_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_back1" type="actt_fall" />
+	<action name="act_death_by_arrow_back1_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_back2" type="actt_fall" />
+	<action name="act_death_by_arrow_back2_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_back3" type="actt_fall" />
+	<action name="act_death_by_arrow_back3_left_stance" type="actt_fall" />
+	<action name="act_death_by_arrow_back4" type="actt_fall" />
+	<action name="act_death_by_arrow_back4_left_stance" type="actt_fall" />
+	<action name="act_fall_face_hold" type="actt_fall" />
+	<action name="act_fall_face_hold_alt" type="actt_fall" />
+	<action name="act_fall_face_hold_left_stance" type="actt_fall" />
+	<action name="act_fall_face_hold_left_stance_alt" type="actt_fall" />
+	<action name="act_fall_chest_front" type="actt_fall" />
+	<action name="act_fall_chest_front_left_stance" type="actt_fall" />
+	<action name="act_fall_abdomen_hold_front" type="actt_fall" />
+	<action name="act_fall_abdomen_hold_front_left_stance" type="actt_fall" />
+	<action name="act_fall_legs_hold_front" type="actt_fall" />
+	<action name="act_fall_legs_hold_front_left_stance" type="actt_fall" />
+	<action name="act_fall_head_front" type="actt_fall" />
+	<action name="act_fall_head_front_left_stance" type="actt_fall" />
+	<action name="act_fall_right_front" type="actt_fall" />
+	<action name="act_fall_right_front_alt" type="actt_fall" />
+	<action name="act_fall_right_front_alt_continue" type="actt_fall" />
+	<action name="act_fall_right_front_left_stance" type="actt_fall" />
+	<action name="act_fall_right_front_left_stance_alt" type="actt_fall" />
+	<action name="act_fall_left_front" type="actt_fall" />
+	<action name="act_fall_left_front_alt" type="actt_fall" />
+	<action name="act_fall_left_front_left_stance" type="actt_fall" />
+	<action name="act_fall_left_front_left_stance_alt" type="actt_fall" />
+	<action name="act_fall_left_front_left_stance_alt_continue" type="actt_fall" />
+	<action name="act_fall_body_back" type="actt_fall" />
+	<action name="act_fall_body_back_alt" type="actt_fall" />
+	<action name="act_fall_body_back_alt_continue" type="actt_fall" />
+	<action name="act_fall_body_back_left_stance" type="actt_fall" />
+	<action name="act_fall_body_back_left_stance_alt" type="actt_fall" />
+	<action name="act_fall_body_back_left_stance_alt_continue" type="actt_fall" />
+	<action name="act_fall_hard_face_hold" type="actt_fall" />
+	<action name="act_fall_hard_face_hold_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_chest_front" type="actt_fall" />
+	<action name="act_fall_hard_chest_front_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_abdomen_hold_front" type="actt_fall" />
+	<action name="act_fall_hard_abdomen_hold_front_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_front" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_front_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_back" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_back_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_right" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_right_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_left" type="actt_fall" />
+	<action name="act_fall_hard_legs_hold_left_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_head_front" type="actt_fall" />
+	<action name="act_fall_hard_head_front_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_right_front" type="actt_fall" />
+	<action name="act_fall_hard_right_front_2" type="actt_fall" />
+	<action name="act_fall_hard_right_front_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_right_front_left_stance_2" type="actt_fall" />
+	<action name="act_fall_hard_left_front" type="actt_fall" />
+	<action name="act_fall_hard_left_front_2" type="actt_fall" />
+	<action name="act_fall_hard_left_front_left_stance" type="actt_fall" />
+	<action name="act_fall_hard_left_front_left_stance_2" type="actt_fall" />
+	<action name="act_fall_hard_body_back" type="actt_fall" />
+	<action name="act_fall_hard_body_back_left_stance" type="actt_fall" />
+	<action name="act_fall_rider_forward_right" type="actt_fall" />
+	
+	<action name="act_fall_rider_backwards_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_get_up" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_get_up_end" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_right_get_up" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_get_up_end" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_get_up" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_get_up_end" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_get_up" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_get_up_end" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_heavy" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_heavy_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_heavy_continue_2" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_heavy_continue_3" type="actt_fall" />
+	<action name="act_rider_only_fall_left_back_heavy_end" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_heavy" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_heavy_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_heavy_continue_2" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_heavy_continue_3" type="actt_fall" />
+	<action name="act_rider_only_fall_right_back_heavy_end" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_heavy" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_heavy_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_heavy_continue_2" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_heavy_continue_3" type="actt_fall" />
+	<action name="act_rider_only_fall_left_front_heavy_end" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_heavy" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_heavy_continue" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_heavy_continue_2" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_heavy_continue_3" type="actt_fall" />
+	<action name="act_rider_only_fall_right_front_heavy_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_heavy" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_heavy_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_heavy_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_back_heavy_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_heavy" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_heavy_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_heavy_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_back_heavy_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_heavy" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_heavy_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_heavy_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_left_front_heavy_end_2" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_heavy" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_heavy_continue" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_heavy_end" type="actt_fall" />
+	<action name="act_camel_rider_only_fall_right_front_heavy_end_2" type="actt_fall" />
+	<action name="act_fall_rider_forward_right_slow" type="actt_fall" />
+	<action name="act_fall_rider_forward_left" type="actt_fall" />
+	
+	<action name="act_fall_rider_back" type="actt_fall" />
+	
+	<action name="act_rider_fall_right_continue" type="actt_fall" />
+	
+	<action name="act_camel_fall_rider_forward_right" type="actt_fall" />
+	
+	
+	<action name="act_camel_fall_rider_forward_right_slow" type="actt_fall" />
+	<action name="act_camel_fall_rider_forward_left" type="actt_fall" />
+	<action name="act_camel_fall_rider_forward_left_slow" type="actt_fall" />
+	<action name="act_camel_fall_rider_back" type="actt_fall" />
+	<action name="act_camel_fall_rider_back_slow" type="actt_fall" />
+	<action name="act_camel_fall_rider_right" type="actt_fall" />
+	<action name="act_camel_rider_fall_right_continue" type="actt_fall" />
+	<action name="act_camel_fall_rider_left" type="actt_fall" />
+	<action name="act_death_by_fire_front" type="actt_fall" />
+	<action name="act_death_by_fire_right" type="actt_fall" />
+	<action name="act_death_by_fire_left" type="actt_fall" />
+	<action name="act_death_by_fire_back" type="actt_fall" />
+	<action name="act_death_by_fire_right_left_stance" type="actt_fall" />
+	<action name="act_death_by_fire_left_left_stance" type="actt_fall" />
+	<action name="act_death_by_fire_back_left_stance" type="actt_fall" />
+	<action name="act_death_by_fire_front_left_stance" type="actt_fall" />
+	
+	<action name="act_death_by_fire1" type="actt_fall" />
+	<action name="act_death_by_fire2" type="actt_fall" />
+	<action name="act_death_by_fire3" type="actt_fall" />
+	<action name="act_death_fall_front" type="actt_fall" />
+	<action name="act_death_fall_front_left_stance" type="actt_fall" />
+	<action name="act_death_fall_front_heavy" type="actt_fall" />
+	<action name="act_death_fall_front_heavy_left_stance" type="actt_fall" />
+	<action name="act_death_fall_back" type="actt_fall" />
+	<action name="act_death_fall_back_left_stance" type="actt_fall" />
+	<action name="act_death_fall_back_heavy" type="actt_fall" />
+	<action name="act_death_fall_back_heavy_continue" type="actt_fall" />
+	<action name="act_death_fall_back_heavy_left_stance" type="actt_fall" />
+	<action name="act_death_fall_right" type="actt_fall" />
+	<action name="act_death_fall_right_left_stance" type="actt_fall" />
+	<action name="act_death_fall_right_heavy" type="actt_fall" />
+	<action name="act_death_fall_right_heavy_left_stance" type="actt_fall" />
+	<action name="act_death_fall_left" type="actt_fall" />
+	<action name="act_death_fall_left_left_stance" type="actt_fall" />
+	<action name="act_death_fall_left_heavy" type="actt_fall" />
+	<action name="act_death_fall_left_heavy_left_stance" type="actt_fall" />
+	<action name="act_death_rider_slow_right" type="actt_fall" />
+	<action name="act_death_rider_slow_left" type="actt_fall" />
+	<action name="act_death_rider_slow_right_continue" type="actt_fall" />
+	<action name="act_death_rider_slow_left_continue" type="actt_fall" />
+	<action name="act_camel_death_rider_slow_right" type="actt_fall" />
+	<action name="act_camel_death_rider_slow_left" type="actt_fall" />
+	<action name="act_camel_death_rider_slow_right_continue" type="actt_fall" />
+	<action name="act_camel_death_rider_slow_left_continue" type="actt_fall" />
+	<action name="act_strike_chest_front_stop" type="actt_strike_light" />
+	<action name="act_strike_chest_front_stop_left_stance" type="actt_strike_light" />
+	<action name="act_strike_fall_front_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_front_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_front_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_front_back_rise_left_stance_continue" type="actt_fall" />
+	<action name="act_strike_fall_front_heavy_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_front_heavy_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_front_heavy_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_back_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_back_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_back_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_back_back_rise_left_stance_continue" type="actt_fall" />
+	<action name="act_strike_fall_back_heavy_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_back_heavy_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_back_heavy_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_alt" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_alt_continue" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_left_stance_continue" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_left_stance_alt" type="actt_fall" />
+	<action name="act_strike_fall_right_back_rise_left_stance_alt_continue" type="actt_fall" />
+	<action name="act_strike_fall_right_heavy_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_right_heavy_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_right_heavy_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_right_heavy_back_rise_left_stance_continue" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_alt" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_alt_continue" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_left_stance_continue" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_left_stance_alt" type="actt_fall" />
+	<action name="act_strike_fall_left_back_rise_left_stance_alt_continue" type="actt_fall" />
+	<action name="act_strike_fall_left_heavy_back_rise" type="actt_fall" />
+	<action name="act_strike_fall_left_heavy_back_rise_continue" type="actt_fall" />
+	<action name="act_strike_fall_left_heavy_back_rise_left_stance" type="actt_fall" />
+	<action name="act_strike_fall_left_heavy_back_rise_left_stance_continue" type="actt_fall" />
+	<action name="act_climb_ladder" />
+	<action name="act_pickup_down_begin" />
+	<action name="act_pickup_down_end" />
+	<action name="act_pickup_down_begin_left_stance" />
+	<action name="act_pickup_down_end_left_stance" />
+	<action name="act_pickup_down_left_begin" />
+	<action name="act_pickup_down_left_end" />
+	<action name="act_pickup_down_left_begin_left_stance" />
+	<action name="act_pickup_down_left_end_left_stance" />
+	<action name="act_pickup_middle_begin" />
+	<action name="act_pickup_middle_end" />
+	<action name="act_pickup_middle_begin_left_stance" />
+	<action name="act_pickup_middle_end_left_stance" />
+	<action name="act_pickup_middle_left_begin" />
+	<action name="act_pickup_middle_left_end" />
+	<action name="act_pickup_middle_left_begin_left_stance" />
+	<action name="act_pickup_middle_left_end_left_stance" />
+	<action name="act_pickup_up_begin" />
+	<action name="act_pickup_up_end" />
+	<action name="act_pickup_up_begin_left_stance" />
+	<action name="act_pickup_up_end_left_stance" />
+	<action name="act_pickup_up_left_begin" />
+	<action name="act_pickup_up_left_end" />
+	<action name="act_pickup_up_left_begin_left_stance" />
+	<action name="act_pickup_up_left_end_left_stance" />
+	<action name="act_pickup_from_right_down_horseback_begin" />
+	<action name="act_pickup_from_right_down_horseback_end" />
+	<action name="act_pickup_from_right_down_horseback_left_begin" />
+	<action name="act_pickup_from_right_down_horseback_left_end" />
+	<action name="act_pickup_from_right_middle_horseback_begin" />
+	<action name="act_pickup_from_right_middle_horseback_end" />
+	<action name="act_pickup_from_right_middle_horseback_left_begin" />
+	<action name="act_pickup_from_right_middle_horseback_left_end" />
+	<action name="act_pickup_from_right_up_horseback_begin" />
+	<action name="act_pickup_from_right_up_horseback_end" />
+	<action name="act_pickup_from_right_up_horseback_left_begin" />
+	<action name="act_pickup_from_right_up_horseback_left_end" />
+	<action name="act_pickup_from_left_down_horseback_begin" />
+	<action name="act_pickup_from_left_down_horseback_end" />
+	<action name="act_pickup_from_left_down_horseback_left_begin" />
+	<action name="act_pickup_from_left_down_horseback_left_end" />
+	<action name="act_pickup_from_left_middle_horseback_begin" />
+	<action name="act_pickup_from_left_middle_horseback_end" />
+	<action name="act_pickup_from_left_middle_horseback_left_begin" />
+	<action name="act_pickup_from_left_middle_horseback_left_end" />
+	<action name="act_pickup_from_left_up_horseback_begin" />
+	<action name="act_pickup_from_left_up_horseback_end" />
+	<action name="act_pickup_from_left_up_horseback_left_begin" />
+	<action name="act_pickup_from_left_up_horseback_left_end" />
+	<action name="act_pickup_boulder_begin" />
+	<action name="act_pickup_boulder_end" />
+	<action name="act_usage_ballista_idle" />
+	<action name="act_usage_ballista_reload" />
+	<action name="act_usage_ballista_ammo_pick_up_start" />
+	<action name="act_usage_ballista_ammo_pick_up_end" />
+	<action name="act_usage_ballista_ammo_place_start" />
+	<action name="act_usage_ballista_ammo_place_end" />
+	<action name="act_usage_ballista_idle_attacker" />
+	<action name="act_usage_ballista_reload_attacker" />
+	<action name="act_usage_ballista_ammo_pick_up_start_attacker" />
+	<action name="act_usage_ballista_ammo_pick_up_end_attacker" />
+	<action name="act_usage_ballista_ammo_place_start_attacker" />
+	<action name="act_usage_ballista_ammo_place_end_attacker" />
+	<action name="act_usage_ballista_idle_defender" />
+	<action name="act_usage_ballista_reload_defender" />
+	<action name="act_usage_ballista_ammo_pick_up_start_defender" />
+	<action name="act_usage_ballista_ammo_pick_up_end_defender" />
+	<action name="act_usage_ballista_ammo_place_start_defender" />
+	<action name="act_usage_ballista_ammo_place_end_defender" />
+	<action name="act_usage_siege_machine_push" />
+	<action name="act_usage_batteringram_left" />
+	<action name="act_usage_batteringram_left_slower" />
+	<action name="act_usage_batteringram_left_slowest" />
+	<action name="act_usage_batteringram_right" />
+	<action name="act_usage_batteringram_right_slower" />
+	<action name="act_usage_batteringram_right_slowest" />
+	<action name="act_usage_siege_tower_open_gate_begin" />
+	<action name="act_usage_siege_tower_open_gate_end" />
+	<action name="act_usage_mangonel_idle" />
+	<action name="act_usage_mangonel_shoot" />
+	<action name="act_usage_mangonel_big_idle" />
+	<action name="act_usage_mangonel_big_shoot" />
+	<action name="act_usage_mangonel_rotate_left" />
+	<action name="act_usage_mangonel_rotate_right" />
+	<action name="act_usage_mangonel_reload" />
+	<action name="act_usage_mangonel_big_reload" />
+	<action name="act_usage_mangonel_reload_2" />
+	<action name="act_usage_mangonel_reload_2_idle" />
+	<action name="act_usage_mangonel_pick_up_ammo_begin" />
+	<action name="act_usage_mangonel_pick_up_ammo_end" />
+	<action name="act_usage_mangonel_load_ammo_begin" />
+	<action name="act_usage_mangonel_load_ammo_end" />
+	<action name="act_usage_mangonel_big_load_ammo_begin" />
+	<action name="act_usage_mangonel_big_load_ammo_end" />
+	</action_types>

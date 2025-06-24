@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action_types><action name="act_crouch_walk_left_thrown_left_stance" />
+	<action name="act_crouch_walk_backward_thrown_left_stance" />
+	<action name="act_crouch_walk_right_back_thrown_left_stance" />
+	<action name="act_crouch_walk_left_back_thrown_left_stance" />
+	<action name="act_crouch_walk_right_to_left_thrown_left_stance" />
+	<action name="act_crouch_walk_left_to_right_thrown_left_stance" />
+	<action name="act_crouch_walk_idle_torch" />
+	<action name="act_crouch_walk_forward_torch" />
+	<action name="act_crouch_walk_right_torch" />
+	<action name="act_crouch_walk_left_torch" />
+	<action name="act_crouch_walk_backward_torch" />
+	<action name="act_crouch_walk_right_back_torch" />
+	<action name="act_crouch_walk_left_back_torch" />
+	<action name="act_crouch_walk_right_to_left_torch" />
+	<action name="act_crouch_walk_left_to_right_torch" />
+	<action name="act_crouch_walk_idle_torch_left_stance" />
+	<action name="act_crouch_walk_forward_torch_left_stance" />
+	<action name="act_crouch_walk_right_torch_left_stance" />
+	<action name="act_crouch_walk_left_torch_left_stance" />
+	<action name="act_crouch_walk_backward_torch_left_stance" />
+	<action name="act_crouch_walk_right_back_torch_left_stance" />
+	<action name="act_crouch_walk_left_back_torch_left_stance" />
+	<action name="act_crouch_walk_right_to_left_torch_left_stance" />
+	<action name="act_crouch_walk_left_to_right_torch_left_stance" />
+	<action name="act_crouch_walk_idle_heavy_thrown" />
+	<action name="act_crouch_walk_forward_heavy_thrown" />
+	<action name="act_crouch_walk_right_heavy_thrown" />
+	<action name="act_crouch_walk_left_heavy_thrown" />
+	<action name="act_crouch_walk_backward_heavy_thrown" />
+	<action name="act_crouch_walk_right_back_heavy_thrown" />
+	<action name="act_crouch_walk_left_back_heavy_thrown" />
+	<action name="act_crouch_walk_right_to_left_heavy_thrown" />
+	<action name="act_crouch_walk_left_to_right_heavy_thrown" />
+	<action name="act_crouch_walk_idle_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_forward_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_right_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_left_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_backward_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_right_back_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_left_back_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_right_to_left_heavy_thrown_left_stance" />
+	<action name="act_crouch_walk_left_to_right_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_idle_unarmed" />
+	<action name="act_crouch_run_forward_unarmed" />
+	<action name="act_crouch_run_right_unarmed" />
+	<action name="act_crouch_run_left_unarmed" />
+	<action name="act_crouch_run_backward_unarmed" />
+	<action name="act_crouch_run_right_back_unarmed" />
+	<action name="act_crouch_run_left_back_unarmed" />
+	<action name="act_crouch_run_right_to_left_unarmed" />
+	<action name="act_crouch_run_left_to_right_unarmed" />
+	<action name="act_crouch_turn_unarmed" />
+	<action name="act_crouch_run_idle_unarmed_left_stance" />
+	<action name="act_crouch_run_forward_unarmed_left_stance" />
+	<action name="act_crouch_run_right_unarmed_left_stance" />
+	<action name="act_crouch_run_left_unarmed_left_stance" />
+	<action name="act_crouch_run_backward_unarmed_left_stance" />
+	<action name="act_crouch_run_right_back_unarmed_left_stance" />
+	<action name="act_crouch_run_left_back_unarmed_left_stance" />
+	<action name="act_crouch_run_right_to_left_unarmed_left_stance" />
+	<action name="act_crouch_run_left_to_right_unarmed_left_stance" />
+	<action name="act_crouch_turn_unarmed_left_stance" />
+	<action name="act_crouch_run_idle_1h" />
+	<action name="act_crouch_run_forward_1h" />
+	<action name="act_crouch_run_right_1h" />
+	<action name="act_crouch_run_left_1h" />
+	<action name="act_crouch_run_backward_1h" />
+	<action name="act_crouch_run_right_back_1h" />
+	<action name="act_crouch_run_left_back_1h" />
+	<action name="act_crouch_run_right_to_left_1h" />
+	<action name="act_crouch_run_left_to_right_1h" />
+	<action name="act_crouch_turn_1h" />
+	<action name="act_crouch_run_idle_1h_left_stance" />
+	<action name="act_crouch_run_forward_1h_left_stance" />
+	<action name="act_crouch_run_right_1h_left_stance" />
+	<action name="act_crouch_run_left_1h_left_stance" />
+	<action name="act_crouch_run_backward_1h_left_stance" />
+	<action name="act_crouch_run_right_back_1h_left_stance" />
+	<action name="act_crouch_run_left_back_1h_left_stance" />
+	<action name="act_crouch_run_right_to_left_1h_left_stance" />
+	<action name="act_crouch_run_left_to_right_1h_left_stance" />
+	<action name="act_crouch_turn_1h_left_stance" />
+	<action name="act_crouch_run_idle_1h_with_shield" />
+	<action name="act_crouch_run_forward_1h_with_shield" />
+	<action name="act_crouch_run_right_1h_with_shield" />
+	<action name="act_crouch_run_left_1h_with_shield" />
+	<action name="act_crouch_run_backward_1h_with_shield" />
+	<action name="act_crouch_run_right_back_1h_with_shield" />
+	<action name="act_crouch_run_left_back_1h_with_shield" />
+	<action name="act_crouch_run_right_to_left_1h_with_shield" />
+	<action name="act_crouch_run_left_to_right_1h_with_shield" />
+	<action name="act_crouch_turn_1h_with_shield" />
+	<action name="act_crouch_run_idle_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_forward_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_right_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_left_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_backward_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_right_back_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_left_back_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_right_to_left_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_left_to_right_1h_with_shield_left_stance" />
+	<action name="act_crouch_turn_1h_with_shield_left_stance" />
+	<action name="act_crouch_run_idle_1h_with_h_shld" />
+	<action name="act_crouch_run_forward_1h_with_h_shld" />
+	<action name="act_crouch_run_right_1h_with_h_shld" />
+	<action name="act_crouch_run_left_1h_with_h_shld" />
+	<action name="act_crouch_run_backward_1h_with_h_shld" />
+	<action name="act_crouch_run_right_back_1h_with_h_shld" />
+	<action name="act_crouch_run_left_back_1h_with_h_shld" />
+	<action name="act_crouch_run_right_to_left_1h_with_h_shld" />
+	<action name="act_crouch_run_left_to_right_1h_with_h_shld" />
+	<action name="act_crouch_turn_1h_with_h_shld" />
+	<action name="act_crouch_run_idle_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_forward_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_right_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_left_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_backward_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_right_back_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_left_back_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_right_to_left_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_left_to_right_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_turn_1h_with_h_shld_left_stance" />
+	<action name="act_crouch_run_idle_polearm" />
+	<action name="act_crouch_run_forward_polearm" />
+	<action name="act_crouch_run_right_polearm" />
+	<action name="act_crouch_run_left_polearm" />
+	<action name="act_crouch_run_backward_polearm" />
+	<action name="act_crouch_run_right_back_polearm" />
+	<action name="act_crouch_run_left_back_polearm" />
+	<action name="act_crouch_run_right_to_left_polearm" />
+	<action name="act_crouch_run_left_to_right_polearm" />
+	<action name="act_crouch_turn_polearm" />
+	<action name="act_crouch_run_idle_polearm_left_stance" />
+	<action name="act_crouch_run_forward_polearm_left_stance" />
+	<action name="act_crouch_run_right_polearm_left_stance" />
+	<action name="act_crouch_run_left_polearm_left_stance" />
+	<action name="act_crouch_run_backward_polearm_left_stance" />
+	<action name="act_crouch_run_right_back_polearm_left_stance" />
+	<action name="act_crouch_run_left_back_polearm_left_stance" />
+	<action name="act_crouch_run_right_to_left_polearm_left_stance" />
+	<action name="act_crouch_run_left_to_right_polearm_left_stance" />
+	<action name="act_crouch_turn_polearm_left_stance" />
+	<action name="act_crouch_run_idle_polearm_with_shield" />
+	<action name="act_crouch_run_forward_polearm_with_shield" />
+	<action name="act_crouch_run_right_polearm_with_shield" />
+	<action name="act_crouch_run_left_polearm_with_shield" />
+	<action name="act_crouch_run_backward_polearm_with_shield" />
+	<action name="act_crouch_run_right_back_polearm_with_shield" />
+	<action name="act_crouch_run_left_back_polearm_with_shield" />
+	<action name="act_crouch_run_right_to_left_polearm_with_shield" />
+	<action name="act_crouch_run_left_to_right_polearm_with_shield" />
+	<action name="act_crouch_turn_polearm_with_shield" />
+	<action name="act_crouch_run_idle_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_forward_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_right_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_left_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_backward_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_right_back_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_left_back_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_right_to_left_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_left_to_right_polearm_with_shield_left_stance" />
+	<action name="act_crouch_turn_polearm_with_shield_left_stance" />
+	<action name="act_crouch_run_idle_polearm_with_h_shld" />
+	<action name="act_crouch_run_forward_polearm_with_h_shld" />
+	<action name="act_crouch_run_right_polearm_with_h_shld" />
+	<action name="act_crouch_run_left_polearm_with_h_shld" />
+	<action name="act_crouch_run_backward_polearm_with_h_shld" />
+	<action name="act_crouch_run_right_back_polearm_with_h_shld" />
+	<action name="act_crouch_run_left_back_polearm_with_h_shld" />
+	<action name="act_crouch_run_right_to_left_polearm_with_h_shld" />
+	<action name="act_crouch_run_left_to_right_polearm_with_h_shld" />
+	<action name="act_crouch_turn_polearm_with_h_shld" />
+	<action name="act_crouch_run_idle_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_forward_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_right_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_left_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_backward_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_right_back_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_left_back_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_right_to_left_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_left_to_right_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_turn_polearm_with_h_shld_left_stance" />
+	<action name="act_crouch_run_idle_2h" />
+	<action name="act_crouch_run_forward_2h" />
+	<action name="act_crouch_run_right_2h" />
+	<action name="act_crouch_run_left_2h" />
+	<action name="act_crouch_run_backward_2h" />
+	<action name="act_crouch_run_right_back_2h" />
+	<action name="act_crouch_run_left_back_2h" />
+	<action name="act_crouch_run_right_to_left_2h" />
+	<action name="act_crouch_run_left_to_right_2h" />
+	<action name="act_crouch_turn_2h" />
+	<action name="act_crouch_run_idle_2h_left_stance" />
+	<action name="act_crouch_run_forward_2h_left_stance" />
+	<action name="act_crouch_run_right_2h_left_stance" />
+	<action name="act_crouch_run_left_2h_left_stance" />
+	<action name="act_crouch_run_backward_2h_left_stance" />
+	<action name="act_crouch_run_right_back_2h_left_stance" />
+	<action name="act_crouch_run_left_back_2h_left_stance" />
+	<action name="act_crouch_run_right_to_left_2h_left_stance" />
+	<action name="act_crouch_run_left_to_right_2h_left_stance" />
+	<action name="act_crouch_turn_2h_left_stance" />
+	<action name="act_crouch_run_idle_2h_axe" />
+	<action name="act_crouch_run_forward_2h_axe" />
+	<action name="act_crouch_run_right_2h_axe" />
+	<action name="act_crouch_run_left_2h_axe" />
+	<action name="act_crouch_run_backward_2h_axe" />
+	<action name="act_crouch_run_right_back_2h_axe" />
+	<action name="act_crouch_run_left_back_2h_axe" />
+	<action name="act_crouch_run_right_to_left_2h_axe" />
+	<action name="act_crouch_run_left_to_right_2h_axe" />
+	<action name="act_crouch_turn_2h_axe" />
+	<action name="act_crouch_run_idle_2h_axe_left_stance" />
+	<action name="act_crouch_run_forward_2h_axe_left_stance" />
+	<action name="act_crouch_run_right_2h_axe_left_stance" />
+	<action name="act_crouch_run_left_2h_axe_left_stance" />
+	<action name="act_crouch_run_backward_2h_axe_left_stance" />
+	<action name="act_crouch_run_right_back_2h_axe_left_stance" />
+	<action name="act_crouch_run_left_back_2h_axe_left_stance" />
+	<action name="act_crouch_run_right_to_left_2h_axe_left_stance" />
+	<action name="act_crouch_run_left_to_right_2h_axe_left_stance" />
+	<action name="act_crouch_turn_2h_axe_left_stance" />
+	<action name="act_crouch_run_idle_bow" />
+	<action name="act_crouch_run_forward_bow" />
+	<action name="act_crouch_run_right_bow" />
+	<action name="act_crouch_run_left_bow" />
+	<action name="act_crouch_run_backward_bow" />
+	<action name="act_crouch_run_right_back_bow" />
+	<action name="act_crouch_run_left_back_bow" />
+	<action name="act_crouch_run_right_to_left_bow" />
+	<action name="act_crouch_run_left_to_right_bow" />
+	<action name="act_crouch_turn_bow" />
+	<action name="act_crouch_run_idle_bow_left_stance" />
+	<action name="act_crouch_run_forward_bow_left_stance" />
+	<action name="act_crouch_run_right_bow_left_stance" />
+	<action name="act_crouch_run_left_bow_left_stance" />
+	<action name="act_crouch_run_backward_bow_left_stance" />
+	<action name="act_crouch_run_right_back_bow_left_stance" />
+	<action name="act_crouch_run_left_back_bow_left_stance" />
+	<action name="act_crouch_run_right_to_left_bow_left_stance" />
+	<action name="act_crouch_run_left_to_right_bow_left_stance" />
+	<action name="act_crouch_turn_bow_left_stance" />
+	<action name="act_crouch_run_idle_crossbow" />
+	<action name="act_crouch_run_forward_crossbow" />
+	<action name="act_crouch_run_right_crossbow" />
+	<action name="act_crouch_run_left_crossbow" />
+	<action name="act_crouch_run_backward_crossbow" />
+	<action name="act_crouch_run_right_back_crossbow" />
+	<action name="act_crouch_run_left_back_crossbow" />
+	<action name="act_crouch_run_right_to_left_crossbow" />
+	<action name="act_crouch_run_left_to_right_crossbow" />
+	<action name="act_crouch_turn_crossbow" />
+	<action name="act_crouch_run_idle_crossbow_left_stance" />
+	<action name="act_crouch_run_forward_crossbow_left_stance" />
+	<action name="act_crouch_run_right_crossbow_left_stance" />
+	<action name="act_crouch_run_left_crossbow_left_stance" />
+	<action name="act_crouch_run_backward_crossbow_left_stance" />
+	<action name="act_crouch_run_right_back_crossbow_left_stance" />
+	<action name="act_crouch_run_left_back_crossbow_left_stance" />
+	<action name="act_crouch_run_right_to_left_crossbow_left_stance" />
+	<action name="act_crouch_run_left_to_right_crossbow_left_stance" />
+	<action name="act_crouch_turn_crossbow_left_stance" />
+	<action name="act_crouch_run_idle_thrown" />
+	<action name="act_crouch_run_forward_thrown" />
+	<action name="act_crouch_run_right_thrown" />
+	<action name="act_crouch_run_left_thrown" />
+	<action name="act_crouch_run_backward_thrown" />
+	<action name="act_crouch_run_right_back_thrown" />
+	<action name="act_crouch_run_left_back_thrown" />
+	<action name="act_crouch_run_right_to_left_thrown" />
+	<action name="act_crouch_run_left_to_right_thrown" />
+	<action name="act_crouch_turn_thrown" />
+	<action name="act_crouch_run_idle_thrown_left_stance" />
+	<action name="act_crouch_run_forward_thrown_left_stance" />
+	<action name="act_crouch_run_right_thrown_left_stance" />
+	<action name="act_crouch_run_left_thrown_left_stance" />
+	<action name="act_crouch_run_backward_thrown_left_stance" />
+	<action name="act_crouch_run_right_back_thrown_left_stance" />
+	<action name="act_crouch_run_left_back_thrown_left_stance" />
+	<action name="act_crouch_run_right_to_left_thrown_left_stance" />
+	<action name="act_crouch_run_left_to_right_thrown_left_stance" />
+	<action name="act_crouch_turn_thrown_left_stance" />
+	<action name="act_crouch_run_idle_torch" />
+	<action name="act_crouch_run_forward_torch" />
+	<action name="act_crouch_run_right_torch" />
+	<action name="act_crouch_run_left_torch" />
+	<action name="act_crouch_run_backward_torch" />
+	<action name="act_crouch_run_right_back_torch" />
+	<action name="act_crouch_run_left_back_torch" />
+	<action name="act_crouch_run_right_to_left_torch" />
+	<action name="act_crouch_run_left_to_right_torch" />
+	<action name="act_crouch_turn_torch" />
+	<action name="act_crouch_run_idle_torch_left_stance" />
+	<action name="act_crouch_run_forward_torch_left_stance" />
+	<action name="act_crouch_run_right_torch_left_stance" />
+	<action name="act_crouch_run_left_torch_left_stance" />
+	<action name="act_crouch_run_backward_torch_left_stance" />
+	<action name="act_crouch_run_right_back_torch_left_stance" />
+	<action name="act_crouch_run_left_back_torch_left_stance" />
+	<action name="act_crouch_run_right_to_left_torch_left_stance" />
+	<action name="act_crouch_run_left_to_right_torch_left_stance" />
+	<action name="act_crouch_turn_torch_left_stance" />
+	<action name="act_crouch_run_idle_heavy_thrown" />
+	<action name="act_crouch_run_forward_heavy_thrown" />
+	<action name="act_crouch_run_right_heavy_thrown" />
+	<action name="act_crouch_run_left_heavy_thrown" />
+	<action name="act_crouch_run_backward_heavy_thrown" />
+	<action name="act_crouch_run_right_back_heavy_thrown" />
+	<action name="act_crouch_run_left_back_heavy_thrown" />
+	<action name="act_crouch_run_right_to_left_heavy_thrown" />
+	<action name="act_crouch_run_left_to_right_heavy_thrown" />
+	<action name="act_crouch_turn_heavy_thrown" />
+	<action name="act_crouch_run_idle_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_forward_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_right_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_left_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_backward_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_right_back_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_left_back_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_right_to_left_heavy_thrown_left_stance" />
+	<action name="act_crouch_run_left_to_right_heavy_thrown_left_stance" />
+	<action name="act_crouch_turn_heavy_thrown_left_stance" />
+	<action name="act_idle_unarmed_1" type="actt_idle" />
+	<action name="act_idle_unarmed_2" type="actt_idle" />
+	<action name="act_idle_unarmed_3" type="actt_idle" />
+	<action name="act_idle_unarmed_4" type="actt_idle" />
+	<action name="act_idle_unarmed_5" type="actt_idle" />
+	<action name="act_idle_unarmed_1_left_stance" type="actt_idle" />
+	<action name="act_idle_unarmed_2_left_stance" type="actt_idle" />
+	<action name="act_idle_unarmed_3_left_stance" type="actt_idle" />
+	<action name="act_idle_unarmed_4_left_stance" type="actt_idle" />
+	<action name="act_idle_unarmed_5_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_1" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_2" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_3" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_4" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_5" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_6" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_1" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_2" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_3" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_4" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_5" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_6" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_1_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_2_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_3_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_4_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_5_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_with_shield_6_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_1_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_2_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_3_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_4_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_5_left_stance" type="actt_idle" />
+	<action name="act_idle_1h_without_shield_6_left_stance" type="actt_idle" />
+	<action name="act_idle_javelin_with_shield_1" type="actt_idle" />
+	<action name="act_idle_javelin_with_shield_2" type="actt_idle" />
+	<action name="act_idle_javelin_with_shield_3" type="actt_idle" />
+	<action name="act_idle_javelin_without_shield_1" type="actt_idle" />
+	<action name="act_idle_javelin_without_shield_2" type="actt_idle" />
+	<action name="act_idle_javelin_without_shield_3" type="actt_idle" />
+	<action name="act_idle_javelin_with_shield_1_left_stance" type="actt_idle" />
+	<action name="act_idle_javelin_with_shield_2_left_stance" type="actt_idle" />
+	<action name="act_idle_javelin_with_shield_3_left_stance" type="actt_idle" />
+	<action name="act_idle_javelin_without_shield_1_left_stance" type="actt_idle" />
+	<action name="act_idle_javelin_without_shield_2_left_stance" type="actt_idle" />
+	<action name="act_idle_javelin_without_shield_3_left_stance" type="actt_idle" />
+	<action name="act_idle_2h_1" type="actt_idle" />
+	<action name="act_idle_2h_2" type="actt_idle" />
+	<action name="act_idle_2h_3" type="actt_idle" />
+	<action name="act_idle_2h_4" type="actt_idle" />
+	<action name="act_idle_2h_5" type="actt_idle" />
+	<action name="act_idle_2h_6" type="actt_idle" />
+	<action name="act_idle_2h_1_left_stance" type="actt_idle" />
+	<action name="act_idle_2h_2_left_stance" type="actt_idle" />
+	<action name="act_idle_2h_3_left_stance" type="actt_idle" />
+	<action name="act_idle_2h_4_left_stance" type="actt_idle" />
+	<action name="act_idle_2h_5_left_stance" type="actt_idle" />
+	<action name="act_idle_2h_6_left_stance" type="actt_idle" />
+	<action name="act_idle_bow_1" type="actt_idle" />
+	<action name="act_idle_bow_2" type="actt_idle" />
+	<action name="act_idle_bow_3" type="actt_idle" />
+	<action name="act_idle_bow_4" type="actt_idle" />
+	<action name="act_idle_crossbow_1" type="actt_idle" />
+	<action name="act_idle_crossbow_2" type="actt_idle" />
+	<action name="act_idle_crossbow_3" type="actt_idle" />
+	<action name="act_idle_spear_1" type="actt_idle" />
+	<action name="act_idle_spear_2" type="actt_idle" />
+	<action name="act_idle_spear_3" type="actt_idle" />
+	<action name="act_idle_spear_4" type="actt_idle" />
+	<action name="act_idle_spear_5" type="actt_idle" />
+	<action name="act_idle_spear_6" type="actt_idle" />
+	<action name="act_idle_spear_1_left_stance" type="actt_idle" />
+	<action name="act_idle_spear_2_left_stance" type="actt_idle" />
+	<action name="act_idle_spear_3_left_stance" type="actt_idle" />
+	<action name="act_idle_spear_4_left_stance" type="actt_idle" />
+	<action name="act_idle_spear_5_left_stance" type="actt_idle" />
+	<action name="act_idle_spear_6_left_stance" type="actt_idle" />
+	<action name="act_lancer_ride_0" />
+	<action name="act_lancer_ride_1" />
+	<action name="act_lancer_charge_parried" type="actt_parried_melee" />
+	<action name="act_lancer_ride_4" type="actt_passive_usage" />
+	<action name="act_lancer_ride_4_shake" type="actt_passive_usage" />
+	<action name="act_lancer_ride_4_no_shield" type="actt_passive_usage" />
+	<action name="act_lancer_ride_4_no_shield_shake" type="actt_passive_usage" />
+	<action name="act_polearm_brace_ready" type="actt_passive_usage" usage_direction="ud_attack_down" />
+	<action name="act_polearm_brace_parried" type="actt_parried_melee" />
+	<action name="act_mount_horse_from_left" type="actt_mount" />
+	<action name="act_mount_horse_fast_from_left" type="actt_mount" />
+	<action name="act_mount_horse_from_right" type="actt_mount" />
+	<action name="act_mount_horse_fast_from_right" type="actt_mount" />
+	<action name="act_dismount_horse_to_left" type="actt_dismount" />
+	<action name="act_dismount_horse_to_left_continue" type="actt_dismount" usage_direction="ud_defend_left" />
+	<action name="act_dismount_horse_to_right" type="actt_dismount" />
+	<action name="act_dismount_horse_to_right_continue" type="actt_dismount" usage_direction="ud_defend_right" />
+	<action name="act_mount_camel_from_left" type="actt_mount" />
+	<action name="act_mount_camel_fast_from_left" type="actt_mount" />
+	<action name="act_mount_camel_from_right" type="actt_mount" />
+	<action name="act_mount_camel_fast_from_right" type="actt_mount" />
+	<action name="act_dismount_camel_to_left" type="actt_dismount" />
+	<action name="act_dismount_camel_to_left_continue" type="actt_dismount" usage_direction="ud_defend_left" />
+	<action name="act_dismount_camel_to_right" type="actt_dismount" />
+	<action name="act_dismount_camel_to_right_continue" type="actt_dismount" usage_direction="ud_defend_right" />
+	<action name="act_equip_default" type="actt_equip_unequip" />
+	<action name="act_equip_default_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_default" type="actt_equip_unequip" />
+	<action name="act_unequip_default_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_sword" type="actt_equip_unequip" />
+	<action name="act_equip_sword_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_sword" type="actt_equip_unequip" />
+	<action name="act_unequip_sword_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_2h" type="actt_equip_unequip" />
+	<action name="act_equip_2h_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_2h" type="actt_equip_unequip" />
+	<action name="act_unequip_2h_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_2h_axe" type="actt_equip_unequip" />
+	<action name="act_equip_2h_axe_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_2h_axe" type="actt_equip_unequip" />
+	<action name="act_unequip_2h_axe_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_axe_left_hip" type="actt_equip_unequip" />
+	<action name="act_equip_axe_left_hip_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_axe_left_hip" type="actt_equip_unequip" />
+	<action name="act_unequip_axe_left_hip_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_throwing_axe_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_throwing_axe" type="actt_equip_unequip" />
+	<action name="act_unequip_throwing_axe" type="actt_equip_unequip" />
+	<action name="act_equip_quiver_middle_lower" type="actt_equip_unequip" />
+	<action name="act_equip_quiver_middle_lower_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_quiver_middle_lower" type="actt_equip_unequip" />
+	<action name="act_unequip_quiver_middle_lower_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_crossbow" type="actt_equip_unequip" />
+	<action name="act_equip_crossbow_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_crossbow" type="actt_equip_unequip" />
+	<action name="act_unequip_crossbow_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_spear" type="actt_equip_unequip" />
+	<action name="act_equip_spear_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_spear" type="actt_equip_unequip" />
+	<action name="act_unequip_spear_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_dagger_front_left" type="actt_equip_unequip" />
+	<action name="act_equip_dagger_front_left_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_dagger_front_left" type="actt_equip_unequip" />
+	<action name="act_unequip_dagger_front_left_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_dagger_front_right" type="actt_equip_unequip" />
+	<action name="act_equip_dagger_front_right_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_dagger_front_right" type="actt_equip_unequip" />
+	<action name="act_unequip_dagger_front_right_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_axe_back" type="actt_equip_unequip" />
+	<action name="act_equip_axe_back_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_axe_back" type="actt_equip_unequip" />
+	<action name="act_unequip_axe_back_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_shield" type="actt_equip_unequip" />
+	<action name="act_equip_shield_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_shield" type="actt_equip_unequip" />
+	<action name="act_unequip_shield_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_bow_back" type="actt_equip_unequip" />
+	<action name="act_equip_bow_back_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_bow_back" type="actt_equip_unequip" />
+	<action name="act_unequip_bow_back_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_bow_left_hip" type="actt_equip_unequip" />
+	<action name="act_equip_bow_left_hip_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_bow_left_hip" type="actt_equip_unequip" />
+	<action name="act_unequip_bow_left_hip_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_javelin" type="actt_equip_unequip" />
+	<action name="act_unequip_javelin" type="actt_equip_unequip" />
+	<action name="act_equip_javelin_left_stance" type="actt_equip_unequip" />
+	<action name="act_unequip_javelin_left_stance" type="actt_equip_unequip" />
+	<action name="act_equip_stone" type="actt_equip_unequip" />
+	<action name="act_unequip_stone" type="actt_equip_unequip" />
+	<action name="act_equip_stone_left_stance" type="actt_equip_unequip" />
+	<action name="act_switch_alternate_knife" />
+	<action name="act_switch_alternate_knife_continue" />
+	<action name="act_switch_back_alternate_knife_left_stance" />
+	<action name="act_switch_back_alternate_knife_left_stance_continue" />
+	<action name="act_switch_back_alternate_knife" />
+	<action name="act_switch_back_alternate_knife_continue" />
+	<action name="act_switch_alternate_axe" />
+	<action name="act_switch_alternate_axe_continue" />
+	<action name="act_switch_back_alternate_axe_left_stance" />
+	<action name="act_switch_back_alternate_axe_left_stance_continue" />
+	</action_types>

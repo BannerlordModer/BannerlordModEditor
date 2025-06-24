@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action_types><action name="act_taunt_13" />
+	<action name="act_taunt_14" />
+	<action name="act_taunt_15" />
+	<action name="act_taunt_16" />
+	<action name="act_taunt_17" />
+	<action name="act_taunt_18" />
+	<action name="act_taunt_19" />
+	<action name="act_taunt_20" />
+	<action name="act_taunt_21" />
+	<action name="act_taunt_22" />
+	<action name="act_taunt_23" />
+	<action name="act_taunt_24" />
+	<action name="act_taunt_25" />
+	<action name="act_taunt_26" />
+	<action name="act_taunt_27" />
+	<action name="act_taunt_28" />
+	<action name="act_taunt_29" />
+	<action name="act_taunt_30" />
+	<action name="act_taunt_31" />
+	<action name="act_taunt_32" />
+	<action name="act_taunt_01_leftstance" />
+	<action name="act_taunt_02_leftstance" />
+	<action name="act_taunt_03_leftstance" />
+	<action name="act_taunt_04_leftstance" />
+	<action name="act_taunt_05_leftstance" />
+	<action name="act_taunt_06_leftstance" />
+	<action name="act_taunt_07_leftstance" />
+	<action name="act_taunt_08_leftstance" />
+	<action name="act_taunt_09_leftstance" />
+	<action name="act_taunt_10_leftstance" />
+	<action name="act_taunt_11_leftstance" />
+	<action name="act_taunt_12_leftstance" />
+	<action name="act_taunt_13_leftstance" />
+	<action name="act_taunt_14_leftstance" />
+	<action name="act_taunt_15_leftstance" />
+	<action name="act_taunt_16_leftstance" />
+	<action name="act_taunt_17_leftstance" />
+	<action name="act_taunt_18_leftstance" />
+	<action name="act_taunt_19_leftstance" />
+	<action name="act_taunt_20_leftstance" />
+	<action name="act_taunt_21_leftstance" />
+	<action name="act_taunt_22_leftstance" />
+	<action name="act_taunt_23_leftstance" />
+	<action name="act_taunt_24_leftstance" />
+	<action name="act_taunt_25_leftstance" />
+	<action name="act_taunt_26_leftstance" />
+	<action name="act_taunt_27_leftstance" />
+	<action name="act_taunt_28_leftstance" />
+	<action name="act_taunt_29_leftstance" />
+	<action name="act_taunt_30_leftstance" />
+	<action name="act_taunt_31_leftstance" />
+	<action name="act_taunt_32_leftstance" />
+	<action name="act_taunt_01_bow" />
+	<action name="act_taunt_02_bow" />
+	<action name="act_taunt_04_bow" />
+	<action name="act_taunt_10_bow" />
+	<action name="act_taunt_11_bow" />
+	<action name="act_taunt_15_bow" />
+	<action name="act_taunt_17_bow" />
+	<action name="act_taunt_18_bow" />
+	<action name="act_taunt_20_bow" />
+	<action name="act_taunt_21_bow" />
+	<action name="act_taunt_23_bow" />
+	<action name="act_taunt_25_bow" />
+	<action name="act_taunt_26_bow" />
+	<action name="act_taunt_28_bow" />
+	<action name="act_taunt_29_bow" />
+	<action name="act_use_smithing_machine_ready" />
+	<action name="act_use_smithing_machine_loop" />
+	<action name="act_use_smithing_machine_leave" />
+	<action name="act_smithing_machine_anvil_start" />
+	<action name="act_sit_1" type="actt_sit" />
+	<action name="act_sit_2" type="actt_sit" />
+	<action name="act_sit_3" type="actt_sit" />
+	<action name="act_sit_4" type="actt_sit" />
+	<action name="act_sit_5" type="actt_sit" />
+	<action name="act_sit_6" type="actt_sit" />
+	<action name="act_sit_7" type="actt_sit" />
+	<action name="act_sit_8" type="actt_sit" />
+	<action name="act_sit_beggar_idle" type="actt_sit_on_the_floor" />
+	<action name="act_sit_beggar_beg" type="actt_sit_on_the_floor" />
+	<action name="act_sit_down_beggar" type="actt_sit_on_the_floor" />
+	<action name="act_stand_up_beggar" />
+	<action name="act_stand_beggar_1" />
+	<action name="act_stand_beggar_2" />
+	<action name="act_beggar_idle" />
+	<action name="act_preacher" />
+	<action name="act_instructor" />
+	<action name="act_combat_training_char_a" />
+	<action name="act_combat_training_char_b" />
+	<action name="act_drunk_pair_1" />
+	<action name="act_drunk_pair_2" />
+	<action name="act_drunk_pair_3" />
+	<action name="act_drunk_pair_4" />
+	<action name="act_drunk_idle" />
+	<action name="act_drunk_trio_left" />
+	<action name="act_drunk_trio_middle" />
+	<action name="act_drunk_trio_right" />
+	<action name="act_drunk_trio_left_2" />
+	<action name="act_drunk_trio_middle_2" />
+	<action name="act_drunk_trio_right_2" />
+	<action name="act_listen_1" />
+	<action name="act_listen_2" />
+	<action name="act_listen_3" />
+	<action name="act_listen_4" />
+	<action name="act_listen_5" />
+	<action name="act_listen_6" />
+	<action name="act_listen_7" />
+	<action name="act_lookout" />
+	<action name="act_guard_report_left" />
+	<action name="act_guard_report_right" />
+	<action name="act_guard_report_leader" />
+	<action name="act_working_at_desk" />
+	<action name="act_working_explaining" />
+	<action name="act_writer" />
+	<action name="act_writer_hangout" />
+	<action name="act_reader" />
+	<action name="act_sit_reader" />
+	<action name="act_sit_dictating" />
+	<action name="act_sit_eating_1" />
+	<action name="act_sit_eating_2" />
+	<action name="act_sit_eating_3" />
+	<action name="act_sit_eating_4" />
+	<action name="act_eating" />
+	<action name="act_applaud_1" />
+	<action name="act_applaud_2" />
+	<action name="act_applaud_3" />
+	<action name="act_applaud_4" />
+	<action name="act_applaud_5" />
+	<action name="act_applaud_6" />
+	<action name="act_applaud_7" />
+	<action name="act_fist_champion" />
+	<action name="act_dungeon_prisoner_sleep" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_sleep_cycle" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_sleep_wakeup" />
+	<action name="act_dungeon_prisoner_sitting_ground" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_sitting_ground_cycle" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_sitting_ground_standup" />
+	<action name="act_dungeon_prisoner_lay" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_lay_cycle" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_lay_standup" />
+	<action name="act_dungeon_prisoner_cleaning_floor" />
+	<action name="act_dungeon_prisoner_cleaning_floor_cycle" />
+	<action name="act_dungeon_prisoner_cleaning_floor_standup" />
+	<action name="act_dungeon_prisoner_idle_exhausted" />
+	<action name="act_dungeon_prisoner_idle_leaning_wall_begining" />
+	<action name="act_dungeon_prisoner_idle_leaning_wall_cycle" />
+	<action name="act_dungeon_prisoner_idle_leaning_wall_end" />
+	<action name="act_dungeon_prisoner_idle_leaning_wall_b_begining" />
+	<action name="act_dungeon_prisoner_idle_leaning_wall_b_cycle" />
+	<action name="act_dungeon_prisoner_idle_leaning_wall_b_end" />
+	<action name="act_dungeon_prisoner_idle_holding_cage_begining" />
+	<action name="act_dungeon_prisoner_idle_holding_cage_cycle" />
+	<action name="act_dungeon_prisoner_idle_holding_cage_end" />
+	<action name="act_dungeon_prisoner_sitting_begining" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_sitting_cycle" type="actt_sit_on_the_floor" />
+	<action name="act_dungeon_prisoner_sitting_end" />
+	<action name="act_dungeon_guardian_sit_and_nap_begining" />
+	<action name="act_dungeon_guardian_sit_and_nap_cycle" />
+	<action name="act_dungeon_guardian_sit_and_nap_end" />
+	<action name="act_fist_champion" />
+	<action name="act_dance_norse" />
+	<action name="act_sit_idle_on_floor_1" type="actt_sit_on_the_floor" />
+	<action name="act_sit_idle_on_floor_2" type="actt_sit_on_the_floor" />
+	<action name="act_sit_idle_on_floor_3" type="actt_sit_on_the_floor" />
+	<action name="act_sit_down_on_floor_1" type="actt_sit_on_the_floor" />
+	<action name="act_sit_down_on_floor_2" type="actt_sit_on_the_floor" />
+	<action name="act_sit_down_on_floor_3" type="actt_sit_on_the_floor" />
+	<action name="act_stand_1" />
+	<action name="act_stand_2" />
+	<action name="act_stand_3" />
+	<action name="act_stand_4" />
+	<action name="act_stand_5" />
+	<action name="act_stand_6" />
+	<action name="act_stand_7" />
+	<action name="act_stand_8" />
+	<action name="act_stand_9" />
+	<action name="act_stand_10" />
+	<action name="act_stand_up_floor_1" />
+	<action name="act_stand_up_floor_2" />
+	<action name="act_stand_up_floor_3" />
+	<action name="act_guard_stand_1" />
+	<action name="act_guard_stand_2" />
+	<action name="act_guard_stand_3" />
+	<action name="act_guard_stand_4" />
+	<action name="act_guard_stand_5" />
+	<action name="act_guard_stand_6" />
+	<action name="act_guard_stand_7" />
+	<action name="act_guard_stand_8" />
+	<action name="act_guard_stand_9" />
+	<action name="act_talk_to_1" />
+	<action name="act_talk_to_2" />
+	<action name="act_talk_to_3" />
+	<action name="act_talk_to_4" />
+	<action name="act_talk_to_5" />
+	<action name="act_sit_talk_to_1" />
+	<action name="act_bar_talk_to_1" />
+	<action name="act_bar_talk_to_2" />
+	<action name="act_bar_talk_to_3" />
+	<action name="act_bar_talk_to_4" />
+	<action name="act_bar_talk_to_5" />
+	<action name="act_clean_wall_on_right_side" />
+	<action name="act_clean_wall_on_left_side" />
+	<action name="act_clean_wall_on_right_side_and_talk" />
+	<action name="act_clean_wall_on_left_side_and_talk" />
+	<action name="act_pick_up_from_right_side" />
+	<action name="act_pick_up_from_left_side" />
+	<action name="act_pick_up_from_right_side_and_talk" />
+	<action name="act_pick_up_from_left_side_and_talk" />
+	<action name="act_pick_up_from_ground" />
+	<action name="act_pick_up_from_ground_and_talk" />
+	<action name="act_pick_up_from_ground_arrive" />
+	<action name="act_pick_up_from_ground_leave" />
+	<action name="act_repair" />
+	<action name="act_repair_and_talk_to_right" />
+	<action name="act_repair_help_and_talk_to_forward" />
+	<action name="act_repair_upside" />
+	<action name="act_repair_upside_and_talk_to_backward" />
+	<action name="act_repair_upside_help_and_talk_to_forward" />
+	<action name="act_inspect_and_talk_to_right" />
+	<action name="act_inspect_and_talk_to_left" />
+	<action name="act_audience_left" />
+	<action name="act_audience_middle" />
+	<action name="act_audience_right" />
+	<action name="act_gossip" />
+	<action name="act_gossip_2" />
+	<action name="act_argue_trio_left" />
+	<action name="act_argue_trio_right" />
+	<action name="act_argue_trio_middle" />
+	<action name="act_argue" />
+	<action name="act_argue_2" />
+	<action name="act_argue_3" />
+	<action name="act_argue_4" />
+	<action name="act_argue_soft_1" />
+	<action name="act_argue_soft_2" />
+	<action name="act_argue_soft_3" />
+	<action name="act_argue_soft_4" />
+	<action name="act_bully" />
+	<action name="act_bullied" />
+	<action name="act_argue_group_1_1" />
+	<action name="act_argue_group_1_2" />
+	<action name="act_argue_group_1_3" />
+	<action name="act_argue_group_2_1" />
+	<action name="act_argue_group_2_2" />
+	<action name="act_argue_group_2_3" />
+	<action name="act_argue_soft_listen_1" />
+	<action name="act_argue_soft_listen_2" />
+	<action name="act_argue_soft_listen_3" />
+	<action name="act_sit_talk_to_no_table" type="actt_sit" />
+	<action name="act_sit_talk_to_right_1" type="actt_sit" />
+	<action name="act_sit_talk_to_left_1" type="actt_sit" />
+	<action name="act_sit_talk_to_barmaid_left_side" type="actt_sit" />
+	<action name="act_sit_talk_to_barmaid_right" />
+	<action name="act_greeting_front_1" />
+	<action name="act_greeting_front_2" />
+	<action name="act_greeting_front_3" />
+	<action name="act_greeting_front_4" />
+	<action name="act_greeting_front_5" />
+	<action name="act_greeting_front_6" />
+	<action name="act_greeting_right_1" />
+	<action name="act_greeting_right_2" />
+	<action name="act_greeting_right_3" />
+	<action name="act_talk_to_tavern_keeper" />
+	<action name="act_barmaid_serve" />
+	<action name="act_barmaid_serve_and_talk_to_customer" />
+	<action name="act_barmaid_serve_and_talk_to_customer_right" />
+	<action name="act_greeting_right_4" />
+	<action name="act_greeting_left_1" />
+	<action name="act_greeting_left_2" />
+	<action name="act_greeting_left_3" />
+	<action name="act_greeting_left_4" />
+	<action name="act_scared_reaction_1" />
+	<action name="act_scared_reaction_2" />
+	<action name="act_scared_idle_1" />
+	<action name="act_scared_idle_2" />
+	<action name="act_scared_idle_3" />
+	<action name="act_scared_to_normal_1" />
+	<action name="act_scared_to_normal_2" />
+	<action name="act_scared_to_normal_3" />
+	<action name="act_stand_to_wall" />
+	<action name="act_stand_wall_loop" />
+	<action name="act_stand_from_wall" />
+	<action name="act_stand_to_fence" />
+	<action name="act_stand_fence_loop" />
+	<action name="act_stand_from_fence" />
+	<action name="act_lean_to_fence" />
+	<action name="act_lean_fence_loop" />
+	<action name="act_lean_from_fence" />
+	<action name="act_lean_to_side_wall" />
+	<action name="act_lean_side_wall_loop" />
+	<action name="act_lean_from_side_wall" />
+	<action name="act_lean_to_side_wall_left" />
+	<action name="act_lean_side_wall_loop_left" />
+	<action name="act_lean_from_side_wall_left" />
+	<action name="act_lean_fence_loop2" />
+	<action name="act_lean_fence_hangout_left" />
+	<action name="act_lean_fence_hangout_right" />
+	<action name="act_sit_to_fence" />
+	<action name="act_sit_fence_loop" />
+	<action name="act_sit_from_fence" />
+	<action name="act_sit_to_fence_front" />
+	<action name="act_sit_fence_front_loop" />
+	<action name="act_sit_from_fence_front" />
+	<action name="act_citizen_stall" />
+	<action name="act_table_top_work" />
+	<action name="act_seller_idle_1" />
+	<action name="act_seller_idle_2" />
+	<action name="act_seller_idle_3" />
+	<action name="act_seller_idle_4" />
+	<action name="act_seller_idle_5" />
+	<action name="act_stand_staff" />
+	<action name="act_stand_staff_left_stance" />
+	<action name="act_customer_idle_1" />
+	<action name="act_customer_idle_2" />
+	<action name="act_customer_idle_3" />
+	<action name="act_customer_idle_4" />
+	<action name="act_customer_idle_5" />
+	<action name="act_customer_talk_1" />
+	<action name="act_customer_talk_2" />
+	<action name="act_customer_talk_3" />
+	<action name="act_idle_to_bar" />
+	<action name="act_idle_from_bar" />
+	<action name="act_barloop1" />
+	<action name="act_barloop2" />
+	<action name="act_barloop3" />
+	<action name="act_citizen_cleanup" />
+	<action name="act_citizen_cleanup_idle" />
+	<action name="act_duel_spectator_1" />
+	<action name="act_duel_spectator_2" />
+	<action name="act_duel_spectator_3" />
+	<action name="act_duel_spectator_4" />
+	<action name="act_npc_farmer_digging" />
+	<action name="act_npc_farmer_bush_cutting" />
+	<action name="act_npc_farmer_scythe_using" />
+	<action name="act_npc_horse_grooming" />
+	<action name="act_npc_villager_cloth_washing" />
+	<action name="act_npc_villager_fishing" />
+	<action name="act_npc_villager_shoveling" />
+	<action name="act_npc_villager_pitchforking" />
+	<action name="act_npc_villager_lumberjack" />
+	<action name="act_npc_villager_leather_cleaning" />
+	<action name="act_npc_farmer_bush_cutting_while_stand" />
+	<action name="act_npc_villager_working_while_stand" />
+	<action name="act_npc_villager_working_while_stand_2" />
+	<action name="act_arena_spectator" />
+	<action name="act_bartender_to_bar" />
+	<action name="act_bartender_from_bar" />
+	<action name="act_bartender_to_meat" />
+	<action name="act_bartender_from_meat" />
+	<action name="act_bartender_dust" />
+	<action name="act_bartender_wipe" />
+	<action name="act_bartender_bake" />
+	<action name="act_bartender_meat" />
+	<action name="act_bartender_talk_to_tavern_maid" />
+	<action name="act_bartender_talk_to_customer" />
+	<action name="act_sitting_play_guitar_start" type="actt_sit" />
+	<action name="act_sitting_play_guitar_play" type="actt_sit" />
+	<action name="act_sitting_play_guitar_play_loop" type="actt_sit" />
+	<action name="act_sitting_play_guitar_end" type="actt_sit" />
+	<action name="act_play_guitar_start" />
+	<action name="act_play_guitar_play" />
+	<action name="act_play_guitar_play_loop" />
+	<action name="act_play_guitar_end" />
+	<action name="act_play_guitar_idle" />
+	<action name="act_musician_equip_sitting" type="actt_sit" />
+	<action name="act_musician_equip_stand" />
+	<action name="act_musician_idle_sitting_calm" type="actt_sit" />
+	<action name="act_musician_idle_sitting_active" type="actt_sit" />
+	<action name="act_musician_idle_sitting_cheerful" type="actt_sit" />
+	<action name="act_musician_idle_stand_calm" />
+	<action name="act_musician_idle_stand_active" />
+	<action name="act_musician_idle_stand_cheerful" />
+	<action name="act_play_celtic_harp_sitting" type="actt_sit" />
+	<action name="act_play_celtic_harp_stand" />
+	<action name="act_play_cornu_sitting" type="actt_sit" />
+	<action name="act_play_cornu_stand" />
+	<action name="act_play_dombra_sitting" type="actt_sit" />
+	<action name="act_play_dombra_stand" />
+	<action name="act_play_flute_sitting" type="actt_sit" />
+	<action name="act_play_flute_stand" />
+	<action name="act_play_bodhran_sitting" type="actt_sit" />
+	<action name="act_play_bodhran_stand" />
+	<action name="act_play_hurdygurdy_sitting" type="actt_sit" />
+	<action name="act_play_hurdygurdy_stand" />
+	<action name="act_play_kemane_sitting" type="actt_sit" />
+	<action name="act_play_kemane_stand" />
+	<action name="act_play_khomus_sitting" type="actt_sit" />
+	<action name="act_play_khomus_stand" />
+	<action name="act_play_nay_sitting" type="actt_sit" />
+	<action name="act_play_nay_stand" />
+	<action name="act_play_oud_sitting" type="actt_sit" />
+	<action name="act_play_oud_stand" />
+	<action name="act_play_vielle_sitting" type="actt_sit" />
+	<action name="act_play_vielle_stand" />
+	<action name="act_pose_lord_1" />
+	<action name="act_pose_lord_2" />
+	<action name="act_pose_lord_3" />
+	<action name="act_pose_lord_4" />
+	<action name="act_pose_lord_5" />
+	<action name="act_pose_lord_6" />
+	<action name="act_pose_lord_7" />
+	<action name="act_pose_lord_8" />
+	<action name="act_aserai_mp_tribal_warrior_idle" />
+	<action name="act_aserai_mp_tribal_warrior_idle_bigshieldperk" />
+	<action name="act_aserai_mp_guard_idle" />
+	<action name="act_aserai_mp_guard_idle_2hperk" />
+	<action name="act_aserai_mp_skrimisher_idle" />
+	<action name="act_aserai_aserai_mp_archer_idle" />
+	<action name="act_aserai_mp_veteran_idle" />
+	<action name="act_aserai_mp_beduin_mount_idle" />
+	<action name="act_aserai_mp_mamluke_mount_idle" />
+	<action name="act_battania_mp_clan_warrior_idle" />
+	<action name="act_battania_mp_clan_warrior_shieldperk_idle" />
+	<action name="act_battania_mp_clan_warrior_maceperk_idle" />
+	<action name="act_battania_mp_oathbound_idle" />
+	<action name="act_battania_mp_savage_idle" />
+	<action name="act_battania_mp_savage_idle_maceperk" />
+	<action name="act_battania_mp_wildling_idle" />
+	<action name="act_battania_mp_wildling_swordperk_idle" />
+	<action name="act_battania_mp_wildling_strong_arm_perk_idle" />
+	<action name="act_battania_mp_wildling_strong_arm_perk_idle_b" />
+	<action name="act_battania_mp_oathbound_mace_axe_perk_idle" />
+	<action name="act_battania_mp_ranger_idle" />
+	<action name="act_battania_mp_fian_idle" />
+	<action name="act_battania_mp_mounted_warrior_mount_idle" />
+	<action name="act_battania_mp_mounted_warrior_mount_idle_perks" />
+	<action name="act_sturgia_mp_warrior_idle" />
+	<action name="act_sturgia_mp_warrior_axe" />
+	<action name="act_sturgia_mp_warrior_shieldperk_idle" />
+	<action name="act_sturgia_mp_berserker_two_handed_maul_perk_idle" />
+	<action name="act_sturgia_mp_berserker_shield_breaker_perk_idle" />
+	<action name="act_sturgia_mp_ulfhednar_idle" />
+	<action name="act_sturgia_mp_huskarl_idle" />
+	<action name="act_sturgia_mp_huskarl_swordperk_idle" />
+	<action name="act_sturgia_mp_varyag_padded_armor_perk_idle" />
+	<action name="act_sturgia_mp_brigand_idle" />
+	<action name="act_sturgia_mp_brigand_marauder" />
+	<action name="act_sturgia_mp_brigand_idle_largershieldperk" />
+	<action name="act_sturgia_mp_varyag_sword_and_shield_perk" />
+	<action name="act_sturgia_mp_hunter_idle" />
+	<action name="act_sturgia_mp_raider_mount_idle" />
+	<action name="act_sturgia_mp_raider_mount_shieldperk_idle" />
+	<action name="act_sturgia_mp_druzhina_mount_idle" />
+	<action name="act_sturgia_mp_druzhina_idle_largeshieldperk" />
+	
+	<action name="act_vlandia_mp_sergeant_idle" />
+	<action name="act_vlandia_mp_peasant_levy_idle" />
+	<action name="act_vlandia_mp_peasant_levy_shieldperk_idle" />
+	<action name="act_vlandia_mp_peasant_levy_armorperk_idle" />
+	<action name="act_vlandia_mp_peasant_levy_looted_shield_perk_idle" />
+	<action name="act_vlandia_mp_voulgier_idle" />
+	<action name="act_vlandia_mp_voulgier_swordperk_idle" />
+	<action name="act_vlandia_mp_voulgier_swordandshieldperk_idle" />
+	<action name="act_vlandia_mp_arbelist_idle" />
+	<action name="act_vlandia_mp_sharpshooter_idle" />
+	<action name="act_empire_mp_legionary_idle" />
+	<action name="act_empire_mp_menavlion_infantry_idle" />
+	<action name="act_empire_mp_recruit_idle" />
+	<action name="act_empire_mp_recruit_idle_javelin" />
+	<action name="act_empire_mp_archer_militia_idle" />
+	<action name="act_empire_mp_archer_crossbowperk_militia_idle" />
+	<action name="act_empire_mp_palatine_guard_idle" />
+	<action name="act_khuzait_mp_rabble_idle" />
+	<action name="act_khuzait_mp_rabble_axe_perk_idle" />
+	<action name="act_khuzait_mp_rabble_shieldperk_idle" />
+	<action name="act_khuzait_mp_spear_infantry_idle" />
+	<action name="act_khuzait_mp_spear_infantry_idle_pikeperk" />
+	<action name="act_khuzait_mp_steppe_bow_idle" />
+	<action name="act_khuzait_mp_khans_guard_idle" />
+	<action name="act_khuzait_mp_lancer_mount_idle" />
+	<action name="act_khuzait_mp_lancer_mount_idle_shieldperk" />
+	<action name="act_khuzait_mp_nomad_mount_idle" />
+	<action name="act_khuzait_mp_nomad_mount_idle_maceperk" />
+	<action name="act_khuzait_mp_mounted_archer_mount_idle" />
+	<action name="act_vlandia_mp_vanguard_mount_idle" />
+	<action name="act_vlandia_mp_vanguard_mount_idle_smallshieldperk" />
+	<action name="act_vlandia_mp_knight_mount_idle" />
+	<action name="act_empire_mp_courser_mount_idle" />
+	<action name="act_empire_mp_courser_mount_smallshieldperk_idle" />
+	<action name="act_empire_mp_cataphract_mount_idle" />
+	<action name="act_conversation_normal_start" />
+	<action name="act_conversation_normal_loop" />
+	<action name="act_conversation_normal2_start" />
+	<action name="act_conversation_normal2_loop" />
+	<action name="act_conversation_aggressive_start" />
+	<action name="act_conversation_aggressive_loop" />
+	<action name="act_conversation_aggressive2_start" />
+	<action name="act_conversation_aggressive2_loop" />
+	<action name="act_conversation_closed_start" />
+	<action name="act_conversation_closed_loop" />
+	<action name="act_conversation_closed2_start" />
+	<action name="act_conversation_closed2_loop" />
+	<action name="act_conversation_confident_start" />
+	<action name="act_conversation_confident_loop" />
+	<action name="act_conversation_confident2_start" />
+	<action name="act_conversation_confident2_loop" />
+	<action name="act_conversation_confident3_start" />
+	<action name="act_conversation_confident3_loop" />
+	<action name="act_conversation_demure_start" />
+	<action name="act_conversation_demure_loop" />
+	<action name="act_conversation_demure2_start" />
+	</action_types>

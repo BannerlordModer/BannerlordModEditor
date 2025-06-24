@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action_types><action name="act_quick_blocked_overswing_1h_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_1h" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_1h_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_overswing_1h_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_overswing_1h_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_overswing_1h_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_1h_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_1h_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_1h_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_1h_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_overswing_1h_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_1h_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_1h_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_1h_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_1h_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_1h_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_1h_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_1h_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_overswing_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_overswing_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_overswing_horseback_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_horseback_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_horseback_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_overswing_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_horseback_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_horseback_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_horseback_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_horseback_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_slash_horseback_right" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slash_horseback_right" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slash_horseback_right_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slash_horseback_right" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slash_horseback_right_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slash_horseback_right" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_release_slash_horseback_right_balanced" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slash_horseback_right" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slash_horseback_right_balanced" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slash_horseback_right" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_quick_blocked_slash_horseback_right_balanced" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slash_horseback_right" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slash_horseback_right_balanced" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_ready_slash_horseback_left" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slash_horseback_left" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slash_horseback_left_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slash_horseback_left" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slash_horseback_left_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slash_horseback_left" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_release_slash_horseback_left_balanced" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slash_horseback_left" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slash_horseback_left_balanced" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slash_horseback_left" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_quick_blocked_slash_horseback_left_balanced" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slash_horseback_left" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slash_horseback_left_balanced" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_ready_overswing_2h_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_overswing_2h_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_overswing_2h_horseback_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_2h_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_2h_horseback_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_2h_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_2h_horseback_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_overswing_2h_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_2h_horseback_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_2h_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_2h_horseback_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_2h_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_2h_horseback_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_2h_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_2h_horseback_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_slash_2h_horseback_right" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slash_2h_horseback_right" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slash_2h_horseback_right_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slash_2h_horseback_right" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slash_2h_horseback_right_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slash_2h_horseback_right" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_release_slash_2h_horseback_right_balanced" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slash_2h_horseback_right" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slash_2h_horseback_right_balanced" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slash_2h_horseback_right" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_quick_blocked_slash_2h_horseback_right_balanced" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slash_2h_horseback_right" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slash_2h_horseback_right_balanced" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_ready_slash_2h_horseback_left" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slash_2h_horseback_left" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slash_2h_horseback_left_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slash_2h_horseback_left" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slash_2h_horseback_left_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slash_2h_horseback_left" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_release_slash_2h_horseback_left_balanced" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slash_2h_horseback_left" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slash_2h_horseback_left_balanced" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slash_2h_horseback_left" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_quick_blocked_slash_2h_horseback_left_balanced" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slash_2h_horseback_left" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slash_2h_horseback_left_balanced" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_ready_overswing_staff" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_overswing_staff" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_overswing_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_staff" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_staff" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_overswing_staff" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_staff" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_staff" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_staff" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_overswing_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_overswing_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_overswing_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_overswing_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_overswing_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_overswing_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_overswing_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_overswing_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_overswing_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_overswing_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_thrust_staff" type="actt_ready_melee" usage_direction="ud_attack_down" action_stage="as_attack_ready" />
+	<action name="act_quick_release_thrust_staff" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_quick_release_thrust_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_release_thrust_staff" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_release_thrust_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_thrust_staff" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_quick_blocked_thrust_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_blocked_thrust_staff" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_blocked_thrust_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_ready_thrust_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_down" action_stage="as_attack_ready" />
+	<action name="act_quick_release_thrust_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_quick_release_thrust_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_release_thrust_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_release_thrust_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_thrust_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_quick_blocked_thrust_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_blocked_thrust_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_blocked_thrust_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_ready_thrust_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_down" action_stage="as_attack_ready" />
+	<action name="act_quick_release_thrust_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_quick_release_thrust_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_release_thrust_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_release_thrust_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_down" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_thrust_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_quick_blocked_thrust_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_blocked_thrust_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_blocked_thrust_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_down" />
+	<action name="act_ready_slashleft_staff" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slashleft_staff" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slashleft_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slashleft_staff" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slashleft_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slashleft_staff" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_release_slashleft_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slashleft_staff" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slashleft_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slashleft_staff" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_quick_blocked_slashleft_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slashleft_staff" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slashleft_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_ready_slashleft_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slashleft_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slashleft_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slashleft_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slashleft_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slashleft_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_release_slashleft_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slashleft_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slashleft_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slashleft_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_quick_blocked_slashleft_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slashleft_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slashleft_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_ready_slashleft_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slashleft_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slashleft_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slashleft_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_left_slashleft_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_left" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slashleft_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_release_slashleft_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slashleft_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_release_slashleft_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_left" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slashleft_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_quick_blocked_slashleft_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slashleft_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_blocked_slashleft_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_left" />
+	<action name="act_ready_slashright_staff" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slashright_staff" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slashright_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slashright_staff" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slashright_staff_unbalanced" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slashright_staff" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_release_slashright_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slashright_staff" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slashright_staff_balanced" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slashright_staff" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_quick_blocked_slashright_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slashright_staff" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slashright_staff_balanced" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_ready_slashright_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slashright_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slashright_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slashright_staff_horseback" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slashright_staff_unbalanced_horseback" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slashright_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_release_slashright_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slashright_staff_horseback" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slashright_staff_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slashright_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_quick_blocked_slashright_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slashright_staff_horseback" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slashright_staff_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_ready_slashright_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_ready" />
+	<action name="act_ready_from_up_slashright_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_up_slashright_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slashright_staff_left_stance" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_ready_from_right_slashright_staff_unbalanced_left_stance" type="actt_ready_melee" usage_direction="ud_attack_right" action_stage="as_attack_quick_ready" />
+	<action name="act_quick_release_slashright_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_release_slashright_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slashright_staff_left_stance" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_release_slashright_staff_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_right" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_slashright_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_quick_blocked_slashright_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slashright_staff_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_blocked_slashright_staff_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_right" />
+	<action name="act_ready_overswing_spear" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_quick_release_overswing_spear" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_spear_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_spear" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_spear_balanced" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_spear" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_spear_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_spear" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_spear_balanced" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_overswing_spear_horseback" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_quick_release_overswing_spear_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_spear_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_spear_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_spear_balanced_horseback" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_spear_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_spear_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_spear_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_spear_balanced_horseback" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_ready_overswing_spear_left_stance" type="actt_ready_melee" usage_direction="ud_attack_up" action_stage="as_attack_ready" />
+	<action name="act_quick_release_overswing_spear_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_release_overswing_spear_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_spear_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_release_overswing_spear_balanced_left_stance" type="actt_release_melee" usage_direction="ud_attack_up" action_stage="as_attack_release" />
+	<action name="act_quick_blocked_overswing_spear_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_quick_blocked_overswing_spear_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_spear_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_blocked_overswing_spear_balanced_left_stance" type="actt_blocked_melee" usage_direction="ud_attack_up" />
+	<action name="act_defend_up_fist_passive" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_fist_active" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_fist_parry_light" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_fist_parry_heavy" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_fist_passive_left_stance" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_up_fist_active_left_stance" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_fist_parry_light_left_stance" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_up_fist_parry_heavy_left_stance" type="actt_defend_fist" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_down_fist_passive" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_down_fist_active" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_down_fist_parry_light" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_down_fist_parry_heavy" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_down_fist_passive_left_stance" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_down_fist_active_left_stance" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_down_fist_parry_light_left_stance" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_down_fist_parry_heavy_left_stance" type="actt_defend_fist" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_right_fist_passive" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_fist_active" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_fist_parry_light" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_fist_parry_heavy" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_fist_passive_left_stance" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_right_fist_active_left_stance" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_fist_parry_light_left_stance" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_right_fist_parry_heavy_left_stance" type="actt_defend_fist" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_left_fist_passive" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_fist_active" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_fist_parry_light" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_fist_parry_heavy" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_fist_passive_left_stance" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_left_fist_active_left_stance" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_fist_parry_light_left_stance" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_left_fist_parry_heavy_left_stance" type="actt_defend_fist" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	
+	<action name="act_defend_shield_right_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_0h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_0h_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_0h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_0h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_0h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_1h_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_1h_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_1h_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_1h_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_1h_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend" />
+	<action name="act_defend_shield_right_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_right_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_right" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend" />
+	<action name="act_defend_shield_left_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_left_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_left" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend" />
+	<action name="act_defend_shield_up_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_up_spear_parry_heavy_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_up" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_passive_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_spear_passive_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_spear_active_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_active_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_light_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_light_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_heavy_down" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_heavy_up" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_passive_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_spear_passive_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend" />
+	<action name="act_defend_shield_down_spear_active_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_active_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_light_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_light_up_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	<action name="act_defend_shield_down_spear_parry_heavy_down_left_stance" type="actt_defend_shield" usage_direction="ud_defend_down" action_stage="as_defend_parry" />
+	</action_types>
