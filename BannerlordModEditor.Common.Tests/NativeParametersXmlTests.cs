@@ -17,7 +17,7 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "example", "ModuleData", "native_parameters.xml");
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "native_parameters.xml");
             
             // Act - 反序列化
             var serializer = new XmlSerializer(typeof(NativeParametersXml));
@@ -87,7 +87,7 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "example", "ModuleData", "native_parameters.xml");
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "native_parameters.xml");
             
             // Act
             var serializer = new XmlSerializer(typeof(NativeParametersXml));
