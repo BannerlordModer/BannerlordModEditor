@@ -15,17 +15,31 @@
     </Application.Resources>
   
     <Application.Styles>
-        <SimpleTheme />
-        <Style Selector="Button.danger /template/ ContentPresenter">
-            <Setter Property="Background" Value="#FDE7E9"/>
+        <FluentTheme>
+            <FluentTheme.Palettes>
+                <ColorPaletteResources x:Key="Light"
+                                       Accent="#FF0078D4"
+                                       RegionColor="White"
+                                       ErrorText="#B32424" />
+                <ColorPaletteResources x:Key="Dark"
+                                       Accent="#FF0078D4"
+                                       RegionColor="#FF202020"
+                                       ErrorText="#F4C7C7" />
+            </FluentTheme.Palettes>
+        </FluentTheme>
+        <Style Selector="Button.danger">
+            <Setter Property="Background" Value="#DA3B3B"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
-        <Style Selector="Button.danger:light /template/ ContentPresenter">
-            <Setter Property="Background" Value="#FDE7E9"/>
-            <Setter Property="TextBlock.Foreground" Value="#B32424"/>
+        <Style Selector="Button.danger:pointerover">
+            <Setter Property="Background" Value="#E55454"/>
         </Style>
-        <Style Selector="Button.danger:dark /template/ ContentPresenter">
-            <Setter Property="Background" Value="#4A1919"/>
-            <Setter Property="TextBlock.Foreground" Value="#F4C7C7"/>
+        <Style Selector="Button.danger:pressed">
+            <Setter Property="Background" Value="#C42A2A"/>
+        </Style>
+        <Style Selector="Button.accent">
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemControlHighlightAccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
         </Style>
     </Application.Styles>
 </Application>

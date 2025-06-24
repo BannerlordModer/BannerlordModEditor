@@ -8,9 +8,9 @@
     <!-- 工具栏 -->
     <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,0,0,1" Padding="16,12">
       <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto">
-        <Button Grid.Column="0" Content="📁 加载文件" Command="{Binding LoadFileCommand}" Margin="0,0,8,0" />
-        <Button Grid.Column="1" Content="💾 保存文件" Command="{Binding SaveFileCommand}" Margin="0,0,8,0" />
-        <Button Grid.Column="2" Content="➕ 添加属性" Command="{Binding AddAttributeCommand}" Margin="0,0,16,0" />
+        <Button Grid.Column="0" Content="📁 加载文件" Command="{Binding LoadFileCommand}" Margin="0,0,8,0" Classes="accent" />
+        <Button Grid.Column="1" Content="💾 保存文件" Command="{Binding SaveFileCommand}" Margin="0,0,8,0" Classes="accent" />
+        <Button Grid.Column="2" Content="➕ 添加属性" Command="{Binding AddAttributeCommand}" Margin="0,0,16,0" Classes="accent" />
         
         <!-- 文件信息 -->
         <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center">

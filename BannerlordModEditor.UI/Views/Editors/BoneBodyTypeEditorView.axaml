@@ -8,9 +8,9 @@
     <!-- 工具栏 -->
     <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,0,0,1" Padding="10">
       <StackPanel Orientation="Horizontal" Spacing="10">
-        <Button Content="加载文件" Command="{Binding LoadFileCommand}" />
-        <Button Content="保存文件" Command="{Binding SaveFileCommand}" />
-        <Button Content="添加骨骼类型" Command="{Binding AddBoneBodyTypeCommand}" />
+        <Button Content="加载文件" Command="{Binding LoadFileCommand}" Classes="accent" />
+        <Button Content="保存文件" Command="{Binding SaveFileCommand}" Classes="accent" />
+        <Button Content="添加骨骼类型" Command="{Binding AddBoneBodyTypeCommand}" Classes="accent" />
         <TextBlock Text="{Binding FilePath}" VerticalAlignment="Center" />
         <TextBlock Text="*" IsVisible="{Binding HasUnsavedChanges}" 
                    Foreground="{DynamicResource SystemControlErrorTextForegroundBrush}" FontWeight="Bold" VerticalAlignment="Center" />
