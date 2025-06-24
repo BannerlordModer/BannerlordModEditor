@@ -17,6 +17,8 @@ namespace BannerlordModEditor.Common.Models.Engine
     {
         [XmlElement("postfx_graph")]
         public List<PostfxGraph> PostfxGraphList { get; set; } = new List<PostfxGraph>();
+
+        public bool ShouldSerializePostfxGraphList() => PostfxGraphList.Count > 0;
     }
 
     public class PostfxGraph
@@ -26,6 +28,8 @@ namespace BannerlordModEditor.Common.Models.Engine
 
         [XmlElement("postfx_node")]
         public List<PostfxNode> PostfxNodeList { get; set; } = new List<PostfxNode>();
+
+        public bool ShouldSerializePostfxNodeList() => PostfxNodeList.Count > 0;
     }
 
     public class PostfxNode
@@ -68,6 +72,9 @@ namespace BannerlordModEditor.Common.Models.Engine
 
         [XmlElement("preconditions")]
         public PostfxPreconditions? Preconditions { get; set; }
+
+        public bool ShouldSerializeInputs() => Inputs.Count > 0;
+        public bool ShouldSerializeOutputs() => Outputs.Count > 0;
     }
 
     public class PostfxInput
