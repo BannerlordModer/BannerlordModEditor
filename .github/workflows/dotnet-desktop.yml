@@ -84,6 +84,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
       
     - name: Install .NET
       uses: actions/setup-dotnet@v4
@@ -107,10 +109,39 @@ jobs:
     - name: Create Velopack Release
       env:
         BUILD_NUMBER: ${{github.run_number}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       shell: pwsh
       run: |
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
         Write-Host "Creating release version: $Version"
+
+        # Get previous tag
+        $PreviousTag = try { git describe --tags --abbrev=0 } catch { $null }
+        if ($PreviousTag) {
+          Write-Host "Previous tag: $PreviousTag"
+        } else {
+          Write-Host "No previous tag found. Generating release notes since the beginning."
+        }
+
+        # Generate release notes using gh cli
+        $owner,$repo = $env:GITHUB_REPOSITORY.Split('/')
+        $tagName = "v$Version"
+        
+        $gh_api_args = @(
+            'api',
+            "repos/$owner/$repo/releases/generate-notes",
+            '--method', 'POST',
+            '-f', "tag_name=$tagName"
+        )
+        if ($PreviousTag) {
+            $gh_api_args += @('-f', "previous_tag_name=$PreviousTag")
+        }
+        
+        $releaseNotesJson = & gh @gh_api_args
+        $releaseNotes = ($releaseNotesJson | ConvertFrom-Json).body
+        $releaseNotes | Out-File -FilePath "releasenotes.md" -Encoding utf8
+        Write-Host "Generated release notes:"
+        Get-Content releasenotes.md | ForEach-Object { Write-Host $_ }
         
         # 安装 Velopack
         dotnet tool install -g vpk
@@ -126,7 +157,7 @@ jobs:
         vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net9.0-x64-desktop,webview2
         
         # 上传到 GitHub Releases
-        vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag v$Version --token ${{ secrets.GITHUB_TOKEN }}
+        vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag $tagName --token $env:GITHUB_TOKEN --releaseNotesFile releasenotes.md
         
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
