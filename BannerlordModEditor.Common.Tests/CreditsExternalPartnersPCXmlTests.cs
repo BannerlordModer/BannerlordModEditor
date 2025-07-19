@@ -15,12 +15,12 @@ namespace BannerlordModEditor.Common.Tests
         {
             var xmlPath = Path.Combine(TestUtils.GetSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData", "CreditsExternalPartnersPC.xml");
 
-            // Deserialization using the existing model
-            var serializer = new XmlSerializer(typeof(Credits));
-            Credits? model;
+            // Deserialization
+            var serializer = new XmlSerializer(typeof(CreditsExternalPartnersPC));
+            CreditsExternalPartnersPC? model;
             using (var fileStream = new FileStream(xmlPath, FileMode.Open))
             {
-                model = serializer.Deserialize(fileStream) as Credits;
+                model = serializer.Deserialize(fileStream) as CreditsExternalPartnersPC;
             }
 
             Assert.NotNull(model);
@@ -74,4 +74,4 @@ namespace BannerlordModEditor.Common.Tests
             }
         }
     }
-} 
+}
