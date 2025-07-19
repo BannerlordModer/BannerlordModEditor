@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="mushroom_mix_a" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="align_with_slope" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="mushroom_a1" density_multiplier="1.000" bb_radius="0.13113093">
+					<mesh name="mushroom_a1" material="mushroom" />
+					<mesh name="mushroom_a1.lod1" material="mushroom" />
+					<mesh name="mushroom_a1.lod2" material="mushroom" />
+					<mesh name="mushroom_a1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a2" density_multiplier="1.000" bb_radius="0.12043561">
+					<mesh name="mushroom_a2" material="mushroom" />
+					<mesh name="mushroom_a2.lod1" material="mushroom" />
+					<mesh name="mushroom_a2.lod2" material="mushroom" />
+					<mesh name="mushroom_a2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a3" density_multiplier="1.000" bb_radius="0.33309507">
+					<mesh name="mushroom_a3" material="mushroom" />
+					<mesh name="mushroom_a3.lod1" material="mushroom" />
+					<mesh name="mushroom_a3.lod2" material="mushroom" />
+					<mesh name="mushroom_a3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="mushroom_a1" density_multiplier="1.000" bb_radius="0.13113093">
+					<mesh name="mushroom_a1" material="mushroom" />
+					<mesh name="mushroom_a1.lod1" material="mushroom" />
+					<mesh name="mushroom_a1.lod2" material="mushroom" />
+					<mesh name="mushroom_a1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a2" density_multiplier="1.000" bb_radius="0.12043561">
+					<mesh name="mushroom_a2" material="mushroom" />
+					<mesh name="mushroom_a2.lod1" material="mushroom" />
+					<mesh name="mushroom_a2.lod2" material="mushroom" />
+					<mesh name="mushroom_a2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a3" density_multiplier="1.000" bb_radius="0.33309507">
+					<mesh name="mushroom_a3" material="mushroom" />
+					<mesh name="mushroom_a3.lod1" material="mushroom" />
+					<mesh name="mushroom_a3.lod2" material="mushroom" />
+					<mesh name="mushroom_a3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="mushroom_a1" density_multiplier="1.000" bb_radius="0.13113093">
+					<mesh name="mushroom_a1" material="mushroom" />
+					<mesh name="mushroom_a1.lod1" material="mushroom" />
+					<mesh name="mushroom_a1.lod2" material="mushroom" />
+					<mesh name="mushroom_a1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a2" density_multiplier="1.000" bb_radius="0.12043561">
+					<mesh name="mushroom_a2" material="mushroom" />
+					<mesh name="mushroom_a2.lod1" material="mushroom" />
+					<mesh name="mushroom_a2.lod2" material="mushroom" />
+					<mesh name="mushroom_a2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a3" density_multiplier="1.000" bb_radius="0.33309507">
+					<mesh name="mushroom_a3" material="mushroom" />
+					<mesh name="mushroom_a3.lod1" material="mushroom" />
+					<mesh name="mushroom_a3.lod2" material="mushroom" />
+					<mesh name="mushroom_a3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="mushroom_a1" density_multiplier="1.000" bb_radius="0.13113093">
+					<mesh name="mushroom_a1" material="mushroom" />
+					<mesh name="mushroom_a1.lod1" material="mushroom" />
+					<mesh name="mushroom_a1.lod2" material="mushroom" />
+					<mesh name="mushroom_a1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a2" density_multiplier="1.000" bb_radius="0.12043561">
+					<mesh name="mushroom_a2" material="mushroom" />
+					<mesh name="mushroom_a2.lod1" material="mushroom" />
+					<mesh name="mushroom_a2.lod2" material="mushroom" />
+					<mesh name="mushroom_a2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_a3" density_multiplier="1.000" bb_radius="0.33309507">
+					<mesh name="mushroom_a3" material="mushroom" />
+					<mesh name="mushroom_a3.lod1" material="mushroom" />
+					<mesh name="mushroom_a3.lod2" material="mushroom" />
+					<mesh name="mushroom_a3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="mushroom_mix_b" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="align_with_slope" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="mushroom_b1" density_multiplier="1.000" bb_radius="0.12897675">
+					<mesh name="mushroom_b1" material="mushroom" />
+					<mesh name="mushroom_b1.lod1" material="mushroom" />
+					<mesh name="mushroom_b1.lod2" material="mushroom" />
+					<mesh name="mushroom_b1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b2" density_multiplier="1.000" bb_radius="0.11915323">
+					<mesh name="mushroom_b2" material="mushroom" />
+					<mesh name="mushroom_b2.lod1" material="mushroom" />
+					<mesh name="mushroom_b2.lod2" material="mushroom" />
+					<mesh name="mushroom_b2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b3" density_multiplier="1.000" bb_radius="0.22809330">
+					<mesh name="mushroom_b3" material="mushroom" />
+					<mesh name="mushroom_b3.lod1" material="mushroom" />
+					<mesh name="mushroom_b3.lod2" material="mushroom" />
+					<mesh name="mushroom_b3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="mushroom_b1" density_multiplier="1.000" bb_radius="0.12897675">
+					<mesh name="mushroom_b1" material="mushroom" />
+					<mesh name="mushroom_b1.lod1" material="mushroom" />
+					<mesh name="mushroom_b1.lod2" material="mushroom" />
+					<mesh name="mushroom_b1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b2" density_multiplier="1.000" bb_radius="0.11915323">
+					<mesh name="mushroom_b2" material="mushroom" />
+					<mesh name="mushroom_b2.lod1" material="mushroom" />
+					<mesh name="mushroom_b2.lod2" material="mushroom" />
+					<mesh name="mushroom_b2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b3" density_multiplier="1.000" bb_radius="0.22809330">
+					<mesh name="mushroom_b3" material="mushroom" />
+					<mesh name="mushroom_b3.lod1" material="mushroom" />
+					<mesh name="mushroom_b3.lod2" material="mushroom" />
+					<mesh name="mushroom_b3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="mushroom_b1" density_multiplier="1.000" bb_radius="0.12897675">
+					<mesh name="mushroom_b1" material="mushroom" />
+					<mesh name="mushroom_b1.lod1" material="mushroom" />
+					<mesh name="mushroom_b1.lod2" material="mushroom" />
+					<mesh name="mushroom_b1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b2" density_multiplier="1.000" bb_radius="0.11915323">
+					<mesh name="mushroom_b2" material="mushroom" />
+					<mesh name="mushroom_b2.lod1" material="mushroom" />
+					<mesh name="mushroom_b2.lod2" material="mushroom" />
+					<mesh name="mushroom_b2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b3" density_multiplier="1.000" bb_radius="0.22809330">
+					<mesh name="mushroom_b3" material="mushroom" />
+					<mesh name="mushroom_b3.lod1" material="mushroom" />
+					<mesh name="mushroom_b3.lod2" material="mushroom" />
+					<mesh name="mushroom_b3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="mushroom_b1" density_multiplier="1.000" bb_radius="0.12897675">
+					<mesh name="mushroom_b1" material="mushroom" />
+					<mesh name="mushroom_b1.lod1" material="mushroom" />
+					<mesh name="mushroom_b1.lod2" material="mushroom" />
+					<mesh name="mushroom_b1.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b2" density_multiplier="1.000" bb_radius="0.11915323">
+					<mesh name="mushroom_b2" material="mushroom" />
+					<mesh name="mushroom_b2.lod1" material="mushroom" />
+					<mesh name="mushroom_b2.lod2" material="mushroom" />
+					<mesh name="mushroom_b2.lod3" material="mushroom" />
+				</flora_variation>
+				<flora_variation name="mushroom_b3" density_multiplier="1.000" bb_radius="0.22809330">
+					<mesh name="mushroom_b3" material="mushroom" />
+					<mesh name="mushroom_b3.lod1" material="mushroom" />
+					<mesh name="mushroom_b3.lod2" material="mushroom" />
+					<mesh name="mushroom_b3.lod3" material="mushroom" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="dry_leafs_mix_a" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="is_grass" value="true" />
+			<flag name="align_with_slope" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="dry_leaf_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_a" material="dry_leafs_a" />
+					<mesh name="dry_leaf_a.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_b" material="dry_leafs_a" />
+					<mesh name="dry_leaf_b.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_c" material="dry_leafs_a" />
+					<mesh name="dry_leaf_c.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_d" material="dry_leafs_a" />
+					<mesh name="dry_leaf_d.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_e" material="dry_leafs_a" />
+					<mesh name="dry_leaf_e.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_f" material="dry_leafs_a" />
+					<mesh name="dry_leaf_f.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_g" material="dry_leafs_a" />
+					<mesh name="dry_leaf_g.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_h" material="dry_leafs_a" />
+					<mesh name="dry_leaf_h.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_i" material="dry_leafs_a" />
+					<mesh name="dry_leaf_i.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_j" material="dry_leafs_a" />
+					<mesh name="dry_leaf_j.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_k" material="dry_leafs_a" />
+					<mesh name="dry_leaf_k.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_l" material="dry_leafs_a" />
+					<mesh name="dry_leaf_l.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_m" material="dry_leafs_a" />
+					<mesh name="dry_leaf_m.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_n" material="dry_leafs_a" />
+					<mesh name="dry_leaf_n.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_o" material="dry_leafs_a" />
+					<mesh name="dry_leaf_o.lod2" material="dry_leafs_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="dry_leaf_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_a" material="dry_leafs_a" />
+					<mesh name="dry_leaf_a.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_b" material="dry_leafs_a" />
+					<mesh name="dry_leaf_b.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_c" material="dry_leafs_a" />
+					<mesh name="dry_leaf_c.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_d" material="dry_leafs_a" />
+					<mesh name="dry_leaf_d.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_e" material="dry_leafs_a" />
+					<mesh name="dry_leaf_e.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_f" material="dry_leafs_a" />
+					<mesh name="dry_leaf_f.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_g" material="dry_leafs_a" />
+					<mesh name="dry_leaf_g.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_h" material="dry_leafs_a" />
+					<mesh name="dry_leaf_h.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_i" material="dry_leafs_a" />
+					<mesh name="dry_leaf_i.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_j" material="dry_leafs_a" />
+					<mesh name="dry_leaf_j.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_k" material="dry_leafs_a" />
+					<mesh name="dry_leaf_k.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_l" material="dry_leafs_a" />
+					<mesh name="dry_leaf_l.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_m" material="dry_leafs_a" />
+					<mesh name="dry_leaf_m.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_n" material="dry_leafs_a" />
+					<mesh name="dry_leaf_n.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_o" material="dry_leafs_a" />
+					<mesh name="dry_leaf_o.lod2" material="dry_leafs_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="dry_leaf_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_a" material="dry_leafs_a" />
+					<mesh name="dry_leaf_a.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_b" material="dry_leafs_a" />
+					<mesh name="dry_leaf_b.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_c" material="dry_leafs_a" />
+					<mesh name="dry_leaf_c.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_d" material="dry_leafs_a" />
+					<mesh name="dry_leaf_d.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_e" material="dry_leafs_a" />
+					<mesh name="dry_leaf_e.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_f" material="dry_leafs_a" />
+					<mesh name="dry_leaf_f.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_g" material="dry_leafs_a" />
+					<mesh name="dry_leaf_g.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_h" material="dry_leafs_a" />
+					<mesh name="dry_leaf_h.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_i" material="dry_leafs_a" />
+					<mesh name="dry_leaf_i.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_j" material="dry_leafs_a" />
+					<mesh name="dry_leaf_j.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_k" material="dry_leafs_a" />
+					<mesh name="dry_leaf_k.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_l" material="dry_leafs_a" />
+					<mesh name="dry_leaf_l.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_m" material="dry_leafs_a" />
+					<mesh name="dry_leaf_m.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_n" material="dry_leafs_a" />
+					<mesh name="dry_leaf_n.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_o" material="dry_leafs_a" />
+					<mesh name="dry_leaf_o.lod2" material="dry_leafs_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="dry_leaf_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_a" material="dry_leafs_a" />
+					<mesh name="dry_leaf_a.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_b" material="dry_leafs_a" />
+					<mesh name="dry_leaf_b.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_c" material="dry_leafs_a" />
+					<mesh name="dry_leaf_c.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_d" material="dry_leafs_a" />
+					<mesh name="dry_leaf_d.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_e" material="dry_leafs_a" />
+					<mesh name="dry_leaf_e.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_f" material="dry_leafs_a" />
+					<mesh name="dry_leaf_f.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_g" material="dry_leafs_a" />
+					<mesh name="dry_leaf_g.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_h" material="dry_leafs_a" />
+					<mesh name="dry_leaf_h.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_i" material="dry_leafs_a" />
+					<mesh name="dry_leaf_i.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_j" material="dry_leafs_a" />
+					<mesh name="dry_leaf_j.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_k" material="dry_leafs_a" />
+					<mesh name="dry_leaf_k.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_l" material="dry_leafs_a" />
+					<mesh name="dry_leaf_l.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_m" material="dry_leafs_a" />
+					<mesh name="dry_leaf_m.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_n" material="dry_leafs_a" />
+					<mesh name="dry_leaf_n.lod2" material="dry_leafs_a" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_o" material="dry_leafs_a" />
+					<mesh name="dry_leaf_o.lod2" material="dry_leafs_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="dry_leafs_mix_a_red" view_distance="5000.000">
+		<flags>
+			<flag name="is_grass" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="dry_leaf_red_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_red_a" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_a.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_red_b" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_b.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_red_c" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_c.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_red_d" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_d.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_red_e" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_e.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_red_f" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_f.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_red_g" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_g.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_red_h" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_h.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_red_i" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_i.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_red_j" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_j.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_red_k" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_k.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_red_l" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_l.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_red_m" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_m.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_red_n" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_n.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_red_o" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_o.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="dry_leaf_red_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_red_a" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_a.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_red_b" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_b.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_red_c" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_c.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_red_d" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_d.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_red_e" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_e.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_red_f" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_f.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_red_g" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_g.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_red_h" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_h.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_red_i" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_i.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_red_j" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_j.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_red_k" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_k.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_red_l" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_l.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_red_m" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_m.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_red_n" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_n.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_red_o" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_o.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="dry_leaf_red_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_red_a" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_a.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_red_b" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_b.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_red_c" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_c.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_red_d" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_d.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_red_e" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_e.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_red_f" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_f.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_red_g" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_g.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_red_h" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_h.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_red_i" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_i.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_red_j" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_j.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_red_k" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_k.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_red_l" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_l.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_red_m" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_m.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_red_n" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_n.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_red_o" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_o.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="dry_leaf_red_a" density_multiplier="1.000" bb_radius="0.13236642">
+					<mesh name="dry_leaf_red_a" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_a.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_b" density_multiplier="1.000" bb_radius="0.12977251">
+					<mesh name="dry_leaf_red_b" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_b.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_c" density_multiplier="1.000" bb_radius="0.13634792">
+					<mesh name="dry_leaf_red_c" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_c.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_d" density_multiplier="1.000" bb_radius="0.13844660">
+					<mesh name="dry_leaf_red_d" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_d.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_e" density_multiplier="1.000" bb_radius="0.13978389">
+					<mesh name="dry_leaf_red_e" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_e.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_f" density_multiplier="1.000" bb_radius="0.13437489">
+					<mesh name="dry_leaf_red_f" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_f.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_g" density_multiplier="1.000" bb_radius="0.14046784">
+					<mesh name="dry_leaf_red_g" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_g.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_h" density_multiplier="1.000" bb_radius="0.14117105">
+					<mesh name="dry_leaf_red_h" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_h.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_i" density_multiplier="1.000" bb_radius="0.14007069">
+					<mesh name="dry_leaf_red_i" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_i.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_j" density_multiplier="1.000" bb_radius="0.14176361">
+					<mesh name="dry_leaf_red_j" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_j.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_k" density_multiplier="1.000" bb_radius="0.14037122">
+					<mesh name="dry_leaf_red_k" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_k.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_l" density_multiplier="1.000" bb_radius="0.13663234">
+					<mesh name="dry_leaf_red_l" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_l.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_m" density_multiplier="1.000" bb_radius="0.13430326">
+					<mesh name="dry_leaf_red_m" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_m.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_n" density_multiplier="1.000" bb_radius="0.13954468">
+					<mesh name="dry_leaf_red_n" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_n.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+				<flora_variation name="dry_leaf_red_o" density_multiplier="1.000" bb_radius="0.13991070">
+					<mesh name="dry_leaf_red_o" material="dry_leafs_a_red" />
+					<mesh name="dry_leaf_red_o.lod2" material="dry_leafs_a_red" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="pebbles" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="align_with_slope" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="pebbles_a" density_multiplier="1.000" bb_radius="0.24451344">
+					<mesh name="pebbles_a.6" material="pebbles" />
+					<mesh name="pebbles_a.lod2.6" material="pebbles" />
+				</flora_variation>
+				<flora_variation name="pebbles_b" density_multiplier="1.000" bb_radius="0.18571681">
+					<mesh name="pebbles_b.6" material="pebbles" />
+					<mesh name="pebbles_b.lod2.6" material="pebbles" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="pebbles_a" density_multiplier="1.000" bb_radius="0.24451344">
+					<mesh name="pebbles_a.6" material="pebbles" />
+					<mesh name="pebbles_a.lod2.6" material="pebbles" />
+				</flora_variation>
+				<flora_variation name="pebbles_b" density_multiplier="1.000" bb_radius="0.18571681">
+					<mesh name="pebbles_b.6" material="pebbles" />
+					<mesh name="pebbles_b.lod2.6" material="pebbles" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="pebbles_a" density_multiplier="1.000" bb_radius="0.24451344">
+					<mesh name="pebbles_a.6" material="pebbles" />
+					<mesh name="pebbles_a.lod2.6" material="pebbles" />
+				</flora_variation>
+				<flora_variation name="pebbles_b" density_multiplier="1.000" bb_radius="0.18571681">
+					<mesh name="pebbles_b.6" material="pebbles" />
+					<mesh name="pebbles_b.lod2.6" material="pebbles" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="pebbles_a" density_multiplier="1.000" bb_radius="0.24451344">
+					<mesh name="pebbles_a.6" material="pebbles" />
+					<mesh name="pebbles_a.lod2.6" material="pebbles" />
+				</flora_variation>
+				<flora_variation name="pebbles_b" density_multiplier="1.000" bb_radius="0.18571681">
+					<mesh name="pebbles_b.6" material="pebbles" />
+					<mesh name="pebbles_b.lod2.6" material="pebbles" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="rocks_small_no_batch" view_distance="150.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_green__mix" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_a" density_multiplier="1.000" bb_radius="0.87263197">
+					<mesh name="flora_green_a" material="flora_green_a" />
+				</flora_variation>
+				<flora_variation name="flora_green_b" density_multiplier="1.000" bb_radius="0.59047359">
+					<mesh name="flora_green_b" material="flora_green_b" />
+				</flora_variation>
+				<flora_variation name="flora_green_c" density_multiplier="1.000" bb_radius="0.55685878">
+					<mesh name="flora_green_c" material="flora_green_c" />
+				</flora_variation>
+				<flora_variation name="flora_green_d" density_multiplier="1.000" bb_radius="0.82827026">
+					<mesh name="flora_green_d" material="flora_green_d" />
+				</flora_variation>
+				<flora_variation name="flora_green_e" density_multiplier="1.000" bb_radius="0.44475529">
+					<mesh name="flora_green_e" material="flora_green_e" />
+				</flora_variation>
+				<flora_variation name="flora_green_h" density_multiplier="1.000" bb_radius="0.42804641">
+					<mesh name="flora_green_h" material="flora_green_h" />
+				</flora_variation>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_dry_plant_a" density_multiplier="1.000" bb_radius="1.38601351">
+					<mesh name="flora_dry_plant_a" material="flora_dry_plant_a" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_b" density_multiplier="1.000" bb_radius="1.13971388">
+					<mesh name="flora_dry_plant_b" material="flora_dry_plant_b" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_c" density_multiplier="1.000" bb_radius="0.77022731">
+					<mesh name="flora_dry_plant_c" material="flora_dry_plant_c" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_d" density_multiplier="1.000" bb_radius="0.61645657">
+					<mesh name="flora_dry_plant_d" material="flora_dry_plant_d" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_e" density_multiplier="1.000" bb_radius="0.89530098">
+					<mesh name="flora_dry_plant_e" material="flora_dry_plant_e" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_h" density_multiplier="1.000" bb_radius="1.41748750">
+					<mesh name="flora_dry_plant_h" material="flora_dry_plant_h" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_i" density_multiplier="1.000" bb_radius="1.24732161">
+					<mesh name="flora_dry_plant_i" material="flora_dry_plant_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_a" density_multiplier="1.000" bb_radius="0.82992744">
+					<mesh name="flora_snow_a" material="flora_snow_a" />
+				</flora_variation>
+				<flora_variation name="flora_snow_b" density_multiplier="1.000" bb_radius="0.90647036">
+					<mesh name="flora_snow_b" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_c" density_multiplier="1.000" bb_radius="1.15929830">
+					<mesh name="flora_snow_c" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_d" density_multiplier="1.000" bb_radius="0.67361122">
+					<mesh name="flora_snow_d" material="flora_snow_d" />
+				</flora_variation>
+				<flora_variation name="flora_snow_e" density_multiplier="1.000" bb_radius="0.83240914">
+					<mesh name="flora_snow_e" material="flora_snow_e" />
+				</flora_variation>
+				<flora_variation name="flora_snow_f" density_multiplier="1.000" bb_radius="0.67376697">
+					<mesh name="flora_snow_f" material="flora_snow_f" />
+				</flora_variation>
+				<flora_variation name="flora_snow_g" density_multiplier="1.000" bb_radius="0.52788937">
+					<mesh name="flora_snow_g" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_h" density_multiplier="1.000" bb_radius="0.37634456">
+					<mesh name="flora_snow_h" material="flora_snow_h" />
+				</flora_variation>
+				<flora_variation name="flora_snow_i" density_multiplier="1.000" bb_radius="0.53868014">
+					<mesh name="flora_snow_i" material="flora_snow_i" />
+				</flora_variation>
+				<flora_variation name="flora_snow_j" density_multiplier="1.000" bb_radius="0.37334409">
+					<mesh name="flora_snow_j" material="flora_snow_j" />
+				</flora_variation>
+				<flora_variation name="flora_snow_k" density_multiplier="1.000" bb_radius="1.40250516">
+					<mesh name="flora_snow_k" material="flora_snow_k" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_a" density_multiplier="1.000" bb_radius="0.87263197">
+					<mesh name="flora_green_a" material="flora_green_a" />
+				</flora_variation>
+				<flora_variation name="flora_green_b" density_multiplier="1.000" bb_radius="0.59047359">
+					<mesh name="flora_green_b" material="flora_green_b" />
+				</flora_variation>
+				<flora_variation name="flora_green_c" density_multiplier="1.000" bb_radius="0.55685878">
+					<mesh name="flora_green_c" material="flora_green_c" />
+				</flora_variation>
+				<flora_variation name="flora_green_d" density_multiplier="1.000" bb_radius="0.82827026">
+					<mesh name="flora_green_d" material="flora_green_d" />
+				</flora_variation>
+				<flora_variation name="flora_green_e" density_multiplier="1.000" bb_radius="0.44475529">
+					<mesh name="flora_green_e" material="flora_green_e" />
+				</flora_variation>
+				<flora_variation name="flora_green_h" density_multiplier="1.000" bb_radius="0.42804641">
+					<mesh name="flora_green_h" material="flora_green_h" />
+				</flora_variation>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_sturgiaGreen_mix" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_a" density_multiplier="1.000" bb_radius="0.87263197">
+					<mesh name="flora_green_a" material="flora_green_a" />
+				</flora_variation>
+				<flora_variation name="flora_green_b" density_multiplier="1.000" bb_radius="0.59047359">
+					<mesh name="flora_green_b" material="flora_green_b" />
+				</flora_variation>
+				<flora_variation name="flora_green_c" density_multiplier="1.000" bb_radius="0.55685878">
+					<mesh name="flora_green_c" material="flora_green_c" />
+				</flora_variation>
+				<flora_variation name="flora_green_d" density_multiplier="1.000" bb_radius="0.82827026">
+					<mesh name="flora_green_d" material="flora_green_d" />
+				</flora_variation>
+				<flora_variation name="flora_green_e" density_multiplier="1.000" bb_radius="0.44475529">
+					<mesh name="flora_green_e" material="flora_green_e" />
+				</flora_variation>
+				<flora_variation name="flora_green_h" density_multiplier="1.000" bb_radius="0.42804641">
+					<mesh name="flora_green_h" material="flora_green_h" />
+				</flora_variation>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_green_a" density_multiplier="1.000" bb_radius="0.87263197">
+					<mesh name="flora_green_a" material="flora_green_a" />
+				</flora_variation>
+				<flora_variation name="flora_green_b" density_multiplier="1.000" bb_radius="0.59047359">
+					<mesh name="flora_green_b" material="flora_green_b" />
+				</flora_variation>
+				<flora_variation name="flora_green_c" density_multiplier="1.000" bb_radius="0.55685878">
+					<mesh name="flora_green_c" material="flora_green_c" />
+				</flora_variation>
+				<flora_variation name="flora_green_d" density_multiplier="1.000" bb_radius="0.82827026">
+					<mesh name="flora_green_d" material="flora_green_d" />
+				</flora_variation>
+				<flora_variation name="flora_green_e" density_multiplier="1.000" bb_radius="0.44475529">
+					<mesh name="flora_green_e" material="flora_green_e" />
+				</flora_variation>
+				<flora_variation name="flora_green_h" density_multiplier="1.000" bb_radius="0.42804641">
+					<mesh name="flora_green_h" material="flora_green_h" />
+				</flora_variation>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_a" density_multiplier="1.000" bb_radius="0.82992744">
+					<mesh name="flora_snow_a" material="flora_snow_a" />
+				</flora_variation>
+				<flora_variation name="flora_snow_b" density_multiplier="1.000" bb_radius="0.90647036">
+					<mesh name="flora_snow_b" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_c" density_multiplier="1.000" bb_radius="1.15929830">
+					<mesh name="flora_snow_c" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_e" density_multiplier="1.000" bb_radius="0.83240914">
+					<mesh name="flora_snow_e" material="flora_snow_e" />
+				</flora_variation>
+				<flora_variation name="flora_snow_f" density_multiplier="1.000" bb_radius="0.67376697">
+					<mesh name="flora_snow_f" material="flora_snow_f" />
+				</flora_variation>
+				<flora_variation name="flora_snow_g" density_multiplier="1.000" bb_radius="0.52788937">
+					<mesh name="flora_snow_g" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_z" density_multiplier="1.000" bb_radius="0.23759979">
+					<mesh name="flora_snow_z" material="flora_snow_z" />
+				</flora_variation>
+				<flora_variation name="flora_snow_j" density_multiplier="1.000" bb_radius="0.37334409">
+					<mesh name="flora_snow_j" material="flora_snow_j" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_a" density_multiplier="1.000" bb_radius="0.87263197">
+					<mesh name="flora_green_a" material="flora_green_a" />
+				</flora_variation>
+				<flora_variation name="flora_green_b" density_multiplier="1.000" bb_radius="0.59047359">
+					<mesh name="flora_green_b" material="flora_green_b" />
+				</flora_variation>
+				<flora_variation name="flora_green_c" density_multiplier="1.000" bb_radius="0.55685878">
+					<mesh name="flora_green_c" material="flora_green_c" />
+				</flora_variation>
+				<flora_variation name="flora_green_d" density_multiplier="1.000" bb_radius="0.82827026">
+					<mesh name="flora_green_d" material="flora_green_d" />
+				</flora_variation>
+				<flora_variation name="flora_green_e" density_multiplier="1.000" bb_radius="0.44475529">
+					<mesh name="flora_green_e" material="flora_green_e" />
+				</flora_variation>
+				<flora_variation name="flora_green_h" density_multiplier="1.000" bb_radius="0.42804641">
+					<mesh name="flora_green_h" material="flora_green_h" />
+				</flora_variation>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_green__mix_flower" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="no_shadows" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_f" density_multiplier="1.000" bb_radius="0.41243210">
+					<mesh name="flora_green_f" material="flora_green_f" />
+				</flora_variation>
+				<flora_variation name="flora_green_g" density_multiplier="1.000" bb_radius="0.38187432">
+					<mesh name="flora_green_g" material="flora_green_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_green_f" density_multiplier="1.000" bb_radius="0.41243210">
+					<mesh name="flora_green_f" material="flora_green_f" />
+				</flora_variation>
+				<flora_variation name="flora_green_g" density_multiplier="1.000" bb_radius="0.38187432">
+					<mesh name="flora_green_g" material="flora_green_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_dry_plant_j" density_multiplier="1.000" bb_radius="1.09651434">
+					<mesh name="flora_dry_plant_j" material="flora_dry_plant_j" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_m" density_multiplier="1.000" bb_radius="1.03780520">
+					<mesh name="flora_dry_plant_m" material="flora_dry_plant_m" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_f" density_multiplier="1.000" bb_radius="0.41243210">
+					<mesh name="flora_green_f" material="flora_green_f" />
+				</flora_variation>
+				<flora_variation name="flora_green_g" density_multiplier="1.000" bb_radius="0.38187432">
+					<mesh name="flora_green_g" material="flora_green_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="free_flora_green__mix_flower" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="no_shadows" value="true" />
+			<flag name="fading_out" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_f" density_multiplier="1.000" bb_radius="0.41243210">
+					<mesh name="flora_green_f" material="flora_green_f" />
+				</flora_variation>
+				<flora_variation name="flora_green_g" density_multiplier="1.000" bb_radius="0.38187432">
+					<mesh name="flora_green_g" material="flora_green_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_grass_a_big" density_multiplier="1.000" bb_radius="1.58042622">
+					<mesh name="flora_grass_a_big" material="flora_grass_a" />
+					<mesh name="flora_grass_a_big.lod2" material="flora_grass_a" />
+					<mesh name="flora_grass_a_big.lod4" material="flora_grass_a" />
+				</flora_variation>
+				<flora_variation name="flora_grass_a_small" density_multiplier="1.000" bb_radius="0.96584004">
+					<mesh name="flora_grass_a_small" material="flora_grass_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_dry_plant_j" density_multiplier="1.000" bb_radius="1.09651434">
+					<mesh name="flora_dry_plant_j" material="flora_dry_plant_j" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_m" density_multiplier="1.000" bb_radius="1.03780520">
+					<mesh name="flora_dry_plant_m" material="flora_dry_plant_m" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_f" density_multiplier="1.000" bb_radius="0.41243210">
+					<mesh name="flora_green_f" material="flora_green_f" />
+				</flora_variation>
+				<flora_variation name="flora_green_g" density_multiplier="1.000" bb_radius="0.38187432">
+					<mesh name="flora_green_g" material="flora_green_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	</flora_kinds>

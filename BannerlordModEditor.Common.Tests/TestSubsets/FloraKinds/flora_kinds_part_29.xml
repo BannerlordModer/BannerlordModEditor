@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="flora_tree_acacia_01" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_summer" name="tree_acacia_summer" density_multiplier="1.000" bb_radius="17.93387794">
+					<mesh name="tree_acacia_summer.0.lod0" material="tree_acacia_summer_bark_mat" />
+					<mesh name="tree_acacia_summer.1.lod0" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer.0.lod3" material="tree_acacia_summer_bark_mat" />
+					<mesh name="tree_acacia_summer.1.lod3" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer.0.lod4" material="tree_acacia_summer_bark_mat" />
+					<mesh name="tree_acacia_summer.1.lod4" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer.0.lod5" material="tree_acacia_summer_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall" name="tree_acacia_fall" density_multiplier="1.000" bb_radius="17.91010857">
+					<mesh name="tree_acacia_fall.0.lod0" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod3" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod4" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod5" material="tree_acacia_fall_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_winter" name="tree_acacia_winter" density_multiplier="1.000" bb_radius="17.89118195">
+					<mesh name="tree_acacia_winter.0.lod0" material="tree_acacia_winter_bark_mat" />
+					<mesh name="tree_acacia_winter.1.lod0" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter.0.lod3" material="tree_acacia_winter_bark_mat" />
+					<mesh name="tree_acacia_winter.1.lod3" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter.0.lod4" material="tree_acacia_winter_bark_mat" />
+					<mesh name="tree_acacia_winter.1.lod4" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter.0.lod5" material="tree_acacia_winter_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_spring" name="tree_acacia_spring" density_multiplier="1.000" bb_radius="17.96449280">
+					<mesh name="tree_acacia_spring.0.lod0" material="tree_acacia_spring_bark_mat" />
+					<mesh name="tree_acacia_spring.1.lod0" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring.0.lod3" material="tree_acacia_spring_bark_mat" />
+					<mesh name="tree_acacia_spring.1.lod3" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring.0.lod4" material="tree_acacia_spring_bark_mat" />
+					<mesh name="tree_acacia_spring.1.lod4" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring.0.lod5" material="tree_acacia_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_acacia_02" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_summer_2" name="tree_acacia_summer_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_summer_2.0.lod0" material="tree_acacia_summer_2_bark_mat" />
+					<mesh name="tree_acacia_summer_2.1.lod0" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer_2.0.lod3" material="tree_acacia_summer_2_bark_mat" />
+					<mesh name="tree_acacia_summer_2.1.lod3" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer_2.0.lod4" material="tree_acacia_summer_2_bark_mat" />
+					<mesh name="tree_acacia_summer_2.1.lod4" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer_2.0.lod5" material="tree_acacia_summer_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall_2" name="tree_acacia_fall_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_fall_2.0.lod0" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod3" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod4" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod5" material="tree_acacia_fall_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_winter_2" name="tree_acacia_winter_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_winter_2.0.lod0" material="tree_acacia_winter_2_bark_mat" />
+					<mesh name="tree_acacia_winter_2.1.lod0" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter_2.0.lod3" material="tree_acacia_winter_2_bark_mat" />
+					<mesh name="tree_acacia_winter_2.1.lod3" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter_2.0.lod4" material="tree_acacia_winter_2_bark_mat" />
+					<mesh name="tree_acacia_winter_2.1.lod4" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter_2.0.lod5" material="tree_acacia_winter_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_spring_2" name="tree_acacia_spring_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_spring_2.0.lod0" material="tree_acacia_spring_2_bark_mat" />
+					<mesh name="tree_acacia_spring_2.1.lod0" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring_2.0.lod3" material="tree_acacia_spring_2_bark_mat" />
+					<mesh name="tree_acacia_spring_2.1.lod3" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring_2.0.lod4" material="tree_acacia_spring_2_bark_mat" />
+					<mesh name="tree_acacia_spring_2.1.lod4" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring_2.0.lod5" material="tree_acacia_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_acacia_03" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_summer_3" name="tree_acacia_summer_3" density_multiplier="1.000" bb_radius="16.62689590">
+					<mesh name="tree_acacia_summer_3.0.lod0" material="tree_acacia_summer_3_bark_mat" />
+					<mesh name="tree_acacia_summer_3.1.lod0" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer_3.0.lod3" material="tree_acacia_summer_3_bark_mat" />
+					<mesh name="tree_acacia_summer_3.1.lod3" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer_3.0.lod4" material="tree_acacia_summer_3_bark_mat" />
+					<mesh name="tree_acacia_summer_3.1.lod4" material="tree_acacia_summer_mat" />
+					<mesh name="tree_acacia_summer_3.0.lod5" material="tree_acacia_summer_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall_3" name="tree_acacia_fall_3" density_multiplier="1.000" bb_radius="16.61979675">
+					<mesh name="tree_acacia_fall_3.0.lod0" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod3" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod4" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod5" material="tree_acacia_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_winter_3" name="tree_acacia_winter_3" density_multiplier="1.000" bb_radius="16.62689590">
+					<mesh name="tree_acacia_winter_3.0.lod0" material="tree_acacia_winter_3_bark_mat" />
+					<mesh name="tree_acacia_winter_3.1.lod0" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter_3.0.lod3" material="tree_acacia_winter_3_bark_mat" />
+					<mesh name="tree_acacia_winter_3.1.lod3" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter_3.0.lod4" material="tree_acacia_winter_3_bark_mat" />
+					<mesh name="tree_acacia_winter_3.1.lod4" material="tree_acacia_winter_mat" />
+					<mesh name="tree_acacia_winter_3.0.lod5" material="tree_acacia_winter_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_spring_3" name="tree_acacia_spring_3" density_multiplier="1.000" bb_radius="16.62689590">
+					<mesh name="tree_acacia_spring_3.0.lod0" material="tree_acacia_spring_3_bark_mat" />
+					<mesh name="tree_acacia_spring_3.1.lod0" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring_3.0.lod3" material="tree_acacia_spring_3_bark_mat" />
+					<mesh name="tree_acacia_spring_3.1.lod3" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring_3.0.lod4" material="tree_acacia_spring_3_bark_mat" />
+					<mesh name="tree_acacia_spring_3.1.lod4" material="tree_acacia_spring_mat" />
+					<mesh name="tree_acacia_spring_3.0.lod5" material="tree_acacia_spring_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_olive_01" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring" name="tree_olive_spring" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_spring.0.lod0" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod3" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod4" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod5" material="tree_olive_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring" name="tree_olive_spring" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_spring.0.lod0" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod3" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod4" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod5" material="tree_olive_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_winter" name="tree_olive_winter" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_winter.0.lod0" material="tree_olive_winter_bark_mat" />
+					<mesh name="tree_olive_winter.1.lod0" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter.0.lod3" material="tree_olive_winter_bark_mat" />
+					<mesh name="tree_olive_winter.1.lod3" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter.0.lod4" material="tree_olive_winter_bark_mat" />
+					<mesh name="tree_olive_winter.1.lod4" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter.0.lod5" material="tree_olive_winter_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring" name="tree_olive_spring" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_spring.0.lod0" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod3" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod4" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod5" material="tree_olive_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_olive_02" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring_2" name="tree_olive_spring_2" density_multiplier="1.000" bb_radius="6.29035568">
+					<mesh name="tree_olive_spring_2.0.lod0" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod3" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod4" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod5" material="tree_olive_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring_2" name="tree_olive_spring_2" density_multiplier="1.000" bb_radius="6.29035568">
+					<mesh name="tree_olive_spring_2.0.lod0" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod3" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod4" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod5" material="tree_olive_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_winter_2" name="tree_olive_winter_2" density_multiplier="1.000" bb_radius="6.29018259">
+					<mesh name="tree_olive_winter_2.0.lod0" material="tree_olive_winter_2_bark_mat" />
+					<mesh name="tree_olive_winter_2.1.lod0" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter_2.0.lod3" material="tree_olive_winter_2_bark_mat" />
+					<mesh name="tree_olive_winter_2.1.lod3" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter_2.0.lod4" material="tree_olive_winter_2_bark_mat" />
+					<mesh name="tree_olive_winter_2.1.lod4" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter_2.0.lod5" material="tree_olive_winter_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring_2" name="tree_olive_spring_2" density_multiplier="1.000" bb_radius="6.29035568">
+					<mesh name="tree_olive_spring_2.0.lod0" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod3" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod4" material="tree_olive_spring_2_bark_mat" />
+					<mesh name="tree_olive_spring_2.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring_2.0.lod5" material="tree_olive_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_olive_mix" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring" name="tree_olive_spring" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_spring.0.lod0" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod3" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod4" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod5" material="tree_olive_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring" name="tree_olive_spring" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_spring.0.lod0" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod3" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod4" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod5" material="tree_olive_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_winter" name="tree_olive_winter" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_winter.0.lod0" material="tree_olive_winter_bark_mat" />
+					<mesh name="tree_olive_winter.1.lod0" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter.0.lod3" material="tree_olive_winter_bark_mat" />
+					<mesh name="tree_olive_winter.1.lod3" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter.0.lod4" material="tree_olive_winter_bark_mat" />
+					<mesh name="tree_olive_winter.1.lod4" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter.0.lod5" material="tree_olive_winter_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_olive_winter_2" name="tree_olive_winter_2" density_multiplier="1.000" bb_radius="6.29018259">
+					<mesh name="tree_olive_winter_2.0.lod0" material="tree_olive_winter_2_bark_mat" />
+					<mesh name="tree_olive_winter_2.1.lod0" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter_2.0.lod3" material="tree_olive_winter_2_bark_mat" />
+					<mesh name="tree_olive_winter_2.1.lod3" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter_2.0.lod4" material="tree_olive_winter_2_bark_mat" />
+					<mesh name="tree_olive_winter_2.1.lod4" material="tree_olive_winter_mat" />
+					<mesh name="tree_olive_winter_2.0.lod5" material="tree_olive_winter_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_olive_spring" name="tree_olive_spring" density_multiplier="1.000" bb_radius="7.15417242">
+					<mesh name="tree_olive_spring.0.lod0" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod0" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod3" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod3" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod4" material="tree_olive_spring_bark_mat" />
+					<mesh name="tree_olive_spring.1.lod4" material="tree_olive_spring_mat" />
+					<mesh name="tree_olive_spring.0.lod5" material="tree_olive_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_high_02" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_summer_2" name="tree_high_summer_2" density_multiplier="1.000" bb_radius="13.39506245">
+					<mesh name="tree_high_summer_2.0.lod0" material="tree_high_summer_2_bark_mat" />
+					<mesh name="tree_high_summer_2.1.lod0" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_2.0.lod3" material="tree_high_summer_2_bark_mat" />
+					<mesh name="tree_high_summer_2.1.lod3" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_2.0.lod4" material="tree_high_summer_2_bark_mat" />
+					<mesh name="tree_high_summer_2.1.lod4" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_2.0.lod5" material="tree_high_summer_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_fall_2" name="tree_high_fall_2" density_multiplier="1.000" bb_radius="13.39506245">
+					<mesh name="tree_high_fall_2.0.lod0" material="tree_high_fall_2_bark_mat" />
+					<mesh name="tree_high_fall_2.1.lod0" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_2.0.lod3" material="tree_high_fall_2_bark_mat" />
+					<mesh name="tree_high_fall_2.1.lod3" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_2.0.lod4" material="tree_high_fall_2_bark_mat" />
+					<mesh name="tree_high_fall_2.1.lod4" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_2.0.lod5" material="tree_high_fall_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_winter_2" name="tree_high_winter_2" density_multiplier="1.000" bb_radius="13.39506340">
+					<mesh name="tree_high_winter_2.0.lod0" material="tree_high_winter_2_bark_mat" />
+					<mesh name="tree_high_winter_2.1.lod0" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_2.0.lod3" material="tree_high_winter_2_bark_mat" />
+					<mesh name="tree_high_winter_2.1.lod3" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_2.0.lod4" material="tree_high_winter_2_bark_mat" />
+					<mesh name="tree_high_winter_2.1.lod4" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_2.0.lod5" material="tree_high_winter_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_spring_2" name="tree_high_spring_2" density_multiplier="1.000" bb_radius="13.39506245">
+					<mesh name="tree_high_spring_2.0.lod0" material="tree_high_spring_2_bark_mat" />
+					<mesh name="tree_high_spring_2.1.lod0" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_2.0.lod3" material="tree_high_spring_2_bark_mat" />
+					<mesh name="tree_high_spring_2.1.lod3" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_2.0.lod4" material="tree_high_spring_2_bark_mat" />
+					<mesh name="tree_high_spring_2.1.lod4" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_2.0.lod5" material="tree_high_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_high_01" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_summer" name="tree_high_summer" density_multiplier="1.000" bb_radius="13.64237595">
+					<mesh name="tree_high_summer.0.lod0" material="tree_high_summer_bark_mat" />
+					<mesh name="tree_high_summer.1.lod0" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer.0.lod3" material="tree_high_summer_bark_mat" />
+					<mesh name="tree_high_summer.1.lod3" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer.0.lod4" material="tree_high_summer_bark_mat" />
+					<mesh name="tree_high_summer.1.lod4" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer.0.lod5" material="tree_high_summer_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_fall" name="tree_high_fall" density_multiplier="1.000" bb_radius="13.64237595">
+					<mesh name="tree_high_fall.0.lod0" material="tree_high_fall_bark_mat" />
+					<mesh name="tree_high_fall.1.lod0" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall.0.lod3" material="tree_high_fall_bark_mat" />
+					<mesh name="tree_high_fall.1.lod3" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall.0.lod4" material="tree_high_fall_bark_mat" />
+					<mesh name="tree_high_fall.1.lod4" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall.0.lod5" material="tree_high_fall_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_winter" name="tree_high_winter" density_multiplier="1.000" bb_radius="13.57254410">
+					<mesh name="tree_high_winter.0.lod0" material="tree_high_winter_bark_mat" />
+					<mesh name="tree_high_winter.1.lod0" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter.0.lod3" material="tree_high_winter_bark_mat" />
+					<mesh name="tree_high_winter.1.lod3" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter.0.lod4" material="tree_high_winter_bark_mat" />
+					<mesh name="tree_high_winter.1.lod4" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter.0.lod5" material="tree_high_winter_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_spring" name="tree_high_spring" density_multiplier="1.000" bb_radius="13.64827824">
+					<mesh name="tree_high_spring.0.lod0" material="tree_high_spring_bark_mat" />
+					<mesh name="tree_high_spring.1.lod0" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring.0.lod3" material="tree_high_spring_bark_mat" />
+					<mesh name="tree_high_spring.1.lod3" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring.0.lod4" material="tree_high_spring_bark_mat" />
+					<mesh name="tree_high_spring.1.lod4" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring.0.lod5" material="tree_high_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_high_mix" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_summer" name="tree_high_summer" density_multiplier="1.000" bb_radius="13.64237595">
+					<mesh name="tree_high_summer.0.lod0" material="tree_high_summer_bark_mat" />
+					<mesh name="tree_high_summer.1.lod0" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer.0.lod3" material="tree_high_summer_bark_mat" />
+					<mesh name="tree_high_summer.1.lod3" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer.0.lod4" material="tree_high_summer_bark_mat" />
+					<mesh name="tree_high_summer.1.lod4" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer.0.lod5" material="tree_high_summer_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_summer_2" name="tree_high_summer_2" density_multiplier="1.000" bb_radius="13.39506245">
+					<mesh name="tree_high_summer_2.0.lod0" material="tree_high_summer_2_bark_mat" />
+					<mesh name="tree_high_summer_2.1.lod0" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_2.0.lod3" material="tree_high_summer_2_bark_mat" />
+					<mesh name="tree_high_summer_2.1.lod3" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_2.0.lod4" material="tree_high_summer_2_bark_mat" />
+					<mesh name="tree_high_summer_2.1.lod4" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_2.0.lod5" material="tree_high_summer_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_summer_3" name="tree_high_summer_3" density_multiplier="1.000" bb_radius="13.92289639">
+					<mesh name="tree_high_summer_3.0.lod0" material="tree_high_summer_3_bark_mat" />
+					<mesh name="tree_high_summer_3.1.lod0" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_3.0.lod3" material="tree_high_summer_3_bark_mat" />
+					<mesh name="tree_high_summer_3.1.lod3" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_3.0.lod4" material="tree_high_summer_3_bark_mat" />
+					<mesh name="tree_high_summer_3.1.lod4" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_3.0.lod5" material="tree_high_summer_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_fall" name="tree_high_fall" density_multiplier="1.000" bb_radius="13.64237595">
+					<mesh name="tree_high_fall.0.lod0" material="tree_high_fall_bark_mat" />
+					<mesh name="tree_high_fall.1.lod0" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall.0.lod3" material="tree_high_fall_bark_mat" />
+					<mesh name="tree_high_fall.1.lod3" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall.0.lod4" material="tree_high_fall_bark_mat" />
+					<mesh name="tree_high_fall.1.lod4" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall.0.lod5" material="tree_high_fall_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_fall_2" name="tree_high_fall_2" density_multiplier="1.000" bb_radius="13.39506245">
+					<mesh name="tree_high_fall_2.0.lod0" material="tree_high_fall_2_bark_mat" />
+					<mesh name="tree_high_fall_2.1.lod0" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_2.0.lod3" material="tree_high_fall_2_bark_mat" />
+					<mesh name="tree_high_fall_2.1.lod3" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_2.0.lod4" material="tree_high_fall_2_bark_mat" />
+					<mesh name="tree_high_fall_2.1.lod4" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_2.0.lod5" material="tree_high_fall_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_fall_3" name="tree_high_fall_3" density_multiplier="1.000" bb_radius="13.92289639">
+					<mesh name="tree_high_fall_3.0.lod0" material="tree_high_fall_3_bark_mat" />
+					<mesh name="tree_high_fall_3.1.lod0" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_3.0.lod3" material="tree_high_fall_3_bark_mat" />
+					<mesh name="tree_high_fall_3.1.lod3" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_3.0.lod4" material="tree_high_fall_3_bark_mat" />
+					<mesh name="tree_high_fall_3.1.lod4" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_3.0.lod5" material="tree_high_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_winter" name="tree_high_winter" density_multiplier="1.000" bb_radius="13.57254410">
+					<mesh name="tree_high_winter.0.lod0" material="tree_high_winter_bark_mat" />
+					<mesh name="tree_high_winter.1.lod0" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter.0.lod3" material="tree_high_winter_bark_mat" />
+					<mesh name="tree_high_winter.1.lod3" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter.0.lod4" material="tree_high_winter_bark_mat" />
+					<mesh name="tree_high_winter.1.lod4" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter.0.lod5" material="tree_high_winter_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_winter_2" name="tree_high_winter_2" density_multiplier="1.000" bb_radius="13.39506340">
+					<mesh name="tree_high_winter_2.0.lod0" material="tree_high_winter_2_bark_mat" />
+					<mesh name="tree_high_winter_2.1.lod0" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_2.0.lod3" material="tree_high_winter_2_bark_mat" />
+					<mesh name="tree_high_winter_2.1.lod3" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_2.0.lod4" material="tree_high_winter_2_bark_mat" />
+					<mesh name="tree_high_winter_2.1.lod4" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_2.0.lod5" material="tree_high_winter_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_winter_3" name="tree_high_winter_3" density_multiplier="1.000" bb_radius="13.34379578">
+					<mesh name="tree_high_winter_3.0.lod0" material="tree_high_winter_3_bark_mat" />
+					<mesh name="tree_high_winter_3.1.lod0" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_3.0.lod3" material="tree_high_winter_3_bark_mat" />
+					<mesh name="tree_high_winter_3.1.lod3" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_3.0.lod4" material="tree_high_winter_3_bark_mat" />
+					<mesh name="tree_high_winter_3.1.lod4" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_3.0.lod5" material="tree_high_winter_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_spring" name="tree_high_spring" density_multiplier="1.000" bb_radius="13.64827824">
+					<mesh name="tree_high_spring.0.lod0" material="tree_high_spring_bark_mat" />
+					<mesh name="tree_high_spring.1.lod0" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring.0.lod3" material="tree_high_spring_bark_mat" />
+					<mesh name="tree_high_spring.1.lod3" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring.0.lod4" material="tree_high_spring_bark_mat" />
+					<mesh name="tree_high_spring.1.lod4" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring.0.lod5" material="tree_high_spring_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_spring_2" name="tree_high_spring_2" density_multiplier="1.000" bb_radius="13.39506245">
+					<mesh name="tree_high_spring_2.0.lod0" material="tree_high_spring_2_bark_mat" />
+					<mesh name="tree_high_spring_2.1.lod0" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_2.0.lod3" material="tree_high_spring_2_bark_mat" />
+					<mesh name="tree_high_spring_2.1.lod3" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_2.0.lod4" material="tree_high_spring_2_bark_mat" />
+					<mesh name="tree_high_spring_2.1.lod4" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_2.0.lod5" material="tree_high_spring_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_high_spring_3" name="tree_high_spring_3" density_multiplier="1.000" bb_radius="13.92289639">
+					<mesh name="tree_high_spring_3.0.lod0" material="tree_high_spring_3_bark_mat" />
+					<mesh name="tree_high_spring_3.1.lod0" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_3.0.lod3" material="tree_high_spring_3_bark_mat" />
+					<mesh name="tree_high_spring_3.1.lod3" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_3.0.lod4" material="tree_high_spring_3_bark_mat" />
+					<mesh name="tree_high_spring_3.1.lod4" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_3.0.lod5" material="tree_high_spring_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_tree_high_03" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_summer_3" name="tree_high_summer_3" density_multiplier="1.000" bb_radius="13.92289639">
+					<mesh name="tree_high_summer_3.0.lod0" material="tree_high_summer_3_bark_mat" />
+					<mesh name="tree_high_summer_3.1.lod0" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_3.0.lod3" material="tree_high_summer_3_bark_mat" />
+					<mesh name="tree_high_summer_3.1.lod3" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_3.0.lod4" material="tree_high_summer_3_bark_mat" />
+					<mesh name="tree_high_summer_3.1.lod4" material="tree_high_summer_mat" />
+					<mesh name="tree_high_summer_3.0.lod5" material="tree_high_summer_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_fall_3" name="tree_high_fall_3" density_multiplier="1.000" bb_radius="13.92289639">
+					<mesh name="tree_high_fall_3.0.lod0" material="tree_high_fall_3_bark_mat" />
+					<mesh name="tree_high_fall_3.1.lod0" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_3.0.lod3" material="tree_high_fall_3_bark_mat" />
+					<mesh name="tree_high_fall_3.1.lod3" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_3.0.lod4" material="tree_high_fall_3_bark_mat" />
+					<mesh name="tree_high_fall_3.1.lod4" material="tree_high_fall_mat" />
+					<mesh name="tree_high_fall_3.0.lod5" material="tree_high_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_winter_3" name="tree_high_winter_3" density_multiplier="1.000" bb_radius="13.34379578">
+					<mesh name="tree_high_winter_3.0.lod0" material="tree_high_winter_3_bark_mat" />
+					<mesh name="tree_high_winter_3.1.lod0" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_3.0.lod3" material="tree_high_winter_3_bark_mat" />
+					<mesh name="tree_high_winter_3.1.lod3" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_3.0.lod4" material="tree_high_winter_3_bark_mat" />
+					<mesh name="tree_high_winter_3.1.lod4" material="tree_high_winter_mat" />
+					<mesh name="tree_high_winter_3.0.lod5" material="tree_high_winter_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_spring_3" name="tree_high_spring_3" density_multiplier="1.000" bb_radius="13.92289639">
+					<mesh name="tree_high_spring_3.0.lod0" material="tree_high_spring_3_bark_mat" />
+					<mesh name="tree_high_spring_3.1.lod0" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_3.0.lod3" material="tree_high_spring_3_bark_mat" />
+					<mesh name="tree_high_spring_3.1.lod3" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_3.0.lod4" material="tree_high_spring_3_bark_mat" />
+					<mesh name="tree_high_spring_3.1.lod4" material="tree_high_spring_mat" />
+					<mesh name="tree_high_spring_3.0.lod5" material="tree_high_spring_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	</flora_kinds>

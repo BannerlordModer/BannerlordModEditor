@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="tree_forest_beech__cutted_a" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_forest_beech__cutted_b" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_forest_beech___mix_cutted" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_b" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_b.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod4.11" material="bark_beech_b_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_b.lod3.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation body_name="bo_forest_ruinous_tree_beech__cutted_a" name="forest_ruinous_tree_beech__cutted_a" density_multiplier="1.000" bb_radius="1.87691689">
+					<mesh name="forest_ruinous_tree_beech__cutted_a.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod3.10" material="bark_beech_a_noanim" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.4" material="doors_windows_c" />
+					<mesh name="forest_ruinous_tree_beech__cutted_a.lod4.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_forest_beech___mix_branches_a" view_distance="60.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_a" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_a.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_b" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_b.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_c" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_c.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_a" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_a.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_b" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_b.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_c" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_c.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_a" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_a.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_b" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_b.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_c" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_c.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_a" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_a.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_b" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_b.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_c" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_c.10" material="bark_beech_a_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_forest_beech___mix_branches_b" view_distance="60.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_d" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_d.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_e" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_e.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_f" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_f.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_d" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_d.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_e" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_e.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_f" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_f.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_d" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_d.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_e" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_e.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_f" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_f.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="forest_ruinous_tree_beech__branch_d" density_multiplier="1.000" bb_radius="0.51633370">
+					<mesh name="forest_ruinous_tree_beech__branch_d.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_e" density_multiplier="1.000" bb_radius="0.26970935">
+					<mesh name="forest_ruinous_tree_beech__branch_e.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+				<flora_variation name="forest_ruinous_tree_beech__branch_f" density_multiplier="1.000" bb_radius="0.23044455">
+					<mesh name="forest_ruinous_tree_beech__branch_f.11" material="bark_beech_b_noanim" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_fern_a" view_distance="150.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="is_grass" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_fern_a" density_multiplier="1.000" bb_radius="0.93443000">
+					<mesh name="flora_fern_a" material="grass" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_fern_a" density_multiplier="1.000" bb_radius="0.93443000">
+					<mesh name="flora_fern_a" material="grass" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_fern_a" density_multiplier="1.000" bb_radius="0.93443000">
+					<mesh name="flora_fern_a" material="grass" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_fern_a" density_multiplier="1.000" bb_radius="0.93443000">
+					<mesh name="flora_fern_a" material="grass" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_fern_b" view_distance="150.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="is_grass" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_fern_b" density_multiplier="1.000" bb_radius="1.54829729">
+					<mesh name="flora_fern_b" material="flora_fern_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_fern_b" density_multiplier="1.000" bb_radius="1.54829729">
+					<mesh name="flora_fern_b" material="flora_fern_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_fern_b" density_multiplier="1.000" bb_radius="1.54829729">
+					<mesh name="flora_fern_b" material="flora_fern_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_fern_b" density_multiplier="1.000" bb_radius="1.54829729">
+					<mesh name="flora_fern_b" material="flora_fern_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="grass_terrain_a" view_distance="150.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="is_grass" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="grass_terrain_a" density_multiplier="1.000" bb_radius="1.19788313">
+					<mesh name="grass_terrain_a" material="grass_terrain_a" />
+				</flora_variation>
+				<flora_variation name="grass_terrain_b" density_multiplier="1.000" bb_radius="1.19788301">
+					<mesh name="grass_terrain_b" material="grass_terrain_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_dry_plant_f" density_multiplier="1.000" bb_radius="1.22425663">
+					<mesh name="flora_dry_plant_f" material="flora_dry_plant_f" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_g" density_multiplier="1.000" bb_radius="1.59087920">
+					<mesh name="flora_dry_plant_g" material="flora_dry_plant_g" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_k" density_multiplier="1.000" bb_radius="1.97566259">
+					<mesh name="flora_dry_plant_k" material="flora_dry_plant_k" />
+				</flora_variation>
+				<flora_variation name="flora_dry_plant_m" density_multiplier="1.000" bb_radius="1.03780520">
+					<mesh name="flora_dry_plant_m" material="flora_dry_plant_m" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_b" density_multiplier="1.000" bb_radius="0.90647036">
+					<mesh name="flora_snow_b" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_c" density_multiplier="1.000" bb_radius="1.15929830">
+					<mesh name="flora_snow_c" material="flora_snow_bc" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="grass_terrain_a" density_multiplier="1.000" bb_radius="1.19788313">
+					<mesh name="grass_terrain_a" material="grass_terrain_a" />
+				</flora_variation>
+				<flora_variation name="grass_terrain_b" density_multiplier="1.000" bb_radius="1.19788301">
+					<mesh name="grass_terrain_b" material="grass_terrain_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="grass_terrain_a_non_season" view_distance="100.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="is_grass" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="no_shadows" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="grass_terrain_a" density_multiplier="1.000" bb_radius="1.19788313">
+					<mesh name="grass_terrain_a" material="grass_terrain_a" />
+				</flora_variation>
+				<flora_variation name="grass_terrain_b" density_multiplier="1.000" bb_radius="1.19788301">
+					<mesh name="grass_terrain_b" material="grass_terrain_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="grass_terrain_a" density_multiplier="1.000" bb_radius="1.19788313">
+					<mesh name="grass_terrain_a" material="grass_terrain_a" />
+				</flora_variation>
+				<flora_variation name="grass_terrain_b" density_multiplier="1.000" bb_radius="1.19788301">
+					<mesh name="grass_terrain_b" material="grass_terrain_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="grass_terrain_a" density_multiplier="1.000" bb_radius="1.19788313">
+					<mesh name="grass_terrain_a" material="grass_terrain_a" />
+				</flora_variation>
+				<flora_variation name="grass_terrain_b" density_multiplier="1.000" bb_radius="1.19788301">
+					<mesh name="grass_terrain_b" material="grass_terrain_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="grass_terrain_a" density_multiplier="1.000" bb_radius="1.19788313">
+					<mesh name="grass_terrain_a" material="grass_terrain_a" />
+				</flora_variation>
+				<flora_variation name="grass_terrain_b" density_multiplier="1.000" bb_radius="1.19788301">
+					<mesh name="grass_terrain_b" material="grass_terrain_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="rocks_small" view_distance="60.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="rock_001" density_multiplier="1.000" bb_radius="0.27065995">
+					<mesh name="rock_001.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_001.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_002" density_multiplier="1.000" bb_radius="0.21857579">
+					<mesh name="rock_002.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_002.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_003" density_multiplier="1.000" bb_radius="0.17649691">
+					<mesh name="rock_003.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_003.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_004" density_multiplier="1.000" bb_radius="0.14261082">
+					<mesh name="rock_004.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_004.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_005" density_multiplier="1.000" bb_radius="0.26546147">
+					<mesh name="rock_005.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_005.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_006" density_multiplier="1.000" bb_radius="0.20258549">
+					<mesh name="rock_006.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_006.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+				<flora_variation name="rock_007" density_multiplier="1.000" bb_radius="0.24382707">
+					<mesh name="rock_007.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod2.19" material="stone_wall_2a_rock" />
+					<mesh name="rock_007.lod4.19" material="stone_wall_2a_rock" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	</flora_kinds>

@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="pumpkin_plant" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="pumpkin_leaves_a" density_multiplier="1.000" bb_radius="1.88201451">
+					<mesh name="pumpkin_leaves_a.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.1" material="foods_a" />
+					<mesh name="pumpkin_leaves_a.lod2.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.lod2.1" material="foods_a" />
+					<mesh name="pumpkin_leaves_a.lod4.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.lod4.1" material="foods_a" />
+				</flora_variation>
+				<flora_variation name="pumpkin_leaves_b" density_multiplier="1.000" bb_radius="1.90874588">
+					<mesh name="pumpkin_leaves_b" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_b.lod2" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_b.lod4" material="pumpkin_leaves_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="pumpkin_leaves_a" density_multiplier="1.000" bb_radius="1.88201451">
+					<mesh name="pumpkin_leaves_a.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.1" material="foods_a" />
+					<mesh name="pumpkin_leaves_a.lod2.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.lod2.1" material="foods_a" />
+					<mesh name="pumpkin_leaves_a.lod4.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.lod4.1" material="foods_a" />
+				</flora_variation>
+				<flora_variation name="pumpkin_leaves_b" density_multiplier="1.000" bb_radius="1.90874588">
+					<mesh name="pumpkin_leaves_b" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_b.lod2" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_b.lod4" material="pumpkin_leaves_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_b" density_multiplier="1.000" bb_radius="0.90647036">
+					<mesh name="flora_snow_b" material="flora_snow_bc" />
+				</flora_variation>
+				<flora_variation name="flora_snow_c" density_multiplier="1.000" bb_radius="1.15929830">
+					<mesh name="flora_snow_c" material="flora_snow_bc" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="pumpkin_leaves_a" density_multiplier="1.000" bb_radius="1.88201451">
+					<mesh name="pumpkin_leaves_a.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.1" material="foods_a" />
+					<mesh name="pumpkin_leaves_a.lod2.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.lod2.1" material="foods_a" />
+					<mesh name="pumpkin_leaves_a.lod4.0" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_a.lod4.1" material="foods_a" />
+				</flora_variation>
+				<flora_variation name="pumpkin_leaves_b" density_multiplier="1.000" bb_radius="1.90874588">
+					<mesh name="pumpkin_leaves_b" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_b.lod2" material="pumpkin_leaves_a" />
+					<mesh name="pumpkin_leaves_b.lod4" material="pumpkin_leaves_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_far_a" view_distance="5000.000">
+		<flags>
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far_winter" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_far_a_free" view_distance="5000.000">
+		<flags>
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far_winter" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="tree_far_a" density_multiplier="1.000" bb_radius="34.86419678">
+					<mesh name="tree_far_a" material="tree_far" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_sycamore_a" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_sycamore_a" name="tree_high_sycamore_a" density_multiplier="1.000" bb_radius="39.55207443">
+					<mesh name="tree_high_sycamore_a" material="bark_sycamore" />
+					<mesh name="tree_high_sycamore_a.1" material="new_tree_sycamore_a" />
+					<mesh name="tree_high_sycamore_a.2" material="tree_new_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_sycamore_a" name="tree_high_sycamore_a" density_multiplier="1.000" bb_radius="39.55207443">
+					<mesh name="tree_high_sycamore_a" material="bark_sycamore" />
+					<mesh name="tree_high_sycamore_a.1" material="new_tree_sycamore_a_fall" />
+					<mesh name="tree_high_sycamore_a.2" material="tree_new_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_sycamore_a" name="tree_high_sycamore_a" density_multiplier="1.000" bb_radius="39.55207443">
+					<mesh name="tree_high_sycamore_a" material="bark_sycamore" />
+					<mesh name="tree_high_sycamore_a.1" material="new_tree_sycamore_a_winter" />
+					<mesh name="tree_high_sycamore_a.2" material="tree_new_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_high_sycamore_a" name="tree_high_sycamore_a" density_multiplier="1.000" bb_radius="39.55207443">
+					<mesh name="tree_high_sycamore_a" material="bark_sycamore" />
+					<mesh name="tree_high_sycamore_a.1" material="new_tree_sycamore_a_spring" />
+					<mesh name="tree_high_sycamore_a.2" material="tree_new_b" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="wheat_group_spring" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="wheat_group_spring" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_spring" material="wheat_group_spring" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="wheat_group_spring" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_spring" material="wheat_group_spring" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="wheat_group_spring" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_spring" material="wheat_group_spring" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="wheat_group_spring" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_spring" material="wheat_group_spring" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="wheat_group_summer" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="wheat_group_summer" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_summer" material="wheat_group_summer" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="wheat_group_summer" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_summer" material="wheat_group_summer" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="wheat_group_summer" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_summer" material="wheat_group_summer" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="wheat_group_summer" density_multiplier="1.000" bb_radius="1.51512086">
+					<mesh name="wheat_group_summer" material="wheat_group_summer" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="wheat_group_fall" view_distance="100.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="wheat_group_fall" density_multiplier="1.000" bb_radius="1.40359735">
+					<mesh name="wheat_group_fall" material="wheat_group_fall" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="wheat_group_fall" density_multiplier="1.000" bb_radius="1.40359735">
+					<mesh name="wheat_group_fall" material="wheat_group_fall" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="wheat_group_fall" density_multiplier="1.000" bb_radius="1.40359735">
+					<mesh name="wheat_group_fall" material="wheat_group_fall" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="wheat_group_fall" density_multiplier="1.000" bb_radius="1.40359735">
+					<mesh name="wheat_group_fall" material="wheat_group_fall" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_forest_a" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_birch_summer_2" name="tree_birch_summer_2" density_multiplier="1.000" bb_radius="11.40248585">
+					<mesh name="tree_birch_summer_2.0.lod0" material="tree_birch_summer_2_bark_mat" />
+					<mesh name="tree_birch_summer_2.1.lod0" material="tree_birch_summer_mat" />
+					<mesh name="tree_birch_summer_2.0.lod3" material="tree_birch_summer_2_bark_mat" />
+					<mesh name="tree_birch_summer_2.1.lod3" material="tree_birch_summer_mat" />
+					<mesh name="tree_birch_summer_2.0.lod4" material="tree_birch_summer_2_bark_mat" />
+					<mesh name="tree_birch_summer_2.1.lod4" material="tree_birch_summer_mat" />
+					<mesh name="tree_birch_summer_2.0.lod5" material="tree_birch_summer_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_birch_fall_2" name="tree_birch_fall_2" density_multiplier="1.000" bb_radius="11.40248585">
+					<mesh name="tree_birch_fall_2.0.lod0" material="tree_birch_fall_2_bark_mat" />
+					<mesh name="tree_birch_fall_2.1.lod0" material="tree_birch_fall_mat" />
+					<mesh name="tree_birch_fall_2.0.lod3" material="tree_birch_fall_2_bark_mat" />
+					<mesh name="tree_birch_fall_2.1.lod3" material="tree_birch_fall_mat" />
+					<mesh name="tree_birch_fall_2.0.lod4" material="tree_birch_fall_2_bark_mat" />
+					<mesh name="tree_birch_fall_2.1.lod4" material="tree_birch_fall_mat" />
+					<mesh name="tree_birch_fall_2.0.lod5" material="tree_birch_fall_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_birch_winter_2" name="tree_birch_winter_2" density_multiplier="1.000" bb_radius="11.28362370">
+					<mesh name="tree_birch_winter_2.0.lod0" material="tree_birch_winter_2_bark_mat" />
+					<mesh name="tree_birch_winter_2.1.lod0" material="tree_birch_winter_mat" />
+					<mesh name="tree_birch_winter_2.0.lod3" material="tree_birch_winter_2_bark_mat" />
+					<mesh name="tree_birch_winter_2.1.lod3" material="tree_birch_winter_mat" />
+					<mesh name="tree_birch_winter_2.0.lod4" material="tree_birch_winter_2_bark_mat" />
+					<mesh name="tree_birch_winter_2.1.lod4" material="tree_birch_winter_mat" />
+					<mesh name="tree_birch_winter_2.0.lod5" material="tree_birch_winter_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_birch_spring_2" name="tree_birch_spring_2" density_multiplier="1.000" bb_radius="11.35764980">
+					<mesh name="tree_birch_spring_2.0.lod0" material="tree_birch_spring_2_bark_mat" />
+					<mesh name="tree_birch_spring_2.1.lod0" material="tree_birch_spring_mat" />
+					<mesh name="tree_birch_spring_2.0.lod3" material="tree_birch_spring_2_bark_mat" />
+					<mesh name="tree_birch_spring_2.1.lod3" material="tree_birch_spring_mat" />
+					<mesh name="tree_birch_spring_2.0.lod4" material="tree_birch_spring_2_bark_mat" />
+					<mesh name="tree_birch_spring_2.1.lod4" material="tree_birch_spring_mat" />
+					<mesh name="tree_birch_spring_2.0.lod5" material="tree_birch_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_forest_b" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_beech_young_summer_6" name="tree_beech_young_summer_6" density_multiplier="1.000" bb_radius="4.94193602">
+					<mesh name="tree_beech_young_summer_6.0.lod0" material="tree_beech_young_summer_6_bark_mat" />
+					<mesh name="tree_beech_young_summer_6.1.lod0" material="tree_beech_young_summer_mat" />
+					<mesh name="tree_beech_young_summer_6.0.lod3" material="tree_beech_young_summer_6_bark_mat" />
+					<mesh name="tree_beech_young_summer_6.1.lod3" material="tree_beech_young_summer_mat" />
+					<mesh name="tree_beech_young_summer_6.0.lod4" material="tree_beech_young_summer_6_bark_mat" />
+					<mesh name="tree_beech_young_summer_6.1.lod4" material="tree_beech_young_summer_mat" />
+					<mesh name="tree_beech_young_summer_6.0.lod5" material="tree_beech_young_summer_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_beech_young_fall_6" name="tree_beech_young_fall_6" density_multiplier="1.000" bb_radius="4.94193602">
+					<mesh name="tree_beech_young_fall_6.0.lod0" material="tree_beech_young_fall_6_bark_mat" />
+					<mesh name="tree_beech_young_fall_6.1.lod0" material="tree_beech_young_fall_mat" />
+					<mesh name="tree_beech_young_fall_6.0.lod3" material="tree_beech_young_fall_6_bark_mat" />
+					<mesh name="tree_beech_young_fall_6.1.lod3" material="tree_beech_young_fall_mat" />
+					<mesh name="tree_beech_young_fall_6.0.lod4" material="tree_beech_young_fall_6_bark_mat" />
+					<mesh name="tree_beech_young_fall_6.1.lod4" material="tree_beech_young_fall_mat" />
+					<mesh name="tree_beech_young_fall_6.0.lod5" material="tree_beech_young_fall_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_beech_young_winter_6" name="tree_beech_young_winter_6" density_multiplier="1.000" bb_radius="4.94193602">
+					<mesh name="tree_beech_young_winter_6.0.lod0" material="tree_beech_young_winter_6_bark_mat" />
+					<mesh name="tree_beech_young_winter_6.1.lod0" material="tree_beech_young_winter_mat" />
+					<mesh name="tree_beech_young_winter_6.0.lod3" material="tree_beech_young_winter_6_bark_mat" />
+					<mesh name="tree_beech_young_winter_6.1.lod3" material="tree_beech_young_winter_mat" />
+					<mesh name="tree_beech_young_winter_6.0.lod4" material="tree_beech_young_winter_6_bark_mat" />
+					<mesh name="tree_beech_young_winter_6.1.lod4" material="tree_beech_young_winter_mat" />
+					<mesh name="tree_beech_young_winter_6.0.lod5" material="tree_beech_young_winter_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_beech_young_spring_6" name="tree_beech_young_spring_6" density_multiplier="1.000" bb_radius="4.94193602">
+					<mesh name="tree_beech_young_spring_6.0.lod0" material="tree_beech_young_spring_6_bark_mat" />
+					<mesh name="tree_beech_young_spring_6.1.lod0" material="tree_beech_young_spring_mat" />
+					<mesh name="tree_beech_young_spring_6.0.lod3" material="tree_beech_young_spring_6_bark_mat" />
+					<mesh name="tree_beech_young_spring_6.1.lod3" material="tree_beech_young_spring_mat" />
+					<mesh name="tree_beech_young_spring_6.0.lod4" material="tree_beech_young_spring_6_bark_mat" />
+					<mesh name="tree_beech_young_spring_6.1.lod4" material="tree_beech_young_spring_mat" />
+					<mesh name="tree_beech_young_spring_6.0.lod5" material="tree_beech_young_spring_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_v_palm_date_forest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_date_palm_a" name="tree_date_palm_a" density_multiplier="1.000" bb_radius="8.44848633">
+					<mesh name="tree_date_palm_a.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod0" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod3" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod4" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod5" material="tree_date_palm_a_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_b" name="tree_date_palm_b" density_multiplier="1.000" bb_radius="10.40698814">
+					<mesh name="tree_date_palm_b.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod0" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod3" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod4" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod5" material="tree_date_palm_b_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_c" name="tree_date_palm_c" density_multiplier="1.000" bb_radius="8.88477802">
+					<mesh name="tree_date_palm_c.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod0" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod3" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod4" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod5" material="tree_date_palm_c_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_d" name="tree_date_palm_d" density_multiplier="1.000" bb_radius="5.56585693">
+					<mesh name="tree_date_palm_d.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod0" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod3" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod4" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod5" material="tree_date_palm_d_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_e" name="tree_date_palm_e" density_multiplier="1.000" bb_radius="4.46169043">
+					<mesh name="tree_date_palm_e.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod0" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod3" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod4" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod5" material="tree_date_palm_e_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_f" name="tree_date_palm_f" density_multiplier="1.000" bb_radius="9.48352051">
+					<mesh name="tree_date_palm_f.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod0" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod3" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod4" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod5" material="tree_date_palm_f_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_g" name="tree_date_palm_g" density_multiplier="1.000" bb_radius="4.32991838">
+					<mesh name="tree_date_palm_g.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod0" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod3" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod4" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod5" material="tree_date_palm_g_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_date_palm_a" name="tree_date_palm_a" density_multiplier="1.000" bb_radius="8.44848633">
+					<mesh name="tree_date_palm_a.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod0" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod3" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod4" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod5" material="tree_date_palm_a_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_b" name="tree_date_palm_b" density_multiplier="1.000" bb_radius="10.40698814">
+					<mesh name="tree_date_palm_b.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod0" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod3" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod4" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod5" material="tree_date_palm_b_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_c" name="tree_date_palm_c" density_multiplier="1.000" bb_radius="8.88477802">
+					<mesh name="tree_date_palm_c.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod0" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod3" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod4" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod5" material="tree_date_palm_c_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_d" name="tree_date_palm_d" density_multiplier="1.000" bb_radius="5.56585693">
+					<mesh name="tree_date_palm_d.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod0" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod3" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod4" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod5" material="tree_date_palm_d_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_e" name="tree_date_palm_e" density_multiplier="1.000" bb_radius="4.46169043">
+					<mesh name="tree_date_palm_e.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod0" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod3" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod4" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod5" material="tree_date_palm_e_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_f" name="tree_date_palm_f" density_multiplier="1.000" bb_radius="9.48352051">
+					<mesh name="tree_date_palm_f.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod0" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod3" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod4" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod5" material="tree_date_palm_f_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_g" name="tree_date_palm_g" density_multiplier="1.000" bb_radius="4.32991838">
+					<mesh name="tree_date_palm_g.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod0" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod3" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod4" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod5" material="tree_date_palm_g_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_date_palm_a" name="tree_date_palm_a" density_multiplier="1.000" bb_radius="8.44848633">
+					<mesh name="tree_date_palm_a.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod0" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod3" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod4" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod5" material="tree_date_palm_a_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_b" name="tree_date_palm_b" density_multiplier="1.000" bb_radius="10.40698814">
+					<mesh name="tree_date_palm_b.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod0" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod3" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod4" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod5" material="tree_date_palm_b_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_c" name="tree_date_palm_c" density_multiplier="1.000" bb_radius="8.88477802">
+					<mesh name="tree_date_palm_c.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod0" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod3" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod4" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod5" material="tree_date_palm_c_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_d" name="tree_date_palm_d" density_multiplier="1.000" bb_radius="5.56585693">
+					<mesh name="tree_date_palm_d.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod0" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod3" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod4" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod5" material="tree_date_palm_d_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_e" name="tree_date_palm_e" density_multiplier="1.000" bb_radius="4.46169043">
+					<mesh name="tree_date_palm_e.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod0" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod3" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod4" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod5" material="tree_date_palm_e_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_f" name="tree_date_palm_f" density_multiplier="1.000" bb_radius="9.48352051">
+					<mesh name="tree_date_palm_f.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod0" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod3" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod4" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod5" material="tree_date_palm_f_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_g" name="tree_date_palm_g" density_multiplier="1.000" bb_radius="4.32991838">
+					<mesh name="tree_date_palm_g.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod0" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod3" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod4" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod5" material="tree_date_palm_g_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_date_palm_a" name="tree_date_palm_a" density_multiplier="1.000" bb_radius="8.44848633">
+					<mesh name="tree_date_palm_a.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod0" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod3" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_a.1.lod4" material="tree_date_palm_a_bark_mat" />
+					<mesh name="tree_date_palm_a.0.lod5" material="tree_date_palm_a_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_b" name="tree_date_palm_b" density_multiplier="1.000" bb_radius="10.40698814">
+					<mesh name="tree_date_palm_b.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod0" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod3" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_b.1.lod4" material="tree_date_palm_b_bark_mat" />
+					<mesh name="tree_date_palm_b.0.lod5" material="tree_date_palm_b_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_c" name="tree_date_palm_c" density_multiplier="1.000" bb_radius="8.88477802">
+					<mesh name="tree_date_palm_c.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod0" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod3" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_c.1.lod4" material="tree_date_palm_c_bark_mat" />
+					<mesh name="tree_date_palm_c.0.lod5" material="tree_date_palm_c_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_d" name="tree_date_palm_d" density_multiplier="1.000" bb_radius="5.56585693">
+					<mesh name="tree_date_palm_d.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod0" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod3" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_d.1.lod4" material="tree_date_palm_d_bark_mat" />
+					<mesh name="tree_date_palm_d.0.lod5" material="tree_date_palm_d_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_e" name="tree_date_palm_e" density_multiplier="1.000" bb_radius="4.46169043">
+					<mesh name="tree_date_palm_e.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod0" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod3" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_e.1.lod4" material="tree_date_palm_e_bark_mat" />
+					<mesh name="tree_date_palm_e.0.lod5" material="tree_date_palm_e_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_f" name="tree_date_palm_f" density_multiplier="1.000" bb_radius="9.48352051">
+					<mesh name="tree_date_palm_f.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod0" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod3" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_f.1.lod4" material="tree_date_palm_f_bark_mat" />
+					<mesh name="tree_date_palm_f.0.lod5" material="tree_date_palm_f_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_date_palm_g" name="tree_date_palm_g" density_multiplier="1.000" bb_radius="4.32991838">
+					<mesh name="tree_date_palm_g.0.lod0" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod0" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod3" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod3" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod4" material="leaf_mat" />
+					<mesh name="tree_date_palm_g.1.lod4" material="tree_date_palm_g_bark_mat" />
+					<mesh name="tree_date_palm_g.0.lod5" material="tree_date_palm_g_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	</flora_kinds>

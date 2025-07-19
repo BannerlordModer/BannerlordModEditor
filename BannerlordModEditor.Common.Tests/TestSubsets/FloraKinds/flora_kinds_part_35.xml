@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="flora_tree_acacia_fall_mix" view_distance="5000.000">
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall" name="tree_acacia_fall" density_multiplier="1.000" bb_radius="17.91010857">
+					<mesh name="tree_acacia_fall.0.lod0" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod3" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod4" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod5" material="tree_acacia_fall_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_2" name="tree_acacia_fall_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_fall_2.0.lod0" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod3" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod4" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod5" material="tree_acacia_fall_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_3" name="tree_acacia_fall_3" density_multiplier="1.000" bb_radius="16.61979675">
+					<mesh name="tree_acacia_fall_3.0.lod0" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod3" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod4" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod5" material="tree_acacia_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall" name="tree_acacia_fall" density_multiplier="1.000" bb_radius="17.91010857">
+					<mesh name="tree_acacia_fall.0.lod0" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod3" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod4" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod5" material="tree_acacia_fall_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_2" name="tree_acacia_fall_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_fall_2.0.lod0" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod3" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod4" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod5" material="tree_acacia_fall_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_3" name="tree_acacia_fall_3" density_multiplier="1.000" bb_radius="16.61979675">
+					<mesh name="tree_acacia_fall_3.0.lod0" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod3" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod4" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod5" material="tree_acacia_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall" name="tree_acacia_fall" density_multiplier="1.000" bb_radius="17.91010857">
+					<mesh name="tree_acacia_fall.0.lod0" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod3" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod4" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod5" material="tree_acacia_fall_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_2" name="tree_acacia_fall_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_fall_2.0.lod0" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod3" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod4" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod5" material="tree_acacia_fall_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_3" name="tree_acacia_fall_3" density_multiplier="1.000" bb_radius="16.61979675">
+					<mesh name="tree_acacia_fall_3.0.lod0" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod3" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod4" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod5" material="tree_acacia_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_acacia_fall" name="tree_acacia_fall" density_multiplier="1.000" bb_radius="17.91010857">
+					<mesh name="tree_acacia_fall.0.lod0" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod3" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod4" material="tree_acacia_fall_bark_mat" />
+					<mesh name="tree_acacia_fall.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall.0.lod5" material="tree_acacia_fall_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_2" name="tree_acacia_fall_2" density_multiplier="1.000" bb_radius="11.23039055">
+					<mesh name="tree_acacia_fall_2.0.lod0" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod3" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod4" material="tree_acacia_fall_2_bark_mat" />
+					<mesh name="tree_acacia_fall_2.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_2.0.lod5" material="tree_acacia_fall_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_acacia_fall_3" name="tree_acacia_fall_3" density_multiplier="1.000" bb_radius="16.61979675">
+					<mesh name="tree_acacia_fall_3.0.lod0" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod0" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod3" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod3" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod4" material="tree_acacia_fall_3_bark_mat" />
+					<mesh name="tree_acacia_fall_3.1.lod4" material="tree_acacia_fall_mat" />
+					<mesh name="tree_acacia_fall_3.0.lod5" material="tree_acacia_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+</flora_kinds>

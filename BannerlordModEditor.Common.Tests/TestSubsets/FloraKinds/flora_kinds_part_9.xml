@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="tree_high_a_visualtest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_visual_test_tree" name="visual_test_tree" density_multiplier="1.000" bb_radius="12.73023129">
+					<mesh name="visual_test_tree.0.lod0" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod0" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod3" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod3" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod4" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod4" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod5" material="visual_test_tree_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_visual_test_tree" name="visual_test_tree" density_multiplier="1.000" bb_radius="12.73023129">
+					<mesh name="visual_test_tree.0.lod0" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod0" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod3" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod3" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod4" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod4" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod5" material="visual_test_tree_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_visual_test_tree" name="visual_test_tree" density_multiplier="1.000" bb_radius="12.73023129">
+					<mesh name="visual_test_tree.0.lod0" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod0" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod3" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod3" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod4" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod4" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod5" material="visual_test_tree_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_visual_test_tree" name="visual_test_tree" density_multiplier="1.000" bb_radius="12.73023129">
+					<mesh name="visual_test_tree.0.lod0" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod0" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod3" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod3" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod4" material="visual_test_tree_bark_mat" />
+					<mesh name="visual_test_tree.1.lod4" material="visual_test_tree_mat" />
+					<mesh name="visual_test_tree.0.lod5" material="visual_test_tree_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_g_aspen" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_3" name="tree_aspen_summer_3" density_multiplier="1.000" bb_radius="12.54888916">
+					<mesh name="tree_aspen_summer_3.0.lod0" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod3" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod4" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod5" material="tree_aspen_summer_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_3" name="tree_aspen_fall_3" density_multiplier="1.000" bb_radius="12.55427074">
+					<mesh name="tree_aspen_fall_3.0.lod0" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod3" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod4" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod5" material="tree_aspen_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_3" name="tree_aspen_winter_3" density_multiplier="1.000" bb_radius="11.76187325">
+					<mesh name="tree_aspen_winter_3.0.lod0" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod3" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod4" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod5" material="tree_aspen_winter_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_3" name="tree_aspen_spring_3" density_multiplier="1.000" bb_radius="12.53946686">
+					<mesh name="tree_aspen_spring_3.0.lod0" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod3" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod4" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod5" material="tree_aspen_spring_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high__mix_aspen" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer" name="tree_aspen_summer" density_multiplier="1.000" bb_radius="8.82496738">
+					<mesh name="tree_aspen_summer.0.lod0" material="tree_aspen_summer_bark_mat" />
+					<mesh name="tree_aspen_summer.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer.0.lod3" material="tree_aspen_summer_bark_mat" />
+					<mesh name="tree_aspen_summer.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer.0.lod4" material="tree_aspen_summer_bark_mat" />
+					<mesh name="tree_aspen_summer.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer.0.lod5" material="tree_aspen_summer_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_2" name="tree_aspen_summer_2" density_multiplier="1.000" bb_radius="8.45866013">
+					<mesh name="tree_aspen_summer_2.0.lod0" material="tree_aspen_summer_2_bark_mat" />
+					<mesh name="tree_aspen_summer_2.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_2.0.lod3" material="tree_aspen_summer_2_bark_mat" />
+					<mesh name="tree_aspen_summer_2.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_2.0.lod4" material="tree_aspen_summer_2_bark_mat" />
+					<mesh name="tree_aspen_summer_2.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_2.0.lod5" material="tree_aspen_summer_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_3" name="tree_aspen_summer_3" density_multiplier="1.000" bb_radius="12.54888916">
+					<mesh name="tree_aspen_summer_3.0.lod0" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod3" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod4" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod5" material="tree_aspen_summer_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_4" name="tree_aspen_summer_4" density_multiplier="1.000" bb_radius="12.48707485">
+					<mesh name="tree_aspen_summer_4.0.lod0" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod3" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod4" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod5" material="tree_aspen_summer_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_5" name="tree_aspen_summer_5" density_multiplier="1.000" bb_radius="13.81560040">
+					<mesh name="tree_aspen_summer_5.0.lod0" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod3" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod4" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod5" material="tree_aspen_summer_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_6" name="tree_aspen_summer_6" density_multiplier="1.000" bb_radius="15.18528080">
+					<mesh name="tree_aspen_summer_6.0.lod0" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod3" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod4" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod5" material="tree_aspen_summer_6_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_7" name="tree_aspen_summer_7" density_multiplier="1.000" bb_radius="14.08370781">
+					<mesh name="tree_aspen_summer_7.0.lod0" material="tree_aspen_summer_7_bark_mat" />
+					<mesh name="tree_aspen_summer_7.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_7.0.lod3" material="tree_aspen_summer_7_bark_mat" />
+					<mesh name="tree_aspen_summer_7.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_7.0.lod4" material="tree_aspen_summer_7_bark_mat" />
+					<mesh name="tree_aspen_summer_7.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_7.0.lod5" material="tree_aspen_summer_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall" name="tree_aspen_fall" density_multiplier="1.000" bb_radius="8.82543564">
+					<mesh name="tree_aspen_fall.0.lod0" material="tree_aspen_fall_bark_mat" />
+					<mesh name="tree_aspen_fall.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall.0.lod3" material="tree_aspen_fall_bark_mat" />
+					<mesh name="tree_aspen_fall.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall.0.lod4" material="tree_aspen_fall_bark_mat" />
+					<mesh name="tree_aspen_fall.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall.0.lod5" material="tree_aspen_fall_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_2" name="tree_aspen_fall_2" density_multiplier="1.000" bb_radius="8.45419312">
+					<mesh name="tree_aspen_fall_2.0.lod0" material="tree_aspen_fall_2_bark_mat" />
+					<mesh name="tree_aspen_fall_2.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_2.0.lod3" material="tree_aspen_fall_2_bark_mat" />
+					<mesh name="tree_aspen_fall_2.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_2.0.lod4" material="tree_aspen_fall_2_bark_mat" />
+					<mesh name="tree_aspen_fall_2.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_2.0.lod5" material="tree_aspen_fall_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_3" name="tree_aspen_fall_3" density_multiplier="1.000" bb_radius="12.55427074">
+					<mesh name="tree_aspen_fall_3.0.lod0" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod3" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod4" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod5" material="tree_aspen_fall_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_4" name="tree_aspen_fall_4" density_multiplier="1.000" bb_radius="12.54261017">
+					<mesh name="tree_aspen_fall_4.0.lod0" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod3" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod4" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod5" material="tree_aspen_fall_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_5" name="tree_aspen_fall_5" density_multiplier="1.000" bb_radius="13.80641174">
+					<mesh name="tree_aspen_fall_5.0.lod0" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod3" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod4" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod5" material="tree_aspen_fall_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_6" name="tree_aspen_fall_6" density_multiplier="1.000" bb_radius="15.13965511">
+					<mesh name="tree_aspen_fall_6.0.lod0" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod3" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod4" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod5" material="tree_aspen_fall_6_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_7" name="tree_aspen_fall_7" density_multiplier="1.000" bb_radius="13.98042202">
+					<mesh name="tree_aspen_fall_7.0.lod0" material="tree_aspen_fall_7_bark_mat" />
+					<mesh name="tree_aspen_fall_7.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_7.0.lod3" material="tree_aspen_fall_7_bark_mat" />
+					<mesh name="tree_aspen_fall_7.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_7.0.lod4" material="tree_aspen_fall_7_bark_mat" />
+					<mesh name="tree_aspen_fall_7.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_7.0.lod5" material="tree_aspen_fall_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter" name="tree_aspen_winter" density_multiplier="1.000" bb_radius="8.24199581">
+					<mesh name="tree_aspen_winter.0.lod0" material="tree_aspen_winter_bark_mat" />
+					<mesh name="tree_aspen_winter.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter.0.lod3" material="tree_aspen_winter_bark_mat" />
+					<mesh name="tree_aspen_winter.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter.0.lod4" material="tree_aspen_winter_bark_mat" />
+					<mesh name="tree_aspen_winter.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter.0.lod5" material="tree_aspen_winter_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_2" name="tree_aspen_winter_2" density_multiplier="1.000" bb_radius="7.87989092">
+					<mesh name="tree_aspen_winter_2.0.lod0" material="tree_aspen_winter_2_bark_mat" />
+					<mesh name="tree_aspen_winter_2.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_2.0.lod3" material="tree_aspen_winter_2_bark_mat" />
+					<mesh name="tree_aspen_winter_2.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_2.0.lod4" material="tree_aspen_winter_2_bark_mat" />
+					<mesh name="tree_aspen_winter_2.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_2.0.lod5" material="tree_aspen_winter_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_3" name="tree_aspen_winter_3" density_multiplier="1.000" bb_radius="11.76187325">
+					<mesh name="tree_aspen_winter_3.0.lod0" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod3" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod4" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod5" material="tree_aspen_winter_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_4" name="tree_aspen_winter_4" density_multiplier="1.000" bb_radius="11.54108620">
+					<mesh name="tree_aspen_winter_4.0.lod0" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod3" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod4" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod5" material="tree_aspen_winter_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_5" name="tree_aspen_winter_5" density_multiplier="1.000" bb_radius="13.50642395">
+					<mesh name="tree_aspen_winter_5.0.lod0" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod3" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod4" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod5" material="tree_aspen_winter_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_6" name="tree_aspen_winter_6" density_multiplier="1.000" bb_radius="13.74118614">
+					<mesh name="tree_aspen_winter_6.0.lod0" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod3" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod4" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod5" material="tree_aspen_winter_6_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_7" name="tree_aspen_winter_7" density_multiplier="1.000" bb_radius="13.72280884">
+					<mesh name="tree_aspen_winter_7.0.lod0" material="tree_aspen_winter_7_bark_mat" />
+					<mesh name="tree_aspen_winter_7.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_7.0.lod3" material="tree_aspen_winter_7_bark_mat" />
+					<mesh name="tree_aspen_winter_7.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_7.0.lod4" material="tree_aspen_winter_7_bark_mat" />
+					<mesh name="tree_aspen_winter_7.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_7.0.lod5" material="tree_aspen_winter_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring" name="tree_aspen_spring" density_multiplier="1.000" bb_radius="8.82496738">
+					<mesh name="tree_aspen_spring.0.lod0" material="tree_aspen_spring_bark_mat" />
+					<mesh name="tree_aspen_spring.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring.0.lod3" material="tree_aspen_spring_bark_mat" />
+					<mesh name="tree_aspen_spring.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring.0.lod4" material="tree_aspen_spring_bark_mat" />
+					<mesh name="tree_aspen_spring.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring.0.lod5" material="tree_aspen_spring_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_2" name="tree_aspen_spring_2" density_multiplier="1.000" bb_radius="8.45130444">
+					<mesh name="tree_aspen_spring_2.0.lod0" material="tree_aspen_spring_2_bark_mat" />
+					<mesh name="tree_aspen_spring_2.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_2.0.lod3" material="tree_aspen_spring_2_bark_mat" />
+					<mesh name="tree_aspen_spring_2.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_2.0.lod4" material="tree_aspen_spring_2_bark_mat" />
+					<mesh name="tree_aspen_spring_2.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_2.0.lod5" material="tree_aspen_spring_2_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_3" name="tree_aspen_spring_3" density_multiplier="1.000" bb_radius="12.53946686">
+					<mesh name="tree_aspen_spring_3.0.lod0" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod3" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod4" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod5" material="tree_aspen_spring_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_4" name="tree_aspen_spring_4" density_multiplier="1.000" bb_radius="12.44939423">
+					<mesh name="tree_aspen_spring_4.0.lod0" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod3" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod4" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod5" material="tree_aspen_spring_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_5" name="tree_aspen_spring_5" density_multiplier="1.000" bb_radius="13.80317783">
+					<mesh name="tree_aspen_spring_5.0.lod0" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod3" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod4" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod5" material="tree_aspen_spring_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_6" name="tree_aspen_spring_6" density_multiplier="1.000" bb_radius="15.13965511">
+					<mesh name="tree_aspen_spring_6.0.lod0" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod3" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod4" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod5" material="tree_aspen_spring_6_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_7" name="tree_aspen_spring_7" density_multiplier="1.000" bb_radius="14.03336811">
+					<mesh name="tree_aspen_spring_7.0.lod0" material="tree_aspen_spring_7_bark_mat" />
+					<mesh name="tree_aspen_spring_7.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_7.0.lod3" material="tree_aspen_spring_7_bark_mat" />
+					<mesh name="tree_aspen_spring_7.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_7.0.lod4" material="tree_aspen_spring_7_bark_mat" />
+					<mesh name="tree_aspen_spring_7.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_7.0.lod5" material="tree_aspen_spring_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_h_poplar_forest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_4" name="tree_aspen_summer_4" density_multiplier="1.000" bb_radius="12.48707485">
+					<mesh name="tree_aspen_summer_4.0.lod0" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod3" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod4" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod5" material="tree_aspen_summer_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_4" name="tree_aspen_fall_4" density_multiplier="1.000" bb_radius="12.54261017">
+					<mesh name="tree_aspen_fall_4.0.lod0" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod3" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod4" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod5" material="tree_aspen_fall_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_4" name="tree_aspen_winter_4" density_multiplier="1.000" bb_radius="11.54108620">
+					<mesh name="tree_aspen_winter_4.0.lod0" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod3" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod4" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod5" material="tree_aspen_winter_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_4" name="tree_aspen_spring_4" density_multiplier="1.000" bb_radius="12.44939423">
+					<mesh name="tree_aspen_spring_4.0.lod0" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod3" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod4" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod5" material="tree_aspen_spring_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_i_poplar_forest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_5" name="tree_aspen_summer_5" density_multiplier="1.000" bb_radius="13.81560040">
+					<mesh name="tree_aspen_summer_5.0.lod0" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod3" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod4" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod5" material="tree_aspen_summer_5_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_5" name="tree_aspen_fall_5" density_multiplier="1.000" bb_radius="13.80641174">
+					<mesh name="tree_aspen_fall_5.0.lod0" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod3" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod4" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod5" material="tree_aspen_fall_5_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_5" name="tree_aspen_winter_5" density_multiplier="1.000" bb_radius="13.50642395">
+					<mesh name="tree_aspen_winter_5.0.lod0" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod3" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod4" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod5" material="tree_aspen_winter_5_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_5" name="tree_aspen_spring_5" density_multiplier="1.000" bb_radius="13.80317783">
+					<mesh name="tree_aspen_spring_5.0.lod0" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod3" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod4" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod5" material="tree_aspen_spring_5_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_j_poplar_forest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_6" name="tree_aspen_summer_6" density_multiplier="1.000" bb_radius="15.18528080">
+					<mesh name="tree_aspen_summer_6.0.lod0" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod3" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod4" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod5" material="tree_aspen_summer_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_6" name="tree_aspen_fall_6" density_multiplier="1.000" bb_radius="15.13965511">
+					<mesh name="tree_aspen_fall_6.0.lod0" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod3" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod4" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod5" material="tree_aspen_fall_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_6" name="tree_aspen_winter_6" density_multiplier="1.000" bb_radius="13.74118614">
+					<mesh name="tree_aspen_winter_6.0.lod0" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod3" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod4" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod5" material="tree_aspen_winter_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_6" name="tree_aspen_spring_6" density_multiplier="1.000" bb_radius="15.13965511">
+					<mesh name="tree_aspen_spring_6.0.lod0" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod3" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod4" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod5" material="tree_aspen_spring_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_k_poplar_forest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_7" name="tree_aspen_summer_7" density_multiplier="1.000" bb_radius="14.08370781">
+					<mesh name="tree_aspen_summer_7.0.lod0" material="tree_aspen_summer_7_bark_mat" />
+					<mesh name="tree_aspen_summer_7.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_7.0.lod3" material="tree_aspen_summer_7_bark_mat" />
+					<mesh name="tree_aspen_summer_7.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_7.0.lod4" material="tree_aspen_summer_7_bark_mat" />
+					<mesh name="tree_aspen_summer_7.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_7.0.lod5" material="tree_aspen_summer_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_7" name="tree_aspen_fall_7" density_multiplier="1.000" bb_radius="13.98042202">
+					<mesh name="tree_aspen_fall_7.0.lod0" material="tree_aspen_fall_7_bark_mat" />
+					<mesh name="tree_aspen_fall_7.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_7.0.lod3" material="tree_aspen_fall_7_bark_mat" />
+					<mesh name="tree_aspen_fall_7.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_7.0.lod4" material="tree_aspen_fall_7_bark_mat" />
+					<mesh name="tree_aspen_fall_7.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_7.0.lod5" material="tree_aspen_fall_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_7" name="tree_aspen_winter_7" density_multiplier="1.000" bb_radius="13.72280884">
+					<mesh name="tree_aspen_winter_7.0.lod0" material="tree_aspen_winter_7_bark_mat" />
+					<mesh name="tree_aspen_winter_7.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_7.0.lod3" material="tree_aspen_winter_7_bark_mat" />
+					<mesh name="tree_aspen_winter_7.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_7.0.lod4" material="tree_aspen_winter_7_bark_mat" />
+					<mesh name="tree_aspen_winter_7.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_7.0.lod5" material="tree_aspen_winter_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_7" name="tree_aspen_spring_7" density_multiplier="1.000" bb_radius="14.03336811">
+					<mesh name="tree_aspen_spring_7.0.lod0" material="tree_aspen_spring_7_bark_mat" />
+					<mesh name="tree_aspen_spring_7.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_7.0.lod3" material="tree_aspen_spring_7_bark_mat" />
+					<mesh name="tree_aspen_spring_7.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_7.0.lod4" material="tree_aspen_spring_7_bark_mat" />
+					<mesh name="tree_aspen_spring_7.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_7.0.lod5" material="tree_aspen_spring_7_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high__mix_poplar_forest" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_3" name="tree_aspen_summer_3" density_multiplier="1.000" bb_radius="12.54888916">
+					<mesh name="tree_aspen_summer_3.0.lod0" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod3" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod4" material="tree_aspen_summer_3_bark_mat" />
+					<mesh name="tree_aspen_summer_3.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_3.0.lod5" material="tree_aspen_summer_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_4" name="tree_aspen_summer_4" density_multiplier="1.000" bb_radius="12.48707485">
+					<mesh name="tree_aspen_summer_4.0.lod0" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod3" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod4" material="tree_aspen_summer_4_bark_mat" />
+					<mesh name="tree_aspen_summer_4.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_4.0.lod5" material="tree_aspen_summer_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_5" name="tree_aspen_summer_5" density_multiplier="1.000" bb_radius="13.81560040">
+					<mesh name="tree_aspen_summer_5.0.lod0" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod3" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod4" material="tree_aspen_summer_5_bark_mat" />
+					<mesh name="tree_aspen_summer_5.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_5.0.lod5" material="tree_aspen_summer_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_summer_6" name="tree_aspen_summer_6" density_multiplier="1.000" bb_radius="15.18528080">
+					<mesh name="tree_aspen_summer_6.0.lod0" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod3" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod4" material="tree_aspen_summer_6_bark_mat" />
+					<mesh name="tree_aspen_summer_6.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_6.0.lod5" material="tree_aspen_summer_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_3" name="tree_aspen_fall_3" density_multiplier="1.000" bb_radius="12.55427074">
+					<mesh name="tree_aspen_fall_3.0.lod0" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod3" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod4" material="tree_aspen_fall_3_bark_mat" />
+					<mesh name="tree_aspen_fall_3.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_3.0.lod5" material="tree_aspen_fall_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_4" name="tree_aspen_fall_4" density_multiplier="1.000" bb_radius="12.54261017">
+					<mesh name="tree_aspen_fall_4.0.lod0" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod3" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod4" material="tree_aspen_fall_4_bark_mat" />
+					<mesh name="tree_aspen_fall_4.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_4.0.lod5" material="tree_aspen_fall_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_5" name="tree_aspen_fall_5" density_multiplier="1.000" bb_radius="13.80641174">
+					<mesh name="tree_aspen_fall_5.0.lod0" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod3" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod4" material="tree_aspen_fall_5_bark_mat" />
+					<mesh name="tree_aspen_fall_5.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_5.0.lod5" material="tree_aspen_fall_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_fall_6" name="tree_aspen_fall_6" density_multiplier="1.000" bb_radius="15.13965511">
+					<mesh name="tree_aspen_fall_6.0.lod0" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod3" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod4" material="tree_aspen_fall_6_bark_mat" />
+					<mesh name="tree_aspen_fall_6.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_6.0.lod5" material="tree_aspen_fall_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_3" name="tree_aspen_winter_3" density_multiplier="1.000" bb_radius="11.76187325">
+					<mesh name="tree_aspen_winter_3.0.lod0" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod3" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod4" material="tree_aspen_winter_3_bark_mat" />
+					<mesh name="tree_aspen_winter_3.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_3.0.lod5" material="tree_aspen_winter_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_4" name="tree_aspen_winter_4" density_multiplier="1.000" bb_radius="11.54108620">
+					<mesh name="tree_aspen_winter_4.0.lod0" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod3" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod4" material="tree_aspen_winter_4_bark_mat" />
+					<mesh name="tree_aspen_winter_4.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_4.0.lod5" material="tree_aspen_winter_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_5" name="tree_aspen_winter_5" density_multiplier="1.000" bb_radius="13.50642395">
+					<mesh name="tree_aspen_winter_5.0.lod0" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod3" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod4" material="tree_aspen_winter_5_bark_mat" />
+					<mesh name="tree_aspen_winter_5.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_5.0.lod5" material="tree_aspen_winter_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_winter_6" name="tree_aspen_winter_6" density_multiplier="1.000" bb_radius="13.74118614">
+					<mesh name="tree_aspen_winter_6.0.lod0" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod3" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod4" material="tree_aspen_winter_6_bark_mat" />
+					<mesh name="tree_aspen_winter_6.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_6.0.lod5" material="tree_aspen_winter_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_3" name="tree_aspen_spring_3" density_multiplier="1.000" bb_radius="12.53946686">
+					<mesh name="tree_aspen_spring_3.0.lod0" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod3" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod4" material="tree_aspen_spring_3_bark_mat" />
+					<mesh name="tree_aspen_spring_3.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_3.0.lod5" material="tree_aspen_spring_3_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_4" name="tree_aspen_spring_4" density_multiplier="1.000" bb_radius="12.44939423">
+					<mesh name="tree_aspen_spring_4.0.lod0" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod3" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod4" material="tree_aspen_spring_4_bark_mat" />
+					<mesh name="tree_aspen_spring_4.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_4.0.lod5" material="tree_aspen_spring_4_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_5" name="tree_aspen_spring_5" density_multiplier="1.000" bb_radius="13.80317783">
+					<mesh name="tree_aspen_spring_5.0.lod0" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod3" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod4" material="tree_aspen_spring_5_bark_mat" />
+					<mesh name="tree_aspen_spring_5.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_5.0.lod5" material="tree_aspen_spring_5_billboard_mat" />
+				</flora_variation>
+				<flora_variation body_name="bo_tree_aspen_spring_6" name="tree_aspen_spring_6" density_multiplier="1.000" bb_radius="15.13965511">
+					<mesh name="tree_aspen_spring_6.0.lod0" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod3" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod4" material="tree_aspen_spring_6_bark_mat" />
+					<mesh name="tree_aspen_spring_6.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_6.0.lod5" material="tree_aspen_spring_6_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_l_poplar" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_9" name="tree_aspen_summer_9" density_multiplier="1.000" bb_radius="14.83827591">
+					<mesh name="tree_aspen_summer_9.0.lod0" material="tree_aspen_summer_9_bark_mat" />
+					<mesh name="tree_aspen_summer_9.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_9.0.lod3" material="tree_aspen_summer_9_bark_mat" />
+					<mesh name="tree_aspen_summer_9.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_9.0.lod4" material="tree_aspen_summer_9_bark_mat" />
+					<mesh name="tree_aspen_summer_9.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_9.0.lod5" material="tree_aspen_summer_9_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_9" name="tree_aspen_fall_9" density_multiplier="1.000" bb_radius="14.96061230">
+					<mesh name="tree_aspen_fall_9.0.lod0" material="tree_aspen_fall_9_bark_mat" />
+					<mesh name="tree_aspen_fall_9.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_9.0.lod3" material="tree_aspen_fall_9_bark_mat" />
+					<mesh name="tree_aspen_fall_9.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_9.0.lod4" material="tree_aspen_fall_9_bark_mat" />
+					<mesh name="tree_aspen_fall_9.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_9.0.lod5" material="tree_aspen_fall_9_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_9" name="tree_aspen_winter_9" density_multiplier="1.000" bb_radius="14.84530926">
+					<mesh name="tree_aspen_winter_9.0.lod0" material="tree_aspen_winter_9_bark_mat" />
+					<mesh name="tree_aspen_winter_9.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_9.0.lod3" material="tree_aspen_winter_9_bark_mat" />
+					<mesh name="tree_aspen_winter_9.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_9.0.lod4" material="tree_aspen_winter_9_bark_mat" />
+					<mesh name="tree_aspen_winter_9.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_9.0.lod5" material="tree_aspen_winter_9_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_9" name="tree_aspen_spring_9" density_multiplier="1.000" bb_radius="14.99343777">
+					<mesh name="tree_aspen_spring_9.0.lod0" material="tree_aspen_spring_9_bark_mat" />
+					<mesh name="tree_aspen_spring_9.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_9.0.lod3" material="tree_aspen_spring_9_bark_mat" />
+					<mesh name="tree_aspen_spring_9.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_9.0.lod4" material="tree_aspen_spring_9_bark_mat" />
+					<mesh name="tree_aspen_spring_9.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_9.0.lod5" material="tree_aspen_spring_9_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="tree_high_m_poplar" view_distance="5000.000">
+		<flags>
+			<flag name="align_with_ground" value="true" />
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_summer_8" name="tree_aspen_summer_8" density_multiplier="1.000" bb_radius="16.48263741">
+					<mesh name="tree_aspen_summer_8.0.lod0" material="tree_aspen_summer_8_bark_mat" />
+					<mesh name="tree_aspen_summer_8.1.lod0" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_8.0.lod3" material="tree_aspen_summer_8_bark_mat" />
+					<mesh name="tree_aspen_summer_8.1.lod3" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_8.0.lod4" material="tree_aspen_summer_8_bark_mat" />
+					<mesh name="tree_aspen_summer_8.1.lod4" material="tree_aspen_summer_mat" />
+					<mesh name="tree_aspen_summer_8.0.lod5" material="tree_aspen_summer_8_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_fall_8" name="tree_aspen_fall_8" density_multiplier="1.000" bb_radius="16.48918152">
+					<mesh name="tree_aspen_fall_8.0.lod0" material="tree_aspen_fall_8_bark_mat" />
+					<mesh name="tree_aspen_fall_8.1.lod0" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_8.0.lod3" material="tree_aspen_fall_8_bark_mat" />
+					<mesh name="tree_aspen_fall_8.1.lod3" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_8.0.lod4" material="tree_aspen_fall_8_bark_mat" />
+					<mesh name="tree_aspen_fall_8.1.lod4" material="tree_aspen_fall_mat" />
+					<mesh name="tree_aspen_fall_8.0.lod5" material="tree_aspen_fall_8_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_winter_8" name="tree_aspen_winter_8" density_multiplier="1.000" bb_radius="16.47075462">
+					<mesh name="tree_aspen_winter_8.0.lod0" material="tree_aspen_winter_8_bark_mat" />
+					<mesh name="tree_aspen_winter_8.1.lod0" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_8.0.lod3" material="tree_aspen_winter_8_bark_mat" />
+					<mesh name="tree_aspen_winter_8.1.lod3" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_8.0.lod4" material="tree_aspen_winter_8_bark_mat" />
+					<mesh name="tree_aspen_winter_8.1.lod4" material="tree_aspen_winter_mat" />
+					<mesh name="tree_aspen_winter_8.0.lod5" material="tree_aspen_winter_8_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation body_name="bo_tree_aspen_spring_8" name="tree_aspen_spring_8" density_multiplier="1.000" bb_radius="16.48263741">
+					<mesh name="tree_aspen_spring_8.0.lod0" material="tree_aspen_spring_8_bark_mat" />
+					<mesh name="tree_aspen_spring_8.1.lod0" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_8.0.lod3" material="tree_aspen_spring_8_bark_mat" />
+					<mesh name="tree_aspen_spring_8.1.lod3" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_8.0.lod4" material="tree_aspen_spring_8_bark_mat" />
+					<mesh name="tree_aspen_spring_8.1.lod4" material="tree_aspen_spring_mat" />
+					<mesh name="tree_aspen_spring_8.0.lod5" material="tree_aspen_spring_8_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	</flora_kinds>

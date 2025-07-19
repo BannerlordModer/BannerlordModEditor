@@ -1,5 +1,6 @@
 import os
 import xml.etree.ElementTree as ET
+import argparse
 
 def split_xml(file_path, output_dir, element_tag, chunk_size=500):
     """
@@ -54,11 +55,13 @@ def split_xml(file_path, output_dir, element_tag, chunk_size=500):
         print(f"Created chunk: {output_filename}")
 
 if __name__ == '__main__':
-    # Configuration for action_types.xml
-    INPUT_FILE = "example/ModuleData/action_types.xml"
-    OUTPUT_DIRECTORY = "BannerlordModEditor.Common.Tests/TestSubsets/ActionTypes"
-    ELEMENT_TAG_TO_SPLIT = "action"
-    CHUNK_SIZE = 500
+    parser = argparse.ArgumentParser(description='Split large XML files into smaller chunks')
+    parser.add_argument('--file_path', required=True, help='Path to the XML file to split')
+    parser.add_argument('--output_dir', required=True, help='Directory to save the split files')
+    parser.add_argument('--element_tag', required=True, help='XML element tag to split by')
+    parser.add_argument('--chunk_size', type=int, default=500, help='Number of elements per chunk')
     
-    split_xml(INPUT_FILE, OUTPUT_DIRECTORY, ELEMENT_TAG_TO_SPLIT, CHUNK_SIZE)
+    args = parser.parse_args()
+    
+    split_xml(args.file_path, args.output_dir, args.element_tag, args.chunk_size)
     print("\nSplitting complete.") 

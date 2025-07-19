@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flora_kinds><flora_kind name="flora_green_i" view_distance="60.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="no_shadows" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_i" density_multiplier="1.000" bb_radius="0.53868014">
+					<mesh name="flora_snow_i" material="flora_snow_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_i" density_multiplier="1.000" bb_radius="0.40455261">
+					<mesh name="flora_green_i" material="flora_green_i" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_green_j" view_distance="60.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_j" density_multiplier="1.000" bb_radius="0.73726374">
+					<mesh name="flora_green_j" material="flora_green_j" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_snow_j" density_multiplier="1.000" bb_radius="0.37334409">
+					<mesh name="flora_snow_j" material="flora_snow_j" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_j" density_multiplier="1.000" bb_radius="0.37334409">
+					<mesh name="flora_snow_j" material="flora_snow_j" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_j" density_multiplier="1.000" bb_radius="0.73726374">
+					<mesh name="flora_green_j" material="flora_green_j" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="flora_green_k" view_distance="60.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_green_k" density_multiplier="1.000" bb_radius="0.48072425">
+					<mesh name="flora_green_k" material="flora_green_k" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_snow_e" density_multiplier="1.000" bb_radius="0.83240914">
+					<mesh name="flora_snow_e" material="flora_snow_e" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_snow_e" density_multiplier="1.000" bb_radius="0.83240914">
+					<mesh name="flora_snow_e" material="flora_snow_e" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_green_k" density_multiplier="1.000" bb_radius="0.48072425">
+					<mesh name="flora_green_k" material="flora_green_k" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="free_flora_plant_a" view_distance="150.000">
+		<flags>
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_plant_a" density_multiplier="1.000" bb_radius="1.08843565">
+					<mesh name="flora_plant_a" material="flora_plant_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_plant_a" density_multiplier="1.000" bb_radius="1.08843565">
+					<mesh name="flora_plant_a" material="flora_plant_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_plant_a" density_multiplier="1.000" bb_radius="1.08843565">
+					<mesh name="flora_plant_a" material="flora_plant_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_plant_a" density_multiplier="1.000" bb_radius="1.08843565">
+					<mesh name="flora_plant_a" material="flora_plant_a" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="free_flora_plant_g" view_distance="150.000">
+		<flags>
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_plant_g" density_multiplier="1.000" bb_radius="1.38449979">
+					<mesh name="flora_plant_g" material="flora_plant_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_plant_g" density_multiplier="1.000" bb_radius="1.38449979">
+					<mesh name="flora_plant_g" material="flora_plant_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_plant_g" density_multiplier="1.000" bb_radius="1.38449979">
+					<mesh name="flora_plant_g" material="flora_plant_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_plant_g" density_multiplier="1.000" bb_radius="1.38449979">
+					<mesh name="flora_plant_g" material="flora_plant_g" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="shrub_a" view_distance="5000.000">
+		<flags>
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_shrub_summer" density_multiplier="1.000" bb_radius="3.67008829">
+					<mesh name="flora_shrub_summer.0.lod0" material="flora_shrub_summer_bark_mat" />
+					<mesh name="flora_shrub_summer.1.lod0" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer.0.lod3" material="flora_shrub_summer_bark_mat" />
+					<mesh name="flora_shrub_summer.1.lod3" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer.0.lod4" material="flora_shrub_summer_bark_mat" />
+					<mesh name="flora_shrub_summer.1.lod4" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer.0.lod5" material="flora_shrub_summer_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_shrub_fall" density_multiplier="1.000" bb_radius="3.67008829">
+					<mesh name="flora_shrub_fall.0.lod0" material="flora_shrub_fall_bark_mat" />
+					<mesh name="flora_shrub_fall.1.lod0" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall.0.lod3" material="flora_shrub_fall_bark_mat" />
+					<mesh name="flora_shrub_fall.1.lod3" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall.0.lod4" material="flora_shrub_fall_bark_mat" />
+					<mesh name="flora_shrub_fall.1.lod4" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall.0.lod5" material="flora_shrub_fall_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_shrub_winter" density_multiplier="1.000" bb_radius="3.67008829">
+					<mesh name="flora_shrub_winter.0.lod0" material="flora_shrub_winter_bark_mat" />
+					<mesh name="flora_shrub_winter.1.lod0" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter.0.lod3" material="flora_shrub_winter_bark_mat" />
+					<mesh name="flora_shrub_winter.1.lod3" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter.0.lod4" material="flora_shrub_winter_bark_mat" />
+					<mesh name="flora_shrub_winter.1.lod4" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter.0.lod5" material="flora_shrub_winter_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_shrub_spring" density_multiplier="1.000" bb_radius="3.67217326">
+					<mesh name="flora_shrub_spring.0.lod0" material="flora_shrub_spring_bark_mat" />
+					<mesh name="flora_shrub_spring.1.lod0" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring.0.lod3" material="flora_shrub_spring_bark_mat" />
+					<mesh name="flora_shrub_spring.1.lod3" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring.0.lod4" material="flora_shrub_spring_bark_mat" />
+					<mesh name="flora_shrub_spring.1.lod4" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring.0.lod5" material="flora_shrub_spring_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="shrub_b" view_distance="5000.000">
+		<flags>
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_shrub_summer_2" density_multiplier="1.000" bb_radius="2.69028568">
+					<mesh name="flora_shrub_summer_2.0.lod0" material="flora_shrub_summer_2_bark_mat" />
+					<mesh name="flora_shrub_summer_2.1.lod0" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_2.0.lod3" material="flora_shrub_summer_2_bark_mat" />
+					<mesh name="flora_shrub_summer_2.1.lod3" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_2.0.lod4" material="flora_shrub_summer_2_bark_mat" />
+					<mesh name="flora_shrub_summer_2.1.lod4" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_2.0.lod5" material="flora_shrub_summer_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_shrub_fall_2" density_multiplier="1.000" bb_radius="2.69028568">
+					<mesh name="flora_shrub_fall_2.0.lod0" material="flora_shrub_fall_2_bark_mat" />
+					<mesh name="flora_shrub_fall_2.1.lod0" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_2.0.lod3" material="flora_shrub_fall_2_bark_mat" />
+					<mesh name="flora_shrub_fall_2.1.lod3" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_2.0.lod4" material="flora_shrub_fall_2_bark_mat" />
+					<mesh name="flora_shrub_fall_2.1.lod4" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_2.0.lod5" material="flora_shrub_fall_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_shrub_winter_2" density_multiplier="1.000" bb_radius="2.50021958">
+					<mesh name="flora_shrub_winter_2.0.lod0" material="flora_shrub_winter_2_bark_mat" />
+					<mesh name="flora_shrub_winter_2.1.lod0" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_2.0.lod3" material="flora_shrub_winter_2_bark_mat" />
+					<mesh name="flora_shrub_winter_2.1.lod3" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_2.0.lod4" material="flora_shrub_winter_2_bark_mat" />
+					<mesh name="flora_shrub_winter_2.1.lod4" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_2.0.lod5" material="flora_shrub_winter_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_shrub_spring_2" density_multiplier="1.000" bb_radius="2.69028568">
+					<mesh name="flora_shrub_spring_2.0.lod0" material="flora_shrub_spring_2_bark_mat" />
+					<mesh name="flora_shrub_spring_2.1.lod0" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_2.0.lod3" material="flora_shrub_spring_2_bark_mat" />
+					<mesh name="flora_shrub_spring_2.1.lod3" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_2.0.lod4" material="flora_shrub_spring_2_bark_mat" />
+					<mesh name="flora_shrub_spring_2.1.lod4" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_2.0.lod5" material="flora_shrub_spring_2_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="shrub_c" view_distance="5000.000">
+		<flags>
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_shrub_summer_3" density_multiplier="1.000" bb_radius="2.89291811">
+					<mesh name="flora_shrub_summer_3.0.lod0" material="flora_shrub_summer_3_bark_mat" />
+					<mesh name="flora_shrub_summer_3.1.lod0" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_3.0.lod3" material="flora_shrub_summer_3_bark_mat" />
+					<mesh name="flora_shrub_summer_3.1.lod3" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_3.0.lod4" material="flora_shrub_summer_3_bark_mat" />
+					<mesh name="flora_shrub_summer_3.1.lod4" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_3.0.lod5" material="flora_shrub_summer_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_shrub_fall_3" density_multiplier="1.000" bb_radius="2.89291811">
+					<mesh name="flora_shrub_fall_3.0.lod0" material="flora_shrub_fall_3_bark_mat" />
+					<mesh name="flora_shrub_fall_3.1.lod0" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_3.0.lod3" material="flora_shrub_fall_3_bark_mat" />
+					<mesh name="flora_shrub_fall_3.1.lod3" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_3.0.lod4" material="flora_shrub_fall_3_bark_mat" />
+					<mesh name="flora_shrub_fall_3.1.lod4" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_3.0.lod5" material="flora_shrub_fall_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_shrub_winter_3" density_multiplier="1.000" bb_radius="2.81523752">
+					<mesh name="flora_shrub_winter_3.0.lod0" material="flora_shrub_winter_3_bark_mat" />
+					<mesh name="flora_shrub_winter_3.1.lod0" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_3.0.lod3" material="flora_shrub_winter_3_bark_mat" />
+					<mesh name="flora_shrub_winter_3.1.lod3" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_3.0.lod4" material="flora_shrub_winter_3_bark_mat" />
+					<mesh name="flora_shrub_winter_3.1.lod4" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_3.0.lod5" material="flora_shrub_winter_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_shrub_spring_3" density_multiplier="1.000" bb_radius="2.89627242">
+					<mesh name="flora_shrub_spring_3.0.lod0" material="flora_shrub_spring_3_bark_mat" />
+					<mesh name="flora_shrub_spring_3.1.lod0" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_3.0.lod3" material="flora_shrub_spring_3_bark_mat" />
+					<mesh name="flora_shrub_spring_3.1.lod3" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_3.0.lod4" material="flora_shrub_spring_3_bark_mat" />
+					<mesh name="flora_shrub_spring_3.1.lod4" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_3.0.lod5" material="flora_shrub_spring_3_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="shrub_d" view_distance="5000.000">
+		<flags>
+			<flag name="tree" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="flora_shrub_summer_4" density_multiplier="1.000" bb_radius="2.03819919">
+					<mesh name="flora_shrub_summer_4.0.lod0" material="flora_shrub_summer_4_bark_mat" />
+					<mesh name="flora_shrub_summer_4.1.lod0" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_4.0.lod3" material="flora_shrub_summer_4_bark_mat" />
+					<mesh name="flora_shrub_summer_4.1.lod3" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_4.0.lod4" material="flora_shrub_summer_4_bark_mat" />
+					<mesh name="flora_shrub_summer_4.1.lod4" material="flora_shrub_summer_mat" />
+					<mesh name="flora_shrub_summer_4.0.lod5" material="flora_shrub_summer_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="flora_shrub_fall_4" density_multiplier="1.000" bb_radius="2.03819919">
+					<mesh name="flora_shrub_fall_4.0.lod0" material="flora_shrub_fall_4_bark_mat" />
+					<mesh name="flora_shrub_fall_4.1.lod0" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_4.0.lod3" material="flora_shrub_fall_4_bark_mat" />
+					<mesh name="flora_shrub_fall_4.1.lod3" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_4.0.lod4" material="flora_shrub_fall_4_bark_mat" />
+					<mesh name="flora_shrub_fall_4.1.lod4" material="flora_shrub_fall_mat" />
+					<mesh name="flora_shrub_fall_4.0.lod5" material="flora_shrub_fall_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="flora_shrub_winter_4" density_multiplier="1.000" bb_radius="2.01360035">
+					<mesh name="flora_shrub_winter_4.0.lod0" material="flora_shrub_winter_4_bark_mat" />
+					<mesh name="flora_shrub_winter_4.1.lod0" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_4.0.lod3" material="flora_shrub_winter_4_bark_mat" />
+					<mesh name="flora_shrub_winter_4.1.lod3" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_4.0.lod4" material="flora_shrub_winter_4_bark_mat" />
+					<mesh name="flora_shrub_winter_4.1.lod4" material="flora_shrub_winter_mat" />
+					<mesh name="flora_shrub_winter_4.0.lod5" material="flora_shrub_winter_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="flora_shrub_spring_4" density_multiplier="1.000" bb_radius="2.03819919">
+					<mesh name="flora_shrub_spring_4.0.lod0" material="flora_shrub_spring_4_bark_mat" />
+					<mesh name="flora_shrub_spring_4.1.lod0" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_4.0.lod3" material="flora_shrub_spring_4_bark_mat" />
+					<mesh name="flora_shrub_spring_4.1.lod3" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_4.0.lod4" material="flora_shrub_spring_4_bark_mat" />
+					<mesh name="flora_shrub_spring_4.1.lod4" material="flora_shrub_spring_mat" />
+					<mesh name="flora_shrub_spring_4.0.lod5" material="flora_shrub_spring_4_billboard_mat" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	<flora_kind name="valley_ground_rock_a" view_distance="50.000">
+		<flags>
+			<flag name="point_up" value="true" />
+			<flag name="align_with_ground" value="true" />
+			<flag name="do_not_use_smooth_lod" value="true" />
+			<flag name="align_with_slope" value="true" />
+			<flag name="fading_out" value="true" />
+			<flag name="no_lods" value="true" />
+		</flags>
+		<seasonal_kind season="summer">
+			<flora_variations>
+				<flora_variation name="valley_ground_rock_a" density_multiplier="1.000" bb_radius="0.26983654">
+					<mesh name="valley_ground_rock_a" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_b" density_multiplier="1.000" bb_radius="0.27217144">
+					<mesh name="valley_ground_rock_b" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_c" density_multiplier="1.000" bb_radius="0.21132426">
+					<mesh name="valley_ground_rock_c" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_d" density_multiplier="1.000" bb_radius="0.19608723">
+					<mesh name="valley_ground_rock_d" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_e" density_multiplier="1.000" bb_radius="0.15696362">
+					<mesh name="valley_ground_rock_e" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_f" density_multiplier="1.000" bb_radius="0.32332560">
+					<mesh name="valley_ground_rock_f" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_g" density_multiplier="1.000" bb_radius="0.29617241">
+					<mesh name="valley_ground_rock_g" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_h" density_multiplier="1.000" bb_radius="0.28460214">
+					<mesh name="valley_ground_rock_h" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_i" density_multiplier="1.000" bb_radius="0.32371187">
+					<mesh name="valley_ground_rock_i" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_j" density_multiplier="1.000" bb_radius="0.22885939">
+					<mesh name="valley_ground_rock_j" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_k" density_multiplier="1.000" bb_radius="0.20394722">
+					<mesh name="valley_ground_rock_k" material="rock_e" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="fall">
+			<flora_variations>
+				<flora_variation name="valley_ground_rock_a" density_multiplier="1.000" bb_radius="0.26983654">
+					<mesh name="valley_ground_rock_a" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_b" density_multiplier="1.000" bb_radius="0.27217144">
+					<mesh name="valley_ground_rock_b" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_c" density_multiplier="1.000" bb_radius="0.21132426">
+					<mesh name="valley_ground_rock_c" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_d" density_multiplier="1.000" bb_radius="0.19608723">
+					<mesh name="valley_ground_rock_d" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_e" density_multiplier="1.000" bb_radius="0.15696362">
+					<mesh name="valley_ground_rock_e" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_f" density_multiplier="1.000" bb_radius="0.32332560">
+					<mesh name="valley_ground_rock_f" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_g" density_multiplier="1.000" bb_radius="0.29617241">
+					<mesh name="valley_ground_rock_g" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_h" density_multiplier="1.000" bb_radius="0.28460214">
+					<mesh name="valley_ground_rock_h" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_i" density_multiplier="1.000" bb_radius="0.32371187">
+					<mesh name="valley_ground_rock_i" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_j" density_multiplier="1.000" bb_radius="0.22885939">
+					<mesh name="valley_ground_rock_j" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_k" density_multiplier="1.000" bb_radius="0.20394722">
+					<mesh name="valley_ground_rock_k" material="rock_e" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="winter">
+			<flora_variations>
+				<flora_variation name="valley_ground_rock_a" density_multiplier="1.000" bb_radius="0.26983654">
+					<mesh name="valley_ground_rock_a" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_b" density_multiplier="1.000" bb_radius="0.27217144">
+					<mesh name="valley_ground_rock_b" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_c" density_multiplier="1.000" bb_radius="0.21132426">
+					<mesh name="valley_ground_rock_c" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_d" density_multiplier="1.000" bb_radius="0.19608723">
+					<mesh name="valley_ground_rock_d" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_e" density_multiplier="1.000" bb_radius="0.15696362">
+					<mesh name="valley_ground_rock_e" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_f" density_multiplier="1.000" bb_radius="0.32332560">
+					<mesh name="valley_ground_rock_f" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_g" density_multiplier="1.000" bb_radius="0.29617241">
+					<mesh name="valley_ground_rock_g" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_h" density_multiplier="1.000" bb_radius="0.28460214">
+					<mesh name="valley_ground_rock_h" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_i" density_multiplier="1.000" bb_radius="0.32371187">
+					<mesh name="valley_ground_rock_i" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_j" density_multiplier="1.000" bb_radius="0.22885939">
+					<mesh name="valley_ground_rock_j" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_k" density_multiplier="1.000" bb_radius="0.20394722">
+					<mesh name="valley_ground_rock_k" material="rock_e" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+		<seasonal_kind season="spring">
+			<flora_variations>
+				<flora_variation name="valley_ground_rock_a" density_multiplier="1.000" bb_radius="0.26983654">
+					<mesh name="valley_ground_rock_a" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_b" density_multiplier="1.000" bb_radius="0.27217144">
+					<mesh name="valley_ground_rock_b" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_c" density_multiplier="1.000" bb_radius="0.21132426">
+					<mesh name="valley_ground_rock_c" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_d" density_multiplier="1.000" bb_radius="0.19608723">
+					<mesh name="valley_ground_rock_d" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_e" density_multiplier="1.000" bb_radius="0.15696362">
+					<mesh name="valley_ground_rock_e" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_f" density_multiplier="1.000" bb_radius="0.32332560">
+					<mesh name="valley_ground_rock_f" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_g" density_multiplier="1.000" bb_radius="0.29617241">
+					<mesh name="valley_ground_rock_g" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_h" density_multiplier="1.000" bb_radius="0.28460214">
+					<mesh name="valley_ground_rock_h" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_i" density_multiplier="1.000" bb_radius="0.32371187">
+					<mesh name="valley_ground_rock_i" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_j" density_multiplier="1.000" bb_radius="0.22885939">
+					<mesh name="valley_ground_rock_j" material="rock_e" />
+				</flora_variation>
+				<flora_variation name="valley_ground_rock_k" density_multiplier="1.000" bb_radius="0.20394722">
+					<mesh name="valley_ground_rock_k" material="rock_e" />
+				</flora_variation>
+			</flora_variations>
+		</seasonal_kind>
+	</flora_kind>
+	</flora_kinds>
