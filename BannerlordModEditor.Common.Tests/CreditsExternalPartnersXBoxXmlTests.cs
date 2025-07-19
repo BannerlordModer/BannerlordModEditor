@@ -24,33 +24,62 @@ namespace BannerlordModEditor.Common.Tests
             }
 
             Assert.NotNull(model);
+            Assert.NotNull(model.Category);
+            Assert.Single(model.Category);
+
+            var category = model.Category[0];
+            Assert.Equal("Xbox", category.Text);
+            Assert.NotNull(category.Entry);
+            Assert.Equal(4, category.Entry.Count);
+            Assert.Equal("Guy Richards", category.Entry[0].Text);
 
             // Serialization
             var settings = new XmlWriterSettings
             {
                 Indent = true,
                 IndentChars = "\t",
-                Encoding = new UTF8Encoding(false),
+                Encoding = new UTF8Encoding(false), // No BOM
                 OmitXmlDeclaration = false
             };
 
             string serializedXml;
-            using (var stringWriter = new StringWriter())
-            using (var xmlWriter = XmlWriter.Create(stringWriter, settings))
+            using (var memoryStream = new MemoryStream())
+            using (var xmlWriter = XmlWriter.Create(memoryStream, settings))
             {
                 var ns = new XmlSerializerNamespaces();
                 ns.Add("", "");
                 serializer.Serialize(xmlWriter, model, ns);
-                serializedXml = stringWriter.ToString();
+                xmlWriter.Flush();
+                serializedXml = Encoding.UTF8.GetString(memoryStream.ToArray());
             }
 
-            // Comparison
+            // Comparison - normalize both XMLs to handle empty element differences
             var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
-
             var originalDoc = XDocument.Parse(originalXml);
             var serializedDoc = XDocument.Parse(serializedXml);
 
+            // Normalize both documents to handle <element></element> vs <element /> differences
+            NormalizeEmptyElements(originalDoc.Root);
+            NormalizeEmptyElements(serializedDoc.Root);
+
             Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
         }
+
+        private static void NormalizeEmptyElements(XElement? element)
+        {
+            if (element == null) return;
+
+            // If element is empty and has no text content, ensure it's truly empty
+            if (!element.HasElements && string.IsNullOrWhiteSpace(element.Value))
+            {
+                element.Value = string.Empty;
+            }
+
+            // Recursively normalize child elements
+            foreach (var child in element.Elements())
+            {
+                NormalizeEmptyElements(child);
+            }
+        }
     }
-} 
+}
