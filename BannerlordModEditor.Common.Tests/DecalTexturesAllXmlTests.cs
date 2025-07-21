@@ -1,4 +1,4 @@
-using BannerlordModEditor.Common.Models.Engine;
+using BannerlordModEditor.Common.Models.Data;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -16,11 +16,11 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(TestUtils.GetSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData", "decal_textures_all.xml");
 
             // Deserialization
-            var serializer = new XmlSerializer(typeof(DecalTexturesRoot));
-            DecalTexturesRoot? model;
+            var serializer = new XmlSerializer(typeof(DecalTexturesAll));
+            DecalTexturesAll? model;
             using (var fileStream = new FileStream(xmlPath, FileMode.Open))
             {
-                model = serializer.Deserialize(fileStream) as DecalTexturesRoot;
+                model = serializer.Deserialize(fileStream) as DecalTexturesAll;
             }
 
             Assert.NotNull(model);
@@ -55,12 +55,33 @@ namespace BannerlordModEditor.Common.Tests
                 serializedXml = Encoding.UTF8.GetString(memoryStream.ToArray());
             }
 
-            // Comparison
+            // Comparison - normalize both XMLs to handle empty element differences
             var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
             var originalDoc = XDocument.Parse(originalXml);
             var serializedDoc = XDocument.Parse(serializedXml);
 
+            // Normalize both documents to handle <element></element> vs <element /> differences
+            NormalizeEmptyElements(originalDoc.Root);
+            NormalizeEmptyElements(serializedDoc.Root);
+
             Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
+        }
+
+        private static void NormalizeEmptyElements(XElement? element)
+        {
+            if (element == null) return;
+
+            // If element is empty and has no text content, ensure it's truly empty
+            if (!element.HasElements && string.IsNullOrWhiteSpace(element.Value))
+            {
+                element.Value = string.Empty;
+            }
+
+            // Recursively normalize child elements
+            foreach (var child in element.Elements())
+            {
+                NormalizeEmptyElements(child);
+            }
         }
     }
 }
