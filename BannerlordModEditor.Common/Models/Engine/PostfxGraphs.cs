@@ -104,7 +104,9 @@ namespace BannerlordModEditor.Common.Models.Engine
     public class PostfxPreconditions
     {
         [XmlElement("config")]
-        public PostfxConfig? Config { get; set; }
+        public List<PostfxConfig> Config { get; set; } = new List<PostfxConfig>();
+
+        public bool ShouldSerializeConfig() => Config.Count > 0;
     }
 
     public class PostfxConfig
