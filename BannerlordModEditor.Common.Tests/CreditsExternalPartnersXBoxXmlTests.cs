@@ -1,4 +1,4 @@
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.Configuration;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -15,23 +15,25 @@ namespace BannerlordModEditor.Common.Tests
         {
             var xmlPath = Path.Combine(TestUtils.GetSolutionRoot(), "BannerlordModEditor.Common.Tests", "TestData", "CreditsExternalPartnersXBox.xml");
 
-            // Deserialization using the existing model
-            var serializer = new XmlSerializer(typeof(Credits));
-            Credits? model;
+            // Deserialization
+            var serializer = new XmlSerializer(typeof(CreditsExternalPartnersXBox));
+            CreditsExternalPartnersXBox? model;
             using (var fileStream = new FileStream(xmlPath, FileMode.Open))
             {
-                model = serializer.Deserialize(fileStream) as Credits;
+                model = serializer.Deserialize(fileStream) as CreditsExternalPartnersXBox;
             }
 
             Assert.NotNull(model);
             Assert.NotNull(model.Category);
-            Assert.Single(model.Category);
-
-            var category = model.Category[0];
-            Assert.Equal("Xbox", category.Text);
-            Assert.NotNull(category.Entry);
-            Assert.Equal(4, category.Entry.Count);
-            Assert.Equal("Guy Richards", category.Entry[0].Text);
+            Assert.Equal("Xbox", model.Category.Text);
+            Assert.NotNull(model.Category.Entry);
+            Assert.Equal(4, model.Category.Entry.Length);
+            Assert.Equal("Guy Richards", model.Category.Entry[0].Text);
+            Assert.Equal("Neil Holmes", model.Category.Entry[1].Text);
+            Assert.Equal("Ed Stewart", model.Category.Entry[2].Text);
+            Assert.Equal("Derek Russell", model.Category.Entry[3].Text);
+            Assert.NotNull(model.Category.EmptyLine);
+            Assert.Single(model.Category.EmptyLine);
 
             // Serialization
             var settings = new XmlWriterSettings
