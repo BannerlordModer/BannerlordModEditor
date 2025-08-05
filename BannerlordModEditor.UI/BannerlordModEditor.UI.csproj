@@ -19,8 +19,8 @@
     <PackageReference Include="Avalonia.Desktop" Version="11.3.0" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0" />
-    <!-- Cross-platform support -->
-    <PackageReference Include="Avalonia.FreeDesktop" Version="11.3.0" />
+    <!-- Linux support -->
+    <PackageReference Include="Avalonia.FreeDesktop" Version="11.3.0" Condition="'$([MSBuild]::IsOSPlatform(Linux))' == 'true'" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Include="Avalonia.Diagnostics" Version="11.3.0">
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
