@@ -72,7 +72,7 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Indent = true,
                 IndentChars = "\t",
-                NewLineChars = Environment.NewLine,
+                NewLineChars = "\r\n",
                 Encoding = new UTF8Encoding(true), // With BOM to match original
                 OmitXmlDeclaration = false
             };
