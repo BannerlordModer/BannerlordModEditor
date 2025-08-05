@@ -15,7 +15,7 @@ namespace BannerlordModEditor.Common.Tests.Services
         public FileDiscoveryServiceTests()
         {
             var solutionRoot = TestUtils.GetSolutionRoot();
-            _testXmlDirectory = Path.Combine(solutionRoot, "example", "ModuleData");
+            _testXmlDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData");
             _testModelsDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common", "Models");
             _service = new FileDiscoveryService(_testXmlDirectory, _testModelsDirectory);
         }

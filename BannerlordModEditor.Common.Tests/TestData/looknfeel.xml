@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<looknfeel>
+	<element name="default_element">
+		<property name="width" value="100" />
+		<property name="height" value="50" />
+		<property name="color" value="white" />
+	</element>
+	<element name="button_style">
+		<property name="width" value="120" />
+		<property name="height" value="30" />
+		<property name="background_color" value="blue" />
+		<property name="text_color" value="white" />
+	</element>
+</looknfeel>

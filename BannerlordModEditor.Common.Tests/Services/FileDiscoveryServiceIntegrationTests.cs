@@ -13,7 +13,7 @@ namespace BannerlordModEditor.Common.Tests.Services
         {
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlDirectory = Path.Combine(solutionRoot, "example", "ModuleData");
+            var xmlDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData");
             var modelsDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common", "Models");
             var service = new FileDiscoveryService(xmlDirectory, modelsDirectory);
 
@@ -28,8 +28,12 @@ namespace BannerlordModEditor.Common.Tests.Services
             var fileNames = result.Select(f => f.FileName).ToList();
             
             Assert.Contains("looknfeel.xml", fileNames);
-            Assert.Contains("before_transparents_graph.xml", fileNames);
             Assert.Contains("particle_systems2.xml", fileNames);
+            
+            // 验证一些已适配的文件不在列表中
+            Assert.DoesNotContain("before_transparents_graph.xml", fileNames);
+            Assert.DoesNotContain("attributes.xml", fileNames);
+            Assert.DoesNotContain("action_types.xml", fileNames);
 
             // 验证文件属性设置正确
             foreach (var file in result)
@@ -54,7 +58,7 @@ namespace BannerlordModEditor.Common.Tests.Services
         {
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlDirectory = Path.Combine(solutionRoot, "example", "ModuleData");
+            var xmlDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData");
             var modelsDirectory = Path.Combine(solutionRoot, "BannerlordModEditor.Common", "Models");
             var service = new FileDiscoveryService(xmlDirectory, modelsDirectory);
 

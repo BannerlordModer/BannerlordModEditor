@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Tests.Services
             try
             {
                 var solutionRoot = TestUtils.GetSolutionRoot();
-                var xmlDirectory = System.IO.Path.Combine(solutionRoot, "example", "ModuleData");
+                var xmlDirectory = System.IO.Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData");
                 var modelsDirectory = System.IO.Path.Combine(solutionRoot, "BannerlordModEditor.Common", "Models");
                 
                 var service = new FileDiscoveryService(xmlDirectory, modelsDirectory);
