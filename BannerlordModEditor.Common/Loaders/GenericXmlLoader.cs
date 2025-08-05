@@ -25,7 +25,7 @@ namespace BannerlordModEditor.Common.Loaders
             {
                 Indent = true,
                 IndentChars = "\t",
-                NewLineChars = "\r\n",
+                NewLineChars = "\n", // 使用Unix风格换行符以匹配原始XML格式
                 Encoding = new System.Text.UTF8Encoding(false)
             };
 

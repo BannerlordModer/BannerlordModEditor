@@ -68,6 +68,9 @@ namespace BannerlordModEditor.Common.Models.Engine
         [XmlAttribute("name")]
         public string? Name { get; set; }
 
+        [XmlAttribute("body_name")]
+        public string? BodyName { get; set; }
+
         [XmlAttribute("density_multiplier")]
         public string? DensityMultiplier { get; set; }
 
