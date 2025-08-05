@@ -25,7 +25,7 @@ namespace BannerlordModEditor.Common.Loaders
             {
                 Indent = true,
                 IndentChars = "\t",
-                NewLineChars = "\r\n",
+                NewLineChars = Environment.NewLine,
                 Encoding = new System.Text.UTF8Encoding(false)
             };
 

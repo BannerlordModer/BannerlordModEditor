@@ -72,7 +72,8 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Indent = true,
                 IndentChars = "\t",
-                Encoding = new UTF8Encoding(false), // No BOM
+                NewLineChars = Environment.NewLine,
+                Encoding = new UTF8Encoding(true), // With BOM to match original
                 OmitXmlDeclaration = false
             };
 
@@ -89,8 +90,20 @@ namespace BannerlordModEditor.Common.Tests
 
             // Comparison - normalize both XMLs to handle empty element differences
             var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
-            var originalDoc = XDocument.Parse(originalXml);
-            var serializedDoc = XDocument.Parse(serializedXml);
+            XDocument originalDoc, serializedDoc;
+            
+            // Parse XML documents with proper BOM handling
+            using (var originalStringReader = new StringReader(originalXml))
+            using (var originalXmlReader = XmlReader.Create(originalStringReader))
+            {
+                originalDoc = XDocument.Load(originalXmlReader);
+            }
+            
+            using (var serializedStringReader = new StringReader(serializedXml))
+            using (var serializedXmlReader = XmlReader.Create(serializedStringReader))
+            {
+                serializedDoc = XDocument.Load(serializedXmlReader);
+            }
 
             // Normalize both documents to handle <element></element> vs <element /> differences
             NormalizeEmptyElements(originalDoc.Root);
