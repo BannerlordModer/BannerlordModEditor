@@ -13,10 +13,10 @@ namespace BannerlordModEditor.Common.Tests
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化
-            var obj = XmlTestUtils.Deserialize<BannerIcons>(xml);
+            var model = XmlTestUtils.Deserialize<BannerIconsRoot>(xml);
 
             // 再序列化
-            var xml2 = XmlTestUtils.Serialize(obj);
+            var xml2 = XmlTestUtils.Serialize(model);
 
             // 结构化对比
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2));
