@@ -12,10 +12,34 @@ namespace BannerlordModEditor.Common.Models.Data
 
     public class MusicParameter
     {
-        [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+       private string? _id;
+       private bool _idExists;
+       private string? _value;
+       private bool _valueExists;
 
-        [XmlAttribute("value")]
-        public string Value { get; set; } = string.Empty;
+       [XmlAttribute("id")]
+       public string? Id
+       {
+           get => _idExists ? _id : null;
+           set
+           {
+               _id = value;
+               _idExists = true;
+           }
+       }
+
+       [XmlAttribute("value")]
+       public string? Value
+       {
+           get => _valueExists ? _value : null;
+           set
+           {
+               _value = value;
+               _valueExists = true;
+           }
+       }
+
+       public bool ShouldSerializeId() => _idExists;
+       public bool ShouldSerializeValue() => _valueExists;
     }
 } 

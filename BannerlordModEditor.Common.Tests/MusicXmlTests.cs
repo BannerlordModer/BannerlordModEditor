@@ -18,16 +18,16 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "music.xml");
-            
+
             // Act - 反序列化
             var serializer = new XmlSerializer(typeof(Music));
             Music music;
-            
+
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
                 music = (Music)serializer.Deserialize(reader)!;
             }
-            
+
             // Act - 序列化
             string savedXml;
             using (var writer = new StringWriter())
@@ -51,31 +51,102 @@ namespace BannerlordModEditor.Common.Tests
             Assert.NotNull(music.MusicsContainer);
             Assert.NotNull(music.MusicsContainer.Music);
             Assert.True(music.MusicsContainer.Music.Count > 0, "Should have at least one music track");
-            
+
             // 验证特定音乐轨道
             var titleScreenMusic = music.MusicsContainer.Music.FirstOrDefault(m => m.Id == "music_mount_and_blade_title_screen.ogg");
             Assert.NotNull(titleScreenMusic);
             Assert.Equal("mount_and_blade_title_screen.ogg", titleScreenMusic.Name);
             Assert.Equal("0x400080", titleScreenMusic.Flags);
             Assert.Equal("0x400080", titleScreenMusic.ContinueFlags);
-            
+
             var arena1Music = music.MusicsContainer.Music.FirstOrDefault(m => m.Id == "music_arena_1.ogg");
             Assert.NotNull(arena1Music);
             Assert.Equal("arena_1.ogg", arena1Music.Name);
             Assert.Equal("0x20000", arena1Music.Flags);
             Assert.Equal("0x20000", arena1Music.ContinueFlags);
-            
+
             // Assert - XML结构验证
             var originalDoc = XDocument.Load(xmlPath, LoadOptions.None);
             var savedDoc = XDocument.Parse(savedXml, LoadOptions.None);
-            
+
             // 移除纯空白文本节点
             RemoveWhitespaceNodes(originalDoc.Root);
             RemoveWhitespaceNodes(savedDoc.Root);
-            
+
             // 检查XML结构基本一致
-            Assert.Equal(originalDoc.Root?.Element("musics")?.Elements("music").Count(), 
+            Assert.Equal(originalDoc.Root?.Element("musics")?.Elements("music").Count(),
                         savedDoc.Root?.Element("musics")?.Elements("music").Count());
+        }
+
+        [Fact]
+        public void Music_LoadWithMissingOrEmptyFields_ShouldHandleOptionalNodes()
+        {
+            // Arrange - 构造缺失和空属性的music节点
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<base type=""music"">
+    <musics>
+        <music id=""music_missing_name"" flags=""0x1"" continue_flags=""0x1"" />
+        <music id=""music_empty_name"" name="""" flags=""0x2"" continue_flags=""0x2"" />
+        <music id="""" name=""no_id.ogg"" flags=""0x3"" continue_flags=""0x3"" />
+        <music id=""music_empty_flags"" name=""empty_flags.ogg"" flags="""" continue_flags="""" />
+        <music id=""music_missing_flags"" name=""missing_flags.ogg"" />
+    </musics>
+</base>";
+            var tempFile = Path.GetTempFileName();
+            File.WriteAllText(tempFile, xmlContent, Encoding.UTF8);
+
+            // Act
+            var serializer = new XmlSerializer(typeof(Music));
+            Music music;
+            using (var reader = new FileStream(tempFile, FileMode.Open))
+            {
+                music = (Music)serializer.Deserialize(reader)!;
+            }
+
+            // Assert
+            Assert.NotNull(music);
+            Assert.NotNull(music.MusicsContainer);
+            Assert.NotNull(music.MusicsContainer.Music);
+            Assert.Equal(5, music.MusicsContainer.Music.Count);
+
+            // 1. 缺失name
+            var m1 = music.MusicsContainer.Music[0];
+            Assert.Equal("music_missing_name", m1.Id);
+            // name为null或空均可
+            Assert.True(m1.Name == null || m1.Name == string.Empty);
+            Assert.Equal("0x1", m1.Flags);
+            Assert.Equal("0x1", m1.ContinueFlags);
+
+            // 2. name为空
+            var m2 = music.MusicsContainer.Music[1];
+            Assert.Equal("music_empty_name", m2.Id);
+            Assert.Equal(string.Empty, m2.Name);
+            Assert.Equal("0x2", m2.Flags);
+            Assert.Equal("0x2", m2.ContinueFlags);
+
+            // 3. id为空
+            var m3 = music.MusicsContainer.Music[2];
+            Assert.True(m3.Id == null || m3.Id == string.Empty);
+            Assert.Equal("no_id.ogg", m3.Name);
+            Assert.Equal("0x3", m3.Flags);
+            Assert.Equal("0x3", m3.ContinueFlags);
+
+            // 4. flags/continue_flags为空
+            var m4 = music.MusicsContainer.Music[3];
+            Assert.Equal("music_empty_flags", m4.Id);
+            Assert.Equal("empty_flags.ogg", m4.Name);
+            Assert.True(m4.Flags == null || m4.Flags == string.Empty);
+            Assert.True(m4.ContinueFlags == null || m4.ContinueFlags == string.Empty);
+
+            // 5. 缺失flags/continue_flags
+            var m5 = music.MusicsContainer.Music[4];
+            Assert.Equal("music_missing_flags", m5.Id);
+            Assert.Equal("missing_flags.ogg", m5.Name);
+            Assert.True(m5.Flags == null || m5.Flags == string.Empty);
+            Assert.True(m5.ContinueFlags == null || m5.ContinueFlags == string.Empty);
+
+            // 清理
+            File.Delete(tempFile);
         }
         
         [Fact]

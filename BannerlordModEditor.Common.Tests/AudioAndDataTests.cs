@@ -29,16 +29,16 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var solutionRoot = FindSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "module_sounds.xml");
-            
+
             // Act - 反序列化
             var serializer = new XmlSerializer(typeof(ModuleSoundsBase));
             ModuleSoundsBase moduleSounds;
-            
+
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
                 moduleSounds = (ModuleSoundsBase)serializer.Deserialize(reader)!;
             }
-            
+
             // Act - 序列化
             string savedXml;
             using (var writer = new StringWriter())
@@ -85,7 +85,7 @@ namespace BannerlordModEditor.Common.Tests
                 Assert.Equal("1.1", voiceCharge.MaxPitchMultiplier);
                 Assert.NotNull(voiceCharge.Variation);
                 Assert.True(voiceCharge.Variation!.Count >= 2, "Should have multiple sound variations");
-                
+
                 // 验证变体
                 var firstVariation = voiceCharge.Variation!.FirstOrDefault(v => v.Path == "example_sound_modders.ogg");
                 if (firstVariation != null)
@@ -93,7 +93,7 @@ namespace BannerlordModEditor.Common.Tests
                     Assert.Equal("example_sound_modders.ogg", firstVariation.Path);
                     Assert.Equal("1.0", firstVariation.Weight);
                 }
-                
+
                 var secondVariation = voiceCharge.Variation!.FirstOrDefault(v => v.Path == "example_sound_modders_2.ogg");
                 if (secondVariation != null)
                 {
@@ -116,25 +116,110 @@ namespace BannerlordModEditor.Common.Tests
             // 验证所有模块声音都有必要字段
             foreach (var sound in moduleSounds.ModuleSounds.ModuleSound)
             {
+                // name、sound_category 必须有
                 Assert.False(string.IsNullOrEmpty(sound.Name), "Module sound should have a name");
                 Assert.False(string.IsNullOrEmpty(sound.SoundCategory), $"Module sound {sound.Name} should have a sound category");
-                
-                // 验证声音路径：要么有直接路径，要么有变体
-                Assert.True(!string.IsNullOrEmpty(sound.Path) || (sound.Variation != null && sound.Variation.Count > 0),
-                    $"Module sound {sound.Name} should have either a path or variations");
+
+                // path、variation、is_2d、min_pitch_multiplier、max_pitch_multiplier 可选
+                // 验证 path/variation 至少有一个
+                Assert.True(
+                    (!string.IsNullOrEmpty(sound.Path) && (sound.Variation == null || sound.Variation.Count == 0))
+                    || (sound.Variation != null && sound.Variation.Count > 0),
+                    $"Module sound {sound.Name} should have either a path or variations"
+                );
 
                 // 如果有变体，验证变体字段
                 if (sound.Variation != null)
                 {
                     foreach (var variation in sound.Variation)
                     {
-                        Assert.False(string.IsNullOrEmpty(variation.Path), 
+                        Assert.False(string.IsNullOrEmpty(variation.Path),
                             $"Sound variation in {sound.Name} should have a path");
-                        Assert.False(string.IsNullOrEmpty(variation.Weight), 
+                        Assert.False(string.IsNullOrEmpty(variation.Weight),
                             $"Sound variation in {sound.Name} should have a weight");
                     }
                 }
             }
+        }
+
+        [Fact]
+        public void ModuleSounds_LoadWithMissingOrEmptyFields_ShouldHandleOptionalNodes()
+        {
+            // Arrange - 构造缺失和空属性的module_sound节点
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<base type=""module_sound"">
+    <module_sounds>
+        <module_sound name=""missing_path_and_variation"" sound_category=""mission_combat"" />
+        <module_sound name=""empty_path"" sound_category=""mission_combat"" path="""" />
+        <module_sound name=""with_variation_only"" sound_category=""mission_combat"">
+            <variation path=""sound1.ogg"" weight=""1.0"" />
+        </module_sound>
+        <module_sound name=""missing_is2d"" sound_category=""mission_combat"" path=""sound2.ogg"" />
+        <module_sound name=""empty_is2d"" sound_category=""mission_combat"" path=""sound3.ogg"" is_2d="""" />
+        <module_sound name=""missing_min_max_pitch"" sound_category=""mission_combat"" path=""sound4.ogg"" />
+        <module_sound name=""empty_min_max_pitch"" sound_category=""mission_combat"" path=""sound5.ogg"" min_pitch_multiplier="""" max_pitch_multiplier="""" />
+    </module_sounds>
+</base>";
+            var tempFile = Path.GetTempFileName();
+            File.WriteAllText(tempFile, xmlContent, Encoding.UTF8);
+
+            // Act
+            var serializer = new XmlSerializer(typeof(ModuleSoundsBase));
+            ModuleSoundsBase moduleSounds;
+            using (var reader = new FileStream(tempFile, FileMode.Open))
+            {
+                moduleSounds = (ModuleSoundsBase)serializer.Deserialize(reader)!;
+            }
+
+            // Assert
+            Assert.NotNull(moduleSounds);
+            Assert.NotNull(moduleSounds.ModuleSounds);
+            Assert.NotNull(moduleSounds.ModuleSounds.ModuleSound);
+            Assert.Equal(7, moduleSounds.ModuleSounds.ModuleSound.Count);
+
+            // 1. 缺失path和variation
+            var s1 = moduleSounds.ModuleSounds.ModuleSound[0];
+            Assert.Equal("missing_path_and_variation", s1.Name);
+            Assert.Equal("mission_combat", s1.SoundCategory);
+            Assert.True(string.IsNullOrEmpty(s1.Path));
+            Assert.True(s1.Variation == null || s1.Variation.Count == 0);
+
+            // 2. path为空
+            var s2 = moduleSounds.ModuleSounds.ModuleSound[1];
+            Assert.Equal("empty_path", s2.Name);
+            Assert.Equal(string.Empty, s2.Path);
+
+            // 3. 只有variation
+            var s3 = moduleSounds.ModuleSounds.ModuleSound[2];
+            Assert.Equal("with_variation_only", s3.Name);
+            Assert.Null(s3.Path);
+            Assert.NotNull(s3.Variation);
+            Assert.Single(s3.Variation);
+
+            // 4. 缺失is_2d
+            var s4 = moduleSounds.ModuleSounds.ModuleSound[3];
+            Assert.Equal("missing_is2d", s4.Name);
+            Assert.Null(s4.Is2D);
+
+            // 5. is_2d为空
+            var s5 = moduleSounds.ModuleSounds.ModuleSound[4];
+            Assert.Equal("empty_is2d", s5.Name);
+            Assert.Equal(string.Empty, s5.Is2D);
+
+            // 6. 缺失min/max_pitch_multiplier
+            var s6 = moduleSounds.ModuleSounds.ModuleSound[5];
+            Assert.Equal("missing_min_max_pitch", s6.Name);
+            Assert.Null(s6.MinPitchMultiplier);
+            Assert.Null(s6.MaxPitchMultiplier);
+
+            // 7. min/max_pitch_multiplier为空
+            var s7 = moduleSounds.ModuleSounds.ModuleSound[6];
+            Assert.Equal("empty_min_max_pitch", s7.Name);
+            Assert.Equal(string.Empty, s7.MinPitchMultiplier);
+            Assert.Equal(string.Empty, s7.MaxPitchMultiplier);
+
+            // 清理
+            File.Delete(tempFile);
         }
 
         [Fact]

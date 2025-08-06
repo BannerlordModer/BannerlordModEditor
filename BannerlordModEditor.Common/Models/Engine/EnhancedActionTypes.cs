@@ -25,50 +25,52 @@ namespace BannerlordModEditor.Common.Models.Engine
     /// </summary>
     public class EnhancedActionType : XmlModelBase
     {
-        private string? _name;
-        private string? _type;
-        private string? _usageDirection;
+       private string? _name;
+       private bool _nameExists;
+       private string? _type;
+       private bool _typeExists;
+       private string? _usageDirection;
+       private bool _usageDirectionExists;
 
-        [XmlAttribute("name")]
-        public string? Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                MarkPropertyExists(nameof(Name));
-            }
-        }
+       [XmlAttribute("name")]
+       public string? Name
+       {
+           get => _nameExists ? _name : null;
+           set
+           {
+               _name = value;
+               _nameExists = true;
+               MarkPropertyExists(nameof(Name));
+           }
+       }
 
-        [XmlAttribute("type")]
-        public string? Type
-        {
-            get => _type;
-            set
-            {
-                _type = value;
-                MarkPropertyExists(nameof(Type));
-            }
-        }
+       [XmlAttribute("type")]
+       public string? Type
+       {
+           get => _typeExists ? _type : null;
+           set
+           {
+               _type = value;
+               _typeExists = true;
+               MarkPropertyExists(nameof(Type));
+           }
+       }
 
-        [XmlAttribute("usage_direction")]
-        public string? UsageDirection
-        {
-            get => _usageDirection;
-            set
-            {
-                _usageDirection = value;
-                MarkPropertyExists(nameof(UsageDirection));
-            }
-        }
+       [XmlAttribute("usage_direction")]
+       public string? UsageDirection
+       {
+           get => _usageDirectionExists ? _usageDirection : null;
+           set
+           {
+               _usageDirection = value;
+               _usageDirectionExists = true;
+               MarkPropertyExists(nameof(UsageDirection));
+           }
+       }
 
-        /// <summary>
-        /// 重写ShouldSerialize方法以使用更精确的存在性检查
-        /// 这是简化实现：原本使用简单的string.IsNullOrEmpty检查
-        /// 现在使用PropertyExists来区分字段不存在和字段为空的情况
-        /// </summary>
-        public bool ShouldSerializeType() => PropertyExists(nameof(Type)) && !string.IsNullOrEmpty(Type);
-        public bool ShouldSerializeUsageDirection() => PropertyExists(nameof(UsageDirection)) && !string.IsNullOrEmpty(UsageDirection);
+       public bool ShouldSerializeName() => _nameExists;
+       public bool ShouldSerializeType() => _typeExists;
+       public bool ShouldSerializeUsageDirection() => _usageDirectionExists;
 
         /// <summary>
         /// 检查Type属性在XML中是否存在（即使为空）

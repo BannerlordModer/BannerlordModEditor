@@ -8,14 +8,27 @@ namespace BannerlordModEditor.Common.Models.Audio
     [XmlRoot("base")]
     public class SoundFilesBase
     {
-        [XmlAttribute("type")]
-        public string Type { get; set; } = "sound";
+       private string? _type;
+       private bool _typeExists;
 
-        [XmlElement("bank_files")]
-        public SoundBankFilesContainer? BankFiles { get; set; }
+       [XmlAttribute("type")]
+       public string? Type
+       {
+           get => _typeExists ? _type : null;
+           set
+           {
+               _type = value;
+               _typeExists = true;
+           }
+       }
 
-        [XmlElement("asset_files")]
-        public SoundAssetFilesContainer? AssetFiles { get; set; }
+       public bool ShouldSerializeType() => _typeExists;
+
+       [XmlElement("bank_files")]
+       public SoundBankFilesContainer? BankFiles { get; set; }
+
+       [XmlElement("asset_files")]
+       public SoundAssetFilesContainer? AssetFiles { get; set; }
     }
 
     /// <summary>
@@ -41,10 +54,34 @@ namespace BannerlordModEditor.Common.Models.Audio
     /// </summary>
     public class SoundFile
     {
-        [XmlAttribute("name")]
-        public string Name { get; set; } = string.Empty;
+       private string? _name;
+       private bool _nameExists;
+       private string? _decompressSamples;
+       private bool _decompressSamplesExists;
 
-        [XmlAttribute("decompress_samples")]
-        public string DecompressSamples { get; set; } = string.Empty;
+       [XmlAttribute("name")]
+       public string? Name
+       {
+           get => _nameExists ? _name : null;
+           set
+           {
+               _name = value;
+               _nameExists = true;
+           }
+       }
+
+       [XmlAttribute("decompress_samples")]
+       public string? DecompressSamples
+       {
+           get => _decompressSamplesExists ? _decompressSamples : null;
+           set
+           {
+               _decompressSamples = value;
+               _decompressSamplesExists = true;
+           }
+       }
+
+       public bool ShouldSerializeName() => _nameExists;
+       public bool ShouldSerializeDecompressSamples() => _decompressSamplesExists;
     }
 }
