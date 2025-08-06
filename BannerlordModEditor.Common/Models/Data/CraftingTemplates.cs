@@ -46,7 +46,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public PieceDatas PieceDatas { get; set; }
 
         [XmlElement("WeaponDescriptions")]
-        public WeaponDescriptions WeaponDescriptions { get; set; }
+        public CraftingWeaponDescriptions WeaponDescriptions { get; set; }
 
         [XmlElement("StatsData")]
         public List<StatsData> StatsDataList { get; set; }
@@ -76,14 +76,14 @@ namespace BannerlordModEditor.Common.Models.Data
         public string BuildOrder { get; set; }
     }
 
-    public class WeaponDescriptions
+    public class CraftingWeaponDescriptions
     {
         [XmlElement("WeaponDescription")]
-        public List<WeaponDescription> WeaponDescriptionList { get; set; }
+        public List<CraftingWeaponDescription> WeaponDescriptionList { get; set; }
         public bool ShouldSerializeWeaponDescriptionList() => WeaponDescriptionList != null && WeaponDescriptionList.Count > 0;
     }
 
-    public class WeaponDescription
+    public class CraftingWeaponDescription
     {
         [XmlAttribute("id")]
         public string Id { get; set; }

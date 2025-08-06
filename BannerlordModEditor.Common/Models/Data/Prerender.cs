@@ -11,33 +11,33 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Type { get; set; }
 
         [XmlElement("postfx_graphs")]
-        public PostfxGraphs PostfxGraphs { get; set; }
+        public PrerenderPostfxGraphs PostfxGraphs { get; set; }
 
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
         public bool ShouldSerializePostfxGraphs() => PostfxGraphs != null;
     }
 
-    public class PostfxGraphs
+    public class PrerenderPostfxGraphs
     {
         [XmlElement("postfx_graph")]
-        public List<PostfxGraph> PostfxGraphList { get; set; }
+        public List<PrerenderPostfxGraph> PostfxGraphList { get; set; }
 
         public bool ShouldSerializePostfxGraphList() => PostfxGraphList != null && PostfxGraphList.Count > 0;
     }
 
-    public class PostfxGraph
+    public class PrerenderPostfxGraph
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
 
         [XmlElement("postfx_node")]
-        public List<PostfxNode> PostfxNodes { get; set; }
+        public List<PrerenderPostfxNode> PostfxNodes { get; set; }
 
         public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
         public bool ShouldSerializePostfxNodes() => PostfxNodes != null && PostfxNodes.Count > 0;
     }
 
-    public class PostfxNode
+    public class PrerenderPostfxNode
     {
         [XmlAttribute("id")]
         public string Id { get; set; }

@@ -5,10 +5,10 @@ using System.Xml.Serialization;
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("particle_effects")]
-    public class ParticleSystemsGeneral
+    public class ParticleSystems
     {
         [XmlElement("effect")]
-        public List<Effect> Effects { get; set; }
+        public List<Effect> Effects { get; set; } = new List<Effect>();
 
         public bool ShouldSerializeEffects() => Effects != null && Effects.Count > 0;
     }
@@ -24,18 +24,16 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("sound_code")]
         public string SoundCode { get; set; }
 
-        public bool ShouldSerializeSoundCode() => !string.IsNullOrEmpty(SoundCode);
-
         [XmlElement("emitters")]
         public Emitters Emitters { get; set; }
 
-        public bool ShouldSerializeEmitters() => Emitters != null;
+        public bool ShouldSerializeSoundCode() => !string.IsNullOrEmpty(SoundCode);
     }
 
     public class Emitters
     {
         [XmlElement("emitter")]
-        public List<Emitter> EmitterList { get; set; }
+        public List<Emitter> EmitterList { get; set; } = new List<Emitter>();
 
         public bool ShouldSerializeEmitterList() => EmitterList != null && EmitterList.Count > 0;
     }
@@ -49,36 +47,40 @@ namespace BannerlordModEditor.Common.Models.Data
         public int Index { get; set; }
 
         [XmlElement("flags")]
-        public Flags Flags { get; set; }
+        public ParticleFlags Flags { get; set; }
 
         [XmlElement("parameters")]
         public Parameters Parameters { get; set; }
 
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
         public bool ShouldSerializeFlags() => Flags != null;
         public bool ShouldSerializeParameters() => Parameters != null;
     }
 
-    public class Flags
+    public class ParticleFlags
     {
         [XmlElement("flag")]
-        public List<Flag> FlagList { get; set; }
+        public List<ParticleFlag> FlagList { get; set; } = new List<ParticleFlag>();
 
         public bool ShouldSerializeFlagList() => FlagList != null && FlagList.Count > 0;
     }
 
-    public class Flag
+    public class ParticleFlag
     {
         [XmlAttribute("name")]
         public string Name { get; set; }
 
         [XmlAttribute("value")]
         public string Value { get; set; }
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
     }
 
     public class Parameters
     {
         [XmlElement("parameter")]
-        public List<Parameter> ParameterList { get; set; }
+        public List<Parameter> ParameterList { get; set; } = new List<Parameter>();
 
         public bool ShouldSerializeParameterList() => ParameterList != null && ParameterList.Count > 0;
     }
@@ -91,28 +93,28 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("value")]
         public string Value { get; set; }
 
-        [XmlAttribute("base")]
-        public string Base { get; set; }
-
         [XmlAttribute("bias")]
         public string Bias { get; set; }
 
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
-        public bool ShouldSerializeBase() => !string.IsNullOrEmpty(Base);
-        public bool ShouldSerializeBias() => !string.IsNullOrEmpty(Bias);
+        [XmlAttribute("curve")]
+        public string Curve { get; set; }
+
+        [XmlAttribute("color")]
+        public string Color { get; set; }
+
+        [XmlAttribute("alpha")]
+        public string Alpha { get; set; }
 
         [XmlElement("curve")]
-        public Curve Curve { get; set; }
+        public Curve ParameterCurve { get; set; }
 
-        [XmlElement("color")]
-        public ColorElement Color { get; set; }
-
-        [XmlElement("alpha")]
-        public AlphaElement Alpha { get; set; }
-
-        public bool ShouldSerializeCurve() => Curve != null;
-        public bool ShouldSerializeColor() => Color != null;
-        public bool ShouldSerializeAlpha() => Alpha != null;
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeBias() => !string.IsNullOrEmpty(Bias);
+        public bool ShouldSerializeCurve() => !string.IsNullOrEmpty(Curve);
+        public bool ShouldSerializeColor() => !string.IsNullOrEmpty(Color);
+        public bool ShouldSerializeAlpha() => !string.IsNullOrEmpty(Alpha);
+        public bool ShouldSerializeParameterCurve() => ParameterCurve != null;
     }
 
     public class Curve
@@ -132,42 +134,34 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlElement("keys")]
         public Keys Keys { get; set; }
 
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeVersion() => !string.IsNullOrEmpty(Version);
+        public bool ShouldSerializeDefault() => !string.IsNullOrEmpty(Default);
+        public bool ShouldSerializeCurveMultiplier() => !string.IsNullOrEmpty(CurveMultiplier);
         public bool ShouldSerializeKeys() => Keys != null;
     }
 
     public class Keys
     {
         [XmlElement("key")]
-        public List<Key> KeyList { get; set; }
+        public List<Key> KeyList { get; set; } = new List<Key>();
 
         public bool ShouldSerializeKeyList() => KeyList != null && KeyList.Count > 0;
     }
 
     public class Key
     {
-        [XmlAttribute("time")]
-        public string Time { get; set; }
-
         [XmlAttribute("value")]
         public string Value { get; set; }
 
+        [XmlAttribute("position")]
+        public string Position { get; set; }
+
         [XmlAttribute("tangent")]
         public string Tangent { get; set; }
-    }
 
-    public class ColorElement
-    {
-        [XmlElement("keys")]
-        public Keys Keys { get; set; }
-
-        public bool ShouldSerializeKeys() => Keys != null;
-    }
-
-    public class AlphaElement
-    {
-        [XmlElement("keys")]
-        public Keys Keys { get; set; }
-
-        public bool ShouldSerializeKeys() => Keys != null;
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
+        public bool ShouldSerializeTangent() => !string.IsNullOrEmpty(Tangent);
     }
 }

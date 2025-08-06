@@ -68,7 +68,7 @@ namespace BannerlordModEditor.Common.Models.Data
         /// </summary>
         [XmlArray("flags")]
         [XmlArrayItem("flag")]
-        public List<ParticleFlag> Flags { get; set; } = new List<ParticleFlag>();
+        public List<MapIconParticleFlag> Flags { get; set; } = new List<MapIconParticleFlag>();
 
         /// <summary>
         /// 参数配置
@@ -100,7 +100,7 @@ namespace BannerlordModEditor.Common.Models.Data
     /// <summary>
     /// 粒子标志定义
     /// </summary>
-    public class ParticleFlag
+    public class MapIconParticleFlag
     {
         /// <summary>
         /// 标志名称

@@ -28,7 +28,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public List<Image> Images { get; set; }
 
         [XmlElement("EmptyLine")]
-        public List<EmptyLine> EmptyLines { get; set; }
+        public List<CreditsLegalPCEmptyLine> EmptyLines { get; set; }
 
         public bool ShouldSerializeSections() => Sections != null && Sections.Count > 0;
         public bool ShouldSerializeEntries() => Entries != null && Entries.Count > 0;
@@ -63,7 +63,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeText() => !string.IsNullOrEmpty(Text);
     }
 
-    public class EmptyLine
+    public class CreditsLegalPCEmptyLine
     {
         // 空节点，无属性
     }

@@ -8,52 +8,52 @@ namespace BannerlordModEditor.Common.Models.Data
     public class CreditsXmlModel
     {
         [XmlElement("Category")]
-        public List<Category> Categories { get; set; }
+        public List<CreditsCategory> Categories { get; set; }
 
         public bool ShouldSerializeCategories() => Categories != null && Categories.Count > 0;
     }
 
-    public class Category
+    public class CreditsCategory
     {
         [XmlAttribute("Text")]
         public string Text { get; set; }
 
         [XmlElement("Section")]
-        public List<Section> Sections { get; set; }
+        public List<CreditsSection> Sections { get; set; }
 
         [XmlElement("Entry")]
-        public List<Entry> Entries { get; set; }
+        public List<CreditsEntry> Entries { get; set; }
 
         [XmlElement("EmptyLine")]
-        public List<EmptyLine> EmptyLines { get; set; }
+        public List<CreditsEmptyLine> EmptyLines { get; set; }
 
         public bool ShouldSerializeSections() => Sections != null && Sections.Count > 0;
         public bool ShouldSerializeEntries() => Entries != null && Entries.Count > 0;
         public bool ShouldSerializeEmptyLines() => EmptyLines != null && EmptyLines.Count > 0;
     }
 
-    public class Section
+    public class CreditsSection
     {
         [XmlAttribute("Text")]
         public string Text { get; set; }
 
         [XmlElement("Entry")]
-        public List<Entry> Entries { get; set; }
+        public List<CreditsEntry> Entries { get; set; }
 
         [XmlElement("EmptyLine")]
-        public List<EmptyLine> EmptyLines { get; set; }
+        public List<CreditsEmptyLine> EmptyLines { get; set; }
 
         public bool ShouldSerializeEntries() => Entries != null && Entries.Count > 0;
         public bool ShouldSerializeEmptyLines() => EmptyLines != null && EmptyLines.Count > 0;
     }
 
-    public class Entry
+    public class CreditsEntry
     {
         [XmlAttribute("Text")]
         public string Text { get; set; }
     }
 
-    public class EmptyLine
+    public class CreditsEmptyLine
     {
         // 空节点，无属性
     }

@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public CombatDefinitions Definitions { get; set; }
 
         [XmlElement("combat_parameters")]
-        public CombatParametersList CombatParameters { get; set; }
+        public ModelCombatParametersList CombatParameters { get; set; }
 
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
         public bool ShouldSerializeDefinitions() => Definitions != null;
@@ -41,15 +41,15 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
     }
 
-    public class CombatParametersList
+    public class ModelCombatParametersList
     {
         [XmlElement("combat_parameter")]
-        public List<CombatParameter> Parameters { get; set; }
+        public List<ModelCombatParameter> Parameters { get; set; }
 
         public bool ShouldSerializeParameters() => Parameters != null && Parameters.Count > 0;
     }
 
-    public class CombatParameter
+    public class ModelCombatParameter
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
@@ -115,7 +115,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string LookSlopeBlendSpeedFactor { get; set; }
 
         [XmlElement("custom_collision_capsule")]
-        public CustomCollisionCapsule CustomCollisionCapsule { get; set; }
+        public ModelCustomCollisionCapsule CustomCollisionCapsule { get; set; }
 
         public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
         public bool ShouldSerializeWeaponOffset() => !string.IsNullOrEmpty(WeaponOffset);
@@ -141,7 +141,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeCustomCollisionCapsule() => CustomCollisionCapsule != null;
     }
 
-    public class CustomCollisionCapsule
+    public class ModelCustomCollisionCapsule
     {
         [XmlAttribute("p1")]
         public string P1 { get; set; }

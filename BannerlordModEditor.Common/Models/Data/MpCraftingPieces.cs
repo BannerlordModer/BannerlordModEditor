@@ -5,15 +5,15 @@ using System.Xml.Serialization;
 namespace BannerlordModEditor.Common.Models.Data
 {
     [XmlRoot("CraftingPieces")]
-    public class MpCraftingPieces
+    public class MpCraftingPiecesModel
     {
         [XmlElement("CraftingPiece")]
-        public List<CraftingPiece> CraftingPieceList { get; set; } = new List<CraftingPiece>();
+        public List<MpCraftingPiece> CraftingPieceList { get; set; } = new List<MpCraftingPiece>();
 
         public bool ShouldSerializeCraftingPieceList() => CraftingPieceList != null && CraftingPieceList.Count > 0;
     }
 
-    public class CraftingPiece
+    public class MpCraftingPiece
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
@@ -52,10 +52,10 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Culture { get; set; }
 
         [XmlElement("BuildData")]
-        public BuildData BuildData { get; set; }
+        public MpBuildData BuildData { get; set; }
 
         [XmlElement("BladeData")]
-        public BladeData BladeData { get; set; }
+        public MpBladeData BladeData { get; set; }
 
         [XmlElement("Flags")]
         public MpCraftingFlags Flags { get; set; }
@@ -72,7 +72,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeFlags() => Flags != null;
     }
 
-    public class BuildData
+    public class MpBuildData
     {
         [XmlAttribute("piece_offset")]
         public string PieceOffset { get; set; }
@@ -84,7 +84,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializePreviousPieceOffset() => !string.IsNullOrEmpty(PreviousPieceOffset);
     }
 
-    public class BladeData
+    public class MpBladeData
     {
         [XmlAttribute("stack_amount")]
         public string StackAmount { get; set; }
@@ -105,10 +105,10 @@ namespace BannerlordModEditor.Common.Models.Data
         public string HolsterMesh { get; set; }
 
         [XmlElement("Thrust")]
-        public Thrust Thrust { get; set; }
+        public MpThrust Thrust { get; set; }
 
         [XmlElement("Swing")]
-        public Swing Swing { get; set; }
+        public MpSwing Swing { get; set; }
 
         public bool ShouldSerializeStackAmount() => !string.IsNullOrEmpty(StackAmount);
         public bool ShouldSerializeBladeLength() => !string.IsNullOrEmpty(BladeLength);
@@ -120,7 +120,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeSwing() => Swing != null;
     }
 
-    public class Thrust
+    public class MpThrust
     {
         [XmlAttribute("damage_type")]
         public string DamageType { get; set; }
@@ -132,7 +132,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeDamageFactor() => !string.IsNullOrEmpty(DamageFactor);
     }
 
-    public class Swing
+    public class MpSwing
     {
         [XmlAttribute("damage_type")]
         public string DamageType { get; set; }

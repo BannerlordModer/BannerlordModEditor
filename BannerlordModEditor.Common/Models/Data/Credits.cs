@@ -8,31 +8,31 @@ namespace BannerlordModEditor.Common.Models.Data;
 public class Credits
 {
     [XmlElement("Category")]
-    public List<CreditsCategory> Category { get; set; } = new();
+    public List<CreditsFileCategory> Category { get; set; } = new();
 
     [XmlElement("LoadFromFile")]
-    public List<LoadFromFile> LoadFromFile { get; set; } = new();
+    public List<CreditsFileLoadFromFile> LoadFromFile { get; set; } = new();
 
     public bool ShouldSerializeCategory() => Category?.Count > 0;
     public bool ShouldSerializeLoadFromFile() => LoadFromFile?.Count > 0;
 }
 
-public class CreditsCategory
+public class CreditsFileCategory
 {
     [XmlAttribute("Text")]
     public string? Text { get; set; }
 
     [XmlElement("Section")]
-    public List<CreditsSection> Section { get; set; } = new();
+    public List<CreditsFileSection> Section { get; set; } = new();
 
     [XmlElement("Entry")]
-    public List<CreditsEntry> Entry { get; set; } = new();
+    public List<CreditsFileEntry> Entry { get; set; } = new();
 
     [XmlElement("EmptyLine")]
-    public List<EmptyLine> EmptyLine { get; set; } = new();
+    public List<CreditsFileEmptyLine> EmptyLine { get; set; } = new();
 
     [XmlElement("Image")]
-    public List<CreditsImage> Image { get; set; } = new();
+    public List<CreditsFileImage> Image { get; set; } = new();
 
     public bool ShouldSerializeSection() => Section?.Count > 0;
     public bool ShouldSerializeEntry() => Entry?.Count > 0;
@@ -40,38 +40,38 @@ public class CreditsCategory
     public bool ShouldSerializeImage() => Image?.Count > 0;
 }
 
-public class CreditsSection
+public class CreditsFileSection
 {
     [XmlAttribute("Text")]
     public string? Text { get; set; }
 
     [XmlElement("Entry")]
-    public List<CreditsEntry> Entry { get; set; } = new();
+    public List<CreditsFileEntry> Entry { get; set; } = new();
 
     [XmlElement("EmptyLine")]
-    public List<EmptyLine> EmptyLine { get; set; } = new();
+    public List<CreditsFileEmptyLine> EmptyLine { get; set; } = new();
 
     public bool ShouldSerializeEntry() => Entry?.Count > 0;
     public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
 }
 
-public class CreditsEntry
+public class CreditsFileEntry
 {
     [XmlAttribute("Text")]
     public string? Text { get; set; }
 
     [XmlElement("EmptyLine")]
-    public List<EmptyLine> EmptyLine { get; set; } = new();
+    public List<CreditsFileEmptyLine> EmptyLine { get; set; } = new();
 
     public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
 }
 
-public class EmptyLine
+public class CreditsFileEmptyLine
 {
     // Empty element used for formatting
 }
 
-public class LoadFromFile
+public class CreditsFileLoadFromFile
 {
     [XmlAttribute("Name")]
     public string? Name { get; set; }
@@ -80,7 +80,7 @@ public class LoadFromFile
     public string? PlatformSpecific { get; set; }
 }
 
-public class CreditsImage
+public class CreditsFileImage
 {
     [XmlAttribute("Text")]
     public string? Text { get; set; }

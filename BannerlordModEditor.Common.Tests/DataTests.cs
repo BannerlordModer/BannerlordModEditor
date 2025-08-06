@@ -381,11 +381,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "banner_icons.xml");
-            var serializer = new XmlSerializer(typeof(BannerIconsBase));
+            var serializer = new XmlSerializer(typeof(BannerIconsRoot));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (BannerIconsBase)serializer.Deserialize(fileStream);
+            var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
             Assert.NotNull(result);
@@ -402,11 +402,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "banner_icons.xml");
-            var serializer = new XmlSerializer(typeof(BannerIconsBase));
+            var serializer = new XmlSerializer(typeof(BannerIconsRoot));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (BannerIconsBase)serializer.Deserialize(fileStream);
+            var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
             foreach (var group in result.BannerIconData.BannerIconGroupList)
@@ -434,11 +434,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "banner_icons.xml");
-            var serializer = new XmlSerializer(typeof(BannerIconsBase));
+            var serializer = new XmlSerializer(typeof(BannerIconsRoot));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (BannerIconsBase)serializer.Deserialize(fileStream);
+            var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
             var backgroundGroup = result.BannerIconData.BannerIconGroupList.FirstOrDefault(g => g.Id == "1");
@@ -462,11 +462,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "banner_icons.xml");
-            var serializer = new XmlSerializer(typeof(BannerIconsBase));
+            var serializer = new XmlSerializer(typeof(BannerIconsRoot));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (BannerIconsBase)serializer.Deserialize(fileStream);
+            var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
             var animalGroup = result.BannerIconData.BannerIconGroupList.FirstOrDefault(g => g.Id == "2");
@@ -492,11 +492,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "banner_icons.xml");
-            var serializer = new XmlSerializer(typeof(BannerIconsBase));
+            var serializer = new XmlSerializer(typeof(BannerIconsRoot));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (BannerIconsBase)serializer.Deserialize(fileStream);
+            var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
             foreach (var color in result.BannerIconData.BannerColors.ColorList)
@@ -527,11 +527,11 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var filePath = Path.Combine(TestDataPath, "banner_icons.xml");
-            var serializer = new XmlSerializer(typeof(BannerIconsBase));
+            var serializer = new XmlSerializer(typeof(BannerIconsRoot));
 
             // Act
             using var fileStream = new FileStream(filePath, FileMode.Open);
-            var result = (BannerIconsBase)serializer.Deserialize(fileStream);
+            var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
             // 检查不同类别的图标组是否存�?

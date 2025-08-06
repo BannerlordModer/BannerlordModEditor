@@ -13,7 +13,7 @@ namespace BannerlordModEditor.Common.Tests
         public void ParticleSystemsOutdoor_Roundtrip_StructuralEquality()
         {
             var xml = File.ReadAllText(TestDataPath);
-            var model = XmlTestUtils.Deserialize<ParticleSystemsOutdoor>(xml);
+            var model = XmlTestUtils.Deserialize<ParticleSystems>(xml);
             var serialized = XmlTestUtils.Serialize(model);
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
         }

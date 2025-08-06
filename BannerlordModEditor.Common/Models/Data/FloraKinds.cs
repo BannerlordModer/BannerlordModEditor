@@ -22,7 +22,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public float? ViewDistance { get; set; }
 
         [XmlElement("flags")]
-        public Flags Flags { get; set; }
+        public FloraFlags Flags { get; set; }
 
         [XmlElement("seasonal_kind")]
         public List<SeasonalKind> SeasonalKinds { get; set; } = new List<SeasonalKind>();
@@ -32,15 +32,15 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeSeasonalKinds() => SeasonalKinds != null && SeasonalKinds.Count > 0;
     }
 
-    public class Flags
+    public class FloraFlags
     {
         [XmlElement("flag")]
-        public List<Flag> FlagList { get; set; } = new List<Flag>();
+        public List<FloraFlag> FlagList { get; set; } = new List<FloraFlag>();
 
         public bool ShouldSerializeFlagList() => FlagList != null && FlagList.Count > 0;
     }
 
-    public class Flag
+    public class FloraFlag
     {
         [XmlAttribute("name")]
         public string Name { get; set; }

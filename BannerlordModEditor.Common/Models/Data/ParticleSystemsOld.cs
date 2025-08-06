@@ -8,16 +8,16 @@ namespace BannerlordModEditor.Common.Models.Data
     public class ParticleSystemsOld
     {
         [XmlElement("particle_systems")]
-        public ParticleSystems ParticleSystems { get; set; }
+        public OldParticleSystems ParticleSystems { get; set; }
     }
 
-    public class ParticleSystems
+    public class OldParticleSystems
     {
         [XmlElement("particle_system")]
-        public List<ParticleSystem> ParticleSystemList { get; set; }
+        public List<OldParticleSystem> ParticleSystemList { get; set; }
     }
 
-    public class ParticleSystem
+    public class OldParticleSystem
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
@@ -29,7 +29,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string LowQualitySystemDistance { get; set; }
 
         [XmlElement("emitters")]
-        public Emitters Emitters { get; set; }
+        public OldEmitters Emitters { get; set; }
 
         public bool ShouldSerializeLowQualitySystem()
         {
@@ -42,13 +42,13 @@ namespace BannerlordModEditor.Common.Models.Data
         }
     }
 
-    public class Emitters
+    public class OldEmitters
     {
         [XmlElement("emitter")]
-        public List<Emitter> EmitterList { get; set; }
+        public List<OldEmitter> EmitterList { get; set; }
     }
 
-    public class Emitter
+    public class OldEmitter
     {
         [XmlAttribute("name")]
         public string Name { get; set; }

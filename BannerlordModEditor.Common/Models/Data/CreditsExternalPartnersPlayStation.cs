@@ -21,7 +21,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public List<CreditsExternalPartnersPlayStationSection> Section { get; set; } = new();
 
         [XmlElement("EmptyLine")]
-        public List<EmptyLine> EmptyLine { get; set; } = new();
+        public List<CreditsExternalPartnersPlayStationEmptyLine> EmptyLine { get; set; } = new();
 
         public bool ShouldSerializeSection() => Section?.Count > 0;
         public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
@@ -36,7 +36,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public List<CreditsExternalPartnersPlayStationEntry> Entry { get; set; } = new();
 
         [XmlElement("EmptyLine")]
-        public List<EmptyLine> EmptyLine { get; set; } = new();
+        public List<CreditsExternalPartnersPlayStationEmptyLine> EmptyLine { get; set; } = new();
 
         public bool ShouldSerializeEntry() => Entry?.Count > 0;
         public bool ShouldSerializeEmptyLine() => EmptyLine?.Count > 0;
@@ -46,5 +46,10 @@ namespace BannerlordModEditor.Common.Models.Data
     {
         [XmlAttribute("Text")]
         public string? Text { get; set; }
+    }
+
+    public class CreditsExternalPartnersPlayStationEmptyLine
+    {
+        // 空节点，无属性
     }
 }

@@ -15,7 +15,7 @@ namespace BannerlordModEditor.Common.Models.Data
 
         [XmlArray("combat_parameters")]
         [XmlArrayItem("combat_parameter")]
-        public List<CombatParameter> CombatParametersList { get; set; }
+        public List<BaseCombatParameter> CombatParametersList { get; set; }
         
         public bool ShouldSerializeDefinitions() => Definitions != null;
         public bool ShouldSerializeCombatParametersList() => CombatParametersList != null && CombatParametersList.Count > 0;
@@ -37,7 +37,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Value { get; set; }
     }
 
-    public class CombatParameter
+    public class BaseCombatParameter
     {
         [XmlAttribute("id")]
         public string Id { get; set; }

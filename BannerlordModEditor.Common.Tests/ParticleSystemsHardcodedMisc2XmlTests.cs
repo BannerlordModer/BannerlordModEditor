@@ -13,7 +13,7 @@ namespace BannerlordModEditor.Common.Tests
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化
-            var obj = XmlTestUtils.Deserialize<ParticleSystemsHardcodedMisc2>(xml);
+            var obj = XmlTestUtils.Deserialize<ParticleSystems>(xml);
 
             // 再序列化
             var xml2 = XmlTestUtils.Serialize(obj);
