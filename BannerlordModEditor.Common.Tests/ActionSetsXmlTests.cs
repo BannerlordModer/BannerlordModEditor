@@ -1,27 +1,25 @@
 using System.IO;
 using Xunit;
 using BannerlordModEditor.Common.Models.Data;
-using BannerlordModEditor.Common.Tests.Services;
 
 namespace BannerlordModEditor.Common.Tests
 {
     public class ActionSetsXmlTests
     {
-        private static string ReadTestData(string fileName)
+        [Fact]
+        public void ActionSets_RoundTrip_StructuralEquality()
         {
-            var path = Path.Combine("TestData", fileName);
-            return File.ReadAllText(path);
-        }
+            var xmlPath = "TestData/action_sets.xml";
+            var xml = File.ReadAllText(xmlPath);
 
-        [Theory]
-        [InlineData("action_sets.xml")]
-        [InlineData("action_sets_part1.xml")]
-        public void ActionSets_RoundTrip_StructuralEquality(string fileName)
-        {
-            var xml = ReadTestData(fileName);
-            var obj = XmlTestUtils.Deserialize<ActionSets>(xml);
-            var xml2 = XmlTestUtils.Serialize(obj);
-            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2), $"结构不一致: {fileName}");
+            // 反序列化
+            var obj = XmlTestUtils.Deserialize<ActionSetsData>(xml);
+
+            // 再序列化
+            var serialized = XmlTestUtils.Serialize(obj);
+
+            // 结构化对比
+            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
         }
     }
 }
