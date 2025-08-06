@@ -180,3 +180,6 @@ BannerlordModEditor.sln
 - XML文件名使用下划线分隔 (如`action_types.xml`)
 - C#类名使用PascalCase (如`ActionTypes.cs`)
 - 命名空间按功能域分层组织
+
+### XML适配注意事项
+- 适配XML的时候要注意，XML文档中存在的字段就是要存在的，不存在的字段就不能存在，要严格区分字段或属性不存在以及字段或属性为空的情况，因为要面对一个随时可能因为XML多了一点东西就导致崩溃的解析器
