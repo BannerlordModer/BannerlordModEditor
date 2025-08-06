@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using System.Text;
 using System.Xml;
-using System.Xml.Serialization;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -19,7 +19,12 @@ namespace BannerlordModEditor.Common.Tests
         public static string Serialize<T>(T obj)
         {
             var serializer = new XmlSerializer(typeof(T));
-            var settings = new XmlWriterSettings { Indent = true, OmitXmlDeclaration = false, Encoding = Encoding.UTF8 };
+            var settings = new XmlWriterSettings
+            {
+                OmitXmlDeclaration = false,
+                Indent = true,
+                Encoding = Encoding.UTF8
+            };
             using var sw = new Utf8StringWriter();
             using var writer = XmlWriter.Create(sw, settings);
             serializer.Serialize(writer, obj);
