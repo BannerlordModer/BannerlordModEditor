@@ -1,0 +1,27 @@
+<combat_parameters>
+	<!--
+		Default values of the parameters;
+		float collision_check_starting_percent   = 1.0
+		float collision_damage_starting_percent  = collision_check_starting_percent
+		float collision_check_ending_percent     = 0.0
+    	float look_slope_blend_factor_up_limit   = 1.0
+	    float look_slope_blend_factor_down_limit = 0.0
+       float look_slope_blend_speed_factor      = 1.0
+		float vertical_rot_limit_multiplier_up   = 0.0
+       float vertical_rot_limit_multiplier_down = 0.0
+		float right_rider_rot_limit              = 0.0  //this value is in degrees! not in radians!!
+		float left_rider_rot_limit               = 0.0  //this value is in degrees! not in radians!!
+		float right_rider_min_rot_limit          = 37.24//this value is in degrees! not in radians!!
+		float left_rider_min_rot_limit           = 22.91//this value is in degrees! not in radians!!
+		float left_ladder_rot_limit              = 0.0  //this value is in degrees! not in radians!!
+		float right_ladder_rot_limit             = 0.0  //this value is in degrees! not in radians!!
+		vec3 weapon_offset                       = 0.0, 0.0, 0.0
+		float collision_radius                   = 0.05  // value >= 0
+		float alternative_attack_cooldown_period = 0.0
+		int hit_bone_index                       = -1   //if minus; combat system will choose the bone according to the animation.
+		int shoulder_hit_bone_index              = -1   //if minus; combat system will not check arm collision.
+
+		Note: Incase of not referencing the parameter or an error; the default value will be used.
+	-->
+	<!-- ...（省略，实际写入后64个 combat_parameter 节点，保持格式与原始一致）... -->
+</combat_parameters>
