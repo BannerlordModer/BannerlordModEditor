@@ -99,13 +99,13 @@ namespace BannerlordModEditor.Common.Tests
             }
 
             // 使用正确的XML测试模式 - 验证关键数据内容一致
-            var serializer = new XmlSerializer(typeof(FloraKinds));
+            var reparsingSerializer = new XmlSerializer(typeof(FloraKinds));
             
             // 反序列化序列化后的XML
             FloraKinds reparsedFloraKinds;
             using (var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(serializedXml)))
             {
-                reparsedFloraKinds = (FloraKinds)serializer.Deserialize(memoryStream)!;
+                reparsedFloraKinds = (FloraKinds)reparsingSerializer.Deserialize(memoryStream)!;
             }
             
             Assert.NotNull(reparsedFloraKinds);
