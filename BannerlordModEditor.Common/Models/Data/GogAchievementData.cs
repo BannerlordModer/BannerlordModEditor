@@ -1,128 +1,37 @@
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
-    /// <summary>
-    /// GOG成就数据模型
-    /// 原本实现：无
-    /// 简化实现：使用增强的XML映射类系统实现字段存在性追踪
-    /// </summary>
     [XmlRoot("Achievements")]
-    public class GogAchievements : XmlModelBase
+    public class GogAchievementData
     {
-        private List<GogAchievement> _achievements = new();
-
         [XmlElement("Achievement")]
-        public List<GogAchievement> Achievements
-        {
-            get => _achievements;
-            set
-            {
-                _achievements = value ?? new List<GogAchievement>();
-                MarkPropertyExists(nameof(Achievements));
-            }
-        }
-
-        public bool ShouldSerializeAchievements() => PropertyExists(nameof(Achievements));
+        public List<GogAchievement> Achievements { get; set; } = new List<GogAchievement>();
     }
 
-    /// <summary>
-    /// 成就模型
-    /// </summary>
-    public class GogAchievement : XmlModelBase
+    public class GogAchievement
     {
-        private string? _name;
-        private GogRequirements? _requirements;
-
         [XmlAttribute("name")]
-        public string? Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                MarkPropertyExists(nameof(Name));
-            }
-        }
+        public string Name { get; set; }
 
-        [XmlArray("Requirements")]
-        [XmlArrayItem("Requirement")]
-        public GogRequirements? Requirements
-        {
-            get => _requirements;
-            set
-            {
-                _requirements = value;
-                MarkPropertyExists(nameof(Requirements));
-            }
-        }
-
-        /// <summary>
-        /// 检查Name属性在XML中是否存在
-        /// </summary>
-        public bool NameExistsInXml => PropertyExists(nameof(Name));
-
-        /// <summary>
-        /// 检查Requirements属性在XML中是否存在
-        /// </summary>
-        public bool RequirementsExistsInXml => PropertyExists(nameof(Requirements));
+        [XmlElement("Requirements")]
+        public GogAchievementRequirements Requirements { get; set; }
     }
 
-    /// <summary>
-    /// 要求集合模型
-    /// </summary>
-    [XmlRoot("Requirements")]
-    public class GogRequirements : List<GogRequirement>
+    public class GogAchievementRequirements
     {
-        public GogRequirements()
-        {
-        }
-
-        public GogRequirements(IEnumerable<GogRequirement> collection) : base(collection)
-        {
-        }
+        [XmlElement("Requirement")]
+        public List<GogAchievementRequirement> RequirementList { get; set; } = new List<GogAchievementRequirement>();
     }
 
-    /// <summary>
-    /// 要求模型
-    /// </summary>
-    public class GogRequirement : XmlModelBase
+    public class GogAchievementRequirement
     {
-        private string? _statName;
-        private string? _threshold;
-
         [XmlAttribute("statName")]
-        public string? StatName
-        {
-            get => _statName;
-            set
-            {
-                _statName = value;
-                MarkPropertyExists(nameof(StatName));
-            }
-        }
+        public string StatName { get; set; }
 
         [XmlAttribute("threshold")]
-        public string? Threshold
-        {
-            get => _threshold;
-            set
-            {
-                _threshold = value;
-                MarkPropertyExists(nameof(Threshold));
-            }
-        }
-
-        /// <summary>
-        /// 检查StatName属性在XML中是否存在
-        /// </summary>
-        public bool StatNameExistsInXml => PropertyExists(nameof(StatName));
-
-        /// <summary>
-        /// 检查Threshold属性在XML中是否存在
-        /// </summary>
-        public bool ThresholdExistsInXml => PropertyExists(nameof(Threshold));
+        public int Threshold { get; set; }
     }
 }
