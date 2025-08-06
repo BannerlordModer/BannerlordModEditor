@@ -10,10 +10,10 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Type { get; set; } = string.Empty;
 
         [XmlElement("meshes")]
-        public MeshesContainer Meshes { get; set; } = new MeshesContainer();
+        public SpecialMeshesContainer Meshes { get; set; } = new SpecialMeshesContainer();
     }
 
-    public class MeshesContainer
+    public class SpecialMeshesContainer
     {
         [XmlElement("mesh")]
         public List<SpecialMesh> MeshList { get; set; } = new List<SpecialMesh>();

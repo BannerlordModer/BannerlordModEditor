@@ -31,10 +31,10 @@ namespace BannerlordModEditor.Common.Models.Data
     public class DecalTextures
     {
         [XmlElement("texture")]
-        public List<DecalTexture> TextureList { get; set; } = new List<DecalTexture>();
+        public List<SkinnedDecalTexture> TextureList { get; set; } = new List<SkinnedDecalTexture>();
     }
 
-    public class DecalTexture
+    public class SkinnedDecalTexture
     {
         [XmlAttribute("type")]
         public string Type { get; set; } = string.Empty;

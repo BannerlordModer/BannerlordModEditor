@@ -27,12 +27,12 @@ namespace BannerlordModEditor.Common.Models.Data
     public class LayerFlora
     {
         [XmlElement("mesh")]
-        public Mesh Mesh { get; set; }
+        public FloraLayerMesh Mesh { get; set; }
 
         public bool ShouldSerializeMesh() => Mesh != null;
     }
 
-    public class Mesh
+    public class FloraLayerMesh
     {
         [XmlAttribute("name")]
         public string Name { get; set; }

@@ -80,7 +80,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Position { get; set; }
 
         [XmlElement("meshes")]
-        public MeshesContainer Meshes { get; set; }
+        public LooknfeelMeshesContainer Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
         public SubWidgetsContainer SubWidgets { get; set; }
@@ -105,19 +105,19 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeSubWidgets() => SubWidgets != null;
     }
 
-    public class MeshesContainer
+    public class LooknfeelMeshesContainer
     {
         [XmlElement("background_mesh")]
-        public List<Mesh> BackgroundMeshes { get; set; }
+        public List<LooknfeelMesh> BackgroundMeshes { get; set; }
 
         [XmlElement("button_mesh")]
-        public List<Mesh> ButtonMeshes { get; set; }
+        public List<LooknfeelMesh> ButtonMeshes { get; set; }
 
         [XmlElement("button_pressed_mesh")]
-        public List<Mesh> ButtonPressedMeshes { get; set; }
+        public List<LooknfeelMesh> ButtonPressedMeshes { get; set; }
 
         [XmlElement("highlight_mesh")]
-        public List<Mesh> HighlightMeshes { get; set; }
+        public List<LooknfeelMesh> HighlightMeshes { get; set; }
 
         public bool ShouldSerializeBackgroundMeshes() => BackgroundMeshes != null && BackgroundMeshes.Count > 0;
         public bool ShouldSerializeButtonMeshes() => ButtonMeshes != null && ButtonMeshes.Count > 0;
@@ -125,7 +125,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeHighlightMeshes() => HighlightMeshes != null && HighlightMeshes.Count > 0;
     }
 
-    public class Mesh
+    public class LooknfeelMesh
     {
         [XmlAttribute("name")]
         public string Name { get; set; }
@@ -185,7 +185,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public string FontSize { get; set; }
 
         [XmlElement("meshes")]
-        public MeshesContainer Meshes { get; set; }
+        public LooknfeelMeshesContainer Meshes { get; set; }
 
         public bool ShouldSerializeRef() => !string.IsNullOrEmpty(Ref);
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);

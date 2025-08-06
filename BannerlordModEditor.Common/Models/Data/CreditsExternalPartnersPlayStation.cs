@@ -47,6 +47,4 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("Text")]
         public string? Text { get; set; }
     }
-
-    public class EmptyLine { }
 }
