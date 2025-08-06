@@ -72,9 +72,10 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Indent = true,
                 IndentChars = "\t",
-                NewLineChars = "\r\n",
+                NewLineChars = "\n",  // 使用Unix换行符匹配原始
                 Encoding = new UTF8Encoding(true), // With BOM to match original
-                OmitXmlDeclaration = false
+                OmitXmlDeclaration = false,
+                NewLineOnAttributes = true  // 属性换行以匹配原始格式
             };
 
             // Save to temporary file and read back to ensure proper BOM handling
@@ -83,8 +84,8 @@ namespace BannerlordModEditor.Common.Tests
             {
                 using (var xmlWriter = XmlWriter.Create(tempPath, settings))
                 {
+                    // 保留原始命名空间
                     var ns = new XmlSerializerNamespaces();
-                    ns.Add("", "");
                     serializer.Serialize(xmlWriter, model, ns);
                 }
                 
@@ -94,24 +95,53 @@ namespace BannerlordModEditor.Common.Tests
                 Console.WriteLine($"Serialized XML length: {serializedXml.Length}");
                 Console.WriteLine($"Serialized XML starts with BOM: {serializedXml.StartsWith("\uFEFF")}");
                 
-                // Comparison - normalize both XMLs to handle empty element differences
+                // 直接比较文本内容而不是解析后的XML
                 var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
-                XDocument originalDoc, serializedDoc;
                 
-                // Debug output
-                Console.WriteLine($"Original XML length: {originalXml.Length}");
-                Console.WriteLine($"Original XML starts with BOM: {originalXml.StartsWith("\uFEFF")}");
-                Console.WriteLine($"Original XML first 50 chars: '{originalXml.Substring(0, Math.Min(50, originalXml.Length))}'");
+                // 移除可能的BOM后直接比较文本
+                string originalXmlContent = originalXml;
+                if (originalXmlContent.StartsWith("\uFEFF"))
+                {
+                    originalXmlContent = originalXmlContent.Substring(1);
+                }
                 
-                // Parse XML documents - keep original parsing method that was working
-                originalDoc = XDocument.Parse(originalXml);
-                serializedDoc = XDocument.Parse(serializedXml);
+                string serializedXmlContent = serializedXml;
+                if (serializedXmlContent.StartsWith("\uFEFF"))
+                {
+                    serializedXmlContent = serializedXmlContent.Substring(1);
+                }
                 
-                // Normalize both documents to handle <element></element> vs <element /> differences
-                NormalizeEmptyElements(originalDoc.Root);
-                NormalizeEmptyElements(serializedDoc.Root);
-
-                Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
+                // 标准化换行符以忽略平台差异
+                originalXmlContent = originalXmlContent.Replace("\r\n", "\n");
+                serializedXmlContent = serializedXmlContent.Replace("\r\n", "\n");
+                
+                // 检查内容差异但允许格式差异（换行vs空格）
+                if (originalXmlContent != serializedXmlContent)
+                {
+                    // 验证XML可以被正确解析
+                    try
+                    {
+                        var originalDoc = XDocument.Parse(originalXml);
+                        var serializedDoc = XDocument.Parse(serializedXml);
+                        Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "XML逻辑不相等");
+                    }
+                    catch (Exception ex)
+                    {
+                        Assert.True(false, $"XML无法正确解析: {ex.Message}");
+                    }
+                }
+                
+                // 验证XML可以被正确解析并逻辑相等（忽略格式差异）
+                try
+                {
+                    var originalDoc = XDocument.Parse(originalXml);
+                    var serializedDoc = XDocument.Parse(serializedXml);
+                    Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "XML逻辑不相等");
+                }
+                catch (Exception ex)
+                {
+                    Assert.True(false, $"XML无法正确解析: {ex.Message}");
+                }
             }
             finally
             {
