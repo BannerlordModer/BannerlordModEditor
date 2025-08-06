@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Xml.Serialization;
+
+namespace BannerlordModEditor.Common.Models.Data
+{
+    [XmlRoot("flora_kinds")]
+    public class FloraKinds
+    {
+        [XmlElement("flora_kind")]
+        public List<FloraKind> FloraKindList { get; set; } = new List<FloraKind>();
+
+        public bool ShouldSerializeFloraKindList() => FloraKindList != null && FloraKindList.Count > 0;
+    }
+
+    public class FloraKind
+    {
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute("view_distance")]
+        public float? ViewDistance { get; set; }
+
+        [XmlElement("flags")]
+        public Flags Flags { get; set; }
+
+        [XmlElement("seasonal_kind")]
+        public List<SeasonalKind> SeasonalKinds { get; set; } = new List<SeasonalKind>();
+
+        public bool ShouldSerializeViewDistance() => ViewDistance.HasValue;
+        public bool ShouldSerializeFlags() => Flags != null;
+        public bool ShouldSerializeSeasonalKinds() => SeasonalKinds != null && SeasonalKinds.Count > 0;
+    }
+
+    public class Flags
+    {
+        [XmlElement("flag")]
+        public List<Flag> FlagList { get; set; } = new List<Flag>();
+
+        public bool ShouldSerializeFlagList() => FlagList != null && FlagList.Count > 0;
+    }
+
+    public class Flag
+    {
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute("value")]
+        public string Value { get; set; }
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+    }
+
+    public class SeasonalKind
+    {
+        [XmlAttribute("season")]
+        public string Season { get; set; }
+
+        [XmlElement("flora_variations")]
+        public FloraVariations FloraVariations { get; set; }
+
+        public bool ShouldSerializeSeason() => !string.IsNullOrEmpty(Season);
+        public bool ShouldSerializeFloraVariations() => FloraVariations != null;
+    }
+
+    public class FloraVariations
+    {
+        [XmlElement("flora_variation")]
+        public List<FloraVariation> FloraVariationList { get; set; } = new List<FloraVariation>();
+
+        public bool ShouldSerializeFloraVariationList() => FloraVariationList != null && FloraVariationList.Count > 0;
+    }
+
+    public class FloraVariation
+    {
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute("density_multiplier")]
+        public float? DensityMultiplier { get; set; }
+
+        [XmlAttribute("bb_radius")]
+        public float? BbRadius { get; set; }
+
+        [XmlElement("mesh")]
+        public List<Mesh> Meshes { get; set; } = new List<Mesh>();
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeDensityMultiplier() => DensityMultiplier.HasValue;
+        public bool ShouldSerializeBbRadius() => BbRadius.HasValue;
+        public bool ShouldSerializeMeshes() => Meshes != null && Meshes.Count > 0;
+    }
+
+    public class Mesh
+    {
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute("material")]
+        public string Material { get; set; }
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeMaterial() => !string.IsNullOrEmpty(Material);
+    }
+}
