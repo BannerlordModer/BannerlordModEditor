@@ -77,39 +77,50 @@ namespace BannerlordModEditor.Common.Tests
                 OmitXmlDeclaration = false
             };
 
-            string serializedXml;
-            using (var memoryStream = new MemoryStream())
-            using (var xmlWriter = XmlWriter.Create(memoryStream, settings))
+            // Save to temporary file and read back to ensure proper BOM handling
+            var tempPath = Path.GetTempFileName();
+            try
             {
-                var ns = new XmlSerializerNamespaces();
-                ns.Add("", "");
-                serializer.Serialize(xmlWriter, model, ns);
-                xmlWriter.Flush();
-                serializedXml = Encoding.UTF8.GetString(memoryStream.ToArray());
-            }
+                using (var xmlWriter = XmlWriter.Create(tempPath, settings))
+                {
+                    var ns = new XmlSerializerNamespaces();
+                    ns.Add("", "");
+                    serializer.Serialize(xmlWriter, model, ns);
+                }
+                
+                string serializedXml = File.ReadAllText(tempPath, Encoding.UTF8);
+                
+                // Debug output to check BOM
+                Console.WriteLine($"Serialized XML length: {serializedXml.Length}");
+                Console.WriteLine($"Serialized XML starts with BOM: {serializedXml.StartsWith("\uFEFF")}");
+                
+                // Comparison - normalize both XMLs to handle empty element differences
+                var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
+                XDocument originalDoc, serializedDoc;
+                
+                // Debug output
+                Console.WriteLine($"Original XML length: {originalXml.Length}");
+                Console.WriteLine($"Original XML starts with BOM: {originalXml.StartsWith("\uFEFF")}");
+                Console.WriteLine($"Original XML first 50 chars: '{originalXml.Substring(0, Math.Min(50, originalXml.Length))}'");
+                
+                // Parse XML documents - keep original parsing method that was working
+                originalDoc = XDocument.Parse(originalXml);
+                serializedDoc = XDocument.Parse(serializedXml);
+                
+                // Normalize both documents to handle <element></element> vs <element /> differences
+                NormalizeEmptyElements(originalDoc.Root);
+                NormalizeEmptyElements(serializedDoc.Root);
 
-            // Comparison - normalize both XMLs to handle empty element differences
-            var originalXml = File.ReadAllText(xmlPath, Encoding.UTF8);
-            XDocument originalDoc, serializedDoc;
-            
-            // Parse XML documents with proper BOM handling
-            using (var originalStringReader = new StringReader(originalXml))
-            using (var originalXmlReader = XmlReader.Create(originalStringReader))
+                Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
+            }
+            finally
             {
-                originalDoc = XDocument.Load(originalXmlReader);
+                // Clean up temp file
+                if (File.Exists(tempPath))
+                {
+                    File.Delete(tempPath);
+                }
             }
-            
-            using (var serializedStringReader = new StringReader(serializedXml))
-            using (var serializedXmlReader = XmlReader.Create(serializedStringReader))
-            {
-                serializedDoc = XDocument.Load(serializedXmlReader);
-            }
-
-            // Normalize both documents to handle <element></element> vs <element /> differences
-            NormalizeEmptyElements(originalDoc.Root);
-            NormalizeEmptyElements(serializedDoc.Root);
-
-            Assert.True(XNode.DeepEquals(originalDoc, serializedDoc), "The XML was not logically identical after a round-trip.");
         }
 
         private static void NormalizeEmptyElements(XElement? element)
