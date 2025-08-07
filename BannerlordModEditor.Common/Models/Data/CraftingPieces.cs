@@ -4,11 +4,20 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
-    [XmlRoot("CraftingPieces")]
+    [XmlRoot("base")]
     public class CraftingPieces
     {
-        [XmlElement("CraftingPiece")]
-        public List<CraftingPiece> Pieces { get; set; }
+        [XmlAttribute("type")]
+        public string Type { get; set; } = "crafting_piece";
+
+        [XmlElement("crafting_pieces")]
+        public CraftingPiecesContainer CraftingPiecesContainer { get; set; } = new CraftingPiecesContainer();
+    }
+
+    public class CraftingPiecesContainer
+    {
+        [XmlElement("crafting_piece")]
+        public List<CraftingPiece> Pieces { get; set; } = new List<CraftingPiece>();
 
         public bool ShouldSerializePieces() => Pieces != null && Pieces.Count > 0;
     }
@@ -22,38 +31,63 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Name { get; set; }
 
         [XmlAttribute("tier")]
+        public string TierString
+        {
+            get => Tier.HasValue ? Tier.Value.ToString() : null;
+            set => Tier = string.IsNullOrEmpty(value) ? (int?)null : int.Parse(value);
+        }
+        [XmlIgnore]
         public int? Tier { get; set; }
-
-        public bool ShouldSerializeTier() => Tier.HasValue;
-
+        
         [XmlAttribute("piece_type")]
         public string PieceType { get; set; }
-
+        
         [XmlAttribute("mesh")]
         public string Mesh { get; set; }
-
+        
         [XmlAttribute("culture")]
         public string Culture { get; set; }
-
+        
         [XmlAttribute("length")]
+        public string LengthString
+        {
+            get => Length.HasValue ? Length.Value.ToString() : null;
+            set => Length = string.IsNullOrEmpty(value) ? (double?)null : double.Parse(value);
+        }
+        [XmlIgnore]
         public double? Length { get; set; }
-        public bool ShouldSerializeLength() => Length.HasValue;
-
         [XmlAttribute("weight")]
+        public string WeightString
+        {
+            get => Weight.HasValue ? Weight.Value.ToString() : null;
+            set => Weight = string.IsNullOrEmpty(value) ? (double?)null : double.Parse(value);
+        }
+        [XmlIgnore]
         public double? Weight { get; set; }
-        public bool ShouldSerializeWeight() => Weight.HasValue;
-
         [XmlAttribute("is_hidden")]
+        public string IsHiddenString
+        {
+            get => IsHidden.HasValue ? IsHidden.Value.ToString().ToLower() : null;
+            set => IsHidden = string.IsNullOrEmpty(value) ? (bool?)null : bool.Parse(value);
+        }
+        [XmlIgnore]
         public bool? IsHidden { get; set; }
-        public bool ShouldSerializeIsHidden() => IsHidden.HasValue;
-
         [XmlAttribute("is_default")]
+        public string IsDefaultString
+        {
+            get => IsDefault.HasValue ? IsDefault.Value.ToString().ToLower() : null;
+            set => IsDefault = string.IsNullOrEmpty(value) ? (bool?)null : bool.Parse(value);
+        }
+        [XmlIgnore]
         public bool? IsDefault { get; set; }
-        public bool ShouldSerializeIsDefault() => IsDefault.HasValue;
-
         [XmlAttribute("CraftingCost")]
+        public string CraftingCostString
+        {
+            get => CraftingCost.HasValue ? CraftingCost.Value.ToString() : null;
+            set => CraftingCost = string.IsNullOrEmpty(value) ? (int?)null : int.Parse(value);
+        }
+        [XmlIgnore]
         public int? CraftingCost { get; set; }
-        public bool ShouldSerializeCraftingCost() => CraftingCost.HasValue;
 
         [XmlElement("BuildData")]
         public BuildData BuildData { get; set; }
@@ -74,14 +108,14 @@ namespace BannerlordModEditor.Common.Models.Data
 
     public class BuildData
     {
-        [XmlAttribute("previous_piece_offset")]
+        [XmlElement("previous_piece_offset")]
         public double? PreviousPieceOffset { get; set; }
         public bool ShouldSerializePreviousPieceOffset() => PreviousPieceOffset.HasValue;
     }
 
     public class BladeData
     {
-        [XmlAttribute("stack_amount")]
+        [XmlElement("stack_amount")]
         public int? StackAmount { get; set; }
         public bool ShouldSerializeStackAmount() => StackAmount.HasValue;
 
@@ -109,7 +143,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("damage_type")]
         public string DamageType { get; set; }
 
-        [XmlAttribute("damage_factor")]
+        [XmlElement("damage_factor")]
         public double? DamageFactor { get; set; }
         public bool ShouldSerializeDamageFactor() => DamageFactor.HasValue;
     }
@@ -119,7 +153,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("damage_type")]
         public string DamageType { get; set; }
 
-        [XmlAttribute("damage_factor")]
+        [XmlElement("damage_factor")]
         public double? DamageFactor { get; set; }
         public bool ShouldSerializeDamageFactor() => DamageFactor.HasValue;
     }
@@ -151,7 +185,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("id")]
         public string Id { get; set; }
 
-        [XmlAttribute("count")]
+        [XmlElement("count")]
         public int? Count { get; set; }
         public bool ShouldSerializeCount() => Count.HasValue;
     }

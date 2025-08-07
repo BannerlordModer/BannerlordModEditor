@@ -7,9 +7,14 @@ namespace BannerlordModEditor.Common.Models.Data
     [XmlRoot("flora_kinds")]
     public class FloraKinds
     {
+        [XmlElement("flora_kinds")]
+        public FloraKindsContainer FloraKindsContainer { get; set; } = new FloraKindsContainer();
+    }
+
+    public class FloraKindsContainer
+    {
         [XmlElement("flora_kind")]
         public List<FloraKind> FloraKindList { get; set; } = new List<FloraKind>();
-
         public bool ShouldSerializeFloraKindList() => FloraKindList != null && FloraKindList.Count > 0;
     }
 
@@ -19,6 +24,12 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Name { get; set; }
 
         [XmlAttribute("view_distance")]
+        public string ViewDistanceString
+        {
+            get => ViewDistance.HasValue ? ViewDistance.Value.ToString() : null;
+            set => ViewDistance = string.IsNullOrEmpty(value) ? (float?)null : float.Parse(value);
+        }
+        [XmlIgnore]
         public float? ViewDistance { get; set; }
 
         [XmlElement("flags")]
@@ -36,7 +47,6 @@ namespace BannerlordModEditor.Common.Models.Data
     {
         [XmlElement("flag")]
         public List<FloraFlag> FlagList { get; set; } = new List<FloraFlag>();
-
         public bool ShouldSerializeFlagList() => FlagList != null && FlagList.Count > 0;
     }
 
@@ -68,7 +78,6 @@ namespace BannerlordModEditor.Common.Models.Data
     {
         [XmlElement("flora_variation")]
         public List<FloraVariation> FloraVariationList { get; set; } = new List<FloraVariation>();
-
         public bool ShouldSerializeFloraVariationList() => FloraVariationList != null && FloraVariationList.Count > 0;
     }
 
@@ -78,9 +87,21 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Name { get; set; }
 
         [XmlAttribute("density_multiplier")]
+        public string DensityMultiplierString
+        {
+            get => DensityMultiplier.HasValue ? DensityMultiplier.Value.ToString() : null;
+            set => DensityMultiplier = string.IsNullOrEmpty(value) ? (float?)null : float.Parse(value);
+        }
+        [XmlIgnore]
         public float? DensityMultiplier { get; set; }
 
         [XmlAttribute("bb_radius")]
+        public string BbRadiusString
+        {
+            get => BbRadius.HasValue ? BbRadius.Value.ToString() : null;
+            set => BbRadius = string.IsNullOrEmpty(value) ? (float?)null : float.Parse(value);
+        }
+        [XmlIgnore]
         public float? BbRadius { get; set; }
 
         [XmlElement("mesh")]
