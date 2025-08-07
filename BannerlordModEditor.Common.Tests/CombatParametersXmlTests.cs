@@ -9,7 +9,7 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void CombatParameters_RoundTrip_StructuralEquality()
         {
-            var xmlPath = "BannerlordModEditor.Common.Tests/TestData/combat_parameters.xml";
+            var xmlPath = "TestData/combat_parameters.xml";
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化
@@ -23,8 +23,8 @@ namespace BannerlordModEditor.Common.Tests
         }
 
         [Theory]
-        [InlineData("BannerlordModEditor.Common.Tests/TestData/combat_parameters_part1.xml")]
-        [InlineData("BannerlordModEditor.Common.Tests/TestData/combat_parameters_part2.xml")]
+        [InlineData("TestData/combat_parameters_part1.xml")]
+        [InlineData("TestData/combat_parameters_part2.xml")]
         public void CombatParameters_PartFiles_RoundTrip_StructuralEquality(string xmlPath)
         {
             var xml = File.ReadAllText(xmlPath);

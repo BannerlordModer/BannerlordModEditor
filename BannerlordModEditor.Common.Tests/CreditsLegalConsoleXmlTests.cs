@@ -63,63 +63,41 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "CreditsLegalConsole.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(Credits));
-            Credits credits;
+            var serializer = new XmlSerializer(typeof(CreditsLegalConsole));
+            CreditsLegalConsole credits;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                credits = (Credits)serializer.Deserialize(reader)!;
+                credits = (CreditsLegalConsole)serializer.Deserialize(reader)!;
             }
             
-            // Assert - 验证所有Category都有Text属性
-            foreach (var category in credits.Category)
-            {
-                Assert.False(string.IsNullOrWhiteSpace(category.Text), "Category应该有Text属性");
-            }
+            // Assert - 验证Category存在
+            Assert.NotNull(credits.Category);
+            Assert.False(string.IsNullOrWhiteSpace(credits.Category.Text), "Category应该有Text属性");
             
             // 验证所有Section都有Text属性
-            foreach (var category in credits.Category)
+            foreach (var section in credits.Category.Items.OfType<CreditsSectionLegal>())
             {
-                foreach (var section in category.Section)
-                {
-                    Assert.False(string.IsNullOrWhiteSpace(section.Text), "Section应该有Text属性");
-                }
+                Assert.False(string.IsNullOrWhiteSpace(section.Text), "Section应该有Text属性");
             }
             
             // 验证所有Entry都有Text属性
-            foreach (var category in credits.Category)
+            foreach (var entry in credits.Category.Items.OfType<CreditsEntryLegal>())
             {
-                foreach (var entry in category.Entry)
-                {
-                    Assert.False(string.IsNullOrWhiteSpace(entry.Text), "Entry应该有Text属性");
-                }
-                
-                foreach (var section in category.Section)
-                {
-                    foreach (var entry in section.Entry)
-                    {
-                        Assert.False(string.IsNullOrWhiteSpace(entry.Text), "Section Entry应该有Text属性");
-                    }
-                }
+                Assert.False(string.IsNullOrWhiteSpace(entry.Text), "Entry应该有Text属性");
             }
             
             // 验证所有Image都有Text属性
-            foreach (var category in credits.Category)
+            foreach (var image in credits.Category.Items.OfType<CreditsImageLegal>())
             {
-                foreach (var image in category.Image)
-                {
-                    Assert.False(string.IsNullOrWhiteSpace(image.Text), "Image应该有Text属性");
-                }
+                Assert.False(string.IsNullOrWhiteSpace(image.Text), "Image应该有Text属性");
             }
             
             // 验证必需的图像存在
-            var legalCategory = credits.Category.FirstOrDefault(c => c.Text == "{=!}Legal Notices");
-            Assert.NotNull(legalCategory);
-            
             var requiredImages = new[] { "nvidia", "nvidia_physx", "simplygon", "speedtree", "telemetry" };
             foreach (var requiredImage in requiredImages)
             {
-                var image = legalCategory.Image.FirstOrDefault(i => i.Text == requiredImage);
+                var image = credits.Category.Items.OfType<CreditsImageLegal>().FirstOrDefault(i => i.Text == requiredImage);
                 Assert.NotNull(image);
             }
             
@@ -133,7 +111,7 @@ namespace BannerlordModEditor.Common.Tests
             
             foreach (var requiredSection in requiredSections)
             {
-                var section = legalCategory.Section.FirstOrDefault(s => s.Text == requiredSection);
+                var section = credits.Category.Items.OfType<CreditsSectionLegal>().FirstOrDefault(s => s.Text == requiredSection);
                 Assert.NotNull(section);
             }
         }
@@ -142,25 +120,25 @@ namespace BannerlordModEditor.Common.Tests
         public void CreditsLegalConsole_SerializeAndDeserialize_ShouldMaintainImageElements()
         {
             // Arrange
-            var originalCredits = new Credits();
-            var category = new CreditsCategory
+            var originalCredits = new CreditsLegalConsole();
+            var category = new CreditsCategoryLegal
             {
                 Text = "{=!}Test Category"
             };
             
             // 添加Image元素
-            category.Image.Add(new CreditsImage { Text = "test_image_1" });
-            category.Image.Add(new CreditsImage { Text = "test_image_2" });
+            category.Items.Add(new CreditsImageLegal { Text = "test_image_1" });
+            category.Items.Add(new CreditsImageLegal { Text = "test_image_2" });
             
             // 添加其他元素
-            category.Entry.Add(new CreditsEntry { Text = "Test Entry" });
-            category.EmptyLine.Add(new EmptyLine());
+            category.Items.Add(new CreditsEntryLegal { Text = "Test Entry" });
+            category.Items.Add(new CreditsEmptyLineLegal());
             
-            originalCredits.Category.Add(category);
+            originalCredits.Category = category;
             
             // Act - 序列化
             string xml;
-            var serializer = new XmlSerializer(typeof(Credits));
+            var serializer = new XmlSerializer(typeof(CreditsLegalConsole));
             using (var writer = new StringWriter())
             {
                 serializer.Serialize(writer, originalCredits);
@@ -168,23 +146,30 @@ namespace BannerlordModEditor.Common.Tests
             }
             
             // Act - 反序列化
-            Credits deserializedCredits;
+            CreditsLegalConsole deserializedCredits;
             using (var reader = new StringReader(xml))
             {
-                deserializedCredits = (Credits)serializer.Deserialize(reader)!;
+                deserializedCredits = (CreditsLegalConsole)serializer.Deserialize(reader)!;
             }
             
             // Assert
             Assert.NotNull(deserializedCredits);
-            Assert.Single(deserializedCredits.Category);
+            Assert.NotNull(deserializedCredits.Category);
             
-            var testCategory = deserializedCredits.Category[0];
+            var testCategory = deserializedCredits.Category;
             Assert.Equal("{=!}Test Category", testCategory.Text);
-            Assert.Equal(2, testCategory.Image.Count);
-            Assert.Equal("test_image_1", testCategory.Image[0].Text);
-            Assert.Equal("test_image_2", testCategory.Image[1].Text);
-            Assert.Single(testCategory.Entry);
-            Assert.Single(testCategory.EmptyLine);
+            
+            var images = testCategory.Items.OfType<CreditsImageLegal>().ToList();
+            Assert.Equal(2, images.Count);
+            Assert.Equal("test_image_1", images[0].Text);
+            Assert.Equal("test_image_2", images[1].Text);
+            
+            var entries = testCategory.Items.OfType<CreditsEntryLegal>().ToList();
+            Assert.Single(entries);
+            Assert.Equal("Test Entry", entries[0].Text);
+            
+            var emptyLines = testCategory.Items.OfType<CreditsEmptyLineLegal>().ToList();
+            Assert.Single(emptyLines);
         }
 
         private static void RemoveWhitespaceNodes(XElement? element)

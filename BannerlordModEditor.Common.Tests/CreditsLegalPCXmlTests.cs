@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class CreditsLegalPCXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/CreditsLegalPC.xml";
+        private const string TestDataPath = "TestData/CreditsLegalPC.xml";
 
         [Fact]
         public void CreditsLegalPC_RoundTrip_StructuralEquality()

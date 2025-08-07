@@ -7,7 +7,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class GpuParticleSystemsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/gpu_particle_systems.xml";
+        private const string TestDataPath = "TestData/gpu_particle_systems.xml";
 
         [Fact]
         public void Can_Deserialize_GpuParticleSystems()

@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class DecalSetsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/decal_sets.xml";
+        private const string TestDataPath = "TestData/decal_sets.xml";
 
         [Fact]
         public void DecalSets_RoundTrip_StructuralEquality()

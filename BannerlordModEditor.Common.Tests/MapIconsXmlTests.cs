@@ -9,7 +9,7 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void MapIcons_RoundTrip_StructuralEquality()
         {
-            var xmlPath = "BannerlordModEditor.Common.Tests/TestData/map_icons.xml";
+            var xmlPath = "TestData/map_icons.xml";
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化

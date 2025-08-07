@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class BoneBodyTypesXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/bone_body_types.xml";
+        private const string TestDataPath = "TestData/bone_body_types.xml";
 
         [Fact]
         public void BoneBodyTypes_RoundTrip_StructuralEquality()

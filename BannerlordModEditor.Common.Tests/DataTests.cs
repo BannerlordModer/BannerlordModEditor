@@ -133,7 +133,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var skill in result.SkillDataList)
             {
-                Assert.NotEmpty(skill.Id);
+                Assert.False(string.IsNullOrWhiteSpace(skill.Id));
                 Assert.NotEmpty(skill.Name);
                 Assert.NotNull(skill.Modifiers);
                 Assert.NotEmpty(skill.Documentation);
@@ -174,7 +174,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var site in result.Sites.SiteList)
             {
-                Assert.NotEmpty(site.Id);
+                Assert.False(string.IsNullOrWhiteSpace(site.Id));
                 Assert.NotEmpty(site.Name);
                 Assert.StartsWith("scn_", site.Id); // 所有场景ID应该以scn_开�?
             }
@@ -282,7 +282,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var record in result.FaceAnimationRecords.FaceAnimationRecordList)
             {
-                Assert.NotEmpty(record.Id);
+                Assert.False(string.IsNullOrWhiteSpace(record.Id));
                 Assert.NotEmpty(record.AnimationName);
                 // 注意：有些记录可能没有flags，这是正常的
             }
@@ -389,12 +389,11 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("string", result.Type);
             Assert.NotNull(result.BannerIconData);
-            Assert.NotNull(result.BannerIconData.BannerIconGroupList);
+            Assert.NotNull(result.BannerIconData.BannerIconGroups);
             Assert.NotNull(result.BannerIconData.BannerColors);
-            Assert.True(result.BannerIconData.BannerIconGroupList.Count >= 6); // 应该有多个图标组
-            Assert.True(result.BannerIconData.BannerColors.ColorList.Count > 100); // 应该有很多颜�?
+            Assert.True(result.BannerIconData.BannerIconGroups.Count >= 6); // 应该有多个图标组
+            Assert.True(result.BannerIconData.BannerColors.Colors.Count > 100); // 应该有很多颜�?
         }
 
         [Fact]
@@ -409,22 +408,22 @@ namespace BannerlordModEditor.Common.Tests
             var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
-            foreach (var group in result.BannerIconData.BannerIconGroupList)
+            foreach (var group in result.BannerIconData.BannerIconGroups)
             {
-                Assert.NotEmpty(group.Id);
-                Assert.NotEmpty(group.Name);
-                Assert.NotEmpty(group.IsPattern);
+                Assert.NotEqual(0, group.Id);
+                Assert.False(string.IsNullOrWhiteSpace(group.Name));
+                // IsPattern is a boolean, no need to check for emptiness
                 
                 // 检查组的类�?
-                if (group.IsPattern == "true")
+                if (group.IsPattern)
                 {
                     // 如果是pattern，应该有Background元素
-                    Assert.True(group.BackgroundList.Count > 0);
+                    Assert.True(group.Backgrounds.Count > 0);
                 }
                 else
                 {
                     // 如果不是pattern，应该有Icon元素
-                    Assert.True(group.IconList.Count > 0);
+                    Assert.True(group.Icons.Count > 0);
                 }
             }
         }
@@ -441,18 +440,18 @@ namespace BannerlordModEditor.Common.Tests
             var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
-            var backgroundGroup = result.BannerIconData.BannerIconGroupList.FirstOrDefault(g => g.Id == "1");
+            var backgroundGroup = result.BannerIconData.BannerIconGroups.FirstOrDefault(g => g.Id == 1);
             Assert.NotNull(backgroundGroup);
-            Assert.Equal("true", backgroundGroup.IsPattern);
-            Assert.True(backgroundGroup.BackgroundList.Count >= 30); // 应该有很多背�?
+            Assert.True(backgroundGroup.IsPattern);
+            Assert.True(backgroundGroup.Backgrounds.Count >= 30); // 应该有很多背�?
             
             // 检查有一个base background
-            var baseBackground = backgroundGroup.BackgroundList.FirstOrDefault(b => b.IsBaseBackground == "true");
+            var baseBackground = backgroundGroup.Backgrounds.FirstOrDefault(b => b.IsBaseBackground);
             Assert.NotNull(baseBackground);
             
-            foreach (var background in backgroundGroup.BackgroundList)
+            foreach (var background in backgroundGroup.Backgrounds)
             {
-                Assert.NotEmpty(background.Id);
+                Assert.NotEqual(0, background.Id);
                 Assert.NotEmpty(background.MeshName);
             }
         }
@@ -469,21 +468,21 @@ namespace BannerlordModEditor.Common.Tests
             var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
-            var animalGroup = result.BannerIconData.BannerIconGroupList.FirstOrDefault(g => g.Id == "2");
+            var animalGroup = result.BannerIconData.BannerIconGroups.FirstOrDefault(g => g.Id == 2);
             Assert.NotNull(animalGroup);
             Assert.Contains("Animal", animalGroup.Name);
-            Assert.Equal("false", animalGroup.IsPattern);
-            Assert.True(animalGroup.IconList.Count >= 50); // 应该有很多动物图�?
+            Assert.False(animalGroup.IsPattern);
+            Assert.True(animalGroup.Icons.Count >= 50); // 应该有很多动物图�?
             
             // 检查保留的图标
-            var reservedIcons = animalGroup.IconList.Where(i => i.IsReserved == "true").ToList();
+            var reservedIcons = animalGroup.Icons.Where(i => i.IsReserved).ToList();
             Assert.True(reservedIcons.Count >= 5); // 应该有一些保留的文化图标
             
-            foreach (var icon in animalGroup.IconList)
+            foreach (var icon in animalGroup.Icons)
             {
-                Assert.NotEmpty(icon.Id);
+                Assert.NotEqual(0, icon.Id);
                 Assert.NotEmpty(icon.MaterialName);
-                Assert.NotEmpty(icon.TextureIndex);
+                Assert.NotEqual(-1, icon.TextureIndex);
             }
         }
 
@@ -499,24 +498,24 @@ namespace BannerlordModEditor.Common.Tests
             var result = (BannerIconsRoot)serializer.Deserialize(fileStream);
 
             // Assert
-            foreach (var color in result.BannerIconData.BannerColors.ColorList)
+            foreach (var color in result.BannerIconData.BannerColors.Colors)
             {
-                Assert.NotEmpty(color.Id);
+                Assert.NotEqual(0, color.Id);
                 Assert.NotEmpty(color.Hex);
                 Assert.StartsWith("0x", color.Hex); // 应该是十六进制格�?
                 Assert.True(color.Hex.Length == 10); // 0xFFRRGGBB格式应该�?0个字�?
             }
             
             // 检查一些特定的文化颜色
-            var aseraiBgColor = result.BannerIconData.BannerColors.ColorList.FirstOrDefault(c => c.Id == "0");
+            var aseraiBgColor = result.BannerIconData.BannerColors.Colors.FirstOrDefault(c => c.Id == 0);
             Assert.NotNull(aseraiBgColor);
             Assert.Equal("0xffB57A1E", aseraiBgColor.Hex);
             
             // 检查玩家可选择的颜�?
-            var playerBgColors = result.BannerIconData.BannerColors.ColorList
-                .Where(c => c.PlayerCanChooseForBackground == "true").ToList();
-            var playerSigilColors = result.BannerIconData.BannerColors.ColorList
-                .Where(c => c.PlayerCanChooseForSigil == "true").ToList();
+            var playerBgColors = result.BannerIconData.BannerColors.Colors
+                .Where(c => c.PlayerCanChooseForBackground).ToList();
+            var playerSigilColors = result.BannerIconData.BannerColors.Colors
+                .Where(c => c.PlayerCanChooseForSigil).ToList();
             
             Assert.True(playerBgColors.Count >= 5); // 应该有一些玩家可选择的背景颜�?
             Assert.True(playerSigilColors.Count >= 5); // 应该有一些玩家可选择的徽记颜�?
@@ -539,16 +538,16 @@ namespace BannerlordModEditor.Common.Tests
             
             foreach (var category in categories)
             {
-                var group = result.BannerIconData.BannerIconGroupList
+                var group = result.BannerIconData.BannerIconGroups
                     .FirstOrDefault(g => g.Name.Contains(category));
                 Assert.NotNull(group);
-                Assert.Equal("false", group.IsPattern); // 除了Background外都应该是false
-                Assert.True(group.IconList.Count > 0); // 应该有图�?
+                Assert.False(group.IsPattern); // 除了Background外都应该是false
+                Assert.True(group.Icons.Count > 0); // 应该有图�?
             }
             
             // 检查multiplayer culture colors
-            var multiplayerColors = result.BannerIconData.BannerColors.ColorList
-                .Where(c => c.Id == "122" || c.Id == "126" || c.Id == "130" || c.Id == "134" || c.Id == "138" || c.Id == "142")
+            var multiplayerColors = result.BannerIconData.BannerColors.Colors
+                .Where(c => c.Id == 122 || c.Id == 126 || c.Id == 130 || c.Id == 134 || c.Id == 138 || c.Id == 142)
                 .ToList();
                          Assert.Equal(6, multiplayerColors.Count); // 应该�?个主要文化的多人游戏颜色
          }
@@ -799,7 +798,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var monster in result.MonsterList)
             {
-                Assert.NotEmpty(monster.Id);
+                Assert.False(string.IsNullOrWhiteSpace(monster.Id));
                 // 基本物理属性（非继承怪物应该有这些属性）
                 if (monster.BaseMonster == null)
                 {
@@ -1098,7 +1097,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var badge in result.BadgeList)
             {
-                Assert.NotEmpty(badge.Id);
+                Assert.False(string.IsNullOrWhiteSpace(badge.Id));
                 Assert.NotNull(badge.Type);
                 Assert.NotNull(badge.Name);
                 Assert.NotNull(badge.Description);
@@ -1384,7 +1383,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var character in result.Characters)
             {
-                Assert.NotEmpty(character.Id);
+                Assert.False(string.IsNullOrWhiteSpace(character.Id));
                 // 大多数角色应该有名称，但某些可能没有
                 // 大多数角色应该有等级，但某些可能没有
             }
@@ -1666,7 +1665,7 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             foreach (var description in result.Descriptions)
             {
-                Assert.NotEmpty(description.Id);
+                Assert.False(string.IsNullOrWhiteSpace(description.Id));
                 // 大多数描述应该有武器类别
                 // 大多数描述应该有使用特�?
             }

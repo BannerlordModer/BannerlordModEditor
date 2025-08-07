@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class CraftingPiecesXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/crafting_pieces.xml";
+        private const string TestDataPath = "TestData/crafting_pieces.xml";
 
         [Fact]
         public void CraftingPieces_RoundTrip_StructuralEquality()

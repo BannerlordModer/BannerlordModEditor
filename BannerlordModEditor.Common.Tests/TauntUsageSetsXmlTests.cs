@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class TauntUsageSetsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/taunt_usage_sets.xml";
+        private const string TestDataPath = "TestData/taunt_usage_sets.xml";
 
         [Fact]
         public void TauntUsageSets_RoundTrip_StructuralEquality()

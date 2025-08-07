@@ -9,7 +9,7 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void ItemHolsters_RoundTrip_StructuralEquality()
         {
-            var xmlPath = "BannerlordModEditor.Common.Tests/TestData/item_holsters.xml";
+            var xmlPath = "TestData/item_holsters.xml";
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化

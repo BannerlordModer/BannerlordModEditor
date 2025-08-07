@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class CreditsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/Credits.xml";
+        private const string TestDataPath = "TestData/Credits.xml";
 
         [Fact]
         public void CreditsXml_RoundTrip_StructuralEquality()

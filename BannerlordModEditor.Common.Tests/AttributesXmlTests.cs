@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class AttributesXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/attributes.xml";
+        private const string TestDataPath = "TestData/attributes.xml";
 
         [Fact]
         public void AttributesXml_RoundTrip_StructuralEquality()

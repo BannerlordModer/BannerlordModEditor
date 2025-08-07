@@ -9,7 +9,7 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void Looknfeel_Roundtrip_StructuralEquality()
         {
-            var xmlPath = "BannerlordModEditor.Common.Tests/TestData/looknfeel.xml";
+            var xmlPath = "TestData/looknfeel.xml";
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化

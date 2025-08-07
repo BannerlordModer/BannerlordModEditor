@@ -7,6 +7,9 @@ namespace BannerlordModEditor.Common.Models.Data
     [XmlRoot("base")]
     public class BannerIconsRoot
     {
+        [XmlAttribute("type")]
+        public string Type { get; set; }
+        
         [XmlElement("BannerIconData")]
         public BannerIconData BannerIconData { get; set; }
     }

@@ -9,7 +9,7 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void ParticleSystemsOld_RoundTrip_StructuralEquality()
         {
-            var xmlPath = "BannerlordModEditor.Common.Tests/TestData/particle_systems_old.xml";
+            var xmlPath = "TestData/particle_systems_old.xml";
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化

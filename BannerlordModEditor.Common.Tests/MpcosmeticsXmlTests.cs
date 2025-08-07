@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class MpcosmeticsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/mpcosmetics.xml";
+        private const string TestDataPath = "TestData/mpcosmetics.xml";
 
         [Fact]
         public void Mpcosmetics_RoundTrip_StructuralEquality()

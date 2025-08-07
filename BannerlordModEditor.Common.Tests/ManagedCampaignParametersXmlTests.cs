@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class ManagedCampaignParametersXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/managed_campaign_parameters.xml";
+        private const string TestDataPath = "TestData/managed_campaign_parameters.xml";
 
         [Fact]
         public void ManagedCampaignParameters_RoundTrip_StructuralEquality()

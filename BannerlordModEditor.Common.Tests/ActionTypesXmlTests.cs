@@ -7,7 +7,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class ActionTypesXmlTests
     {
-        private const string MainXmlPath = "BannerlordModEditor.Common.Tests/TestData/action_types.xml";
+        private const string MainXmlPath = "TestData/action_types.xml";
         private const string SubsetDir = "BannerlordModEditor.Common.Tests/TestSubsets/ActionTypes/";
 
         [Fact]

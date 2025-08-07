@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class ParticleSystemsGeneralXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/particle_systems_general.xml";
+        private const string TestDataPath = "TestData/particle_systems_general.xml";
 
         [Fact]
         public void ParticleSystemsGeneral_RoundTrip_StructuralEquality()

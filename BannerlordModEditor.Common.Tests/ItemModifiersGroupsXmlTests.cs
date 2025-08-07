@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class ItemModifiersGroupsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/item_modifiers_groups.xml";
+        private const string TestDataPath = "TestData/item_modifiers_groups.xml";
 
         [Fact]
         public void ItemModifiersGroups_RoundTrip_StructuralEquality()

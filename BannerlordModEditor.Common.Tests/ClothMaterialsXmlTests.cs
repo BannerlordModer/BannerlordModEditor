@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class ClothMaterialsXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/cloth_materials.xml";
+        private const string TestDataPath = "TestData/cloth_materials.xml";
 
         [Fact]
         public void ClothMaterials_RoundTrip_StructuralEquality()

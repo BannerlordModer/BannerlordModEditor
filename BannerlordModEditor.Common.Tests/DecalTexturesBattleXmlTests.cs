@@ -9,7 +9,7 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void DecalTexturesBattle_RoundTrip_StructuralEquality()
         {
-            var xmlPath = "BannerlordModEditor.Common.Tests/TestData/decal_textures_battle.xml";
+            var xmlPath = "TestData/decal_textures_battle.xml";
             var xml = File.ReadAllText(xmlPath);
 
             var obj = XmlTestUtils.Deserialize<DecalTexturesBattle>(xml);

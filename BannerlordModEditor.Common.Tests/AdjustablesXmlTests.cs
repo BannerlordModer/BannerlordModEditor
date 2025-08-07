@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Tests
 {
     public class AdjustablesXmlTests
     {
-        private const string TestDataPath = "BannerlordModEditor.Common.Tests/TestData/Adjustables.xml";
+        private const string TestDataPath = "TestData/Adjustables.xml";
 
         [Fact]
         public void Adjustables_Xml_RoundTrip_StructuralEquality()
