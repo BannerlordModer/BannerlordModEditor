@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace BannerlordModEditor.Common.Tests
 {

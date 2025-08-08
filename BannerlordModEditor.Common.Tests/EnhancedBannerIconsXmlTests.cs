@@ -3,7 +3,7 @@ using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
 {
-    public class EnhancedBannerIconsXmlTests : XmlModelTestBase<BannerIconsModel>
+    public class EnhancedBannerIconsXmlTests : XmlModelTestBase<BannerIconsRoot>
     {
         protected override string TestDataFileName => "banner_icons.xml";
         protected override string ModelTypeName => "BannerIcons";

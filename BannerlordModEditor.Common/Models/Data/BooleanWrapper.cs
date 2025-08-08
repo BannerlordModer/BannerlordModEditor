@@ -42,7 +42,7 @@ namespace BannerlordModEditor.Common.Models.Data
             };
         }
 
-        public static StringValue FromBool(bool value) => new StringValue { Value = value.ToString().ToLowerInvariant() };
+                public static BooleanProperty FromBool(bool value) => new BooleanProperty { XmlValue = value.ToString().ToLowerInvariant() };
 
         public static implicit operator bool(BooleanProperty prop) => prop?._value ?? false;
         public static implicit operator BooleanProperty(bool value) => new BooleanProperty { XmlValue = value.ToString().ToLowerInvariant() };
