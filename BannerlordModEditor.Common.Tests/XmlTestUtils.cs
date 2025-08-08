@@ -66,8 +66,7 @@ namespace BannerlordModEditor.Common.Tests
 
             // 完全避免命名空间声明
             var namespaces = new XmlSerializerNamespaces();
-            // 添加空命名空间以防止默认命名空间声明
-            namespaces.Add("", "");
+            namespaces.Add("", ""); // 清空默认命名空间，避免添加xmlns声明
 
             using var ms = new MemoryStream();
             using (var writer = XmlWriter.Create(ms, settings))
@@ -79,24 +78,44 @@ namespace BannerlordModEditor.Common.Tests
             
             var serialized = sr.ReadToEnd();
             
-            // 后处理：移除任何自动添加的命名空间声明
+            // 后处理：移除任何自动添加的命名空间声明并标准化格式
             var doc = XDocument.Parse(serialized);
+            
+            // 移除命名空间声明
             RemoveNamespaceDeclarations(doc);
-            return doc.ToString();
+            
+            // 对所有元素属性按名称排序
+            SortAttributes(doc.Root);
+            
+            // 标准化自闭合标签格式
+            NormalizeSelfClosingTags(doc);
+            
+            // 保留 XML 声明头并输出标准化后的XML
+            var declaration = doc.Declaration != null ? doc.Declaration.ToString() + "\n" : "";
+            return declaration + doc.Root.ToString();
         }
 
         public static bool AreStructurallyEqual(string xmlA, string xmlB)
         {
-            // 移除注释、标准化空白字符，并忽略命名空间声明后比较
-            var cleanXmlA = CleanXml(xmlA);
-            var cleanXmlB = CleanXml(xmlB);
-
-            var docA = XDocument.Parse(cleanXmlA);
-            var docB = XDocument.Parse(cleanXmlB);
+            // 首先解析原始XML
+            var docA = XDocument.Parse(xmlA);
+            var docB = XDocument.Parse(xmlB);
+            
+            // 移除注释
+            RemoveComments(docA);
+            RemoveComments(docB);
             
             // 标准化boolean属性值（将"True"转换为"true"等）
             NormalizeBooleanValues(docA);
             NormalizeBooleanValues(docB);
+            
+            // 对所有元素属性按名称排序，消除属性顺序影响
+            SortAttributes(docA.Root);
+            SortAttributes(docB.Root);
+            
+            // 标准化自闭合标签格式
+            NormalizeSelfClosingTags(docA);
+            NormalizeSelfClosingTags(docB);
             
             // 忽略命名空间声明，只比较节点和属性值
             var contentA = RemoveNamespaceDeclarations(docA);
@@ -108,15 +127,25 @@ namespace BannerlordModEditor.Common.Tests
         // XML结构详细比较，区分属性为null与属性不存在，检测节点缺失/多余，返回详细差异报告
         public static XmlStructureDiffReport CompareXmlStructure(string xmlA, string xmlB)
         {
-            var cleanXmlA = CleanXml(xmlA);
-            var cleanXmlB = CleanXml(xmlB);
-
-            var docA = XDocument.Parse(cleanXmlA);
-            var docB = XDocument.Parse(cleanXmlB);
-
+            // 首先解析原始XML
+            var docA = XDocument.Parse(xmlA);
+            var docB = XDocument.Parse(xmlB);
+            
+            // 移除注释
+            RemoveComments(docA);
+            RemoveComments(docB);
+            
             // 标准化boolean属性值（将"True"转换为"true"等）
             NormalizeBooleanValues(docA);
             NormalizeBooleanValues(docB);
+            
+            // 对所有元素属性按名称排序，消除属性顺序影响
+            SortAttributes(docA.Root);
+            SortAttributes(docB.Root);
+            
+            // 标准化自闭合标签格式
+            NormalizeSelfClosingTags(docA);
+            NormalizeSelfClosingTags(docB);
 
             var report = new XmlStructureDiffReport();
             var rootName = docA.Root?.Name.LocalName ?? "";
@@ -579,6 +608,7 @@ namespace BannerlordModEditor.Common.Tests
             return clone;
         }
 
+        
         private class Utf8StringWriter : StringWriter
         {
             public override Encoding Encoding => Encoding.UTF8;

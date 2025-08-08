@@ -29,86 +29,41 @@ namespace BannerlordModEditor.Common.Tests
         public void SingleItem_LoadAndSave_ShouldBeLogicallyIdentical(string itemFilePath)
         {
             // Arrange
-            var serializer = new XmlSerializer(typeof(Item));
-            Item? item;
-
-            // Act
-            using (var reader = new FileStream(itemFilePath, FileMode.Open))
-            {
-                item = serializer.Deserialize(reader) as Item;
-            }
-            Assert.NotNull(item);
+            var xml = File.ReadAllText(itemFilePath);
             
-            var memoryStream = new MemoryStream();
-            var writerSettings = new XmlWriterSettings
-            {
-                Indent = true,
-                IndentChars = "\t",
-                NewLineChars = "\r\n",
-                Encoding = new UTF8Encoding(false)
-            };
-            using (var writer = XmlWriter.Create(memoryStream, writerSettings))
-            {
-                var ns = new XmlSerializerNamespaces();
-                ns.Add("", "");
-                serializer.Serialize(writer, item, ns);
-            }
-            memoryStream.Position = 0;
-            var savedXml = new StreamReader(memoryStream).ReadToEnd();
+            // Act
+            var item = XmlTestUtils.Deserialize<Item>(xml);
+            var xml2 = XmlTestUtils.Serialize(item);
 
             // Assert
-            var originalDoc = XDocument.Load(itemFilePath, LoadOptions.None);
-            var savedDoc = XDocument.Parse(savedXml, LoadOptions.None);
-
-            Assert.True(AreXmlElementsLogicallyEqual(originalDoc.Root, savedDoc.Root),
-                $"File '{Path.GetFileName(itemFilePath)}' is not logically equivalent.\n\nOriginal:\n{originalDoc.Root}\n\nGenerated:\n{savedDoc.Root}");
-        }
-
-        private static bool AreXmlElementsLogicallyEqual(XElement? original, XElement? generated)
-        {
-            if (original == null && generated == null) return true;
-            if (original == null || generated == null) return false;
-
-            // 比较元素名称
-            if (original.Name != generated.Name) return false;
-
-            // 比较属性（忽略顺序）
-            var originalAttrs = original.Attributes().ToDictionary(a => a.Name.LocalName, a => a.Value);
-            var generatedAttrs = generated.Attributes().ToDictionary(a => a.Name.LocalName, a => a.Value);
-
-            if (originalAttrs.Count != generatedAttrs.Count) return false;
-
-            foreach (var attr in originalAttrs)
+            var isEqual = XmlTestUtils.AreStructurallyEqual(xml, xml2);
+            
+            // If not equal, output detailed difference information
+            if (!isEqual)
             {
-                if (!generatedAttrs.TryGetValue(attr.Key, out var generatedValue))
-                    return false;
+                var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);
+                var errorMessage = $"File '{Path.GetFileName(itemFilePath)}' is not structurally equivalent.\n";
+                errorMessage += $"Node count difference: {diff.NodeCountDifference}\n";
+                errorMessage += $"Attribute count difference: {diff.AttributeCountDifference}\n";
+                errorMessage += $"Missing nodes: {string.Join(", ", diff.MissingNodes)}\n";
+                errorMessage += $"Extra nodes: {string.Join(", ", diff.ExtraNodes)}\n";
+                errorMessage += $"Node name differences: {string.Join(", ", diff.NodeNameDifferences)}\n";
+                errorMessage += $"Missing attributes: {string.Join(", ", diff.MissingAttributes)}\n";
+                errorMessage += $"Extra attributes: {string.Join(", ", diff.ExtraAttributes)}\n";
+                errorMessage += $"Attribute value differences: {string.Join(", ", diff.AttributeValueDifferences)}\n";
+                errorMessage += $"Text differences: {string.Join(", ", diff.TextDifferences)}\n";
                 
-                // 使用XmlTestUtils的数值比较逻辑进行宽松比较（例如 1.0 == 1）
-                if (XmlTestUtils.IsNumericValue(attr.Value, generatedValue))
-                {
-                    if (!XmlTestUtils.AreNumericValuesEqual(attr.Value, generatedValue, 0.0001))
-                        return false;
-                }
-                else if (attr.Value != generatedValue)
-                {
-                    return false;
-                }
+                // Output original and serialized XML to files for debugging
+                var debugPath = Path.Combine("Debug", $"mpitems_{Path.GetFileNameWithoutExtension(itemFilePath)}_{DateTime.Now:yyyyMMdd_HHmmss}");
+                Directory.CreateDirectory(debugPath);
+                File.WriteAllText(Path.Combine(debugPath, "original.xml"), xml);
+                File.WriteAllText(Path.Combine(debugPath, "serialized.xml"), xml2);
+                errorMessage += $"Debug files saved to: {debugPath}";
+                
+                Assert.True(false, errorMessage);
             }
-
-            // 比较子元素（保持顺序，因为这对于列表类很重要）
-            var originalChildren = original.Elements().ToList();
-            var generatedChildren = generated.Elements().ToList();
-
-            if (originalChildren.Count != generatedChildren.Count) return false;
-
-            for (int i = 0; i < originalChildren.Count; i++)
-            {
-                if (!AreXmlElementsLogicallyEqual(originalChildren[i], generatedChildren[i]))
-                    return false;
-            }
-
-            // 比较文本内容
-            return original.Value == generated.Value;
+            
+            Assert.True(isEqual, $"File '{Path.GetFileName(itemFilePath)}' is not structurally equivalent.");
         }
     }
 }

@@ -103,6 +103,15 @@ namespace BannerlordModEditor.Common.Models.Data
         }
         public bool ShouldSerializeUnsuitableForEmpty() => !string.IsNullOrEmpty(UnsuitableForEmpty);
 
+        private string? _unsuitableForOneHanded;
+        [XmlAttribute("unsuitable_for_one_handed")]
+        public string? UnsuitableForOneHanded
+        {
+            get => _unsuitableForOneHanded;
+            set => _unsuitableForOneHanded = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeUnsuitableForOneHanded() => !string.IsNullOrEmpty(UnsuitableForOneHanded);
+
         [XmlAttribute("action")]
         public string Action { get; set; }
         public bool ShouldSerializeAction() => !string.IsNullOrEmpty(Action);
