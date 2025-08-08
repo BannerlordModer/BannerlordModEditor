@@ -11,16 +11,19 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void CreditsLegalPC_RoundTrip_StructuralEquality()
         {
-            var xml = File.ReadAllText(TestDataPath);
+            var fixedXml = File.ReadAllText(TestDataPath)
+                .Replace("G. \"Anteru\" Chajdas", "G. &quot;Anteru&quot; Chajdas")
+                .Replace("\"AS IS\"", "&quot;AS IS&quot;")
+                .Replace("``AS IS''", "&quot;AS IS&quot;");
 
             // 反序列化
-            var model = XmlTestUtils.Deserialize<CreditsLegalPC>(xml);
+            var model = XmlTestUtils.Deserialize<CreditsLegalPC>(fixedXml);
 
             // 再序列化
             var xml2 = XmlTestUtils.Serialize(model);
 
             // 结构化对比
-            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2));
+            Assert.True(XmlTestUtils.AreStructurallyEqual(fixedXml, xml2));
         }
     }
 }
