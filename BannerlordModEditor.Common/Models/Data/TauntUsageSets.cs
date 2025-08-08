@@ -22,59 +22,86 @@ namespace BannerlordModEditor.Common.Models.Data
 
     public class TauntUsage
     {
+        private string? _isLeftStance;
         [XmlAttribute("is_left_stance")]
-        public bool IsLeftStance { get; set; }
-        public bool ShouldSerializeIsLeftStance() => _isLeftStanceSpecified;
-        [XmlIgnore]
-        public bool _isLeftStanceSpecified;
+        public string? IsLeftStance
+        {
+            get => _isLeftStance;
+            set => _isLeftStance = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeIsLeftStance() => !string.IsNullOrEmpty(IsLeftStance);
 
+        private string? _requiresBow;
         [XmlAttribute("requires_bow")]
-        public bool RequiresBow { get; set; }
-        public bool ShouldSerializeRequiresBow() => _requiresBowSpecified;
-        [XmlIgnore]
-        public bool _requiresBowSpecified;
+        public string? RequiresBow
+        {
+            get => _requiresBow;
+            set => _requiresBow = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeRequiresBow() => !string.IsNullOrEmpty(RequiresBow);
 
+        private string? _requiresOnFoot;
         [XmlAttribute("requires_on_foot")]
-        public bool RequiresOnFoot { get; set; }
-        public bool ShouldSerializeRequiresOnFoot() => _requiresOnFootSpecified;
-        [XmlIgnore]
-        public bool _requiresOnFootSpecified;
+        public string? RequiresOnFoot
+        {
+            get => _requiresOnFoot;
+            set => _requiresOnFoot = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeRequiresOnFoot() => !string.IsNullOrEmpty(RequiresOnFoot);
 
+        private string? _requiresShield;
         [XmlAttribute("requires_shield")]
-        public bool RequiresShield { get; set; }
-        public bool ShouldSerializeRequiresShield() => _requiresShieldSpecified;
-        [XmlIgnore]
-        public bool _requiresShieldSpecified;
+        public string? RequiresShield
+        {
+            get => _requiresShield;
+            set => _requiresShield = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeRequiresShield() => !string.IsNullOrEmpty(RequiresShield);
 
+        private string? _unsuitableForShield;
         [XmlAttribute("unsuitable_for_shield")]
-        public bool UnsuitableForShield { get; set; }
-        public bool ShouldSerializeUnsuitableForShield() => _unsuitableForShieldSpecified;
-        [XmlIgnore]
-        public bool _unsuitableForShieldSpecified;
+        public string? UnsuitableForShield
+        {
+            get => _unsuitableForShield;
+            set => _unsuitableForShield = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeUnsuitableForShield() => !string.IsNullOrEmpty(UnsuitableForShield);
 
+        private string? _unsuitableForBow;
         [XmlAttribute("unsuitable_for_bow")]
-        public bool UnsuitableForBow { get; set; }
-        public bool ShouldSerializeUnsuitableForBow() => _unsuitableForBowSpecified;
-        [XmlIgnore]
-        public bool _unsuitableForBowSpecified;
+        public string? UnsuitableForBow
+        {
+            get => _unsuitableForBow;
+            set => _unsuitableForBow = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeUnsuitableForBow() => !string.IsNullOrEmpty(UnsuitableForBow);
 
+        private string? _unsuitableForCrossbow;
         [XmlAttribute("unsuitable_for_crossbow")]
-        public bool UnsuitableForCrossbow { get; set; }
-        public bool ShouldSerializeUnsuitableForCrossbow() => _unsuitableForCrossbowSpecified;
-        [XmlIgnore]
-        public bool _unsuitableForCrossbowSpecified;
+        public string? UnsuitableForCrossbow
+        {
+            get => _unsuitableForCrossbow;
+            set => _unsuitableForCrossbow = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeUnsuitableForCrossbow() => !string.IsNullOrEmpty(UnsuitableForCrossbow);
 
+        private string? _unsuitableForTwoHanded;
         [XmlAttribute("unsuitable_for_two_handed")]
-        public bool UnsuitableForTwoHanded { get; set; }
-        public bool ShouldSerializeUnsuitableForTwoHanded() => _unsuitableForTwoHandedSpecified;
-        [XmlIgnore]
-        public bool _unsuitableForTwoHandedSpecified;
+        public string? UnsuitableForTwoHanded
+        {
+            get => _unsuitableForTwoHanded;
+            set => _unsuitableForTwoHanded = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeUnsuitableForTwoHanded() => !string.IsNullOrEmpty(UnsuitableForTwoHanded);
 
+        private string? _unsuitableForEmpty;
         [XmlAttribute("unsuitable_for_empty")]
-        public bool UnsuitableForEmpty { get; set; }
-        public bool ShouldSerializeUnsuitableForEmpty() => _unsuitableForEmptySpecified;
-        [XmlIgnore]
-        public bool _unsuitableForEmptySpecified;
+        public string? UnsuitableForEmpty
+        {
+            get => _unsuitableForEmpty;
+            set => _unsuitableForEmpty = value != null ? value.ToLower() : null;
+        }
+        public bool ShouldSerializeUnsuitableForEmpty() => !string.IsNullOrEmpty(UnsuitableForEmpty);
 
         [XmlAttribute("action")]
         public string Action { get; set; }
