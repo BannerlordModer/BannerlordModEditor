@@ -64,11 +64,10 @@ namespace BannerlordModEditor.Common.Tests
                 NewLineOnAttributes = false
             };
 
-            // 保留原始 XML 命名空间声明
+            // 完全避免命名空间声明
             var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            namespaces.Add("xsd", "http://www.w3.org/2001/XMLSchema");
-            namespaces.Add("", ""); // 清空默认命名空间
+            // 添加空命名空间以防止默认命名空间声明
+            namespaces.Add("", "");
 
             using var ms = new MemoryStream();
             using (var writer = XmlWriter.Create(ms, settings))
@@ -77,7 +76,13 @@ namespace BannerlordModEditor.Common.Tests
             }
             ms.Position = 0;
             using var sr = new StreamReader(ms, Encoding.UTF8);
-            return sr.ReadToEnd();
+            
+            var serialized = sr.ReadToEnd();
+            
+            // 后处理：移除任何自动添加的命名空间声明
+            var doc = XDocument.Parse(serialized);
+            RemoveNamespaceDeclarations(doc);
+            return doc.ToString();
         }
 
         public static bool AreStructurallyEqual(string xmlA, string xmlB)
