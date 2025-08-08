@@ -1,0 +1,1 @@
+using System; using System.IO; using BannerlordModEditor.Common.Models.Data; var xml = File.ReadAllText("TestData/mp_crafting_pieces.xml"); Console.WriteLine("=== MP DEBUG ==="); var obj = XmlTestUtils.Deserialize<MpCraftingPiecesModel>(xml); Console.WriteLine("Pieces: " + obj.CraftingPieceList.Count); Console.WriteLine("Test passed?");

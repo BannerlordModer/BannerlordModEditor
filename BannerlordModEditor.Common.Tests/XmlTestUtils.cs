@@ -302,14 +302,6 @@ namespace BannerlordModEditor.Common.Tests
             return double.TryParse(value1, out _) && double.TryParse(value2, out _);
         }
 
-        public static bool AreNumericValuesEqual(string value1, string value2, double tolerance)
-        {
-            if (!double.TryParse(value1, out var num1) || !double.TryParse(value2, out var num2))
-                return false;
-            
-            return Math.Abs(num1 - num2) <= tolerance;
-        }
-
         public static bool AreXmlDocumentsLogicallyEquivalent(string xml1, string xml2, XmlComparisonOptions? options = null)
         {
             options ??= new XmlComparisonOptions();
@@ -428,6 +420,18 @@ namespace BannerlordModEditor.Common.Tests
             }
         }
 
+        private static bool AreNumericValuesEqual(string value1, string value2, double tolerance)
+        {
+            if (double.TryParse(value1, out var d1) && double.TryParse(value2, out var d2))
+            {
+                return Math.Abs(d1 - d2) < tolerance;
+            }
+            if (int.TryParse(value1, out var i1) && int.TryParse(value2, out var i2))
+            {
+                return i1 == i2;
+            }
+            return value1 == value2;
+        }
         
         // 调试辅助：输出所有节点和属性名
         public static void LogAllNodesAndAttributes(string xml, string tag)
