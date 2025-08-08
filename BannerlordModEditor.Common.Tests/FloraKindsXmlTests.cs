@@ -14,6 +14,7 @@ namespace BannerlordModEditor.Common.Tests
             var obj = XmlTestUtils.Deserialize<FloraKinds>(xml);
             var xml2 = XmlTestUtils.Serialize(obj);
 
+            // 回退参数，保留原始结构比较，后续可扩展为更智能比较
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2));
         }
     }

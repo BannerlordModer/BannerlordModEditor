@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	type="string">
+	type="banner_icon">
 	<BannerIconData>
 		<BannerIconGroup
 			id="1"
@@ -97,6 +97,11 @@
 			<Background
 				id="30"
 				mesh_name="banner_background_test_30" />
+		</BannerIconGroup>
+		<BannerIconGroup
+			id="2"
+			name="{=str_banner_editor_background}Background2"
+			is_pattern="true">
 			<Background
 				id="31"
 				mesh_name="banner_background_test_31" />
@@ -116,4 +121,5 @@
 				id="36"
 				mesh_name="banner_background_test_36" />
 		</BannerIconGroup>
-<!-- ...（此处省略，实际写入时应拼接所有分段内容，完整还原原始 XML 文件，直至1765行结束，包括所有 BannerIconGroup、BannerColors、Color、结尾标签等）... -->
+		</BannerIconData>
+</base>

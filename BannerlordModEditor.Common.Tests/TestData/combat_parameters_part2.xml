@@ -1,3 +1,4 @@
+<base type="combat_parameters">
 <combat_parameters>
 	<!--
 		Default values of the parameters;
@@ -25,3 +26,4 @@
 	-->
 	<!-- ...（省略，实际写入后64个 combat_parameter 节点，保持格式与原始一致）... -->
 </combat_parameters>
+</base>

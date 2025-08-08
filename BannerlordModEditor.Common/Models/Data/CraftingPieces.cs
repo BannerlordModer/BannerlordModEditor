@@ -41,8 +41,8 @@ namespace BannerlordModEditor.Common.Models.Data
         }
         private string _name;
 
-        [XmlAttribute("tier")]
-        public NullableNumericProperty<int> Tier { get; set; } = new();
+        [XmlElement("tier")]
+        public int? Tier { get; set; }
 
         [XmlAttribute("piece_type")]
         public string PieceType

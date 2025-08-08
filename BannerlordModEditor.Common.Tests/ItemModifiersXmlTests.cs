@@ -26,7 +26,8 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal(origNodeCount, serNodeCount);
             Assert.Equal(origAttrCount, serAttrCount);
 
-            // 检查序列化后没有属性从无变为 null
+            // 回退参数，保留原始结构比较，后续可扩展为更智能比较
+            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
             Assert.True(XmlTestUtils.NoNewNullAttributes(xml, serialized));
         }
     }

@@ -26,12 +26,12 @@ namespace BannerlordModEditor.Common.Models.Data
 
         public bool ShouldSerializeType()
         {
-            return !string.IsNullOrEmpty(Type);
+            return !string.IsNullOrWhiteSpace(Type);
         }
 
         public bool ShouldSerializeUsageDirection()
         {
-            return !string.IsNullOrEmpty(UsageDirection);
+            return !string.IsNullOrWhiteSpace(UsageDirection);
         }
     }
 }

@@ -15,15 +15,15 @@ namespace BannerlordModEditor.Common.Models.Data
     {
         [XmlAttribute("modifier_group")]
         public string ModifierGroup { get; set; }
-        public bool ShouldSerializeModifierGroup() => !string.IsNullOrEmpty(ModifierGroup);
+        public bool ShouldSerializeModifierGroup() => !string.IsNullOrWhiteSpace(ModifierGroup);
 
         [XmlAttribute("id")]
         public string Id { get; set; }
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
+        public bool ShouldSerializeId() => !string.IsNullOrWhiteSpace(Id);
 
         [XmlAttribute("name")]
         public string Name { get; set; }
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeName() => !string.IsNullOrWhiteSpace(Name);
 
         [XmlAttribute("loot_drop_score")]
         public string LootDropScoreString
@@ -65,6 +65,16 @@ namespace BannerlordModEditor.Common.Models.Data
         public int? Speed { get; set; }
         public bool ShouldSerializeSpeedString() => !string.IsNullOrEmpty(SpeedString);
 
+        [XmlAttribute("missile_speed")]
+        public string MissileSpeedString
+        {
+            get => MissileSpeed.HasValue ? MissileSpeed.Value.ToString() : null;
+            set => MissileSpeed = string.IsNullOrEmpty(value) ? (int?)null : int.Parse(value);
+        }
+        [XmlIgnore]
+        public int? MissileSpeed { get; set; }
+        public bool ShouldSerializeMissileSpeedString() => !string.IsNullOrEmpty(MissileSpeedString);
+
         [XmlAttribute("price_factor")]
         public string PriceFactorString
         {
@@ -75,16 +85,10 @@ namespace BannerlordModEditor.Common.Models.Data
         public float? PriceFactor { get; set; }
         public bool ShouldSerializePriceFactorString() => !string.IsNullOrEmpty(PriceFactorString);
 
-        
-        [XmlAttribute("missile_speed")]
-        public string MissileSpeedString
-        {
-            get => MissileSpeed.HasValue ? MissileSpeed.Value.ToString() : null;
-            set => MissileSpeed = string.IsNullOrEmpty(value) ? (float?)null : float.Parse(value);
-        }
-        [XmlIgnore]
-        public float? MissileSpeed { get; set; }
-        public bool ShouldSerializeMissileSpeedString() => !string.IsNullOrEmpty(MissileSpeedString);
+        [XmlAttribute("quality")]
+        public string Quality { get; set; }
+        public bool ShouldSerializeQuality() => !string.IsNullOrWhiteSpace(Quality);
+
         [XmlIgnore]
         public int? HitPoints { get; set; }
         [XmlAttribute("hit_points")]
@@ -155,9 +159,6 @@ namespace BannerlordModEditor.Common.Models.Data
         public float? HorseHitPoints { get; set; }
         public bool ShouldSerializeHorseHitPointsString() => !string.IsNullOrEmpty(HorseHitPointsString);
 
-        [XmlAttribute("quality")]
-        public string Quality { get; set; }
-        public bool ShouldSerializeQuality() => !string.IsNullOrEmpty(Quality);
 
         
         [XmlIgnore]

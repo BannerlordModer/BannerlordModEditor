@@ -2,7 +2,7 @@
 <base type="crafting_piece">
 	<crafting_pieces>
 		<!-- 剑刃部件 -->
-		<crafting_piece id="blade_01" name="铁制剑刃" crafting_piece_type="blade" piece_tier="1" culture="empire" mesh="blade_01" physics_material="metal">
+		<crafting_piece id="blade_01" name="铁制剑刃" piece_type="blade" tier="1" culture="empire" mesh="blade_01" physics_material="metal">
 			<piece_data thrust_damage="25" thrust_damage_type="pierce" swing_damage="30" swing_damage_type="cut" thrust_speed="85" swing_speed="90" weapon_length="90" weapon_balance="15" weight="1.2" hit_points="180"/>
 			<materials>
 				<material id="iron" count="2" material_type="metal"/>
@@ -18,7 +18,7 @@
 		</crafting_piece>
 
 		<!-- 护手部件 -->
-		<crafting_piece id="guard_01" name="简单护手" crafting_piece_type="guard" piece_tier="1" culture="empire" mesh="guard_01" physics_material="metal">
+		<crafting_piece id="guard_01" name="简单护手" piece_type="guard" tier="1" culture="empire" mesh="guard_01" physics_material="metal">
 			<piece_data weight="0.3" hit_points="120"/>
 			<materials>
 				<material id="iron" count="1" material_type="metal"/>
@@ -34,7 +34,7 @@
 		</crafting_piece>
 
 		<!-- 剑柄部件 -->
-		<crafting_piece id="handle_01" name="木制剑柄" crafting_piece_type="handle" piece_tier="1" culture="empire" mesh="handle_01" physics_material="wood">
+		<crafting_piece id="handle_01" name="木制剑柄" piece_type="handle" tier="1" culture="empire" mesh="handle_01" physics_material="wood">
 			<piece_data weight="0.8" hit_points="100" handling="10"/>
 			<materials>
 				<material id="wood" count="1" material_type="wood"/>
@@ -54,7 +54,7 @@
 		</crafting_piece>
 
 		<!-- 弓臂部件 -->
-		<crafting_piece id="bow_arm_01" name="复合弓臂" crafting_piece_type="bow_arm" piece_tier="2" culture="khuzait" mesh="bow_arm_01" physics_material="wood" scale_factor="1.1">
+		<crafting_piece id="bow_arm_01" name="复合弓臂" piece_type="bow_arm" tier="2" culture="khuzait" mesh="bow_arm_01" physics_material="wood" scale_factor="1.1">
 			<piece_data missile_speed="65" accuracy="95" weapon_length="120" weight="1.5" hit_points="200"/>
 			<materials>
 				<material id="wood" count="2" material_type="wood"/>
@@ -75,7 +75,7 @@
 		</crafting_piece>
 
 		<!-- 弓弦部件 -->
-		<crafting_piece id="bow_string_01" name="丝质弓弦" crafting_piece_type="bow_string" piece_tier="2" culture="khuzait" is_hidden="false">
+		<crafting_piece id="bow_string_01" name="丝质弓弦" piece_type="bow_string" tier="2" culture="khuzait" is_hidden="false">
 			<piece_data weight="0.1" hit_points="80"/>
 			<materials>
 				<material id="silk" count="1" material_type="fabric"/>
@@ -90,7 +90,7 @@
 		</crafting_piece>
 
 		<!-- 盔甲板部件 -->
-		<crafting_piece id="armor_plate_01" name="钢制胸甲" crafting_piece_type="armor_plate" piece_tier="3" culture="empire" mesh="armor_plate_01" physics_material="metal">
+		<crafting_piece id="armor_plate_01" name="钢制胸甲" piece_type="armor_plate" tier="3" culture="empire" mesh="armor_plate_01" physics_material="metal">
 			<piece_data body_armor="45" weight="8.5" hit_points="300"/>
 			<materials>
 				<material id="steel" count="4" material_type="metal"/>

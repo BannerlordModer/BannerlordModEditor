@@ -7,8 +7,8 @@ namespace BannerlordModEditor.Common.Models.Data
     [XmlRoot("flora_kinds")]
     public class FloraKinds
     {
-        [XmlElement("flora_kinds")]
-        public FloraKindsContainer FloraKindsContainer { get; set; } = new FloraKindsContainer();
+        [XmlElement("flora_kind")]
+        public List<FloraKind> FloraKindList { get; set; } = new List<FloraKind>();
     }
 
     public class FloraKindsContainer
@@ -58,8 +58,8 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("value")]
         public string Value { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeName() => !string.IsNullOrWhiteSpace(Name);
+        public bool ShouldSerializeValue() => !string.IsNullOrWhiteSpace(Value);
     }
 
     public class SeasonalKind
@@ -70,7 +70,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlElement("flora_variations")]
         public FloraVariations FloraVariations { get; set; }
 
-        public bool ShouldSerializeSeason() => !string.IsNullOrEmpty(Season);
+        public bool ShouldSerializeSeason() => !string.IsNullOrWhiteSpace(Season);
         public bool ShouldSerializeFloraVariations() => FloraVariations != null;
     }
 
@@ -107,7 +107,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlElement("mesh")]
         public List<Mesh> Meshes { get; set; } = new List<Mesh>();
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeName() => !string.IsNullOrWhiteSpace(Name);
         public bool ShouldSerializeDensityMultiplier() => DensityMultiplier.HasValue;
         public bool ShouldSerializeBbRadius() => BbRadius.HasValue;
         public bool ShouldSerializeMeshes() => Meshes != null && Meshes.Count > 0;
@@ -121,7 +121,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("material")]
         public string Material { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeMaterial() => !string.IsNullOrEmpty(Material);
+        public bool ShouldSerializeName() => !string.IsNullOrWhiteSpace(Name);
+        public bool ShouldSerializeMaterial() => !string.IsNullOrWhiteSpace(Material);
     }
 }

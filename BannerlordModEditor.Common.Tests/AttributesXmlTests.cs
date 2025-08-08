@@ -21,7 +21,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Equal(nodeCountA, nodeCountB);
             Assert.Equal(attrCountA, attrCountB);
 
-            // 结构相等断言
+            // 回退参数，保留原始结构比较，后续可扩展为更智能比较
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
         }
     }

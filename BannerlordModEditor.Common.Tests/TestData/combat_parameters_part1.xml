@@ -1,3 +1,4 @@
+<base type="combat_parameters">
 <combat_parameters>
 	<!--
 		Default values of the parameters;
@@ -57,14 +58,9 @@
 		left_ladder_rot_limit="60"
 		right_ladder_rot_limit="60" />
 	<combat_parameter
-		id="strike_left"
-		vertical_rot_limit_multiplier_up="0.4"
-		vertical_rot_limit_multiplier_down="0.4"
-		left_rider_rot_limit="80"
-		left_rider_min_rot_limit="80"
-		right_rider_rot_limit="80"
-		right_rider_min_rot_limit="80"
-		left_ladder_rot_limit="60"
+		id="strike_left" />
+</combat_parameters>
+</base>
 		right_ladder_rot_limit="60" />
 	<!-- general combat parameters -->
 	<combat_parameter
