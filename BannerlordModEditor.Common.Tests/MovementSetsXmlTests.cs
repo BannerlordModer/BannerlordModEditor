@@ -40,7 +40,9 @@ namespace BannerlordModEditor.Common.Tests
                     OmitXmlDeclaration = false
                 }))
                 {
-                    serializer.Serialize(xmlWriter, movementSets);
+                    var ns = new XmlSerializerNamespaces();
+                    ns.Add("", "");
+                    serializer.Serialize(xmlWriter, movementSets, ns);
                 }
                 savedXml = writer.ToString();
             }
