@@ -35,13 +35,11 @@ namespace BannerlordModEditor.Common.Tests
             var item = XmlTestUtils.Deserialize<Item>(xml);
             var xml2 = XmlTestUtils.Serialize(item);
 
-            // Assert
-            var isEqual = XmlTestUtils.AreStructurallyEqual(xml, xml2);
+            // Assert - 使用结构比较作为判断标准
+            var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);
             
-            // If not equal, output detailed difference information
-            if (!isEqual)
+            if (!diff.IsStructurallyEqual)
             {
-                var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);
                 var errorMessage = $"File '{Path.GetFileName(itemFilePath)}' is not structurally equivalent.\n";
                 errorMessage += $"Node count difference: {diff.NodeCountDifference}\n";
                 errorMessage += $"Attribute count difference: {diff.AttributeCountDifference}\n";
@@ -60,10 +58,8 @@ namespace BannerlordModEditor.Common.Tests
                 File.WriteAllText(Path.Combine(debugPath, "serialized.xml"), xml2);
                 errorMessage += $"Debug files saved to: {debugPath}";
                 
-                Assert.True(false, errorMessage);
+                Assert.False(true, errorMessage);
             }
-            
-            Assert.True(isEqual, $"File '{Path.GetFileName(itemFilePath)}' is not structurally equivalent.");
         }
     }
 }

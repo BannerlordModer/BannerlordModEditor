@@ -97,31 +97,8 @@ namespace BannerlordModEditor.Common.Tests
 
         public static bool AreStructurallyEqual(string xmlA, string xmlB)
         {
-            // 首先解析原始XML
-            var docA = XDocument.Parse(xmlA);
-            var docB = XDocument.Parse(xmlB);
-            
-            // 移除注释
-            RemoveComments(docA);
-            RemoveComments(docB);
-            
-            // 标准化boolean属性值（将"True"转换为"true"等）
-            NormalizeBooleanValues(docA);
-            NormalizeBooleanValues(docB);
-            
-            // 对所有元素属性按名称排序，消除属性顺序影响
-            SortAttributes(docA.Root);
-            SortAttributes(docB.Root);
-            
-            // 标准化自闭合标签格式
-            NormalizeSelfClosingTags(docA);
-            NormalizeSelfClosingTags(docB);
-            
-            // 忽略命名空间声明，只比较节点和属性值
-            var contentA = RemoveNamespaceDeclarations(docA);
-            var contentB = RemoveNamespaceDeclarations(docB);
-            
-            return XNode.DeepEquals(contentA, contentB);
+            var report = CompareXmlStructure(xmlA, xmlB);
+            return report.IsStructurallyEqual;
         }
 
         // XML结构详细比较，区分属性为null与属性不存在，检测节点缺失/多余，返回详细差异报告
@@ -154,13 +131,17 @@ namespace BannerlordModEditor.Common.Tests
             var contentA = RemoveNamespaceDeclarations(docA);
             var contentB = RemoveNamespaceDeclarations(docB);
             
+            // 对所有元素属性按名称排序，消除属性顺序影响
+            SortAttributes(contentA.Root);
+            SortAttributes(contentB.Root);
+            
             CompareElements(contentA.Root, contentB.Root, rootName, report);
 
-            // 节点和属性数量统计
-            int nodeCountA = docA.Descendants().Count();
-            int nodeCountB = docB.Descendants().Count();
-            int attrCountA = docA.Descendants().Sum(e => e.Attributes().Count());
-            int attrCountB = docB.Descendants().Sum(e => e.Attributes().Count());
+            // 节点和属性数量统计（使用移除命名空间声明后的结果）
+            int nodeCountA = contentA.Descendants().Count();
+            int nodeCountB = contentB.Descendants().Count();
+            int attrCountA = contentA.Descendants().Sum(e => e.Attributes().Count());
+            int attrCountB = contentB.Descendants().Sum(e => e.Attributes().Count());
             if (nodeCountA != nodeCountB)
                 report.NodeCountDifference = $"节点数量不同: A={nodeCountA}, B={nodeCountB}";
             if (attrCountA != attrCountB)
@@ -298,19 +279,6 @@ namespace BannerlordModEditor.Common.Tests
                     }
                 }
             }
-        }
-
-        // 节点和属性数量统计
-        public static (int nodeCount, int attrCount) CountNodesAndAttributes(string xml)
-        {
-            var doc = System.Xml.Linq.XDocument.Parse(xml);
-            int nodeCount = 0, attrCount = 0;
-            foreach (var node in doc.Descendants())
-            {
-                nodeCount++;
-                attrCount += node.Attributes().Count();
-            }
-            return (nodeCount, attrCount);
         }
 
         // 检查序列化后没有属性从无变为 null
@@ -464,9 +432,10 @@ namespace BannerlordModEditor.Common.Tests
         {
             options ??= new XmlComparisonOptions();
 
-            var areEqual = AreXmlDocumentsLogicallyEquivalent(originalXml, serializedXml, options);
+            // 使用结构比较作为唯一判断标准
+            var report = CompareXmlStructure(originalXml, serializedXml);
             
-            if (!areEqual)
+            if (!report.IsStructurallyEqual)
             {
                 var debugPath = Path.Combine("Debug", $"xml_comparison_{DateTime.Now:yyyyMMdd_HHmmss}");
                 Directory.CreateDirectory(debugPath);
@@ -474,11 +443,21 @@ namespace BannerlordModEditor.Common.Tests
                 File.WriteAllText(Path.Combine(debugPath, "original.xml"), originalXml);
                 File.WriteAllText(Path.Combine(debugPath, "serialized.xml"), serializedXml);
                 
-                var report = CompareXmlStructure(originalXml, serializedXml);
-                var diffReport = $"结构差异报告:\n{report}\n保存路径: {debugPath}";
+                var diffReport = $"结构差异报告:\n" +
+                                $"IsStructurallyEqual: {report.IsStructurallyEqual}\n" +
+                                $"MissingNodes: {string.Join(", ", report.MissingNodes)}\n" +
+                                $"ExtraNodes: {string.Join(", ", report.ExtraNodes)}\n" +
+                                $"NodeNameDifferences: {string.Join(", ", report.NodeNameDifferences)}\n" +
+                                $"MissingAttributes: {string.Join(", ", report.MissingAttributes)}\n" +
+                                $"ExtraAttributes: {string.Join(", ", report.ExtraAttributes)}\n" +
+                                $"AttributeValueDifferences: {string.Join(", ", report.AttributeValueDifferences)}\n" +
+                                $"TextDifferences: {string.Join(", ", report.TextDifferences)}\n" +
+                                $"NodeCountDifference: {report.NodeCountDifference}\n" +
+                                $"AttributeCountDifference: {report.AttributeCountDifference}\n" +
+                                $"保存路径: {debugPath}";
                 File.WriteAllText(Path.Combine(debugPath, "diff_report.txt"), diffReport);
                 
-                Assert.True(false, diffReport);
+                Assert.Fail(diffReport);
             }
         }
 
@@ -507,6 +486,52 @@ namespace BannerlordModEditor.Common.Tests
                 {
                     Console.WriteLine($"  属性: {attr.Name.LocalName} = {attr.Value}");
                 }
+            }
+        }
+        
+        // 节点和属性数量统计
+        public static (int nodeCount, int attrCount) CountNodesAndAttributes(string xml)
+        {
+            var doc = System.Xml.Linq.XDocument.Parse(xml);
+            int nodeCount = 0, attrCount = 0;
+            foreach (var node in doc.Descendants())
+            {
+                nodeCount++;
+                attrCount += node.Attributes().Count();
+            }
+            return (nodeCount, attrCount);
+        }
+        
+        // 详细属性统计
+        public static void DetailedAttributeCount(string xml, string tag)
+        {
+            var doc = System.Xml.Linq.XDocument.Parse(xml);
+            int nodeCount = 0, attrCount = 0;
+            var attrDetails = new Dictionary<string, int>();
+            
+            foreach (var node in doc.Descendants())
+            {
+                nodeCount++;
+                var nodeAttrCount = node.Attributes().Count();
+                attrCount += nodeAttrCount;
+                
+                if (nodeAttrCount > 0)
+                {
+                    var key = $"{node.Name.LocalName}({nodeAttrCount})";
+                    if (attrDetails.ContainsKey(key))
+                        attrDetails[key]++;
+                    else
+                        attrDetails[key] = 1;
+                }
+            }
+            
+            Console.WriteLine($"=== {tag} 详细统计 ===");
+            Console.WriteLine($"节点总数: {nodeCount}");
+            Console.WriteLine($"属性总数: {attrCount}");
+            Console.WriteLine("各节点属性分布:");
+            foreach (var kvp in attrDetails.OrderBy(x => x.Key))
+            {
+                Console.WriteLine($"  {kvp.Key}: {kvp.Value} 个节点");
             }
         }
 
