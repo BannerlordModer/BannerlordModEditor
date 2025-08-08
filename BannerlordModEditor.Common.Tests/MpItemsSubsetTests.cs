@@ -83,10 +83,10 @@ namespace BannerlordModEditor.Common.Tests
                 if (!generatedAttrs.TryGetValue(attr.Key, out var generatedValue))
                     return false;
                 
-                // 对于数值类型，进行宽松比较（例如 1.0 == 1）
-                if (IsNumericValue(attr.Value, generatedValue))
+                // 使用XmlTestUtils的数值比较逻辑进行宽松比较（例如 1.0 == 1）
+                if (XmlTestUtils.IsNumericValue(attr.Value, generatedValue))
                 {
-                    if (!AreNumericValuesEqual(attr.Value, generatedValue))
+                    if (!XmlTestUtils.AreNumericValuesEqual(attr.Value, generatedValue, 0.0001))
                         return false;
                 }
                 else if (attr.Value != generatedValue)
@@ -109,21 +109,6 @@ namespace BannerlordModEditor.Common.Tests
 
             // 比较文本内容
             return original.Value == generated.Value;
-        }
-
-        private static bool IsNumericValue(string value1, string value2)
-        {
-            return (double.TryParse(value1, out _) && double.TryParse(value2, out _)) ||
-                   (int.TryParse(value1, out _) && int.TryParse(value2, out _));
-        }
-
-        private static bool AreNumericValuesEqual(string value1, string value2)
-        {
-            if (double.TryParse(value1, out var d1) && double.TryParse(value2, out var d2))
-            {
-                return Math.Abs(d1 - d2) < 0.0001; // 允许小的浮点误差
-            }
-            return value1 == value2;
         }
     }
 }

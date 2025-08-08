@@ -89,6 +89,10 @@ namespace BannerlordModEditor.Common.Tests
             var docA = XDocument.Parse(cleanXmlA);
             var docB = XDocument.Parse(cleanXmlB);
             
+            // 标准化boolean属性值（将"True"转换为"true"等）
+            NormalizeBooleanValues(docA);
+            NormalizeBooleanValues(docB);
+            
             // 忽略命名空间声明，只比较节点和属性值
             var contentA = RemoveNamespaceDeclarations(docA);
             var contentB = RemoveNamespaceDeclarations(docB);
@@ -104,6 +108,10 @@ namespace BannerlordModEditor.Common.Tests
 
             var docA = XDocument.Parse(cleanXmlA);
             var docB = XDocument.Parse(cleanXmlB);
+
+            // 标准化boolean属性值（将"True"转换为"true"等）
+            NormalizeBooleanValues(docA);
+            NormalizeBooleanValues(docB);
 
             var report = new XmlStructureDiffReport();
             var rootName = docA.Root?.Name.LocalName ?? "";
@@ -236,6 +244,26 @@ namespace BannerlordModEditor.Common.Tests
         public static string CleanXmlForComparison(string xml)
         {
             return CleanXml(xml);
+        }
+
+        // 标准化Boolean属性值，将"True"/"False"转换为"true"/"false"
+        private static void NormalizeBooleanValues(XDocument doc)
+        {
+            foreach (var element in doc.Descendants())
+            {
+                foreach (var attr in element.Attributes().ToList()) // 使用ToList()避免修改集合时的异常
+                {
+                    var value = attr.Value;
+                    if (string.Equals(value, "True", StringComparison.OrdinalIgnoreCase))
+                    {
+                        attr.Value = "true";
+                    }
+                    else if (string.Equals(value, "False", StringComparison.OrdinalIgnoreCase))
+                    {
+                        attr.Value = "false";
+                    }
+                }
+            }
         }
 
         // 节点和属性数量统计
@@ -420,7 +448,7 @@ namespace BannerlordModEditor.Common.Tests
             }
         }
 
-        private static bool AreNumericValuesEqual(string value1, string value2, double tolerance)
+        public static bool AreNumericValuesEqual(string value1, string value2, double tolerance)
         {
             if (double.TryParse(value1, out var d1) && double.TryParse(value2, out var d2))
             {
