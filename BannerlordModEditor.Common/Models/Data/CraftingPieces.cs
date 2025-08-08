@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
@@ -22,72 +23,65 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializePieces() => Pieces != null && Pieces.Count > 0;
     }
 
-    public class CraftingPiece
+    public class CraftingPiece : XmlModelBase
     {
         [XmlAttribute("id")]
-        public string Id { get; set; }
+        public string Id
+        {
+            get => _id;
+            set { _id = value; MarkPropertyExists(nameof(Id)); }
+        }
+        private string _id;
 
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name
+        {
+            get => _name;
+            set { _name = value; MarkPropertyExists(nameof(Name)); }
+        }
+        private string _name;
 
         [XmlAttribute("tier")]
-        public string TierString
-        {
-            get => Tier.HasValue ? Tier.Value.ToString() : null;
-            set => Tier = string.IsNullOrEmpty(value) ? (int?)null : int.Parse(value);
-        }
-        [XmlIgnore]
-        public int? Tier { get; set; }
-        
+        public NullableNumericProperty<int> Tier { get; set; } = new();
+
         [XmlAttribute("piece_type")]
-        public string PieceType { get; set; }
-        
+        public string PieceType
+        {
+            get => _pieceType;
+            set { _pieceType = value; MarkPropertyExists(nameof(PieceType)); }
+        }
+        private string _pieceType;
+
         [XmlAttribute("mesh")]
-        public string Mesh { get; set; }
-        
+        public string Mesh
+        {
+            get => _mesh;
+            set { _mesh = value; MarkPropertyExists(nameof(Mesh)); }
+        }
+        private string _mesh;
+
         [XmlAttribute("culture")]
-        public string Culture { get; set; }
-        
+        public string Culture
+        {
+            get => _culture;
+            set { _culture = value; MarkPropertyExists(nameof(Culture)); }
+        }
+        private string _culture;
+
         [XmlAttribute("length")]
-        public string LengthString
-        {
-            get => Length.HasValue ? Length.Value.ToString() : null;
-            set => Length = string.IsNullOrEmpty(value) ? (double?)null : double.Parse(value);
-        }
-        [XmlIgnore]
-        public double? Length { get; set; }
+        public NullableNumericProperty<double> Length { get; set; } = new();
+
         [XmlAttribute("weight")]
-        public string WeightString
-        {
-            get => Weight.HasValue ? Weight.Value.ToString() : null;
-            set => Weight = string.IsNullOrEmpty(value) ? (double?)null : double.Parse(value);
-        }
-        [XmlIgnore]
-        public double? Weight { get; set; }
+        public NullableNumericProperty<double> Weight { get; set; } = new();
+
         [XmlAttribute("is_hidden")]
-        public string IsHiddenString
-        {
-            get => IsHidden.HasValue ? IsHidden.Value.ToString().ToLower() : null;
-            set => IsHidden = string.IsNullOrEmpty(value) ? (bool?)null : bool.Parse(value);
-        }
-        [XmlIgnore]
-        public bool? IsHidden { get; set; }
+        public NullableNumericProperty<bool> IsHidden { get; set; } = new();
+
         [XmlAttribute("is_default")]
-        public string IsDefaultString
-        {
-            get => IsDefault.HasValue ? IsDefault.Value.ToString().ToLower() : null;
-            set => IsDefault = string.IsNullOrEmpty(value) ? (bool?)null : bool.Parse(value);
-        }
-        [XmlIgnore]
-        public bool? IsDefault { get; set; }
+        public NullableNumericProperty<bool> IsDefault { get; set; } = new();
+
         [XmlAttribute("CraftingCost")]
-        public string CraftingCostString
-        {
-            get => CraftingCost.HasValue ? CraftingCost.Value.ToString() : null;
-            set => CraftingCost = string.IsNullOrEmpty(value) ? (int?)null : int.Parse(value);
-        }
-        [XmlIgnore]
-        public int? CraftingCost { get; set; }
+        public NullableNumericProperty<int> CraftingCost { get; set; } = new();
 
         [XmlElement("BuildData")]
         public BuildData BuildData { get; set; }

@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Models
 {
@@ -9,18 +10,18 @@ namespace BannerlordModEditor.Common.Models
         public List<AttributeData> AttributeData { get; set; } = new List<AttributeData>();
     }
 
-    public class AttributeData
+    public class AttributeData : XmlModelBase
     {
         [XmlAttribute("id")]
-        public string Id { get; set; } = string.Empty;
+        public NullableStringProperty Id { get; set; } = new();
 
         [XmlAttribute("Name")]
-        public string Name { get; set; } = string.Empty;
+        public NullableStringProperty Name { get; set; } = new();
 
         [XmlAttribute("Source")]
-        public string Source { get; set; } = string.Empty;
+        public NullableStringProperty Source { get; set; } = new();
 
         [XmlElement("Documentation")]
-        public string? Documentation { get; set; }
+        public NullableStringProperty Documentation { get; set; } = new();
     }
-} 
+}

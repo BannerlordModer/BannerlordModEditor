@@ -14,6 +14,14 @@ namespace BannerlordModEditor.Common.Tests
             var xml = File.ReadAllText(TestDataPath);
             var model = XmlTestUtils.Deserialize<AttributesDataModel>(xml);
             var serialized = XmlTestUtils.Serialize(model);
+
+            // 节点和属性数量断言
+            var (nodeCountA, attrCountA) = XmlTestUtils.CountNodesAndAttributes(xml);
+            var (nodeCountB, attrCountB) = XmlTestUtils.CountNodesAndAttributes(serialized);
+            Assert.Equal(nodeCountA, nodeCountB);
+            Assert.Equal(attrCountA, attrCountB);
+
+            // 结构相等断言
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
         }
     }

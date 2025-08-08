@@ -67,6 +67,17 @@ namespace BannerlordModEditor.Common.Tests
             var report = new XmlStructureDiffReport();
             var rootName = docA.Root?.Name.LocalName ?? "";
             CompareElements(docA.Root, docB.Root, rootName, report);
+
+            // 节点和属性数量统计
+            int nodeCountA = docA.Descendants().Count();
+            int nodeCountB = docB.Descendants().Count();
+            int attrCountA = docA.Descendants().Sum(e => e.Attributes().Count());
+            int attrCountB = docB.Descendants().Sum(e => e.Attributes().Count());
+            if (nodeCountA != nodeCountB)
+                report.NodeCountDifference = $"节点数量不同: A={nodeCountA}, B={nodeCountB}";
+            if (attrCountA != attrCountB)
+                report.AttributeCountDifference = $"属性数量不同: A={attrCountA}, B={attrCountB}";
+
             return report;
         }
 
@@ -157,6 +168,10 @@ namespace BannerlordModEditor.Common.Tests
             public List<string> AttributeValueDifferences { get; } = new();
             public List<string> TextDifferences { get; } = new();
 
+            // 新增：节点和属性数量差异字段
+            public string? NodeCountDifference { get; set; }
+            public string? AttributeCountDifference { get; set; }
+
             public bool IsStructurallyEqual =>
                 !MissingNodes.Any() &&
                 !ExtraNodes.Any() &&
@@ -164,7 +179,9 @@ namespace BannerlordModEditor.Common.Tests
                 !MissingAttributes.Any() &&
                 !ExtraAttributes.Any() &&
                 !AttributeValueDifferences.Any() &&
-                !TextDifferences.Any();
+                !TextDifferences.Any() &&
+                NodeCountDifference == null &&
+                AttributeCountDifference == null;
         }
 
         public static string CleanXmlForComparison(string xml)

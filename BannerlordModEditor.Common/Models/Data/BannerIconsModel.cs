@@ -16,6 +16,11 @@ namespace BannerlordModEditor.Common.Models.Data
 
     public class BannerIconData
     {
+        public BannerIconData()
+        {
+            BannerIconGroups = new List<BannerIconGroup>();
+        }
+
         [XmlElement("BannerIconGroup")]
         public List<BannerIconGroup> BannerIconGroups { get; set; }
 
@@ -37,13 +42,10 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool IsPattern { get; set; }
 
         [XmlElement("Background")]
-        public List<Background> Backgrounds { get; set; }
+        public List<Background> Backgrounds { get; set; } = new List<Background>();
 
         [XmlElement("Icon")]
-        public List<Icon> Icons { get; set; }
-
-        public bool ShouldSerializeBackgrounds() => Backgrounds != null && Backgrounds.Count > 0;
-        public bool ShouldSerializeIcons() => Icons != null && Icons.Count > 0;
+        public List<Icon> Icons { get; set; } = new List<Icon>();
     }
 
     public class Background
@@ -80,7 +82,7 @@ namespace BannerlordModEditor.Common.Models.Data
     public class BannerColors
     {
         [XmlElement("Color")]
-        public List<ColorEntry> Colors { get; set; }
+        public List<ColorEntry> Colors { get; set; } = new List<ColorEntry>();
     }
 
     public class ColorEntry
