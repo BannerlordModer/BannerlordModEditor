@@ -13,7 +13,7 @@ namespace BannerlordModEditor.Common.Tests
         {
             var xml = File.ReadAllText(TestDataPath);
             var model = XmlTestUtils.Deserialize<AttributesDataModel>(xml);
-            var serialized = XmlTestUtils.Serialize(model);
+            var serialized = XmlTestUtils.Serialize(model, xml); // Pass original XML to preserve namespaces
 
             // 节点和属性数量断言
             var (nodeCountA, attrCountA) = XmlTestUtils.CountNodesAndAttributes(xml);
