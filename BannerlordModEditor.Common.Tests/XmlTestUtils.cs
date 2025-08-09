@@ -53,6 +53,11 @@ namespace BannerlordModEditor.Common.Tests
 
         public static string Serialize<T>(T obj)
         {
+            return Serialize(obj, null);
+        }
+
+        public static string Serialize<T>(T obj, string? originalXml)
+        {
             var serializer = new XmlSerializer(typeof(T));
             var settings = new XmlWriterSettings
             {
@@ -64,9 +69,47 @@ namespace BannerlordModEditor.Common.Tests
                 NewLineOnAttributes = false
             };
 
-            // 完全避免命名空间声明
+            // 创建命名空间管理器
             var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("", ""); // 清空默认命名空间，避免添加xmlns声明
+            
+            // 如果提供了原始XML，则提取并保留其命名空间声明
+            if (!string.IsNullOrEmpty(originalXml))
+            {
+                try
+                {
+                    var doc = XDocument.Parse(originalXml);
+                    if (doc.Root != null)
+                    {
+                        foreach (var attr in doc.Root.Attributes())
+                        {
+                            // 检查是否为命名空间声明属性
+                            if (attr.IsNamespaceDeclaration)
+                            {
+                                // 处理默认命名空间（没有前缀的情况）
+                                if (attr.Name.LocalName == "xmlns")
+                                {
+                                    namespaces.Add("", attr.Value);
+                                }
+                                else
+                                {
+                                    // 处理带前缀的命名空间
+                                    namespaces.Add(attr.Name.LocalName, attr.Value);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    // 如果解析失败，回退到默认行为
+                    namespaces.Add("", "");
+                }
+            }
+            else
+            {
+                // 清空默认命名空间以避免添加额外的命名空间
+                namespaces.Add("", "");
+            }
 
             using var ms = new MemoryStream();
             using (var writer = XmlWriter.Create(ms, settings))
