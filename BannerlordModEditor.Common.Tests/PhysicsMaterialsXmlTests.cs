@@ -80,35 +80,35 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert - Basic material with minimal attributes
             Assert.Equal("default", defaultMaterial.Id);
-            Assert.Equal(0.800f, defaultMaterial.StaticFriction);
-            Assert.Equal(0.400f, defaultMaterial.DynamicFriction);
-            Assert.Equal(0.100f, defaultMaterial.Restitution);
-            Assert.Equal(0.000f, defaultMaterial.Softness);
-            Assert.Equal(0.050f, defaultMaterial.LinearDamping);
-            Assert.Equal(0.025f, defaultMaterial.AngularDamping);
+            Assert.Equal("0.800", defaultMaterial.StaticFriction);
+            Assert.Equal("0.400", defaultMaterial.DynamicFriction);
+            Assert.Equal("0.100", defaultMaterial.Restitution);
+            Assert.Equal("0.000", defaultMaterial.Softness);
+            Assert.Equal("0.050", defaultMaterial.LinearDamping);
+            Assert.Equal("0.025", defaultMaterial.AngularDamping);
             Assert.Equal("255, 112, 125, 136", defaultMaterial.DisplayColor);
-            Assert.False(defaultMaterial.RainSplashesEnabled);
-            Assert.False(defaultMaterial.Flammable);
-            Assert.False(defaultMaterial.DontStickMissiles);
+            Assert.Null(defaultMaterial.RainSplashesEnabled);
+            Assert.Null(defaultMaterial.Flammable);
+            Assert.Null(defaultMaterial.DontStickMissiles);
             Assert.Null(defaultMaterial.AttacksCanPassThrough);
             Assert.Null(defaultMaterial.OverrideMaterialNameForImpactSounds);
 
             // Assert - Wood material with boolean flags
             Assert.Equal("wood", woodMaterial.Id);
-            Assert.True(woodMaterial.RainSplashesEnabled);
-            Assert.True(woodMaterial.Flammable);
-            Assert.False(woodMaterial.DontStickMissiles);
+            Assert.Equal("true", woodMaterial.RainSplashesEnabled);
+            Assert.Equal("true", woodMaterial.Flammable);
+            Assert.Null(woodMaterial.DontStickMissiles);
 
             // Assert - Wood nonstick with override material name
             Assert.Equal("wood_nonstick", woodNonstickMaterial.Id);
             Assert.Equal("wood", woodNonstickMaterial.OverrideMaterialNameForImpactSounds);
-            Assert.True(woodNonstickMaterial.DontStickMissiles);
-            Assert.True(woodNonstickMaterial.RainSplashesEnabled);
-            Assert.True(woodNonstickMaterial.Flammable);
+            Assert.Equal("true", woodNonstickMaterial.DontStickMissiles);
+            Assert.Equal("true", woodNonstickMaterial.RainSplashesEnabled);
+            Assert.Equal("true", woodNonstickMaterial.Flammable);
 
             // Assert - Pot material with attacks_can_pass_through = false
             Assert.Equal("pot", potMaterial.Id);
-            Assert.True(potMaterial.DontStickMissiles);
+            Assert.Equal("true", potMaterial.DontStickMissiles);
             Assert.Equal("false", potMaterial.AttacksCanPassThrough);
         }
 
@@ -180,11 +180,11 @@ namespace BannerlordModEditor.Common.Tests
             var material = new PhysicsMaterial
             {
                 Id = "test",
-                StaticFriction = 1.0f,
-                DynamicFriction = 0.5f,
-                Restitution = 0.1f,
-                LinearDamping = 0.05f,
-                AngularDamping = 0.025f,
+                StaticFriction = "1.000",
+                DynamicFriction = "0.500",
+                Restitution = "0.100",
+                LinearDamping = "0.050",
+                AngularDamping = "0.025",
                 OverrideMaterialNameForImpactSounds = null, // Explicitly null
                 DisplayColor = null // Explicitly null
             };
@@ -216,16 +216,16 @@ namespace BannerlordModEditor.Common.Tests
             var material = new PhysicsMaterial
             {
                 Id = "test",
-                StaticFriction = 1.0f,
-                DynamicFriction = 0.5f,
-                Restitution = 0.1f,
-                LinearDamping = 0.05f,
-                AngularDamping = 0.025f,
+                StaticFriction = "1.000",
+                DynamicFriction = "0.500",
+                Restitution = "0.100",
+                LinearDamping = "0.050",
+                AngularDamping = "0.025",
                 // Default values should be preserved
-                DontStickMissiles = false,
-                RainSplashesEnabled = false,
-                Flammable = false,
-                Softness = 0.0f
+                DontStickMissiles = "false",
+                RainSplashesEnabled = "false",
+                Flammable = "false",
+                Softness = "0.000"
             };
             physicsMaterials.PhysicsMaterialList.Add(material);
 
@@ -242,10 +242,10 @@ namespace BannerlordModEditor.Common.Tests
 
             // Assert
             var deserializedMaterial = deserialized.PhysicsMaterialList.First();
-            Assert.False(deserializedMaterial.DontStickMissiles);
-            Assert.False(deserializedMaterial.RainSplashesEnabled);
-            Assert.False(deserializedMaterial.Flammable);
-            Assert.Equal(0.0f, deserializedMaterial.Softness);
+            Assert.Equal("false", deserializedMaterial.DontStickMissiles);
+            Assert.Equal("false", deserializedMaterial.RainSplashesEnabled);
+            Assert.Equal("false", deserializedMaterial.Flammable);
+            Assert.Equal("0.000", deserializedMaterial.Softness);
         }
     }
-} 
+}
