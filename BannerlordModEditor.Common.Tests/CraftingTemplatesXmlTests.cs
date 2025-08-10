@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Tests
         {
             var xml = File.ReadAllText(filePath);
             var obj = XmlTestUtils.Deserialize<CraftingTemplates>(xml);
-            var xml2 = XmlTestUtils.Serialize(obj);
+            var xml2 = XmlTestUtils.Serialize(obj, xml);
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2), $"结构不一致: {filePath}");
         }
     }
