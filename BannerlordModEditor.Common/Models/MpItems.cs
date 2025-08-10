@@ -132,6 +132,13 @@ namespace BannerlordModEditor.Common.Models
         [XmlElement("Flags")]
         public ItemFlags? Flags { get; set; }
 
+        // 数值类型的便捷属性（基于字符串属性）
+        public int? ValueInt => int.TryParse(Value, out int value) ? value : (int?)null;
+        public double? WeightDouble => double.TryParse(Weight, out double weight) ? weight : (double?)null;
+        public int? DifficultyInt => int.TryParse(Difficulty, out int difficulty) ? difficulty : (int?)null;
+        public double? AppearanceDouble => double.TryParse(Appearance, out double appearance) ? appearance : (double?)null;
+        public int? LodAtlasIndexInt => int.TryParse(LodAtlasIndex, out int lodAtlasIndex) ? lodAtlasIndex : (int?)null;
+
         public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
         public bool ShouldSerializeWeight() => !string.IsNullOrEmpty(Weight);
         public bool ShouldSerializeDifficulty() => !string.IsNullOrEmpty(Difficulty);
@@ -173,6 +180,9 @@ namespace BannerlordModEditor.Common.Models
 
         [XmlElement("Pieces")]
         public Pieces? Pieces { get; set; }
+
+        // 数值类型的便捷属性（基于字符串属性）
+        public int? ValueInt => int.TryParse(Value, out int value) ? value : (int?)null;
     }
 
     public class Pieces
