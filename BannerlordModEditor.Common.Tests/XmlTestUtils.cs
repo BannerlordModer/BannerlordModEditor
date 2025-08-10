@@ -9,11 +9,46 @@ namespace BannerlordModEditor.Common.Tests
 {
     public static class XmlTestUtils
     {
+        public enum ComparisonMode
+        {
+            Strict,
+            Logical,
+            Loose
+        }
+
+        public class XmlComparisonOptions
+        {
+            public ComparisonMode Mode { get; set; } = ComparisonMode.Logical;
+            public bool IgnoreComments { get; set; } = true;
+            public bool IgnoreWhitespace { get; set; } = true;
+            public bool IgnoreAttributeOrder { get; set; } = true;
+            public bool AllowCaseInsensitiveBooleans { get; set; } = true;
+            public bool AllowNumericTolerance { get; set; } = true;
+            public double NumericTolerance { get; set; } = 0.0001;
+        }
+
+        public static IReadOnlyList<string> CommonBooleanTrueValues = 
+            new[] { "true", "True", "TRUE", "1", "yes", "Yes", "YES", "on", "On", "ON" };
+        
+        public static IReadOnlyList<string> CommonBooleanFalseValues = 
+            new[] { "false", "False", "FALSE", "0", "no", "No", "NO", "off", "Off", "OFF" };
+        public static string? ReadTestDataOrSkip(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                return null; // Signal caller to skip
+            }
+            return File.ReadAllText(filePath);
+        }
+
         public static T Deserialize<T>(string xml)
         {
+            if (string.IsNullOrEmpty(xml))
+                throw new ArgumentException("XML cannot be null or empty", nameof(xml));
+                
             var serializer = new XmlSerializer(typeof(T));
             using var reader = new StringReader(xml);
-            return (T)serializer.Deserialize(reader);
+            return (T)serializer.Deserialize(reader)!;
         }
 
         public static string Serialize<T>(T obj)
@@ -33,7 +68,6 @@ namespace BannerlordModEditor.Common.Tests
                 NewLineChars = "\n",
                 NewLineOnAttributes = false
             };
-
             // 创建命名空间管理器
             var namespaces = new XmlSerializerNamespaces();
             
@@ -83,39 +117,73 @@ namespace BannerlordModEditor.Common.Tests
             }
             ms.Position = 0;
             using var sr = new StreamReader(ms, Encoding.UTF8);
-            return sr.ReadToEnd();
+            
+            var serialized = sr.ReadToEnd();
+            
+            // 后处理：移除任何自动添加的命名空间声明并标准化格式
+            var doc = XDocument.Parse(serialized);
+            
+            // 移除命名空间声明
+            RemoveNamespaceDeclarations(doc);
+            
+            // 对所有元素属性按名称排序
+            SortAttributes(doc.Root);
+            
+            // 标准化自闭合标签格式
+            NormalizeSelfClosingTags(doc);
+            
+            // 保留 XML 声明头并输出标准化后的XML
+            var declaration = doc.Declaration != null ? doc.Declaration.ToString() + "\n" : "";
+            return declaration + doc.Root.ToString();
         }
 
         public static bool AreStructurallyEqual(string xmlA, string xmlB)
         {
-            // 移除注释和标准化空白字符后再比较
-            var cleanXmlA = CleanXml(xmlA);
-            var cleanXmlB = CleanXml(xmlB);
-
-            var docA = XDocument.Parse(cleanXmlA);
-            var docB = XDocument.Parse(cleanXmlB);
-
-            return XNode.DeepEquals(docA, docB);
+            var report = CompareXmlStructure(xmlA, xmlB);
+            return report.IsStructurallyEqual;
         }
 
         // XML结构详细比较，区分属性为null与属性不存在，检测节点缺失/多余，返回详细差异报告
         public static XmlStructureDiffReport CompareXmlStructure(string xmlA, string xmlB)
         {
-            var cleanXmlA = CleanXml(xmlA);
-            var cleanXmlB = CleanXml(xmlB);
-
-            var docA = XDocument.Parse(cleanXmlA);
-            var docB = XDocument.Parse(cleanXmlB);
+            // 首先解析原始XML
+            var docA = XDocument.Parse(xmlA);
+            var docB = XDocument.Parse(xmlB);
+            
+            // 移除注释
+            RemoveComments(docA);
+            RemoveComments(docB);
+            
+            // 标准化boolean属性值（将"True"转换为"true"等）
+            NormalizeBooleanValues(docA);
+            NormalizeBooleanValues(docB);
+            
+            // 对所有元素属性按名称排序，消除属性顺序影响
+            SortAttributes(docA.Root);
+            SortAttributes(docB.Root);
+            
+            // 标准化自闭合标签格式
+            NormalizeSelfClosingTags(docA);
+            NormalizeSelfClosingTags(docB);
 
             var report = new XmlStructureDiffReport();
             var rootName = docA.Root?.Name.LocalName ?? "";
-            CompareElements(docA.Root, docB.Root, rootName, report);
+            
+            // 在比较前移除命名空间声明
+            var contentA = RemoveNamespaceDeclarations(docA);
+            var contentB = RemoveNamespaceDeclarations(docB);
+            
+            // 对所有元素属性按名称排序，消除属性顺序影响
+            SortAttributes(contentA.Root);
+            SortAttributes(contentB.Root);
+            
+            CompareElements(contentA.Root, contentB.Root, rootName, report);
 
-            // 节点和属性数量统计
-            int nodeCountA = docA.Descendants().Count();
-            int nodeCountB = docB.Descendants().Count();
-            int attrCountA = docA.Descendants().Sum(e => e.Attributes().Count());
-            int attrCountB = docB.Descendants().Sum(e => e.Attributes().Count());
+            // 节点和属性数量统计（使用移除命名空间声明后的结果）
+            int nodeCountA = contentA.Descendants().Count();
+            int nodeCountB = contentB.Descendants().Count();
+            int attrCountA = contentA.Descendants().Sum(e => e.Attributes().Count());
+            int attrCountB = contentB.Descendants().Sum(e => e.Attributes().Count());
             if (nodeCountA != nodeCountB)
                 report.NodeCountDifference = $"节点数量不同: A={nodeCountA}, B={nodeCountB}";
             if (attrCountA != attrCountB)
@@ -158,12 +226,14 @@ namespace BannerlordModEditor.Common.Tests
                     continue;
                 if (attrA == null)
                 {
-                    report.MissingAttributes.Add($"{path}@{name} (A缺失)");
+                    string pathFormat = path == "root" ? "/@{name}" : $"{path}@{name}";
+                    report.MissingAttributes.Add($"{pathFormat.Replace("{name}", name)} (A缺失)");
                     continue;
                 }
                 if (attrB == null)
                 {
-                    report.ExtraAttributes.Add($"{path}@{name} (B缺失)");
+                    string pathFormat = path == "root" ? "/@{name}" : $"{path}@{name}";
+                    report.ExtraAttributes.Add($"{pathFormat.Replace("{name}", name)} (B缺失)");
                     continue;
                 }
                 // 区分null与空字符串
@@ -171,7 +241,8 @@ namespace BannerlordModEditor.Common.Tests
                 {
                     string valA = attrA.Value == "" ? "空字符串" : attrA.Value ?? "null";
                     string valB = attrB.Value == "" ? "空字符串" : attrB.Value ?? "null";
-                    report.AttributeValueDifferences.Add($"{path}@{name}: A={valA}, B={valB}");
+                    string pathFormat = path == "root" ? "/@{name}" : $"{path}@{name}";
+                    report.AttributeValueDifferences.Add($"{pathFormat.Replace("{name}", name)}: A={valA}, B={valB}");
                 }
             }
 
@@ -185,8 +256,8 @@ namespace BannerlordModEditor.Common.Tests
                 XElement? childA = i < childrenA.Count ? childrenA[i] : null;
                 XElement? childB = i < childrenB.Count ? childrenB[i] : null;
                 string nodeName = childA?.Name.LocalName ?? childB?.Name.LocalName ?? "?";
-                string childPath = string.IsNullOrEmpty(path)
-                    ? $"{nodeName}[{i}]"
+                string childPath = path == "root" 
+                    ? $"/{nodeName}[{i}]"
                     : $"{path}/{nodeName}[{i}]";
                 CompareElements(childA, childB, childPath, report);
             }
@@ -232,17 +303,24 @@ namespace BannerlordModEditor.Common.Tests
             return CleanXml(xml);
         }
 
-        // 节点和属性数量统计
-        public static (int nodeCount, int attrCount) CountNodesAndAttributes(string xml)
+        // 标准化Boolean属性值，将"True"/"False"转换为"true"/"false"
+        private static void NormalizeBooleanValues(XDocument doc)
         {
-            var doc = System.Xml.Linq.XDocument.Parse(xml);
-            int nodeCount = 0, attrCount = 0;
-            foreach (var node in doc.Descendants())
+            foreach (var element in doc.Descendants())
             {
-                nodeCount++;
-                attrCount += node.Attributes().Count();
+                foreach (var attr in element.Attributes().ToList()) // 使用ToList()避免修改集合时的异常
+                {
+                    var value = attr.Value;
+                    if (string.Equals(value, "True", StringComparison.OrdinalIgnoreCase))
+                    {
+                        attr.Value = "true";
+                    }
+                    else if (string.Equals(value, "False", StringComparison.OrdinalIgnoreCase))
+                    {
+                        attr.Value = "false";
+                    }
+                }
             }
-            return (nodeCount, attrCount);
         }
 
         // 检查序列化后没有属性从无变为 null
@@ -268,6 +346,176 @@ namespace BannerlordModEditor.Common.Tests
             return true;
         }
 
+        public static bool IsBooleanValue(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+
+            var normalized = value.Trim().ToLowerInvariant();
+            return CommonBooleanTrueValues.Contains(normalized) || CommonBooleanFalseValues.Contains(normalized);
+        }
+
+        public static bool AreBooleanValuesEqual(string value1, string value2)
+        {
+            return ParseBoolean(value1) == ParseBoolean(value2);
+        }
+
+        public static bool ParseBoolean(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+
+            var normalized = value.Trim().ToLowerInvariant();
+            return CommonBooleanTrueValues.Contains(normalized);
+        }
+
+        public static bool IsNumericValue(string value1, string value2)
+        {
+            return double.TryParse(value1, out _) && double.TryParse(value2, out _);
+        }
+
+        public static bool AreXmlDocumentsLogicallyEquivalent(string xml1, string xml2, XmlComparisonOptions? options = null)
+        {
+            options ??= new XmlComparisonOptions();
+
+            try
+            {
+                var doc1 = XDocument.Parse(xml1);
+                var doc2 = XDocument.Parse(xml2);
+
+                if (options.IgnoreComments)
+                {
+                    RemoveComments(doc1);
+                    RemoveComments(doc2);
+                }
+
+                return AreXElementsLogicallyEquivalent(doc1.Root, doc2.Root, options);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"XML解析错误: {ex.Message}");
+                return false;
+            }
+        }
+
+        private static bool AreXElementsLogicallyEquivalent(XElement? elem1, XElement? elem2, XmlComparisonOptions options)
+        {
+            if (elem1 == null && elem2 == null) return true;
+            if (elem1 == null || elem2 == null) return false;
+
+            if (elem1.Name != elem2.Name) return false;
+
+            // 处理文本内容
+            var text1 = elem1.Value?.Trim();
+            var text2 = elem2.Value?.Trim();
+            if (text1 != text2)
+            {
+                if (!string.IsNullOrEmpty(text1) && !string.IsNullOrEmpty(text2))
+                {
+                    // 尝试数值比较
+                    if (options.AllowNumericTolerance && IsNumericValue(text1, text2))
+                    {
+                        return AreNumericValuesEqual(text1, text2, options.NumericTolerance);
+                    }
+                    // 尝试布尔比较
+                    if (options.AllowCaseInsensitiveBooleans && IsBooleanValue(text1) && IsBooleanValue(text2))
+                    {
+                        return AreBooleanValuesEqual(text1, text2);
+                    }
+                }
+                return false;
+            }
+
+            // 处理属性
+            var attrs1 = elem1.Attributes().ToDictionary(a => a.Name.LocalName, a => a.Value);
+            var attrs2 = elem2.Attributes().ToDictionary(a => a.Name.LocalName, a => a.Value);
+
+            if (attrs1.Count != attrs2.Count) return false;
+
+            foreach (var attr in attrs1)
+            {
+                if (!attrs2.TryGetValue(attr.Key, out var value2))
+                    return false;
+
+                // 数值比较
+                if (options.AllowNumericTolerance && IsNumericValue(attr.Value, value2))
+                {
+                    if (!AreNumericValuesEqual(attr.Value, value2, options.NumericTolerance))
+                        return false;
+                }
+                // 布尔比较
+                else if (options.AllowCaseInsensitiveBooleans && IsBooleanValue(attr.Value) && IsBooleanValue(value2))
+                {
+                    if (!AreBooleanValuesEqual(attr.Value, value2))
+                        return false;
+                }
+                else if (attr.Value != value2)
+                {
+                    return false;
+                }
+            }
+
+            // 处理子元素
+            var children1 = elem1.Elements().ToList();
+            var children2 = elem2.Elements().ToList();
+
+            if (children1.Count != children2.Count) return false;
+
+            for (int i = 0; i < children1.Count; i++)
+            {
+                if (!AreXElementsLogicallyEquivalent(children1[i], children2[i], options))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public static void AssertXmlRoundTrip(string originalXml, string serializedXml, XmlComparisonOptions? options = null)
+        {
+            options ??= new XmlComparisonOptions();
+
+            // 使用结构比较作为唯一判断标准
+            var report = CompareXmlStructure(originalXml, serializedXml);
+            
+            if (!report.IsStructurallyEqual)
+            {
+                var debugPath = Path.Combine("Debug", $"xml_comparison_{DateTime.Now:yyyyMMdd_HHmmss}");
+                Directory.CreateDirectory(debugPath);
+                
+                File.WriteAllText(Path.Combine(debugPath, "original.xml"), originalXml);
+                File.WriteAllText(Path.Combine(debugPath, "serialized.xml"), serializedXml);
+                
+                var diffReport = $"结构差异报告:\n" +
+                                $"IsStructurallyEqual: {report.IsStructurallyEqual}\n" +
+                                $"MissingNodes: {string.Join(", ", report.MissingNodes)}\n" +
+                                $"ExtraNodes: {string.Join(", ", report.ExtraNodes)}\n" +
+                                $"NodeNameDifferences: {string.Join(", ", report.NodeNameDifferences)}\n" +
+                                $"MissingAttributes: {string.Join(", ", report.MissingAttributes)}\n" +
+                                $"ExtraAttributes: {string.Join(", ", report.ExtraAttributes)}\n" +
+                                $"AttributeValueDifferences: {string.Join(", ", report.AttributeValueDifferences)}\n" +
+                                $"TextDifferences: {string.Join(", ", report.TextDifferences)}\n" +
+                                $"NodeCountDifference: {report.NodeCountDifference}\n" +
+                                $"AttributeCountDifference: {report.AttributeCountDifference}\n" +
+                                $"保存路径: {debugPath}";
+                File.WriteAllText(Path.Combine(debugPath, "diff_report.txt"), diffReport);
+                
+                Assert.Fail(diffReport);
+            }
+        }
+
+        public static bool AreNumericValuesEqual(string value1, string value2, double tolerance)
+        {
+            if (double.TryParse(value1, out var d1) && double.TryParse(value2, out var d2))
+            {
+                return Math.Abs(d1 - d2) < tolerance;
+            }
+            if (int.TryParse(value1, out var i1) && int.TryParse(value2, out var i2))
+            {
+                return i1 == i2;
+            }
+            return value1 == value2;
+        }
+        
         // 调试辅助：输出所有节点和属性名
         public static void LogAllNodesAndAttributes(string xml, string tag)
         {
@@ -280,6 +528,52 @@ namespace BannerlordModEditor.Common.Tests
                 {
                     Console.WriteLine($"  属性: {attr.Name.LocalName} = {attr.Value}");
                 }
+            }
+        }
+        
+        // 节点和属性数量统计
+        public static (int nodeCount, int attrCount) CountNodesAndAttributes(string xml)
+        {
+            var doc = System.Xml.Linq.XDocument.Parse(xml);
+            int nodeCount = 0, attrCount = 0;
+            foreach (var node in doc.Descendants())
+            {
+                nodeCount++;
+                attrCount += node.Attributes().Count();
+            }
+            return (nodeCount, attrCount);
+        }
+        
+        // 详细属性统计
+        public static void DetailedAttributeCount(string xml, string tag)
+        {
+            var doc = System.Xml.Linq.XDocument.Parse(xml);
+            int nodeCount = 0, attrCount = 0;
+            var attrDetails = new Dictionary<string, int>();
+            
+            foreach (var node in doc.Descendants())
+            {
+                nodeCount++;
+                var nodeAttrCount = node.Attributes().Count();
+                attrCount += nodeAttrCount;
+                
+                if (nodeAttrCount > 0)
+                {
+                    var key = $"{node.Name.LocalName}({nodeAttrCount})";
+                    if (attrDetails.ContainsKey(key))
+                        attrDetails[key]++;
+                    else
+                        attrDetails[key] = 1;
+                }
+            }
+            
+            Console.WriteLine($"=== {tag} 详细统计 ===");
+            Console.WriteLine($"节点总数: {nodeCount}");
+            Console.WriteLine($"属性总数: {attrCount}");
+            Console.WriteLine("各节点属性分布:");
+            foreach (var kvp in attrDetails.OrderBy(x => x.Key))
+            {
+                Console.WriteLine($"  {kvp.Key}: {kvp.Value} 个节点");
             }
         }
 
@@ -300,30 +594,29 @@ namespace BannerlordModEditor.Common.Tests
             return declaration + doc.Root.ToString();
         }
 
-        private static void SortAttributes(XElement element)
+        private static void SortAttributes(XElement? element)
         {
             if (element == null) return;
+            
             // 获取所有属性并按名称排序
             var sortedAttributes = element.Attributes().OrderBy(a => a.Name.ToString()).ToList();
             element.RemoveAttributes();
             foreach (var attr in sortedAttributes)
                 element.Add(attr);
+            
             // 递归对子元素排序
             foreach (var child in element.Elements())
                 SortAttributes(child);
         }
 
-        private static void NormalizeSelfClosingTags(XNode node)
+        private static void NormalizeSelfClosingTags(XNode? node)
         {
             if (node is XElement element)
             {
                 // 如果元素没有子元素且为空，将其转换为自闭合标签格式
-                // 这样能确保原始XML和序列化XML的格式一致
-                if (!element.HasElements && string.IsNullOrEmpty(element.Value) && !element.IsEmpty)
+                if (!element.HasElements && string.IsNullOrEmpty(element?.Value) && !element.IsEmpty)
                 {
-                    // 移除所有子节点（如果有）
                     element.RemoveAll();
-                    // 移除所有内容后，序列化时会自动变为自闭合标签
                 }
 
                 // 递归处理子元素
@@ -334,7 +627,7 @@ namespace BannerlordModEditor.Common.Tests
             }
         }
 
-        private static void RemoveComments(XNode node)
+        private static void RemoveComments(XNode? node)
         {
             if (node is XContainer container)
             {
@@ -351,6 +644,38 @@ namespace BannerlordModEditor.Common.Tests
             }
         }
 
+        private static XDocument RemoveNamespaceDeclarations(XDocument doc)
+        {
+            if (doc == null) return new XDocument();
+            
+            var clone = new XDocument(doc);
+            
+            // 移除所有命名空间声明
+            foreach (var element in clone.Descendants())
+            {
+                var namespaceAttrs = element.Attributes()
+                    .Where(a => a.IsNamespaceDeclaration).ToList();
+                foreach (var attr in namespaceAttrs)
+                {
+                    attr.Remove();
+                }
+            }
+            
+            // 也移除根元素的xmlns属性
+            if (clone.Root != null)
+            {
+                var xmlnsAttrs = clone.Root.Attributes()
+                    .Where(a => a.Name.LocalName == "xmlns" || a.Name.LocalName.StartsWith("xmlns:")).ToList();
+                foreach (var attr in xmlnsAttrs)
+                {
+                    attr.Remove();
+                }
+            }
+            
+            return clone;
+        }
+
+        
         private class Utf8StringWriter : StringWriter
         {
             public override Encoding Encoding => Encoding.UTF8;

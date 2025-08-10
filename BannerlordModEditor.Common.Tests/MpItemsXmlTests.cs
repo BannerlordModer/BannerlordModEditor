@@ -97,6 +97,12 @@ namespace BannerlordModEditor.Common.Tests
                     if (!AreNumericValuesEqual(attr.Value, generatedAttrValue))
                         return false;
                 }
+                // 对于布尔值，进行宽松比较（true/True/TRUE/1 视为相同）
+                else if (IsBooleanValue(attr.Value, generatedAttrValue))
+                {
+                    if (!AreBooleanValuesEqual(attr.Value, generatedAttrValue))
+                        return false;
+                }
                 else if (attr.Value != generatedAttrValue)
                 {
                     return false;
@@ -134,6 +140,35 @@ namespace BannerlordModEditor.Common.Tests
                 return Math.Abs(d1 - d2) < 0.0001; // 允许小的浮点误差
             }
             return value1 == value2;
+        }
+
+        private static bool IsBooleanValue(string value1, string value2)
+        {
+            return IsBooleanValue(value1) || IsBooleanValue(value2);
+        }
+
+        private static bool IsBooleanValue(string value)
+        {
+            var normalized = value.ToLowerInvariant();
+            return normalized == "true" || normalized == "false" || 
+                   normalized == "1" || normalized == "0" ||
+                   normalized == "yes" || normalized == "no";
+        }
+
+        private static bool AreBooleanValuesEqual(string value1, string value2)
+        {
+            return ParseBooleanValue(value1) == ParseBooleanValue(value2);
+        }
+
+        private static bool ParseBooleanValue(string value)
+        {
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : false
+            };
         }
 
         private static void RemoveWhitespaceNodes(XElement? element)

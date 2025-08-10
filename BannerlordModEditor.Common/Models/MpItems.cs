@@ -130,6 +130,12 @@ namespace BannerlordModEditor.Common.Models
 
         [XmlElement("Flags")]
         public ItemFlags? Flags { get; set; }
+
+        public bool ShouldSerializeValue() => Value != 0;
+        public bool ShouldSerializeWeight() => Weight != 0.0;
+        public bool ShouldSerializeDifficulty() => Difficulty != 0;
+        public bool ShouldSerializeAppearance() => Appearance != 0.0;
+        public bool ShouldSerializeLodAtlasIndex() => LodAtlasIndex != 0;
     }
 
     public class CraftedItem
