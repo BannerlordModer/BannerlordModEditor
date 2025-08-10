@@ -4,6 +4,8 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Reflection;
+using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -50,6 +52,8 @@ namespace BannerlordModEditor.Common.Tests
             using var reader = new StringReader(xml);
             return (T)serializer.Deserialize(reader)!;
         }
+        
+        // 移除复杂的SetSpecifiedProperties相关方法
 
         public static string Serialize<T>(T obj)
         {
