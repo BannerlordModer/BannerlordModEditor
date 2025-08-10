@@ -1,5 +1,4 @@
 using System.Xml.Serialization;
-using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Models
 {
