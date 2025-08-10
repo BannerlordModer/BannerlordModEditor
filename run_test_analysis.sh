@@ -46,4 +46,5 @@ echo "==================="
 echo "失败测试: $failed_count"
 echo "通过测试: $passed_count" 
 echo "跳过测试: $skipped_count"
-echo "总计: $(($failed_count + $passed_count + $skipped_count))"
+total=$((failed_count + passed_count + skipped_count))
+echo "总计: $total"
