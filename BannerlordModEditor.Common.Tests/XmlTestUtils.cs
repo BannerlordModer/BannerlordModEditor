@@ -101,14 +101,14 @@ namespace BannerlordModEditor.Common.Tests
                 }
                 catch
                 {
-                    // 如果解析失败，回退到默认行为
-                    namespaces.Add("", "");
+                    // 如果解析失败，确保不添加任何命名空间
+                    namespaces.Add(string.Empty, string.Empty);
                 }
             }
             else
             {
-                // 清空默认命名空间以避免添加额外的命名空间
-                namespaces.Add("", "");
+                // 确保不添加任何命名空间声明
+                namespaces.Add(string.Empty, string.Empty);
             }
 
             using var ms = new MemoryStream();
