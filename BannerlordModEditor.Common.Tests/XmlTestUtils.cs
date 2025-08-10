@@ -77,10 +77,10 @@ namespace BannerlordModEditor.Common.Tests
             {
                 try
                 {
-                    var doc = XDocument.Parse(originalXml);
-                    if (doc.Root != null)
+                    var originalDoc = XDocument.Parse(originalXml);
+                    if (originalDoc.Root != null)
                     {
-                        foreach (var attr in doc.Root.Attributes())
+                        foreach (var attr in originalDoc.Root.Attributes())
                         {
                             // 检查是否为命名空间声明属性
                             if (attr.IsNamespaceDeclaration)

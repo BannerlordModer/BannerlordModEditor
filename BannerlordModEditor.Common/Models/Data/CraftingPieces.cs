@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Models.Data
 {
