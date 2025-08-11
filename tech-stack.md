@@ -1,96 +1,122 @@
 # Technology Stack Decisions
 
-## Core Technology Choices
+## Overview
+This document outlines the technology stack decisions for the Bannerlord Mod Editor, specifically focusing on the DO/DTO layered architecture implementation for XML processing. The stack is designed to address the specific challenges of preserving exact XML representations while providing strongly-typed interfaces for business logic.
 
-### .NET Platform
+## Core Technologies
+
+### .NET 9.0
+| Aspect | Choice | Rationale |
+|--------|--------|-----------|
+| Runtime | .NET 9.0 | Latest LTS version with performance improvements, nullable reference types, and modern C# features |
+| Language Features | C# 9.0+ | Pattern matching, nullable reference types, and records for better code safety and expressiveness |
+
+### XML Processing
+| Aspect | Choice | Rationale |
+|--------|--------|-----------|
+| Serialization | System.Xml.Serialization | Native .NET XML serialization with attribute-driven control, well-documented and performant |
+| Extensions | Custom XmlSerializer extensions | Handle namespace preservation and boolean value normalization |
+| Validation | Custom validation logic | Ensure exact XML preservation and structural consistency |
+
+### UI Framework
+| Aspect | Choice | Rationale |
+|--------|--------|-----------|
+| Framework | Avalonia UI 11.3 | Cross-platform desktop UI framework with good .NET integration |
+| MVVM | CommunityToolkit.Mvvm 8.2 | Provides robust MVVM implementation with source generators |
+| Theme | Fluent theme | Modern UI consistent with contemporary design guidelines |
+
+### Testing Framework
+| Aspect | Choice | Rationale |
+|--------|--------|-----------|
+| Framework | xUnit 2.5 | Industry-standard testing framework with good .NET integration |
+| Assertions | Custom XML validation helpers | Handle structural equality and format preservation verification |
+
+## Architecture Layers
+
+### DO (Data Object) Layer
 | Technology | Choice | Rationale |
 |------------|--------|-----------|
-| Runtime | .NET 9.0 | Latest LTS version with performance improvements |
-| Language | C# 9.0 | Modern features with nullable reference types |
-| XML Processing | System.Xml.Serialization | Built-in, mature, attribute-driven control |
-| UI Framework | Avalonia 11.3 | Cross-platform desktop UI with MVVM support |
-| Testing Framework | xUnit 2.5 | Industry standard with strong assertion capabilities |
+| Properties | String-based | Preserve exact XML representations including formatting and case |
+| Serialization | System.Xml.Serialization attributes | Standard .NET approach with attribute control |
+| Conditional Serialization | ShouldSerialize pattern | Prevent serialization of absent attributes |
 
-### Development Patterns
+### DTO (Data Transfer Object) Layer
+| Technology | Choice | Rationale |
+|------------|--------|-----------|
+| Properties | Strongly-typed | Provide type safety for business logic |
+| Validation | Data Annotations | Standard .NET validation approach |
+| Boolean Handling | BooleanProperty wrapper | Preserve original string values while providing normalized access |
 
-#### XML Serialization Strategy
-```csharp
-// String-based properties for exact format preservation
-[XmlAttribute("static_friction")]
-public string? StaticFriction { get; set; }
+### Mapping Layer
+| Technology | Choice | Rationale |
+|------------|--------|-----------|
+| Implementation | Custom reflection-based mapping | Flexible and extensible conversion between DO/DTO |
+| Performance | Object pooling | Reduce allocation overhead for frequent conversions |
 
-// Conditional serialization for optional attributes
-public bool ShouldSerializeStaticFriction() => 
-    !string.IsNullOrWhiteSpace(StaticFriction);
-```
+### XML Processing Layer
+| Technology | Choice | Rationale |
+|------------|--------|-----------|
+| Namespace Preservation | XDocument parsing | Extract and preserve namespace declarations from original XML |
+| Formatting | XmlWriterSettings | Maintain consistent formatting with original files |
+| Encoding | UTF-8 without BOM | Match Bannerlord's XML file encoding |
 
-#### Model Organization
-- **Functional namespaces**: Engine, Configuration, Data, Game, Audio
-- **Interface-driven design**: IXmlModel<T> for consistent API
-- **Factory patterns**: XmlModelFactory for centralized model creation
+## Development Tools
 
-### Quality Assurance Tools
+### Build System
+| Tool | Choice | Rationale |
+|------|--------|-----------|
+| Build Tool | dotnet CLI | Standard .NET build tooling with good IDE integration |
+| Package Management | NuGet | Standard .NET package management |
+| CI/CD | GitHub Actions | Integrated with GitHub repository hosting |
 
-#### Validation Framework
-```csharp
-public class XmlValidationResult
-{
-    public bool IsValid { get; set; }
-    public List<string> Differences { get; } = new();
-    public List<string> MissingAttributes { get; } = new();
-    public List<string> ExtraAttributes { get; } = new();
-}
-```
+### IDE Support
+| Tool | Choice | Rationale |
+|------|--------|-----------|
+| Primary IDEs | Visual Studio 2022, Rider | Full .NET support and debugging capabilities |
+| Code Analysis | Built-in analyzers | Ensure code quality and consistency |
 
-#### Testing Strategy
-- **Structural equality**: Round-trip XML validation
-- **Edge case coverage**: Null, empty, default value scenarios
-- **Performance benchmarks**: Large XML file processing
-- **Regression prevention**: Dedicated test suites per model
+## Quality Attributes
 
-### Dependency Management
+### Performance Considerations
+1. **Memory Efficiency**: String interning for frequently used values
+2. **Object Pooling**: Reuse of mapping objects and XML processors
+3. **Async Operations**: Non-blocking file I/O operations
+4. **Lazy Loading**: Deferred loading of large XML structures
 
-#### Core Dependencies
-- **CommunityToolkit.Mvvm**: MVVM foundation for UI layer
-- **Velopack**: Application packaging and updates
-- **Avalonia.Themes.Fluent**: Modern UI theme support
-- **coverlet.collector**: Code coverage analysis
+### Security Measures
+1. **XML Security**: DTD processing disabled to prevent XXE attacks
+2. **File Validation**: Path validation to prevent directory traversal
+3. **Input Sanitization**: Validation of XML content before processing
 
-#### Build and Deployment
-- **dotnet CLI**: Build automation and packaging
-- **GitHub Actions**: CI/CD pipeline integration
-- **NuGet Package Management**: Dependency resolution
+### Maintainability
+1. **Separation of Concerns**: Clear DO/DTO layer separation
+2. **Standard Patterns**: Use of established .NET patterns and practices
+3. **Comprehensive Testing**: Round-trip validation for all XML models
+4. **Documentation**: Inline XML documentation and architectural decision records
 
-## Decision Rationale
+## Decision Factors
 
-### Why String-Based Properties?
-1. **Exact Format Preservation**: Bannerlord's XML parser expects specific string representations
-2. **Boolean Value Control**: XML uses "true"/"false" vs C# default "True"/"False"
-3. **Numeric Precision**: Floating-point values must match original decimal representation
-4. **Absent vs Empty**: Distinguishes between missing attributes and empty values
+### Primary Considerations
+1. **XML Fidelity**: Exact preservation of original XML format is critical for game compatibility
+2. **Boolean Handling**: Case-insensitive parsing with original value preservation
+3. **Type Safety**: Strong typing for business logic while maintaining flexibility
+4. **Performance**: Efficient processing of large XML files
+5. **Maintainability**: Clear architecture that's easy to extend and modify
 
-### Why ShouldSerialize Pattern?
-1. **Attribute Presence Control**: Ensures only explicitly set attributes are serialized
-2. **Backward Compatibility**: Maintains exact XML structure of original files
-3. **Parser Compatibility**: Prevents XML parser failures due to unexpected attributes
-4. **Minimal Implementation**: Standard .NET pattern with attribute-driven approach
-
-### Why Incremental Approach?
-1. **Risk Mitigation**: Systematic fixes reduce regression probability
-2. **Test Validation**: Each model validated before proceeding
-3. **Pattern Establishment**: Early models establish reusable patterns
-4. **Team Coordination**: Clear implementation roadmap for parallel development
+### Trade-offs
+1. **Complexity vs. Fidelity**: Additional mapping layer complexity for exact XML preservation
+2. **Performance vs. Safety**: String-based properties for safety with potential performance impact
+3. **Standardization vs. Customization**: Custom solutions for specific XML challenges where standard approaches fall short
 
 ## Future Considerations
 
 ### Potential Enhancements
-- **Performance Optimization**: Async XML processing for large files
-- **Schema Validation**: Optional strict validation against game schemas
-- **Migration Tools**: Convert between XML versions and formats
-- **Localization Support**: Multi-language XML processing capabilities
+1. **Performance**: Investigate System.Text.Json for alternative serialization approaches
+2. **Scalability**: Consider streaming XML processing for extremely large files
+3. **Extensibility**: Plugin architecture for custom XML model adapters
+4. **Monitoring**: Enhanced telemetry for XML processing performance and errors
 
-### Scalability Planning
-- **Model Caching**: Frequently used models in memory
-- **Parallel Processing**: Concurrent XML file handling
-- **Streaming Support**: Process XML without full file loading
-- **Error Recovery**: Graceful handling of malformed XML
+### Migration Path
+1. **Incremental Adoption**: Gradually migrate existing models to DO/DTO pattern
+2. **Backward Compatibility**: Ensure existing functionality continues to work during transition
+3. **Testing Coverage**: Maintain comprehensive test coverage throughout migration
