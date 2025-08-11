@@ -131,6 +131,34 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeAmmoOffset() => !string.IsNullOrEmpty(AmmoOffset);
         public bool ShouldSerializePrefab() => !string.IsNullOrEmpty(Prefab);
         public bool ShouldSerializeLodAtlasIndex() => !string.IsNullOrEmpty(LodAtlasIndex);
+
+        // 布尔值标准化方法
+        public bool? GetMultiplayerItem() => ParseBoolean(MultiplayerItem);
+        public bool? GetUsingTableau() => ParseBoolean(UsingTableau);
+        public bool? GetIsMerchandise() => ParseBoolean(IsMerchandise);
+        public bool? GetRecalculateBody() => ParseBoolean(RecalculateBody);
+        public bool? GetHasLowerHolsterPriority() => ParseBoolean(HasLowerHolsterPriority);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetMultiplayerItem(bool? value) => MultiplayerItem = value?.ToString().ToLower();
+        public void SetUsingTableau(bool? value) => UsingTableau = value?.ToString().ToLower();
+        public void SetIsMerchandise(bool? value) => IsMerchandise = value?.ToString().ToLower();
+        public void SetRecalculateBody(bool? value) => RecalculateBody = value?.ToString().ToLower();
+        public void SetHasLowerHolsterPriority(bool? value) => HasLowerHolsterPriority = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 
     public class CraftedItemDO
@@ -167,6 +195,28 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
         public bool ShouldSerializeIsMerchandise() => !string.IsNullOrEmpty(IsMerchandise);
         public bool ShouldSerializeCulture() => !string.IsNullOrEmpty(Culture);
+
+        // 布尔值标准化方法
+        public bool? GetMultiplayerItem() => ParseBoolean(MultiplayerItem);
+        public bool? GetIsMerchandise() => ParseBoolean(IsMerchandise);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetMultiplayerItem(bool? value) => MultiplayerItem = value?.ToString().ToLower();
+        public void SetIsMerchandise(bool? value) => IsMerchandise = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 
     public class PiecesDO
@@ -284,6 +334,34 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeFamilyType() => !string.IsNullOrEmpty(FamilyType);
         public bool ShouldSerializeCoversHands() => !string.IsNullOrEmpty(CoversHands);
         public bool ShouldSerializeBodyMeshType() => !string.IsNullOrEmpty(BodyMeshType);
+
+        // 布尔值标准化方法
+        public bool? GetHasGenderVariations() => ParseBoolean(HasGenderVariations);
+        public bool? GetCoversBody() => ParseBoolean(CoversBody);
+        public bool? GetCoversLegs() => ParseBoolean(CoversLegs);
+        public bool? GetCoversHead() => ParseBoolean(CoversHead);
+        public bool? GetCoversHands() => ParseBoolean(CoversHands);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetHasGenderVariations(bool? value) => HasGenderVariations = value?.ToString().ToLower();
+        public void SetCoversBody(bool? value) => CoversBody = value?.ToString().ToLower();
+        public void SetCoversLegs(bool? value) => CoversLegs = value?.ToString().ToLower();
+        public void SetCoversHead(bool? value) => CoversHead = value?.ToString().ToLower();
+        public void SetCoversHands(bool? value) => CoversHands = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 
     public class WeaponDO
@@ -525,6 +603,80 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeCanKillEvenIfBlunt() => !string.IsNullOrEmpty(CanKillEvenIfBlunt);
         public bool ShouldSerializeAffectsAreaBig() => !string.IsNullOrEmpty(AffectsAreaBig);
         public bool ShouldSerializeAttachAmmoToVisual() => !string.IsNullOrEmpty(AttachAmmoToVisual);
+
+        // 布尔值标准化方法
+        public bool? GetMeleeWeapon() => ParseBoolean(MeleeWeapon);
+        public bool? GetRangedWeapon() => ParseBoolean(RangedWeapon);
+        public bool? GetPenaltyWithShield() => ParseBoolean(PenaltyWithShield);
+        public bool? GetNotUsableWithOneHand() => ParseBoolean(NotUsableWithOneHand);
+        public bool? GetTwoHandIdleOnMount() => ParseBoolean(TwoHandIdleOnMount);
+        public bool? GetWideGrip() => ParseBoolean(WideGrip);
+        public bool? GetConsumable() => ParseBoolean(Consumable);
+        public bool? GetAmmoSticksWhenShot() => ParseBoolean(AmmoSticksWhenShot);
+        public bool? GetMultiplePenetration() => ParseBoolean(MultiplePenetration);
+        public bool? GetCanPenetrateShield() => ParseBoolean(CanPenetrateShield);
+        public bool? GetCanBlockRanged() => ParseBoolean(CanBlockRanged);
+        public bool? GetHasHitPoints() => ParseBoolean(HasHitPoints);
+        public bool? GetHasString() => ParseBoolean(HasString);
+        public bool? GetStringHeldByHand() => ParseBoolean(StringHeldByHand);
+        public bool? GetAutoReload() => ParseBoolean(AutoReload);
+        public bool? GetUnloadWhenSheathed() => ParseBoolean(UnloadWhenSheathed);
+        public bool? GetAmmoBreaksOnBounceBack() => ParseBoolean(AmmoBreaksOnBounceBack);
+        public bool? GetCantReloadOnHorseback() => ParseBoolean(CantReloadOnHorseback);
+        public bool? GetBurning() => ParseBoolean(Burning);
+        public bool? GetLeavesTrail() => ParseBoolean(LeavesTrail);
+        public bool? GetCanKnockDown() => ParseBoolean(CanKnockDown);
+        public bool? GetMissileWithPhysics() => ParseBoolean(MissileWithPhysics);
+        public bool? GetUseHandAsThrowBase() => ParseBoolean(UseHandAsThrowBase);
+        public bool? GetAffectsArea() => ParseBoolean(AffectsArea);
+        public bool? GetAmmoCanBreakOnBounceBack() => ParseBoolean(AmmoCanBreakOnBounceBack);
+        public bool? GetCanKillEvenIfBlunt() => ParseBoolean(CanKillEvenIfBlunt);
+        public bool? GetAffectsAreaBig() => ParseBoolean(AffectsAreaBig);
+        public bool? GetAttachAmmoToVisual() => ParseBoolean(AttachAmmoToVisual);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetMeleeWeapon(bool? value) => MeleeWeapon = value?.ToString().ToLower();
+        public void SetRangedWeapon(bool? value) => RangedWeapon = value?.ToString().ToLower();
+        public void SetPenaltyWithShield(bool? value) => PenaltyWithShield = value?.ToString().ToLower();
+        public void SetNotUsableWithOneHand(bool? value) => NotUsableWithOneHand = value?.ToString().ToLower();
+        public void SetTwoHandIdleOnMount(bool? value) => TwoHandIdleOnMount = value?.ToString().ToLower();
+        public void SetWideGrip(bool? value) => WideGrip = value?.ToString().ToLower();
+        public void SetConsumable(bool? value) => Consumable = value?.ToString().ToLower();
+        public void SetAmmoSticksWhenShot(bool? value) => AmmoSticksWhenShot = value?.ToString().ToLower();
+        public void SetMultiplePenetration(bool? value) => MultiplePenetration = value?.ToString().ToLower();
+        public void SetCanPenetrateShield(bool? value) => CanPenetrateShield = value?.ToString().ToLower();
+        public void SetCanBlockRanged(bool? value) => CanBlockRanged = value?.ToString().ToLower();
+        public void SetHasHitPoints(bool? value) => HasHitPoints = value?.ToString().ToLower();
+        public void SetHasString(bool? value) => HasString = value?.ToString().ToLower();
+        public void SetStringHeldByHand(bool? value) => StringHeldByHand = value?.ToString().ToLower();
+        public void SetAutoReload(bool? value) => AutoReload = value?.ToString().ToLower();
+        public void SetUnloadWhenSheathed(bool? value) => UnloadWhenSheathed = value?.ToString().ToLower();
+        public void SetAmmoBreaksOnBounceBack(bool? value) => AmmoBreaksOnBounceBack = value?.ToString().ToLower();
+        public void SetCantReloadOnHorseback(bool? value) => CantReloadOnHorseback = value?.ToString().ToLower();
+        public void SetBurning(bool? value) => Burning = value?.ToString().ToLower();
+        public void SetLeavesTrail(bool? value) => LeavesTrail = value?.ToString().ToLower();
+        public void SetCanKnockDown(bool? value) => CanKnockDown = value?.ToString().ToLower();
+        public void SetMissileWithPhysics(bool? value) => MissileWithPhysics = value?.ToString().ToLower();
+        public void SetUseHandAsThrowBase(bool? value) => UseHandAsThrowBase = value?.ToString().ToLower();
+        public void SetAffectsArea(bool? value) => AffectsArea = value?.ToString().ToLower();
+        public void SetAmmoCanBreakOnBounceBack(bool? value) => AmmoCanBreakOnBounceBack = value?.ToString().ToLower();
+        public void SetCanKillEvenIfBlunt(bool? value) => CanKillEvenIfBlunt = value?.ToString().ToLower();
+        public void SetAffectsAreaBig(bool? value) => AffectsAreaBig = value?.ToString().ToLower();
+        public void SetAttachAmmoToVisual(bool? value) => AttachAmmoToVisual = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 
     public class HorseDO
@@ -576,6 +728,26 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeExtraHealth() => !string.IsNullOrEmpty(ExtraHealth);
         public bool ShouldSerializeSkeletonScale() => !string.IsNullOrEmpty(SkeletonScale);
         public bool ShouldSerializeModifierGroup() => !string.IsNullOrEmpty(ModifierGroup);
+
+        // 布尔值标准化方法
+        public bool? GetIsMountable() => ParseBoolean(IsMountable);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetIsMountable(bool? value) => IsMountable = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 
     public class AdditionalMeshesDO
@@ -595,6 +767,26 @@ namespace BannerlordModEditor.Common.Models.DO
         // ShouldSerialize方法确保只有当属性有值时才序列化
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
         public bool ShouldSerializeAffectedByCover() => !string.IsNullOrEmpty(AffectedByCover);
+
+        // 布尔值标准化方法
+        public bool? GetAffectedByCover() => ParseBoolean(AffectedByCover);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetAffectedByCover(bool? value) => AffectedByCover = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 
     public class MaterialsDO
@@ -702,5 +894,47 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeForceAttachOffHandSecondaryItemBone() => !string.IsNullOrEmpty(ForceAttachOffHandSecondaryItemBone);
         public bool ShouldSerializeForceAttachOffHandPrimaryItemBone() => !string.IsNullOrEmpty(ForceAttachOffHandPrimaryItemBone);
         public bool ShouldSerializeDropOnAnyAction() => !string.IsNullOrEmpty(DropOnAnyAction);
+
+        // 布尔值标准化方法
+        public bool? GetUseTeamColor() => ParseBoolean(UseTeamColor);
+        public bool? GetCivilian() => ParseBoolean(Civilian);
+        public bool? GetDoesNotHideChest() => ParseBoolean(DoesNotHideChest);
+        public bool? GetWoodenParry() => ParseBoolean(WoodenParry);
+        public bool? GetDropOnWeaponChange() => ParseBoolean(DropOnWeaponChange);
+        public bool? GetDoNotScaleBodyAccordingToWeaponLength() => ParseBoolean(DoNotScaleBodyAccordingToWeaponLength);
+        public bool? GetQuickFadeOut() => ParseBoolean(QuickFadeOut);
+        public bool? GetCannotBePickedUp() => ParseBoolean(CannotBePickedUp);
+        public bool? GetHeldInOffHand() => ParseBoolean(HeldInOffHand);
+        public bool? GetForceAttachOffHandSecondaryItemBone() => ParseBoolean(ForceAttachOffHandSecondaryItemBone);
+        public bool? GetForceAttachOffHandPrimaryItemBone() => ParseBoolean(ForceAttachOffHandPrimaryItemBone);
+        public bool? GetDropOnAnyAction() => ParseBoolean(DropOnAnyAction);
+
+        // 设置布尔值方法（标准化为小写）
+        public void SetUseTeamColor(bool? value) => UseTeamColor = value?.ToString().ToLower();
+        public void SetCivilian(bool? value) => Civilian = value?.ToString().ToLower();
+        public void SetDoesNotHideChest(bool? value) => DoesNotHideChest = value?.ToString().ToLower();
+        public void SetWoodenParry(bool? value) => WoodenParry = value?.ToString().ToLower();
+        public void SetDropOnWeaponChange(bool? value) => DropOnWeaponChange = value?.ToString().ToLower();
+        public void SetDoNotScaleBodyAccordingToWeaponLength(bool? value) => DoNotScaleBodyAccordingToWeaponLength = value?.ToString().ToLower();
+        public void SetQuickFadeOut(bool? value) => QuickFadeOut = value?.ToString().ToLower();
+        public void SetCannotBePickedUp(bool? value) => CannotBePickedUp = value?.ToString().ToLower();
+        public void SetHeldInOffHand(bool? value) => HeldInOffHand = value?.ToString().ToLower();
+        public void SetForceAttachOffHandSecondaryItemBone(bool? value) => ForceAttachOffHandSecondaryItemBone = value?.ToString().ToLower();
+        public void SetForceAttachOffHandPrimaryItemBone(bool? value) => ForceAttachOffHandPrimaryItemBone = value?.ToString().ToLower();
+        public void SetDropOnAnyAction(bool? value) => DropOnAnyAction = value?.ToString().ToLower();
+
+        // 通用布尔值解析方法
+        private static bool? ParseBoolean(string? value)
+        {
+            if (string.IsNullOrEmpty(value)) return null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out var result) ? result : (bool?)null
+            };
+        }
     }
 }

@@ -95,10 +95,11 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Name = source.Name,
                 Value = source.Value,
+                Base = source.Base,
                 Bias = source.Bias,
                 Curve = source.Curve,
-                Color = source.Color,
-                Alpha = source.Alpha,
+                ColorElement = ToDTO(source.ColorElement),
+                AlphaElement = ToDTO(source.AlphaElement),
                 ParameterCurve = ToDTO(source.ParameterCurve)
             };
         }
@@ -133,6 +134,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new KeyDTO
             {
+                Time = source.Time,
                 Value = source.Value,
                 Position = source.Position,
                 Tangent = source.Tangent
@@ -228,10 +230,11 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Name = source.Name,
                 Value = source.Value,
+                Base = source.Base,
                 Bias = source.Bias,
                 Curve = source.Curve,
-                Color = source.Color,
-                Alpha = source.Alpha,
+                ColorElement = ToDO(source.ColorElement),
+                AlphaElement = ToDO(source.AlphaElement),
                 ParameterCurve = ToDO(source.ParameterCurve)
             };
         }
@@ -266,9 +269,50 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new KeyDO
             {
+                Time = source.Time,
                 Value = source.Value,
                 Position = source.Position,
                 Tangent = source.Tangent
+            };
+        }
+
+        public static ColorDTO ToDTO(ColorDO source)
+        {
+            if (source == null) return null;
+
+            return new ColorDTO
+            {
+                Keys = ToDTO(source.Keys)
+            };
+        }
+
+        public static AlphaDTO ToDTO(AlphaDO source)
+        {
+            if (source == null) return null;
+
+            return new AlphaDTO
+            {
+                Keys = ToDTO(source.Keys)
+            };
+        }
+
+        public static ColorDO ToDO(ColorDTO source)
+        {
+            if (source == null) return null;
+
+            return new ColorDO
+            {
+                Keys = ToDO(source.Keys)
+            };
+        }
+
+        public static AlphaDO ToDO(AlphaDTO source)
+        {
+            if (source == null) return null;
+
+            return new AlphaDO
+            {
+                Keys = ToDO(source.Keys)
             };
         }
 

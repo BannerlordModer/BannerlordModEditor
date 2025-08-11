@@ -12,9 +12,9 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class ItemDTO
     {
-        public bool? MultiplayerItem { get; set; }
-        public string? Id { get; set; }
-        public string? Name { get; set; }
+        public bool MultiplayerItem { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public string? BodyName { get; set; }
         public string? ShieldBodyName { get; set; }
         public string? HolsterBodyName { get; set; }
@@ -22,17 +22,17 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? Mesh { get; set; }
         public string? HolsterMesh { get; set; }
         public string? Culture { get; set; }
-        public bool? UsingTableau { get; set; }
+        public bool UsingTableau { get; set; }
         public string? Value { get; set; }
-        public bool? IsMerchandise { get; set; }
+        public bool IsMerchandise { get; set; }
         public string? Weight { get; set; }
         public string? Difficulty { get; set; }
         public string? Appearance { get; set; }
-        public string? Type { get; set; }
+        public string Type { get; set; } = string.Empty;
         public string? ItemHolsters { get; set; }
         public string? ItemCategory { get; set; }
-        public bool? RecalculateBody { get; set; }
-        public bool? HasLowerHolsterPriority { get; set; }
+        public bool RecalculateBody { get; set; }
+        public bool HasLowerHolsterPriority { get; set; }
         public string? HolsterPositionShift { get; set; }
         public string? FlyingMesh { get; set; }
         public string? HolsterMeshWithWeapon { get; set; }
@@ -60,12 +60,12 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class CraftedItemDTO
     {
-        public bool? MultiplayerItem { get; set; }
-        public string? Id { get; set; }
-        public string? Name { get; set; }
-        public string? CraftingTemplate { get; set; }
+        public bool MultiplayerItem { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string CraftingTemplate { get; set; } = string.Empty;
         public string? Value { get; set; }
-        public bool? IsMerchandise { get; set; }
+        public bool IsMerchandise { get; set; }
         public string? Culture { get; set; }
         public PiecesDTO? Pieces { get; set; }
 
@@ -105,21 +105,21 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? BodyArmor { get; set; }
         public string? LegArmor { get; set; }
         public string? ArmArmor { get; set; }
-        public string? HasGenderVariations { get; set; }
+        public bool HasGenderVariations { get; set; }
         public string? HairCoverType { get; set; }
         public string? BeardCoverType { get; set; }
         public string? ModifierGroup { get; set; }
         public string? MaterialType { get; set; }
-        public string? CoversBody { get; set; }
-        public string? CoversLegs { get; set; }
-        public string? CoversHead { get; set; }
+        public bool CoversBody { get; set; }
+        public bool CoversLegs { get; set; }
+        public bool CoversHead { get; set; }
         public string? ManeCoverType { get; set; }
         public string? ReinsMesh { get; set; }
         public string? ManeuverBonus { get; set; }
         public string? SpeedBonus { get; set; }
         public string? ChargeBonus { get; set; }
         public string? FamilyType { get; set; }
-        public string? CoversHands { get; set; }
+        public bool CoversHands { get; set; }
         public string? BodyMeshType { get; set; }
 
         // 数值类型的便捷属性（基于字符串属性）
@@ -132,13 +132,6 @@ namespace BannerlordModEditor.Common.Models.DTO
         public int? ChargeBonusInt => int.TryParse(ChargeBonus, out int chargeBonus) ? chargeBonus : (int?)null;
         public int? FamilyTypeInt => int.TryParse(FamilyType, out int familyType) ? familyType : (int?)null;
 
-        // 布尔类型的便捷属性（基于字符串属性）
-        public bool? HasGenderVariationsBool => bool.TryParse(HasGenderVariations, out bool hasGenderVariations) ? hasGenderVariations : (bool?)null;
-        public bool? CoversBodyBool => bool.TryParse(CoversBody, out bool coversBody) ? coversBody : (bool?)null;
-        public bool? CoversLegsBool => bool.TryParse(CoversLegs, out bool coversLegs) ? coversLegs : (bool?)null;
-        public bool? CoversHeadBool => bool.TryParse(CoversHead, out bool coversHead) ? coversHead : (bool?)null;
-        public bool? CoversHandsBool => bool.TryParse(CoversHands, out bool coversHands) ? coversHands : (bool?)null;
-
         // 设置数值属性的方法（自动转换为字符串）
         public void SetHeadArmorInt(int? headArmor) => HeadArmor = headArmor?.ToString();
         public void SetBodyArmorInt(int? bodyArmor) => BodyArmor = bodyArmor?.ToString();
@@ -148,13 +141,6 @@ namespace BannerlordModEditor.Common.Models.DTO
         public void SetSpeedBonusInt(int? speedBonus) => SpeedBonus = speedBonus?.ToString();
         public void SetChargeBonusInt(int? chargeBonus) => ChargeBonus = chargeBonus?.ToString();
         public void SetFamilyTypeInt(int? familyType) => FamilyType = familyType?.ToString();
-
-        // 设置布尔属性的方法（自动转换为字符串）
-        public void SetHasGenderVariationsBool(bool? hasGenderVariations) => HasGenderVariations = hasGenderVariations?.ToString().ToLower();
-        public void SetCoversBodyBool(bool? coversBody) => CoversBody = coversBody?.ToString().ToLower();
-        public void SetCoversLegsBool(bool? coversLegs) => CoversLegs = coversLegs?.ToString().ToLower();
-        public void SetCoversHeadBool(bool? coversHead) => CoversHead = coversHead?.ToString().ToLower();
-        public void SetCoversHandsBool(bool? coversHands) => CoversHands = coversHands?.ToString().ToLower();
     }
 
     public class WeaponDTO
@@ -223,94 +209,34 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class WeaponFlagsDTO
     {
-        public string? MeleeWeapon { get; set; }
-        public string? RangedWeapon { get; set; }
-        public string? PenaltyWithShield { get; set; }
-        public string? NotUsableWithOneHand { get; set; }
-        public string? TwoHandIdleOnMount { get; set; }
-        public string? WideGrip { get; set; }
-        public string? Consumable { get; set; }
-        public string? AmmoSticksWhenShot { get; set; }
-        public string? MultiplePenetration { get; set; }
-        public string? CanPenetrateShield { get; set; }
-        public string? CanBlockRanged { get; set; }
-        public string? HasHitPoints { get; set; }
-        public string? HasString { get; set; }
-        public string? StringHeldByHand { get; set; }
-        public string? AutoReload { get; set; }
-        public string? UnloadWhenSheathed { get; set; }
-        public string? AmmoBreaksOnBounceBack { get; set; }
-        public string? CantReloadOnHorseback { get; set; }
-        public string? Burning { get; set; }
-        public string? LeavesTrail { get; set; }
-        public string? CanKnockDown { get; set; }
-        public string? MissileWithPhysics { get; set; }
-        public string? UseHandAsThrowBase { get; set; }
-        public string? AffectsArea { get; set; }
-        public string? AmmoCanBreakOnBounceBack { get; set; }
-        public string? CanKillEvenIfBlunt { get; set; }
-        public string? AffectsAreaBig { get; set; }
-        public string? AttachAmmoToVisual { get; set; }
-
-        // 布尔类型的便捷属性（基于字符串属性）
-        public bool? MeleeWeaponBool => bool.TryParse(MeleeWeapon, out bool meleeWeapon) ? meleeWeapon : (bool?)null;
-        public bool? RangedWeaponBool => bool.TryParse(RangedWeapon, out bool rangedWeapon) ? rangedWeapon : (bool?)null;
-        public bool? PenaltyWithShieldBool => bool.TryParse(PenaltyWithShield, out bool penaltyWithShield) ? penaltyWithShield : (bool?)null;
-        public bool? NotUsableWithOneHandBool => bool.TryParse(NotUsableWithOneHand, out bool notUsableWithOneHand) ? notUsableWithOneHand : (bool?)null;
-        public bool? TwoHandIdleOnMountBool => bool.TryParse(TwoHandIdleOnMount, out bool twoHandIdleOnMount) ? twoHandIdleOnMount : (bool?)null;
-        public bool? WideGripBool => bool.TryParse(WideGrip, out bool wideGrip) ? wideGrip : (bool?)null;
-        public bool? ConsumableBool => bool.TryParse(Consumable, out bool consumable) ? consumable : (bool?)null;
-        public bool? AmmoSticksWhenShotBool => bool.TryParse(AmmoSticksWhenShot, out bool ammoSticksWhenShot) ? ammoSticksWhenShot : (bool?)null;
-        public bool? MultiplePenetrationBool => bool.TryParse(MultiplePenetration, out bool multiplePenetration) ? multiplePenetration : (bool?)null;
-        public bool? CanPenetrateShieldBool => bool.TryParse(CanPenetrateShield, out bool canPenetrateShield) ? canPenetrateShield : (bool?)null;
-        public bool? CanBlockRangedBool => bool.TryParse(CanBlockRanged, out bool canBlockRanged) ? canBlockRanged : (bool?)null;
-        public bool? HasHitPointsBool => bool.TryParse(HasHitPoints, out bool hasHitPoints) ? hasHitPoints : (bool?)null;
-        public bool? HasStringBool => bool.TryParse(HasString, out bool hasString) ? hasString : (bool?)null;
-        public bool? StringHeldByHandBool => bool.TryParse(StringHeldByHand, out bool stringHeldByHand) ? stringHeldByHand : (bool?)null;
-        public bool? AutoReloadBool => bool.TryParse(AutoReload, out bool autoReload) ? autoReload : (bool?)null;
-        public bool? UnloadWhenSheathedBool => bool.TryParse(UnloadWhenSheathed, out bool unloadWhenSheathed) ? unloadWhenSheathed : (bool?)null;
-        public bool? AmmoBreaksOnBounceBackBool => bool.TryParse(AmmoBreaksOnBounceBack, out bool ammoBreaksOnBounceBack) ? ammoBreaksOnBounceBack : (bool?)null;
-        public bool? CantReloadOnHorsebackBool => bool.TryParse(CantReloadOnHorseback, out bool cantReloadOnHorseback) ? cantReloadOnHorseback : (bool?)null;
-        public bool? BurningBool => bool.TryParse(Burning, out bool burning) ? burning : (bool?)null;
-        public bool? LeavesTrailBool => bool.TryParse(LeavesTrail, out bool leavesTrail) ? leavesTrail : (bool?)null;
-        public bool? CanKnockDownBool => bool.TryParse(CanKnockDown, out bool canKnockDown) ? canKnockDown : (bool?)null;
-        public bool? MissileWithPhysicsBool => bool.TryParse(MissileWithPhysics, out bool missileWithPhysics) ? missileWithPhysics : (bool?)null;
-        public bool? UseHandAsThrowBaseBool => bool.TryParse(UseHandAsThrowBase, out bool useHandAsThrowBase) ? useHandAsThrowBase : (bool?)null;
-        public bool? AffectsAreaBool => bool.TryParse(AffectsArea, out bool affectsArea) ? affectsArea : (bool?)null;
-        public bool? AmmoCanBreakOnBounceBackBool => bool.TryParse(AmmoCanBreakOnBounceBack, out bool ammoCanBreakOnBounceBack) ? ammoCanBreakOnBounceBack : (bool?)null;
-        public bool? CanKillEvenIfBluntBool => bool.TryParse(CanKillEvenIfBlunt, out bool canKillEvenIfBlunt) ? canKillEvenIfBlunt : (bool?)null;
-        public bool? AffectsAreaBigBool => bool.TryParse(AffectsAreaBig, out bool affectsAreaBig) ? affectsAreaBig : (bool?)null;
-        public bool? AttachAmmoToVisualBool => bool.TryParse(AttachAmmoToVisual, out bool attachAmmoToVisual) ? attachAmmoToVisual : (bool?)null;
-
-        // 设置布尔属性的方法（自动转换为字符串）
-        public void SetMeleeWeaponBool(bool? meleeWeapon) => MeleeWeapon = meleeWeapon?.ToString().ToLower();
-        public void SetRangedWeaponBool(bool? rangedWeapon) => RangedWeapon = rangedWeapon?.ToString().ToLower();
-        public void SetPenaltyWithShieldBool(bool? penaltyWithShield) => PenaltyWithShield = penaltyWithShield?.ToString().ToLower();
-        public void SetNotUsableWithOneHandBool(bool? notUsableWithOneHand) => NotUsableWithOneHand = notUsableWithOneHand?.ToString().ToLower();
-        public void SetTwoHandIdleOnMountBool(bool? twoHandIdleOnMount) => TwoHandIdleOnMount = twoHandIdleOnMount?.ToString().ToLower();
-        public void SetWideGripBool(bool? wideGrip) => WideGrip = wideGrip?.ToString().ToLower();
-        public void SetConsumableBool(bool? consumable) => Consumable = consumable?.ToString().ToLower();
-        public void SetAmmoSticksWhenShotBool(bool? ammoSticksWhenShot) => AmmoSticksWhenShot = ammoSticksWhenShot?.ToString().ToLower();
-        public void SetMultiplePenetrationBool(bool? multiplePenetration) => MultiplePenetration = multiplePenetration?.ToString().ToLower();
-        public void SetCanPenetrateShieldBool(bool? canPenetrateShield) => CanPenetrateShield = canPenetrateShield?.ToString().ToLower();
-        public void SetCanBlockRangedBool(bool? canBlockRanged) => CanBlockRanged = canBlockRanged?.ToString().ToLower();
-        public void SetHasHitPointsBool(bool? hasHitPoints) => HasHitPoints = hasHitPoints?.ToString().ToLower();
-        public void SetHasStringBool(bool? hasString) => HasString = hasString?.ToString().ToLower();
-        public void SetStringHeldByHandBool(bool? stringHeldByHand) => StringHeldByHand = stringHeldByHand?.ToString().ToLower();
-        public void SetAutoReloadBool(bool? autoReload) => AutoReload = autoReload?.ToString().ToLower();
-        public void SetUnloadWhenSheathedBool(bool? unloadWhenSheathed) => UnloadWhenSheathed = unloadWhenSheathed?.ToString().ToLower();
-        public void SetAmmoBreaksOnBounceBackBool(bool? ammoBreaksOnBounceBack) => AmmoBreaksOnBounceBack = ammoBreaksOnBounceBack?.ToString().ToLower();
-        public void SetCantReloadOnHorsebackBool(bool? cantReloadOnHorseback) => CantReloadOnHorseback = cantReloadOnHorseback?.ToString().ToLower();
-        public void SetBurningBool(bool? burning) => Burning = burning?.ToString().ToLower();
-        public void SetLeavesTrailBool(bool? leavesTrail) => LeavesTrail = leavesTrail?.ToString().ToLower();
-        public void SetCanKnockDownBool(bool? canKnockDown) => CanKnockDown = canKnockDown?.ToString().ToLower();
-        public void SetMissileWithPhysicsBool(bool? missileWithPhysics) => MissileWithPhysics = missileWithPhysics?.ToString().ToLower();
-        public void SetUseHandAsThrowBaseBool(bool? useHandAsThrowBase) => UseHandAsThrowBase = useHandAsThrowBase?.ToString().ToLower();
-        public void SetAffectsAreaBool(bool? affectsArea) => AffectsArea = affectsArea?.ToString().ToLower();
-        public void SetAmmoCanBreakOnBounceBackBool(bool? ammoCanBreakOnBounceBack) => AmmoCanBreakOnBounceBack = ammoCanBreakOnBounceBack?.ToString().ToLower();
-        public void SetCanKillEvenIfBluntBool(bool? canKillEvenIfBlunt) => CanKillEvenIfBlunt = canKillEvenIfBlunt?.ToString().ToLower();
-        public void SetAffectsAreaBigBool(bool? affectsAreaBig) => AffectsAreaBig = affectsAreaBig?.ToString().ToLower();
-        public void SetAttachAmmoToVisualBool(bool? attachAmmoToVisual) => AttachAmmoToVisual = attachAmmoToVisual?.ToString().ToLower();
+        public bool MeleeWeapon { get; set; }
+        public bool RangedWeapon { get; set; }
+        public bool PenaltyWithShield { get; set; }
+        public bool NotUsableWithOneHand { get; set; }
+        public bool TwoHandIdleOnMount { get; set; }
+        public bool WideGrip { get; set; }
+        public bool Consumable { get; set; }
+        public bool AmmoSticksWhenShot { get; set; }
+        public bool MultiplePenetration { get; set; }
+        public bool CanPenetrateShield { get; set; }
+        public bool CanBlockRanged { get; set; }
+        public bool HasHitPoints { get; set; }
+        public bool HasString { get; set; }
+        public bool StringHeldByHand { get; set; }
+        public bool AutoReload { get; set; }
+        public bool UnloadWhenSheathed { get; set; }
+        public bool AmmoBreaksOnBounceBack { get; set; }
+        public bool CantReloadOnHorseback { get; set; }
+        public bool Burning { get; set; }
+        public bool LeavesTrail { get; set; }
+        public bool CanKnockDown { get; set; }
+        public bool MissileWithPhysics { get; set; }
+        public bool UseHandAsThrowBase { get; set; }
+        public bool AffectsArea { get; set; }
+        public bool AmmoCanBreakOnBounceBack { get; set; }
+        public bool CanKillEvenIfBlunt { get; set; }
+        public bool AffectsAreaBig { get; set; }
+        public bool AttachAmmoToVisual { get; set; }
     }
 
     public class HorseDTO
@@ -320,7 +246,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? ChargeDamage { get; set; }
         public string? HitPoints { get; set; }
         public string? BodyLength { get; set; }
-        public string? IsMountable { get; set; }
+        public bool IsMountable { get; set; }
         public string? Monster { get; set; }
         public string? ExtraHealth { get; set; }
         public string? SkeletonScale { get; set; }
@@ -336,9 +262,6 @@ namespace BannerlordModEditor.Common.Models.DTO
         public int? BodyLengthInt => int.TryParse(BodyLength, out int bodyLength) ? bodyLength : (int?)null;
         public int? ExtraHealthInt => int.TryParse(ExtraHealth, out int extraHealth) ? extraHealth : (int?)null;
 
-        // 布尔类型的便捷属性（基于字符串属性）
-        public bool? IsMountableBool => bool.TryParse(IsMountable, out bool isMountable) ? isMountable : (bool?)null;
-
         // 设置数值属性的方法（自动转换为字符串）
         public void SetSpeedInt(int? speed) => Speed = speed?.ToString();
         public void SetManeuverInt(int? maneuver) => Maneuver = maneuver?.ToString();
@@ -346,9 +269,6 @@ namespace BannerlordModEditor.Common.Models.DTO
         public void SetHitPointsInt(int? hitPoints) => HitPoints = hitPoints?.ToString();
         public void SetBodyLengthInt(int? bodyLength) => BodyLength = bodyLength?.ToString();
         public void SetExtraHealthInt(int? extraHealth) => ExtraHealth = extraHealth?.ToString();
-
-        // 设置布尔属性的方法（自动转换为字符串）
-        public void SetIsMountableBool(bool? isMountable) => IsMountable = isMountable?.ToString().ToLower();
     }
 
     public class AdditionalMeshesDTO
@@ -358,14 +278,8 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class AdditionalMeshDTO
     {
-        public string? Name { get; set; }
-        public string? AffectedByCover { get; set; }
-
-        // 布尔类型的便捷属性（基于字符串属性）
-        public bool? AffectedByCoverBool => bool.TryParse(AffectedByCover, out bool affectedByCover) ? affectedByCover : (bool?)null;
-
-        // 设置布尔属性的方法（自动转换为字符串）
-        public void SetAffectedByCoverBool(bool? affectedByCover) => AffectedByCover = affectedByCover?.ToString().ToLower();
+        public string Name { get; set; } = string.Empty;
+        public bool AffectedByCover { get; set; }
     }
 
     public class MaterialsDTO
@@ -411,45 +325,17 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class ItemFlagsDTO
     {
-        public string? UseTeamColor { get; set; }
-        public string? Civilian { get; set; }
-        public string? DoesNotHideChest { get; set; }
-        public string? WoodenParry { get; set; }
-        public string? DropOnWeaponChange { get; set; }
-        public string? DoNotScaleBodyAccordingToWeaponLength { get; set; }
-        public string? QuickFadeOut { get; set; }
-        public string? CannotBePickedUp { get; set; }
-        public string? HeldInOffHand { get; set; }
-        public string? ForceAttachOffHandSecondaryItemBone { get; set; }
-        public string? ForceAttachOffHandPrimaryItemBone { get; set; }
-        public string? DropOnAnyAction { get; set; }
-
-        // 布尔类型的便捷属性（基于字符串属性）
-        public bool? UseTeamColorBool => bool.TryParse(UseTeamColor, out bool useTeamColor) ? useTeamColor : (bool?)null;
-        public bool? CivilianBool => bool.TryParse(Civilian, out bool civilian) ? civilian : (bool?)null;
-        public bool? DoesNotHideChestBool => bool.TryParse(DoesNotHideChest, out bool doesNotHideChest) ? doesNotHideChest : (bool?)null;
-        public bool? WoodenParryBool => bool.TryParse(WoodenParry, out bool woodenParry) ? woodenParry : (bool?)null;
-        public bool? DropOnWeaponChangeBool => bool.TryParse(DropOnWeaponChange, out bool dropOnWeaponChange) ? dropOnWeaponChange : (bool?)null;
-        public bool? DoNotScaleBodyAccordingToWeaponLengthBool => bool.TryParse(DoNotScaleBodyAccordingToWeaponLength, out bool doNotScaleBodyAccordingToWeaponLength) ? doNotScaleBodyAccordingToWeaponLength : (bool?)null;
-        public bool? QuickFadeOutBool => bool.TryParse(QuickFadeOut, out bool quickFadeOut) ? quickFadeOut : (bool?)null;
-        public bool? CannotBePickedUpBool => bool.TryParse(CannotBePickedUp, out bool cannotBePickedUp) ? cannotBePickedUp : (bool?)null;
-        public bool? HeldInOffHandBool => bool.TryParse(HeldInOffHand, out bool heldInOffHand) ? heldInOffHand : (bool?)null;
-        public bool? ForceAttachOffHandSecondaryItemBoneBool => bool.TryParse(ForceAttachOffHandSecondaryItemBone, out bool forceAttachOffHandSecondaryItemBone) ? forceAttachOffHandSecondaryItemBone : (bool?)null;
-        public bool? ForceAttachOffHandPrimaryItemBoneBool => bool.TryParse(ForceAttachOffHandPrimaryItemBone, out bool forceAttachOffHandPrimaryItemBone) ? forceAttachOffHandPrimaryItemBone : (bool?)null;
-        public bool? DropOnAnyActionBool => bool.TryParse(DropOnAnyAction, out bool dropOnAnyAction) ? dropOnAnyAction : (bool?)null;
-
-        // 设置布尔属性的方法（自动转换为字符串）
-        public void SetUseTeamColorBool(bool? useTeamColor) => UseTeamColor = useTeamColor?.ToString().ToLower();
-        public void SetCivilianBool(bool? civilian) => Civilian = civilian?.ToString().ToLower();
-        public void SetDoesNotHideChestBool(bool? doesNotHideChest) => DoesNotHideChest = doesNotHideChest?.ToString().ToLower();
-        public void SetWoodenParryBool(bool? woodenParry) => WoodenParry = woodenParry?.ToString().ToLower();
-        public void SetDropOnWeaponChangeBool(bool? dropOnWeaponChange) => DropOnWeaponChange = dropOnWeaponChange?.ToString().ToLower();
-        public void SetDoNotScaleBodyAccordingToWeaponLengthBool(bool? doNotScaleBodyAccordingToWeaponLength) => DoNotScaleBodyAccordingToWeaponLength = doNotScaleBodyAccordingToWeaponLength?.ToString().ToLower();
-        public void SetQuickFadeOutBool(bool? quickFadeOut) => QuickFadeOut = quickFadeOut?.ToString().ToLower();
-        public void SetCannotBePickedUpBool(bool? cannotBePickedUp) => CannotBePickedUp = cannotBePickedUp?.ToString().ToLower();
-        public void SetHeldInOffHandBool(bool? heldInOffHand) => HeldInOffHand = heldInOffHand?.ToString().ToLower();
-        public void SetForceAttachOffHandSecondaryItemBoneBool(bool? forceAttachOffHandSecondaryItemBone) => ForceAttachOffHandSecondaryItemBone = forceAttachOffHandSecondaryItemBone?.ToString().ToLower();
-        public void SetForceAttachOffHandPrimaryItemBoneBool(bool? forceAttachOffHandPrimaryItemBone) => ForceAttachOffHandPrimaryItemBone = forceAttachOffHandPrimaryItemBone?.ToString().ToLower();
-        public void SetDropOnAnyActionBool(bool? dropOnAnyAction) => DropOnAnyAction = dropOnAnyAction?.ToString().ToLower();
+        public bool UseTeamColor { get; set; }
+        public bool Civilian { get; set; }
+        public bool DoesNotHideChest { get; set; }
+        public bool WoodenParry { get; set; }
+        public bool DropOnWeaponChange { get; set; }
+        public bool DoNotScaleBodyAccordingToWeaponLength { get; set; }
+        public bool QuickFadeOut { get; set; }
+        public bool CannotBePickedUp { get; set; }
+        public bool HeldInOffHand { get; set; }
+        public bool ForceAttachOffHandSecondaryItemBone { get; set; }
+        public bool ForceAttachOffHandPrimaryItemBone { get; set; }
+        public bool DropOnAnyAction { get; set; }
     }
 }

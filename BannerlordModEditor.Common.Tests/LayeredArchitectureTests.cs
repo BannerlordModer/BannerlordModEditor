@@ -252,8 +252,7 @@ namespace BannerlordModEditor.Common.Tests
             
             // Check weapon flags
             Assert.NotNull(weaponDTO.WeaponFlags);
-            Assert.Equal("true", weaponDTO.WeaponFlags.MeleeWeapon);
-            Assert.True(weaponDTO.WeaponFlags.MeleeWeaponBool);
+            Assert.True(weaponDTO.WeaponFlags.MeleeWeapon);
             
             _output.WriteLine("Full structure mapping test passed");
         }

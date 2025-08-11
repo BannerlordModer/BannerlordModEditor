@@ -109,31 +109,33 @@ namespace BannerlordModEditor.Common.Models.DTO
     {
         public string? Name { get; set; }
         public string? Value { get; set; }
+        public string? Base { get; set; }
         public string? Bias { get; set; }
         public string? Curve { get; set; }
-        public string? Color { get; set; }
-        public string? Alpha { get; set; }
         public CurveDTO? ParameterCurve { get; set; }
+        public ColorDTO? ColorElement { get; set; }
+        public AlphaDTO? AlphaElement { get; set; }
 
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
         public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeBase() => !string.IsNullOrEmpty(Base);
         public bool ShouldSerializeBias() => !string.IsNullOrEmpty(Bias);
         public bool ShouldSerializeCurve() => !string.IsNullOrEmpty(Curve);
-        public bool ShouldSerializeColor() => !string.IsNullOrEmpty(Color);
-        public bool ShouldSerializeAlpha() => !string.IsNullOrEmpty(Alpha);
         public bool ShouldSerializeParameterCurve() => ParameterCurve != null;
+        public bool ShouldSerializeColorElement() => ColorElement != null;
+        public bool ShouldSerializeAlphaElement() => AlphaElement != null;
 
         // 类型安全的便捷属性
         public double? ValueDouble => double.TryParse(Value, out double val) ? val : (double?)null;
+        public double? BaseDouble => double.TryParse(Base, out double val) ? val : (double?)null;
         public double? BiasDouble => double.TryParse(Bias, out double bias) ? bias : (double?)null;
         public double? CurveDouble => double.TryParse(Curve, out double curve) ? curve : (double?)null;
-        public double? AlphaDouble => double.TryParse(Alpha, out double alpha) ? alpha : (double?)null;
 
         // 设置方法
         public void SetValueDouble(double? value) => Value = value?.ToString();
+        public void SetBaseDouble(double? value) => Base = value?.ToString();
         public void SetBiasDouble(double? value) => Bias = value?.ToString();
         public void SetCurveDouble(double? value) => Curve = value?.ToString();
-        public void SetAlphaDouble(double? value) => Alpha = value?.ToString();
     }
 
     public class CurveDTO
@@ -172,12 +174,28 @@ namespace BannerlordModEditor.Common.Models.DTO
         public bool HasKeys => KeyList != null && KeyList.Count > 0;
     }
 
+    public class ColorDTO
+    {
+        public KeysDTO? Keys { get; set; }
+
+        public bool ShouldSerializeKeys() => Keys != null;
+    }
+
+    public class AlphaDTO
+    {
+        public KeysDTO? Keys { get; set; }
+
+        public bool ShouldSerializeKeys() => Keys != null;
+    }
+
     public class KeyDTO
     {
+        public string? Time { get; set; }
         public string? Value { get; set; }
         public string? Position { get; set; }
         public string? Tangent { get; set; }
 
+        public bool ShouldSerializeTime() => !string.IsNullOrEmpty(Time);
         public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
         public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
         public bool ShouldSerializeTangent() => !string.IsNullOrEmpty(Tangent);

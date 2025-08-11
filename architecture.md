@@ -1,262 +1,253 @@
-# System Architecture - XML Model Adaptation Fixes
+# System Architecture
 
 ## Executive Summary
-
-The Bannerlord Mod Editor XML model adaptation system requires a comprehensive architectural overhaul to resolve 46 test failures while preserving exact XML format compatibility with the original game files. The architecture implements a string-based property system with precise serialization control using ShouldSerialize patterns to ensure faithful round-trip XML processing.
+This architecture document describes a DO/DTO layered architecture for the Bannerlord Mod Editor system, specifically designed to address XML serialization challenges including boolean value case sensitivity, type conversion consistency, and namespace preservation. The architecture separates concerns between Data Objects (DO) that handle raw XML string data representation and Data Transfer Objects (DTO) that provide strongly-typed business logic interfaces.
 
 ## Architecture Overview
 
 ### System Context
-The XML model adaptation system interfaces with Bannerlord game files, supporting full editing capabilities while ensuring compatibility with the original game's XML parser. The system must handle the specific nuances of Bannerlord's XML format, including boolean string representations ("true"/"false" vs "True"/"False"), numeric precision preservation, and selective attribute omission based on field presence.
+```mermaid
+C4Context
+    Person(editor, "Mod Editor User", "Creates and edits Bannerlord mod configuration files")
+    System(modEditor, "Bannerlord Mod Editor", "XML-based configuration editor for Mount & Blade II: Bannerlord")
+    System_Ext(bannerlord, "Bannerlord Game", "Mount & Blade II: Bannerlord executable")
+    System_Ext(xmlFiles, "XML Configuration Files", "Native Bannerlord configuration files")
+    
+    Rel(editor, modEditor, "Uses")
+    Rel(modEditor, xmlFiles, "Reads/Writes")
+    Rel(bannerlord, xmlFiles, "Consumes")
+```
 
 ### Container Diagram
-
 ```mermaid
 C4Container
-    Title XML Model Adaptation Architecture
+    Container(ui, "UI Application", "Avalonia", "User interface for editing mod files")
+    Container(editorCore, "Editor Core", ".NET 9", "Business logic and orchestration layer")
+    Container_Do(doLayer, "DO Layer", ".NET 9", "Raw XML data representation preserving exact string values")
+    Container_Do(dtoLayer, "DTO Layer", ".NET 9", "Strongly-typed business objects with validation")
+    Container_Services(mapping, "Mapping Services", ".NET 9", "Bidirectional conversion between DO and DTO")
+    Container(xmlProcessor, "XML Processor", ".NET 9", "Handles serialization/deserialization with namespace preservation")
+    Container(fileSystem, "File System", "OS", "Physical storage of XML files")
     
-    Container(bannerlord, "Bannerlord Game XML", "XML Files", "Original game XML configuration files")
-    Container(editor, "Mod Editor", "Avalonia UI", "User interface for editing XML")
-    Container(models, "XML Models", "C# Classes", "Domain models with XML serialization")
-    Container(serializer, "XML Serializer", "System.Xml.Serialization", "Custom XML serialization controls")
-    Container(validator, "XML Validator", "Test Framework", "xUnit-based validation")
-    
-    Rel(editor, models, "uses", "MVVM")
-    Rel(models, serializer, "implements", "XML attributes")
-    Rel(serializer, bannerlord, "reads/writes", "XML files")
-    Rel(validator, models, "tests", "Assertions")
-    
-    Rel_D(editor, bannerlord, "loads/saves", "Direct file I/O")
-    Rel_D(validator, bannerlord, "compares", "XML content validation")
+    Rel(ui, editorCore, "Uses")
+    Rel(editorCore, doLayer, "Manipulates")
+    Rel(editorCore, dtoLayer, "Consumes")
+    Rel(dtoLayer, mapping, "Converted via")
+    Rel(doLayer, mapping, "Converted via")
+    Rel(xmlProcessor, doLayer, "Creates/Consumes")
+    Rel(xmlProcessor, fileSystem, "Reads/Writes")
 ```
 
 ## Technology Stack
 
-### Core Technologies
-- **.NET 9.0**: Advanced runtime features and performance optimizations
-- **System.Xml.Serialization**: Native .NET XML serialization with attribute-driven control
-- **C# 9.0**: Modern language features including nullable reference types, pattern matching
-- **xUnit 2.5**: Comprehensive testing framework for validation
+### Frontend
+- **Framework**: Avalonia UI 11.3
+- **State Management**: CommunityToolkit.Mvvm 8.2
+- **UI Library**: Fluent theme
+- **Build Tool**: .NET SDK
 
-### Development Tools
-- **Visual Studio 2022** / **Rider**: IDE support for refactoring and debugging
-- **Git**: Version control for incremental model updates
-- **dotnet CLI**: Build and test automation
+### Backend  
+- **Runtime**: .NET 9.0
+- **Framework**: Core .NET libraries
+- **XML Processing**: System.Xml.Serialization with custom extensions
+- **Testing**: xUnit 2.5
 
-### Quality Assurance
-- **ShouldSerialize pattern**: Conditional serialization control
-- **String-based properties**: Format preservation across round-trip operations
-- **Comprehensive test coverage**: One-to-one model validation against real game data
+### Infrastructure
+- **Build System**: dotnet CLI
+- **Package Management**: NuGet
+- **CI/CD**: GitHub Actions
+- **Testing**: xUnit with custom XML validation helpers
 
 ## Component Design
 
-### Model Architecture Pattern
+### DO (Data Object) Layer
+**Purpose**: Represent raw XML data exactly as it exists in files, preserving exact string representations
+**Technology**: .NET 9 with custom XML serialization attributes
+**Interfaces**: 
+- Input: Raw XML strings from files
+- Output: String-preserving data objects
+**Dependencies**: System.Xml.Serialization
 
-#### Base Model Structure
-```csharp
-public class XmlBaseModel
-{
-    // Common XML serialization infrastructure
-    [XmlIgnore]
-    public bool IsValid { get; protected set; } = true;
-    
-    [XmlIgnore] 
-    public List<string> ValidationErrors { get; } = new();
-}
+### DTO (Data Transfer Object) Layer
+**Purpose**: Provide strongly-typed, business-logic-friendly representations with validation
+**Technology**: .NET 9 with data annotations
+**Interfaces**: 
+- Input: DO objects via mapping services
+- Output: Validated business objects for UI/consumption
+**Dependencies**: DO Layer, Mapping Services
+
+### Mapping Services
+**Purpose**: Provide bidirectional conversion between DO and DTO representations
+**Technology**: Custom mapping logic with reflection
+**Interfaces**: 
+- Input: DO/DTO objects
+- Output: Converted objects preserving data integrity
+**Dependencies**: DO Layer, DTO Layer
+
+### XML Processor
+**Purpose**: Handle serialization/deserialization with namespace and formatting preservation
+**Technology**: System.Xml with custom extensions
+**Interfaces**: 
+- Input: File paths, DO/DTO objects
+- Output: XML strings, deserialized objects
+**Dependencies**: DO Layer, System.Xml
+
+## Data Architecture
+
+### Data Flow
+```mermaid
+graph TD
+    A[XML File] --> B[XML Processor]
+    B --> C[DO Object]
+    C --> D[Mapping Service]
+    D --> E[DTO Object]
+    E --> F[Business Logic]
+    F --> G[DTO Object]
+    G --> H[Mapping Service]
+    H --> I[DO Object]
+    I --> J[XML Processor]
+    J --> K[XML File]
 ```
 
-#### Property Convention Standards
-1. **String Properties**: All XML attributes stored as strings for format preservation
-2. **Required Attributes**: Non-nullable string properties with empty string defaults
-3. **Optional Attributes**: Nullable string properties with null defaults
-4. **ShouldSerialize Methods**: Present for every optional attribute
-5. **Numeric Attributes**: String storage with parsing for business logic
+### Data Models
 
-#### Example Implementation Pattern
+#### DO Layer Example (Raw XML Representation)
 ```csharp
-public class PhysicsMaterial : XmlBaseModel
+[XmlRoot("Item")]
+public class ItemDo
 {
     [XmlAttribute("id")]
     public string Id { get; set; } = string.Empty;
     
-    [XmlAttribute("static_friction")]
-    public string? StaticFriction { get; set; }
+    [XmlAttribute("multiplayer_item")]
+    public string MultiplayerItem { get; set; } = string.Empty; // Preserves exact string like "true", "True", "1"
     
-    [XmlAttribute("dont_stick_missiles")]
-    public string? DontStickMissiles { get; set; }
+    [XmlAttribute("weight")]
+    public string Weight { get; set; } = string.Empty; // Preserves exact string like "1.1", "1.100"
     
-    // Conditional serialization for optional attributes
-    public bool ShouldSerializeStaticFriction() => !string.IsNullOrEmpty(StaticFriction);
-    public bool ShouldSerializeDontStickMissiles() => !string.IsNullOrEmpty(DontStickMissiles);
+    [XmlElement("ItemComponent")]
+    public ItemComponentDo? ItemComponent { get; set; }
+}
+
+public class ItemComponentDo
+{
+    [XmlElement("Armor")]
+    public ArmorDo? Armor { get; set; }
 }
 ```
 
-### Data Architecture
+#### DTO Layer Example (Strongly-Typed Business Object)
+```csharp
+public class ItemDto
+{
+    [Required]
+    public string Id { get; set; } = string.Empty;
+    
+    public BooleanProperty MultiplayerItem { get; set; } = new BooleanProperty();
+    
+    public decimal Weight { get; set; }
+    
+    public ItemComponentDto? ItemComponent { get; set; }
+}
 
-#### XML Content Flow
-```mermaid
-flowchart TD
-    A[Original XML File] -->|System.Xml.XmlReader| B[Deserialization]
-    B --> C[String-based Model]
-    C -->|System.Xml.XmlWriter| D[Modified XML]
-    D --> E[Validation Engine]
-    E -->|Structural Equality| F[Round-trip Success]
-    C -->|Property Binding| G[UI Components]
-    G --> H[User Edits]
-    H -->|Update Model| C
-```
-
-#### Namespace Organization
-```
-BannerlordModEditor.Common.Models
-├── Engine/          # Engine-related XML (physics, graphics)
-├── Configuration/   # Game configuration XML
-├── Data/           # Asset data XML
-├── Game/           # Gameplay mechanics XML
-└── Audio/          # Sound and music XML
+public class ItemComponentDto
+{
+    public ArmorDto? Armor { get; set; }
+}
 ```
 
 ## Security Architecture
 
-### XML Security Measures
-- **DTD Prevention**: Disabled DTD processing to prevent XML External Entity (XXE) attacks
-- **Schema Validation**: Disabled external schema validation
-- **File Permission Checks**: Restricted file access to game directory
-- **Safe Serialization**: Prevented arbitrary code execution through serialization
+### Authentication & Authorization
+- Authentication method: Local file-based access
+- Authorization model: File system permissions
+- Token lifecycle: Session-based with application lifetime
 
-### Data Integrity
-- **Structural Validation**: Ensure XML hierarchy matches expected format
-- **Attribute Whitelisting**: Only defined attributes are processed
-- **Type Safety**: String parsing with error handling for value conversion
-
-## API Specifications
-
-### Core Serialization Interface
-```csharp
-public interface IXmlModel<T> where T : class
-{
-    string Serialize();
-    static T Deserialize(string xml);
-    XmlValidationResult Validate();
-    string[] GetDifferences(T other);
-}
-
-public class XmlValidationResult
-{
-    public bool IsValid { get; set; }
-    public List<string> Differences { get; } = new();
-    public List<string> MissingAttributes { get; } = new();
-    public List<string> ExtraAttributes { get; } = new();
-}
-```
-
-### Model Factory Pattern
-```csharp
-public static class XmlModelFactory
-{
-    public static T CreateFromXml<T>(string xmlPath) where T : class, new()
-    {
-        var serializer = new XmlSerializer(typeof(T));
-        using var reader = new FileStream(xmlPath, FileMode.Open);
-        return (T)serializer.Deserialize(reader)!;
-    }
-    
-    public static void SaveToXml<T>(T model, string xmlPath) where T : class
-    {
-        var serializer = new XmlSerializer(typeof(T));
-        using var writer = new StreamWriter(xmlPath, false, new UTF8Encoding(false));
-        serializer.Serialize(writer, model);
-    }
-}
-```
+### Security Measures
+- [x] Input validation and sanitization
+- [x] XML injection prevention
+- [x] File path validation
+- [ ] Rate limiting (not applicable for local desktop app)
+- [ ] Secrets management (minimal for local app)
 
 ## Scalability Strategy
 
-### Model Classification and Implementation Priority
-1. **High-Impact Models** (80% of failures): PhysicsMaterials, Monsters, MultiplayerScenes
-2. **Medium-Impact Models**: GameTypes, ModuleConfiguration
-3. **Low-Impact Models**: Individual asset configurations
+### Horizontal Scaling
+- Load balancing approach: Not applicable (desktop application)
+- Session management: In-memory application state
+- Database replication: Not applicable (file-based storage)
+- Caching strategy: In-memory object caching
 
-### Parallel Development Approach
-```mermaid
-gantt
-    title XML Model Implementation Timeline
-    dateFormat  HH:mm
-    section High-Impact
-    PhysicsMaterials    : 0, 30m
-    Monsters           : 25m, 35m
-    GameTypes          : 50m, 40m
-    MultiplayerScenes  : 60m, 45m
-    
-    section Medium-Impact
-    SceneDefs          : 75m, 25m
-    ModuleConfig       : 85m, 20m
-    
-    section Validation
-    Integration Tests  : 90m, 60m
-    Full Test Suite    : 120m, 45m
-```
+### Performance Optimization
+- File I/O optimization with async operations
+- Object pooling for frequently used objects
+- Lazy loading of large XML structures
+- Memory-efficient XML processing
 
-## Implementation Strategy
+## Deployment Architecture
 
-### Phase 1: Foundation (Day 1-2)
-- **PhysicsMaterials Model**: Complete refactoring with string-based properties
-- **Test Suite Enhancement**: Expand test coverage for edge cases
-- **Validation Framework**: Establish round-trip testing procedures
+### Environments
+- Development: Local developer machines
+- Testing: CI/CD pipeline with unit tests
+- Production: End-user desktop installations
 
-### Phase 2: Core Models (Day 3-5)
-- **Monsters Model**: Complex nested structure with MonsterFlags
-- **Namespace Reorganization**: Move models to appropriate functional domains
-- **Cross-Model Consistency**: Ensure uniform patterns across all models
-
-### Phase 3: Complete Coverage (Week 1)
-- **Remaining Models**: Systematic implementation of all failing models
-- **Performance Optimization**: Large XML file processing improvements
-- **Integration Testing**: Full system validation
-
-### Phase 4: Production Ready (Week 2)
-- **Documentation**: Comprehensive user and developer guides
-- **Deployment Pipeline**: Automated testing for model changes
-- **Monitoring**: Real-time validation for XML processing errors
+### Deployment Strategy
+- Application packaging with Velopack
+- Single-file deployment
+- Automatic updates via Velopack infrastructure
+- Rollback procedures via Velopack
 
 ## Monitoring & Observability
 
-### Quality Metrics
-- **Test Pass Rate**: Target 100% for all model adaptations
-- **XML Fidelity**: Zero structural differences between original and re-serialized XML
-- **Performance**: <100ms for typical XML processing
-- **Memory Usage**: <50MB for largest XML files
+### Metrics
+- Application startup time
+- XML processing performance
+- Memory usage patterns
+- Error rates and types
 
-### Alert Conditions
-- Test failures in any model class
-- Round-trip validation failures
-- Memory usage spikes during processing
-- XML structure discrepancies detected
+### Logging
+- File-based logging with timestamped entries
+- Error logging with stack traces
+- Performance logging for XML operations
+- Structured logging format
 
-### Logging Strategy
-- **Structured Logging**: JSON-formatted logs for parsing
-- **Level-Based Logging**: Debug for development, Error for production
-- **Correlation IDs**: Track individual XML file processing across components
+### Alerting
+- Exception handling with user notifications
+- Performance degradation alerts
+- File operation failure notifications
+- Validation error reporting
 
 ## Architectural Decisions (ADRs)
 
-### ADR-001: String-Based Property Design
-**Status**: Accepted  
-**Context**: Boolean values use lower-case in XML ("true"/"false") vs C# boolean serialization ("True"/"False"). Numeric values must preserve exact decimal precision and formatting.  
-**Decision**: All XML attributes implemented as string properties to preserve exact format from original files.  
-**Consequences**: Requires manual parsing when business logic needs typed values, eliminates format drift during serialization, maintains 100% XML compatibility.  
-**Alternatives Considered**: Custom type converters (rejected due to complexity), manual XML writing (rejected due to maintenance burden).
+### ADR-001: DO/DTO Layered Architecture
+**Status**: Accepted
+**Context**: The Bannerlord Mod Editor needs to preserve exact XML string representations while providing strongly-typed interfaces for business logic. Existing XML serializers don't handle case-sensitive boolean values correctly, and there's a need to distinguish between missing attributes and empty values.
+**Decision**: Implement a DO/DTO layered architecture where DOs preserve exact string representations and DTOs provide strongly-typed interfaces.
+**Consequences**: 
+- Positive: Exact XML preservation, proper boolean handling, clear separation of concerns
+- Negative: Additional complexity in mapping layer, potential performance overhead
+**Alternatives Considered**: 
+- Using only DOs with string properties throughout - would complicate business logic
+- Using only DTOs with custom serializers - wouldn't preserve exact XML representation
 
-### ADR-002: ShouldSerialize Pattern
-**Status**: Accepted  
-**Context**: Bannerlord's XML parser is strictly defined - attributes must not be present if they weren't in the original file, even with default values.  
-**Decision**: Implement ShouldSerialize[PropertyName] methods for all optional attributes using string.IsNullOrEmpty() for presence detection.  
-**Consequences**: Prevents unwanted attribute serialization, ensures clean serialization, requires additional methods for each property.  
-**Alternatives Considered**: [XmlIgnore] with runtime logic (too complex), conditional serialization base class (too inflexible).
+### ADR-002: Boolean Value Handling
+**Status**: Accepted
+**Context**: Bannerlord XML files contain boolean values in various formats (true, True, TRUE, 1, false, False, FALSE, 0) that must be preserved exactly when saving but normalized for comparison.
+**Decision**: Create BooleanProperty wrapper class that preserves original string representation while providing normalized boolean value access.
+**Consequences**: 
+- Positive: Exact preservation of original values, case-insensitive parsing, consistent comparison logic
+- Negative: Additional wrapper object overhead
+**Alternatives Considered**: 
+- Custom XmlSerializer with boolean conversion - complex and error-prone
+- String properties with helper methods - would lose type safety
 
-### ADR-003: Incremental Validation Approach
-**Status**: Accepted  
-**Context**: 46 tests failing across multiple model types requires systematic approach to prevent regression.  
-**Decision**: Implement model fixes incrementally, one feature area at a time, with full test validation after each change.  
-**Consequences**: Longer total implementation time, significantly reduced risk of introducing new issues, comprehensive test coverage for each model.  
-**Alternatives Considered**: Bulk fixes (rejected due to risk), major refactoring (rejected due to scope).
+### ADR-003: Namespace Preservation Strategy
+**Status**: Accepted
+**Context**: Bannerlord XML files may contain namespace declarations that must be preserved during serialization to prevent game crashes.
+**Decision**: Implement enhanced XML loader that extracts namespace declarations from original XML and applies them during serialization.
+**Consequences**: 
+- Positive: Namespace preservation without modification, backward compatibility
+- Negative: Slight complexity in XML processing pipeline
+**Alternatives Considered**: 
+- Hard-coding namespace declarations - inflexible and error-prone
+- Modifying DO models to include namespace attributes - breaks clean separation of concerns

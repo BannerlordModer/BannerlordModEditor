@@ -27,9 +27,9 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ItemDTO
             {
-                MultiplayerItem = BoolFromString(source.MultiplayerItem),
-                Id = source.Id,
-                Name = source.Name,
+                MultiplayerItem = BoolFromString(source.MultiplayerItem) ?? false,
+                Id = source.Id ?? string.Empty,
+                Name = source.Name ?? string.Empty,
                 BodyName = source.BodyName,
                 ShieldBodyName = source.ShieldBodyName,
                 HolsterBodyName = source.HolsterBodyName,
@@ -37,17 +37,17 @@ namespace BannerlordModEditor.Common.Mappers
                 Mesh = source.Mesh,
                 HolsterMesh = source.HolsterMesh,
                 Culture = source.Culture,
-                UsingTableau = BoolFromString(source.UsingTableau),
+                UsingTableau = BoolFromString(source.UsingTableau) ?? false,
                 Value = source.Value,
-                IsMerchandise = BoolFromString(source.IsMerchandise),
+                IsMerchandise = BoolFromString(source.IsMerchandise) ?? false,
                 Weight = source.Weight,
                 Difficulty = source.Difficulty,
                 Appearance = source.Appearance,
-                Type = source.Type,
+                Type = source.Type ?? string.Empty,
                 ItemHolsters = source.ItemHolsters,
                 ItemCategory = source.ItemCategory,
-                RecalculateBody = BoolFromString(source.RecalculateBody),
-                HasLowerHolsterPriority = BoolFromString(source.HasLowerHolsterPriority),
+                RecalculateBody = BoolFromString(source.RecalculateBody) ?? false,
+                HasLowerHolsterPriority = BoolFromString(source.HasLowerHolsterPriority) ?? false,
                 HolsterPositionShift = source.HolsterPositionShift,
                 FlyingMesh = source.FlyingMesh,
                 HolsterMeshWithWeapon = source.HolsterMeshWithWeapon,
@@ -65,12 +65,12 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CraftedItemDTO
             {
-                MultiplayerItem = BoolFromString(source.MultiplayerItem),
-                Id = source.Id,
-                Name = source.Name,
-                CraftingTemplate = source.CraftingTemplate,
+                MultiplayerItem = BoolFromString(source.MultiplayerItem) ?? false,
+                Id = source.Id ?? string.Empty,
+                Name = source.Name ?? string.Empty,
+                CraftingTemplate = source.CraftingTemplate ?? string.Empty,
                 Value = source.Value,
-                IsMerchandise = BoolFromString(source.IsMerchandise),
+                IsMerchandise = BoolFromString(source.IsMerchandise) ?? false,
                 Culture = source.Culture,
                 Pieces = ToDTO(source.Pieces)
             };
@@ -125,21 +125,21 @@ namespace BannerlordModEditor.Common.Mappers
                 BodyArmor = source.BodyArmor,
                 LegArmor = source.LegArmor,
                 ArmArmor = source.ArmArmor,
-                HasGenderVariations = source.HasGenderVariations,
+                HasGenderVariations = BoolFromString(source.HasGenderVariations) ?? false,
                 HairCoverType = source.HairCoverType,
                 BeardCoverType = source.BeardCoverType,
                 ModifierGroup = source.ModifierGroup,
                 MaterialType = source.MaterialType,
-                CoversBody = source.CoversBody,
-                CoversLegs = source.CoversLegs,
-                CoversHead = source.CoversHead,
+                CoversBody = BoolFromString(source.CoversBody) ?? false,
+                CoversLegs = BoolFromString(source.CoversLegs) ?? false,
+                CoversHead = BoolFromString(source.CoversHead) ?? false,
                 ManeCoverType = source.ManeCoverType,
                 ReinsMesh = source.ReinsMesh,
                 ManeuverBonus = source.ManeuverBonus,
                 SpeedBonus = source.SpeedBonus,
                 ChargeBonus = source.ChargeBonus,
                 FamilyType = source.FamilyType,
-                CoversHands = source.CoversHands,
+                CoversHands = BoolFromString(source.CoversHands) ?? false,
                 BodyMeshType = source.BodyMeshType
             };
         }
@@ -189,34 +189,34 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new WeaponFlagsDTO
             {
-                MeleeWeapon = source.MeleeWeapon,
-                RangedWeapon = source.RangedWeapon,
-                PenaltyWithShield = source.PenaltyWithShield,
-                NotUsableWithOneHand = source.NotUsableWithOneHand,
-                TwoHandIdleOnMount = source.TwoHandIdleOnMount,
-                WideGrip = source.WideGrip,
-                Consumable = source.Consumable,
-                AmmoSticksWhenShot = source.AmmoSticksWhenShot,
-                MultiplePenetration = source.MultiplePenetration,
-                CanPenetrateShield = source.CanPenetrateShield,
-                CanBlockRanged = source.CanBlockRanged,
-                HasHitPoints = source.HasHitPoints,
-                HasString = source.HasString,
-                StringHeldByHand = source.StringHeldByHand,
-                AutoReload = source.AutoReload,
-                UnloadWhenSheathed = source.UnloadWhenSheathed,
-                AmmoBreaksOnBounceBack = source.AmmoBreaksOnBounceBack,
-                CantReloadOnHorseback = source.CantReloadOnHorseback,
-                Burning = source.Burning,
-                LeavesTrail = source.LeavesTrail,
-                CanKnockDown = source.CanKnockDown,
-                MissileWithPhysics = source.MissileWithPhysics,
-                UseHandAsThrowBase = source.UseHandAsThrowBase,
-                AffectsArea = source.AffectsArea,
-                AmmoCanBreakOnBounceBack = source.AmmoCanBreakOnBounceBack,
-                CanKillEvenIfBlunt = source.CanKillEvenIfBlunt,
-                AffectsAreaBig = source.AffectsAreaBig,
-                AttachAmmoToVisual = source.AttachAmmoToVisual
+                MeleeWeapon = BoolFromString(source.MeleeWeapon) ?? false,
+                RangedWeapon = BoolFromString(source.RangedWeapon) ?? false,
+                PenaltyWithShield = BoolFromString(source.PenaltyWithShield) ?? false,
+                NotUsableWithOneHand = BoolFromString(source.NotUsableWithOneHand) ?? false,
+                TwoHandIdleOnMount = BoolFromString(source.TwoHandIdleOnMount) ?? false,
+                WideGrip = BoolFromString(source.WideGrip) ?? false,
+                Consumable = BoolFromString(source.Consumable) ?? false,
+                AmmoSticksWhenShot = BoolFromString(source.AmmoSticksWhenShot) ?? false,
+                MultiplePenetration = BoolFromString(source.MultiplePenetration) ?? false,
+                CanPenetrateShield = BoolFromString(source.CanPenetrateShield) ?? false,
+                CanBlockRanged = BoolFromString(source.CanBlockRanged) ?? false,
+                HasHitPoints = BoolFromString(source.HasHitPoints) ?? false,
+                HasString = BoolFromString(source.HasString) ?? false,
+                StringHeldByHand = BoolFromString(source.StringHeldByHand) ?? false,
+                AutoReload = BoolFromString(source.AutoReload) ?? false,
+                UnloadWhenSheathed = BoolFromString(source.UnloadWhenSheathed) ?? false,
+                AmmoBreaksOnBounceBack = BoolFromString(source.AmmoBreaksOnBounceBack) ?? false,
+                CantReloadOnHorseback = BoolFromString(source.CantReloadOnHorseback) ?? false,
+                Burning = BoolFromString(source.Burning) ?? false,
+                LeavesTrail = BoolFromString(source.LeavesTrail) ?? false,
+                CanKnockDown = BoolFromString(source.CanKnockDown) ?? false,
+                MissileWithPhysics = BoolFromString(source.MissileWithPhysics) ?? false,
+                UseHandAsThrowBase = BoolFromString(source.UseHandAsThrowBase) ?? false,
+                AffectsArea = BoolFromString(source.AffectsArea) ?? false,
+                AmmoCanBreakOnBounceBack = BoolFromString(source.AmmoCanBreakOnBounceBack) ?? false,
+                CanKillEvenIfBlunt = BoolFromString(source.CanKillEvenIfBlunt) ?? false,
+                AffectsAreaBig = BoolFromString(source.AffectsAreaBig) ?? false,
+                AttachAmmoToVisual = BoolFromString(source.AttachAmmoToVisual) ?? false
             };
         }
 
@@ -231,7 +231,7 @@ namespace BannerlordModEditor.Common.Mappers
                 ChargeDamage = source.ChargeDamage,
                 HitPoints = source.HitPoints,
                 BodyLength = source.BodyLength,
-                IsMountable = source.IsMountable,
+                IsMountable = BoolFromString(source.IsMountable) ?? false,
                 Monster = source.Monster,
                 ExtraHealth = source.ExtraHealth,
                 SkeletonScale = source.SkeletonScale,
@@ -257,8 +257,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new AdditionalMeshDTO
             {
-                Name = source.Name,
-                AffectedByCover = source.AffectedByCover
+                Name = source.Name ?? string.Empty,
+                AffectedByCover = BoolFromString(source.AffectedByCover) ?? false
             };
         }
 
@@ -322,18 +322,18 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ItemFlagsDTO
             {
-                UseTeamColor = source.UseTeamColor,
-                Civilian = source.Civilian,
-                DoesNotHideChest = source.DoesNotHideChest,
-                WoodenParry = source.WoodenParry,
-                DropOnWeaponChange = source.DropOnWeaponChange,
-                DoNotScaleBodyAccordingToWeaponLength = source.DoNotScaleBodyAccordingToWeaponLength,
-                QuickFadeOut = source.QuickFadeOut,
-                CannotBePickedUp = source.CannotBePickedUp,
-                HeldInOffHand = source.HeldInOffHand,
-                ForceAttachOffHandSecondaryItemBone = source.ForceAttachOffHandSecondaryItemBone,
-                ForceAttachOffHandPrimaryItemBone = source.ForceAttachOffHandPrimaryItemBone,
-                DropOnAnyAction = source.DropOnAnyAction
+                UseTeamColor = BoolFromString(source.UseTeamColor) ?? false,
+                Civilian = BoolFromString(source.Civilian) ?? false,
+                DoesNotHideChest = BoolFromString(source.DoesNotHideChest) ?? false,
+                WoodenParry = BoolFromString(source.WoodenParry) ?? false,
+                DropOnWeaponChange = BoolFromString(source.DropOnWeaponChange) ?? false,
+                DoNotScaleBodyAccordingToWeaponLength = BoolFromString(source.DoNotScaleBodyAccordingToWeaponLength) ?? false,
+                QuickFadeOut = BoolFromString(source.QuickFadeOut) ?? false,
+                CannotBePickedUp = BoolFromString(source.CannotBePickedUp) ?? false,
+                HeldInOffHand = BoolFromString(source.HeldInOffHand) ?? false,
+                ForceAttachOffHandSecondaryItemBone = BoolFromString(source.ForceAttachOffHandSecondaryItemBone) ?? false,
+                ForceAttachOffHandPrimaryItemBone = BoolFromString(source.ForceAttachOffHandPrimaryItemBone) ?? false,
+                DropOnAnyAction = BoolFromString(source.DropOnAnyAction) ?? false
             };
         }
 
@@ -456,21 +456,21 @@ namespace BannerlordModEditor.Common.Mappers
                 BodyArmor = source.BodyArmor,
                 LegArmor = source.LegArmor,
                 ArmArmor = source.ArmArmor,
-                HasGenderVariations = source.HasGenderVariations,
+                HasGenderVariations = StringFromBool(source.HasGenderVariations),
                 HairCoverType = source.HairCoverType,
                 BeardCoverType = source.BeardCoverType,
                 ModifierGroup = source.ModifierGroup,
                 MaterialType = source.MaterialType,
-                CoversBody = source.CoversBody,
-                CoversLegs = source.CoversLegs,
-                CoversHead = source.CoversHead,
+                CoversBody = StringFromBool(source.CoversBody),
+                CoversLegs = StringFromBool(source.CoversLegs),
+                CoversHead = StringFromBool(source.CoversHead),
                 ManeCoverType = source.ManeCoverType,
                 ReinsMesh = source.ReinsMesh,
                 ManeuverBonus = source.ManeuverBonus,
                 SpeedBonus = source.SpeedBonus,
                 ChargeBonus = source.ChargeBonus,
                 FamilyType = source.FamilyType,
-                CoversHands = source.CoversHands,
+                CoversHands = StringFromBool(source.CoversHands),
                 BodyMeshType = source.BodyMeshType
             };
         }
@@ -520,34 +520,34 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new WeaponFlagsDO
             {
-                MeleeWeapon = source.MeleeWeapon,
-                RangedWeapon = source.RangedWeapon,
-                PenaltyWithShield = source.PenaltyWithShield,
-                NotUsableWithOneHand = source.NotUsableWithOneHand,
-                TwoHandIdleOnMount = source.TwoHandIdleOnMount,
-                WideGrip = source.WideGrip,
-                Consumable = source.Consumable,
-                AmmoSticksWhenShot = source.AmmoSticksWhenShot,
-                MultiplePenetration = source.MultiplePenetration,
-                CanPenetrateShield = source.CanPenetrateShield,
-                CanBlockRanged = source.CanBlockRanged,
-                HasHitPoints = source.HasHitPoints,
-                HasString = source.HasString,
-                StringHeldByHand = source.StringHeldByHand,
-                AutoReload = source.AutoReload,
-                UnloadWhenSheathed = source.UnloadWhenSheathed,
-                AmmoBreaksOnBounceBack = source.AmmoBreaksOnBounceBack,
-                CantReloadOnHorseback = source.CantReloadOnHorseback,
-                Burning = source.Burning,
-                LeavesTrail = source.LeavesTrail,
-                CanKnockDown = source.CanKnockDown,
-                MissileWithPhysics = source.MissileWithPhysics,
-                UseHandAsThrowBase = source.UseHandAsThrowBase,
-                AffectsArea = source.AffectsArea,
-                AmmoCanBreakOnBounceBack = source.AmmoCanBreakOnBounceBack,
-                CanKillEvenIfBlunt = source.CanKillEvenIfBlunt,
-                AffectsAreaBig = source.AffectsAreaBig,
-                AttachAmmoToVisual = source.AttachAmmoToVisual
+                MeleeWeapon = StringFromBool(source.MeleeWeapon),
+                RangedWeapon = StringFromBool(source.RangedWeapon),
+                PenaltyWithShield = StringFromBool(source.PenaltyWithShield),
+                NotUsableWithOneHand = StringFromBool(source.NotUsableWithOneHand),
+                TwoHandIdleOnMount = StringFromBool(source.TwoHandIdleOnMount),
+                WideGrip = StringFromBool(source.WideGrip),
+                Consumable = StringFromBool(source.Consumable),
+                AmmoSticksWhenShot = StringFromBool(source.AmmoSticksWhenShot),
+                MultiplePenetration = StringFromBool(source.MultiplePenetration),
+                CanPenetrateShield = StringFromBool(source.CanPenetrateShield),
+                CanBlockRanged = StringFromBool(source.CanBlockRanged),
+                HasHitPoints = StringFromBool(source.HasHitPoints),
+                HasString = StringFromBool(source.HasString),
+                StringHeldByHand = StringFromBool(source.StringHeldByHand),
+                AutoReload = StringFromBool(source.AutoReload),
+                UnloadWhenSheathed = StringFromBool(source.UnloadWhenSheathed),
+                AmmoBreaksOnBounceBack = StringFromBool(source.AmmoBreaksOnBounceBack),
+                CantReloadOnHorseback = StringFromBool(source.CantReloadOnHorseback),
+                Burning = StringFromBool(source.Burning),
+                LeavesTrail = StringFromBool(source.LeavesTrail),
+                CanKnockDown = StringFromBool(source.CanKnockDown),
+                MissileWithPhysics = StringFromBool(source.MissileWithPhysics),
+                UseHandAsThrowBase = StringFromBool(source.UseHandAsThrowBase),
+                AffectsArea = StringFromBool(source.AffectsArea),
+                AmmoCanBreakOnBounceBack = StringFromBool(source.AmmoCanBreakOnBounceBack),
+                CanKillEvenIfBlunt = StringFromBool(source.CanKillEvenIfBlunt),
+                AffectsAreaBig = StringFromBool(source.AffectsAreaBig),
+                AttachAmmoToVisual = StringFromBool(source.AttachAmmoToVisual)
             };
         }
 
@@ -562,7 +562,7 @@ namespace BannerlordModEditor.Common.Mappers
                 ChargeDamage = source.ChargeDamage,
                 HitPoints = source.HitPoints,
                 BodyLength = source.BodyLength,
-                IsMountable = source.IsMountable,
+                IsMountable = StringFromBool(source.IsMountable),
                 Monster = source.Monster,
                 ExtraHealth = source.ExtraHealth,
                 SkeletonScale = source.SkeletonScale,
@@ -589,7 +589,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new AdditionalMeshDO
             {
                 Name = source.Name,
-                AffectedByCover = source.AffectedByCover
+                AffectedByCover = StringFromBool(source.AffectedByCover)
             };
         }
 
@@ -653,18 +653,18 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ItemFlagsDO
             {
-                UseTeamColor = source.UseTeamColor,
-                Civilian = source.Civilian,
-                DoesNotHideChest = source.DoesNotHideChest,
-                WoodenParry = source.WoodenParry,
-                DropOnWeaponChange = source.DropOnWeaponChange,
-                DoNotScaleBodyAccordingToWeaponLength = source.DoNotScaleBodyAccordingToWeaponLength,
-                QuickFadeOut = source.QuickFadeOut,
-                CannotBePickedUp = source.CannotBePickedUp,
-                HeldInOffHand = source.HeldInOffHand,
-                ForceAttachOffHandSecondaryItemBone = source.ForceAttachOffHandSecondaryItemBone,
-                ForceAttachOffHandPrimaryItemBone = source.ForceAttachOffHandPrimaryItemBone,
-                DropOnAnyAction = source.DropOnAnyAction
+                UseTeamColor = StringFromBool(source.UseTeamColor),
+                Civilian = StringFromBool(source.Civilian),
+                DoesNotHideChest = StringFromBool(source.DoesNotHideChest),
+                WoodenParry = StringFromBool(source.WoodenParry),
+                DropOnWeaponChange = StringFromBool(source.DropOnWeaponChange),
+                DoNotScaleBodyAccordingToWeaponLength = StringFromBool(source.DoNotScaleBodyAccordingToWeaponLength),
+                QuickFadeOut = StringFromBool(source.QuickFadeOut),
+                CannotBePickedUp = StringFromBool(source.CannotBePickedUp),
+                HeldInOffHand = StringFromBool(source.HeldInOffHand),
+                ForceAttachOffHandSecondaryItemBone = StringFromBool(source.ForceAttachOffHandSecondaryItemBone),
+                ForceAttachOffHandPrimaryItemBone = StringFromBool(source.ForceAttachOffHandPrimaryItemBone),
+                DropOnAnyAction = StringFromBool(source.DropOnAnyAction)
             };
         }
 
@@ -672,15 +672,22 @@ namespace BannerlordModEditor.Common.Mappers
 
         #region Helper Methods
 
-        private static bool? BoolFromString(string value)
+        private static bool? BoolFromString(string? value)
         {
             if (string.IsNullOrEmpty(value)) return null;
-            return bool.TryParse(value, out bool result) ? result : (bool?)null;
+            
+            var normalized = value.ToLowerInvariant();
+            return normalized switch
+            {
+                "true" or "1" or "yes" => true,
+                "false" or "0" or "no" => false,
+                _ => bool.TryParse(normalized, out bool result) ? result : (bool?)null
+            };
         }
 
-        private static string StringFromBool(bool? value)
+        private static string StringFromBool(bool value)
         {
-            return value?.ToString().ToLower();
+            return value.ToString().ToLower();
         }
 
         #endregion

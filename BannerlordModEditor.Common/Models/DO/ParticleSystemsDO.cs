@@ -78,7 +78,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public string? Value { get; set; }
 
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeValue() => Value != null;
     }
 
     public class ParametersDO
@@ -97,28 +97,32 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("value")]
         public string? Value { get; set; }
 
+        [XmlAttribute("base")]
+        public string? Base { get; set; }
+
         [XmlAttribute("bias")]
         public string? Bias { get; set; }
 
         [XmlAttribute("curve")]
         public string? Curve { get; set; }
 
-        [XmlAttribute("color")]
-        public string? Color { get; set; }
-
-        [XmlAttribute("alpha")]
-        public string? Alpha { get; set; }
-
         [XmlElement("curve")]
         public CurveDO? ParameterCurve { get; set; }
 
+        [XmlElement("color")]
+        public ColorDO? ColorElement { get; set; }
+
+        [XmlElement("alpha")]
+        public AlphaDO? AlphaElement { get; set; }
+
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeValue() => Value != null;
+        public bool ShouldSerializeBase() => !string.IsNullOrEmpty(Base);
         public bool ShouldSerializeBias() => !string.IsNullOrEmpty(Bias);
         public bool ShouldSerializeCurve() => !string.IsNullOrEmpty(Curve);
-        public bool ShouldSerializeColor() => !string.IsNullOrEmpty(Color);
-        public bool ShouldSerializeAlpha() => !string.IsNullOrEmpty(Alpha);
         public bool ShouldSerializeParameterCurve() => ParameterCurve != null;
+        public bool ShouldSerializeColorElement() => ColorElement != null;
+        public bool ShouldSerializeAlphaElement() => AlphaElement != null;
     }
 
     public class CurveDO
@@ -155,6 +159,9 @@ namespace BannerlordModEditor.Common.Models.DO
 
     public class KeyDO
     {
+        [XmlAttribute("time")]
+        public string? Time { get; set; }
+
         [XmlAttribute("value")]
         public string? Value { get; set; }
 
@@ -164,8 +171,25 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("tangent")]
         public string? Tangent { get; set; }
 
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeTime() => !string.IsNullOrEmpty(Time);
+        public bool ShouldSerializeValue() => Value != null;
         public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
         public bool ShouldSerializeTangent() => !string.IsNullOrEmpty(Tangent);
+    }
+
+    public class ColorDO
+    {
+        [XmlElement("keys")]
+        public KeysDO? Keys { get; set; }
+
+        public bool ShouldSerializeKeys() => Keys != null;
+    }
+
+    public class AlphaDO
+    {
+        [XmlElement("keys")]
+        public KeysDO? Keys { get; set; }
+
+        public bool ShouldSerializeKeys() => Keys != null;
     }
 }
