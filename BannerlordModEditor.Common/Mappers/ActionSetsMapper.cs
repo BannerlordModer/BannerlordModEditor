@@ -29,6 +29,7 @@ namespace BannerlordModEditor.Common.Mappers
                 Id = source.Id,
                 Skeleton = source.Skeleton,
                 MovementSystem = source.MovementSystem,
+                BaseSet = source.BaseSet,
                 Actions = source.Actions?.Select(ToDTO).ToList() ?? new List<ActionDTO>()
             };
         }
@@ -40,7 +41,8 @@ namespace BannerlordModEditor.Common.Mappers
             return new ActionDTO
             {
                 Type = source.Type,
-                Animation = source.Animation
+                Animation = source.Animation,
+                AlternativeGroup = source.AlternativeGroup
             };
         }
 
@@ -67,6 +69,7 @@ namespace BannerlordModEditor.Common.Mappers
                 Id = source.Id,
                 Skeleton = source.Skeleton,
                 MovementSystem = source.MovementSystem,
+                BaseSet = source.BaseSet,
                 Actions = source.Actions?.Select(ToDO).ToList() ?? new List<ActionDO>()
             };
         }
@@ -78,7 +81,8 @@ namespace BannerlordModEditor.Common.Mappers
             return new ActionDO
             {
                 Type = source.Type,
-                Animation = source.Animation
+                Animation = source.Animation,
+                AlternativeGroup = source.AlternativeGroup
             };
         }
 

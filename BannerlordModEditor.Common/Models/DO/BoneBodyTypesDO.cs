@@ -21,13 +21,13 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("priority")]
         public string? Priority { get; set; }
 
-        [XmlElement("activate_sweep")]
+        [XmlAttribute("activate_sweep")]
         public string? ActivateSweep { get; set; }
 
-        [XmlElement("use_smaller_radius_mult_while_holding_shield")]
+        [XmlAttribute("use_smaller_radius_mult_while_holding_shield")]
         public string? UseSmallerRadiusMultWhileHoldingShield { get; set; }
 
-        [XmlElement("do_not_scale_according_to_agent_scale")]
+        [XmlAttribute("do_not_scale_according_to_agent_scale")]
         public string? DoNotScaleAccordingToAgentScale { get; set; }
 
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
