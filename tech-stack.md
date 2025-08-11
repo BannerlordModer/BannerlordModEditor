@@ -1,7 +1,7 @@
-# Technology Stack Decisions
+# 剩余单元测试失败修复技术栈
 
-## Overview
-This document outlines the technology stack decisions for the Bannerlord Mod Editor, specifically focusing on the DO/DTO layered architecture implementation for XML processing. The stack is designed to address the specific challenges of preserving exact XML representations while providing strongly-typed interfaces for business logic.
+## 概述
+本文档概述了用于修复Bannerlord Mod Editor剩余单元测试失败的技术栈决策，重点关注DO/DTO分层架构的进一步完善和扩展应用。
 
 ## Core Technologies
 
