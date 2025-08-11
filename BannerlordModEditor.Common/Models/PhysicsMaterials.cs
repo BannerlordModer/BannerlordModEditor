@@ -37,6 +37,7 @@ namespace BannerlordModEditor.Common.Models
         public string? Flammable { get; set; }
 
         public bool ShouldSerializeDontStickMissiles() => !string.IsNullOrWhiteSpace(DontStickMissiles);
+        public bool ShouldSerializeAttacksCanPassThrough() => !string.IsNullOrWhiteSpace(AttacksCanPassThrough);
         public bool ShouldSerializeRainSplashesEnabled() => !string.IsNullOrWhiteSpace(RainSplashesEnabled);
         public bool ShouldSerializeFlammable() => !string.IsNullOrWhiteSpace(Flammable);
 
@@ -67,4 +68,4 @@ namespace BannerlordModEditor.Common.Models
         [XmlAttribute("name")]
         public string Name { get; set; } = string.Empty;
     }
-} 
+}

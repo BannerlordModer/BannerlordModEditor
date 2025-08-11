@@ -1,7 +1,8 @@
 # System Architecture
 
 ## Executive Summary
-This architecture document describes a DO/DTO layered architecture for the Bannerlord Mod Editor system, specifically designed to address XML serialization challenges including boolean value case sensitivity, type conversion consistency, and namespace preservation. The architecture separates concerns between Data Objects (DO) that handle raw XML string data representation and Data Transfer Objects (DTO) that provide strongly-typed business logic interfaces.
+
+This architecture document describes the enhanced system design for the Bannerlord Mod Editor project to resolve the remaining XML test failures. The solution implements a robust DO/DTO layered architecture with improved XML serialization/deserialization capabilities that preserve exact XML formatting while providing type-safe business logic interfaces.
 
 ## Architecture Overview
 
@@ -27,6 +28,7 @@ C4Container
     Container_Do(dtoLayer, "DTO Layer", ".NET 9", "Strongly-typed business objects with validation")
     Container_Services(mapping, "Mapping Services", ".NET 9", "Bidirectional conversion between DO and DTO")
     Container(xmlProcessor, "XML Processor", ".NET 9", "Handles serialization/deserialization with namespace preservation")
+    Container(testFramework, "Test Framework", "xUnit", "XML validation and comparison framework")
     Container(fileSystem, "File System", "OS", "Physical storage of XML files")
     
     Rel(ui, editorCore, "Uses")
@@ -36,6 +38,8 @@ C4Container
     Rel(doLayer, mapping, "Converted via")
     Rel(xmlProcessor, doLayer, "Creates/Consumes")
     Rel(xmlProcessor, fileSystem, "Reads/Writes")
+    Rel(testFramework, xmlProcessor, "Validates")
+    Rel(testFramework, doLayer, "Tests")
 ```
 
 ## Technology Stack
@@ -91,6 +95,14 @@ C4Container
 - Input: File paths, DO/DTO objects
 - Output: XML strings, deserialized objects
 **Dependencies**: DO Layer, System.Xml
+
+### Test Framework
+**Purpose**: Provide comprehensive XML validation and comparison capabilities
+**Technology**: xUnit with custom XML processing extensions
+**Interfaces**: 
+- Input: XML strings, DO/DTO objects
+- Output: Test results, validation reports
+**Dependencies**: DO Layer, XML Processor
 
 ## Data Architecture
 
@@ -251,3 +263,151 @@ public class ItemComponentDto
 **Alternatives Considered**: 
 - Hard-coding namespace declarations - inflexible and error-prone
 - Modifying DO models to include namespace attributes - breaks clean separation of concerns
+
+### ADR-004: Enhanced XML Comparison Framework
+**Status**: Accepted
+**Context**: The existing XML comparison logic was insufficient to handle the variety of XML format differences encountered in Bannerlord files.
+**Decision**: Implement a comprehensive XML comparison framework with multiple comparison modes and detailed reporting capabilities.
+**Consequences**: 
+- Positive: Detailed failure analysis, multiple comparison strategies, improved debugging capabilities
+- Negative: Increased test execution time, complexity in comparison logic
+**Alternatives Considered**: 
+- Simple string comparison - insufficient for structural validation
+- Basic XML comparison - lacks detailed reporting capabilities
+
+### ADR-005: Conditional Serialization Implementation
+**Status**: Accepted
+**Context**: Many XML attributes in Bannerlord files are optional and should not be serialized when empty or null.
+**Decision**: Implement ShouldSerialize{PropertyName}() methods in DO models to control conditional serialization.
+**Consequences**: 
+- Positive: Clean XML output, exact preservation of original structure
+- Negative: Additional boilerplate code in models
+**Alternatives Considered**: 
+- Custom XmlSerializer - complex and error-prone
+- Post-processing serialized XML - inefficient and fragile
+
+## Enhanced XML Processing Architecture
+
+### Boolean Value Normalization
+The system implements intelligent boolean value handling that:
+1. Preserves exact original string representations in DO layer
+2. Provides normalized boolean access in DTO layer
+3. Handles case-insensitive comparison during testing
+4. Supports multiple boolean formats (true/True/TRUE/1, false/False/FALSE/0)
+
+### Namespace Declaration Preservation
+The enhanced XML processor:
+1. Extracts namespace declarations from original XML files
+2. Preserves these declarations during serialization
+3. Handles both default and prefixed namespace declarations
+4. Prevents unwanted namespace additions or removals
+
+### Attribute Existence Tracking
+To distinguish between missing attributes and empty attributes:
+1. DO models implement ShouldSerialize{PropertyName}() methods
+2. Conditional serialization ensures only present attributes are serialized
+3. Property existence is tracked during deserialization
+4. Empty vs. missing attributes are properly handled
+
+### Numerical Value Handling
+The system provides consistent numerical value processing:
+1. Preserves original formatting in DO layer
+2. Normalizes values for comparison in test framework
+3. Handles precision differences appropriately
+4. Supports tolerance-based comparison for floating-point values
+
+## Test Framework Enhancements
+
+### Multi-Mode Comparison
+The test framework supports three comparison modes:
+1. **Strict**: Exact string matching
+2. **Logical**: Normalized value comparison with tolerance
+3. **Loose**: Lenient comparison for structural validation
+
+### Detailed Reporting
+Enhanced test framework provides:
+1. Comprehensive difference reports
+2. Node and attribute count comparisons
+3. Detailed path-based difference identification
+4. Debug output with original vs. serialized XML files
+
+### Performance Optimizations
+Test framework includes optimizations for:
+1. Large XML file processing
+2. Memory-efficient comparison algorithms
+3. Parallel test execution
+4. Caching of parsed XML structures
+
+## Integration Patterns
+
+### DO/DTO Mapping
+The mapping service provides:
+1. Bidirectional conversion between DO and DTO models
+2. Reflection-based property mapping
+3. Custom conversion logic for special types
+4. Validation during mapping operations
+
+### XML Processing Pipeline
+The XML processing pipeline ensures:
+1. Namespace preservation throughout serialization
+2. Consistent formatting and encoding
+3. Proper handling of self-closing tags
+4. Attribute ordering normalization
+
+### Error Handling
+Robust error handling includes:
+1. Graceful degradation for malformed XML
+2. Detailed error reporting with context
+3. Recovery mechanisms for partial failures
+4. Logging and diagnostics for debugging
+
+## Future Extensibility
+
+### Plugin Architecture
+The system supports extensibility through:
+1. Modular XML processors for different file types
+2. Pluggable comparison strategies
+3. Extensible mapping services
+4. Custom validation rules
+
+### Performance Scaling
+Future performance improvements can include:
+1. Asynchronous processing for large files
+2. Streaming XML processing
+3. Incremental serialization/deserialization
+4. Advanced caching mechanisms
+
+### Feature Expansion
+The architecture supports adding:
+1. New XML file types with minimal changes
+2. Additional data validation rules
+3. Enhanced UI integration
+4. Advanced editing capabilities
+
+## Implementation Roadmap
+
+### Phase 1: Core Infrastructure
+1. Enhanced XML processing components
+2. Improved test framework
+3. DO/DTO mapping services
+4. Namespace preservation implementation
+
+### Phase 2: Model Implementation
+1. Complete DO/DTO models for all XML types
+2. Conditional serialization implementation
+3. Boolean property handling
+4. Numerical value processing
+
+### Phase 3: Testing and Validation
+1. Comprehensive test coverage
+2. Performance optimization
+3. Edge case handling
+4. Validation against original XML files
+
+### Phase 4: Integration and Deployment
+1. UI integration
+2. Packaging and deployment
+3. Documentation
+4. Final validation and testing
+
+This architecture provides a robust foundation for resolving the remaining XML test failures while maintaining backward compatibility and enabling future enhancements.
