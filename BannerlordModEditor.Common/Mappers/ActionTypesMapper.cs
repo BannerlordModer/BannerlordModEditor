@@ -28,7 +28,8 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Name = source.Name,
                 Type = source.Type,
-                UsageDirection = source.UsageDirection
+                UsageDirection = source.UsageDirection,
+                ActionStage = source.ActionStage
             };
         }
 
@@ -54,7 +55,8 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Name = source.Name,
                 Type = source.Type,
-                UsageDirection = source.UsageDirection
+                UsageDirection = source.UsageDirection,
+                ActionStage = source.ActionStage
             };
         }
 

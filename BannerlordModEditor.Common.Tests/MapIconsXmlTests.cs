@@ -1,6 +1,6 @@
 using System.IO;
 using Xunit;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -13,7 +13,7 @@ namespace BannerlordModEditor.Common.Tests
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化
-            var obj = XmlTestUtils.Deserialize<MapIcons>(xml);
+            var obj = XmlTestUtils.Deserialize<MapIconsDO>(xml);
 
             // 再序列化
             var xml2 = XmlTestUtils.Serialize(obj);

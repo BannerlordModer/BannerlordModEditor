@@ -24,8 +24,12 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("usage_direction")]
         public string? UsageDirection { get; set; }
 
+        [XmlAttribute("action_stage")]
+        public string? ActionStage { get; set; }
+
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
         public bool ShouldSerializeUsageDirection() => !string.IsNullOrEmpty(UsageDirection);
+        public bool ShouldSerializeActionStage() => !string.IsNullOrEmpty(ActionStage);
     }
 }
