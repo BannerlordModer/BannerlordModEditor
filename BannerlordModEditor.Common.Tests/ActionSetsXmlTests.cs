@@ -35,6 +35,7 @@ namespace BannerlordModEditor.Common.Tests
                 var fullDeclaration = @"<?xml version=""1.0"" encoding=""utf-8""?>" + Environment.NewLine;
                 var testXmlWithDeclaration = fullDeclaration + testXml;
 
+
                 // 反序列化
                 var obj = XmlTestUtils.Deserialize<ActionSetsDO>(testXmlWithDeclaration);
 

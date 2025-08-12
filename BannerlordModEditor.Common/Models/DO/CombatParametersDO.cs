@@ -26,6 +26,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public List<BaseCombatParameterDO> CombatParametersList { get; set; } = new List<BaseCombatParameterDO>();
         
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
+
         public bool ShouldSerializeDefinitions() => HasDefinitions && Definitions != null && Definitions.Defs.Count > 0;
         public bool ShouldSerializeCombatParametersList() => HasEmptyCombatParameters || (CombatParametersList != null && CombatParametersList.Count > 0);
     }

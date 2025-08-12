@@ -93,7 +93,6 @@ namespace BannerlordModEditor.Common.Tests
                 NewLineChars = "\n",
                 NewLineOnAttributes = false
             };
-
             // 创建命名空间管理器
             var namespaces = new XmlSerializerNamespaces();
             
