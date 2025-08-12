@@ -63,16 +63,16 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("holster_rotation_yaw_pitch_roll")]
         public string HolsterRotationYawPitchRoll { get; set; }
 
-        public bool ShouldSerializeEquipAction() => !string.IsNullOrEmpty(EquipAction);
-        public bool ShouldSerializeEquipActionLeftStance() => !string.IsNullOrEmpty(EquipActionLeftStance);
-        public bool ShouldSerializeUnequipAction() => !string.IsNullOrEmpty(UnequipAction);
-        public bool ShouldSerializeUnequipActionLeftStance() => !string.IsNullOrEmpty(UnequipActionLeftStance);
-        public bool ShouldSerializeShowHolsterWhenDrawn() => !string.IsNullOrEmpty(ShowHolsterWhenDrawn);
-        public bool ShouldSerializeGroupName() => !string.IsNullOrEmpty(GroupName);
-        public bool ShouldSerializeHolsterSkeleton() => !string.IsNullOrEmpty(HolsterSkeleton);
-        public bool ShouldSerializeHolsterBone() => !string.IsNullOrEmpty(HolsterBone);
-        public bool ShouldSerializeBaseSet() => !string.IsNullOrEmpty(BaseSet);
-        public bool ShouldSerializeHolsterPosition() => !string.IsNullOrEmpty(HolsterPosition);
-        public bool ShouldSerializeHolsterRotationYawPitchRoll() => !string.IsNullOrEmpty(HolsterRotationYawPitchRoll);
+        public bool ShouldSerializeEquipAction() => EquipAction != null;
+        public bool ShouldSerializeEquipActionLeftStance() => EquipActionLeftStance != null;
+        public bool ShouldSerializeUnequipAction() => UnequipAction != null;
+        public bool ShouldSerializeUnequipActionLeftStance() => UnequipActionLeftStance != null;
+        public bool ShouldSerializeShowHolsterWhenDrawn() => ShowHolsterWhenDrawn != null;
+        public bool ShouldSerializeGroupName() => GroupName != null;
+        public bool ShouldSerializeHolsterSkeleton() => HolsterSkeleton != null;
+        public bool ShouldSerializeHolsterBone() => HolsterBone != null;
+        public bool ShouldSerializeBaseSet() => BaseSet != null;
+        public bool ShouldSerializeHolsterPosition() => HolsterPosition != null;
+        public bool ShouldSerializeHolsterRotationYawPitchRoll() => HolsterRotationYawPitchRoll != null;
     }
 }
