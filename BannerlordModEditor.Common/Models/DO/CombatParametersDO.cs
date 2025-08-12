@@ -12,14 +12,23 @@ namespace BannerlordModEditor.Common.Models.DO
 
         [XmlElement("definitions")]
         public DefinitionsDO Definitions { get; set; } = new DefinitionsDO();
+        
+        // 标记是否应该序列化definitions元素
+        [XmlIgnore]
+        public bool HasDefinitions { get; set; } = false;
+        
+        // 标记是否应该序列化空的combat_parameters元素
+        [XmlIgnore]
+        public bool HasEmptyCombatParameters { get; set; } = false;
 
         [XmlArray("combat_parameters")]
         [XmlArrayItem("combat_parameter")]
         public List<BaseCombatParameterDO> CombatParametersList { get; set; } = new List<BaseCombatParameterDO>();
         
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
-        public bool ShouldSerializeDefinitions() => Definitions != null;
-        public bool ShouldSerializeCombatParametersList() => CombatParametersList != null && CombatParametersList.Count > 0;
+
+        public bool ShouldSerializeDefinitions() => HasDefinitions && Definitions != null && Definitions.Defs.Count > 0;
+        public bool ShouldSerializeCombatParametersList() => HasEmptyCombatParameters || (CombatParametersList != null && CombatParametersList.Count > 0);
     }
 
     public class DefinitionsDO

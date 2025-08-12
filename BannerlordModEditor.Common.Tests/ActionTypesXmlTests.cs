@@ -8,12 +8,14 @@ namespace BannerlordModEditor.Common.Tests
     public class ActionTypesXmlTests
     {
         private const string MainXmlPath = "TestData/action_types.xml";
-        private const string SubsetDir = "BannerlordModEditor.Common.Tests/TestSubsets/ActionTypes/";
+        private const string SubsetDir = "TestSubsets/ActionTypes/";
 
         [Fact]
         public void ActionTypes_MainXml_RoundTrip_StructuralEquality()
         {
-            string xml = File.ReadAllText(MainXmlPath);
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var mainXmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", MainXmlPath);
+            string xml = File.ReadAllText(mainXmlPath);
             var obj = XmlTestUtils.Deserialize<ActionTypesDO>(xml);
             string serialized = XmlTestUtils.Serialize(obj);
             
@@ -51,10 +53,12 @@ namespace BannerlordModEditor.Common.Tests
 
         public static System.Collections.Generic.IEnumerable<object[]> GetSubsetFiles()
         {
-            if (!Directory.Exists(SubsetDir))
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var fullSubsetDir = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", SubsetDir);
+            if (!Directory.Exists(fullSubsetDir))
                 yield break;
 
-            var files = Directory.GetFiles(SubsetDir, "*.xml");
+            var files = Directory.GetFiles(fullSubsetDir, "*.xml");
             foreach (var file in files.OrderBy(f => f))
             {
                 yield return new object[] { file };

@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using Xunit;
 using BannerlordModEditor.Common.Models.DO;
 
@@ -9,7 +10,8 @@ namespace BannerlordModEditor.Common.Tests
         [Fact]
         public void CombatParameters_RoundTrip_StructuralEquality()
         {
-            var xmlPath = "TestData/combat_parameters.xml";
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "combat_parameters.xml");
             var xml = File.ReadAllText(xmlPath);
 
             // 反序列化
@@ -19,7 +21,15 @@ namespace BannerlordModEditor.Common.Tests
             var xml2 = XmlTestUtils.Serialize(obj);
 
             // 结构化对比
-            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2));
+            var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);
+            var attributeValueDiffs = diff.AttributeValueDifferences != null ? string.Join(", ", diff.AttributeValueDifferences) : "";
+            var textDiffs = diff.TextDifferences != null ? string.Join(", ", diff.TextDifferences) : "";
+            
+            Assert.True(diff.IsStructurallyEqual, 
+                $"CombatParameters XML结构不一致。节点差异: {diff.NodeCountDifference}, " +
+                $"属性差异: {diff.AttributeCountDifference}, " +
+                $"属性值差异: {attributeValueDiffs}, " +
+                $"文本差异: {textDiffs}");
         }
 
         [Theory]
@@ -27,7 +37,9 @@ namespace BannerlordModEditor.Common.Tests
         [InlineData("TestData/combat_parameters_part2.xml")]
         public void CombatParameters_PartFiles_RoundTrip_StructuralEquality(string xmlPath)
         {
-            var xml = File.ReadAllText(xmlPath);
+            var solutionRoot = TestUtils.GetSolutionRoot();
+            var fullPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", xmlPath);
+            var xml = File.ReadAllText(fullPath);
 
             // 反序列化
             var obj = XmlTestUtils.Deserialize<CombatParametersDO>(xml);
@@ -36,7 +48,15 @@ namespace BannerlordModEditor.Common.Tests
             var xml2 = XmlTestUtils.Serialize(obj);
 
             // 结构化对比
-            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2));
+            var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);
+            var attributeValueDiffs = diff.AttributeValueDifferences != null ? string.Join(", ", diff.AttributeValueDifferences) : "";
+            var textDiffs = diff.TextDifferences != null ? string.Join(", ", diff.TextDifferences) : "";
+            
+            Assert.True(diff.IsStructurallyEqual, 
+                $"CombatParameters Part XML结构不一致。节点差异: {diff.NodeCountDifference}, " +
+                $"属性差异: {diff.AttributeCountDifference}, " +
+                $"属性值差异: {attributeValueDiffs}, " +
+                $"文本差异: {textDiffs}");
         }
     }
 }
