@@ -50,7 +50,28 @@ namespace BannerlordModEditor.Common.Tests
                 
             var serializer = new XmlSerializer(typeof(T));
             using var reader = new StringReader(xml);
-            return (T)serializer.Deserialize(reader)!;
+            var obj = (T)serializer.Deserialize(reader)!;
+            
+            // 特殊处理CombatParametersDO来检测是否有definitions元素和空的combat_parameters元素
+            if (obj is BannerlordModEditor.Common.Models.DO.CombatParametersDO combatParams)
+            {
+                var doc = XDocument.Parse(xml);
+                combatParams.HasDefinitions = doc.Root?.Element("definitions") != null;
+                var combatParamsElement = doc.Root?.Element("combat_parameters");
+                combatParams.HasEmptyCombatParameters = combatParamsElement != null && 
+                    (combatParamsElement.Elements().Count() == 0 || combatParamsElement.Elements("combat_parameter").Count() == 0);
+            }
+            
+            // 特殊处理ItemHolstersDO来检测是否有空的item_holsters元素
+            if (obj is BannerlordModEditor.Common.Models.DO.ItemHolstersDO itemHolsters)
+            {
+                var doc = XDocument.Parse(xml);
+                var itemHolstersElement = doc.Root?.Element("item_holsters");
+                itemHolsters.HasEmptyItemHolsters = itemHolstersElement != null && 
+                    (itemHolstersElement.Elements().Count() == 0 || itemHolstersElement.Elements("item_holster").Count() == 0);
+            }
+            
+            return obj;
         }
         
         // 移除复杂的SetSpecifiedProperties相关方法
