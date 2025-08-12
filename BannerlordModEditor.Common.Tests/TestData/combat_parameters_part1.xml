@@ -10,12 +10,12 @@
        float look_slope_blend_speed_factor      = 1.0
 		float vertical_rot_limit_multiplier_up   = 0.0
        float vertical_rot_limit_multiplier_down = 0.0
-		float right_rider_rot_limit              = 0.0  //this value is in degrees! not in radians!!
-		float left_rider_rot_limit               = 0.0  //this value is in degrees! not in radians!!
-		float right_rider_min_rot_limit          = 37.24//this value is in degrees! not in radians!!
-		float left_rider_min_rot_limit           = 22.91//this value is in degrees! not in radians!!
-		float left_ladder_rot_limit              = 0.0  //this value is in degrees! not in radians!!
-		float right_ladder_rot_limit             = 0.0  //this value is in degrees! not in radians!!
+		float right_rider_rot_limit              = 0.0  //this value is in degrees\! not in radians\!\!
+		float left_rider_rot_limit               = 0.0  //this value is in degrees\! not in radians\!\!
+		float right_rider_min_rot_limit          = 37.24//this value is in degrees\! not in radians\!\!
+		float left_rider_min_rot_limit           = 22.91//this value is in degrees\! not in radians\!\!
+		float left_ladder_rot_limit              = 0.0  //this value is in degrees\! not in radians\!\!
+		float right_ladder_rot_limit             = 0.0  //this value is in degrees\! not in radians\!\!
 		vec3 weapon_offset                       = 0.0, 0.0, 0.0
 		float collision_radius                   = 0.05  // value >= 0
 		float alternative_attack_cooldown_period = 0.0
@@ -48,6 +48,16 @@
 		left_ladder_rot_limit="60"
 		right_ladder_rot_limit="60" />
 	<combat_parameter
+		id="strike_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
 		id="strike_right"
 		vertical_rot_limit_multiplier_up="0.4"
 		vertical_rot_limit_multiplier_down="0.4"
@@ -58,22 +68,457 @@
 		left_ladder_rot_limit="60"
 		right_ladder_rot_limit="60" />
 	<combat_parameter
-		id="strike_left" />
-</combat_parameters>
-</base>
+		id="strike_down"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
 		right_ladder_rot_limit="60" />
-	<!-- general combat parameters -->
 	<combat_parameter
-		id="defend_with_weapon"
-		vertical_rot_limit_multiplier_up="parry_vertical_rot_limit"
-		vertical_rot_limit_multiplier_down="parry_vertical_rot_limit"
-		left_rider_rot_limit="101.5"
-		right_rider_rot_limit="97.9"
-		left_ladder_rot_limit="85.9"
-		right_ladder_rot_limit="85.9" />
-	<!-- fist combat parameters -->
+		id="strike_up"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
 	<combat_parameter
-		id="fist_up_right_hand"
+		id="strike_front_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_front_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_down_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_down_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_up_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_up_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_upper_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_upper_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_lower_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="strike_lower_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_front"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_back"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_down"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_up"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_front_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_front_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_down_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_down_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_up_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_up_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_upper_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_upper_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_lower_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="shield_strike_lower_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_charge"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_front"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_back"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_down"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_up"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_front_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_front_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_down_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_down_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_up_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_up_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_upper_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_upper_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_lower_left"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="mounted_strike_lower_right"
+		vertical_rot_limit_multiplier_up="0.4"
+		vertical_rot_limit_multiplier_down="0.4"
+		left_rider_rot_limit="80"
+		left_rider_min_rot_limit="80"
+		right_rider_rot_limit="80"
+		right_rider_min_rot_limit="80"
+		left_ladder_rot_limit="60"
+		right_ladder_rot_limit="60" />
+	<combat_parameter
+		id="fist_up"
 		collision_check_starting_percent="0.2"
 		collision_check_ending_percent="0.5"
 		vertical_rot_limit_multiplier_up="fist_vertical_rot_limit"
@@ -85,25 +530,10 @@
 		rider_look_down_limit="bow_rider_look_down_limit"
 		left_ladder_rot_limit="fist_ladder_rot_limit_left"
 		right_ladder_rot_limit="fist_ladder_rot_limit_right"
-		hit_bone_index="27"
-		shoulder_hit_bone_index="21" />
+		hit_bone_index="20"
+		shoulder_hit_bone_index="14" />
 	<combat_parameter
-		id="fist_down_right_hand"
-		collision_check_starting_percent="0.2"
-		collision_check_ending_percent="0.5"
-		vertical_rot_limit_multiplier_up="fist_vertical_rot_limit"
-		vertical_rot_limit_multiplier_down="fist_vertical_rot_limit"
-		left_rider_rot_limit="fist_rider_rot_limit_left"
-		left_rider_min_rot_limit="bow_rider_min_rot_limit_left"
-		right_rider_rot_limit="fist_rider_rot_limit_right"
-		right_rider_min_rot_limit="bow_rider_min_rot_limit_right"
-		rider_look_down_limit="bow_rider_look_down_limit"
-		left_ladder_rot_limit="fist_ladder_rot_limit_left"
-		right_ladder_rot_limit="fist_ladder_rot_limit_right"
-		hit_bone_index="27"
-		shoulder_hit_bone_index="21" />
-	<combat_parameter
-		id="fist_up_left_hand"
+		id="fist_down"
 		collision_check_starting_percent="0.2"
 		collision_check_ending_percent="0.5"
 		vertical_rot_limit_multiplier_up="fist_vertical_rot_limit"
@@ -132,5 +562,5 @@
 		right_ladder_rot_limit="fist_ladder_rot_limit_right"
 		hit_bone_index="20"
 		shoulder_hit_bone_index="14" />
-	<!-- ...（省略，实际写入前64个 combat_parameter 节点，保持格式与原始一致）... -->
 </combat_parameters>
+</base>

@@ -1,13 +1,21 @@
 using System.IO;
+using System.Reflection;
 using Xunit;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
     public class CollisionInfosXmlTests
     {
-        private static string TestDataPath =>
-            Path.Combine("BannerlordModEditor.Common.Tests", "TestData", "collision_infos.xml");
+        private static string TestDataPath
+        {
+            get
+            {
+                var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+                var assemblyDir = Path.GetDirectoryName(assemblyLocation);
+                return Path.Combine(assemblyDir, "TestData", "collision_infos.xml");
+            }
+        }
 
         [Fact]
         public void CollisionInfos_CanBeDeserializedAndSerialized_StructurallyEqual()
@@ -15,7 +23,7 @@ namespace BannerlordModEditor.Common.Tests
             var xml = File.ReadAllText(TestDataPath);
 
             // 反序列化
-            var model = XmlTestUtils.Deserialize<CollisionInfosRoot>(xml);
+            var model = XmlTestUtils.Deserialize<CollisionInfosRootDO>(xml);
 
             // 再序列化
             var xml2 = XmlTestUtils.Serialize(model);
