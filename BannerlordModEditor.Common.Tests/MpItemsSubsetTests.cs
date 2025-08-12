@@ -33,7 +33,7 @@ namespace BannerlordModEditor.Common.Tests
             
             // Act
             var item = XmlTestUtils.Deserialize<Item>(xml);
-            var xml2 = XmlTestUtils.Serialize(item);
+            var xml2 = XmlTestUtils.Serialize(item, xml);
 
             // Assert - 使用结构比较作为判断标准
             var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);

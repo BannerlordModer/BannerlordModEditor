@@ -25,38 +25,39 @@ namespace BannerlordModEditor.Common.Models
         public string? OverrideMaterialNameForImpactSounds { get; set; }
 
         [XmlAttribute("dont_stick_missiles")]
-        [DefaultValue(false)]
-        public bool DontStickMissiles { get; set; }
+        public string? DontStickMissiles { get; set; }
 
         [XmlAttribute("attacks_can_pass_through")]
         public string? AttacksCanPassThrough { get; set; }
 
         [XmlAttribute("rain_splashes_enabled")]
-        [DefaultValue(false)]
-        public bool RainSplashesEnabled { get; set; }
+        public string? RainSplashesEnabled { get; set; }
 
         [XmlAttribute("flammable")]
-        [DefaultValue(false)]
-        public bool Flammable { get; set; }
+        public string? Flammable { get; set; }
+
+        public bool ShouldSerializeDontStickMissiles() => !string.IsNullOrWhiteSpace(DontStickMissiles);
+        public bool ShouldSerializeAttacksCanPassThrough() => !string.IsNullOrWhiteSpace(AttacksCanPassThrough);
+        public bool ShouldSerializeRainSplashesEnabled() => !string.IsNullOrWhiteSpace(RainSplashesEnabled);
+        public bool ShouldSerializeFlammable() => !string.IsNullOrWhiteSpace(Flammable);
 
         [XmlAttribute("static_friction")]
-        public float StaticFriction { get; set; }
+        public string StaticFriction { get; set; } = string.Empty;
 
         [XmlAttribute("dynamic_friction")]
-        public float DynamicFriction { get; set; }
+        public string DynamicFriction { get; set; } = string.Empty;
 
         [XmlAttribute("restitution")]
-        public float Restitution { get; set; }
+        public string Restitution { get; set; } = string.Empty;
 
         [XmlAttribute("softness")]
-        [DefaultValue(0.0f)]
-        public float Softness { get; set; }
+        public string Softness { get; set; } = string.Empty;
 
         [XmlAttribute("linear_damping")]
-        public float LinearDamping { get; set; }
+        public string LinearDamping { get; set; } = string.Empty;
 
         [XmlAttribute("angular_damping")]
-        public float AngularDamping { get; set; }
+        public string AngularDamping { get; set; } = string.Empty;
 
         [XmlAttribute("display_color")]
         public string? DisplayColor { get; set; }
@@ -67,4 +68,4 @@ namespace BannerlordModEditor.Common.Models
         [XmlAttribute("name")]
         public string Name { get; set; } = string.Empty;
     }
-} 
+}

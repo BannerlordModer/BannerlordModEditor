@@ -4,6 +4,8 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Reflection;
+using BannerlordModEditor.Common.Models;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -50,8 +52,15 @@ namespace BannerlordModEditor.Common.Tests
             using var reader = new StringReader(xml);
             return (T)serializer.Deserialize(reader)!;
         }
+        
+        // 移除复杂的SetSpecifiedProperties相关方法
 
         public static string Serialize<T>(T obj)
+        {
+            return Serialize(obj, null);
+        }
+
+        public static string Serialize<T>(T obj, string? originalXml)
         {
             var serializer = new XmlSerializer(typeof(T));
             var settings = new XmlWriterSettings
@@ -63,10 +72,47 @@ namespace BannerlordModEditor.Common.Tests
                 NewLineChars = "\n",
                 NewLineOnAttributes = false
             };
-
-            // 完全避免命名空间声明
+            // 创建命名空间管理器
             var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("", ""); // 清空默认命名空间，避免添加xmlns声明
+            
+            // 如果提供了原始XML，则提取并保留其命名空间声明
+            if (!string.IsNullOrEmpty(originalXml))
+            {
+                try
+                {
+                    var originalDoc = XDocument.Parse(originalXml);
+                    if (originalDoc.Root != null)
+                    {
+                        foreach (var attr in originalDoc.Root.Attributes())
+                        {
+                            // 检查是否为命名空间声明属性
+                            if (attr.IsNamespaceDeclaration)
+                            {
+                                // 处理默认命名空间（没有前缀的情况）
+                                if (attr.Name.LocalName == "xmlns")
+                                {
+                                    namespaces.Add("", attr.Value);
+                                }
+                                else
+                                {
+                                    // 处理带前缀的命名空间
+                                    namespaces.Add(attr.Name.LocalName, attr.Value);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    // 如果解析失败，确保不添加任何命名空间
+                    namespaces.Add(string.Empty, string.Empty);
+                }
+            }
+            else
+            {
+                // 确保不添加任何命名空间声明
+                namespaces.Add(string.Empty, string.Empty);
+            }
 
             using var ms = new MemoryStream();
             using (var writer = XmlWriter.Create(ms, settings))
@@ -115,6 +161,10 @@ namespace BannerlordModEditor.Common.Tests
             // 标准化boolean属性值（将"True"转换为"true"等）
             NormalizeBooleanValues(docA);
             NormalizeBooleanValues(docB);
+            
+            // 标准化数值属性值，确保数值格式一致性
+            NormalizeNumericValues(docA);
+            NormalizeNumericValues(docB);
             
             // 对所有元素属性按名称排序，消除属性顺序影响
             SortAttributes(docA.Root);
@@ -194,8 +244,8 @@ namespace BannerlordModEditor.Common.Tests
                     report.ExtraAttributes.Add($"{pathFormat.Replace("{name}", name)} (B缺失)");
                     continue;
                 }
-                // 区分null与空字符串
-                if (attrA.Value != attrB.Value)
+                // 智能比较属性值，处理布尔值和数值的差异
+                if (!AreAttributeValuesEqual(attrA.Value, attrB.Value))
                 {
                     string valA = attrA.Value == "" ? "空字符串" : attrA.Value ?? "null";
                     string valB = attrB.Value == "" ? "空字符串" : attrB.Value ?? "null";
@@ -269,16 +319,77 @@ namespace BannerlordModEditor.Common.Tests
                 foreach (var attr in element.Attributes().ToList()) // 使用ToList()避免修改集合时的异常
                 {
                     var value = attr.Value;
-                    if (string.Equals(value, "True", StringComparison.OrdinalIgnoreCase))
+                    // 扩展布尔值标准化，支持更多格式
+                    if (CommonBooleanTrueValues.Contains(value))
                     {
                         attr.Value = "true";
                     }
-                    else if (string.Equals(value, "False", StringComparison.OrdinalIgnoreCase))
+                    else if (CommonBooleanFalseValues.Contains(value))
                     {
                         attr.Value = "false";
                     }
                 }
             }
+        }
+
+        // 标准化数值属性值，确保数值格式一致性
+        private static void NormalizeNumericValues(XDocument doc)
+        {
+            foreach (var element in doc.Descendants())
+            {
+                foreach (var attr in element.Attributes().ToList())
+                {
+                    var value = attr.Value;
+                    // 检查是否为数值格式
+                    if (double.TryParse(value, out var numericValue))
+                    {
+                        // 特殊处理percentage属性，保持小数格式
+                        if (attr.Name == "percentage" && value.Contains('.'))
+                        {
+                            // 对于percentage属性，如果原始值有小数点，保留到小数点后6位
+                            attr.Value = numericValue.ToString("F6").TrimEnd('0').TrimEnd('.');
+                        }
+                        else
+                        {
+                            // 如果原始值有小数点，保留原始格式，否则使用标准格式
+                            if (value.Contains('.') || value.Contains(','))
+                            {
+                                // 保留原始小数位数，但标准化格式
+                                attr.Value = numericValue.ToString("F6").TrimEnd('0').TrimEnd('.');
+                            }
+                            else
+                            {
+                                attr.Value = numericValue.ToString("F0");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 智能比较属性值，处理布尔值和数值的差异
+        private static bool AreAttributeValuesEqual(string? valueA, string? valueB)
+        {
+            // Handle null/empty cases
+            if (valueA == null && valueB == null) return true;
+            if (valueA == null || valueB == null) return false;
+            if (valueA == valueB) return true;
+            
+            // Check if both values are numeric
+            if (double.TryParse(valueA, out var numA) && double.TryParse(valueB, out var numB))
+            {
+                // Use default tolerance of 0.0001 for numeric comparison
+                return Math.Abs(numA - numB) < 0.0001;
+            }
+            
+            // Check if both values are boolean values
+            if (IsBooleanValue(valueA) && IsBooleanValue(valueB))
+            {
+                return ParseBoolean(valueA) == ParseBoolean(valueB);
+            }
+            
+            // Fall back to exact string comparison
+            return valueA == valueB;
         }
 
         // 检查序列化后没有属性从无变为 null

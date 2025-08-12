@@ -64,6 +64,11 @@ namespace BannerlordModEditor.Common.Loaders
         /// </summary>
         public void Save(T data, string filePath)
         {
+            Save(data, filePath, null);
+        }
+
+        public void Save(T data, string filePath, string? originalXml)
+        {
             var settings = new XmlWriterSettings
             {
                 Indent = true,
@@ -73,8 +78,38 @@ namespace BannerlordModEditor.Common.Loaders
             };
 
             using var writer = XmlWriter.Create(filePath, settings);
+            
             var ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            
+            // 如果提供了原始XML，则提取并保留其命名空间声明
+            if (!string.IsNullOrEmpty(originalXml))
+            {
+                try
+                {
+                    var doc = XDocument.Parse(originalXml);
+                    if (doc.Root != null)
+                    {
+                        foreach (var attr in doc.Root.Attributes())
+                        {
+                            // 检查是否为命名空间声明属性
+                            if (attr.IsNamespaceDeclaration)
+                            {
+                                ns.Add(attr.Name.LocalName, attr.Value);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    // 如果解析失败，回退到默认行为
+                    ns.Add("", "");
+                }
+            }
+            else
+            {
+                // 清空默认命名空间以避免添加额外的命名空间
+                ns.Add("", "");
+            }
 
             _serializer.Serialize(writer, data, ns);
         }
@@ -84,7 +119,12 @@ namespace BannerlordModEditor.Common.Loaders
         /// </summary>
         public async Task SaveAsync(T data, string filePath)
         {
-            await Task.Run(() => Save(data, filePath));
+            await Task.Run(() => Save(data, filePath, null));
+        }
+
+        public async Task SaveAsync(T data, string filePath, string? originalXml)
+        {
+            await Task.Run(() => Save(data, filePath, originalXml));
         }
 
         /// <summary>

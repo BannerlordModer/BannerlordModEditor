@@ -33,7 +33,6 @@ namespace BannerlordModEditor.Common.Services
             { "particle_systems_general", "ParticleSystemsGeneral" },
             { "particle_systems_hardcoded_misc1", "ParticleSystemsHardcodedMisc1" },
             { "particle_systems_hardcoded_misc2", "ParticleSystemsHardcodedMisc2" },
-            { "particle_systems_old", "ParticleSystemsOld" },
             { "particle_systems_outdoor", "ParticleSystemsOutdoor" },
             
             // 贴花纹理变体

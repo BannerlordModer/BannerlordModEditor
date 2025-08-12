@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace BannerlordModEditor.Common.Models;
+namespace BannerlordModEditor.Common.Models
+{
 
 [XmlRoot("ArrayOfSkillData")]
 public class SkillsWrapper
@@ -36,4 +37,6 @@ public class AttributeModifier
 
     [XmlAttribute("Value")]
     public string? Value { get; set; }
-} 
+}
+
+}

@@ -51,8 +51,11 @@ namespace BannerlordModEditor.Common.Models.Engine
            set
            {
                _type = value;
-               _typeExists = true;
-               MarkPropertyExists(nameof(Type));
+               _typeExists = value != null; // Only mark as existing if not null
+               if (value != null)
+               {
+                   MarkPropertyExists(nameof(Type));
+               }
            }
        }
 
@@ -63,14 +66,17 @@ namespace BannerlordModEditor.Common.Models.Engine
            set
            {
                _usageDirection = value;
-               _usageDirectionExists = true;
-               MarkPropertyExists(nameof(UsageDirection));
-           }
+               _usageDirectionExists = value != null; // Only mark as existing if not null
+               if (value != null)
+               {
+                   MarkPropertyExists(nameof(UsageDirection));
+               }
+               }
        }
 
-       public bool ShouldSerializeName() => _nameExists;
-       public bool ShouldSerializeType() => _typeExists;
-       public bool ShouldSerializeUsageDirection() => _usageDirectionExists;
+       public bool ShouldSerializeName() => _nameExists && !string.IsNullOrEmpty(_name);
+       public bool ShouldSerializeType() => _typeExists && !string.IsNullOrEmpty(_type);
+       public bool ShouldSerializeUsageDirection() => _usageDirectionExists && !string.IsNullOrEmpty(_usageDirection);
 
         /// <summary>
         /// 检查Type属性在XML中是否存在（即使为空）

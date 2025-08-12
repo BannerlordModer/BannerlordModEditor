@@ -1,3 +1,4 @@
+using System;
 using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models
@@ -54,7 +55,7 @@ namespace BannerlordModEditor.Common.Models
         public bool UsingTableauSpecified { get; set; }
 
         [XmlAttribute("value")]
-        public int Value { get; set; }
+        public string? Value { get; set; }
 
         [XmlIgnore]
         public bool ValueSpecified { get; set; }
@@ -66,19 +67,19 @@ namespace BannerlordModEditor.Common.Models
         public bool IsMerchandiseSpecified { get; set; }
 
         [XmlAttribute("weight")]
-        public double Weight { get; set; }
+        public string? Weight { get; set; }
 
         [XmlIgnore]
         public bool WeightSpecified { get; set; }
 
         [XmlAttribute("difficulty")]
-        public int Difficulty { get; set; }
+        public string? Difficulty { get; set; }
 
         [XmlIgnore]
         public bool DifficultySpecified { get; set; }
 
         [XmlAttribute("appearance")]
-        public double Appearance { get; set; }
+        public string? Appearance { get; set; }
 
         [XmlIgnore]
         public bool AppearanceSpecified { get; set; }
@@ -120,7 +121,7 @@ namespace BannerlordModEditor.Common.Models
         public string? Prefab { get; set; }
 
         [XmlAttribute("lod_atlas_index")]
-        public int LodAtlasIndex { get; set; }
+        public string? LodAtlasIndex { get; set; }
 
         [XmlIgnore]
         public bool LodAtlasIndexSpecified { get; set; }
@@ -131,11 +132,18 @@ namespace BannerlordModEditor.Common.Models
         [XmlElement("Flags")]
         public ItemFlags? Flags { get; set; }
 
-        public bool ShouldSerializeValue() => Value != 0;
-        public bool ShouldSerializeWeight() => Weight != 0.0;
-        public bool ShouldSerializeDifficulty() => Difficulty != 0;
-        public bool ShouldSerializeAppearance() => Appearance != 0.0;
-        public bool ShouldSerializeLodAtlasIndex() => LodAtlasIndex != 0;
+        // 数值类型的便捷属性（基于字符串属性）
+        public int? ValueInt => int.TryParse(Value, out int value) ? value : (int?)null;
+        public double? WeightDouble => double.TryParse(Weight, out double weight) ? weight : (double?)null;
+        public int? DifficultyInt => int.TryParse(Difficulty, out int difficulty) ? difficulty : (int?)null;
+        public double? AppearanceDouble => double.TryParse(Appearance, out double appearance) ? appearance : (double?)null;
+        public int? LodAtlasIndexInt => int.TryParse(LodAtlasIndex, out int lodAtlasIndex) ? lodAtlasIndex : (int?)null;
+
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeWeight() => !string.IsNullOrEmpty(Weight);
+        public bool ShouldSerializeDifficulty() => !string.IsNullOrEmpty(Difficulty);
+        public bool ShouldSerializeAppearance() => !string.IsNullOrEmpty(Appearance);
+        public bool ShouldSerializeLodAtlasIndex() => !string.IsNullOrEmpty(LodAtlasIndex);
     }
 
     public class CraftedItem
@@ -156,7 +164,7 @@ namespace BannerlordModEditor.Common.Models
         public string CraftingTemplate { get; set; } = string.Empty;
 
         [XmlAttribute("value")]
-        public int Value { get; set; }
+        public string? Value { get; set; }
 
         [XmlIgnore]
         public bool ValueSpecified { get; set; }
@@ -172,6 +180,9 @@ namespace BannerlordModEditor.Common.Models
 
         [XmlElement("Pieces")]
         public Pieces? Pieces { get; set; }
+
+        // 数值类型的便捷属性（基于字符串属性）
+        public int? ValueInt => int.TryParse(Value, out int value) ? value : (int?)null;
     }
 
     public class Pieces

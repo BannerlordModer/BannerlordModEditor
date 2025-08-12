@@ -26,7 +26,9 @@ namespace BannerlordModEditor.Common.Tests.Services
             };
             using var sw = new Utf8StringWriter();
             using var writer = XmlWriter.Create(sw, settings);
-            serializer.Serialize(writer, obj);
+            var ns = new XmlSerializerNamespaces();
+            ns.Add("", "");
+            serializer.Serialize(writer, obj, ns);
             return sw.ToString();
         }
 
