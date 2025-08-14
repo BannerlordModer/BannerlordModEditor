@@ -19,8 +19,8 @@ namespace BannerlordModEditor.Common.Tests
             // 反序列化
             var model = XmlTestUtils.Deserialize<CreditsLegalPC>(fixedXml);
 
-            // 再序列化
-            var xml2 = XmlTestUtils.Serialize(model);
+            // 再序列化（传递原始XML以保留命名空间）
+            var xml2 = XmlTestUtils.Serialize(model, fixedXml);
 
             // 结构化对比
             Assert.True(XmlTestUtils.AreStructurallyEqual(fixedXml, xml2));

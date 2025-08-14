@@ -14,7 +14,7 @@ namespace BannerlordModEditor.Common.Tests
         {
             var xml = File.ReadAllText(TestDataPath);
             var model = XmlTestUtils.Deserialize<CreditsExternalPartnersPlayStation>(xml);
-            var serialized = XmlTestUtils.Serialize(model);
+            var serialized = XmlTestUtils.Serialize(model, xml);
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
         }
     }
