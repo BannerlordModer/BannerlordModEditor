@@ -100,6 +100,75 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
+            // 特殊处理LooknfeelDO来检测是否有空的widgets元素
+            if (obj is LooknfeelDO looknfeel)
+            {
+                var doc = XDocument.Parse(xml);
+                var widgetsElement = doc.Root?.Element("widgets");
+                looknfeel.HasEmptyWidgets = widgetsElement != null && 
+                    (widgetsElement.Elements().Count() == 0 || widgetsElement.Elements("widget").Count() == 0);
+                
+                // 处理每个widget的空元素状态
+                if (looknfeel.Widgets != null && looknfeel.Widgets.WidgetList != null)
+                {
+                    for (int i = 0; i < looknfeel.Widgets.WidgetList.Count; i++)
+                    {
+                        var widget = looknfeel.Widgets.WidgetList[i];
+                        var widgetElement = widgetsElement?.Elements("widget").ElementAt(i);
+                        
+                        if (widgetElement != null)
+                        {
+                            // 检查meshes元素
+                            var meshesElement = widgetElement.Element("meshes");
+                            widget.HasEmptyMeshes = meshesElement != null && 
+                                (meshesElement.Elements().Count() == 0 || 
+                                 meshesElement.Elements("background_mesh").Count() == 0 &&
+                                 meshesElement.Elements("button_mesh").Count() == 0 &&
+                                 meshesElement.Elements("button_pressed_mesh").Count() == 0 &&
+                                 meshesElement.Elements("highlight_mesh").Count() == 0 &&
+                                 meshesElement.Elements("cursor_mesh").Count() == 0 &&
+                                 meshesElement.Elements("left_border_mesh").Count() == 0 &&
+                                 meshesElement.Elements("right_border_mesh").Count() == 0);
+                            
+                            // 检查sub_widgets元素
+                            var subWidgetsElement = widgetElement.Element("sub_widgets");
+                            widget.HasEmptySubWidgets = subWidgetsElement != null && 
+                                (subWidgetsElement.Elements().Count() == 0 || subWidgetsElement.Elements("sub_widget").Count() == 0);
+                            
+                            // 处理sub_widget的空元素状态
+                            if (widget.SubWidgets != null && widget.SubWidgets.SubWidgetList != null)
+                            {
+                                for (int j = 0; j < widget.SubWidgets.SubWidgetList.Count; j++)
+                                {
+                                    var subWidget = widget.SubWidgets.SubWidgetList[j];
+                                    var subWidgetElement = subWidgetsElement?.Elements("sub_widget").ElementAt(j);
+                                    
+                                    if (subWidgetElement != null)
+                                    {
+                                        // 检查sub_widget的meshes元素
+                                        var subMeshesElement = subWidgetElement.Element("meshes");
+                                        subWidget.HasEmptyMeshes = subMeshesElement != null && 
+                                            (subMeshesElement.Elements().Count() == 0 || 
+                                             subMeshesElement.Elements("background_mesh").Count() == 0 &&
+                                             subMeshesElement.Elements("button_mesh").Count() == 0 &&
+                                             subMeshesElement.Elements("button_pressed_mesh").Count() == 0 &&
+                                             subMeshesElement.Elements("highlight_mesh").Count() == 0 &&
+                                             subMeshesElement.Elements("cursor_mesh").Count() == 0 &&
+                                             subMeshesElement.Elements("left_border_mesh").Count() == 0 &&
+                                             subMeshesElement.Elements("right_border_mesh").Count() == 0);
+                                        
+                                        // 检查sub_widget的sub_widgets元素
+                                        var subSubWidgetsElement = subWidgetElement.Element("sub_widgets");
+                                        subWidget.HasEmptySubWidgets = subSubWidgetsElement != null && 
+                                            (subSubWidgetsElement.Elements().Count() == 0 || subSubWidgetsElement.Elements("sub_widget").Count() == 0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
             return obj;
         }
         
