@@ -106,15 +106,34 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
-            return new CreditsCategoryDO
+            var category = new CreditsCategoryDO
             {
-                Text = source.Text,
-                Sections = MapList(source.Sections, SectionToDO),
-                Entries = MapList(source.Entries, EntryToDO),
-                EmptyLines = MapList(source.EmptyLines, EmptyLineToDO),
-                LoadFromFile = MapList(source.LoadFromFile, LoadFromFileToDO),
-                Images = MapList(source.Images, ImageToDO)
+                Text = source.Text
             };
+
+            // 按照原始顺序添加元素到Elements列表
+            foreach (var section in MapList(source.Sections, SectionToDO))
+            {
+                category.Elements.Add(section);
+            }
+            foreach (var entry in MapList(source.Entries, EntryToDO))
+            {
+                category.Elements.Add(entry);
+            }
+            foreach (var emptyLine in MapList(source.EmptyLines, EmptyLineToDO))
+            {
+                category.Elements.Add(emptyLine);
+            }
+            foreach (var loadFromFile in MapList(source.LoadFromFile, LoadFromFileToDO))
+            {
+                category.Elements.Add(loadFromFile);
+            }
+            foreach (var image in MapList(source.Images, ImageToDO))
+            {
+                category.Elements.Add(image);
+            }
+
+            return category;
         }
 
         public static CreditsSectionDO SectionToDO(CreditsSectionDTO source)

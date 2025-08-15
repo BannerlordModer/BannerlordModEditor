@@ -22,27 +22,32 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("Text")]
         public string Text { get; set; }
 
-        [XmlElement("Section")]
-        public List<CreditsSectionDO> Sections { get; set; } = new();
+        // 使用单个列表来保持元素的原始顺序
+        [XmlElement("Section", Type = typeof(CreditsSectionDO))]
+        [XmlElement("Entry", Type = typeof(CreditsEntryDO))]
+        [XmlElement("EmptyLine", Type = typeof(CreditsEmptyLineDO))]
+        [XmlElement("LoadFromFile", Type = typeof(CreditsLoadFromFileDO))]
+        [XmlElement("Image", Type = typeof(CreditsImageDO))]
+        public List<object> Elements { get; set; } = new();
 
-        [XmlElement("Entry")]
-        public List<CreditsEntryDO> Entries { get; set; } = new();
-
-        [XmlElement("EmptyLine")]
-        public List<CreditsEmptyLineDO> EmptyLines { get; set; } = new();
-
-        [XmlElement("LoadFromFile")]
-        public List<CreditsLoadFromFileDO> LoadFromFile { get; set; } = new();
-
-        [XmlElement("Image")]
-        public List<CreditsImageDO> Images { get; set; } = new();
+        // 为了向后兼容，提供便捷属性
+        [XmlIgnore]
+        public List<CreditsSectionDO> Sections => Elements.OfType<CreditsSectionDO>().ToList();
+        
+        [XmlIgnore]
+        public List<CreditsEntryDO> Entries => Elements.OfType<CreditsEntryDO>().ToList();
+        
+        [XmlIgnore]
+        public List<CreditsEmptyLineDO> EmptyLines => Elements.OfType<CreditsEmptyLineDO>().ToList();
+        
+        [XmlIgnore]
+        public List<CreditsLoadFromFileDO> LoadFromFile => Elements.OfType<CreditsLoadFromFileDO>().ToList();
+        
+        [XmlIgnore]
+        public List<CreditsImageDO> Images => Elements.OfType<CreditsImageDO>().ToList();
 
         // 严格按照XML定义的顺序控制序列化
-        public bool ShouldSerializeSections() => Sections?.Count > 0;
-        public bool ShouldSerializeEntries() => Entries?.Count > 0;
-        public bool ShouldSerializeEmptyLines() => EmptyLines?.Count > 0;
-        public bool ShouldSerializeLoadFromFile() => LoadFromFile?.Count > 0;
-        public bool ShouldSerializeImages() => Images?.Count > 0;
+        public bool ShouldSerializeElements() => Elements?.Count > 0;
     }
 
     public class CreditsSectionDO

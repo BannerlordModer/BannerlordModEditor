@@ -87,15 +87,8 @@ namespace BannerlordModEditor.Common.Tests
                         var categoryElement = categoryElements[i];
                         var category = credits.Categories[i];
                         
-                        // 处理每个Category内部的元素顺序
-                        var sectionElements = categoryElement.Elements("Section").ToList();
-                        var entryElements = categoryElement.Elements("Entry").ToList();
-                        var emptyLineElements = categoryElement.Elements("EmptyLine").ToList();
-                        var loadFromFileElements = categoryElement.Elements("LoadFromFile").ToList();
-                        var imageElements = categoryElement.Elements("Image").ToList();
-                        
                         // 重新排序Category内部的元素以匹配原始XML
-                        ReorderCategoryElements(category, sectionElements, entryElements, emptyLineElements, loadFromFileElements, imageElements);
+                        ReorderCategoryElements(category, categoryElement);
                     }
                 }
             }
@@ -865,55 +858,82 @@ namespace BannerlordModEditor.Common.Tests
 
         
         // 重新排序Category内部的元素以匹配原始XML顺序
-        private static void ReorderCategoryElements(CreditsCategoryDO category, List<XElement> sectionElements, List<XElement> entryElements, List<XElement> emptyLineElements, List<XElement> loadFromFileElements, List<XElement> imageElements)
+        private static void ReorderCategoryElements(CreditsCategoryDO category, XElement categoryElement)
         {
-            // 创建新的列表来存储重新排序的元素
-            var reorderedSections = new List<CreditsSectionDO>();
-            var reorderedEntries = new List<CreditsEntryDO>();
-            var reorderedEmptyLines = new List<CreditsEmptyLineDO>();
-            var reorderedLoadFromFile = new List<CreditsLoadFromFileDO>();
-            var reorderedImages = new List<CreditsImageDO>();
+            // 获取原始XML中的所有子元素，按照它们出现的顺序
+            var originalElements = categoryElement.Elements().ToList();
             
-            // 根据原始XML中的出现顺序重新排序元素
+            // 创建新的元素列表，按照原始XML的顺序排列
+            var reorderedElements = new List<object>();
+            
+            // 用于跟踪每种类型元素的索引
             int sectionIndex = 0, entryIndex = 0, emptyLineIndex = 0, loadFromFileIndex = 0, imageIndex = 0;
             
-            // 遍历原始Category的所有子元素
-            var allChildElements = sectionElements
-                .Concat(entryElements)
-                .Concat(emptyLineElements)
-                .Concat(loadFromFileElements)
-                .Concat(imageElements)
-                .OrderBy(e => e.NodesBeforeSelf().Count())
-                .ToList();
-            
-            foreach (var element in allChildElements)
+            // 按照原始XML的顺序重新排列元素
+            foreach (var originalElement in originalElements)
             {
-                switch (element.Name.LocalName)
+                switch (originalElement.Name.LocalName)
                 {
-                    case "Section" when sectionIndex < category.Sections.Count:
-                        reorderedSections.Add(category.Sections[sectionIndex++]);
+                    case "Section":
+                        if (sectionIndex < category.Sections.Count)
+                        {
+                            reorderedElements.Add(category.Sections[sectionIndex++]);
+                        }
+                        else
+                        {
+                            // 如果没有对应的Section对象，创建一个新的
+                            reorderedElements.Add(new CreditsSectionDO());
+                        }
                         break;
-                    case "Entry" when entryIndex < category.Entries.Count:
-                        reorderedEntries.Add(category.Entries[entryIndex++]);
+                    case "Entry":
+                        if (entryIndex < category.Entries.Count)
+                        {
+                            reorderedElements.Add(category.Entries[entryIndex++]);
+                        }
+                        else
+                        {
+                            // 如果没有对应的Entry对象，创建一个新的
+                            reorderedElements.Add(new CreditsEntryDO());
+                        }
                         break;
-                    case "EmptyLine" when emptyLineIndex < category.EmptyLines.Count:
-                        reorderedEmptyLines.Add(category.EmptyLines[emptyLineIndex++]);
+                    case "EmptyLine":
+                        if (emptyLineIndex < category.EmptyLines.Count)
+                        {
+                            reorderedElements.Add(category.EmptyLines[emptyLineIndex++]);
+                        }
+                        else
+                        {
+                            // 如果没有对应的EmptyLine对象，创建一个新的
+                            reorderedElements.Add(new CreditsEmptyLineDO());
+                        }
                         break;
-                    case "LoadFromFile" when loadFromFileIndex < category.LoadFromFile.Count:
-                        reorderedLoadFromFile.Add(category.LoadFromFile[loadFromFileIndex++]);
+                    case "LoadFromFile":
+                        if (loadFromFileIndex < category.LoadFromFile.Count)
+                        {
+                            reorderedElements.Add(category.LoadFromFile[loadFromFileIndex++]);
+                        }
+                        else
+                        {
+                            // 如果没有对应的LoadFromFile对象，创建一个新的
+                            reorderedElements.Add(new CreditsLoadFromFileDO());
+                        }
                         break;
-                    case "Image" when imageIndex < category.Images.Count:
-                        reorderedImages.Add(category.Images[imageIndex++]);
+                    case "Image":
+                        if (imageIndex < category.Images.Count)
+                        {
+                            reorderedElements.Add(category.Images[imageIndex++]);
+                        }
+                        else
+                        {
+                            // 如果没有对应的Image对象，创建一个新的
+                            reorderedElements.Add(new CreditsImageDO());
+                        }
                         break;
                 }
             }
             
-            // 更新Category的列表
-            category.Sections = reorderedSections;
-            category.Entries = reorderedEntries;
-            category.EmptyLines = reorderedEmptyLines;
-            category.LoadFromFile = reorderedLoadFromFile;
-            category.Images = reorderedImages;
+            // 更新Category的Elements列表，保持原始XML的顺序
+            category.Elements = reorderedElements;
         }
 
         private class Utf8StringWriter : StringWriter
