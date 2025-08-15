@@ -14,12 +14,18 @@ namespace BannerlordModEditor.Common.Models.DTO
 
         [XmlElement("widgets")]
         public WidgetsContainerDTO Widgets { get; set; }
+
+        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
+        public bool ShouldSerializeVirtualResolution() => !string.IsNullOrEmpty(VirtualResolution);
+        public bool ShouldSerializeWidgets() => Widgets != null;
     }
 
     public class WidgetsContainerDTO
     {
         [XmlElement("widget")]
         public List<WidgetDTO> WidgetList { get; set; }
+
+        public bool ShouldSerializeWidgetList() => WidgetList != null && WidgetList.Count > 0;
     }
 
     public class WidgetDTO
@@ -132,14 +138,55 @@ namespace BannerlordModEditor.Common.Models.DTO
         [XmlAttribute("position")]
         public string Position { get; set; }
 
-        [XmlElement("meshes")]
-        public LooknfeelMeshesContainerDTO Meshes { get; set; }
-
         [XmlAttribute("button_mesh")]
         public string ButtonMesh { get; set; }
 
+        // 严格按照原始XML顺序排列子元素
+        [XmlElement("meshes")]
+        public LooknfeelMeshesContainerDTO Meshes { get; set; }
+
         [XmlElement("sub_widgets")]
         public SubWidgetsContainerDTO SubWidgets { get; set; }
+
+        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeTilingBorderSize() => !string.IsNullOrEmpty(TilingBorderSize);
+        public bool ShouldSerializeTileBackgroundAccordingToBorder() => !string.IsNullOrEmpty(TileBackgroundAccordingToBorder);
+        public bool ShouldSerializeBackgroundTileSize() => !string.IsNullOrEmpty(BackgroundTileSize);
+        public bool ShouldSerializeFocusable() => !string.IsNullOrEmpty(Focusable);
+        public bool ShouldSerializeStyle() => !string.IsNullOrEmpty(Style);
+        public bool ShouldSerializeTrackAreaInset() => !string.IsNullOrEmpty(TrackAreaInset);
+        public bool ShouldSerializeText() => Text != null;
+        public bool ShouldSerializeInitialState() => !string.IsNullOrEmpty(InitialState);
+        public bool ShouldSerializeNumOfCols() => !string.IsNullOrEmpty(NumOfCols);
+        public bool ShouldSerializeNumOfRows() => !string.IsNullOrEmpty(NumOfRows);
+        public bool ShouldSerializeMaxNumOfRows() => !string.IsNullOrEmpty(MaxNumOfRows);
+        public bool ShouldSerializeBorderSize() => !string.IsNullOrEmpty(BorderSize);
+        public bool ShouldSerializeShowScrollBars() => !string.IsNullOrEmpty(ShowScrollBars);
+        public bool ShouldSerializeScrollAreaInset() => !string.IsNullOrEmpty(ScrollAreaInset);
+        public bool ShouldSerializeCellSize() => !string.IsNullOrEmpty(CellSize);
+        public bool ShouldSerializeLayoutStyle() => !string.IsNullOrEmpty(LayoutStyle);
+        public bool ShouldSerializeLayoutAlignment() => !string.IsNullOrEmpty(LayoutAlignment);
+        public bool ShouldSerializeAutoShowScrollBars() => !string.IsNullOrEmpty(AutoShowScrollBars);
+        public bool ShouldSerializeIncrementVec() => !string.IsNullOrEmpty(IncrementVec);
+        public bool ShouldSerializeInitialValue() => !string.IsNullOrEmpty(InitialValue);
+        public bool ShouldSerializeMaxAllowedDigit() => !string.IsNullOrEmpty(MaxAllowedDigit);
+        public bool ShouldSerializeMinAllowedValue() => !string.IsNullOrEmpty(MinAllowedValue);
+        public bool ShouldSerializeMaxAllowedValue() => !string.IsNullOrEmpty(MaxAllowedValue);
+        public bool ShouldSerializeStepValue() => !string.IsNullOrEmpty(StepValue);
+        public bool ShouldSerializeMinValue() => !string.IsNullOrEmpty(MinValue);
+        public bool ShouldSerializeMaxValue() => !string.IsNullOrEmpty(MaxValue);
+        public bool ShouldSerializeVerticalAlignment() => !string.IsNullOrEmpty(VerticalAlignment);
+        public bool ShouldSerializeHorizontalAlignment() => !string.IsNullOrEmpty(HorizontalAlignment);
+        public bool ShouldSerializeHorizontalAligment() => !string.IsNullOrEmpty(HorizontalAligment);
+        public bool ShouldSerializeTextHighlightColor() => !string.IsNullOrEmpty(TextHighlightColor);
+        public bool ShouldSerializeTextColor() => !string.IsNullOrEmpty(TextColor);
+        public bool ShouldSerializeFontSize() => !string.IsNullOrEmpty(FontSize);
+        public bool ShouldSerializeSize() => !string.IsNullOrEmpty(Size);
+        public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
+        public bool ShouldSerializeButtonMesh() => !string.IsNullOrEmpty(ButtonMesh);
+        public bool ShouldSerializeMeshes() => Meshes != null;
+        public bool ShouldSerializeSubWidgets() => SubWidgets != null;
     }
 
     public class LooknfeelMeshesContainerDTO
@@ -164,6 +211,14 @@ namespace BannerlordModEditor.Common.Models.DTO
 
         [XmlElement("right_border_mesh")]
         public List<LooknfeelMeshDTO> RightBorderMeshes { get; set; }
+
+        public bool ShouldSerializeBackgroundMeshes() => BackgroundMeshes != null && BackgroundMeshes.Count > 0;
+        public bool ShouldSerializeButtonMeshes() => ButtonMeshes != null && ButtonMeshes.Count > 0;
+        public bool ShouldSerializeButtonPressedMeshes() => ButtonPressedMeshes != null && ButtonPressedMeshes.Count > 0;
+        public bool ShouldSerializeHighlightMeshes() => HighlightMeshes != null && HighlightMeshes.Count > 0;
+        public bool ShouldSerializeCursorMeshes() => CursorMeshes != null && CursorMeshes.Count > 0;
+        public bool ShouldSerializeLeftBorderMeshes() => LeftBorderMeshes != null && LeftBorderMeshes.Count > 0;
+        public bool ShouldSerializeRightBorderMeshes() => RightBorderMeshes != null && RightBorderMeshes.Count > 0;
     }
 
     public class LooknfeelMeshDTO
@@ -179,12 +234,19 @@ namespace BannerlordModEditor.Common.Models.DTO
 
         [XmlAttribute("position")]
         public string Position { get; set; }
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeTiling() => !string.IsNullOrEmpty(Tiling);
+        public bool ShouldSerializeMainMesh() => !string.IsNullOrEmpty(MainMesh);
+        public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
     }
 
     public class SubWidgetsContainerDTO
     {
         [XmlElement("sub_widget")]
         public List<SubWidgetDTO> SubWidgetList { get; set; }
+
+        public bool ShouldSerializeSubWidgetList() => SubWidgetList != null && SubWidgetList.Count > 0;
     }
 
     public class SubWidgetDTO
@@ -237,10 +299,30 @@ namespace BannerlordModEditor.Common.Models.DTO
         [XmlAttribute("font_size")]
         public string FontSize { get; set; }
 
+        // 严格按照原始XML顺序排列子元素
         [XmlElement("meshes")]
         public LooknfeelMeshesContainerDTO Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
         public SubWidgetsContainerDTO SubWidgets { get; set; }
+
+        public bool ShouldSerializeRef() => !string.IsNullOrEmpty(Ref);
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeSize() => !string.IsNullOrEmpty(Size);
+        public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
+        public bool ShouldSerializeStyle() => !string.IsNullOrEmpty(Style);
+        public bool ShouldSerializeVerticalAlignment() => !string.IsNullOrEmpty(VerticalAlignment);
+        public bool ShouldSerializeHorizontalAlignment() => !string.IsNullOrEmpty(HorizontalAlignment);
+        public bool ShouldSerializeHorizontalAligment() => !string.IsNullOrEmpty(HorizontalAligment);
+        public bool ShouldSerializeScrollSpeed() => !string.IsNullOrEmpty(ScrollSpeed);
+        public bool ShouldSerializeCellSize() => !string.IsNullOrEmpty(CellSize);
+        public bool ShouldSerializeLayoutStyle() => !string.IsNullOrEmpty(LayoutStyle);
+        public bool ShouldSerializeLayoutAlignment() => !string.IsNullOrEmpty(LayoutAlignment);
+        public bool ShouldSerializeText() => Text != null;
+        public bool ShouldSerializeTextColor() => !string.IsNullOrEmpty(TextColor);
+        public bool ShouldSerializeTextHighlightColor() => !string.IsNullOrEmpty(TextHighlightColor);
+        public bool ShouldSerializeFontSize() => !string.IsNullOrEmpty(FontSize);
+        public bool ShouldSerializeMeshes() => Meshes != null;
+        public bool ShouldSerializeSubWidgets() => SubWidgets != null;
     }
 }
