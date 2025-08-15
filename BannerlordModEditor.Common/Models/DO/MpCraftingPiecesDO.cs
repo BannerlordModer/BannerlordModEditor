@@ -57,6 +57,12 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("is_craftable")]
         public string IsCraftable { get; set; }
 
+        [XmlAttribute("item_holster_pos_shift")]
+        public string ItemHolsterPosShift { get; set; }
+
+        [XmlAttribute("CraftingCost")]
+        public string CraftingCost { get; set; }
+
         [XmlElement("BuildData")]
         public MpBuildDataDO BuildData { get; set; }
 
@@ -65,6 +71,9 @@ namespace BannerlordModEditor.Common.Models.DO
 
         [XmlElement("Flags")]
         public MpCraftingFlagsDO Flags { get; set; }
+
+        [XmlElement("Materials")]
+        public MpCraftingMaterialsDO Materials { get; set; }
 
         // 修复ShouldSerialize方法：只检查null而不是空字符串
         public bool ShouldSerializeName() => Name != null;
@@ -80,9 +89,12 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeCulture() => Culture != null;
         public bool ShouldSerializeScale() => Scale != null;
         public bool ShouldSerializeIsCraftable() => IsCraftable != null;
+        public bool ShouldSerializeItemHolsterPosShift() => ItemHolsterPosShift != null;
+        public bool ShouldSerializeCraftingCost() => CraftingCost != null;
         public bool ShouldSerializeBuildData() => BuildData != null;
         public bool ShouldSerializeBladeData() => BladeData != null;
         public bool ShouldSerializeFlags() => Flags != null;
+        public bool ShouldSerializeMaterials() => Materials != null;
     }
 
     public class MpBuildDataDO
@@ -93,8 +105,12 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("previous_piece_offset")]
         public string PreviousPieceOffset { get; set; }
 
+        [XmlAttribute("next_piece_offset")]
+        public string NextPieceOffset { get; set; }
+
         public bool ShouldSerializePieceOffset() => PieceOffset != null;
         public bool ShouldSerializePreviousPieceOffset() => PreviousPieceOffset != null;
+        public bool ShouldSerializeNextPieceOffset() => NextPieceOffset != null;
     }
 
     public class MpBladeDataDO
@@ -183,5 +199,25 @@ namespace BannerlordModEditor.Common.Models.DO
 
         public bool ShouldSerializeName() => Name != null;
         public bool ShouldSerializeType() => Type != null;
+    }
+
+    public class MpCraftingMaterialsDO
+    {
+        [XmlElement("Material")]
+        public List<MpCraftingMaterialDO> MaterialList { get; set; } = new List<MpCraftingMaterialDO>();
+
+        public bool ShouldSerializeMaterialList() => MaterialList != null && MaterialList.Count > 0;
+    }
+
+    public class MpCraftingMaterialDO
+    {
+        [XmlAttribute("id")]
+        public string Id { get; set; }
+
+        [XmlAttribute("count")]
+        public string Count { get; set; }
+
+        public bool ShouldSerializeId() => Id != null;
+        public bool ShouldSerializeCount() => Count != null;
     }
 }

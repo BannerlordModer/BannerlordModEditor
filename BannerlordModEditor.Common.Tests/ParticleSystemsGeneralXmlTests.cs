@@ -17,8 +17,8 @@ namespace BannerlordModEditor.Common.Tests
             // 反序列化
             var obj = XmlTestUtils.Deserialize<ParticleSystemsDO>(xml);
 
-            // 再序列化
-            var xml2 = XmlTestUtils.Serialize(obj);
+            // 再序列化（传递原始XML以保留命名空间）
+            var xml2 = XmlTestUtils.Serialize(obj, xml);
 
             // 结构化对比
             var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);

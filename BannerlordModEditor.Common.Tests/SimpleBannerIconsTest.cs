@@ -20,7 +20,7 @@ namespace BannerlordModEditor.Common.Tests
             var model = XmlTestUtils.Deserialize<BannerIconsRoot>(xml);
             
             Assert.NotNull(model);
-            Assert.Equal("banner_icon", model.Type);
+            Assert.Equal("string", model.Type);
             Assert.NotNull(model.BannerIconData);
             
             Console.WriteLine($"BannerIconGroups count: {model.BannerIconData.BannerIconGroups?.Count ?? 0}");

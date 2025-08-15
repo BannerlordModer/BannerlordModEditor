@@ -49,6 +49,9 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("_index_")]
         public string? Index { get; set; }
 
+        [XmlElement("children")]
+        public ChildrenDO? Children { get; set; }
+
         [XmlElement("flags")]
         public ParticleFlagsDO? Flags { get; set; }
 
@@ -57,8 +60,17 @@ namespace BannerlordModEditor.Common.Models.DO
 
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
         public bool ShouldSerializeIndex() => !string.IsNullOrEmpty(Index);
+        public bool ShouldSerializeChildren() => Children != null;
         public bool ShouldSerializeFlags() => Flags != null;
         public bool ShouldSerializeParameters() => Parameters != null;
+    }
+
+    public class ChildrenDO
+    {
+        [XmlElement("emitter")]
+        public List<EmitterDO> EmitterList { get; set; } = new List<EmitterDO>();
+
+        public bool ShouldSerializeEmitterList() => EmitterList != null && EmitterList.Count > 0;
     }
 
     public class ParticleFlagsDO

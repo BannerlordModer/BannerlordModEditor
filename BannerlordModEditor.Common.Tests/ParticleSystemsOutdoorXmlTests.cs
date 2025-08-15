@@ -1,7 +1,6 @@
 using System.IO;
 using Xunit;
-
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -13,8 +12,8 @@ namespace BannerlordModEditor.Common.Tests
         public void ParticleSystemsOutdoor_Roundtrip_StructuralEquality()
         {
             var xml = File.ReadAllText(TestDataPath);
-            var model = XmlTestUtils.Deserialize<ParticleSystems>(xml);
-            var serialized = XmlTestUtils.Serialize(model);
+            var model = XmlTestUtils.Deserialize<ParticleSystemsDO>(xml);
+            var serialized = XmlTestUtils.Serialize(model, xml);
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
         }
     }

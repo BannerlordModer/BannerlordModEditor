@@ -5,7 +5,9 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Reflection;
+using System.Linq;
 using BannerlordModEditor.Common.Models;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -69,6 +71,33 @@ namespace BannerlordModEditor.Common.Tests
                 var itemHolstersElement = doc.Root?.Element("item_holsters");
                 itemHolsters.HasEmptyItemHolsters = itemHolstersElement != null && 
                     (itemHolstersElement.Elements().Count() == 0 || itemHolstersElement.Elements("item_holster").Count() == 0);
+            }
+            
+            // 特殊处理CreditsDO来保持原始XML元素顺序
+            if (obj is BannerlordModEditor.Common.Models.DO.CreditsDO credits)
+            {
+                var doc = XDocument.Parse(xml);
+                // 读取原始Category元素的顺序
+                var categoryElements = doc.Root?.Elements("Category").ToList();
+                if (categoryElements != null)
+                {
+                    // 确保Categories列表按照原始XML顺序排列
+                    for (int i = 0; i < categoryElements.Count && i < credits.Categories.Count; i++)
+                    {
+                        var categoryElement = categoryElements[i];
+                        var category = credits.Categories[i];
+                        
+                        // 处理每个Category内部的元素顺序
+                        var sectionElements = categoryElement.Elements("Section").ToList();
+                        var entryElements = categoryElement.Elements("Entry").ToList();
+                        var emptyLineElements = categoryElement.Elements("EmptyLine").ToList();
+                        var loadFromFileElements = categoryElement.Elements("LoadFromFile").ToList();
+                        var imageElements = categoryElement.Elements("Image").ToList();
+                        
+                        // 重新排序Category内部的元素以匹配原始XML
+                        ReorderCategoryElements(category, sectionElements, entryElements, emptyLineElements, loadFromFileElements, imageElements);
+                    }
+                }
             }
             
             return obj;
@@ -766,6 +795,58 @@ namespace BannerlordModEditor.Common.Tests
         }
 
         
+        // 重新排序Category内部的元素以匹配原始XML顺序
+        private static void ReorderCategoryElements(CreditsCategoryDO category, List<XElement> sectionElements, List<XElement> entryElements, List<XElement> emptyLineElements, List<XElement> loadFromFileElements, List<XElement> imageElements)
+        {
+            // 创建新的列表来存储重新排序的元素
+            var reorderedSections = new List<CreditsSectionDO>();
+            var reorderedEntries = new List<CreditsEntryDO>();
+            var reorderedEmptyLines = new List<CreditsEmptyLineDO>();
+            var reorderedLoadFromFile = new List<CreditsLoadFromFileDO>();
+            var reorderedImages = new List<CreditsImageDO>();
+            
+            // 根据原始XML中的出现顺序重新排序元素
+            int sectionIndex = 0, entryIndex = 0, emptyLineIndex = 0, loadFromFileIndex = 0, imageIndex = 0;
+            
+            // 遍历原始Category的所有子元素
+            var allChildElements = sectionElements
+                .Concat(entryElements)
+                .Concat(emptyLineElements)
+                .Concat(loadFromFileElements)
+                .Concat(imageElements)
+                .OrderBy(e => e.NodesBeforeSelf().Count())
+                .ToList();
+            
+            foreach (var element in allChildElements)
+            {
+                switch (element.Name.LocalName)
+                {
+                    case "Section" when sectionIndex < category.Sections.Count:
+                        reorderedSections.Add(category.Sections[sectionIndex++]);
+                        break;
+                    case "Entry" when entryIndex < category.Entries.Count:
+                        reorderedEntries.Add(category.Entries[entryIndex++]);
+                        break;
+                    case "EmptyLine" when emptyLineIndex < category.EmptyLines.Count:
+                        reorderedEmptyLines.Add(category.EmptyLines[emptyLineIndex++]);
+                        break;
+                    case "LoadFromFile" when loadFromFileIndex < category.LoadFromFile.Count:
+                        reorderedLoadFromFile.Add(category.LoadFromFile[loadFromFileIndex++]);
+                        break;
+                    case "Image" when imageIndex < category.Images.Count:
+                        reorderedImages.Add(category.Images[imageIndex++]);
+                        break;
+                }
+            }
+            
+            // 更新Category的列表
+            category.Sections = reorderedSections;
+            category.Entries = reorderedEntries;
+            category.EmptyLines = reorderedEmptyLines;
+            category.LoadFromFile = reorderedLoadFromFile;
+            category.Images = reorderedImages;
+        }
+
         private class Utf8StringWriter : StringWriter
         {
             public override Encoding Encoding => Encoding.UTF8;

@@ -23,14 +23,14 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? DoNotScaleAccordingToAgentScale { get; set; }
 
         // ShouldSerialize方法
-        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
-        public bool ShouldSerializePriority() => !string.IsNullOrEmpty(Priority);
-        public bool ShouldSerializeActivateSweep() => !string.IsNullOrEmpty(ActivateSweep);
-        public bool ShouldSerializeUseSmallerRadiusMultWhileHoldingShield() => !string.IsNullOrEmpty(UseSmallerRadiusMultWhileHoldingShield);
-        public bool ShouldSerializeDoNotScaleAccordingToAgentScale() => !string.IsNullOrEmpty(DoNotScaleAccordingToAgentScale);
+        public bool ShouldSerializeType() => Type != null;
+        public bool ShouldSerializePriority() => Priority != null;
+        public bool ShouldSerializeActivateSweep() => ActivateSweep != null;
+        public bool ShouldSerializeUseSmallerRadiusMultWhileHoldingShield() => UseSmallerRadiusMultWhileHoldingShield != null;
+        public bool ShouldSerializeDoNotScaleAccordingToAgentScale() => DoNotScaleAccordingToAgentScale != null;
 
         // 类型安全的便捷属性
-        public bool HasType => !string.IsNullOrEmpty(Type);
+        public bool HasType => Type != null;
         public int? PriorityInt => int.TryParse(Priority, out int val) ? val : (int?)null;
         public bool? ActivateSweepBool => bool.TryParse(ActivateSweep, out bool val) ? val : (bool?)null;
         public bool? UseSmallerRadiusMultWhileHoldingShieldBool => bool.TryParse(UseSmallerRadiusMultWhileHoldingShield, out bool val) ? val : (bool?)null;

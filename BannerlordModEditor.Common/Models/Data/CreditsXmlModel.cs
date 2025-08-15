@@ -10,7 +10,11 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlElement("Category")]
         public List<CreditsCategory> Categories { get; set; }
 
+        [XmlElement("LoadFromFile")]
+        public List<CreditsLoadFromFile> LoadFromFile { get; set; }
+
         public bool ShouldSerializeCategories() => Categories != null && Categories.Count > 0;
+        public bool ShouldSerializeLoadFromFile() => LoadFromFile != null && LoadFromFile.Count > 0;
     }
 
     public class CreditsCategory
@@ -27,9 +31,13 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlElement("EmptyLine")]
         public List<CreditsEmptyLine> EmptyLines { get; set; }
 
+        [XmlElement("LoadFromFile")]
+        public List<CreditsLoadFromFile> LoadFromFile { get; set; }
+
         public bool ShouldSerializeSections() => Sections != null && Sections.Count > 0;
         public bool ShouldSerializeEntries() => Entries != null && Entries.Count > 0;
         public bool ShouldSerializeEmptyLines() => EmptyLines != null && EmptyLines.Count > 0;
+        public bool ShouldSerializeLoadFromFile() => LoadFromFile != null && LoadFromFile.Count > 0;
     }
 
     public class CreditsSection
@@ -56,5 +64,17 @@ namespace BannerlordModEditor.Common.Models.Data
     public class CreditsEmptyLine
     {
         // 空节点，无属性
+    }
+
+    public class CreditsLoadFromFile
+    {
+        [XmlAttribute("Name")]
+        public string Name { get; set; }
+
+        [XmlAttribute("PlatformSpecific")]
+        public string PlatformSpecific { get; set; }
+
+        [XmlAttribute("ConsoleSpecific")]
+        public string ConsoleSpecific { get; set; }
     }
 }

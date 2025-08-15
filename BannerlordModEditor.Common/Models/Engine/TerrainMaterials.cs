@@ -91,11 +91,11 @@ namespace BannerlordModEditor.Common.Models.Engine
         public TerrainMeshesContainer? Meshes { get; set; }
 
         // 为了确保null值不会序列化，我们需要实现ShouldSerialize方法
-        public bool ShouldSerializeDetailLevelAdjustment() => !string.IsNullOrEmpty(DetailLevelAdjustment);
-        public bool ShouldSerializeGroundSlopeScale() => !string.IsNullOrEmpty(GroundSlopeScale);
-        public bool ShouldSerializeAlbedoFactorColor() => !string.IsNullOrEmpty(AlbedoFactorColor);
-        public bool ShouldSerializeAlbedoFactorMode() => !string.IsNullOrEmpty(AlbedoFactorMode);
-        public bool ShouldSerializeSmoothBlendAmount() => !string.IsNullOrEmpty(SmoothBlendAmount);
+        public bool ShouldSerializeDetailLevelAdjustment() => DetailLevelAdjustment != null;
+        public bool ShouldSerializeGroundSlopeScale() => GroundSlopeScale != null;
+        public bool ShouldSerializeAlbedoFactorColor() => AlbedoFactorColor != null;
+        public bool ShouldSerializeAlbedoFactorMode() => AlbedoFactorMode != null;
+        public bool ShouldSerializeSmoothBlendAmount() => SmoothBlendAmount != null;
     }
 
     public class TexturesContainer

@@ -21,7 +21,7 @@ namespace BannerlordModEditor.Common.Models.Engine
         [XmlAttribute("usage_direction")]
         public string? UsageDirection { get; set; }
 
-        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
-        public bool ShouldSerializeUsageDirection() => !string.IsNullOrEmpty(UsageDirection);
+        public bool ShouldSerializeType() => Type != null;
+        public bool ShouldSerializeUsageDirection() => UsageDirection != null;
     }
 } 
