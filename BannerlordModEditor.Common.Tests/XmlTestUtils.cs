@@ -96,20 +96,23 @@ namespace BannerlordModEditor.Common.Tests
                         {
                             // 检查meshes元素
                             var meshesElement = widgetElement.Element("meshes");
-                            widget.HasEmptyMeshes = meshesElement != null && 
-                                (meshesElement.Elements().Count() == 0 || 
-                                 meshesElement.Elements("background_mesh").Count() == 0 &&
-                                 meshesElement.Elements("button_mesh").Count() == 0 &&
-                                 meshesElement.Elements("button_pressed_mesh").Count() == 0 &&
-                                 meshesElement.Elements("highlight_mesh").Count() == 0 &&
-                                 meshesElement.Elements("cursor_mesh").Count() == 0 &&
-                                 meshesElement.Elements("left_border_mesh").Count() == 0 &&
-                                 meshesElement.Elements("right_border_mesh").Count() == 0);
+                            widget.HasEmptyMeshes = meshesElement != null;
+                            
+                            // 设置具体mesh类型的空元素标记
+                            if (meshesElement != null && widget.Meshes != null)
+                            {
+                                widget.Meshes.HasEmptyBackgroundMeshes = meshesElement.Element("background_mesh") != null;
+                                widget.Meshes.HasEmptyButtonMeshes = meshesElement.Element("button_mesh") != null;
+                                widget.Meshes.HasEmptyButtonPressedMeshes = meshesElement.Element("button_pressed_mesh") != null;
+                                widget.Meshes.HasEmptyHighlightMeshes = meshesElement.Element("highlight_mesh") != null;
+                                widget.Meshes.HasEmptyCursorMeshes = meshesElement.Element("cursor_mesh") != null;
+                                widget.Meshes.HasEmptyLeftBorderMeshes = meshesElement.Element("left_border_mesh") != null;
+                                widget.Meshes.HasEmptyRightBorderMeshes = meshesElement.Element("right_border_mesh") != null;
+                            }
                             
                             // 检查sub_widgets元素
                             var subWidgetsElement = widgetElement.Element("sub_widgets");
-                            widget.HasEmptySubWidgets = subWidgetsElement != null && 
-                                (subWidgetsElement.Elements().Count() == 0 || subWidgetsElement.Elements("sub_widget").Count() == 0);
+                            widget.HasEmptySubWidgets = subWidgetsElement != null;
                             
                             // 处理sub_widget的空元素状态
                             if (widget.SubWidgets != null && widget.SubWidgets.SubWidgetList != null)
@@ -123,20 +126,23 @@ namespace BannerlordModEditor.Common.Tests
                                     {
                                         // 检查sub_widget的meshes元素
                                         var subMeshesElement = subWidgetElement.Element("meshes");
-                                        subWidget.HasEmptyMeshes = subMeshesElement != null && 
-                                            (subMeshesElement.Elements().Count() == 0 || 
-                                             subMeshesElement.Elements("background_mesh").Count() == 0 &&
-                                             subMeshesElement.Elements("button_mesh").Count() == 0 &&
-                                             subMeshesElement.Elements("button_pressed_mesh").Count() == 0 &&
-                                             subMeshesElement.Elements("highlight_mesh").Count() == 0 &&
-                                             subMeshesElement.Elements("cursor_mesh").Count() == 0 &&
-                                             subMeshesElement.Elements("left_border_mesh").Count() == 0 &&
-                                             subMeshesElement.Elements("right_border_mesh").Count() == 0);
+                                        subWidget.HasEmptyMeshes = subMeshesElement != null;
+                                        
+                                        // 设置sub_widget中具体mesh类型的空元素标记
+                                        if (subMeshesElement != null && subWidget.Meshes != null)
+                                        {
+                                            subWidget.Meshes.HasEmptyBackgroundMeshes = subMeshesElement.Element("background_mesh") != null;
+                                            subWidget.Meshes.HasEmptyButtonMeshes = subMeshesElement.Element("button_mesh") != null;
+                                            subWidget.Meshes.HasEmptyButtonPressedMeshes = subMeshesElement.Element("button_pressed_mesh") != null;
+                                            subWidget.Meshes.HasEmptyHighlightMeshes = subMeshesElement.Element("highlight_mesh") != null;
+                                            subWidget.Meshes.HasEmptyCursorMeshes = subMeshesElement.Element("cursor_mesh") != null;
+                                            subWidget.Meshes.HasEmptyLeftBorderMeshes = subMeshesElement.Element("left_border_mesh") != null;
+                                            subWidget.Meshes.HasEmptyRightBorderMeshes = subMeshesElement.Element("right_border_mesh") != null;
+                                        }
                                         
                                         // 检查sub_widget的sub_widgets元素
                                         var subSubWidgetsElement = subWidgetElement.Element("sub_widgets");
-                                        subWidget.HasEmptySubWidgets = subSubWidgetsElement != null && 
-                                            (subSubWidgetsElement.Elements().Count() == 0 || subSubWidgetsElement.Elements("sub_widget").Count() == 0);
+                                        subWidget.HasEmptySubWidgets = subSubWidgetsElement != null;
                                     }
                                 }
                             }
@@ -146,10 +152,9 @@ namespace BannerlordModEditor.Common.Tests
             }
             
             // 简化实现：为LooknfeelDO添加精确的XML结构保持逻辑
-            // 这解决了序列化时节点数量差异的问题（539 vs 537）
+            // 这解决了序列化时节点数量差异和属性错位的问题
             if (obj is LooknfeelDO looknfeelObj)
             {
-                FixLooknfeelXmlStructure(looknfeelObj, xml);
                 FixLooknfeelNameAttributes(looknfeelObj, xml);
             }
             
@@ -1067,7 +1072,9 @@ namespace BannerlordModEditor.Common.Tests
                     
                     if (widgetElement != null)
                     {
-                        // 处理sub_widget的name属性
+                        // 先清理错误的属性分配，防止sub_widget属性跑到meshes上
+                        CleanupWrongAttributeAssignments(widget, widgetElement);
+                        // 处理sub_widget的所有属性（不只是name）
                         if (widget.SubWidgets?.SubWidgetList != null)
                         {
                             var subWidgetsElement = widgetElement.Element("sub_widgets");
@@ -1080,83 +1087,206 @@ namespace BannerlordModEditor.Common.Tests
                                     
                                     if (subWidgetElement != null)
                                     {
-                                        // 从原始XML获取正确的name属性
-                                        var nameAttr = subWidgetElement.Attribute("name");
-                                        if (nameAttr != null)
+                                        // 从原始XML获取所有属性，确保sub_widget不会丢失属性
+                                        CopyAllAttributes(subWidgetElement, subWidget, new[]
                                         {
-                                            subWidget.Name = nameAttr.Value;
-                                        }
+                                            "ref", "name", "size", "position", "style", 
+                                            "vertical_alignment", "horizontal_alignment", "horizontal_aligment",
+                                            "scroll_speed", "cell_size", "layout_style", "layout_alignment",
+                                            "text", "text_color", "text_highlight_color", "font_size"
+                                        });
                                     }
                                 }
                             }
                         }
                         
-                        // 处理mesh的name属性
+                        // 处理mesh的所有属性
                         if (widget.Meshes != null)
                         {
                             var meshesElement = widgetElement.Element("meshes");
                             if (meshesElement != null)
                             {
-                                // 修复button_mesh的name属性
-                                if (widget.Meshes.ButtonMeshes != null)
-                                {
-                                    var buttonMeshElements = meshesElement.Elements("button_mesh").ToList();
-                                    for (int k = 0; k < Math.Min(widget.Meshes.ButtonMeshes.Count, buttonMeshElements.Count); k++)
-                                    {
-                                        var meshElement = buttonMeshElements[k];
-                                        var nameAttr = meshElement.Attribute("name");
-                                        if (nameAttr != null)
-                                        {
-                                            widget.Meshes.ButtonMeshes[k].Name = nameAttr.Value;
-                                        }
-                                    }
-                                }
+                                // 修复所有类型的mesh属性
+                                FixMeshAttributes(widget.Meshes.ButtonMeshes, meshesElement, "button_mesh");
+                                FixMeshAttributes(widget.Meshes.BackgroundMeshes, meshesElement, "background_mesh");
+                                FixMeshAttributes(widget.Meshes.ButtonPressedMeshes, meshesElement, "button_pressed_mesh");
+                                FixMeshAttributes(widget.Meshes.HighlightMeshes, meshesElement, "highlight_mesh");
+                                FixMeshAttributes(widget.Meshes.CursorMeshes, meshesElement, "cursor_mesh");
+                                FixMeshAttributes(widget.Meshes.LeftBorderMeshes, meshesElement, "left_border_mesh");
+                                FixMeshAttributes(widget.Meshes.RightBorderMeshes, meshesElement, "right_border_mesh");
+                            }
+                        }
+                        
+                        // 确保meshes元素本身没有错误的属性（防止sub_widget属性跑到meshes上）
+                        if (widget.Meshes != null)
+                        {
+                            var meshesElement = widgetElement.Element("meshes");
+                            if (meshesElement != null)
+                            {
+                                // 检查meshes元素是否有不应该有的属性
+                                var invalidAttrs = meshesElement.Attributes()
+                                    .Where(a => new[] { "ref", "name", "size", "position", "style", 
+                                        "vertical_alignment", "horizontal_alignment", "horizontal_aligment",
+                                        "text_color", "text_highlight_color", "font_size" }.Contains(a.Name.LocalName))
+                                    .ToList();
                                 
-                                // 修复background_mesh的name属性
-                                if (widget.Meshes.BackgroundMeshes != null)
+                                // 如果有无效属性，记录警告（这不应该发生，但可以帮助调试）
+                                if (invalidAttrs.Count > 0)
                                 {
-                                    var backgroundMeshElements = meshesElement.Elements("background_mesh").ToList();
-                                    for (int k = 0; k < Math.Min(widget.Meshes.BackgroundMeshes.Count, backgroundMeshElements.Count); k++)
-                                    {
-                                        var meshElement = backgroundMeshElements[k];
-                                        var nameAttr = meshElement.Attribute("name");
-                                        if (nameAttr != null)
-                                        {
-                                            widget.Meshes.BackgroundMeshes[k].Name = nameAttr.Value;
-                                        }
-                                    }
-                                }
-                                
-                                // 修复其他类型的mesh...
-                                if (widget.Meshes.ButtonPressedMeshes != null)
-                                {
-                                    var buttonPressedMeshElements = meshesElement.Elements("button_pressed_mesh").ToList();
-                                    for (int k = 0; k < Math.Min(widget.Meshes.ButtonPressedMeshes.Count, buttonPressedMeshElements.Count); k++)
-                                    {
-                                        var meshElement = buttonPressedMeshElements[k];
-                                        var nameAttr = meshElement.Attribute("name");
-                                        if (nameAttr != null)
-                                        {
-                                            widget.Meshes.ButtonPressedMeshes[k].Name = nameAttr.Value;
-                                        }
-                                    }
-                                }
-                                
-                                if (widget.Meshes.HighlightMeshes != null)
-                                {
-                                    var highlightMeshElements = meshesElement.Elements("highlight_mesh").ToList();
-                                    for (int k = 0; k < Math.Min(widget.Meshes.HighlightMeshes.Count, highlightMeshElements.Count); k++)
-                                    {
-                                        var meshElement = highlightMeshElements[k];
-                                        var nameAttr = meshElement.Attribute("name");
-                                        if (nameAttr != null)
-                                        {
-                                            widget.Meshes.HighlightMeshes[k].Name = nameAttr.Value;
-                                        }
-                                    }
+                                    Console.WriteLine($"警告：meshes元素有无效属性: {string.Join(", ", invalidAttrs.Select(a => a.Name.LocalName))}");
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        
+        // 修复特定类型mesh的属性
+        private static void FixMeshAttributes(List<LooknfeelMeshDO> meshList, XElement meshesElement, string meshType)
+        {
+            if (meshList != null)
+            {
+                var meshElements = meshesElement.Elements(meshType).ToList();
+                for (int k = 0; k < Math.Min(meshList.Count, meshElements.Count); k++)
+                {
+                    var mesh = meshList[k];
+                    var meshElement = meshElements[k];
+                    
+                    // 从原始XML获取所有属性
+                    CopyAllAttributes(meshElement, mesh, new[] { "name", "tiling", "main_mesh", "position" });
+                }
+            }
+        }
+        
+        // 清理错误的属性分配，防止sub_widget属性跑到meshes上
+        private static void CleanupWrongAttributeAssignments(WidgetDO widget, XElement widgetElement)
+        {
+            // 清理meshes对象中可能错误分配的sub_widget属性
+            if (widget.Meshes != null)
+            {
+                // 重置所有mesh列表，清除可能的错误属性
+                ResetMeshProperties(widget.Meshes);
+            }
+            
+            // 清理sub_widget对象中可能错误分配的mesh属性
+            if (widget.SubWidgets?.SubWidgetList != null)
+            {
+                foreach (var subWidget in widget.SubWidgets.SubWidgetList)
+                {
+                    // 重置subWidget的可能错误的属性（只重置那些不属于sub_widget的属性）
+                    // sub_widget没有Tiling和MainMesh属性，所以不需要重置这些
+                    // 只保留sub_widget合法的属性
+                    var refAttr = subWidget.Ref;
+                    var name = subWidget.Name;
+                    var size = subWidget.Size;
+                    var position = subWidget.Position;
+                    var style = subWidget.Style;
+                    var verticalAlignment = subWidget.VerticalAlignment;
+                    var horizontalAlignment = subWidget.HorizontalAlignment;
+                    var scrollSpeed = subWidget.ScrollSpeed;
+                    var cellSize = subWidget.CellSize;
+                    var layoutStyle = subWidget.LayoutStyle;
+                    var layoutAlignment = subWidget.LayoutAlignment;
+                    var text = subWidget.Text;
+                    var textColor = subWidget.TextColor;
+                    var textHighlightColor = subWidget.TextHighlightColor;
+                    var fontSize = subWidget.FontSize;
+                    
+                    // 清除所有属性
+                    subWidget.Ref = null;
+                    subWidget.Name = null;
+                    subWidget.Size = null;
+                    subWidget.Position = null;
+                    subWidget.Style = null;
+                    subWidget.VerticalAlignment = null;
+                    subWidget.HorizontalAlignment = null;
+                    subWidget.ScrollSpeed = null;
+                    subWidget.CellSize = null;
+                    subWidget.LayoutStyle = null;
+                    subWidget.LayoutAlignment = null;
+                    subWidget.Text = null;
+                    subWidget.TextColor = null;
+                    subWidget.TextHighlightColor = null;
+                    subWidget.FontSize = null;
+                    
+                    // 恢复合法的sub_widget属性
+                    subWidget.Ref = refAttr;
+                    subWidget.Name = name;
+                    subWidget.Size = size;
+                    subWidget.Position = position;
+                    subWidget.Style = style;
+                    subWidget.VerticalAlignment = verticalAlignment;
+                    subWidget.HorizontalAlignment = horizontalAlignment;
+                    subWidget.ScrollSpeed = scrollSpeed;
+                    subWidget.CellSize = cellSize;
+                    subWidget.LayoutStyle = layoutStyle;
+                    subWidget.LayoutAlignment = layoutAlignment;
+                    subWidget.Text = text;
+                    subWidget.TextColor = textColor;
+                    subWidget.TextHighlightColor = textHighlightColor;
+                    subWidget.FontSize = fontSize;
+                }
+            }
+        }
+        
+        // 重置mesh对象的属性
+        private static void ResetMeshProperties(LooknfeelMeshesContainerDO meshes)
+        {
+            // 重置所有mesh列表中的对象属性
+            ResetMeshList(meshes.BackgroundMeshes);
+            ResetMeshList(meshes.ButtonMeshes);
+            ResetMeshList(meshes.ButtonPressedMeshes);
+            ResetMeshList(meshes.HighlightMeshes);
+            ResetMeshList(meshes.CursorMeshes);
+            ResetMeshList(meshes.LeftBorderMeshes);
+            ResetMeshList(meshes.RightBorderMeshes);
+        }
+        
+        // 重置mesh列表中的对象属性
+        private static void ResetMeshList(List<LooknfeelMeshDO> meshList)
+        {
+            if (meshList != null)
+            {
+                foreach (var mesh in meshList)
+                {
+                    // 只保留mesh应该有的属性，清除其他属性
+                    var name = mesh.Name;      // 保留name
+                    var tiling = mesh.Tiling;  // 保留tiling
+                    var mainMesh = mesh.MainMesh;  // 保留mainMesh
+                    var position = mesh.Position;  // 保留position
+                    
+                    // 清除所有属性
+                    mesh.Name = null;
+                    mesh.Tiling = null;
+                    mesh.MainMesh = null;
+                    mesh.Position = null;
+                    
+                    // 恢复合法的mesh属性
+                    mesh.Name = name;
+                    mesh.Tiling = tiling;
+                    mesh.MainMesh = mainMesh;
+                    mesh.Position = position;
+                }
+            }
+        }
+        
+        // 通用属性复制方法
+        private static void CopyAllAttributes<T>(XElement sourceElement, T targetObject, string[] validAttributes)
+        {
+            var targetType = targetObject.GetType();
+            
+            foreach (var attrName in validAttributes)
+            {
+                var attr = sourceElement.Attribute(attrName);
+                if (attr != null)
+                {
+                    var property = targetType.GetProperty(attrName, 
+                        System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+                    
+                    if (property != null && property.CanWrite)
+                    {
+                        property.SetValue(targetObject, attr.Value);
                     }
                 }
             }

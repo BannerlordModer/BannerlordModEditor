@@ -2,8 +2,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using System.Xml;
 using Xunit;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -15,8 +16,8 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = "TestData/looknfeel.xml";
             var xml = File.ReadAllText(xmlPath);
 
-            // 反序列化
-            var obj = XmlTestUtils.Deserialize<Looknfeel>(xml);
+            // 反序列化 - XmlTestUtils会自动处理LooknfeelDO的空元素标记
+            var obj = XmlTestUtils.Deserialize<LooknfeelDO>(xml);
             
             // 再序列化
             var xml2 = XmlTestUtils.Serialize(obj, xml);

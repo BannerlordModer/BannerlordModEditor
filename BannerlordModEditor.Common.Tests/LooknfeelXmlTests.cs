@@ -17,11 +17,8 @@ namespace BannerlordModEditor.Common.Tests
             // 反序列化为DO
             var obj = XmlTestUtils.Deserialize<LooknfeelDO>(xml);
 
-            // 转换为DTO用于精确的XML序列化控制
-            var dto = LooknfeelMapper.ToDTO(obj);
-
-            // 再序列化（使用DTO进行序列化以确保XML结构完整性）
-            var xml2 = XmlTestUtils.Serialize(dto, xml);
+            // 直接序列化DO（不使用DTO）
+            var xml2 = XmlTestUtils.Serialize(obj, xml);
 
             // 结构化对比
             var diff = XmlTestUtils.CompareXmlStructure(xml, xml2);

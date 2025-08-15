@@ -127,7 +127,11 @@ namespace BannerlordModEditor.Common.Models.DO
         public string HorizontalAlignment { get; set; }
 
         [XmlAttribute("horizontal_aligment")]
-        public string HorizontalAligment { get; set; }
+        public string HorizontalAligment 
+        { 
+            get => HorizontalAlignment;
+            set => HorizontalAlignment = value;
+        }
 
         [XmlAttribute("text_highlight_color")]
         public string TextHighlightColor { get; set; }
@@ -144,11 +148,12 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("position")]
         public string Position { get; set; }
 
-        [XmlElement("meshes")]
-        public LooknfeelMeshesContainerDO Meshes { get; set; }
-
         [XmlAttribute("button_mesh")]
         public string ButtonMesh { get; set; }
+
+        // 严格按照原始XML顺序排列子元素
+        [XmlElement("meshes")]
+        public LooknfeelMeshesContainerDO Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
         public SubWidgetsContainerDO SubWidgets { get; set; }
@@ -189,15 +194,19 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeMaxValue() => !string.IsNullOrEmpty(MaxValue);
         public bool ShouldSerializeVerticalAlignment() => !string.IsNullOrEmpty(VerticalAlignment);
         public bool ShouldSerializeHorizontalAlignment() => !string.IsNullOrEmpty(HorizontalAlignment);
-        public bool ShouldSerializeHorizontalAligment() => !string.IsNullOrEmpty(HorizontalAligment);
+        
+        // 简化实现：horizontal_aligment是错误拼写，不应该被序列化
+        // 它只在反序列化时用于兼容XML中的错误拼写
+        public bool ShouldSerializeHorizontalAligment() => false;
+        
         public bool ShouldSerializeTextHighlightColor() => !string.IsNullOrEmpty(TextHighlightColor);
         public bool ShouldSerializeTextColor() => !string.IsNullOrEmpty(TextColor);
         public bool ShouldSerializeFontSize() => !string.IsNullOrEmpty(FontSize);
         public bool ShouldSerializeSize() => !string.IsNullOrEmpty(Size);
         public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
+        public bool ShouldSerializeSubWidgets() => HasEmptySubWidgets || SubWidgets != null;
         public bool ShouldSerializeMeshes() => HasEmptyMeshes || Meshes != null;
         public bool ShouldSerializeButtonMesh() => !string.IsNullOrEmpty(ButtonMesh);
-        public bool ShouldSerializeSubWidgets() => HasEmptySubWidgets || SubWidgets != null;
     }
 
     public class LooknfeelMeshesContainerDO
@@ -302,7 +311,11 @@ namespace BannerlordModEditor.Common.Models.DO
         public string HorizontalAlignment { get; set; }
 
         [XmlAttribute("horizontal_aligment")]
-        public string HorizontalAligment { get; set; }
+        public string HorizontalAligment 
+        { 
+            get => HorizontalAlignment;
+            set => HorizontalAlignment = value;
+        }
 
         [XmlAttribute("scroll_speed")]
         public string ScrollSpeed { get; set; }
@@ -328,6 +341,7 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("font_size")]
         public string FontSize { get; set; }
 
+        // 严格按照原始XML顺序排列子元素
         [XmlElement("meshes")]
         public LooknfeelMeshesContainerDO Meshes { get; set; }
 
@@ -346,7 +360,11 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeStyle() => !string.IsNullOrEmpty(Style);
         public bool ShouldSerializeVerticalAlignment() => !string.IsNullOrEmpty(VerticalAlignment);
         public bool ShouldSerializeHorizontalAlignment() => !string.IsNullOrEmpty(HorizontalAlignment);
-        public bool ShouldSerializeHorizontalAligment() => !string.IsNullOrEmpty(HorizontalAligment);
+        
+        // 简化实现：horizontal_aligment是错误拼写，不应该被序列化
+        // 它只在反序列化时用于兼容XML中的错误拼写
+        public bool ShouldSerializeHorizontalAligment() => false;
+        
         public bool ShouldSerializeScrollSpeed() => !string.IsNullOrEmpty(ScrollSpeed);
         public bool ShouldSerializeCellSize() => !string.IsNullOrEmpty(CellSize);
         public bool ShouldSerializeLayoutStyle() => !string.IsNullOrEmpty(LayoutStyle);
