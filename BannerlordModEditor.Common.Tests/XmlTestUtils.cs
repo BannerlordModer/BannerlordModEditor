@@ -877,23 +877,73 @@ namespace BannerlordModEditor.Common.Tests
                     case "Section":
                         if (sectionIndex < category.Sections.Count)
                         {
-                            reorderedElements.Add(category.Sections[sectionIndex++]);
+                            var section = category.Sections[sectionIndex++];
+                            // 确保Text属性值匹配
+                            var originalText = originalElement.Attribute("Text")?.Value;
+                            if (!string.IsNullOrEmpty(originalText) && section.Text != originalText)
+                            {
+                                // 查找匹配的Section
+                                var matchingSection = category.Sections.FirstOrDefault(s => s.Text == originalText);
+                                if (matchingSection != null)
+                                {
+                                    reorderedElements.Add(matchingSection);
+                                }
+                                else
+                                {
+                                    // 如果没有找到匹配的，使用当前Section但更新Text
+                                    section.Text = originalText;
+                                    reorderedElements.Add(section);
+                                }
+                            }
+                            else
+                            {
+                                reorderedElements.Add(section);
+                            }
                         }
                         else
                         {
                             // 如果没有对应的Section对象，创建一个新的
-                            reorderedElements.Add(new CreditsSectionDO());
+                            var newSection = new CreditsSectionDO 
+                            { 
+                                Text = originalElement.Attribute("Text")?.Value 
+                            };
+                            reorderedElements.Add(newSection);
                         }
                         break;
                     case "Entry":
                         if (entryIndex < category.Entries.Count)
                         {
-                            reorderedElements.Add(category.Entries[entryIndex++]);
+                            var entry = category.Entries[entryIndex++];
+                            // 确保Text属性值匹配
+                            var originalText = originalElement.Attribute("Text")?.Value;
+                            if (!string.IsNullOrEmpty(originalText) && entry.Text != originalText)
+                            {
+                                // 查找匹配的Entry
+                                var matchingEntry = category.Entries.FirstOrDefault(e => e.Text == originalText);
+                                if (matchingEntry != null)
+                                {
+                                    reorderedElements.Add(matchingEntry);
+                                }
+                                else
+                                {
+                                    // 如果没有找到匹配的，使用当前Entry但更新Text
+                                    entry.Text = originalText;
+                                    reorderedElements.Add(entry);
+                                }
+                            }
+                            else
+                            {
+                                reorderedElements.Add(entry);
+                            }
                         }
                         else
                         {
                             // 如果没有对应的Entry对象，创建一个新的
-                            reorderedElements.Add(new CreditsEntryDO());
+                            var newEntry = new CreditsEntryDO 
+                            { 
+                                Text = originalElement.Attribute("Text")?.Value 
+                            };
+                            reorderedElements.Add(newEntry);
                         }
                         break;
                     case "EmptyLine":
@@ -903,7 +953,6 @@ namespace BannerlordModEditor.Common.Tests
                         }
                         else
                         {
-                            // 如果没有对应的EmptyLine对象，创建一个新的
                             reorderedElements.Add(new CreditsEmptyLineDO());
                         }
                         break;
@@ -914,8 +963,13 @@ namespace BannerlordModEditor.Common.Tests
                         }
                         else
                         {
-                            // 如果没有对应的LoadFromFile对象，创建一个新的
-                            reorderedElements.Add(new CreditsLoadFromFileDO());
+                            var newLoadFromFile = new CreditsLoadFromFileDO 
+                            { 
+                                Name = originalElement.Attribute("Name")?.Value,
+                                PlatformSpecific = originalElement.Attribute("PlatformSpecific")?.Value,
+                                ConsoleSpecific = originalElement.Attribute("ConsoleSpecific")?.Value
+                            };
+                            reorderedElements.Add(newLoadFromFile);
                         }
                         break;
                     case "Image":
@@ -925,8 +979,11 @@ namespace BannerlordModEditor.Common.Tests
                         }
                         else
                         {
-                            // 如果没有对应的Image对象，创建一个新的
-                            reorderedElements.Add(new CreditsImageDO());
+                            var newImage = new CreditsImageDO 
+                            { 
+                                Text = originalElement.Attribute("Text")?.Value 
+                            };
+                            reorderedElements.Add(newImage);
                         }
                         break;
                 }
