@@ -110,17 +110,24 @@ namespace BannerlordModEditor.Common.Tests
                                 widget.Meshes.HasEmptyRightBorderMeshes = meshesElement.Element("right_border_mesh") != null;
                             }
                             
-                            // 检查sub_widgets元素
-                            var subWidgetsElement = widgetElement.Element("sub_widgets");
-                            widget.HasEmptySubWidgets = subWidgetsElement != null;
+                            // 检查sub_widgets元素 - 支持多个sub_widgets元素
+                            var subWidgetsElements = widgetElement.Elements("sub_widgets").ToList();
+                            widget.HasEmptySubWidgetsList = subWidgetsElements.Count > 0;
                             
-                            // 处理sub_widget的空元素状态
-                            if (widget.SubWidgets != null && widget.SubWidgets.SubWidgetList != null)
+                            // 处理sub_widget的空元素状态 - 遍历所有sub_widgets容器
+                            if (widget.SubWidgetsList != null)
                             {
-                                for (int j = 0; j < widget.SubWidgets.SubWidgetList.Count; j++)
+                                for (int k = 0; k < widget.SubWidgetsList.Count; k++)
                                 {
-                                    var subWidget = widget.SubWidgets.SubWidgetList[j];
-                                    var subWidgetElement = subWidgetsElement?.Elements("sub_widget").ElementAt(j);
+                                    var subWidgetsContainer = widget.SubWidgetsList[k];
+                                    var subWidgetsElement = subWidgetsElements.ElementAtOrDefault(k);
+                                    
+                                    if (subWidgetsContainer.SubWidgetList != null)
+                                    {
+                                        for (int j = 0; j < subWidgetsContainer.SubWidgetList.Count; j++)
+                                        {
+                                            var subWidget = subWidgetsContainer.SubWidgetList[j];
+                                            var subWidgetElement = subWidgetsElement?.Elements("sub_widget").ElementAt(j);
                                     
                                     if (subWidgetElement != null)
                                     {
@@ -140,9 +147,11 @@ namespace BannerlordModEditor.Common.Tests
                                             subWidget.Meshes.HasEmptyRightBorderMeshes = subMeshesElement.Element("right_border_mesh") != null;
                                         }
                                         
-                                        // 检查sub_widget的sub_widgets元素
-                                        var subSubWidgetsElement = subWidgetElement.Element("sub_widgets");
-                                        subWidget.HasEmptySubWidgets = subSubWidgetsElement != null;
+                                        // 检查sub_widget的sub_widgets元素 - 也支持多个
+                                        var subSubWidgetsElements = subWidgetElement.Elements("sub_widgets").ToList();
+                                        subWidget.HasEmptySubWidgetsList = subSubWidgetsElements.Count > 0;
+                                    }
+                                    }
                                     }
                                 }
                             }
@@ -191,11 +200,13 @@ namespace BannerlordModEditor.Common.Tests
                     var originalDoc = XDocument.Parse(originalXml);
                     if (originalDoc.Root != null)
                     {
+                        bool hasNamespaceDeclarations = false;
                         foreach (var attr in originalDoc.Root.Attributes())
                         {
                             // 检查是否为命名空间声明属性
                             if (attr.IsNamespaceDeclaration)
                             {
+                                hasNamespaceDeclarations = true;
                                 // 处理默认命名空间（没有前缀的情况）
                                 if (attr.Name.LocalName == "xmlns")
                                 {
@@ -208,19 +219,24 @@ namespace BannerlordModEditor.Common.Tests
                                 }
                             }
                         }
+                        
+                        // 只有在原始XML有命名空间声明时才保留原始命名空间，否则不添加任何命名空间
+                        // 不添加空命名空间，避免序列化器自动添加xsd和xsi属性
                     }
                 }
                 catch
                 {
                     // 如果解析失败，确保不添加任何命名空间
-                    namespaces.Add(string.Empty, string.Empty);
+                    // 不添加任何命名空间，避免添加xsd和xsi属性
                 }
             }
             else
             {
                 // 确保不添加任何命名空间声明
-                namespaces.Add(string.Empty, string.Empty);
+                // 不添加任何命名空间，避免添加xsd和xsi属性
             }
+            
+            // 不添加任何命名空间，包括空命名空间，以避免序列化器自动添加xsd和xsi命名空间
 
             using var ms = new MemoryStream();
             using (var writer = XmlWriter.Create(ms, settings))
@@ -973,10 +989,14 @@ namespace BannerlordModEditor.Common.Tests
                                 widget.Meshes = new LooknfeelMeshesContainerDO();
                             }
                             
-                            // 确保sub_widgets存在
-                            if (widget.SubWidgets == null)
+                            // 确保sub_widgets存在 - 支持多个
+                            if (widget.SubWidgetsList == null)
                             {
-                                widget.SubWidgets = new SubWidgetsContainerDO();
+                                widget.SubWidgetsList = new List<SubWidgetsContainerDO>();
+                            }
+                            if (widget.SubWidgetsList.Count == 0)
+                            {
+                                widget.SubWidgetsList.Add(new SubWidgetsContainerDO());
                             }
                         }
                     }
@@ -1074,16 +1094,21 @@ namespace BannerlordModEditor.Common.Tests
                     {
                         // 先清理错误的属性分配，防止sub_widget属性跑到meshes上
                         CleanupWrongAttributeAssignments(widget, widgetElement);
-                        // 处理sub_widget的所有属性（不只是name）
-                        if (widget.SubWidgets?.SubWidgetList != null)
+                        // 处理sub_widget的所有属性（不只是name）- 支持多个sub_widgets
+                        if (widget.SubWidgetsList != null)
                         {
-                            var subWidgetsElement = widgetElement.Element("sub_widgets");
-                            if (subWidgetsElement != null)
+                            var subWidgetsElements = widgetElement.Elements("sub_widgets").ToList();
+                            for (int k = 0; k < widget.SubWidgetsList.Count; k++)
                             {
-                                for (int j = 0; j < widget.SubWidgets.SubWidgetList.Count; j++)
+                                var subWidgetsContainer = widget.SubWidgetsList[k];
+                                var subWidgetsElement = subWidgetsElements.ElementAtOrDefault(k);
+                                
+                                if (subWidgetsContainer.SubWidgetList != null && subWidgetsElement != null)
                                 {
-                                    var subWidget = widget.SubWidgets.SubWidgetList[j];
-                                    var subWidgetElement = subWidgetsElement.Elements("sub_widget").ElementAt(j);
+                                    for (int j = 0; j < subWidgetsContainer.SubWidgetList.Count; j++)
+                                    {
+                                        var subWidget = subWidgetsContainer.SubWidgetList[j];
+                                        var subWidgetElement = subWidgetsElement.Elements("sub_widget").ElementAt(j);
                                     
                                     if (subWidgetElement != null)
                                     {
@@ -1140,6 +1165,7 @@ namespace BannerlordModEditor.Common.Tests
                     }
                 }
             }
+            }
         }
         
         // 修复特定类型mesh的属性
@@ -1169,10 +1195,14 @@ namespace BannerlordModEditor.Common.Tests
                 ResetMeshProperties(widget.Meshes);
             }
             
-            // 清理sub_widget对象中可能错误分配的mesh属性
-            if (widget.SubWidgets?.SubWidgetList != null)
+            // 清理sub_widget对象中可能错误分配的mesh属性 - 支持多个sub_widgets
+            if (widget.SubWidgetsList != null)
             {
-                foreach (var subWidget in widget.SubWidgets.SubWidgetList)
+                foreach (var subWidgetsContainer in widget.SubWidgetsList)
+                {
+                    if (subWidgetsContainer.SubWidgetList != null)
+                    {
+                        foreach (var subWidget in subWidgetsContainer.SubWidgetList)
                 {
                     // 重置subWidget的可能错误的属性（只重置那些不属于sub_widget的属性）
                     // sub_widget没有Tiling和MainMesh属性，所以不需要重置这些
@@ -1226,6 +1256,8 @@ namespace BannerlordModEditor.Common.Tests
                     subWidget.TextColor = textColor;
                     subWidget.TextHighlightColor = textHighlightColor;
                     subWidget.FontSize = fontSize;
+                }
+                    }
                 }
             }
         }
@@ -1295,6 +1327,12 @@ namespace BannerlordModEditor.Common.Tests
         private class Utf8StringWriter : StringWriter
         {
             public override Encoding Encoding => Encoding.UTF8;
+        }
+        
+        // 公共测试方法：用于测试RemoveNamespaceDeclarations功能
+        public static XDocument RemoveNamespaceDeclarationsForTesting(XDocument doc)
+        {
+            return RemoveNamespaceDeclarations(doc);
         }
     }
 }

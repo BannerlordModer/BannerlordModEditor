@@ -22,6 +22,7 @@ namespace BannerlordModEditor.Common.Tests.Services
             {
                 OmitXmlDeclaration = false,
                 Indent = true,
+                IndentChars = "\t",
                 Encoding = Encoding.UTF8
             };
             using var sw = new Utf8StringWriter();
@@ -48,9 +49,9 @@ namespace BannerlordModEditor.Common.Tests.Services
             if (a.Attributes?.Count != b.Attributes?.Count) return false;
             if (a.Attributes != null)
             {
-                for (int i = 0; i < a.Attributes.Count; i++)
+                // 检查所有属性是否存在且值相等，不关心顺序
+                foreach (XmlAttribute attrA in a.Attributes)
                 {
-                    var attrA = a.Attributes[i];
                     var attrB = b.Attributes[attrA.Name];
                     if (attrB == null || attrA.Value != attrB.Value)
                         return false;
