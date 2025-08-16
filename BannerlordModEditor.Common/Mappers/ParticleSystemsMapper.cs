@@ -83,7 +83,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ParametersDTO
             {
-                ParameterList = source.ParameterList?.Select(ToDTO).ToList() ?? new List<ParameterDTO>()
+                ParameterList = source.ParameterList?.Select(ToDTO).ToList() ?? new List<ParameterDTO>(),
+                DecalMaterials = ToDTO(source.DecalMaterials)
             };
         }
 
@@ -218,7 +219,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ParametersDO
             {
-                ParameterList = source.ParameterList?.Select(ToDO).ToList() ?? new List<ParameterDO>()
+                ParameterList = source.ParameterList?.Select(ToDO).ToList() ?? new List<ParameterDO>(),
+                DecalMaterials = ToDO(source.DecalMaterials)
             };
         }
 
@@ -313,6 +315,46 @@ namespace BannerlordModEditor.Common.Mappers
             return new AlphaDO
             {
                 Keys = ToDO(source.Keys)
+            };
+        }
+
+        public static DecalMaterialsDTO ToDTO(DecalMaterialsDO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialsDTO
+            {
+                DecalMaterialList = source.DecalMaterialList?.Select(ToDTO).ToList() ?? new List<DecalMaterialDTO>()
+            };
+        }
+
+        public static DecalMaterialDTO ToDTO(DecalMaterialDO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialDTO
+            {
+                Value = source.Value
+            };
+        }
+
+        public static DecalMaterialsDO ToDO(DecalMaterialsDTO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialsDO
+            {
+                DecalMaterialList = source.DecalMaterialList?.Select(ToDO).ToList() ?? new List<DecalMaterialDO>()
+            };
+        }
+
+        public static DecalMaterialDO ToDO(DecalMaterialDTO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialDO
+            {
+                Value = source.Value
             };
         }
 

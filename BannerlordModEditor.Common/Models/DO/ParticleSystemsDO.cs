@@ -98,7 +98,11 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("parameter")]
         public List<ParameterDO> ParameterList { get; set; } = new List<ParameterDO>();
 
+        [XmlElement("decal_materials")]
+        public DecalMaterialsDO? DecalMaterials { get; set; }
+
         public bool ShouldSerializeParameterList() => ParameterList != null && ParameterList.Count > 0;
+        public bool ShouldSerializeDecalMaterials() => DecalMaterials != null;
     }
 
     public class ParameterDO
@@ -203,5 +207,21 @@ namespace BannerlordModEditor.Common.Models.DO
         public KeysDO? Keys { get; set; }
 
         public bool ShouldSerializeKeys() => Keys != null;
+    }
+
+    public class DecalMaterialsDO
+    {
+        [XmlElement("decal_material")]
+        public List<DecalMaterialDO> DecalMaterialList { get; set; } = new List<DecalMaterialDO>();
+
+        public bool ShouldSerializeDecalMaterialList() => DecalMaterialList != null && DecalMaterialList.Count > 0;
+    }
+
+    public class DecalMaterialDO
+    {
+        [XmlAttribute("value")]
+        public string? Value { get; set; }
+
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
     }
 }

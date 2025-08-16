@@ -97,12 +97,16 @@ namespace BannerlordModEditor.Common.Models.DTO
     public class ParametersDTO
     {
         public List<ParameterDTO> ParameterList { get; set; } = new List<ParameterDTO>();
+        public DecalMaterialsDTO? DecalMaterials { get; set; }
 
         public bool ShouldSerializeParameterList() => ParameterList != null && ParameterList.Count > 0;
+        public bool ShouldSerializeDecalMaterials() => DecalMaterials != null;
         
         // 便捷属性
         public int Count => ParameterList?.Count ?? 0;
         public bool HasParameters => ParameterList != null && ParameterList.Count > 0;
+        public bool HasDecalMaterials => DecalMaterials != null;
+        public int DecalMaterialsCount => DecalMaterials?.DecalMaterialList?.Count ?? 0;
     }
 
     public class ParameterDTO
@@ -208,5 +212,26 @@ namespace BannerlordModEditor.Common.Models.DTO
         // 设置方法
         public void SetValueDouble(double? value) => Value = value?.ToString();
         public void SetPositionDouble(double? value) => Position = value?.ToString();
+    }
+
+    public class DecalMaterialsDTO
+    {
+        public List<DecalMaterialDTO> DecalMaterialList { get; set; } = new List<DecalMaterialDTO>();
+
+        public bool ShouldSerializeDecalMaterialList() => DecalMaterialList != null && DecalMaterialList.Count > 0;
+        
+        // 便捷属性
+        public int Count => DecalMaterialList?.Count ?? 0;
+        public bool HasDecalMaterials => DecalMaterialList != null && DecalMaterialList.Count > 0;
+    }
+
+    public class DecalMaterialDTO
+    {
+        public string? Value { get; set; }
+
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+
+        // 类型安全的便捷属性
+        public bool HasValue => !string.IsNullOrEmpty(Value);
     }
 }
