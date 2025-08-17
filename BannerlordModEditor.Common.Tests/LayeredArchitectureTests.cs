@@ -23,7 +23,7 @@ namespace BannerlordModEditor.Common.Tests
         public void DO_Layer_Should_Serialize_Correctly()
         {
             // Arrange
-            var itemDO = new ItemDO
+            var itemDO = new MpItemDO
             {
                 Id = "test_item",
                 Name = "Test Item",
@@ -33,7 +33,7 @@ namespace BannerlordModEditor.Common.Tests
             };
 
             // Act
-            var serializer = new XmlSerializer(typeof(ItemDO));
+            var serializer = new XmlSerializer(typeof(MpItemDO));
             using var stringWriter = new StringWriter();
             serializer.Serialize(stringWriter, itemDO);
             var xml = stringWriter.ToString();
@@ -53,7 +53,7 @@ namespace BannerlordModEditor.Common.Tests
         public void DTO_Layer_Should_Provide_Numeric_Properties()
         {
             // Arrange
-            var itemDTO = new ItemDTO
+            var itemDTO = new MpItemDTO
             {
                 Id = "test_item",
                 Name = "Test Item",
@@ -76,7 +76,7 @@ namespace BannerlordModEditor.Common.Tests
         public void Mapping_Between_DO_And_DTO_Should_Work()
         {
             // Arrange
-            var itemDO = new ItemDO
+            var itemDO = new MpItemDO
             {
                 Id = "test_item",
                 Name = "Test Item",
@@ -115,7 +115,7 @@ namespace BannerlordModEditor.Common.Tests
         public void DTO_Setter_Methods_Should_Convert_To_String()
         {
             // Arrange
-            var itemDTO = new ItemDTO();
+            var itemDTO = new MpItemDTO();
 
             // Act
             itemDTO.SetValueInt(150);
@@ -139,14 +139,14 @@ namespace BannerlordModEditor.Common.Tests
         public void DO_Layer_Should_Handle_Null_Values_Correctly()
         {
             // Arrange
-            var itemDO = new ItemDO
+            var itemDO = new MpItemDO
             {
                 Id = "test_item"
                 // Other properties are null
             };
 
             // Act
-            var serializer = new XmlSerializer(typeof(ItemDO));
+            var serializer = new XmlSerializer(typeof(MpItemDO));
             using var stringWriter = new StringWriter();
             serializer.Serialize(stringWriter, itemDO);
             var xml = stringWriter.ToString();
@@ -169,7 +169,7 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Items = new()
                 {
-                    new ItemDO
+                    new MpItemDO
                     {
                         Id = "test_sword",
                         Name = "Test Sword",

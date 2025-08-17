@@ -1,6 +1,6 @@
 using System.IO;
 using Xunit;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -12,12 +12,12 @@ namespace BannerlordModEditor.Common.Tests
         public void AttributesXml_RoundTrip_StructuralEquality()
         {
             var xml = File.ReadAllText(TestDataPath);
-            var model = XmlTestUtils.Deserialize<AttributesDataModel>(xml);
+            var model = XmlTestUtils.Deserialize<AttributesDO>(xml);
             var serialized = XmlTestUtils.Serialize(model, xml); // Pass original XML to preserve namespaces
 
-            // 节点和属性数量断言
-            var (nodeCountA, attrCountA) = XmlTestUtils.CountNodesAndAttributes(xml);
-            var (nodeCountB, attrCountB) = XmlTestUtils.CountNodesAndAttributes(serialized);
+            // 节点和属性数量断言（使用非命名空间属性计数来忽略xmlns差异）
+            var (nodeCountA, attrCountA) = XmlTestUtils.CountNodesAndNonNamespaceAttributes(xml);
+            var (nodeCountB, attrCountB) = XmlTestUtils.CountNodesAndNonNamespaceAttributes(serialized);
             Assert.Equal(nodeCountA, nodeCountB);
             Assert.Equal(attrCountA, attrCountB);
 

@@ -15,9 +15,9 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var doItem = new MpItemsDO
             {
-                Items = new List<ItemDO>
+                Items = new List<MpItemDO>
                 {
-                    new ItemDO
+                    new MpItemDO
                     {
                         Id = "test_item_1",
                         Name = "Test Item 1",
@@ -95,10 +95,10 @@ namespace BannerlordModEditor.Common.Tests
         }
 
         [Fact]
-        public void ItemDO_BooleanValueParsing_ShouldHandleVariousFormats()
+        public void MpItemDO_BooleanValueParsing_ShouldHandleVariousFormats()
         {
             // Arrange
-            var item = new ItemDO
+            var item = new MpItemDO
             {
                 MultiplayerItem = "true",
                 UsingTableau = "1",
@@ -260,9 +260,9 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var doItem = new MpItemsDO
             {
-                Items = new List<ItemDO>
+                Items = new List<MpItemDO>
                 {
-                    new ItemDO
+                    new MpItemDO
                     {
                         Id = null,
                         Name = null,

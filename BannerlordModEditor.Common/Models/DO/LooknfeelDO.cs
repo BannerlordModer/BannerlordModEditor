@@ -156,13 +156,13 @@ namespace BannerlordModEditor.Common.Models.DO
         public LooknfeelMeshesContainerDO Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
-        public SubWidgetsContainerDO SubWidgets { get; set; }
+        public List<SubWidgetsContainerDO> SubWidgetsList { get; set; }
 
         [XmlIgnore]
         public bool HasEmptyMeshes { get; set; } = false;
 
         [XmlIgnore]
-        public bool HasEmptySubWidgets { get; set; } = false;
+        public bool HasEmptySubWidgetsList { get; set; } = false;
 
         public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
@@ -204,7 +204,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeFontSize() => !string.IsNullOrEmpty(FontSize);
         public bool ShouldSerializeSize() => !string.IsNullOrEmpty(Size);
         public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
-        public bool ShouldSerializeSubWidgets() => HasEmptySubWidgets || SubWidgets != null;
+        public bool ShouldSerializeSubWidgetsList() => HasEmptySubWidgetsList || (SubWidgetsList != null && SubWidgetsList.Count > 0);
         public bool ShouldSerializeMeshes() => HasEmptyMeshes || Meshes != null;
         public bool ShouldSerializeButtonMesh() => !string.IsNullOrEmpty(ButtonMesh);
     }
@@ -346,12 +346,12 @@ namespace BannerlordModEditor.Common.Models.DO
         public LooknfeelMeshesContainerDO Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
-        public SubWidgetsContainerDO SubWidgets { get; set; }
+        public List<SubWidgetsContainerDO> SubWidgetsList { get; set; }
 
         [XmlIgnore]
         public bool HasEmptyMeshes { get; set; } = false;
         [XmlIgnore]
-        public bool HasEmptySubWidgets { get; set; } = false;
+        public bool HasEmptySubWidgetsList { get; set; } = false;
 
         public bool ShouldSerializeRef() => !string.IsNullOrEmpty(Ref);
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
@@ -374,6 +374,6 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeTextHighlightColor() => !string.IsNullOrEmpty(TextHighlightColor);
         public bool ShouldSerializeFontSize() => !string.IsNullOrEmpty(FontSize);
         public bool ShouldSerializeMeshes() => HasEmptyMeshes || Meshes != null;
-        public bool ShouldSerializeSubWidgets() => HasEmptySubWidgets || SubWidgets != null;
+        public bool ShouldSerializeSubWidgetsList() => HasEmptySubWidgetsList || (SubWidgetsList != null && SubWidgetsList.Count > 0);
     }
 }

@@ -48,23 +48,38 @@ namespace BannerlordModEditor.Common.Models.DTO
     {
         public string? Name { get; set; }
         public string? Index { get; set; }
+        public ChildrenDTO? Children { get; set; }
         public ParticleFlagsDTO? Flags { get; set; }
         public ParametersDTO? Parameters { get; set; }
 
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
         public bool ShouldSerializeIndex() => !string.IsNullOrEmpty(Index);
+        public bool ShouldSerializeChildren() => Children != null;
         public bool ShouldSerializeFlags() => Flags != null;
         public bool ShouldSerializeParameters() => Parameters != null;
 
         // 类型安全的便捷属性
         public int? IndexInt => int.TryParse(Index, out int idx) ? idx : (int?)null;
+        public bool HasChildren => Children != null;
         public bool HasFlags => Flags != null;
         public bool HasParameters => Parameters != null;
         public int FlagsCount => Flags?.FlagList?.Count ?? 0;
         public int ParametersCount => Parameters?.ParameterList?.Count ?? 0;
+        public int ChildrenCount => Children?.EmitterList?.Count ?? 0;
 
         // 设置方法
         public void SetIndex(int? value) => Index = value?.ToString();
+    }
+
+    public class ChildrenDTO
+    {
+        public List<EmitterDTO> EmitterList { get; set; } = new List<EmitterDTO>();
+
+        public bool ShouldSerializeEmitterList() => EmitterList != null && EmitterList.Count > 0;
+        
+        // 便捷属性
+        public int Count => EmitterList?.Count ?? 0;
+        public bool HasChildren => EmitterList != null && EmitterList.Count > 0;
     }
 
     public class ParticleFlagsDTO

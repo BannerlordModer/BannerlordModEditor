@@ -6,11 +6,11 @@ namespace BannerlordModEditor.Common.Models.DTO
 {
     public class MpItemsDTO
     {
-        public List<ItemDTO> Items { get; set; } = new List<ItemDTO>();
+        public List<MpItemDTO> Items { get; set; } = new List<MpItemDTO>();
         public List<CraftedItemDTO> CraftedItems { get; set; } = new List<CraftedItemDTO>();
     }
 
-    public class ItemDTO
+    public class MpItemDTO
     {
         public bool MultiplayerItem { get; set; }
         public string Id { get; set; } = string.Empty;
@@ -252,7 +252,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? SkeletonScale { get; set; }
         public string? ModifierGroup { get; set; }
         public AdditionalMeshesDTO? AdditionalMeshes { get; set; }
-        public MaterialsDTO? Materials { get; set; }
+        public MpItemMaterialsDTO? Materials { get; set; }
 
         // 数值类型的便捷属性（基于字符串属性）
         public int? SpeedInt => int.TryParse(Speed, out int speed) ? speed : (int?)null;
@@ -282,23 +282,23 @@ namespace BannerlordModEditor.Common.Models.DTO
         public bool AffectedByCover { get; set; }
     }
 
-    public class MaterialsDTO
+    public class MpItemMaterialsDTO
     {
-        public List<MaterialDTO> MaterialList { get; set; } = new List<MaterialDTO>();
+        public List<MpItemMaterialDTO> MaterialList { get; set; } = new List<MpItemMaterialDTO>();
     }
 
-    public class MaterialDTO
+    public class MpItemMaterialDTO
     {
         public string? Name { get; set; }
-        public MeshMultipliersDTO? MeshMultipliers { get; set; }
+        public MpItemMeshMultipliersDTO? MeshMultipliers { get; set; }
     }
 
-    public class MeshMultipliersDTO
+    public class MpItemMeshMultipliersDTO
     {
-        public List<MeshMultiplierDTO> Multipliers { get; set; } = new List<MeshMultiplierDTO>();
+        public List<MpItemMeshMultiplierDTO> Multipliers { get; set; } = new List<MpItemMeshMultiplierDTO>();
     }
 
-    public class MeshMultiplierDTO
+    public class MpItemMeshMultiplierDTO
     {
         public string? MeshMultiplierValue { get; set; }
         public string? Percentage { get; set; }

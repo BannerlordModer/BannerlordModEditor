@@ -27,9 +27,9 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var doItem = new MpItemsDO
             {
-                Items = new List<ItemDO>
+                Items = new List<MpItemDO>
                 {
-                    new ItemDO
+                    new MpItemDO
                     {
                         Id = "test_item_1",
                         Name = "Test Item 1",
@@ -99,9 +99,9 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var originalDo = new MpItemsDO
             {
-                Items = new List<ItemDO>
+                Items = new List<MpItemDO>
                 {
-                    new ItemDO
+                    new MpItemDO
                     {
                         Id = "test_item_1",
                         Name = "Test Item 1",

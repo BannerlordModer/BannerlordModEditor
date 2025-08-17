@@ -105,7 +105,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Position = source.Position,
                 Meshes = LooknfeelMeshesContainerMapper.ToDTO(source.Meshes),
                 ButtonMesh = source.ButtonMesh,
-                SubWidgets = SubWidgetsContainerMapper.ToDTO(source.SubWidgets)
+                SubWidgetsList = source.SubWidgetsList?
+                    .Select(SubWidgetsContainerMapper.ToDTO)
+                    .ToList() ?? new List<SubWidgetsContainerDTO>()
             };
         }
 
@@ -153,7 +155,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Position = source.Position,
                 Meshes = LooknfeelMeshesContainerMapper.ToDO(source.Meshes),
                 ButtonMesh = source.ButtonMesh,
-                SubWidgets = SubWidgetsContainerMapper.ToDO(source.SubWidgets)
+                SubWidgetsList = source.SubWidgetsList?
+                    .Select(SubWidgetsContainerMapper.ToDO)
+                    .ToList() ?? new List<SubWidgetsContainerDO>()
             };
         }
     }
@@ -302,7 +306,9 @@ namespace BannerlordModEditor.Common.Mappers
                 TextHighlightColor = source.TextHighlightColor,
                 FontSize = source.FontSize,
                 Meshes = LooknfeelMeshesContainerMapper.ToDTO(source.Meshes),
-                SubWidgets = SubWidgetsContainerMapper.ToDTO(source.SubWidgets)
+                SubWidgetsList = source.SubWidgetsList?
+                    .Select(SubWidgetsContainerMapper.ToDTO)
+                    .ToList() ?? new List<SubWidgetsContainerDTO>()
             };
         }
 
@@ -329,7 +335,9 @@ namespace BannerlordModEditor.Common.Mappers
                 TextHighlightColor = source.TextHighlightColor,
                 FontSize = source.FontSize,
                 Meshes = LooknfeelMeshesContainerMapper.ToDO(source.Meshes),
-                SubWidgets = SubWidgetsContainerMapper.ToDO(source.SubWidgets)
+                SubWidgetsList = source.SubWidgetsList?
+                    .Select(SubWidgetsContainerMapper.ToDO)
+                    .ToList() ?? new List<SubWidgetsContainerDO>()
             };
         }
     }

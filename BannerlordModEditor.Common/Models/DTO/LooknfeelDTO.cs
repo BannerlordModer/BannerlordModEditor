@@ -147,7 +147,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public LooknfeelMeshesContainerDTO Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
-        public SubWidgetsContainerDTO SubWidgets { get; set; }
+        public List<SubWidgetsContainerDTO> SubWidgetsList { get; set; }
 
         [XmlAttribute("button_mesh")]
         public string ButtonMesh { get; set; }
@@ -194,7 +194,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
         public bool ShouldSerializeButtonMesh() => !string.IsNullOrEmpty(ButtonMesh);
         public bool ShouldSerializeMeshes() => Meshes != null;
-        public bool ShouldSerializeSubWidgets() => SubWidgets != null;
+        public bool ShouldSerializeSubWidgetsList() => SubWidgetsList != null && SubWidgetsList.Count > 0;
     }
 
     public class LooknfeelMeshesContainerDTO
@@ -316,7 +316,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public LooknfeelMeshesContainerDTO Meshes { get; set; }
 
         [XmlElement("sub_widgets")]
-        public SubWidgetsContainerDTO SubWidgets { get; set; }
+        public List<SubWidgetsContainerDTO> SubWidgetsList { get; set; }
 
         public bool ShouldSerializeRef() => !string.IsNullOrEmpty(Ref);
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
@@ -339,6 +339,6 @@ namespace BannerlordModEditor.Common.Models.DTO
         public bool ShouldSerializeTextHighlightColor() => !string.IsNullOrEmpty(TextHighlightColor);
         public bool ShouldSerializeFontSize() => !string.IsNullOrEmpty(FontSize);
         public bool ShouldSerializeMeshes() => Meshes != null;
-        public bool ShouldSerializeSubWidgets() => SubWidgets != null;
+        public bool ShouldSerializeSubWidgetsList() => SubWidgetsList != null && SubWidgetsList.Count > 0;
     }
 }
