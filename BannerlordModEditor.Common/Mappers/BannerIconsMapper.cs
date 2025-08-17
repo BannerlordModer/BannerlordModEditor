@@ -183,7 +183,9 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Colors = source.Colors?
                     .Select(ColorEntryMapper.ToDO)
-                    .ToList() ?? new List<ColorEntryDO>()
+                    .ToList() ?? new List<ColorEntryDO>(),
+                // 修复：添加对空Colors的标记
+                HasEmptyColors = source.Colors != null && source.Colors.Count == 0
             };
         }
     }

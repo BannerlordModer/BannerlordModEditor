@@ -191,6 +191,54 @@ namespace BannerlordModEditor.Common.Tests
                     bannerIcons.BannerIconData.HasBannerColors = doc.Root?
                         .Element("BannerIconData")?
                         .Element("BannerColors") != null;
+                        
+                    // 修复：处理BannerColors的空元素状态
+                    if (bannerIcons.BannerIconData.BannerColors != null)
+                    {
+                        var bannerColorsElement = doc.Root?
+                            .Element("BannerIconData")?
+                            .Element("BannerColors");
+                        bannerIcons.BannerIconData.BannerColors.HasEmptyColors = bannerColorsElement != null && 
+                            (bannerColorsElement.Elements().Count() == 0 || 
+                             bannerColorsElement.Elements("Color").Count() == 0);
+                    }
+                        
+                    // 修复：处理BannerIconGroups的空元素状态
+                    var bannerIconGroupsElement = doc.Root?
+                        .Element("BannerIconData")?
+                        .Element("BannerIconGroups");
+                    bannerIcons.BannerIconData.HasEmptyBannerIconGroups = bannerIconGroupsElement != null && 
+                        (bannerIconGroupsElement.Elements().Count() == 0 || 
+                         bannerIconGroupsElement.Elements("BannerIconGroup").Count() == 0);
+
+                    // 修复：处理每个BannerIconGroup的Backgrounds和Icons状态
+                    if (bannerIcons.BannerIconData.BannerIconGroups != null)
+                    {
+                        var bannerIconGroupElements = doc.Root?
+                            .Element("BannerIconData")?
+                            .Elements("BannerIconGroup").ToList();
+                            
+                        for (int i = 0; i < bannerIcons.BannerIconData.BannerIconGroups.Count; i++)
+                        {
+                            var group = bannerIcons.BannerIconData.BannerIconGroups[i];
+                            var groupElement = bannerIconGroupElements.ElementAtOrDefault(i);
+                            
+                            if (groupElement != null)
+                            {
+                                // 检查Backgrounds元素
+                                var backgroundsElement = groupElement.Element("Backgrounds");
+                                group.HasEmptyBackgrounds = backgroundsElement != null && 
+                                    (backgroundsElement.Elements().Count() == 0 || 
+                                     backgroundsElement.Elements("Background").Count() == 0);
+                                
+                                // 检查Icons元素
+                                var iconsElement = groupElement.Element("Icons");
+                                group.HasEmptyIcons = iconsElement != null && 
+                                    (iconsElement.Elements().Count() == 0 || 
+                                     iconsElement.Elements("Icon").Count() == 0);
+                            }
+                        }
+                    }
                 }
             }
             
@@ -279,9 +327,90 @@ namespace BannerlordModEditor.Common.Tests
                                         emitter.Flags.HasEmptyFlags = flagsElement != null && 
                                             (flagsElement.Elements("flag").Count() == 0);
                                     }
+                                    
+                                    // 处理parameters中的curve和key元素
+                                    if (emitter.Parameters != null && emitter.Parameters.ParameterList != null)
+                                    {
+                                        var parametersElement = emitterElement.Element("parameters");
+                                        if (parametersElement != null)
+                                        {
+                                            var parameterElements = parametersElement.Elements("parameter").ToList();
+                                            for (int k = 0; k < emitter.Parameters.ParameterList.Count && k < parameterElements.Count; k++)
+                                            {
+                                                var parameter = emitter.Parameters.ParameterList[k];
+                                                var parameterElement = parameterElements[k];
+                                                
+                                                // 检查是否有空的curve元素
+                                                var curveElement = parameterElement.Element("curve");
+                                                if (curveElement != null)
+                                                {
+                                                    // 检查curve是否为空（没有keys子元素）
+                                                    var keysElement = curveElement.Element("keys");
+                                                    if (keysElement == null || keysElement.Elements("key").Count() == 0)
+                                                    {
+                                                        // 标记这个curve需要保持为空元素
+                                                        parameter.HasEmptyCurve = true;
+                                                        if (parameter.ParameterCurve != null)
+                                                        {
+                                                            parameter.ParameterCurve.HasEmptyKeys = true;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                // 检查是否有空的color或alpha元素
+                                                var colorElement = parameterElement.Element("color");
+                                                if (colorElement != null)
+                                                {
+                                                    var colorKeysElement = colorElement.Element("keys");
+                                                    if (colorKeysElement == null || colorKeysElement.Elements("key").Count() == 0)
+                                                    {
+                                                        parameter.HasEmptyColor = true;
+                                                        if (parameter.ColorElement != null)
+                                                        {
+                                                            parameter.ColorElement.HasEmptyKeys = true;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                var alphaElement = parameterElement.Element("alpha");
+                                                if (alphaElement != null)
+                                                {
+                                                    var alphaKeysElement = alphaElement.Element("keys");
+                                                    if (alphaKeysElement == null || alphaKeysElement.Elements("key").Count() == 0)
+                                                    {
+                                                        parameter.HasEmptyAlpha = true;
+                                                        if (parameter.AlphaElement != null)
+                                                        {
+                                                            parameter.AlphaElement.HasEmptyKeys = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
+                    }
+                }
+            }
+            
+            // 特殊处理MPClassDivisionsDO来检测是否有Perks元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Multiplayer.MPClassDivisionsDO mpClassDivisions)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 处理每个MPClassDivision的HasPerks标记
+                if (mpClassDivisions.MPClassDivisions != null)
+                {
+                    var divisionElements = doc.Root?.Elements("MPClassDivision").ToList();
+                    for (int i = 0; i < mpClassDivisions.MPClassDivisions.Count && i < divisionElements.Count; i++)
+                    {
+                        var division = mpClassDivisions.MPClassDivisions[i];
+                        var divisionElement = divisionElements[i];
+                        
+                        // 检查是否有Perks元素
+                        division.HasPerks = divisionElement.Element("Perks") != null;
                     }
                 }
             }
