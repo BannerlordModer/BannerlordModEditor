@@ -110,7 +110,7 @@ namespace BannerlordModEditor.Common.Mappers
                 Base = source.Base,
                 Bias = source.Bias,
                 Curve = source.Curve,
-                ParameterCurve = ToDTO(source.ParameterCurve),
+                ParameterCurve = source.ParameterCurves?.FirstOrDefault() != null ? ToDTO(source.ParameterCurves.FirstOrDefault()) : null,
                 ColorElement = ToDTO(source.ColorElement),
                 AlphaElement = ToDTO(source.AlphaElement)
             };
@@ -297,7 +297,7 @@ namespace BannerlordModEditor.Common.Mappers
                 Base = source.Base,
                 Bias = source.Bias,
                 Curve = source.Curve,
-                ParameterCurve = ToDO(source.ParameterCurve),
+                ParameterCurves = source.ParameterCurve != null ? new List<CurveDO> { ToDO(source.ParameterCurve) } : new List<CurveDO>(),
                 ColorElement = ToDO(source.ColorElement),
                 AlphaElement = ToDO(source.AlphaElement)
             };

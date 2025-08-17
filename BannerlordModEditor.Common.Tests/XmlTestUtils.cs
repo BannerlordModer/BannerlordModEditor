@@ -415,6 +415,106 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
+            // 特殊处理PostfxGraphsDO来检测是否有PostfxGraphs元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Engine.PostfxGraphsDO postfxGraphs)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 检查是否有postfx_graphs元素
+                postfxGraphs.HasPostfxGraphs = doc.Root?.Element("postfx_graphs") != null;
+                
+                // 处理每个PostfxNode的HasPreconditions标记
+                if (postfxGraphs.PostfxGraphs != null)
+                {
+                    foreach (var graph in postfxGraphs.PostfxGraphs.Graphs)
+                    {
+                        foreach (var node in graph.Nodes)
+                        {
+                            // 检查是否有preconditions元素
+                            node.HasPreconditions = node.Preconditions != null && node.Preconditions.Configs.Count > 0;
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理LayoutsBaseDO来检测是否有layouts元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Layouts.LayoutsBaseDO layouts)
+            {
+                var doc = XDocument.Parse(xml);
+                layouts.HasLayouts = doc.Root?.Element("layouts") != null;
+                
+                // 处理每个layout的子元素状态
+                if (layouts.Layouts != null && layouts.Layouts.LayoutList != null)
+                {
+                    var layoutsElement = doc.Root?.Element("layouts");
+                    
+                    for (int i = 0; i < layouts.Layouts.LayoutList.Count; i++)
+                    {
+                        var layout = layouts.Layouts.LayoutList[i];
+                        var layoutElement = layoutsElement?.Elements("layout").ElementAt(i);
+                        
+                        if (layoutElement != null)
+                        {
+                            // 检查columns元素
+                            var columnsElement = layoutElement.Element("columns");
+                            layout.HasColumns = columnsElement != null && columnsElement.Elements().Count() > 0;
+                            
+                            // 检查insertion_definitions元素
+                            var insertionDefinitionsElement = layoutElement.Element("insertion_definitions");
+                            layout.HasInsertionDefinitions = insertionDefinitionsElement != null && insertionDefinitionsElement.Elements().Count() > 0;
+                            
+                            // 检查treeview_context_menu元素
+                            var treeviewContextMenuElement = layoutElement.Element("treeview_context_menu");
+                            layout.HasTreeviewContextMenu = treeviewContextMenuElement != null && treeviewContextMenuElement.Elements().Count() > 0;
+                            
+                            // 检查items元素
+                            var itemsElement = layoutElement.Element("items");
+                            layout.HasItems = itemsElement != null && itemsElement.Elements().Count() > 0;
+                            
+                            // 处理insertion_definitions中的default_node状态
+                            if (layout.InsertionDefinitions != null && layout.InsertionDefinitions.InsertionDefinitionList != null)
+                            {
+                                var insertionDefinitionsElement2 = layoutElement.Element("insertion_definitions");
+                                
+                                for (int j = 0; j < layout.InsertionDefinitions.InsertionDefinitionList.Count; j++)
+                                {
+                                    var insertionDef = layout.InsertionDefinitions.InsertionDefinitionList[j];
+                                    var insertionDefElement = insertionDefinitionsElement2?.Elements("insertion_definition").ElementAt(j);
+                                    
+                                    if (insertionDefElement != null)
+                                    {
+                                        var defaultNodeElement = insertionDefElement.Element("default_node");
+                                        insertionDef.HasDefaultNode = defaultNodeElement != null && defaultNodeElement.Elements().Count() > 0;
+                                    }
+                                }
+                            }
+                            
+                            // 处理items中的properties状态
+                            if (layout.Items != null && layout.Items.ItemList != null)
+                            {
+                                var itemsElement2 = layoutElement.Element("items");
+                                
+                                for (int j = 0; j < layout.Items.ItemList.Count; j++)
+                                {
+                                    var item = layout.Items.ItemList[j];
+                                    var itemElement = itemsElement2?.Elements("item").ElementAt(j);
+                                    
+                                    if (itemElement != null)
+                                    {
+                                        var propertiesElement = itemElement.Element("properties");
+                                        item.HasProperties = propertiesElement != null && propertiesElement.Elements().Count() > 0;
+                                        
+                                        // 检查optional属性
+                                        var optionalAttribute = itemElement.Attribute("optional");
+                                        item.HasOptional = optionalAttribute != null;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
             return obj;
         }
         

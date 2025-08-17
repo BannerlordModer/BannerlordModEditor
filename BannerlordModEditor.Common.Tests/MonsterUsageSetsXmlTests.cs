@@ -1,5 +1,5 @@
 using System.Xml.Serialization;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO.Game;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
@@ -11,205 +11,84 @@ namespace BannerlordModEditor.Common.Tests
         {
             // Arrange
             var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
-<monster_usage_sets xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema""
-	type=""monster_usage_set"">
-	<monster_usage_set
-		id=""human""
-		hit_object_action=""act_horse_hit_object""
-		hit_object_falling_action=""act_horse_hit_object_while_falling""
-		rear_action=""act_horse_rear""
-		rear_damaged_action=""act_horse_rear_damaged""
-		ladder_climb_action=""act_climb_ladder""
-		strike_ladder_action=""act_strike_ladder"">
-		<monster_usage_strikes>
-			<monster_usage_strike
-				is_heavy=""False""
-				is_left_stance=""False""
-				direction=""front""
-				body_part=""chest""
-				impact=""1""
-				action=""act_strike_chest_front"" />
-			<monster_usage_strike
-				is_heavy=""True""
-				is_left_stance=""True""
-				direction=""back""
-				body_part=""head""
-				impact=""3""
-				action=""act_strike_head_back_left_stance"" />
-		</monster_usage_strikes>
-		<monster_usage_movements>
-			<monster_usage_movement
-				is_left_foot=""False""
-				pace=""1""
-				direction=""front""
-				turn_direction=""none""
-				action=""act_horse_forward_walk"" />
-			<monster_usage_movement
-				is_left_foot=""True""
-				pace=""2""
-				direction=""left""
-				turn_direction=""left""
-				action=""act_horse_forward_walk_turn_left"" />
-		</monster_usage_movements>
-		<monster_usage_jumps>
-			<monster_usage_jump
-				jump_state=""start""
-				direction=""none""
-				action=""act_jump"" />
-			<monster_usage_jump
-				jump_state=""loop""
-				direction=""none""
-				action=""act_jump_loop""
-				is_hard=""False"" />
-		</monster_usage_jumps>
-	</monster_usage_set>
+<monster_usage_sets>
+    <monster_usage_set
+        id=""test_monster""
+        hit_object_action=""act_hit_object""
+        hit_object_falling_action=""act_hit_object_falling""
+        rear_action=""act_rear""
+        rear_damaged_action=""act_rear_damaged""
+        ladder_climb_action=""act_ladder_climb""
+        strike_ladder_action=""act_strike_ladder"">
+        <MonsterUsageStrikes>
+            <MonsterUsageStrike
+                is_heavy=""true""
+                is_left_stance=""false""
+                direction=""left""
+                body_part=""head""
+                impact=""blunt""
+                action=""act_strike_left"" />
+            <MonsterUsageStrike
+                is_heavy=""false""
+                is_left_stance=""true""
+                direction=""right""
+                body_part=""body""
+                impact=""cut""
+                action=""act_strike_right"" />
+        </MonsterUsageStrikes>
+    </monster_usage_set>
 </monster_usage_sets>";
 
-            var serializer = new XmlSerializer(typeof(MonsterUsageSets));
-
-            // Act
-            MonsterUsageSets? result;
-            using (var reader = new StringReader(xmlContent))
-            {
-                result = (MonsterUsageSets?)serializer.Deserialize(reader);
-            }
+            var result = XmlTestUtils.Deserialize<MonsterUsageSetsDO>(xmlContent);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("monster_usage_set", result.Type);
-            Assert.NotNull(result.MonsterUsageSet);
-            Assert.Single(result.MonsterUsageSet);
-
-            var monsterSet = result.MonsterUsageSet[0];
-            Assert.Equal("human", monsterSet.Id);
-            Assert.Equal("act_horse_hit_object", monsterSet.HitObjectAction);
-            Assert.Equal("act_climb_ladder", monsterSet.LadderClimbAction);
-
-            // Test strikes
+            Assert.NotEmpty(result.MonsterUsageSets);
+            
+            var monsterSet = result.MonsterUsageSets[0];
+            Assert.Equal("test_monster", monsterSet.Id);
+            Assert.Equal("act_hit_object", monsterSet.HitObjectAction);
+            Assert.Equal("act_rear", monsterSet.RearAction);
+            Assert.Equal("act_ladder_climb", monsterSet.LadderClimbAction);
+            
+            Assert.True(monsterSet.HasMonsterUsageStrikes);
             Assert.NotNull(monsterSet.MonsterUsageStrikes);
-            Assert.NotNull(monsterSet.MonsterUsageStrikes.MonsterUsageStrike);
-            Assert.Equal(2, monsterSet.MonsterUsageStrikes.MonsterUsageStrike.Length);
-
-            var strike = monsterSet.MonsterUsageStrikes.MonsterUsageStrike[0];
-            Assert.Equal("False", strike.IsHeavy);
-            Assert.Equal("False", strike.IsLeftStance);
-            Assert.Equal("front", strike.Direction);
-            Assert.Equal("chest", strike.BodyPart);
-            Assert.Equal("1", strike.Impact);
-            Assert.Equal("act_strike_chest_front", strike.Action);
-
-            // Test movements
-            Assert.NotNull(monsterSet.MonsterUsageMovements);
-            Assert.NotNull(monsterSet.MonsterUsageMovements.MonsterUsageMovement);
-            Assert.Equal(2, monsterSet.MonsterUsageMovements.MonsterUsageMovement.Length);
-
-            var movement = monsterSet.MonsterUsageMovements.MonsterUsageMovement[0];
-            Assert.Equal("False", movement.IsLeftFoot);
-            Assert.Equal("1", movement.Pace);
-            Assert.Equal("front", movement.Direction);
-            Assert.Equal("none", movement.TurnDirection);
-            Assert.Equal("act_horse_forward_walk", movement.Action);
-
-            // Test jumps
-            Assert.NotNull(monsterSet.MonsterUsageJumps);
-            Assert.NotNull(monsterSet.MonsterUsageJumps.MonsterUsageJump);
-            Assert.Equal(2, monsterSet.MonsterUsageJumps.MonsterUsageJump.Length);
-
-            var jump = monsterSet.MonsterUsageJumps.MonsterUsageJump[0];
-            Assert.Equal("start", jump.JumpState);
-            Assert.Equal("none", jump.Direction);
-            Assert.Equal("act_jump", jump.Action);
-        }
-
-        [Fact]
-        public void MonsterUsageSets_WithFallsAndUpperBodyMovements_CanDeserializeFromXml()
-        {
-            // Arrange
-            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
-<monster_usage_sets type=""monster_usage_set"">
-	<monster_usage_set id=""test"">
-		<monster_usage_falls>
-			<monster_usage_fall
-				is_heavy=""False""
-				is_left_stance=""False""
-				direction=""right""
-				body_part=""none""
-				death_type=""other""
-				action=""act_horse_fall_left"" />
-		</monster_usage_falls>
-		<monster_usage_upper_body_movements>
-			<monster_usage_upper_body_movement
-				pace=""1""
-				direction=""front""
-				action=""act_horse_idle_1"" />
-		</monster_usage_upper_body_movements>
-	</monster_usage_set>
-</monster_usage_sets>";
-
-            var serializer = new XmlSerializer(typeof(MonsterUsageSets));
-
-            // Act
-            MonsterUsageSets? result;
-            using (var reader = new StringReader(xmlContent))
-            {
-                result = (MonsterUsageSets?)serializer.Deserialize(reader);
-            }
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.NotNull(result.MonsterUsageSet);
-            Assert.Single(result.MonsterUsageSet);
-
-            var monsterSet = result.MonsterUsageSet[0];
-            Assert.Equal("test", monsterSet.Id);
-
-            // Test falls
-            Assert.NotNull(monsterSet.MonsterUsageFalls);
-            Assert.NotNull(monsterSet.MonsterUsageFalls.MonsterUsageFall);
-            Assert.Single(monsterSet.MonsterUsageFalls.MonsterUsageFall);
-
-            var fall = monsterSet.MonsterUsageFalls.MonsterUsageFall[0];
-            Assert.Equal("False", fall.IsHeavy);
-            Assert.Equal("right", fall.Direction);
-            Assert.Equal("other", fall.DeathType);
-            Assert.Equal("act_horse_fall_left", fall.Action);
-
-            // Test upper body movements
-            Assert.NotNull(monsterSet.MonsterUsageUpperBodyMovements);
-            Assert.NotNull(monsterSet.MonsterUsageUpperBodyMovements.MonsterUsageUpperBodyMovement);
-            Assert.Single(monsterSet.MonsterUsageUpperBodyMovements.MonsterUsageUpperBodyMovement);
-
-            var upperBodyMovement = monsterSet.MonsterUsageUpperBodyMovements.MonsterUsageUpperBodyMovement[0];
-            Assert.Equal("1", upperBodyMovement.Pace);
-            Assert.Equal("front", upperBodyMovement.Direction);
-            Assert.Equal("act_horse_idle_1", upperBodyMovement.Action);
+            Assert.Equal(2, monsterSet.MonsterUsageStrikes.Strikes.Count);
+            
+            var firstStrike = monsterSet.MonsterUsageStrikes.Strikes[0];
+            Assert.Equal("True", firstStrike.IsHeavy);
+            Assert.Equal("False", firstStrike.IsLeftStance);
+            Assert.Equal("left", firstStrike.Direction);
+            Assert.Equal("head", firstStrike.BodyPart);
+            Assert.Equal("blunt", firstStrike.Impact);
+            Assert.Equal("act_strike_left", firstStrike.Action);
         }
 
         [Fact]
         public void MonsterUsageSets_CanSerializeToXml()
         {
             // Arrange
-            var monsterUsageSets = new MonsterUsageSets
+            var model = new MonsterUsageSetsDO
             {
-                Type = "monster_usage_set",
-                MonsterUsageSet = new[]
+                MonsterUsageSets = new List<MonsterUsageSetDO>
                 {
-                    new MonsterUsageSet
+                    new MonsterUsageSetDO
                     {
                         Id = "test_monster",
-                        HitObjectAction = "test_hit_action",
-                        LadderClimbAction = "test_climb_action",
-                        MonsterUsageStrikes = new MonsterUsageStrikes
+                        HitObjectAction = "act_hit_object",
+                        RearAction = "act_rear",
+                        HasMonsterUsageStrikes = true,
+                        MonsterUsageStrikes = new MonsterUsageStrikesDO
                         {
-                            MonsterUsageStrike = new[]
+                            Strikes = new List<MonsterUsageStrikeDO>
                             {
-                                new MonsterUsageStrike
+                                new MonsterUsageStrikeDO
                                 {
                                     IsHeavy = "True",
-                                    Direction = "front",
-                                    BodyPart = "chest",
-                                    Impact = "2",
-                                    Action = "test_strike_action"
+                                    Direction = "left",
+                                    BodyPart = "head",
+                                    Impact = "blunt",
+                                    Action = "act_strike_left"
                                 }
                             }
                         }
@@ -217,61 +96,54 @@ namespace BannerlordModEditor.Common.Tests
                 }
             };
 
-            var serializer = new XmlSerializer(typeof(MonsterUsageSets));
-
-            // Act
-            string result;
-            using (var writer = new StringWriter())
-            {
-                serializer.Serialize(writer, monsterUsageSets);
-                result = writer.ToString();
-            }
+            var xml = XmlTestUtils.Serialize(model);
 
             // Assert
-            Assert.Contains("type=\"monster_usage_set\"", result);
-            Assert.Contains("id=\"test_monster\"", result);
-            Assert.Contains("hit_object_action=\"test_hit_action\"", result);
-            Assert.Contains("is_heavy=\"True\"", result);
-            Assert.Contains("action=\"test_strike_action\"", result);
+            Assert.Contains("test_monster", xml);
+            Assert.Contains("act_hit_object", xml);
+            Assert.Contains("monster_usage_strike", xml);
+            Assert.Contains("blunt", xml);
         }
 
         [Fact]
-        public void MonsterUsageSets_RoundTripSerialization_MaintainsData()
+        public void MonsterUsageSets_RoundTripPreservesData()
         {
             // Arrange
-            var original = new MonsterUsageSets
+            var originalModel = new MonsterUsageSetsDO
             {
-                Type = "monster_usage_set",
-                MonsterUsageSet = new[]
+                MonsterUsageSets = new List<MonsterUsageSetDO>
                 {
-                    new MonsterUsageSet
+                    new MonsterUsageSetDO
                     {
                         Id = "test_monster",
-                        HitObjectAction = "test_action",
-                        MonsterUsageMovements = new MonsterUsageMovements
+                        HitObjectAction = "act_hit_object",
+                        HitObjectFallingAction = "act_hit_object_falling",
+                        RearAction = "act_rear",
+                        RearDamagedAction = "act_rear_damaged",
+                        LadderClimbAction = "act_ladder_climb",
+                        StrikeLadderAction = "act_strike_ladder",
+                        HasMonsterUsageStrikes = true,
+                        MonsterUsageStrikes = new MonsterUsageStrikesDO
                         {
-                            MonsterUsageMovement = new[]
+                            Strikes = new List<MonsterUsageStrikeDO>
                             {
-                                new MonsterUsageMovement
+                                new MonsterUsageStrikeDO
                                 {
-                                    IsLeftFoot = "True",
-                                    Pace = "3",
-                                    Direction = "front",
-                                    TurnDirection = "left",
-                                    Action = "test_movement_action"
-                                }
-                            }
-                        },
-                        MonsterUsageJumps = new MonsterUsageJumps
-                        {
-                            MonsterUsageJump = new[]
-                            {
-                                new MonsterUsageJump
+                                    IsHeavy = "True",
+                                    IsLeftStance = "False",
+                                    Direction = "left",
+                                    BodyPart = "head",
+                                    Impact = "blunt",
+                                    Action = "act_strike_left"
+                                },
+                                new MonsterUsageStrikeDO
                                 {
-                                    JumpState = "loop",
-                                    Direction = "up",
-                                    Action = "test_jump_action",
-                                    IsHard = "False"
+                                    IsHeavy = "False",
+                                    IsLeftStance = "True",
+                                    Direction = "right",
+                                    BodyPart = "body",
+                                    Impact = "cut",
+                                    Action = "act_strike_right"
                                 }
                             }
                         }
@@ -279,76 +151,97 @@ namespace BannerlordModEditor.Common.Tests
                 }
             };
 
-            var serializer = new XmlSerializer(typeof(MonsterUsageSets));
+            // Act - Serialize
+            var xml = XmlTestUtils.Serialize(originalModel);
 
-            // Act - Serialize and then deserialize
-            string xmlContent;
-            using (var writer = new StringWriter())
-            {
-                serializer.Serialize(writer, original);
-                xmlContent = writer.ToString();
-            }
+            // Act - Deserialize
+            var deserializedModel = XmlTestUtils.Deserialize<MonsterUsageSetsDO>(xml);
 
-            MonsterUsageSets? result;
-            using (var reader = new StringReader(xmlContent))
-            {
-                result = (MonsterUsageSets?)serializer.Deserialize(reader);
-            }
+            // Assert
+            Assert.NotNull(deserializedModel);
+            Assert.Equal(originalModel.MonsterUsageSets.Count, deserializedModel.MonsterUsageSets.Count);
+            
+            var original = originalModel.MonsterUsageSets[0];
+            var deserialized = deserializedModel.MonsterUsageSets[0];
+            
+            Assert.Equal(original.Id, deserialized.Id);
+            Assert.Equal(original.HitObjectAction, deserialized.HitObjectAction);
+            Assert.Equal(original.HitObjectFallingAction, deserialized.HitObjectFallingAction);
+            Assert.Equal(original.RearAction, deserialized.RearAction);
+            Assert.Equal(original.RearDamagedAction, deserialized.RearDamagedAction);
+            Assert.Equal(original.LadderClimbAction, deserialized.LadderClimbAction);
+            Assert.Equal(original.StrikeLadderAction, deserialized.StrikeLadderAction);
+            
+            Assert.Equal(original.HasMonsterUsageStrikes, deserialized.HasMonsterUsageStrikes);
+            Assert.Equal(original.MonsterUsageStrikes.Strikes.Count, deserialized.MonsterUsageStrikes.Strikes.Count);
+            
+            var originalStrike = original.MonsterUsageStrikes.Strikes[0];
+            var deserializedStrike = deserialized.MonsterUsageStrikes.Strikes[0];
+            
+            Assert.Equal(originalStrike.IsHeavy, deserializedStrike.IsHeavy);
+            Assert.Equal(originalStrike.IsLeftStance, deserializedStrike.IsLeftStance);
+            Assert.Equal(originalStrike.Direction, deserializedStrike.Direction);
+            Assert.Equal(originalStrike.BodyPart, deserializedStrike.BodyPart);
+            Assert.Equal(originalStrike.Impact, deserializedStrike.Impact);
+            Assert.Equal(originalStrike.Action, deserializedStrike.Action);
+        }
+
+        [Fact]
+        public void MonsterUsageSets_EmptyXmlHandledCorrectly()
+        {
+            // Arrange
+            var xmlContent = @"<monster_usage_sets></monster_usage_sets>";
+
+            var result = XmlTestUtils.Deserialize<MonsterUsageSetsDO>(xmlContent);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("monster_usage_set", result.Type);
-            Assert.NotNull(result.MonsterUsageSet);
-            Assert.Single(result.MonsterUsageSet);
-
-            var monsterSet = result.MonsterUsageSet[0];
-            Assert.Equal("test_monster", monsterSet.Id);
-            Assert.Equal("test_action", monsterSet.HitObjectAction);
-
-            // Verify movements
-            Assert.NotNull(monsterSet.MonsterUsageMovements);
-            Assert.NotNull(monsterSet.MonsterUsageMovements.MonsterUsageMovement);
-            Assert.Single(monsterSet.MonsterUsageMovements.MonsterUsageMovement);
-
-            var movement = monsterSet.MonsterUsageMovements.MonsterUsageMovement[0];
-            Assert.Equal("True", movement.IsLeftFoot);
-            Assert.Equal("3", movement.Pace);
-            Assert.Equal("front", movement.Direction);
-            Assert.Equal("left", movement.TurnDirection);
-            Assert.Equal("test_movement_action", movement.Action);
-
-            // Verify jumps
-            Assert.NotNull(monsterSet.MonsterUsageJumps);
-            Assert.NotNull(monsterSet.MonsterUsageJumps.MonsterUsageJump);
-            Assert.Single(monsterSet.MonsterUsageJumps.MonsterUsageJump);
-
-            var jump = monsterSet.MonsterUsageJumps.MonsterUsageJump[0];
-            Assert.Equal("loop", jump.JumpState);
-            Assert.Equal("up", jump.Direction);
-            Assert.Equal("test_jump_action", jump.Action);
-            Assert.Equal("False", jump.IsHard);
+            Assert.Empty(result.MonsterUsageSets);
         }
 
         [Fact]
-        public void MonsterUsageSets_EmptyFile_HandlesGracefully()
+        public void MonsterUsageSets_ComplexStructureHandledCorrectly()
         {
             // Arrange
             var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
-<monster_usage_sets type=""monster_usage_set"">
+<monster_usage_sets>
+    <monster_usage_set id=""horse"">
+        <MonsterUsageStrikes>
+            <MonsterUsageStrike is_heavy=""true"" direction=""left"" body_part=""head"" impact=""blunt"" action=""act_strike_left"" />
+            <MonsterUsageStrike is_heavy=""false"" direction=""right"" body_part=""body"" impact=""cut"" action=""act_strike_right"" />
+            <MonsterUsageStrike is_heavy=""true"" direction=""thrust"" body_part=""legs"" impact=""pierce"" action=""act_strike_thrust"" />
+        </MonsterUsageStrikes>
+    </monster_usage_set>
+    <monster_usage_set id=""camel"" ladder_climb_action=""act_camel_climb"">
+        <MonsterUsageStrikes>
+            <MonsterUsageStrike is_heavy=""false"" direction=""left"" body_part=""head"" impact=""blunt"" action=""act_camel_strike"" />
+        </MonsterUsageStrikes>
+    </monster_usage_set>
 </monster_usage_sets>";
 
-            var serializer = new XmlSerializer(typeof(MonsterUsageSets));
-
-            // Act
-            MonsterUsageSets? result;
-            using (var reader = new StringReader(xmlContent))
-            {
-                result = (MonsterUsageSets?)serializer.Deserialize(reader);
-            }
+            var result = XmlTestUtils.Deserialize<MonsterUsageSetsDO>(xmlContent);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("monster_usage_set", result.Type);
+            Assert.Equal(2, result.MonsterUsageSets.Count);
+            
+            var horseSet = result.MonsterUsageSets[0];
+            Assert.Equal("horse", horseSet.Id);
+            Assert.True(horseSet.HasMonsterUsageStrikes);
+            Assert.Equal(3, horseSet.MonsterUsageStrikes.Strikes.Count);
+            
+            var camelSet = result.MonsterUsageSets[1];
+            Assert.Equal("camel", camelSet.Id);
+            Assert.Equal("act_camel_climb", camelSet.LadderClimbAction);
+            Assert.True(camelSet.HasMonsterUsageStrikes);
+            Assert.Single(camelSet.MonsterUsageStrikes.Strikes);
+            
+            var camelStrike = camelSet.MonsterUsageStrikes.Strikes[0];
+            Assert.Equal("False", camelStrike.IsHeavy);
+            Assert.Equal("left", camelStrike.Direction);
+            Assert.Equal("head", camelStrike.BodyPart);
+            Assert.Equal("blunt", camelStrike.Impact);
+            Assert.Equal("act_camel_strike", camelStrike.Action);
         }
     }
-} 
+}

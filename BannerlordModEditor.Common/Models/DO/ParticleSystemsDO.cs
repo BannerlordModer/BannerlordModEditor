@@ -154,7 +154,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public string? Curve { get; set; }
 
         [XmlElement("curve", Order = 1)]
-        public CurveDO? ParameterCurve { get; set; }
+        public List<CurveDO> ParameterCurves { get; set; } = new List<CurveDO>();
 
         [XmlElement("color", Order = 2)]
         public ColorDO? ColorElement { get; set; }
@@ -162,14 +162,56 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("alpha", Order = 3)]
         public AlphaDO? AlphaElement { get; set; }
 
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyCurves { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyColor { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyAlpha { get; set; } = false;
+
         public bool ShouldSerializeName() => Name != null;
         public bool ShouldSerializeValue() => Value != null;
         public bool ShouldSerializeBase() => !string.IsNullOrEmpty(Base);
         public bool ShouldSerializeBias() => !string.IsNullOrEmpty(Bias);
         public bool ShouldSerializeCurve() => !string.IsNullOrEmpty(Curve);
-        public bool ShouldSerializeParameterCurve() => ParameterCurve != null;
-        public bool ShouldSerializeColorElement() => ColorElement != null;
-        public bool ShouldSerializeAlphaElement() => AlphaElement != null;
+        public bool ShouldSerializeParameterCurves() => ParameterCurves != null || HasEmptyCurves;
+        
+        // 为了向后兼容，添加ParameterCurve属性
+        [XmlIgnore]
+        public CurveDO? ParameterCurve
+        {
+            get => ParameterCurves?.FirstOrDefault();
+            set
+            {
+                if (value != null)
+                {
+                    ParameterCurves ??= new List<CurveDO>();
+                    if (ParameterCurves.Count == 0)
+                    {
+                        ParameterCurves.Add(value);
+                    }
+                    else
+                    {
+                        ParameterCurves[0] = value;
+                    }
+                }
+            }
+        }
+        
+        [XmlIgnore]
+        public bool HasEmptyCurve
+        {
+            get => HasEmptyCurves;
+            set => HasEmptyCurves = value;
+        }
+        
+        // 为了向后兼容，添加ShouldSerializeParameterCurve方法
+        public bool ShouldSerializeParameterCurve() => (ParameterCurves != null && ParameterCurves.Count > 0) || HasEmptyCurves;
+        public bool ShouldSerializeColorElement() => ColorElement != null || HasEmptyColor;
+        public bool ShouldSerializeAlphaElement() => AlphaElement != null || HasEmptyAlpha;
     }
 
     public class CurveDO
@@ -189,11 +231,15 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("keys")]
         public KeysDO? Keys { get; set; }
 
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyKeys { get; set; } = false;
+
         public bool ShouldSerializeName() => Name != null;
         public bool ShouldSerializeVersion() => !string.IsNullOrEmpty(Version);
         public bool ShouldSerializeDefault() => !string.IsNullOrEmpty(Default);
         public bool ShouldSerializeCurveMultiplier() => !string.IsNullOrEmpty(CurveMultiplier);
-        public bool ShouldSerializeKeys() => Keys != null;
+        public bool ShouldSerializeKeys() => Keys != null || HasEmptyKeys;
     }
 
     public class KeysDO
@@ -229,7 +275,11 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("keys")]
         public KeysDO? Keys { get; set; }
 
-        public bool ShouldSerializeKeys() => Keys != null;
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyKeys { get; set; } = false;
+
+        public bool ShouldSerializeKeys() => Keys != null || HasEmptyKeys;
     }
 
     public class AlphaDO
@@ -237,7 +287,11 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("keys")]
         public KeysDO? Keys { get; set; }
 
-        public bool ShouldSerializeKeys() => Keys != null;
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyKeys { get; set; } = false;
+
+        public bool ShouldSerializeKeys() => Keys != null || HasEmptyKeys;
     }
 
     public class DecalMaterialsDO

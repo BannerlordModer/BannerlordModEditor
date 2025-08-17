@@ -15,7 +15,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingPiecesDTO
             {
                 Type = source.Type,
-                CraftingPiecesContainer = CraftingPiecesContainerMapper.ToDTO(source.CraftingPiecesContainer)
+                CraftingPiecesContainer = ToDTO(source.CraftingPiecesContainer)
             };
         }
 
@@ -26,7 +26,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingPiecesDO
             {
                 Type = source.Type,
-                CraftingPiecesContainer = CraftingPiecesContainerMapper.ToDO(source.CraftingPiecesContainer)
+                CraftingPiecesContainer = ToDO(source.CraftingPiecesContainer)
             };
         }
 
@@ -37,7 +37,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingPiecesContainerDTO
             {
                 Pieces = source.Pieces?
-                    .Select(CraftingPieceMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<CraftingPieceDTO>()
             };
         }
@@ -49,7 +49,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingPiecesContainerDO
             {
                 Pieces = source.Pieces?
-                    .Select(CraftingPieceMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<CraftingPieceDO>()
             };
         }
@@ -72,11 +72,11 @@ namespace BannerlordModEditor.Common.Mappers
                 ScaleFactor = source.ScaleFactor,
                 CraftingPieceType = source.CraftingPieceType,
                 // 修复嵌套Mapper调用
-                PieceData = CraftingPieceDataMapper.ToDTO(source.PieceData),
+                PieceData = ToDTO(source.PieceData),
                 Materials = ToDTO(source.Materials),
-                Modifiers = CraftingModifiersMapper.ToDTO(source.Modifiers),
-                Flags = FlagsMapper.ToDTO(source.Flags),
-                Availability = AvailabilityMapper.ToDTO(source.Availability)
+                Modifiers = ToDTO(source.Modifiers),
+                Flags = ToDTO(source.Flags),
+                Availability = ToDTO(source.Availability)
             };
         }
 
@@ -98,11 +98,11 @@ namespace BannerlordModEditor.Common.Mappers
                 ScaleFactor = source.ScaleFactor,
                 CraftingPieceType = source.CraftingPieceType,
                 // 修复嵌套Mapper调用
-                PieceData = CraftingPieceDataMapper.ToDO(source.PieceData),
+                PieceData = ToDO(source.PieceData),
                 Materials = ToDO(source.Materials),
-                Modifiers = CraftingModifiersMapper.ToDO(source.Modifiers),
-                Flags = FlagsMapper.ToDO(source.Flags),
-                Availability = AvailabilityMapper.ToDO(source.Availability)
+                Modifiers = ToDO(source.Modifiers),
+                Flags = ToDO(source.Flags),
+                Availability = ToDO(source.Availability)
             };
         }
 
@@ -159,7 +159,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CpMaterialsDTO
             {
                 MaterialList = source.MaterialList?
-                    .Select(CpMaterialMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<CpMaterialDTO>()
             };
         }
@@ -171,7 +171,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CpMaterialsDO
             {
                 MaterialList = source.MaterialList?
-                    .Select(CpMaterialMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<CpMaterialDO>()
             };
         }
@@ -207,7 +207,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingModifiersDTO
             {
                 ModifierList = source.ModifierList?
-                    .Select(CraftingModifierMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<CraftingModifierDTO>()
             };
         }
@@ -219,7 +219,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingModifiersDO
             {
                 ModifierList = source.ModifierList?
-                    .Select(CraftingModifierMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<CraftingModifierDO>()
             };
         }
@@ -257,7 +257,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new FlagsDTO
             {
                 FlagList = source.FlagList?
-                    .Select(FlagMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<FlagDTO>()
             };
         }
@@ -269,7 +269,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new FlagsDO
             {
                 FlagList = source.FlagList?
-                    .Select(FlagMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<FlagDO>()
             };
         }
@@ -303,7 +303,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new AvailabilityDTO
             {
                 RequirementList = source.RequirementList?
-                    .Select(RequirementMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<RequirementDTO>()
             };
         }
@@ -315,7 +315,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new AvailabilityDO
             {
                 RequirementList = source.RequirementList?
-                    .Select(RequirementMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<RequirementDO>()
             };
         }

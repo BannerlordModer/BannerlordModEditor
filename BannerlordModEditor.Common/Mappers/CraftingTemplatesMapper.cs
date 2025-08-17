@@ -15,7 +15,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingTemplatesDTO
             {
                 CraftingTemplateList = source.CraftingTemplateList?
-                    .Select(CraftingTemplateMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<CraftingTemplateDTO>()
             };
         }
@@ -27,7 +27,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingTemplatesDO
             {
                 CraftingTemplateList = source.CraftingTemplateList?
-                    .Select(CraftingTemplateMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<CraftingTemplateDO>()
             };
         }
@@ -47,12 +47,12 @@ namespace BannerlordModEditor.Common.Mappers
                 DefaultItemHolsterPositionOffset = source.DefaultItemHolsterPositionOffset,
                 AlwaysShowHolsterWithWeapon = source.AlwaysShowHolsterWithWeapon,
                 UseWeaponAsHolsterMesh = source.UseWeaponAsHolsterMesh,
-                PieceDatas = PieceDatasMapper.ToDTO(source.PieceDatas),
-                WeaponDescriptions = CraftingWeaponDescriptionsMapper.ToDTO(source.WeaponDescriptions),
+                PieceDatas = ToDTO(source.PieceDatas),
+                WeaponDescriptions = ToDTO(source.WeaponDescriptions),
                 StatsDataList = source.StatsDataList?
-                    .Select(StatsDataMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<StatsDataDTO>(),
-                UsablePieces = UsablePiecesMapper.ToDTO(source.UsablePieces)
+                UsablePieces = ToDTO(source.UsablePieces)
             };
         }
 
@@ -71,12 +71,12 @@ namespace BannerlordModEditor.Common.Mappers
                 DefaultItemHolsterPositionOffset = source.DefaultItemHolsterPositionOffset,
                 AlwaysShowHolsterWithWeapon = source.AlwaysShowHolsterWithWeapon,
                 UseWeaponAsHolsterMesh = source.UseWeaponAsHolsterMesh,
-                PieceDatas = PieceDatasMapper.ToDO(source.PieceDatas),
-                WeaponDescriptions = CraftingWeaponDescriptionsMapper.ToDO(source.WeaponDescriptions),
+                PieceDatas = ToDO(source.PieceDatas),
+                WeaponDescriptions = ToDO(source.WeaponDescriptions),
                 StatsDataList = source.StatsDataList?
-                    .Select(StatsDataMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<StatsDataDO>(),
-                UsablePieces = UsablePiecesMapper.ToDO(source.UsablePieces)
+                UsablePieces = ToDO(source.UsablePieces)
             };
         }
 
@@ -87,7 +87,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new PieceDatasDTO
             {
                 PieceDataList = source.PieceDataList?
-                    .Select(PieceDataMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<PieceDataDTO>()
             };
         }
@@ -99,7 +99,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new PieceDatasDO
             {
                 PieceDataList = source.PieceDataList?
-                    .Select(PieceDataMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<PieceDataDO>()
             };
         }
@@ -133,7 +133,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingWeaponDescriptionsDTO
             {
                 WeaponDescriptionList = source.WeaponDescriptionList?
-                    .Select(CraftingWeaponDescriptionMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<CraftingWeaponDescriptionDTO>()
             };
         }
@@ -145,7 +145,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new CraftingWeaponDescriptionsDO
             {
                 WeaponDescriptionList = source.WeaponDescriptionList?
-                    .Select(CraftingWeaponDescriptionMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<CraftingWeaponDescriptionDO>()
             };
         }
@@ -178,7 +178,7 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 WeaponDescription = source.WeaponDescription,
                 StatDataList = source.StatDataList?
-                    .Select(StatDataMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<StatDataDTO>()
             };
         }
@@ -191,7 +191,7 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 WeaponDescription = source.WeaponDescription,
                 StatDataList = source.StatDataList?
-                    .Select(StatDataMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<StatDataDO>()
             };
         }
@@ -225,7 +225,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new UsablePiecesDTO
             {
                 UsablePieceList = source.UsablePieceList?
-                    .Select(UsablePieceMapper.ToDTO)
+                    .Select(ToDTO)
                     .ToList() ?? new List<UsablePieceDTO>()
             };
         }
@@ -237,7 +237,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new UsablePiecesDO
             {
                 UsablePieceList = source.UsablePieceList?
-                    .Select(UsablePieceMapper.ToDO)
+                    .Select(ToDO)
                     .ToList() ?? new List<UsablePieceDO>()
             };
         }

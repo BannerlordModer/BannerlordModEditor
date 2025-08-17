@@ -266,9 +266,9 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
-            return new MaterialsDTO
+            return new MpItemMaterialsDTO
             {
-                MaterialList = source.MaterialList?.Select(ToDTO).ToList() ?? new List<MaterialDTO>()
+                MaterialList = source.MaterialList?.Select(ToDTO).ToList() ?? new List<MpItemMaterialDTO>()
             };
         }
 
@@ -276,7 +276,7 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
-            return new MaterialDTO
+            return new MpItemMaterialDTO
             {
                 Name = source.Name,
                 MeshMultipliers = ToDTO(source.MeshMultipliers)
@@ -287,9 +287,9 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
-            return new MeshMultipliersDTO
+            return new MpItemMeshMultipliersDTO
             {
-                Multipliers = source.Multipliers?.Select(ToDTO).ToList() ?? new List<MeshMultiplierDTO>()
+                Multipliers = source.Multipliers?.Select(ToDTO).ToList() ?? new List<MpItemMeshMultiplierDTO>()
             };
         }
 
@@ -297,7 +297,7 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
-            return new MeshMultiplierDTO
+            return new MpItemMeshMultiplierDTO
             {
                 MeshMultiplierValue = source.MeshMultiplierValue,
                 Percentage = source.Percentage
