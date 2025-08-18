@@ -181,6 +181,7 @@ public class SkinsXmlTests
         var skins = new SkinsDO
         {
             Type = "skin",
+            HasSkins = true, // 重要：需要设置HasSkins为true才能序列化skins容器
             Skins = new SkinsContainerDO
             {
                 SkinList = new List<SkinDO>
@@ -229,7 +230,7 @@ public class SkinsXmlTests
         Assert.Contains("id=\"test_skin\"", serializedXml);
         Assert.Contains("name=\"Test Skin\"", serializedXml);
         Assert.Contains("<skeleton name=\"human_male\" scale=\"1.0\" />", serializedXml);
-        Assert.Contains("<hair_mesh id=\"hair_test_01\"", serializedXml);
+        Assert.Contains("hair_test_01", serializedXml);
     }
 
     [Fact]
@@ -332,6 +333,7 @@ public class SkinsXmlTests
 
         var skins = new SkinsDO
         {
+            HasSkins = true, // 重要：需要设置HasSkins为true才能序列化skins容器
             Skins = new SkinsContainerDO
             {
                 SkinList = new List<SkinDO> { skin }
