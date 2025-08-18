@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
-    <Using Include="BannerlordModEditor.Common.Tests.Services" />
+    <Using Include="BannerlordModEditor.Common.Services" />
   </ItemGroup>
 
   <ItemGroup>
