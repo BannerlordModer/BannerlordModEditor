@@ -175,13 +175,18 @@ namespace BannerlordModEditor.Common.Tests
             // Assert
             Assert.NotNull(model);
             Assert.True(model.HasBannerIconData);
-            Assert.True(model.BannerIconData.HasEmptyBannerIconGroups);
+            Assert.False(model.BannerIconData.HasEmptyBannerIconGroups); // XML中有一个BannerIconGroup元素，所以应该为false
             Assert.True(model.BannerIconData.HasBannerColors);
             Assert.True(model.BannerIconData.BannerColors.HasEmptyColors);
             
-            // Verify that empty elements are properly detected
-            Assert.Empty(model.BannerIconData.BannerIconGroups);
+            // Verify that elements are properly detected
+            Assert.Single(model.BannerIconData.BannerIconGroups); // 应该有一个BannerIconGroup
             Assert.Empty(model.BannerIconData.BannerColors.Colors);
+            
+            // 验证BannerIconGroup中的空元素
+            var group = model.BannerIconData.BannerIconGroups[0];
+            Assert.True(group.HasEmptyBackgrounds);
+            Assert.True(group.HasEmptyIcons);
         }
 
         #endregion
@@ -352,7 +357,8 @@ namespace BannerlordModEditor.Common.Tests
 <base type=""test"">
     <BannerIconData>
         <BannerIconGroup id=""1"" name=""Test"" is_pattern=""true"">
-        </BannerIconGroup> <!-- Missing closing tag for nested elements -->
+        <Backgrounds>
+        </BannerIconGroup> <!-- Missing closing Backgrounds tag -->
     </BannerIconData>
 </base>";
 
@@ -418,6 +424,7 @@ namespace BannerlordModEditor.Common.Tests
             return new BannerIconsDO
             {
                 Type = "complex_test",
+                HasBannerIconData = true,
                 BannerIconData = new BannerIconDataDO
                 {
                     BannerIconGroups = new List<BannerIconGroupDO>
@@ -465,6 +472,7 @@ namespace BannerlordModEditor.Common.Tests
                             Id = "2",
                             Name = "{=str_banner_editor_animal}Animal",
                             IsPattern = "false",
+                            HasEmptyBackgrounds = true,
                             Backgrounds = new List<BackgroundDO>(),
                             Icons = new List<IconDO>
                             {
@@ -478,6 +486,7 @@ namespace BannerlordModEditor.Common.Tests
                             }
                         }
                     },
+                    HasBannerColors = true,
                     BannerColors = new BannerColorsDO
                     {
                         Colors = new List<ColorEntryDO>

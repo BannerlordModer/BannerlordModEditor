@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using BannerlordModEditor.Common.Models;
 using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Models.DO.Layouts;
+using BannerlordModEditor.Common.Models.DO.Audio;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -53,9 +54,25 @@ namespace BannerlordModEditor.Common.Tests
             if (string.IsNullOrEmpty(xml))
                 throw new ArgumentException("XML cannot be null or empty", nameof(xml));
                 
-            var serializer = new XmlSerializer(typeof(T));
-            using var reader = new StringReader(xml);
-            var obj = (T)serializer.Deserialize(reader)!;
+            T obj;
+            
+            // 特殊处理LayoutsBaseDO的命名空间问题
+            if (typeof(T) == typeof(LayoutsBaseDO) || typeof(T).IsSubclassOf(typeof(LayoutsBaseDO)))
+            {
+                // 移除xmlns:xsi和xmlns:xsd命名空间声明，这些会导致序列化问题
+                var cleanXml = xml.Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "")
+                                   .Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "");
+                
+                var serializer = new XmlSerializer(typeof(T));
+                using var reader = new StringReader(cleanXml);
+                obj = (T)serializer.Deserialize(reader)!;
+            }
+            else
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                using var reader = new StringReader(xml);
+                obj = (T)serializer.Deserialize(reader)!;
+            }
             
             // 特殊处理CombatParametersDO来检测是否有definitions元素和空的combat_parameters元素
             if (obj is BannerlordModEditor.Common.Models.DO.CombatParametersDO combatParams)
@@ -74,6 +91,13 @@ namespace BannerlordModEditor.Common.Tests
                 var itemHolstersElement = doc.Root?.Element("item_holsters");
                 itemHolsters.HasEmptyItemHolsters = itemHolstersElement != null && 
                     (itemHolstersElement.Elements().Count() == 0 || itemHolstersElement.Elements("item_holster").Count() == 0);
+            }
+            
+            // 特殊处理VoiceDefinitionsDO来检测是否有voice_type_declarations元素
+            if (obj is VoiceDefinitionsDO voiceDefinitions)
+            {
+                var doc = XDocument.Parse(xml);
+                voiceDefinitions.HasVoiceTypeDeclarations = doc.Root?.Element("voice_type_declarations") != null;
             }
             
             // 简化实现：移除复杂的Credits重新排序逻辑，直接保持XML序列化的原始顺序
@@ -207,19 +231,14 @@ namespace BannerlordModEditor.Common.Tests
                     }
                         
                     // 修复：处理BannerIconGroups的空元素状态
-                    var bannerIconGroupsElement = doc.Root?
+                    var bannerIconGroupElements = doc.Root?
                         .Element("BannerIconData")?
-                        .Element("BannerIconGroups");
-                    bannerIcons.BannerIconData.HasEmptyBannerIconGroups = bannerIconGroupsElement != null && 
-                        (bannerIconGroupsElement.Elements().Count() == 0 || 
-                         bannerIconGroupsElement.Elements("BannerIconGroup").Count() == 0);
+                        .Elements("BannerIconGroup").ToList();
+                    bannerIcons.BannerIconData.HasEmptyBannerIconGroups = bannerIconGroupElements.Count == 0;
 
                     // 修复：处理每个BannerIconGroup的Backgrounds和Icons状态
                     if (bannerIcons.BannerIconData.BannerIconGroups != null)
                     {
-                        var bannerIconGroupElements = doc.Root?
-                            .Element("BannerIconData")?
-                            .Elements("BannerIconGroup").ToList();
                             
                         for (int i = 0; i < bannerIcons.BannerIconData.BannerIconGroups.Count; i++)
                         {
@@ -252,6 +271,15 @@ namespace BannerlordModEditor.Common.Tests
                 var cosmeticsElement = doc.Root?.Element("Cosmetic");
                 mpcosmetics.HasEmptyCosmetics = cosmeticsElement != null && 
                     (cosmeticsElement.Elements().Count() == 0 || cosmeticsElement.Elements("Cosmetic").Count() == 0);
+            }
+            
+            // 特殊处理ItemUsageSetsDO来检测是否有空的item_usage_set元素
+            if (obj is ItemUsageSetsDO itemUsageSets)
+            {
+                var doc = XDocument.Parse(xml);
+                var itemUsageSetElement = doc.Root;
+                itemUsageSets.HasEmptyItemUsageSetList = itemUsageSetElement != null && 
+                    (itemUsageSetElement.Elements().Count() == 0 || itemUsageSetElement.Elements("item_usage_set").Count() == 0);
             }
             
             // 特殊处理AttributesDO来检测是否有空的AttributeData元素
@@ -558,6 +586,28 @@ namespace BannerlordModEditor.Common.Tests
                                         var propertiesElement = itemElement.Element("properties");
                                         item.HasProperties = propertiesElement != null && propertiesElement.Elements().Count() > 0;
                                         
+                                        // 处理properties中的property元素空属性问题
+                                        if (propertiesElement != null && item.Properties != null && item.Properties.PropertyList != null)
+                                        {
+                                            var propertyElements = propertiesElement.Elements("property").ToList();
+                                            
+                                            for (int k = 0; k < item.Properties.PropertyList.Count && k < propertyElements.Count; k++)
+                                            {
+                                                var property = item.Properties.PropertyList[k];
+                                                var propertyElement = propertyElements[k];
+                                                
+                                                // 检查value属性是否存在，即使为空
+                                                var valueAttribute = propertyElement.Attribute("value");
+                                                property.HasValue = valueAttribute != null;
+                                                
+                                                // 如果value属性不存在，确保序列化时不会生成空字符串
+                                                if (valueAttribute == null)
+                                                {
+                                                    property.Value = string.Empty;
+                                                }
+                                            }
+                                        }
+                                        
                                         // 检查optional属性
                                         var optionalAttribute = itemElement.Attribute("optional");
                                         item.HasOptional = optionalAttribute != null;
@@ -655,6 +705,50 @@ namespace BannerlordModEditor.Common.Tests
                                             
                                             contextMenuItem.TreeviewContextMenu.ItemList.Add(nestedItem);
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理MonsterUsageSetsDO来检测是否有monster_usage_strikes元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Game.MonsterUsageSetsDO monsterUsageSets)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 处理每个monster_usage_set的子元素状态
+                if (monsterUsageSets.MonsterUsageSets != null && monsterUsageSets.MonsterUsageSets.Count > 0)
+                {
+                    var monsterUsageSetsElement = doc.Root?.Elements("monster_usage_set").ToList();
+                    
+                    for (int i = 0; i < monsterUsageSets.MonsterUsageSets.Count; i++)
+                    {
+                        var monsterUsageSet = monsterUsageSets.MonsterUsageSets[i];
+                        var monsterUsageSetElement = monsterUsageSetsElement?.ElementAt(i);
+                        
+                        if (monsterUsageSetElement != null)
+                        {
+                            // 检查monster_usage_strikes元素
+                            var monsterUsageStrikesElement = monsterUsageSetElement.Element("monster_usage_strikes");
+                            monsterUsageSet.HasMonsterUsageStrikes = monsterUsageStrikesElement != null && monsterUsageStrikesElement.Elements().Count() > 0;
+                            
+                            // 处理每个strike的布尔值状态
+                            if (monsterUsageSet.MonsterUsageStrikes != null && monsterUsageSet.MonsterUsageStrikes.Strikes != null)
+                            {
+                                var strikeElements = monsterUsageStrikesElement?.Elements("monster_usage_strike").ToList();
+                                
+                                for (int j = 0; j < monsterUsageSet.MonsterUsageStrikes.Strikes.Count; j++)
+                                {
+                                    var strike = monsterUsageSet.MonsterUsageStrikes.Strikes[j];
+                                    var strikeElement = strikeElements?.ElementAt(j);
+                                    
+                                    if (strikeElement != null)
+                                    {
+                                        // 确保布尔值属性被正确解析
+                                        // 注意：由于我们在DO/DTO中已经使用了字符串属性的特殊处理，
+                                        // 这里不需要额外的处理，XML序列化器会自动处理
                                     }
                                 }
                             }

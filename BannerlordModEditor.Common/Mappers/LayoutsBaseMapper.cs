@@ -31,11 +31,13 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
+            var layouts = LayoutsContainerMapper.ToDO(source.Layouts);
+            var hasLayouts = source.HasLayouts || (layouts.LayoutList != null && layouts.LayoutList.Count > 0);
             return new LayoutsBaseDO
             {
                 Type = source.Type,
-                HasLayouts = source.HasLayouts,
-                Layouts = LayoutsContainerMapper.ToDO(source.Layouts)
+                HasLayouts = hasLayouts,
+                Layouts = layouts
             };
         }
     }

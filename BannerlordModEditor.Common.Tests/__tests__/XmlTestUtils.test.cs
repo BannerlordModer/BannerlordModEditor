@@ -28,11 +28,11 @@ namespace BannerlordModEditor.Common.Tests.__tests__
         [Fact]
         public void NodeAndAttributeDifferences_ShouldBeReported()
         {
-            string xmlA = "<root><a attr=\"1\">text</a></root>";
-            string xmlB = "<root><b attr=\"2\">diff</b><extra/></root>";
+            string xmlA = "<root><a attr=\"value1\">text</a></root>";
+            string xmlB = "<root><b attr=\"value2\">diff</b><extra/></root>";
             var report = XmlTestUtils.CompareXmlStructure(xmlA, xmlB);
             Assert.Contains("/a[0]: A=a, B=b", report.NodeNameDifferences);
-            Assert.Contains("/a[0]@attr: A=1, B=2", report.AttributeValueDifferences);
+            Assert.Contains("/a[0]@attr: A=value1, B=value2", report.AttributeValueDifferences);
             Assert.Contains("/a[0]: A文本='text', B文本='diff'", report.TextDifferences);
             Assert.Contains("/extra[1] (A缺失)", report.MissingNodes);
             Assert.True(!report.IsStructurallyEqual);

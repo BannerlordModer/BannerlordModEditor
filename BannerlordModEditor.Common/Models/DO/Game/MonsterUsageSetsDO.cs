@@ -64,11 +64,28 @@ public class MonsterUsageStrikesDO
 
 public class MonsterUsageStrikeDO
 {
+    private bool _isHeavy = false;
+    private bool _isLeftStance = false;
+
     [XmlAttribute("is_heavy")]
-    public string IsHeavy { get; set; } = string.Empty;
+    public string IsHeavy
+    {
+        get => _isHeavy ? "True" : "False";
+        set => _isHeavy = value.Equals("True", StringComparison.OrdinalIgnoreCase) || value.Equals("true", StringComparison.OrdinalIgnoreCase);
+    }
 
     [XmlAttribute("is_left_stance")]
-    public string IsLeftStance { get; set; } = string.Empty;
+    public string IsLeftStance
+    {
+        get => _isLeftStance ? "True" : "False";
+        set => _isLeftStance = value.Equals("True", StringComparison.OrdinalIgnoreCase) || value.Equals("true", StringComparison.OrdinalIgnoreCase);
+    }
+
+    [XmlIgnore]
+    public bool IsHeavyBool => _isHeavy;
+
+    [XmlIgnore]
+    public bool IsLeftStanceBool => _isLeftStance;
 
     [XmlAttribute("direction")]
     public string Direction { get; set; } = string.Empty;
@@ -82,8 +99,6 @@ public class MonsterUsageStrikeDO
     [XmlAttribute("action")]
     public string Action { get; set; } = string.Empty;
 
-    public bool ShouldSerializeIsHeavy() => !string.IsNullOrEmpty(IsHeavy);
-    public bool ShouldSerializeIsLeftStance() => !string.IsNullOrEmpty(IsLeftStance);
     public bool ShouldSerializeDirection() => !string.IsNullOrEmpty(Direction);
     public bool ShouldSerializeBodyPart() => !string.IsNullOrEmpty(BodyPart);
     public bool ShouldSerializeImpact() => !string.IsNullOrEmpty(Impact);

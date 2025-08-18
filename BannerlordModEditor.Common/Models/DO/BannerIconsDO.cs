@@ -16,7 +16,36 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool HasBannerIconData { get; set; } = false;
         
         public bool ShouldSerializeBannerIconData() => HasBannerIconData && BannerIconData != null;
-        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
+        public bool ShouldSerializeType() => !string.IsNullOrWhiteSpace(Type);
+
+  
+        /// <summary>
+        /// 布尔值字符串解析方法
+        /// 支持 "true"/"false"/"TRUE"/"FALSE" 和 "1"/"0" 格式
+        /// </summary>
+        /// <param name="value">要解析的字符串</param>
+        /// <returns>解析结果，无法解析时返回null</returns>
+        public static bool? ParseBoolString(string? value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            var trimmedValue = value.Trim();
+            
+            // 标准布尔值解析（支持标准格式）
+            if (trimmedValue == "true" || trimmedValue == "TRUE" || trimmedValue == "True")
+                return true;
+            if (trimmedValue == "false" || trimmedValue == "FALSE" || trimmedValue == "False")
+                return false;
+            
+            // 数字布尔值解析
+            if (trimmedValue == "1")
+                return true;
+            if (trimmedValue == "0")
+                return false;
+            
+            return null;
+        }
     }
 
     public class BannerIconDataDO
@@ -58,15 +87,15 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlIgnore]
         public bool HasEmptyIcons { get; set; } = false;
 
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeIsPattern() => !string.IsNullOrEmpty(IsPattern);
+        public bool ShouldSerializeId() => !string.IsNullOrWhiteSpace(Id);
+        public bool ShouldSerializeName() => !string.IsNullOrWhiteSpace(Name);
+        public bool ShouldSerializeIsPattern() => !string.IsNullOrWhiteSpace(IsPattern);
         public bool ShouldSerializeBackgrounds() => HasEmptyBackgrounds || (Backgrounds != null && Backgrounds.Count > 0);
         public bool ShouldSerializeIcons() => HasEmptyIcons || (Icons != null && Icons.Count > 0);
 
         // 类型安全的便捷属性
         public int? IdInt => int.TryParse(Id, out int id) ? id : (int?)null;
-        public bool? IsPatternBool => bool.TryParse(IsPattern, out bool pattern) ? pattern : (bool?)null;
+        public bool? IsPatternBool => BannerIconsDO.ParseBoolString(IsPattern);
     }
 
     public class BackgroundDO
@@ -80,13 +109,13 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("is_base_background")]
         public string? IsBaseBackground { get; set; }
 
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-        public bool ShouldSerializeMeshName() => !string.IsNullOrEmpty(MeshName);
-        public bool ShouldSerializeIsBaseBackground() => !string.IsNullOrEmpty(IsBaseBackground);
+        public bool ShouldSerializeId() => !string.IsNullOrWhiteSpace(Id);
+        public bool ShouldSerializeMeshName() => !string.IsNullOrWhiteSpace(MeshName);
+        public bool ShouldSerializeIsBaseBackground() => !string.IsNullOrWhiteSpace(IsBaseBackground);
 
         // 类型安全的便捷属性
         public int? IdInt => int.TryParse(Id, out int id) ? id : (int?)null;
-        public bool? IsBaseBackgroundBool => bool.TryParse(IsBaseBackground, out bool isBase) ? isBase : (bool?)null;
+        public bool? IsBaseBackgroundBool => BannerIconsDO.ParseBoolString(IsBaseBackground);
     }
 
     public class IconDO
@@ -103,15 +132,15 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("is_reserved")]
         public string? IsReserved { get; set; }
 
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-        public bool ShouldSerializeMaterialName() => !string.IsNullOrEmpty(MaterialName);
-        public bool ShouldSerializeTextureIndex() => !string.IsNullOrEmpty(TextureIndex);
-        public bool ShouldSerializeIsReserved() => !string.IsNullOrEmpty(IsReserved);
+        public bool ShouldSerializeId() => !string.IsNullOrWhiteSpace(Id);
+        public bool ShouldSerializeMaterialName() => !string.IsNullOrWhiteSpace(MaterialName);
+        public bool ShouldSerializeTextureIndex() => !string.IsNullOrWhiteSpace(TextureIndex);
+        public bool ShouldSerializeIsReserved() => !string.IsNullOrWhiteSpace(IsReserved);
 
         // 类型安全的便捷属性
         public int? IdInt => int.TryParse(Id, out int id) ? id : (int?)null;
-        public int? TextureIndexInt => int.TryParse(TextureIndex, out int index) ? index : (int?)null;
-        public bool? IsReservedBool => bool.TryParse(IsReserved, out bool reserved) ? reserved : (bool?)null;
+        public int? TextureIndexInt => int.TryParse(TextureIndex, out int index) && index >= 0 ? index : (int?)null;
+        public bool? IsReservedBool => BannerIconsDO.ParseBoolString(IsReserved);
     }
 
     public class BannerColorsDO
@@ -139,14 +168,14 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("player_can_choose_for_sigil")]
         public string? PlayerCanChooseForSigil { get; set; }
 
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-        public bool ShouldSerializeHex() => !string.IsNullOrEmpty(Hex);
-        public bool ShouldSerializePlayerCanChooseForBackground() => !string.IsNullOrEmpty(PlayerCanChooseForBackground);
-        public bool ShouldSerializePlayerCanChooseForSigil() => !string.IsNullOrEmpty(PlayerCanChooseForSigil);
+        public bool ShouldSerializeId() => !string.IsNullOrWhiteSpace(Id);
+        public bool ShouldSerializeHex() => !string.IsNullOrWhiteSpace(Hex);
+        public bool ShouldSerializePlayerCanChooseForBackground() => !string.IsNullOrWhiteSpace(PlayerCanChooseForBackground);
+        public bool ShouldSerializePlayerCanChooseForSigil() => !string.IsNullOrWhiteSpace(PlayerCanChooseForSigil);
 
         // 类型安全的便捷属性
         public int? IdInt => int.TryParse(Id, out int id) ? id : (int?)null;
-        public bool? PlayerCanChooseForBackgroundBool => bool.TryParse(PlayerCanChooseForBackground, out bool canChoose) ? canChoose : (bool?)null;
-        public bool? PlayerCanChooseForSigilBool => bool.TryParse(PlayerCanChooseForSigil, out bool canChoose) ? canChoose : (bool?)null;
+        public bool? PlayerCanChooseForBackgroundBool => BannerIconsDO.ParseBoolString(PlayerCanChooseForBackground);
+        public bool? PlayerCanChooseForSigilBool => BannerIconsDO.ParseBoolString(PlayerCanChooseForSigil);
     }
 }

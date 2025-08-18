@@ -14,7 +14,7 @@ public class VoiceDefinitionsDO
     [XmlIgnore]
     public bool HasVoiceTypeDeclarations { get; set; } = false;
 
-    public bool ShouldSerializeVoiceTypeDeclarations() => HasVoiceTypeDeclarations && VoiceTypeDeclarations != null && VoiceTypeDeclarations.VoiceTypes.Count > 0;
+    public bool ShouldSerializeVoiceTypeDeclarations() => HasVoiceTypeDeclarations && VoiceTypeDeclarations != null;
     public bool ShouldSerializeVoiceDefinitions() => VoiceDefinitions != null && VoiceDefinitions.Count > 0;
 }
 

@@ -16,6 +16,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new ItemHolstersLayoutDTO
             {
                 Type = source.Type,
+                HasLayouts = source.HasLayouts,
                 Layouts = LayoutsContainerMapper.ToDTO(source.Layouts)
             };
         }
@@ -24,10 +25,14 @@ namespace BannerlordModEditor.Common.Mappers
         {
             if (source == null) return null;
 
+            var layouts = LayoutsContainerMapper.ToDO(source.Layouts);
+            var hasLayouts = source.HasLayouts || (layouts.LayoutList != null && layouts.LayoutList.Count > 0);
+            
             return new ItemHolstersLayoutDO
             {
                 Type = source.Type,
-                Layouts = LayoutsContainerMapper.ToDO(source.Layouts)
+                HasLayouts = hasLayouts,
+                Layouts = layouts
             };
         }
     }

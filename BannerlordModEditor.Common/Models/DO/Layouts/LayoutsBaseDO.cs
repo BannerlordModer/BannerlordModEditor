@@ -6,7 +6,7 @@ namespace BannerlordModEditor.Common.Models.DO.Layouts
     /// 基础布局配置的领域对象
     /// 用于所有Layouts XML文件的通用结构
     /// </summary>
-    [XmlRoot("base")]
+    [XmlRoot("base", Namespace = "")]
     public class LayoutsBaseDO
     {
         [XmlAttribute("type")]
@@ -256,5 +256,10 @@ namespace BannerlordModEditor.Common.Models.DO.Layouts
 
         [XmlAttribute("value")]
         public string Value { get; set; } = string.Empty;
+
+        [XmlIgnore]
+        public bool HasValue { get; set; } = false;
+
+        public bool ShouldSerializeValue() => HasValue && !string.IsNullOrEmpty(Value);
     }
 }

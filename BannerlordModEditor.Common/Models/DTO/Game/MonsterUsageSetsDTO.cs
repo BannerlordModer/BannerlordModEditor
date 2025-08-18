@@ -47,11 +47,28 @@ public class MonsterUsageStrikesDTO
 
 public class MonsterUsageStrikeDTO
 {
+    private bool _isHeavy = false;
+    private bool _isLeftStance = false;
+
     [XmlAttribute("is_heavy")]
-    public string IsHeavy { get; set; } = string.Empty;
+    public string IsHeavy
+    {
+        get => _isHeavy ? "True" : "False";
+        set => _isHeavy = value.Equals("True", StringComparison.OrdinalIgnoreCase) || value.Equals("true", StringComparison.OrdinalIgnoreCase);
+    }
 
     [XmlAttribute("is_left_stance")]
-    public string IsLeftStance { get; set; } = string.Empty;
+    public string IsLeftStance
+    {
+        get => _isLeftStance ? "True" : "False";
+        set => _isLeftStance = value.Equals("True", StringComparison.OrdinalIgnoreCase) || value.Equals("true", StringComparison.OrdinalIgnoreCase);
+    }
+
+    [XmlIgnore]
+    public bool IsHeavyBool => _isHeavy;
+
+    [XmlIgnore]
+    public bool IsLeftStanceBool => _isLeftStance;
 
     [XmlAttribute("direction")]
     public string Direction { get; set; } = string.Empty;

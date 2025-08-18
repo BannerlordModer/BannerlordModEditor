@@ -20,22 +20,22 @@ namespace BannerlordModEditor.Common.Tests
         rear_damaged_action=""act_rear_damaged""
         ladder_climb_action=""act_ladder_climb""
         strike_ladder_action=""act_strike_ladder"">
-        <MonsterUsageStrikes>
-            <MonsterUsageStrike
+        <monster_usage_strikes>
+            <monster_usage_strike
                 is_heavy=""true""
                 is_left_stance=""false""
                 direction=""left""
                 body_part=""head""
                 impact=""blunt""
                 action=""act_strike_left"" />
-            <MonsterUsageStrike
+            <monster_usage_strike
                 is_heavy=""false""
                 is_left_stance=""true""
                 direction=""right""
                 body_part=""body""
                 impact=""cut""
                 action=""act_strike_right"" />
-        </MonsterUsageStrikes>
+        </monster_usage_strikes>
     </monster_usage_set>
 </monster_usage_sets>";
 
@@ -206,16 +206,16 @@ namespace BannerlordModEditor.Common.Tests
             var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
 <monster_usage_sets>
     <monster_usage_set id=""horse"">
-        <MonsterUsageStrikes>
-            <MonsterUsageStrike is_heavy=""true"" direction=""left"" body_part=""head"" impact=""blunt"" action=""act_strike_left"" />
-            <MonsterUsageStrike is_heavy=""false"" direction=""right"" body_part=""body"" impact=""cut"" action=""act_strike_right"" />
-            <MonsterUsageStrike is_heavy=""true"" direction=""thrust"" body_part=""legs"" impact=""pierce"" action=""act_strike_thrust"" />
-        </MonsterUsageStrikes>
+        <monster_usage_strikes>
+            <monster_usage_strike is_heavy=""true"" direction=""left"" body_part=""head"" impact=""blunt"" action=""act_strike_left"" />
+            <monster_usage_strike is_heavy=""false"" direction=""right"" body_part=""body"" impact=""cut"" action=""act_strike_right"" />
+            <monster_usage_strike is_heavy=""true"" direction=""thrust"" body_part=""legs"" impact=""pierce"" action=""act_strike_thrust"" />
+        </monster_usage_strikes>
     </monster_usage_set>
     <monster_usage_set id=""camel"" ladder_climb_action=""act_camel_climb"">
-        <MonsterUsageStrikes>
-            <MonsterUsageStrike is_heavy=""false"" direction=""left"" body_part=""head"" impact=""blunt"" action=""act_camel_strike"" />
-        </MonsterUsageStrikes>
+        <monster_usage_strikes>
+            <monster_usage_strike is_heavy=""false"" direction=""left"" body_part=""head"" impact=""blunt"" action=""act_camel_strike"" />
+        </monster_usage_strikes>
     </monster_usage_set>
 </monster_usage_sets>";
 
