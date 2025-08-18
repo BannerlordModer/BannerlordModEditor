@@ -100,6 +100,13 @@ namespace BannerlordModEditor.Common.Tests
                 voiceDefinitions.HasVoiceTypeDeclarations = doc.Root?.Element("voice_type_declarations") != null;
             }
             
+            // 特殊处理WeaponDescriptionsDO来检测是否有空的WeaponDescription元素
+            if (obj is WeaponDescriptionsDO weaponDescriptions)
+            {
+                var doc = XDocument.Parse(xml);
+                weaponDescriptions.HasEmptyDescriptions = doc.Root?.Elements("WeaponDescription").Count() == 0;
+            }
+            
             // 简化实现：移除复杂的Credits重新排序逻辑，直接保持XML序列化的原始顺序
             // 这种简化实现避免了重新排序导致的Text属性交换问题
             
@@ -508,6 +515,38 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
+            // 特殊处理TerrainMaterialsDO来检测是否有textures、layer_flags和meshes元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Engine.TerrainMaterialsDO terrainMaterials)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 处理每个terrain_material的子元素状态
+                if (terrainMaterials.TerrainMaterialList != null)
+                {
+                    var terrainMaterialElements = doc.Root?.Elements("terrain_material").ToList();
+                    
+                    for (int i = 0; i < terrainMaterials.TerrainMaterialList.Count && i < terrainMaterialElements.Count; i++)
+                    {
+                        var material = terrainMaterials.TerrainMaterialList[i];
+                        var materialElement = terrainMaterialElements[i];
+                        
+                        // 检查textures元素是否存在
+                        material.HasTextures = materialElement.Element("textures") != null;
+                        
+                        // 检查layer_flags元素是否存在
+                        material.HasLayerFlags = materialElement.Element("layer_flags") != null;
+                        
+                        // 检查meshes元素是否存在
+                        material.HasMeshes = materialElement.Element("meshes") != null;
+                        
+                        // 检查是否有空的meshes元素
+                        var meshesElement = materialElement.Element("meshes");
+                        material.HasEmptyMeshes = meshesElement != null && 
+                            (meshesElement.Elements().Count() == 0 || meshesElement.Elements("mesh").Count() == 0);
+                    }
+                }
+            }
+            
             // 特殊处理LayoutsBaseDO来检测是否有layouts元素
             if (obj is BannerlordModEditor.Common.Models.DO.Layouts.LayoutsBaseDO layouts)
             {
@@ -810,6 +849,253 @@ namespace BannerlordModEditor.Common.Tests
             {
                 var doc = XDocument.Parse(xml);
                 parties.HasParties = doc.Root?.Element("parties") != null;
+            }
+            
+            // 特殊处理SkinsDO来检测各个子元素的存在状态
+            if (obj is BannerlordModEditor.Common.Models.DO.SkinsDO skins)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 检查是否有skins元素
+                skins.HasSkins = doc.Root?.Element("skins") != null;
+                
+                // 处理每个skin的子元素状态
+                if (skins.Skins != null && skins.Skins.SkinList != null)
+                {
+                    var skinElements = doc.Root?.Element("skins")?.Elements("skin").ToList();
+                    
+                    for (int i = 0; i < skins.Skins.SkinList.Count && i < (skinElements?.Count ?? 0); i++)
+                    {
+                        var skin = skins.Skins.SkinList[i];
+                        var skinElement = skinElements?[i];
+                        
+                        if (skinElement != null)
+                        {
+                            // 检查各个子元素是否存在
+                            skin.HasSkeleton = skinElement.Element("skeleton") != null;
+                            skin.HasHairMeshes = skinElement.Element("hair_meshes") != null;
+                            skin.HasBeardMeshes = skinElement.Element("beard_meshes") != null;
+                            skin.HasVoiceTypes = skinElement.Element("voice_types") != null;
+                            skin.HasFaceTextures = skinElement.Element("face_textures") != null;
+                            skin.HasBodyMeshes = skinElement.Element("body_meshes") != null;
+                            skin.HasTattooMaterials = skinElement.Element("tattoo_materials") != null;
+                            
+                            // 处理空集合状态
+                            if (skin.HairMeshes != null)
+                            {
+                                var hairMeshesElement = skinElement.Element("hair_meshes");
+                                skin.HairMeshes.HasHairMeshes = hairMeshesElement != null;
+                                skin.HairMeshes.HasEmptyHairMeshes = hairMeshesElement != null && 
+                                    !hairMeshesElement.Elements("hair_mesh").Any();
+                            }
+                            
+                            if (skin.BeardMeshes != null)
+                            {
+                                var beardMeshesElement = skinElement.Element("beard_meshes");
+                                skin.BeardMeshes.HasBeardMeshes = beardMeshesElement != null;
+                                skin.BeardMeshes.HasEmptyBeardMeshes = beardMeshesElement != null && 
+                                    !beardMeshesElement.Elements("beard_mesh").Any();
+                            }
+                            
+                            if (skin.VoiceTypes != null)
+                            {
+                                var voiceTypesElement = skinElement.Element("voice_types");
+                                skin.VoiceTypes.HasVoiceTypes = voiceTypesElement != null;
+                                skin.VoiceTypes.HasEmptyVoiceTypes = voiceTypesElement != null && 
+                                    !voiceTypesElement.Elements("voice").Any();
+                            }
+                            
+                            if (skin.FaceTextures != null)
+                            {
+                                var faceTexturesElement = skinElement.Element("face_textures");
+                                skin.FaceTextures.HasFaceTextures = faceTexturesElement != null;
+                                skin.FaceTextures.HasEmptyFaceTextures = faceTexturesElement != null && 
+                                    !faceTexturesElement.Elements("face_texture").Any();
+                            }
+                            
+                            if (skin.BodyMeshes != null)
+                            {
+                                var bodyMeshesElement = skinElement.Element("body_meshes");
+                                skin.BodyMeshes.HasBodyMeshes = bodyMeshesElement != null;
+                                skin.BodyMeshes.HasEmptyBodyMeshes = bodyMeshesElement != null && 
+                                    !bodyMeshesElement.Elements("body_mesh").Any();
+                            }
+                            
+                            if (skin.TattooMaterials != null)
+                            {
+                                var tattooMaterialsElement = skinElement.Element("tattoo_materials");
+                                skin.TattooMaterials.HasTattooMaterials = tattooMaterialsElement != null;
+                                skin.TattooMaterials.HasEmptyTattooMaterials = tattooMaterialsElement != null && 
+                                    !tattooMaterialsElement.Elements("tattoo_material").Any();
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理ParticleSystemsMapIconDO来检测空集合状态
+            if (obj is ParticleSystemsMapIconDO particleSystemsMapIcon)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 检查是否有空的effects元素
+                var effectsElement = doc.Root;
+                particleSystemsMapIcon.HasEmptyEffects = effectsElement != null && 
+                    !effectsElement.Elements("effect").Any();
+                
+                // 处理每个effect及其子元素的状态
+                if (particleSystemsMapIcon.Effects != null)
+                {
+                    var effectElements = doc.Root?.Elements("effect").ToList();
+                    
+                    for (int i = 0; i < particleSystemsMapIcon.Effects.Count && i < (effectElements?.Count ?? 0); i++)
+                    {
+                        var effect = particleSystemsMapIcon.Effects[i];
+                        var effectElement = effectElements?[i];
+                        
+                        if (effectElement != null)
+                        {
+                            // 处理每个emitter的状态
+                            if (effect.Emitters != null)
+                            {
+                                var emitterElements = effectElement.Elements("emitters")?.Elements("emitter").ToList();
+                                
+                                for (int j = 0; j < effect.Emitters.Count && j < (emitterElements?.Count ?? 0); j++)
+                                {
+                                    var emitter = effect.Emitters[j];
+                                    var emitterElement = emitterElements?[j];
+                                    
+                                    if (emitterElement != null)
+                                    {
+                                        // 检查flags状态
+                                        if (emitter.Flags != null)
+                                        {
+                                            var flagsElement = emitterElement.Element("flags");
+                                            emitter.HasEmptyFlags = flagsElement != null && 
+                                                !flagsElement.Elements("flag").Any();
+                                        }
+                                        
+                                        // 检查parameters状态
+                                        if (emitter.Parameters != null)
+                                        {
+                                            var parametersElement = emitterElement.Element("parameters");
+                                            emitter.HasEmptyParameters = parametersElement != null && 
+                                                !parametersElement.Elements("parameter").Any();
+                                        }
+                                        
+                                        // 检查curves状态
+                                        if (emitter.Curves != null)
+                                        {
+                                            var curvesElement = emitterElement.Element("curves");
+                                            emitter.HasEmptyCurves = curvesElement != null && 
+                                                !curvesElement.Elements("curve").Any();
+                                        }
+                                        
+                                        // 检查material状态
+                                        emitter.HasMaterial = emitterElement.Element("material") != null;
+                                        
+                                        // 处理curves中的points状态
+                                        if (emitter.Curves != null)
+                                        {
+                                            var curveElements = emitterElement.Element("curves")?.Elements("curve").ToList();
+                                            
+                                            for (int k = 0; k < emitter.Curves.Count && k < (curveElements?.Count ?? 0); k++)
+                                            {
+                                                var curve = emitter.Curves[k];
+                                                var curveElement = curveElements?[k];
+                                                
+                                                if (curveElement != null && curve.Points != null)
+                                                {
+                                                    var pointsElement = curveElement.Element("points");
+                                                    curve.HasEmptyPoints = pointsElement != null && 
+                                                        !pointsElement.Elements("point").Any();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理BeforeTransparentsGraphDO来检测空集合状态
+            if (obj is BeforeTransparentsGraphDO beforeTransparentsGraph)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 检查是否有postfx_graphs元素
+                beforeTransparentsGraph.HasPostfxGraphs = doc.Root?.Element("postfx_graphs") != null;
+                
+                // 处理postfx_graphs的状态
+                if (beforeTransparentsGraph.PostfxGraphs != null)
+                {
+                    var postfxGraphsElement = doc.Root?.Element("postfx_graphs");
+                    beforeTransparentsGraph.PostfxGraphs.HasEmptyPostfxGraphs = postfxGraphsElement != null && 
+                        !postfxGraphsElement.Elements("postfx_graph").Any();
+                    
+                    // 处理每个postfx_graph的状态
+                    if (beforeTransparentsGraph.PostfxGraphs.PostfxGraphList != null)
+                    {
+                        var graphElements = postfxGraphsElement?.Elements("postfx_graph").ToList();
+                        
+                        for (int i = 0; i < beforeTransparentsGraph.PostfxGraphs.PostfxGraphList.Count && i < (graphElements?.Count ?? 0); i++)
+                        {
+                            var graph = beforeTransparentsGraph.PostfxGraphs.PostfxGraphList[i];
+                            var graphElement = graphElements?[i];
+                            
+                            if (graphElement != null)
+                            {
+                                // 处理每个postfx_node的状态
+                                if (graph.PostfxNodes != null)
+                                {
+                                    var nodeElements = graphElement.Elements("postfx_node").ToList();
+                                    graph.HasEmptyPostfxNodes = nodeElements.Count == 0;
+                                    
+                                    for (int j = 0; j < graph.PostfxNodes.Count && j < nodeElements.Count; j++)
+                                    {
+                                        var node = graph.PostfxNodes[j];
+                                        var nodeElement = nodeElements[j];
+                                        
+                                        if (nodeElement != null)
+                                        {
+                                            // 检查inputs状态
+                                            if (node.Inputs != null)
+                                            {
+                                                var inputsElement = nodeElement.Element("input");
+                                                node.HasEmptyInputs = inputsElement != null && 
+                                                    !inputsElement.Elements("input").Any();
+                                            }
+                                            
+                                            // 检查outputs状态
+                                            if (node.Outputs != null)
+                                            {
+                                                var outputsElement = nodeElement.Element("output");
+                                                node.HasEmptyOutputs = outputsElement != null && 
+                                                    !outputsElement.Elements("output").Any();
+                                            }
+                                            
+                                            // 检查preconditions状态
+                                            node.HasPreconditions = nodeElement.Element("preconditions") != null;
+                                            
+                                            // 处理preconditions中的configs状态
+                                            if (node.Preconditions != null)
+                                            {
+                                                var preconditionsElement = nodeElement.Element("preconditions");
+                                                if (preconditionsElement != null)
+                                                {
+                                                    var configElements = preconditionsElement.Elements("config").ToList();
+                                                    node.Preconditions.HasEmptyConfigs = configElements.Count == 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             
             return obj;

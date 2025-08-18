@@ -174,7 +174,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? BodyArmor { get; set; }
         public string? TrailParticleName { get; set; }
         public string? RotationSpeed { get; set; }
-        public WeaponFlagsDTO? WeaponFlags { get; set; }
+        public MpWeaponFlagsDTO? WeaponFlags { get; set; }
 
         // 数值类型的便捷属性（基于字符串属性）
         public int? StackAmountInt => int.TryParse(StackAmount, out int stackAmount) ? stackAmount : (int?)null;
@@ -207,7 +207,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public void SetBodyArmorInt(int? bodyArmor) => BodyArmor = bodyArmor?.ToString();
     }
 
-    public class WeaponFlagsDTO
+    public class MpWeaponFlagsDTO
     {
         public bool MeleeWeapon { get; set; }
         public bool RangedWeapon { get; set; }

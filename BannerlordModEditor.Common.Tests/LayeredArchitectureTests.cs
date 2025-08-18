@@ -188,7 +188,7 @@ namespace BannerlordModEditor.Common.Tests
                                 SwingDamage = "25",
                                 ThrustDamage = "20",
                                 PhysicsMaterial = "metal_weapon",
-                                WeaponFlags = new WeaponFlagsDO
+                                WeaponFlags = new MpWeaponFlagsDO
                                 {
                                     MeleeWeapon = "true",
                                     RangedWeapon = "false",

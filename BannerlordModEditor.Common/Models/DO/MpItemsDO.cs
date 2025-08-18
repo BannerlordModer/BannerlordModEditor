@@ -454,7 +454,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public string? RotationSpeed { get; set; }
 
         [XmlElement("WeaponFlags")]
-        public WeaponFlagsDO? WeaponFlags { get; set; }
+        public MpWeaponFlagsDO? WeaponFlags { get; set; }
 
         // ShouldSerialize方法确保只有当属性有值时才序列化
         public bool ShouldSerializeWeaponClass() => !string.IsNullOrEmpty(WeaponClass);
@@ -488,7 +488,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeRotationSpeed() => !string.IsNullOrEmpty(RotationSpeed);
     }
 
-    public class WeaponFlagsDO
+    public class MpWeaponFlagsDO
     {
         [XmlAttribute("MeleeWeapon")]
         public string? MeleeWeapon { get; set; }

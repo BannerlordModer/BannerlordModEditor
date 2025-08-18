@@ -1,10 +1,19 @@
+using System.Linq;
 using BannerlordModEditor.Common.Models.DO.Multiplayer;
 using BannerlordModEditor.Common.Models.DTO.Multiplayer;
 
 namespace BannerlordModEditor.Common.Mappers;
 
+/// <summary>
+/// MPClassDivisions的DO/DTO映射器
+/// 处理多人游戏分类系统的领域对象和数据传输对象之间的双向转换
+/// 支持大型文件处理和性能优化
+/// </summary>
 public static class MPClassDivisionsMapper
 {
+    /// <summary>
+    /// 将DO转换为DTO
+    /// </summary>
     public static MPClassDivisionsDTO ToDTO(MPClassDivisionsDO source)
     {
         if (source == null) return null;
@@ -12,23 +21,43 @@ public static class MPClassDivisionsMapper
         return new MPClassDivisionsDTO
         {
             MPClassDivisions = source.MPClassDivisions?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<MPClassDivisionDTO>()
         };
     }
 
+    /// <summary>
+    /// 将DTO转换为DO
+    /// </summary>
     public static MPClassDivisionsDO ToDO(MPClassDivisionsDTO source)
     {
         if (source == null) return null;
 
-        return new MPClassDivisionsDO
+        var result = new MPClassDivisionsDO
         {
             MPClassDivisions = source.MPClassDivisions?
-                .Select(MPClassDivisionsMapper.ToDO)
-                .ToList() ?? new List<MPClassDivisionDO>()
+                .Select(ToDo)
+                .ToList() ?? new List<MPClassDivisionDO>(),
+            IsLargeFile = false, // 需要在反序列化后设置
+            ProcessedChunks = 0
         };
+
+        // 初始化索引和业务逻辑
+        result.InitializeIndexes();
+        
+        // 更新每个分类的游戏模式标志
+        foreach (var division in result.MPClassDivisions)
+        {
+            division.UpdateGameModeFlags();
+            division.Perks?.GroupByGameMode();
+        }
+
+        return result;
     }
 
+    /// <summary>
+    /// 将单个MPClassDivisionDO转换为DTO
+    /// </summary>
     public static MPClassDivisionDTO ToDTO(MPClassDivisionDO source)
     {
         if (source == null) return null;
@@ -54,11 +83,14 @@ public static class MPClassDivisionsMapper
         };
     }
 
-    public static MPClassDivisionDO ToDO(MPClassDivisionDTO source)
+    /// <summary>
+    /// 将单个MPClassDivisionDTO转换为DO
+    /// </summary>
+    public static MPClassDivisionDO ToDo(MPClassDivisionDTO source)
     {
         if (source == null) return null;
 
-        return new MPClassDivisionDO
+        var result = new MPClassDivisionDO
         {
             Id = source.Id,
             Hero = source.Hero,
@@ -75,11 +107,19 @@ public static class MPClassDivisionsMapper
             MovementSpeed = source.MovementSpeed,
             CombatMovementSpeed = source.CombatMovementSpeed,
             Acceleration = source.Acceleration,
-            Perks = ToDO(source.Perks),
+            Perks = ToDo(source.Perks),
             HasPerks = source.Perks != null && source.Perks.PerksList.Count > 0
         };
+
+        // 更新业务逻辑标志
+        result.UpdateGameModeFlags();
+
+        return result;
     }
 
+    /// <summary>
+    /// 将PerksDO转换为DTO
+    /// </summary>
     public static PerksDTO ToDTO(PerksDO source)
     {
         if (source == null) return null;
@@ -87,23 +127,34 @@ public static class MPClassDivisionsMapper
         return new PerksDTO
         {
             PerksList = source.PerksList?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<PerkDTO>()
         };
     }
 
-    public static PerksDO ToDO(PerksDTO source)
+    /// <summary>
+    /// 将PerksDTO转换为DO
+    /// </summary>
+    public static PerksDO ToDo(PerksDTO source)
     {
         if (source == null) return null;
 
-        return new PerksDO
+        var result = new PerksDO
         {
             PerksList = source.PerksList?
-                .Select(MPClassDivisionsMapper.ToDO)
+                .Select(ToDo)
                 .ToList() ?? new List<PerkDO>()
         };
+
+        // 初始化游戏模式分组
+        result.GroupByGameMode();
+
+        return result;
     }
 
+    /// <summary>
+    /// 将单个PerkDO转换为DTO
+    /// </summary>
     public static PerkDTO ToDTO(PerkDO source)
     {
         if (source == null) return null;
@@ -117,18 +168,21 @@ public static class MPClassDivisionsMapper
             HeroIdleAnim = source.HeroIdleAnim,
             PerkList = source.PerkList,
             OnSpawnEffects = source.OnSpawnEffects?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<OnSpawnEffectDTO>(),
             RandomOnSpawnEffects = source.RandomOnSpawnEffects?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<RandomOnSpawnEffectDTO>(),
             Effects = source.Effects?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<EffectDTO>()
         };
     }
 
-    public static PerkDO ToDO(PerkDTO source)
+    /// <summary>
+    /// 将单个PerkDTO转换为DO
+    /// </summary>
+    public static PerkDO ToDo(PerkDTO source)
     {
         if (source == null) return null;
 
@@ -141,17 +195,20 @@ public static class MPClassDivisionsMapper
             HeroIdleAnim = source.HeroIdleAnim,
             PerkList = source.PerkList,
             OnSpawnEffects = source.OnSpawnEffects?
-                .Select(MPClassDivisionsMapper.ToDO)
+                .Select(ToDo)
                 .ToList() ?? new List<OnSpawnEffectDO>(),
             RandomOnSpawnEffects = source.RandomOnSpawnEffects?
-                .Select(MPClassDivisionsMapper.ToDO)
+                .Select(ToDo)
                 .ToList() ?? new List<RandomOnSpawnEffectDO>(),
             Effects = source.Effects?
-                .Select(MPClassDivisionsMapper.ToDO)
+                .Select(ToDo)
                 .ToList() ?? new List<EffectDO>()
         };
     }
 
+    /// <summary>
+    /// 将OnSpawnEffectDO转换为DTO
+    /// </summary>
     public static OnSpawnEffectDTO ToDTO(OnSpawnEffectDO source)
     {
         if (source == null) return null;
@@ -166,7 +223,10 @@ public static class MPClassDivisionsMapper
         };
     }
 
-    public static OnSpawnEffectDO ToDO(OnSpawnEffectDTO source)
+    /// <summary>
+    /// 将OnSpawnEffectDTO转换为DO
+    /// </summary>
+    public static OnSpawnEffectDO ToDo(OnSpawnEffectDTO source)
     {
         if (source == null) return null;
 
@@ -180,6 +240,9 @@ public static class MPClassDivisionsMapper
         };
     }
 
+    /// <summary>
+    /// 将RandomOnSpawnEffectDO转换为DTO
+    /// </summary>
     public static RandomOnSpawnEffectDTO ToDTO(RandomOnSpawnEffectDO source)
     {
         if (source == null) return null;
@@ -189,12 +252,15 @@ public static class MPClassDivisionsMapper
             Type = source.Type,
             Target = source.Target,
             Groups = source.Groups?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<GroupDTO>()
         };
     }
 
-    public static RandomOnSpawnEffectDO ToDO(RandomOnSpawnEffectDTO source)
+    /// <summary>
+    /// 将RandomOnSpawnEffectDTO转换为DO
+    /// </summary>
+    public static RandomOnSpawnEffectDO ToDo(RandomOnSpawnEffectDTO source)
     {
         if (source == null) return null;
 
@@ -203,11 +269,14 @@ public static class MPClassDivisionsMapper
             Type = source.Type,
             Target = source.Target,
             Groups = source.Groups?
-                .Select(MPClassDivisionsMapper.ToDO)
+                .Select(ToDo)
                 .ToList() ?? new List<GroupDO>()
         };
     }
 
+    /// <summary>
+    /// 将EffectDO转换为DTO
+    /// </summary>
     public static EffectDTO ToDTO(EffectDO source)
     {
         if (source == null) return null;
@@ -219,7 +288,10 @@ public static class MPClassDivisionsMapper
         };
     }
 
-    public static EffectDO ToDO(EffectDTO source)
+    /// <summary>
+    /// 将EffectDTO转换为DO
+    /// </summary>
+    public static EffectDO ToDo(EffectDTO source)
     {
         if (source == null) return null;
 
@@ -230,6 +302,9 @@ public static class MPClassDivisionsMapper
         };
     }
 
+    /// <summary>
+    /// 将GroupDO转换为DTO
+    /// </summary>
     public static GroupDTO ToDTO(GroupDO source)
     {
         if (source == null) return null;
@@ -237,23 +312,29 @@ public static class MPClassDivisionsMapper
         return new GroupDTO
         {
             Items = source.Items?
-                .Select(MPClassDivisionsMapper.ToDTO)
+                .Select(ToDTO)
                 .ToList() ?? new List<ItemDTO>()
         };
     }
 
-    public static GroupDO ToDO(GroupDTO source)
+    /// <summary>
+    /// 将GroupDTO转换为DO
+    /// </summary>
+    public static GroupDO ToDo(GroupDTO source)
     {
         if (source == null) return null;
 
         return new GroupDO
         {
             Items = source.Items?
-                .Select(MPClassDivisionsMapper.ToDO)
+                .Select(ToDo)
                 .ToList() ?? new List<ItemDO>()
         };
     }
 
+    /// <summary>
+    /// 将ItemDO转换为DTO
+    /// </summary>
     public static ItemDTO ToDTO(ItemDO source)
     {
         if (source == null) return null;
@@ -265,7 +346,10 @@ public static class MPClassDivisionsMapper
         };
     }
 
-    public static ItemDO ToDO(ItemDTO source)
+    /// <summary>
+    /// 将ItemDTO转换为DO
+    /// </summary>
+    public static ItemDO ToDo(ItemDTO source)
     {
         if (source == null) return null;
 
@@ -274,5 +358,44 @@ public static class MPClassDivisionsMapper
             Slot = source.Slot,
             Item = source.Item
         };
+    }
+
+    /// <summary>
+    /// 批量处理大型文件的特殊映射方法
+    /// </summary>
+    public static void ProcessLargeFileChunk(MPClassDivisionsDO target, List<MPClassDivisionDTO> chunk, int chunkIndex)
+    {
+        if (target == null || chunk == null) return;
+
+        var divisions = chunk.Select(ToDo).ToList();
+        target.MPClassDivisions.AddRange(divisions);
+        target.ProcessedChunks = chunkIndex + 1;
+
+        // 增量更新索引
+        foreach (var division in divisions)
+        {
+            var culture = target.ExtractCultureFromId(division.Id);
+            if (!target.ClassDivisionsByCulture.ContainsKey(culture))
+            {
+                target.ClassDivisionsByCulture[culture] = new List<MPClassDivisionDO>();
+            }
+            target.ClassDivisionsByCulture[culture].Add(division);
+
+            foreach (var perk in division.Perks?.PerksList ?? new List<PerkDO>())
+            {
+                var gameMode = perk.GameMode;
+                if (!string.IsNullOrEmpty(gameMode))
+                {
+                    if (!target.ClassDivisionsByGameMode.ContainsKey(gameMode))
+                    {
+                        target.ClassDivisionsByGameMode[gameMode] = new List<MPClassDivisionDO>();
+                    }
+                    if (!target.ClassDivisionsByGameMode[gameMode].Contains(division))
+                    {
+                        target.ClassDivisionsByGameMode[gameMode].Add(division);
+                    }
+                }
+            }
+        }
     }
 }

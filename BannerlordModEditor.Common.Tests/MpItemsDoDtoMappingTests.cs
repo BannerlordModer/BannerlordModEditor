@@ -157,7 +157,7 @@ namespace BannerlordModEditor.Common.Tests
         public void WeaponFlagsDO_BooleanValueParsing_ShouldHandleVariousFormats()
         {
             // Arrange
-            var weaponFlagsDO = new WeaponFlagsDO
+            var weaponFlagsDO = new MpWeaponFlagsDO
             {
                 MeleeWeapon = "true",
                 RangedWeapon = "1",

@@ -1,4 +1,4 @@
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 using System;
 using System.IO;
 using System.Linq;
@@ -20,30 +20,10 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "particle_systems_map_icon.xml");
             
             // Act - 反序列化
-            var serializer = new XmlSerializer(typeof(ParticleSystemsMapIcon));
-            ParticleSystemsMapIcon particleSystems;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
-            {
-                particleSystems = (ParticleSystemsMapIcon)serializer.Deserialize(reader)!;
-            }
+            var particleSystems = XmlTestUtils.Deserialize<ParticleSystemsMapIconDO>(File.ReadAllText(xmlPath));
             
             // Act - 序列化
-            string savedXml;
-            using (var writer = new StringWriter())
-            {
-                using (var xmlWriter = XmlWriter.Create(writer, new XmlWriterSettings
-                {
-                    Indent = true,
-                    IndentChars = "\t",
-                    Encoding = new UTF8Encoding(false),
-                    OmitXmlDeclaration = false
-                }))
-                {
-                    serializer.Serialize(xmlWriter, particleSystems);
-                }
-                savedXml = writer.ToString();
-            }
+            var savedXml = XmlTestUtils.Serialize(particleSystems);
 
             // Assert - 基本结构验证
             Assert.NotNull(particleSystems);
@@ -85,13 +65,7 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "particle_systems_map_icon.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(ParticleSystemsMapIcon));
-            ParticleSystemsMapIcon particleSystems;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
-            {
-                particleSystems = (ParticleSystemsMapIcon)serializer.Deserialize(reader)!;
-            }
+            var particleSystems = XmlTestUtils.Deserialize<ParticleSystemsMapIconDO>(File.ReadAllText(xmlPath));
             
             // Assert - 验证所有粒子特效都有必要的属性
             foreach (var effect in particleSystems.Effects)
@@ -152,13 +126,7 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "particle_systems_map_icon.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(ParticleSystemsMapIcon));
-            ParticleSystemsMapIcon particleSystems;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
-            {
-                particleSystems = (ParticleSystemsMapIcon)serializer.Deserialize(reader)!;
-            }
+            var particleSystems = XmlTestUtils.Deserialize<ParticleSystemsMapIconDO>(File.ReadAllText(xmlPath));
             
             // Assert - 验证特定特效的完整性
             var plunderEffect = particleSystems.Effects.FirstOrDefault(e => e.Name == "map_icon_village_plunder_fx");

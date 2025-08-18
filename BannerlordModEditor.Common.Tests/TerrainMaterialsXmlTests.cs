@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-using BannerlordModEditor.Common.Models.Engine;
+using BannerlordModEditor.Common.Models.DO.Engine;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
@@ -18,12 +18,12 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "terrain_materials.xml");
             
             // Act - 反序列化
-            var serializer = new XmlSerializer(typeof(TerrainMaterials));
-            TerrainMaterials terrainMaterials;
+            var serializer = new XmlSerializer(typeof(TerrainMaterialsDO));
+            TerrainMaterialsDO terrainMaterials;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                terrainMaterials = (TerrainMaterials)serializer.Deserialize(reader)!;
+                terrainMaterials = (TerrainMaterialsDO)serializer.Deserialize(reader)!;
             }
             
             // Act - 序列化
@@ -60,35 +60,35 @@ namespace BannerlordModEditor.Common.Tests
             
             // 验证纹理容器
             Assert.NotNull(defaultMaterial.Textures);
-            Assert.NotNull(defaultMaterial.Textures.Texture);
-            Assert.True(defaultMaterial.Textures.Texture.Count >= 5, "Should have at least 5 textures");
+            Assert.NotNull(defaultMaterial.Textures.TextureList);
+            Assert.True(defaultMaterial.Textures.TextureList.Count >= 5, "Should have at least 5 textures");
             
-            var diffuseTexture = defaultMaterial.Textures.Texture.FirstOrDefault(t => t.Type == "diffusemap");
+            var diffuseTexture = defaultMaterial.Textures.TextureList.FirstOrDefault(t => t.Type == "diffusemap");
             Assert.NotNull(diffuseTexture);
             Assert.Equal("editor_grid_8", diffuseTexture.Name);
             
             // 验证层标志容器
             Assert.NotNull(defaultMaterial.LayerFlags);
-            Assert.NotNull(defaultMaterial.LayerFlags.Flag);
-            Assert.True(defaultMaterial.LayerFlags.Flag.Count >= 7, "Should have at least 7 layer flags");
+            Assert.NotNull(defaultMaterial.LayerFlags.FlagList);
+            Assert.True(defaultMaterial.LayerFlags.FlagList.Count >= 7, "Should have at least 7 layer flags");
             
-            var parallaxFlag = defaultMaterial.LayerFlags.Flag.FirstOrDefault(f => f.Name == "use_parallax");
+            var parallaxFlag = defaultMaterial.LayerFlags.FlagList.FirstOrDefault(f => f.Name == "use_parallax");
             Assert.NotNull(parallaxFlag);
             Assert.Equal("false", parallaxFlag.Value);
             
             // 验证网格容器（default材质应该有空的meshes容器）
             Assert.NotNull(defaultMaterial.Meshes);
-            Assert.NotNull(defaultMaterial.Meshes.Mesh);
-            Assert.Empty(defaultMaterial.Meshes.Mesh);
+            Assert.NotNull(defaultMaterial.Meshes.MeshList);
+            Assert.Empty(defaultMaterial.Meshes.MeshList);
             
             // 验证有网格的材质
             var floraMaterial = terrainMaterials.TerrainMaterialList.FirstOrDefault(t => t.Name == "flora_habitat_a");
             Assert.NotNull(floraMaterial);
             Assert.NotNull(floraMaterial.Meshes);
-            Assert.NotNull(floraMaterial.Meshes.Mesh);
-            Assert.True(floraMaterial.Meshes.Mesh.Count > 0, "Flora material should have meshes");
+            Assert.NotNull(floraMaterial.Meshes.MeshList);
+            Assert.True(floraMaterial.Meshes.MeshList.Count > 0, "Flora material should have meshes");
             
-            var floraMesh = floraMaterial.Meshes.Mesh.FirstOrDefault(m => m.Name == "flora_grass_a_non_shadow");
+            var floraMesh = floraMaterial.Meshes.MeshList.FirstOrDefault(m => m.Name == "flora_grass_a_non_shadow");
             Assert.NotNull(floraMesh);
             Assert.Equal("55", floraMesh.Density);
             Assert.Equal("1", floraMesh.SeedIndex);
@@ -121,12 +121,12 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "terrain_materials.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(TerrainMaterials));
-            TerrainMaterials terrainMaterials;
+            var serializer = new XmlSerializer(typeof(TerrainMaterialsDO));
+            TerrainMaterialsDO terrainMaterials;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                terrainMaterials = (TerrainMaterials)serializer.Deserialize(reader)!;
+                terrainMaterials = (TerrainMaterialsDO)serializer.Deserialize(reader)!;
             }
             
             // Assert - 验证默认材质没有可选属性
@@ -157,17 +157,17 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "terrain_materials.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(TerrainMaterials));
-            TerrainMaterials terrainMaterials;
+            var serializer = new XmlSerializer(typeof(TerrainMaterialsDO));
+            TerrainMaterialsDO terrainMaterials;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                terrainMaterials = (TerrainMaterials)serializer.Deserialize(reader)!;
+                terrainMaterials = (TerrainMaterialsDO)serializer.Deserialize(reader)!;
             }
             
             // Assert - 验证空meshes和有内容的meshes都能正确处理
-            var materialsWithEmptyMeshes = terrainMaterials.TerrainMaterialList.Where(t => t.Meshes?.Mesh.Count == 0).ToList();
-            var materialsWithMeshes = terrainMaterials.TerrainMaterialList.Where(t => t.Meshes?.Mesh.Count > 0).ToList();
+            var materialsWithEmptyMeshes = terrainMaterials.TerrainMaterialList.Where(t => t.Meshes?.MeshList.Count == 0).ToList();
+            var materialsWithMeshes = terrainMaterials.TerrainMaterialList.Where(t => t.Meshes?.MeshList.Count > 0).ToList();
             
             Assert.True(materialsWithEmptyMeshes.Count > 0, "Should have materials with empty meshes");
             Assert.True(materialsWithMeshes.Count > 0, "Should have materials with meshes");
@@ -175,16 +175,16 @@ namespace BannerlordModEditor.Common.Tests
             // 验证空meshes的材质
             var emptyMeshesMaterial = materialsWithEmptyMeshes.First();
             Assert.NotNull(emptyMeshesMaterial.Meshes);
-            Assert.NotNull(emptyMeshesMaterial.Meshes.Mesh);
-            Assert.Empty(emptyMeshesMaterial.Meshes.Mesh);
+            Assert.NotNull(emptyMeshesMaterial.Meshes.MeshList);
+            Assert.Empty(emptyMeshesMaterial.Meshes.MeshList);
             
             // 验证有meshes的材质
             var meshesMaterial = materialsWithMeshes.First();
             Assert.NotNull(meshesMaterial.Meshes);
-            Assert.NotNull(meshesMaterial.Meshes.Mesh);
-            Assert.True(meshesMaterial.Meshes.Mesh.Count > 0);
+            Assert.NotNull(meshesMaterial.Meshes.MeshList);
+            Assert.True(meshesMaterial.Meshes.MeshList.Count > 0);
             
-            var firstMesh = meshesMaterial.Meshes.Mesh.First();
+            var firstMesh = meshesMaterial.Meshes.MeshList.First();
             Assert.NotNull(firstMesh.Name);
             Assert.NotNull(firstMesh.Density);
             Assert.NotNull(firstMesh.SeedIndex);
@@ -204,12 +204,12 @@ namespace BannerlordModEditor.Common.Tests
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "terrain_materials.xml");
             
             // Act
-            var serializer = new XmlSerializer(typeof(TerrainMaterials));
-            TerrainMaterials terrainMaterials;
+            var serializer = new XmlSerializer(typeof(TerrainMaterialsDO));
+            TerrainMaterialsDO terrainMaterials;
             
             using (var reader = new FileStream(xmlPath, FileMode.Open))
             {
-                terrainMaterials = (TerrainMaterials)serializer.Deserialize(reader)!;
+                terrainMaterials = (TerrainMaterialsDO)serializer.Deserialize(reader)!;
             }
             
             // Assert - 验证数值精度保持
@@ -229,8 +229,8 @@ namespace BannerlordModEditor.Common.Tests
         public void TerrainMaterials_ShouldSerializeWithoutNullAttributes()
         {
             // Arrange - 创建一个只有必要属性的地形材质
-            var terrainMaterials = new TerrainMaterials();
-            var material = new TerrainMaterial
+            var terrainMaterials = new TerrainMaterialsDO();
+            var material = new TerrainMaterialDO
             {
                 Name = "test_material",
                 PhysicsMaterial = "stone",
@@ -244,7 +244,7 @@ namespace BannerlordModEditor.Common.Tests
             terrainMaterials.TerrainMaterialList.Add(material);
             
             // Act - 序列化
-            var serializer = new XmlSerializer(typeof(TerrainMaterials));
+            var serializer = new XmlSerializer(typeof(TerrainMaterialsDO));
             string serializedXml;
             using (var stringWriter = new StringWriter())
             using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings 

@@ -183,11 +183,11 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static WeaponFlagsDTO ToDTO(WeaponFlagsDO source)
+        public static MpWeaponFlagsDTO ToDTO(MpWeaponFlagsDO source)
         {
             if (source == null) return null;
 
-            return new WeaponFlagsDTO
+            return new MpWeaponFlagsDTO
             {
                 MeleeWeapon = BoolFromString(source.MeleeWeapon) ?? false,
                 RangedWeapon = BoolFromString(source.RangedWeapon) ?? false,
@@ -514,11 +514,11 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static WeaponFlagsDO ToDO(WeaponFlagsDTO source)
+        public static MpWeaponFlagsDO ToDO(MpWeaponFlagsDTO source)
         {
             if (source == null) return null;
 
-            return new WeaponFlagsDO
+            return new MpWeaponFlagsDO
             {
                 MeleeWeapon = StringFromBool(source.MeleeWeapon),
                 RangedWeapon = StringFromBool(source.RangedWeapon),
