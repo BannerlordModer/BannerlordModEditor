@@ -1,0 +1,103 @@
+生成启动时间为 2025/8/18 02:04:50。
+     1>项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”在节点 1 上(Restore 个目标)。
+     1>_GetAllRestoreProjectPathItems:
+         正在确定要还原的项目…
+       Restore:
+         X.509 证书链验证将使用 "/usr/local/bin/sdk/9.0.303/trustedroots/codesignctl.pem" 处的回退证书捆绑包。
+         X.509 证书链验证将使用 "/usr/local/bin/sdk/9.0.303/trustedroots/timestampctl.pem" 处的回退证书捆绑包。
+         资产文件未改变。跳过资产文件写入。路径: /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common/obj/project.assets.json
+         资产文件未改变。跳过资产文件写入。路径: /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/obj/project.assets.json
+         已还原 /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common/BannerlordModEditor.Common.csproj (用时 44 毫秒)。
+         已还原 /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj (用时 44 毫秒)。
+         
+         使用的 NuGet 配置文件:
+             /root/.nuget/NuGet/NuGet.Config
+         
+         使用的源:
+             https://api.nuget.org/v3/index.json
+         所有项目均是最新的，无法还原。
+     1>已完成生成项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”(Restore 个目标)的操作。
+   1:7>项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”在节点 1 上(VSTest 个目标)。
+     1>BuildProject:
+         已开始生成，请等待...
+   1:7>项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”(1:7)正在节点 1 上生成“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”(1:8) (默认目标)。
+   1:8>项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”(1:8)正在节点 1 上生成“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common/BannerlordModEditor.Common.csproj”(2:6) (默认目标)。
+     2>GenerateTargetFrameworkMonikerAttribute:
+       正在跳过目标“GenerateTargetFrameworkMonikerAttribute”，因为所有输出文件相对于输入文件而言都是最新的。
+       CoreGenerateAssemblyInfo:
+       正在跳过目标“CoreGenerateAssemblyInfo”，因为所有输出文件相对于输入文件而言都是最新的。
+       _GenerateSourceLinkFile:
+         Source Link 文件 "obj/Debug/net9.0/BannerlordModEditor.Common.sourcelink.json" 是最新的。
+       CoreCompile:
+       正在跳过目标“CoreCompile”，因为所有输出文件相对于输入文件而言都是最新的。
+       GenerateBuildDependencyFile:
+       正在跳过目标“GenerateBuildDependencyFile”，因为所有输出文件相对于输入文件而言都是最新的。
+       CopyFilesToOutputDirectory:
+         BannerlordModEditor.Common -> /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common/bin/Debug/net9.0/BannerlordModEditor.Common.dll
+     2>已完成生成项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common/BannerlordModEditor.Common.csproj”(默认目标)的操作。
+     1>GenerateTargetFrameworkMonikerAttribute:
+       正在跳过目标“GenerateTargetFrameworkMonikerAttribute”，因为所有输出文件相对于输入文件而言都是最新的。
+       CoreGenerateAssemblyInfo:
+       正在跳过目标“CoreGenerateAssemblyInfo”，因为所有输出文件相对于输入文件而言都是最新的。
+       _GenerateSourceLinkFile:
+         Source Link 文件 "obj/Debug/net9.0/BannerlordModEditor.Common.Tests.sourcelink.json" 是最新的。
+       CoreCompile:
+       正在跳过目标“CoreCompile”，因为所有输出文件相对于输入文件而言都是最新的。
+       _CopyOutOfDateSourceItemsToOutputDirectory:
+       正在跳过目标“_CopyOutOfDateSourceItemsToOutputDirectory”，因为所有输出文件相对于输入文件而言都是最新的。
+       GenerateBuildDependencyFile:
+       正在跳过目标“GenerateBuildDependencyFile”，因为所有输出文件相对于输入文件而言都是最新的。
+       GenerateBuildRuntimeConfigurationFiles:
+       正在跳过目标“GenerateBuildRuntimeConfigurationFiles”，因为所有输出文件相对于输入文件而言都是最新的。
+       CopyFilesToOutputDirectory:
+         BannerlordModEditor.Common.Tests -> /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/bin/Debug/net9.0/BannerlordModEditor.Common.Tests.dll
+     1>已完成生成项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”(默认目标)的操作。
+     1>BuildProject:
+         完成的生成。
+         
+/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/bin/Debug/net9.0/BannerlordModEditor.Common.Tests.dll (.NETCoreApp,Version=v9.0)的测试运行
+VSTest 版本 17.14.1 (x64)
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 9.0.7)
+[xUnit.net 00:00:00.06]   Discovering: BannerlordModEditor.Common.Tests
+[xUnit.net 00:00:00.20]   Discovered:  BannerlordModEditor.Common.Tests
+[xUnit.net 00:00:00.21]   Starting:    BannerlordModEditor.Common.Tests
+XML文件大小: 1525815 字符
+序列化XML大小: 1386561 字符
+FloraKind数量: 341
+节点数量差异: 
+属性数量差异: 属性数量不同: A=32079, B=32078
+[xUnit.net 00:00:00.93]     BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(xmlPath: "TestData/flora_kinds.xml") [FAIL]
+[xUnit.net 00:00:00.93]       Assert.True() Failure
+[xUnit.net 00:00:00.94]       Expected: True
+[xUnit.net 00:00:00.94]       Actual:   False
+[xUnit.net 00:00:00.94]       Stack Trace:
+[xUnit.net 00:00:00.94]         /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/FloraKindsXmlTests.cs(52,0): at BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(String xmlPath)
+[xUnit.net 00:00:00.94]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.94]            at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.94]   Finished:    BannerlordModEditor.Common.Tests
+  失败 BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(xmlPath: "TestData/flora_kinds.xml") [692 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(String xmlPath) in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/FloraKindsXmlTests.cs:line 52
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+
+测试运行失败。
+测试总数: 1
+     失败数: 1
+总时间: 1.2976 秒
+       _VSTestConsole:
+         MSB4181: “VSTestTask”任务返回了 false，但未记录错误。
+     1>已完成生成项目“/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BannerlordModEditor.Common.Tests.csproj”(VSTest 个目标)的操作 - 失败。
+
+生成失败。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:02.69

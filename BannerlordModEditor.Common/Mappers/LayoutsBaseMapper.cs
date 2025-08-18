@@ -19,6 +19,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new LayoutsBaseDTO
             {
                 Type = source.Type,
+                HasLayouts = source.HasLayouts,
                 Layouts = LayoutsContainerMapper.ToDTO(source.Layouts)
             };
         }
@@ -33,6 +34,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new LayoutsBaseDO
             {
                 Type = source.Type,
+                HasLayouts = source.HasLayouts,
                 Layouts = LayoutsContainerMapper.ToDO(source.Layouts)
             };
         }
@@ -83,11 +85,17 @@ namespace BannerlordModEditor.Common.Mappers
                 Version = source.Version,
                 XmlTag = source.XmlTag,
                 NameAttribute = source.NameAttribute,
+                HasNameAttribute = source.HasNameAttribute,
+                HasEmptyNameAttribute = source.HasEmptyNameAttribute,
                 UseInTreeview = source.UseInTreeview,
                 Columns = ColumnsMapper.ToDTO(source.Columns),
+                HasColumns = source.HasColumns,
                 InsertionDefinitions = InsertionDefinitionsMapper.ToDTO(source.InsertionDefinitions),
+                HasInsertionDefinitions = source.HasInsertionDefinitions,
                 TreeviewContextMenu = TreeviewContextMenuMapper.ToDTO(source.TreeviewContextMenu),
-                Items = ItemsMapper.ToDTO(source.Items)
+                HasTreeviewContextMenu = source.HasTreeviewContextMenu,
+                Items = ItemsMapper.ToDTO(source.Items),
+                HasItems = source.HasItems
             };
         }
 
@@ -101,11 +109,17 @@ namespace BannerlordModEditor.Common.Mappers
                 Version = source.Version,
                 XmlTag = source.XmlTag,
                 NameAttribute = source.NameAttribute,
+                HasNameAttribute = source.HasNameAttribute,
+                HasEmptyNameAttribute = source.HasEmptyNameAttribute,
                 UseInTreeview = source.UseInTreeview,
                 Columns = ColumnsMapper.ToDO(source.Columns),
+                HasColumns = source.HasColumns,
                 InsertionDefinitions = InsertionDefinitionsMapper.ToDO(source.InsertionDefinitions),
+                HasInsertionDefinitions = source.HasInsertionDefinitions,
                 TreeviewContextMenu = TreeviewContextMenuMapper.ToDO(source.TreeviewContextMenu),
-                Items = ItemsMapper.ToDO(source.Items)
+                HasTreeviewContextMenu = source.HasTreeviewContextMenu,
+                Items = ItemsMapper.ToDO(source.Items),
+                HasItems = source.HasItems
             };
         }
     }
@@ -211,7 +225,8 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Label = source.Label,
                 XmlPath = source.XmlPath,
-                DefaultNode = DefaultNodeMapper.ToDTO(source.DefaultNode)
+                DefaultNode = DefaultNodeMapper.ToDTO(source.DefaultNode),
+                HasDefaultNode = source.HasDefaultNode
             };
         }
 
@@ -223,7 +238,8 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Label = source.Label,
                 XmlPath = source.XmlPath,
-                DefaultNode = DefaultNodeMapper.ToDO(source.DefaultNode)
+                DefaultNode = DefaultNodeMapper.ToDO(source.DefaultNode),
+                HasDefaultNode = source.HasDefaultNode
             };
         }
     }
@@ -239,7 +255,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new DefaultNodeDTO
             {
-                AnyElements = source.AnyElements
+                AnyElements = source.AnyElements,
+                HasAnyElements = source.HasAnyElements
             };
         }
 
@@ -249,7 +266,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new DefaultNodeDO
             {
-                AnyElements = source.AnyElements
+                AnyElements = source.AnyElements,
+                HasAnyElements = source.HasAnyElements
             };
         }
     }
@@ -296,7 +314,10 @@ namespace BannerlordModEditor.Common.Mappers
             return new ContextMenuItemDTO
             {
                 Name = source.Name,
-                ActionCode = source.ActionCode
+                ActionCode = source.ActionCode,
+                HasActionCode = source.HasActionCode,
+                TreeviewContextMenu = TreeviewContextMenuMapper.ToDTO(source.TreeviewContextMenu),
+                HasTreeviewContextMenu = source.HasTreeviewContextMenu
             };
         }
 
@@ -307,7 +328,10 @@ namespace BannerlordModEditor.Common.Mappers
             return new ContextMenuItemDO
             {
                 Name = source.Name,
-                ActionCode = source.ActionCode
+                ActionCode = source.ActionCode,
+                HasActionCode = source.HasActionCode,
+                TreeviewContextMenu = TreeviewContextMenuMapper.ToDO(source.TreeviewContextMenu),
+                HasTreeviewContextMenu = source.HasTreeviewContextMenu
             };
         }
     }
@@ -359,7 +383,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Column = source.Column,
                 XmlPath = source.XmlPath,
                 Optional = source.Optional,
-                Properties = PropertiesMapper.ToDTO(source.Properties)
+                HasOptional = source.HasOptional,
+                Properties = PropertiesMapper.ToDTO(source.Properties),
+                HasProperties = source.HasProperties
             };
         }
 
@@ -375,7 +401,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Column = source.Column,
                 XmlPath = source.XmlPath,
                 Optional = source.Optional,
-                Properties = PropertiesMapper.ToDO(source.Properties)
+                HasOptional = source.HasOptional,
+                Properties = PropertiesMapper.ToDO(source.Properties),
+                HasProperties = source.HasProperties
             };
         }
     }

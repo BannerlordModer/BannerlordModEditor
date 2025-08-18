@@ -47,6 +47,12 @@ namespace BannerlordModEditor.Common.Models.DO.Layouts
         [XmlAttribute("name_attribute")]
         public string NameAttribute { get; set; } = string.Empty;
 
+        [XmlIgnore]
+        public bool HasNameAttribute { get; set; } = false;
+        
+        [XmlIgnore]
+        public bool HasEmptyNameAttribute { get; set; } = false;
+
         [XmlAttribute("use_in_treeview")]
         public string UseInTreeview { get; set; } = "true";
 
@@ -74,6 +80,7 @@ namespace BannerlordModEditor.Common.Models.DO.Layouts
         [XmlIgnore]
         public bool HasItems { get; set; } = false;
 
+        public bool ShouldSerializeNameAttribute() => HasNameAttribute;
         public bool ShouldSerializeColumns() => HasColumns && Columns != null && Columns.ColumnList.Count > 0;
         public bool ShouldSerializeInsertionDefinitions() => HasInsertionDefinitions && InsertionDefinitions != null && InsertionDefinitions.InsertionDefinitionList.Count > 0;
         public bool ShouldSerializeTreeviewContextMenu() => HasTreeviewContextMenu && TreeviewContextMenu != null && TreeviewContextMenu.ItemList.Count > 0;
@@ -163,6 +170,19 @@ namespace BannerlordModEditor.Common.Models.DO.Layouts
 
         [XmlAttribute("action_code")]
         public string ActionCode { get; set; } = string.Empty;
+
+        [XmlIgnore]
+        public bool HasActionCode { get; set; } = false;
+
+        [XmlElement("treeview_context_menu")]
+        public TreeviewContextMenuDO TreeviewContextMenu { get; set; } = new TreeviewContextMenuDO();
+
+        [XmlIgnore]
+        public bool HasTreeviewContextMenu { get; set; } = false;
+
+        public bool ShouldSerializeActionCode() => HasActionCode && !string.IsNullOrEmpty(ActionCode);
+        
+        public bool ShouldSerializeTreeviewContextMenu() => HasTreeviewContextMenu && TreeviewContextMenu != null && TreeviewContextMenu.ItemList.Count > 0;
     }
 
     /// <summary>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Collections.Generic;
 using BannerlordModEditor.Common.Models;
 using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DO.Layouts;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -77,6 +78,8 @@ namespace BannerlordModEditor.Common.Tests
             
             // 简化实现：移除复杂的Credits重新排序逻辑，直接保持XML序列化的原始顺序
             // 这种简化实现避免了重新排序导致的Text属性交换问题
+            
+            // 移除简化的LayoutsBaseDO处理，只保留下面的完整处理
             
             // 特殊处理LooknfeelDO来检测是否有空的widgets元素
             if (obj is LooknfeelDO looknfeel)
@@ -437,6 +440,46 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
+            // 特殊处理FloraKindsDO来检测是否有flags和flora_variations元素
+            if (obj is BannerlordModEditor.Common.Models.DO.FloraKindsDO floraKinds)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 处理每个flora_kind的flags和seasonal_kind的空元素
+                if (floraKinds.FloraKindsList != null)
+                {
+                    var floraKindElements = doc.Root?.Elements("flora_kind").ToList();
+                    
+                    for (int i = 0; i < floraKinds.FloraKindsList.Count && i < floraKindElements.Count; i++)
+                    {
+                        var floraKind = floraKinds.FloraKindsList[i];
+                        var floraKindElement = floraKindElements[i];
+                        
+                        // 检查flags元素是否存在
+                        floraKind.HasFlags = floraKindElement.Element("flags") != null;
+                        
+                        // 检查name属性是否存在（即使为空字符串）
+                        var nameAttribute = floraKindElement.Attribute("name");
+                        floraKind.HasName = nameAttribute != null;
+                        
+                        // 检查每个seasonal_kind的flora_variations
+                        if (floraKind.SeasonalKinds != null)
+                        {
+                            var seasonalKindElements = floraKindElement.Elements("seasonal_kind").ToList();
+                            
+                            for (int j = 0; j < floraKind.SeasonalKinds.Count && j < seasonalKindElements.Count; j++)
+                            {
+                                var seasonalKind = floraKind.SeasonalKinds[j];
+                                var seasonalKindElement = seasonalKindElements[j];
+                                
+                                // 检查flora_variations元素是否存在
+                                seasonalKind.HasFloraVariations = seasonalKindElement.Element("flora_variations") != null;
+                            }
+                        }
+                    }
+                }
+            }
+            
             // 特殊处理LayoutsBaseDO来检测是否有layouts元素
             if (obj is BannerlordModEditor.Common.Models.DO.Layouts.LayoutsBaseDO layouts)
             {
@@ -455,6 +498,11 @@ namespace BannerlordModEditor.Common.Tests
                         
                         if (layoutElement != null)
                         {
+                            // 检查name_attribute属性
+                            var nameAttributeAttribute = layoutElement.Attribute("name_attribute");
+                            layout.HasNameAttribute = nameAttributeAttribute != null;
+                            layout.HasEmptyNameAttribute = nameAttributeAttribute != null && string.IsNullOrEmpty(nameAttributeAttribute.Value);
+
                             // 检查columns元素
                             var columnsElement = layoutElement.Element("columns");
                             layout.HasColumns = columnsElement != null && columnsElement.Elements().Count() > 0;
@@ -485,6 +533,12 @@ namespace BannerlordModEditor.Common.Tests
                                     {
                                         var defaultNodeElement = insertionDefElement.Element("default_node");
                                         insertionDef.HasDefaultNode = defaultNodeElement != null && defaultNodeElement.Elements().Count() > 0;
+                                        
+                                        // 设置DefaultNodeDO的HasAnyElements属性
+                                        if (insertionDef.DefaultNode != null)
+                                        {
+                                            insertionDef.DefaultNode.HasAnyElements = defaultNodeElement != null && defaultNodeElement.Elements().Count() > 0;
+                                        }
                                     }
                                 }
                             }
@@ -507,6 +561,76 @@ namespace BannerlordModEditor.Common.Tests
                                         // 检查optional属性
                                         var optionalAttribute = itemElement.Attribute("optional");
                                         item.HasOptional = optionalAttribute != null;
+                                    }
+                                }
+                            }
+                            
+                            // 处理treeview_context_menu中的嵌套菜单状态
+                            if (layout.TreeviewContextMenu != null && layout.TreeviewContextMenu.ItemList != null)
+                            {
+                                var treeviewContextMenuElement2 = layoutElement.Element("treeview_context_menu");
+                                
+                                for (int j = 0; j < layout.TreeviewContextMenu.ItemList.Count; j++)
+                                {
+                                    var contextMenuItem = layout.TreeviewContextMenu.ItemList[j];
+                                    var contextMenuItemElement = treeviewContextMenuElement2?.Elements("item").ElementAt(j);
+                                    
+                                    if (contextMenuItemElement != null)
+                                    {
+                                        // 处理ActionCode属性
+                                        var actionCodeAttribute = contextMenuItemElement.Attribute("action_code");
+                                        if (actionCodeAttribute != null)
+                                        {
+                                            contextMenuItem.HasActionCode = true;
+                                        }
+                                        else
+                                        {
+                                            contextMenuItem.HasActionCode = false;
+                                        }
+                                        
+                                        var nestedTreeviewContextMenuElement = contextMenuItemElement.Element("treeview_context_menu");
+                                        contextMenuItem.HasTreeviewContextMenu = nestedTreeviewContextMenuElement != null && nestedTreeviewContextMenuElement.Elements().Count() > 0;
+                                        
+                                        // 确保TreeviewContextMenu属性已正确初始化
+                                        if (contextMenuItem.TreeviewContextMenu == null)
+                                        {
+                                            contextMenuItem.TreeviewContextMenu = new TreeviewContextMenuDO();
+                                        }
+                                        
+                                        // 处理嵌套的菜单项
+                                        var nestedItemElements = nestedTreeviewContextMenuElement?.Elements("item").ToList() ?? new List<XElement>();
+                                        
+                                        // 清空现有项列表（如果有的话）
+                                        contextMenuItem.TreeviewContextMenu.ItemList.Clear();
+                                        
+                                        for (int k = 0; k < nestedItemElements.Count; k++)
+                                        {
+                                            var nestedItemElement = nestedItemElements[k];
+                                            var nestedItem = new ContextMenuItemDO();
+                                            
+                                            // 设置嵌套项的属性
+                                            var nameAttribute = nestedItemElement.Attribute("name");
+                                            if (nameAttribute != null)
+                                            {
+                                                nestedItem.Name = nameAttribute.Value;
+                                            }
+                                            
+                                            var nestedActionCodeAttribute = nestedItemElement.Attribute("action_code");
+                                            if (nestedActionCodeAttribute != null)
+                                            {
+                                                nestedItem.ActionCode = nestedActionCodeAttribute.Value;
+                                                nestedItem.HasActionCode = true;
+                                            }
+                                            else
+                                            {
+                                                nestedItem.HasActionCode = false;
+                                            }
+                                            
+                                            // 嵌套项不再有嵌套菜单（根据当前XML结构）
+                                            nestedItem.HasTreeviewContextMenu = false;
+                                            
+                                            contextMenuItem.TreeviewContextMenu.ItemList.Add(nestedItem);
+                                        }
                                     }
                                 }
                             }

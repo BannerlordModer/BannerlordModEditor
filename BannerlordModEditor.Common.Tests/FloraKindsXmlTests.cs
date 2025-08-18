@@ -1,7 +1,7 @@
 using System.IO;
 using System.Xml.Linq;
 using Xunit;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -12,7 +12,7 @@ namespace BannerlordModEditor.Common.Tests
         public void FloraKinds_RoundTrip_StructuralEquality(string xmlPath)
         {
             var xml = File.ReadAllText(xmlPath);
-            var obj = XmlTestUtils.Deserialize<FloraKinds>(xml);
+            var obj = XmlTestUtils.Deserialize<FloraKindsDO>(xml);
             var xml2 = XmlTestUtils.Serialize(obj);
 
             // 调试信息：分析具体差异
@@ -21,7 +21,7 @@ namespace BannerlordModEditor.Common.Tests
             {
                 Console.WriteLine($"XML文件大小: {xml.Length} 字符");
                 Console.WriteLine($"序列化XML大小: {xml2.Length} 字符");
-                Console.WriteLine($"FloraKind数量: {obj.FloraKindList.Count}");
+                Console.WriteLine($"FloraKind数量: {obj.FloraKindsList.Count}");
                 Console.WriteLine($"节点数量差异: {report.NodeCountDifference}");
                 Console.WriteLine($"属性数量差异: {report.AttributeCountDifference}");
                 
@@ -40,11 +40,13 @@ namespace BannerlordModEditor.Common.Tests
                     $"FloraKinds测试失败分析:\n" +
                     $"原始大小: {xml.Length}\n" +
                     $"序列化大小: {xml2.Length}\n" +
-                    $"FloraKind数量: {obj.FloraKindList.Count}\n" +
+                    $"FloraKind数量: {obj.FloraKindsList.Count}\n" +
                     $"节点数量差异: {report.NodeCountDifference}\n" +
                     $"属性数量差异: {report.AttributeCountDifference}\n" +
                     $"属性值差异: {string.Join("\n", report.AttributeValueDifferences)}\n");
             }
+
+            // 特殊处理逻辑现在在XmlTestUtils.Deserialize中统一处理
 
             // 回退参数，保留原始结构比较，后续可扩展为更智能比较
             Assert.True(XmlTestUtils.AreStructurallyEqual(xml, xml2));

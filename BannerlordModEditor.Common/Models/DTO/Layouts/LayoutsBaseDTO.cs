@@ -14,6 +14,11 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
 
         [XmlElement("layouts")]
         public LayoutsContainerDTO Layouts { get; set; } = new LayoutsContainerDTO();
+        
+        [XmlIgnore]
+        public bool HasLayouts { get; set; } = false;
+        
+        public bool ShouldSerializeLayouts() => HasLayouts && Layouts != null && Layouts.LayoutList.Count > 0;
     }
 
     /// <summary>
@@ -42,20 +47,44 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
         [XmlAttribute("name_attribute")]
         public string NameAttribute { get; set; } = string.Empty;
 
+        [XmlIgnore]
+        public bool HasNameAttribute { get; set; } = false;
+        
+        [XmlIgnore]
+        public bool HasEmptyNameAttribute { get; set; } = false;
+
         [XmlAttribute("use_in_treeview")]
         public string UseInTreeview { get; set; } = "true";
 
         [XmlElement("columns")]
         public ColumnsDTO Columns { get; set; } = new ColumnsDTO();
 
+        [XmlIgnore]
+        public bool HasColumns { get; set; } = false;
+
         [XmlElement("insertion_definitions")]
         public InsertionDefinitionsDTO InsertionDefinitions { get; set; } = new InsertionDefinitionsDTO();
+
+        [XmlIgnore]
+        public bool HasInsertionDefinitions { get; set; } = false;
 
         [XmlElement("treeview_context_menu")]
         public TreeviewContextMenuDTO TreeviewContextMenu { get; set; } = new TreeviewContextMenuDTO();
 
+        [XmlIgnore]
+        public bool HasTreeviewContextMenu { get; set; } = false;
+
         [XmlElement("items")]
         public ItemsDTO Items { get; set; } = new ItemsDTO();
+
+        [XmlIgnore]
+        public bool HasItems { get; set; } = false;
+
+        public bool ShouldSerializeNameAttribute() => HasNameAttribute;
+        public bool ShouldSerializeColumns() => HasColumns && Columns != null && Columns.ColumnList.Count > 0;
+        public bool ShouldSerializeInsertionDefinitions() => HasInsertionDefinitions && InsertionDefinitions != null && InsertionDefinitions.InsertionDefinitionList.Count > 0;
+        public bool ShouldSerializeTreeviewContextMenu() => HasTreeviewContextMenu && TreeviewContextMenu != null && TreeviewContextMenu.ItemList.Count > 0;
+        public bool ShouldSerializeItems() => HasItems && Items != null && Items.ItemList.Count > 0;
     }
 
     /// <summary>
@@ -101,6 +130,11 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
 
         [XmlElement("default_node")]
         public DefaultNodeDTO DefaultNode { get; set; } = new DefaultNodeDTO();
+
+        [XmlIgnore]
+        public bool HasDefaultNode { get; set; } = false;
+
+        public bool ShouldSerializeDefaultNode() => HasDefaultNode && DefaultNode != null;
     }
 
     /// <summary>
@@ -110,6 +144,11 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
     {
         [XmlAnyElement]
         public System.Xml.XmlElement[]? AnyElements { get; set; }
+        
+        [XmlIgnore]
+        public bool HasAnyElements { get; set; } = false;
+        
+        public bool ShouldSerializeAnyElements() => HasAnyElements && AnyElements != null && AnyElements.Length > 0;
     }
 
     /// <summary>
@@ -131,6 +170,19 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
 
         [XmlAttribute("action_code")]
         public string ActionCode { get; set; } = string.Empty;
+
+        [XmlIgnore]
+        public bool HasActionCode { get; set; } = false;
+
+        [XmlElement("treeview_context_menu")]
+        public TreeviewContextMenuDTO TreeviewContextMenu { get; set; } = new TreeviewContextMenuDTO();
+
+        [XmlIgnore]
+        public bool HasTreeviewContextMenu { get; set; } = false;
+
+        public bool ShouldSerializeActionCode() => HasActionCode && !string.IsNullOrEmpty(ActionCode);
+        
+        public bool ShouldSerializeTreeviewContextMenu() => HasTreeviewContextMenu && TreeviewContextMenu != null && TreeviewContextMenu.ItemList.Count > 0;
     }
 
     /// <summary>
@@ -165,8 +217,17 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
         [XmlAttribute("optional")]
         public string Optional { get; set; } = string.Empty;
 
+        [XmlIgnore]
+        public bool HasOptional { get; set; } = false;
+
         [XmlElement("properties")]
         public PropertiesDTO Properties { get; set; } = new PropertiesDTO();
+
+        [XmlIgnore]
+        public bool HasProperties { get; set; } = false;
+
+        public bool ShouldSerializeProperties() => HasProperties && Properties != null && Properties.PropertyList.Count > 0;
+        public bool ShouldSerializeOptional() => HasOptional && !string.IsNullOrEmpty(Optional);
     }
 
     /// <summary>

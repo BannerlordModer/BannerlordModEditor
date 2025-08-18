@@ -64,8 +64,8 @@ namespace BannerlordModEditor.Common.Tests
             var originalDO = XmlTestUtils.Deserialize<SkeletonsLayoutDO>(xml);
 
             // Act
-            var dto = SkeletonsLayoutMapper.ToDTO(originalDO);
-            var convertedDO = SkeletonsLayoutMapper.ToDO(dto);
+            var dto = LayoutsBaseMapper.ToDTO(originalDO);
+            var convertedDO = LayoutsBaseMapper.ToDO(dto);
 
             // Assert
             Assert.NotNull(dto);

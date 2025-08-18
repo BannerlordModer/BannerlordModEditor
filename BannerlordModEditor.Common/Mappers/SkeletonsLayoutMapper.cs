@@ -19,6 +19,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new SkeletonsLayoutDTO
             {
                 Type = source.Type,
+                HasLayouts = source.HasLayouts,
                 Layouts = LayoutsContainerMapper.ToDTO(source.Layouts)
             };
         }
@@ -33,6 +34,7 @@ namespace BannerlordModEditor.Common.Mappers
             return new SkeletonsLayoutDO
             {
                 Type = source.Type,
+                HasLayouts = source.HasLayouts,
                 Layouts = LayoutsContainerMapper.ToDO(source.Layouts)
             };
         }
