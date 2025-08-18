@@ -74,6 +74,28 @@ namespace BannerlordModEditor.Common.Tests
                     (itemHolstersElement.Elements().Count() == 0 || itemHolstersElement.Elements("item_holster").Count() == 0);
             }
             
+            // 特殊处理TerrainMaterialsDO来检测textures、layer_flags和meshes元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Engine.TerrainMaterialsDO terrainMaterials)
+            {
+                var doc = XDocument.Parse(xml);
+                foreach (var material in terrainMaterials.TerrainMaterialList)
+                {
+                    var materialElement = doc.Root?.Elements("terrain_material")
+                        .FirstOrDefault(e => e.Attribute("name")?.Value == material.Name);
+                    
+                    if (materialElement != null)
+                    {
+                        material.HasTextures = materialElement.Element("textures") != null;
+                        material.HasLayerFlags = materialElement.Element("layer_flags") != null;
+                        material.HasMeshes = materialElement.Element("meshes") != null;
+                        
+                        var meshesElement = materialElement.Element("meshes");
+                        material.HasEmptyMeshes = meshesElement != null && 
+                            (meshesElement.Elements().Count() == 0 || meshesElement.Elements("mesh").Count() == 0);
+                    }
+                }
+            }
+            
             return obj;
         }
 
