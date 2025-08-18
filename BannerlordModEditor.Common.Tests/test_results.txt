@@ -1,0 +1,207 @@
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  BannerlordModEditor.Common -> /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common/bin/Debug/net9.0/BannerlordModEditor.Common.dll
+  BannerlordModEditor.Common.Tests -> /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/bin/Debug/net9.0/BannerlordModEditor.Common.Tests.dll
+/root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/bin/Debug/net9.0/BannerlordModEditor.Common.Tests.dll (.NETCoreApp,Version=v9.0)的测试运行
+VSTest 版本 17.14.1 (x64)
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.31]     BannerlordModEditor.Common.Tests.__tests__.XmlTestUtils_CompareXmlStructure_Tests.NodeAndAttributeDifferences_ShouldBeReported [FAIL]
+  失败 BannerlordModEditor.Common.Tests.__tests__.XmlTestUtils_CompareXmlStructure_Tests.NodeAndAttributeDifferences_ShouldBeReported [9 ms]
+  错误消息:
+   Assert.Contains() Failure: Item not found in collection
+Collection: ["/a[0]@attr: A=true, B=2"]
+Not found:  "/a[0]@attr: A=1, B=2"
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.__tests__.XmlTestUtils_CompareXmlStructure_Tests.NodeAndAttributeDifferences_ShouldBeReported() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/__tests__/XmlTestUtils.test.cs:line 35
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.05]     BannerlordModEditor.Common.Tests.CreditsXmlTests.CreditsXml_RoundTrip_StructuralEquality [FAIL]
+[xUnit.net 00:00:01.07]     BannerlordModEditor.Common.Tests.ItemHolstersXmlTests.ItemHolsters_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.CreditsXmlTests.CreditsXml_RoundTrip_StructuralEquality [36 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.CreditsXmlTests.CreditsXml_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/CreditsXmlTests.cs:line 24
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  失败 BannerlordModEditor.Common.Tests.ItemHolstersXmlTests.ItemHolsters_RoundTrip_StructuralEquality [16 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.ItemHolstersXmlTests.ItemHolsters_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/ItemHolstersXmlTests.cs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.26]     BannerlordModEditor.Common.Tests.DebugXmlFailure.Debug_CombatParameters_EmptyTest [SKIP]
+  已跳过 BannerlordModEditor.Common.Tests.DebugXmlFailure.Debug_CombatParameters_EmptyTest [1 ms]
+[xUnit.net 00:00:02.20]     BannerlordModEditor.Common.Tests.LooknfeelXmlTests.Looknfeel_Roundtrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.LooknfeelXmlTests.Looknfeel_Roundtrip_StructuralEquality [31 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.LooknfeelXmlTests.Looknfeel_Roundtrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/LooknfeelXmlTests.cs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.23]     BannerlordModEditor.Common.Tests.CreditsLegalPCXmlTests.CreditsLegalPC_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.CreditsLegalPCXmlTests.CreditsLegalPC_RoundTrip_StructuralEquality [12 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.CreditsLegalPCXmlTests.CreditsLegalPC_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/CreditsLegalPCXmlTests.cs:line 26
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.33]     BannerlordModEditor.Common.Tests.DebugMultiplayerScenes.Debug_MultiplayerScenes_Serialization [FAIL]
+  失败 BannerlordModEditor.Common.Tests.DebugMultiplayerScenes.Debug_MultiplayerScenes_Serialization [7 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.DebugMultiplayerScenes.Debug_MultiplayerScenes_Serialization() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/DebugMultiplayerScenes.cs:line 68
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.55]     BannerlordModEditor.Common.Tests.DataTests.BannerIcons_SecondGroupHasCorrectStructure [FAIL]
+  失败 BannerlordModEditor.Common.Tests.DataTests.BannerIcons_SecondGroupHasCorrectStructure [1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.DataTests.BannerIcons_SecondGroupHasCorrectStructure() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/DataTests.cs:line 478
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.60]     BannerlordModEditor.Common.Tests.DataTests.BannerIcons_ColorsHaveValidHexValues [FAIL]
+  失败 BannerlordModEditor.Common.Tests.DataTests.BannerIcons_ColorsHaveValidHexValues [1 ms]
+  错误消息:
+   Assert.NotEqual() Failure: Values are equal
+Expected: Not 0
+Actual:       0
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.DataTests.BannerIcons_ColorsHaveValidHexValues() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/DataTests.cs:line 507
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.52]     BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(xmlPath: "TestData/flora_kinds.xml") [FAIL]
+  失败 BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(xmlPath: "TestData/flora_kinds.xml") [442 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.FloraKindsXmlTests.FloraKinds_RoundTrip_StructuralEquality(String xmlPath) in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/FloraKindsXmlTests.cs:line 18
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[xUnit.net 00:00:04.27]     BannerlordModEditor.Common.Tests.ParticleSystemsHardcodedMisc2XmlTests.ParticleSystemsHardcodedMisc2_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.ParticleSystemsHardcodedMisc2XmlTests.ParticleSystemsHardcodedMisc2_RoundTrip_StructuralEquality [477 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.ParticleSystemsHardcodedMisc2XmlTests.ParticleSystemsHardcodedMisc2_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/ParticleSystemsHardcodedMisc2XmlTests.cs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:04.47]     BannerlordModEditor.Common.Tests.DebugAttributesComparison.Debug_Attributes_Format_Comparison [SKIP]
+  已跳过 BannerlordModEditor.Common.Tests.DebugAttributesComparison.Debug_Attributes_Format_Comparison [1 ms]
+[xUnit.net 00:00:04.83]     BannerlordModEditor.Common.Tests.ParticleSystemsHardcodedMisc1XmlTests.ParticleSystemsHardcodedMisc1_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.ParticleSystemsHardcodedMisc1XmlTests.ParticleSystemsHardcodedMisc1_RoundTrip_StructuralEquality [363 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.ParticleSystemsHardcodedMisc1XmlTests.ParticleSystemsHardcodedMisc1_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/ParticleSystemsHardcodedMisc1XmlTests.cs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:05.00]     BannerlordModEditor.Common.Tests.TempDebugTest.Temp_Debug_Attributes_Format_Comparison [FAIL]
+[xUnit.net 00:00:05.01]     BannerlordModEditor.Common.Tests.ParticleSystemsBasicXmlTests.ParticleSystemsBasic_RoundTrip_StructuralEquality [FAIL]
+[xUnit.net 00:00:05.02]     BannerlordModEditor.Common.Tests.SimpleBannerIconsTest.Simple_BannerIcons_Test [FAIL]
+[xUnit.net 00:00:05.04]     BannerlordModEditor.Common.Tests.MpcosmeticsXmlTests.Mpcosmetics_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.TempDebugTest.Temp_Debug_Attributes_Format_Comparison [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 47
+Actual:   45
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.TempDebugTest.Temp_Debug_Attributes_Format_Comparison() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/TempDebugTest.cs:line 62
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  失败 BannerlordModEditor.Common.Tests.ParticleSystemsBasicXmlTests.ParticleSystemsBasic_RoundTrip_StructuralEquality [12 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.ParticleSystemsBasicXmlTests.ParticleSystemsBasic_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/ParticleSystemsBasicXmlTests.cs:line 23
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  失败 BannerlordModEditor.Common.Tests.SimpleBannerIconsTest.Simple_BannerIcons_Test [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Strings differ
+           ↓ (pos 0)
+Expected: "banner_icon"
+Actual:   "string"
+           ↑ (pos 0)
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.SimpleBannerIconsTest.Simple_BannerIcons_Test() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/SimpleBannerIconsTest.cs:line 23
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  失败 BannerlordModEditor.Common.Tests.MpcosmeticsXmlTests.Mpcosmetics_RoundTrip_StructuralEquality [20 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.MpcosmeticsXmlTests.Mpcosmetics_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/MpcosmeticsXmlTests.cs:line 17
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:05.17]     BannerlordModEditor.Common.Tests.ParticleSystemsOutdoorXmlTests.ParticleSystemsOutdoor_Roundtrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.ParticleSystemsOutdoorXmlTests.ParticleSystemsOutdoor_Roundtrip_StructuralEquality [9 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.ParticleSystemsOutdoorXmlTests.ParticleSystemsOutdoor_Roundtrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/ParticleSystemsOutdoorXmlTests.cs:line 18
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:05.21]     BannerlordModEditor.Common.Tests.MpCraftingPiecesXmlTests.MpCraftingPieces_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.MpCraftingPiecesXmlTests.MpCraftingPieces_RoundTrip_StructuralEquality [18 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.MpCraftingPiecesXmlTests.MpCraftingPieces_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/MpCraftingPiecesXmlTests.cs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:05.30]     BannerlordModEditor.Common.Tests.CreditsExternalPartnersPlayStationXmlTests.CreditsExternalPartnersPlayStation_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.CreditsExternalPartnersPlayStationXmlTests.CreditsExternalPartnersPlayStation_RoundTrip_StructuralEquality [9 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.CreditsExternalPartnersPlayStationXmlTests.CreditsExternalPartnersPlayStation_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/CreditsExternalPartnersPlayStationXmlTests.cs:line 18
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:05.81]     BannerlordModEditor.Common.Tests.BeforeTransparentsGraphXmlTests.BeforeTransparentsGraph_RoundTrip_StructuralEquality [FAIL]
+  失败 BannerlordModEditor.Common.Tests.BeforeTransparentsGraphXmlTests.BeforeTransparentsGraph_RoundTrip_StructuralEquality [16 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at BannerlordModEditor.Common.Tests.BeforeTransparentsGraphXmlTests.BeforeTransparentsGraph_RoundTrip_StructuralEquality() in /root/WorkSpace/CSharp/BannerlordModEditor/BannerlordModEditor.Common.Tests/BeforeTransparentsGraphXmlTests.cs:line 18
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+失败!  - 失败:    19，通过:  1062，已跳过:     2，总计:  1083，持续时间: 5 s - BannerlordModEditor.Common.Tests.dll (net9.0)

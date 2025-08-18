@@ -27,9 +27,9 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("emitters")]
         public EmittersDO? Emitters { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeGuid() => !string.IsNullOrEmpty(Guid);
-        public bool ShouldSerializeSoundCode() => !string.IsNullOrEmpty(SoundCode);
+        public bool ShouldSerializeName() => Name != null;
+        public bool ShouldSerializeGuid() => Guid != null;
+        public bool ShouldSerializeSoundCode() => SoundCode != null;
         public bool ShouldSerializeEmitters() => Emitters != null;
     }
 
@@ -49,22 +49,55 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("_index_")]
         public string? Index { get; set; }
 
+        [XmlElement("children")]
+        public ChildrenDO? Children { get; set; }
+
         [XmlElement("flags")]
         public ParticleFlagsDO? Flags { get; set; }
 
         [XmlElement("parameters")]
         public ParametersDO? Parameters { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeIndex() => !string.IsNullOrEmpty(Index);
-        public bool ShouldSerializeFlags() => Flags != null;
-        public bool ShouldSerializeParameters() => Parameters != null;
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyChildren { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyFlags { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyParameters { get; set; } = false;
+
+        public bool ShouldSerializeName() => Name != null;
+        public bool ShouldSerializeIndex() => Index != null;
+        public bool ShouldSerializeChildren() => Children != null || HasEmptyChildren;
+        public bool ShouldSerializeFlags() => Flags != null || HasEmptyFlags;
+        public bool ShouldSerializeParameters() => Parameters != null || HasEmptyParameters;
+    }
+
+    public class ChildrenDO
+    {
+        [XmlElement("emitter")]
+        public List<EmitterDO> EmitterList { get; set; } = new List<EmitterDO>();
+
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyEmitters { get; set; } = false;
+
+        public bool ShouldSerializeEmitterList() => EmitterList != null && EmitterList.Count > 0;
+        
+        // 针对空children元素的序列化控制
+        public bool ShouldSerializeChildren() => (EmitterList != null && EmitterList.Count > 0) || HasEmptyEmitters;
     }
 
     public class ParticleFlagsDO
     {
         [XmlElement("flag")]
         public List<ParticleFlagDO> FlagList { get; set; } = new List<ParticleFlagDO>();
+
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyFlags { get; set; } = false;
 
         public bool ShouldSerializeFlagList() => FlagList != null && FlagList.Count > 0;
     }
@@ -77,16 +110,30 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("value")]
         public string? Value { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeName() => Name != null;
         public bool ShouldSerializeValue() => Value != null;
     }
 
     public class ParametersDO
     {
-        [XmlElement("parameter")]
+        [XmlElement("parameter", Order = 1)]
         public List<ParameterDO> ParameterList { get; set; } = new List<ParameterDO>();
 
+        [XmlElement("decal_materials", Order = 2)]
+        public DecalMaterialsDO? DecalMaterials { get; set; }
+
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasDecalMaterials { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyParameters { get; set; } = false;
+
         public bool ShouldSerializeParameterList() => ParameterList != null && ParameterList.Count > 0;
+        public bool ShouldSerializeDecalMaterials() => DecalMaterials != null || HasDecalMaterials;
+        
+        // 针对空parameters元素的序列化控制
+        public bool ShouldSerializeParameters() => (ParameterList != null && ParameterList.Count > 0) || (DecalMaterials != null) || HasEmptyParameters;
     }
 
     public class ParameterDO
@@ -106,23 +153,65 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("curve")]
         public string? Curve { get; set; }
 
-        [XmlElement("curve")]
-        public CurveDO? ParameterCurve { get; set; }
+        [XmlElement("curve", Order = 1)]
+        public List<CurveDO> ParameterCurves { get; set; } = new List<CurveDO>();
 
-        [XmlElement("color")]
+        [XmlElement("color", Order = 2)]
         public ColorDO? ColorElement { get; set; }
 
-        [XmlElement("alpha")]
+        [XmlElement("alpha", Order = 3)]
         public AlphaDO? AlphaElement { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyCurves { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyColor { get; set; } = false;
+
+        [XmlIgnore]
+        public bool HasEmptyAlpha { get; set; } = false;
+
+        public bool ShouldSerializeName() => Name != null;
         public bool ShouldSerializeValue() => Value != null;
         public bool ShouldSerializeBase() => !string.IsNullOrEmpty(Base);
         public bool ShouldSerializeBias() => !string.IsNullOrEmpty(Bias);
         public bool ShouldSerializeCurve() => !string.IsNullOrEmpty(Curve);
-        public bool ShouldSerializeParameterCurve() => ParameterCurve != null;
-        public bool ShouldSerializeColorElement() => ColorElement != null;
-        public bool ShouldSerializeAlphaElement() => AlphaElement != null;
+        public bool ShouldSerializeParameterCurves() => ParameterCurves != null || HasEmptyCurves;
+        
+        // 为了向后兼容，添加ParameterCurve属性
+        [XmlIgnore]
+        public CurveDO? ParameterCurve
+        {
+            get => ParameterCurves?.FirstOrDefault();
+            set
+            {
+                if (value != null)
+                {
+                    ParameterCurves ??= new List<CurveDO>();
+                    if (ParameterCurves.Count == 0)
+                    {
+                        ParameterCurves.Add(value);
+                    }
+                    else
+                    {
+                        ParameterCurves[0] = value;
+                    }
+                }
+            }
+        }
+        
+        [XmlIgnore]
+        public bool HasEmptyCurve
+        {
+            get => HasEmptyCurves;
+            set => HasEmptyCurves = value;
+        }
+        
+        // 为了向后兼容，添加ShouldSerializeParameterCurve方法
+        public bool ShouldSerializeParameterCurve() => (ParameterCurves != null && ParameterCurves.Count > 0) || HasEmptyCurves;
+        public bool ShouldSerializeColorElement() => ColorElement != null || HasEmptyColor;
+        public bool ShouldSerializeAlphaElement() => AlphaElement != null || HasEmptyAlpha;
     }
 
     public class CurveDO
@@ -142,11 +231,15 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("keys")]
         public KeysDO? Keys { get; set; }
 
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyKeys { get; set; } = false;
+
+        public bool ShouldSerializeName() => Name != null;
         public bool ShouldSerializeVersion() => !string.IsNullOrEmpty(Version);
         public bool ShouldSerializeDefault() => !string.IsNullOrEmpty(Default);
         public bool ShouldSerializeCurveMultiplier() => !string.IsNullOrEmpty(CurveMultiplier);
-        public bool ShouldSerializeKeys() => Keys != null;
+        public bool ShouldSerializeKeys() => Keys != null || HasEmptyKeys;
     }
 
     public class KeysDO
@@ -171,7 +264,7 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlAttribute("tangent")]
         public string? Tangent { get; set; }
 
-        public bool ShouldSerializeTime() => !string.IsNullOrEmpty(Time);
+        public bool ShouldSerializeTime() => Time != null;
         public bool ShouldSerializeValue() => Value != null;
         public bool ShouldSerializePosition() => !string.IsNullOrEmpty(Position);
         public bool ShouldSerializeTangent() => !string.IsNullOrEmpty(Tangent);
@@ -182,7 +275,11 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("keys")]
         public KeysDO? Keys { get; set; }
 
-        public bool ShouldSerializeKeys() => Keys != null;
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyKeys { get; set; } = false;
+
+        public bool ShouldSerializeKeys() => Keys != null || HasEmptyKeys;
     }
 
     public class AlphaDO
@@ -190,6 +287,33 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("keys")]
         public KeysDO? Keys { get; set; }
 
-        public bool ShouldSerializeKeys() => Keys != null;
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyKeys { get; set; } = false;
+
+        public bool ShouldSerializeKeys() => Keys != null || HasEmptyKeys;
+    }
+
+    public class DecalMaterialsDO
+    {
+        [XmlElement("decal_material")]
+        public List<DecalMaterialDO> DecalMaterialList { get; set; } = new List<DecalMaterialDO>();
+
+        // 运行时标记属性，用于序列化控制
+        [XmlIgnore]
+        public bool HasEmptyDecalMaterials { get; set; } = false;
+
+        public bool ShouldSerializeDecalMaterialList() => DecalMaterialList != null && DecalMaterialList.Count > 0;
+        
+        // 针对空decal_materials元素的序列化控制
+        public bool ShouldSerializeDecalMaterials() => (DecalMaterialList != null && DecalMaterialList.Count > 0) || HasEmptyDecalMaterials;
+    }
+
+    public class DecalMaterialDO
+    {
+        [XmlAttribute("value")]
+        public string? Value { get; set; }
+
+        public bool ShouldSerializeValue() => Value != null;
     }
 }

@@ -7,7 +7,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? Type { get; set; }
         public CollisionInfosDTO? CollisionInfos { get; set; }
 
-        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
+        public bool ShouldSerializeType() => Type != null;
         public bool ShouldSerializeCollisionInfos() => CollisionInfos != null;
     }
 
@@ -25,7 +25,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? Id { get; set; }
         public List<CollisionInfoDTO>? CollisionInfos { get; set; }
 
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
+        public bool ShouldSerializeId() => Id != null;
         public bool ShouldSerializeCollisionInfos() => CollisionInfos != null && CollisionInfos.Count > 0;
     }
 
@@ -34,7 +34,7 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? SoundAndCollisionInfoClass { get; set; }
         public List<CollisionInfoDTO>? CollisionInfos { get; set; }
 
-        public bool ShouldSerializeSoundAndCollisionInfoClass() => !string.IsNullOrEmpty(SoundAndCollisionInfoClass);
+        public bool ShouldSerializeSoundAndCollisionInfoClass() => SoundAndCollisionInfoClass != null;
         public bool ShouldSerializeCollisionInfos() => CollisionInfos != null && CollisionInfos.Count > 0;
     }
 
@@ -44,8 +44,8 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? FallbackMaterialForEffects { get; set; }
         public List<CollisionEffectDTO>? CollisionEffects { get; set; }
 
-        public bool ShouldSerializeSecondMaterial() => !string.IsNullOrEmpty(SecondMaterial);
-        public bool ShouldSerializeFallbackMaterialForEffects() => !string.IsNullOrEmpty(FallbackMaterialForEffects);
+        public bool ShouldSerializeSecondMaterial() => SecondMaterial != null;
+        public bool ShouldSerializeFallbackMaterialForEffects() => FallbackMaterialForEffects != null;
         public bool ShouldSerializeCollisionEffects() => CollisionEffects != null && CollisionEffects.Count > 0;
     }
 
@@ -62,15 +62,15 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? UpperBoundOfSizeParameterForSound { get; set; }
         public string? OneShot { get; set; }
 
-        public bool ShouldSerializeEffectType() => !string.IsNullOrEmpty(EffectType);
-        public bool ShouldSerializeParticle() => !string.IsNullOrEmpty(Particle);
-        public bool ShouldSerializeTrailParticle() => !string.IsNullOrEmpty(TrailParticle);
-        public bool ShouldSerializeSplashAtlasStartIndex() => !string.IsNullOrEmpty(SplashAtlasStartIndex);
-        public bool ShouldSerializeSplashAtlasEndIndex() => !string.IsNullOrEmpty(SplashAtlasEndIndex);
-        public bool ShouldSerializeDecal() => !string.IsNullOrEmpty(Decal);
-        public bool ShouldSerializeSound() => !string.IsNullOrEmpty(Sound);
-        public bool ShouldSerializeDoNotSendArmorParameterToSound() => !string.IsNullOrEmpty(DoNotSendArmorParameterToSound);
-        public bool ShouldSerializeUpperBoundOfSizeParameterForSound() => !string.IsNullOrEmpty(UpperBoundOfSizeParameterForSound);
-        public bool ShouldSerializeOneShot() => !string.IsNullOrEmpty(OneShot);
+        public bool ShouldSerializeEffectType() => EffectType != null;
+        public bool ShouldSerializeParticle() => Particle != null;
+        public bool ShouldSerializeTrailParticle() => TrailParticle != null;
+        public bool ShouldSerializeSplashAtlasStartIndex() => SplashAtlasStartIndex != null;
+        public bool ShouldSerializeSplashAtlasEndIndex() => SplashAtlasEndIndex != null;
+        public bool ShouldSerializeDecal() => Decal != null;
+        public bool ShouldSerializeSound() => Sound != null;
+        public bool ShouldSerializeDoNotSendArmorParameterToSound() => DoNotSendArmorParameterToSound != null;
+        public bool ShouldSerializeUpperBoundOfSizeParameterForSound() => UpperBoundOfSizeParameterForSound != null;
+        public bool ShouldSerializeOneShot() => OneShot != null;
     }
 }

@@ -1,0 +1,347 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DTO;
+
+namespace BannerlordModEditor.Common.Mappers
+{
+    public static class CraftingPiecesMapper
+    {
+        public static CraftingPiecesDTO ToDTO(CraftingPiecesDO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPiecesDTO
+            {
+                Type = source.Type,
+                CraftingPiecesContainer = ToDTO(source.CraftingPiecesContainer)
+            };
+        }
+
+        public static CraftingPiecesDO ToDO(CraftingPiecesDTO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPiecesDO
+            {
+                Type = source.Type,
+                CraftingPiecesContainer = ToDO(source.CraftingPiecesContainer)
+            };
+        }
+
+        public static CraftingPiecesContainerDTO ToDTO(CraftingPiecesContainerDO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPiecesContainerDTO
+            {
+                Pieces = source.Pieces?
+                    .Select(ToDTO)
+                    .ToList() ?? new List<CraftingPieceDTO>()
+            };
+        }
+
+        public static CraftingPiecesContainerDO ToDO(CraftingPiecesContainerDTO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPiecesContainerDO
+            {
+                Pieces = source.Pieces?
+                    .Select(ToDO)
+                    .ToList() ?? new List<CraftingPieceDO>()
+            };
+        }
+
+        public static CraftingPieceDTO ToDTO(CraftingPieceDO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPieceDTO
+            {
+                Id = source.Id,
+                Name = source.Name,
+                PieceType = source.PieceType,
+                Tier = source.Tier,
+                PieceTier = source.PieceTier,
+                Culture = source.Culture,
+                Mesh = source.Mesh,
+                PhysicsMaterial = source.PhysicsMaterial,
+                IsHidden = source.IsHidden,
+                ScaleFactor = source.ScaleFactor,
+                CraftingPieceType = source.CraftingPieceType,
+                // 修复嵌套Mapper调用
+                PieceData = ToDTO(source.PieceData),
+                Materials = ToDTO(source.Materials),
+                Modifiers = ToDTO(source.Modifiers),
+                Flags = ToDTO(source.Flags),
+                Availability = ToDTO(source.Availability)
+            };
+        }
+
+        public static CraftingPieceDO ToDO(CraftingPieceDTO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPieceDO
+            {
+                Id = source.Id,
+                Name = source.Name,
+                PieceType = source.PieceType,
+                Tier = source.Tier,
+                PieceTier = source.PieceTier,
+                Culture = source.Culture,
+                Mesh = source.Mesh,
+                PhysicsMaterial = source.PhysicsMaterial,
+                IsHidden = source.IsHidden,
+                ScaleFactor = source.ScaleFactor,
+                CraftingPieceType = source.CraftingPieceType,
+                // 修复嵌套Mapper调用
+                PieceData = ToDO(source.PieceData),
+                Materials = ToDO(source.Materials),
+                Modifiers = ToDO(source.Modifiers),
+                Flags = ToDO(source.Flags),
+                Availability = ToDO(source.Availability)
+            };
+        }
+
+        public static CraftingPieceDataDTO? ToDTO(CraftingPieceDataDO? source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPieceDataDTO
+            {
+                ThrustDamage = source.ThrustDamage,
+                ThrustDamageType = source.ThrustDamageType,
+                SwingDamage = source.SwingDamage,
+                SwingDamageType = source.SwingDamageType,
+                ThrustSpeed = source.ThrustSpeed,
+                SwingSpeed = source.SwingSpeed,
+                WeaponLength = source.WeaponLength,
+                WeaponBalance = source.WeaponBalance,
+                Weight = source.Weight,
+                HitPoints = source.HitPoints,
+                Handling = source.Handling,
+                MissileSpeed = source.MissileSpeed,
+                Accuracy = source.Accuracy,
+                BodyArmor = source.BodyArmor
+            };
+        }
+
+        public static CraftingPieceDataDO? ToDO(CraftingPieceDataDTO? source)
+        {
+            if (source == null) return null;
+
+            return new CraftingPieceDataDO
+            {
+                ThrustDamage = source.ThrustDamage,
+                ThrustDamageType = source.ThrustDamageType,
+                SwingDamage = source.SwingDamage,
+                SwingDamageType = source.SwingDamageType,
+                ThrustSpeed = source.ThrustSpeed,
+                SwingSpeed = source.SwingSpeed,
+                WeaponLength = source.WeaponLength,
+                WeaponBalance = source.WeaponBalance,
+                Weight = source.Weight,
+                HitPoints = source.HitPoints,
+                Handling = source.Handling,
+                MissileSpeed = source.MissileSpeed,
+                Accuracy = source.Accuracy,
+                BodyArmor = source.BodyArmor
+            };
+        }
+
+        public static CpMaterialsDTO? ToDTO(CpMaterialsDO? source)
+        {
+            if (source == null) return null;
+
+            return new CpMaterialsDTO
+            {
+                MaterialList = source.MaterialList?
+                    .Select(ToDTO)
+                    .ToList() ?? new List<CpMaterialDTO>()
+            };
+        }
+
+        public static CpMaterialsDO? ToDO(CpMaterialsDTO? source)
+        {
+            if (source == null) return null;
+
+            return new CpMaterialsDO
+            {
+                MaterialList = source.MaterialList?
+                    .Select(ToDO)
+                    .ToList() ?? new List<CpMaterialDO>()
+            };
+        }
+
+        public static CpMaterialDTO ToDTO(CpMaterialDO source)
+        {
+            if (source == null) return null;
+
+            return new CpMaterialDTO
+            {
+                Id = source.Id,
+                Count = source.Count,
+                MaterialType = source.MaterialType
+            };
+        }
+
+        public static CpMaterialDO ToDO(CpMaterialDTO source)
+        {
+            if (source == null) return null;
+
+            return new CpMaterialDO
+            {
+                Id = source.Id,
+                Count = source.Count,
+                MaterialType = source.MaterialType
+            };
+        }
+
+        public static CraftingModifiersDTO? ToDTO(CraftingModifiersDO? source)
+        {
+            if (source == null) return null;
+
+            return new CraftingModifiersDTO
+            {
+                ModifierList = source.ModifierList?
+                    .Select(ToDTO)
+                    .ToList() ?? new List<CraftingModifierDTO>()
+            };
+        }
+
+        public static CraftingModifiersDO? ToDO(CraftingModifiersDTO? source)
+        {
+            if (source == null) return null;
+
+            return new CraftingModifiersDO
+            {
+                ModifierList = source.ModifierList?
+                    .Select(ToDO)
+                    .ToList() ?? new List<CraftingModifierDO>()
+            };
+        }
+
+        public static CraftingModifierDTO ToDTO(CraftingModifierDO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingModifierDTO
+            {
+                Attribute = source.Attribute,
+                Operation = source.Operation,
+                Value = source.Value,
+                Condition = source.Condition
+            };
+        }
+
+        public static CraftingModifierDO ToDO(CraftingModifierDTO source)
+        {
+            if (source == null) return null;
+
+            return new CraftingModifierDO
+            {
+                Attribute = source.Attribute,
+                Operation = source.Operation,
+                Value = source.Value,
+                Condition = source.Condition
+            };
+        }
+
+        public static FlagsDTO? ToDTO(FlagsDO? source)
+        {
+            if (source == null) return null;
+
+            return new FlagsDTO
+            {
+                FlagList = source.FlagList?
+                    .Select(ToDTO)
+                    .ToList() ?? new List<FlagDTO>()
+            };
+        }
+
+        public static FlagsDO? ToDO(FlagsDTO? source)
+        {
+            if (source == null) return null;
+
+            return new FlagsDO
+            {
+                FlagList = source.FlagList?
+                    .Select(ToDO)
+                    .ToList() ?? new List<FlagDO>()
+            };
+        }
+
+        public static FlagDTO ToDTO(FlagDO source)
+        {
+            if (source == null) return null;
+
+            return new FlagDTO
+            {
+                Name = source.Name,
+                Value = source.Value
+            };
+        }
+
+        public static FlagDO ToDO(FlagDTO source)
+        {
+            if (source == null) return null;
+
+            return new FlagDO
+            {
+                Name = source.Name,
+                Value = source.Value
+            };
+        }
+
+        public static AvailabilityDTO? ToDTO(AvailabilityDO? source)
+        {
+            if (source == null) return null;
+
+            return new AvailabilityDTO
+            {
+                RequirementList = source.RequirementList?
+                    .Select(ToDTO)
+                    .ToList() ?? new List<RequirementDTO>()
+            };
+        }
+
+        public static AvailabilityDO? ToDO(AvailabilityDTO? source)
+        {
+            if (source == null) return null;
+
+            return new AvailabilityDO
+            {
+                RequirementList = source.RequirementList?
+                    .Select(ToDO)
+                    .ToList() ?? new List<RequirementDO>()
+            };
+        }
+
+        public static RequirementDTO ToDTO(RequirementDO source)
+        {
+            if (source == null) return null;
+
+            return new RequirementDTO
+            {
+                Type = source.Type,
+                Id = source.Id,
+                Level = source.Level
+            };
+        }
+
+        public static RequirementDO ToDO(RequirementDTO source)
+        {
+            if (source == null) return null;
+
+            return new RequirementDO
+            {
+                Type = source.Type,
+                Id = source.Id,
+                Level = source.Level
+            };
+        }
+    }
+}

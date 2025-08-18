@@ -8,13 +8,13 @@ namespace BannerlordModEditor.Common.Models.DO
     public class MpItemsDO
     {
         [XmlElement("Item")]
-        public List<ItemDO> Items { get; set; } = new List<ItemDO>();
+        public List<MpItemDO> Items { get; set; } = new List<MpItemDO>();
 
         [XmlElement("CraftedItem")]
         public List<CraftedItemDO> CraftedItems { get; set; } = new List<CraftedItemDO>();
     }
 
-    public class ItemDO
+    public class MpItemDO
     {
         [XmlAttribute("multiplayer_item")]
         public string? MultiplayerItem { get; set; }
@@ -454,7 +454,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public string? RotationSpeed { get; set; }
 
         [XmlElement("WeaponFlags")]
-        public WeaponFlagsDO? WeaponFlags { get; set; }
+        public MpWeaponFlagsDO? WeaponFlags { get; set; }
 
         // ShouldSerialize方法确保只有当属性有值时才序列化
         public bool ShouldSerializeWeaponClass() => !string.IsNullOrEmpty(WeaponClass);
@@ -488,7 +488,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool ShouldSerializeRotationSpeed() => !string.IsNullOrEmpty(RotationSpeed);
     }
 
-    public class WeaponFlagsDO
+    public class MpWeaponFlagsDO
     {
         [XmlAttribute("MeleeWeapon")]
         public string? MeleeWeapon { get; set; }
@@ -715,7 +715,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public AdditionalMeshesDO? AdditionalMeshes { get; set; }
 
         [XmlElement("Materials")]
-        public MaterialsDO? Materials { get; set; }
+        public MpItemMaterialsDO? Materials { get; set; }
 
         // ShouldSerialize方法确保只有当属性有值时才序列化
         public bool ShouldSerializeSpeed() => !string.IsNullOrEmpty(Speed);
@@ -789,31 +789,31 @@ namespace BannerlordModEditor.Common.Models.DO
         }
     }
 
-    public class MaterialsDO
+    public class MpItemMaterialsDO
     {
         [XmlElement("Material")]
-        public List<MaterialDO> MaterialList { get; set; } = new List<MaterialDO>();
+        public List<MpItemMaterialDO> MaterialList { get; set; } = new List<MpItemMaterialDO>();
     }
 
-    public class MaterialDO
+    public class MpItemMaterialDO
     {
         [XmlAttribute("name")]
         public string? Name { get; set; }
 
         [XmlElement("MeshMultipliers")]
-        public MeshMultipliersDO? MeshMultipliers { get; set; }
+        public MpItemMeshMultipliersDO? MeshMultipliers { get; set; }
 
         // ShouldSerialize方法确保只有当属性有值时才序列化
         public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
     }
 
-    public class MeshMultipliersDO
+    public class MpItemMeshMultipliersDO
     {
         [XmlElement("MeshMultiplier")]
-        public List<MeshMultiplierDO> Multipliers { get; set; } = new List<MeshMultiplierDO>();
+        public List<MpItemMeshMultiplierDO> Multipliers { get; set; } = new List<MpItemMeshMultiplierDO>();
     }
 
-    public class MeshMultiplierDO
+    public class MpItemMeshMultiplierDO
     {
         [XmlAttribute("mesh_multiplier")]
         public string? MeshMultiplierValue { get; set; }

@@ -10,7 +10,10 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlElement("action")]
         public List<ActionTypeDO> Actions { get; set; } = new List<ActionTypeDO>();
 
-        public bool ShouldSerializeActions() => Actions != null && Actions.Count > 0;
+        [XmlIgnore]
+        public bool HasEmptyActions { get; set; } = false;
+
+        public bool ShouldSerializeActions() => Actions != null && Actions.Count > 0 && !HasEmptyActions;
     }
 
     public class ActionTypeDO

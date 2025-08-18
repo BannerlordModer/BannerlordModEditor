@@ -12,12 +12,12 @@ namespace BannerlordModEditor.Common.Models.DTO
         public List<BaseCombatParameterDTO> CombatParametersList { get; set; } = new List<BaseCombatParameterDTO>();
         
         // ShouldSerialize方法（对应DO层）
-        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
+        public bool ShouldSerializeType() => Type != null;
         public bool ShouldSerializeDefinitions() => Definitions != null;
         public bool ShouldSerializeCombatParametersList() => CombatParametersList != null && CombatParametersList.Count > 0;
 
         // 便捷属性
-        public bool HasType => !string.IsNullOrEmpty(Type);
+        public bool HasType => Type != null;
         public int CombatParametersCount => CombatParametersList?.Count ?? 0;
     }
 
@@ -38,12 +38,12 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? Value { get; set; }
 
         // ShouldSerialize方法
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+        public bool ShouldSerializeName() => Name != null;
+        public bool ShouldSerializeValue() => Value != null;
 
         // 便捷属性
-        public bool HasName => !string.IsNullOrEmpty(Name);
-        public bool HasValue => !string.IsNullOrEmpty(Value);
+        public bool HasName => Name != null;
+        public bool HasValue => Value != null;
 
         // 类型安全的便捷属性
         public float? ValueFloat => float.TryParse(Value, out float val) ? val : (float?)null;
@@ -80,51 +80,51 @@ namespace BannerlordModEditor.Common.Models.DTO
         public CustomCollisionCapsuleDTO? CustomCollisionCapsule { get; set; }
 
         // ShouldSerialize方法
-        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-        public bool ShouldSerializeCollisionCheckStartingPercent() => !string.IsNullOrEmpty(CollisionCheckStartingPercent);
-        public bool ShouldSerializeCollisionDamageStartingPercent() => !string.IsNullOrEmpty(CollisionDamageStartingPercent);
-        public bool ShouldSerializeCollisionCheckEndingPercent() => !string.IsNullOrEmpty(CollisionCheckEndingPercent);
-        public bool ShouldSerializeVerticalRotLimitMultiplierUp() => !string.IsNullOrEmpty(VerticalRotLimitMultiplierUp);
-        public bool ShouldSerializeVerticalRotLimitMultiplierDown() => !string.IsNullOrEmpty(VerticalRotLimitMultiplierDown);
-        public bool ShouldSerializeLeftRiderRotLimit() => !string.IsNullOrEmpty(LeftRiderRotLimit);
-        public bool ShouldSerializeLeftRiderMinRotLimit() => !string.IsNullOrEmpty(LeftRiderMinRotLimit);
-        public bool ShouldSerializeRightRiderRotLimit() => !string.IsNullOrEmpty(RightRiderRotLimit);
-        public bool ShouldSerializeRightRiderMinRotLimit() => !string.IsNullOrEmpty(RightRiderMinRotLimit);
-        public bool ShouldSerializeRiderLookDownLimit() => !string.IsNullOrEmpty(RiderLookDownLimit);
-        public bool ShouldSerializeLeftLadderRotLimit() => !string.IsNullOrEmpty(LeftLadderRotLimit);
-        public bool ShouldSerializeRightLadderRotLimit() => !string.IsNullOrEmpty(RightLadderRotLimit);
-        public bool ShouldSerializeWeaponOffset() => !string.IsNullOrEmpty(WeaponOffset);
-        public bool ShouldSerializeCollisionRadius() => !string.IsNullOrEmpty(CollisionRadius);
-        public bool ShouldSerializeAlternativeAttackCooldownPeriod() => !string.IsNullOrEmpty(AlternativeAttackCooldownPeriod);
-        public bool ShouldSerializeHitBoneIndex() => !string.IsNullOrEmpty(HitBoneIndex);
-        public bool ShouldSerializeShoulderHitBoneIndex() => !string.IsNullOrEmpty(ShoulderHitBoneIndex);
-        public bool ShouldSerializeLookSlopeBlendFactorUpLimit() => !string.IsNullOrEmpty(LookSlopeBlendFactorUpLimit);
-        public bool ShouldSerializeLookSlopeBlendFactorDownLimit() => !string.IsNullOrEmpty(LookSlopeBlendFactorDownLimit);
-        public bool ShouldSerializeLookSlopeBlendSpeedFactor() => !string.IsNullOrEmpty(LookSlopeBlendSpeedFactor);
+        public bool ShouldSerializeId() => Id != null;
+        public bool ShouldSerializeCollisionCheckStartingPercent() => CollisionCheckStartingPercent != null;
+        public bool ShouldSerializeCollisionDamageStartingPercent() => CollisionDamageStartingPercent != null;
+        public bool ShouldSerializeCollisionCheckEndingPercent() => CollisionCheckEndingPercent != null;
+        public bool ShouldSerializeVerticalRotLimitMultiplierUp() => VerticalRotLimitMultiplierUp != null;
+        public bool ShouldSerializeVerticalRotLimitMultiplierDown() => VerticalRotLimitMultiplierDown != null;
+        public bool ShouldSerializeLeftRiderRotLimit() => LeftRiderRotLimit != null;
+        public bool ShouldSerializeLeftRiderMinRotLimit() => LeftRiderMinRotLimit != null;
+        public bool ShouldSerializeRightRiderRotLimit() => RightRiderRotLimit != null;
+        public bool ShouldSerializeRightRiderMinRotLimit() => RightRiderMinRotLimit != null;
+        public bool ShouldSerializeRiderLookDownLimit() => RiderLookDownLimit != null;
+        public bool ShouldSerializeLeftLadderRotLimit() => LeftLadderRotLimit != null;
+        public bool ShouldSerializeRightLadderRotLimit() => RightLadderRotLimit != null;
+        public bool ShouldSerializeWeaponOffset() => WeaponOffset != null;
+        public bool ShouldSerializeCollisionRadius() => CollisionRadius != null;
+        public bool ShouldSerializeAlternativeAttackCooldownPeriod() => AlternativeAttackCooldownPeriod != null;
+        public bool ShouldSerializeHitBoneIndex() => HitBoneIndex != null;
+        public bool ShouldSerializeShoulderHitBoneIndex() => ShoulderHitBoneIndex != null;
+        public bool ShouldSerializeLookSlopeBlendFactorUpLimit() => LookSlopeBlendFactorUpLimit != null;
+        public bool ShouldSerializeLookSlopeBlendFactorDownLimit() => LookSlopeBlendFactorDownLimit != null;
+        public bool ShouldSerializeLookSlopeBlendSpeedFactor() => LookSlopeBlendSpeedFactor != null;
         public bool ShouldSerializeCustomCollisionCapsule() => CustomCollisionCapsule != null;
 
         // 便捷属性
-        public bool HasId => !string.IsNullOrEmpty(Id);
-        public bool HasCollisionCheckStartingPercent => !string.IsNullOrEmpty(CollisionCheckStartingPercent);
-        public bool HasCollisionDamageStartingPercent => !string.IsNullOrEmpty(CollisionDamageStartingPercent);
-        public bool HasCollisionCheckEndingPercent => !string.IsNullOrEmpty(CollisionCheckEndingPercent);
-        public bool HasVerticalRotLimitMultiplierUp => !string.IsNullOrEmpty(VerticalRotLimitMultiplierUp);
-        public bool HasVerticalRotLimitMultiplierDown => !string.IsNullOrEmpty(VerticalRotLimitMultiplierDown);
-        public bool HasLeftRiderRotLimit => !string.IsNullOrEmpty(LeftRiderRotLimit);
-        public bool HasLeftRiderMinRotLimit => !string.IsNullOrEmpty(LeftRiderMinRotLimit);
-        public bool HasRightRiderRotLimit => !string.IsNullOrEmpty(RightRiderRotLimit);
-        public bool HasRightRiderMinRotLimit => !string.IsNullOrEmpty(RightRiderMinRotLimit);
-        public bool HasRiderLookDownLimit => !string.IsNullOrEmpty(RiderLookDownLimit);
-        public bool HasLeftLadderRotLimit => !string.IsNullOrEmpty(LeftLadderRotLimit);
-        public bool HasRightLadderRotLimit => !string.IsNullOrEmpty(RightLadderRotLimit);
-        public bool HasWeaponOffset => !string.IsNullOrEmpty(WeaponOffset);
-        public bool HasCollisionRadius => !string.IsNullOrEmpty(CollisionRadius);
-        public bool HasAlternativeAttackCooldownPeriod => !string.IsNullOrEmpty(AlternativeAttackCooldownPeriod);
-        public bool HasHitBoneIndex => !string.IsNullOrEmpty(HitBoneIndex);
-        public bool HasShoulderHitBoneIndex => !string.IsNullOrEmpty(ShoulderHitBoneIndex);
-        public bool HasLookSlopeBlendFactorUpLimit => !string.IsNullOrEmpty(LookSlopeBlendFactorUpLimit);
-        public bool HasLookSlopeBlendFactorDownLimit => !string.IsNullOrEmpty(LookSlopeBlendFactorDownLimit);
-        public bool HasLookSlopeBlendSpeedFactor => !string.IsNullOrEmpty(LookSlopeBlendSpeedFactor);
+        public bool HasId => Id != null;
+        public bool HasCollisionCheckStartingPercent => CollisionCheckStartingPercent != null;
+        public bool HasCollisionDamageStartingPercent => CollisionDamageStartingPercent != null;
+        public bool HasCollisionCheckEndingPercent => CollisionCheckEndingPercent != null;
+        public bool HasVerticalRotLimitMultiplierUp => VerticalRotLimitMultiplierUp != null;
+        public bool HasVerticalRotLimitMultiplierDown => VerticalRotLimitMultiplierDown != null;
+        public bool HasLeftRiderRotLimit => LeftRiderRotLimit != null;
+        public bool HasLeftRiderMinRotLimit => LeftRiderMinRotLimit != null;
+        public bool HasRightRiderRotLimit => RightRiderRotLimit != null;
+        public bool HasRightRiderMinRotLimit => RightRiderMinRotLimit != null;
+        public bool HasRiderLookDownLimit => RiderLookDownLimit != null;
+        public bool HasLeftLadderRotLimit => LeftLadderRotLimit != null;
+        public bool HasRightLadderRotLimit => RightLadderRotLimit != null;
+        public bool HasWeaponOffset => WeaponOffset != null;
+        public bool HasCollisionRadius => CollisionRadius != null;
+        public bool HasAlternativeAttackCooldownPeriod => AlternativeAttackCooldownPeriod != null;
+        public bool HasHitBoneIndex => HitBoneIndex != null;
+        public bool HasShoulderHitBoneIndex => ShoulderHitBoneIndex != null;
+        public bool HasLookSlopeBlendFactorUpLimit => LookSlopeBlendFactorUpLimit != null;
+        public bool HasLookSlopeBlendFactorDownLimit => LookSlopeBlendFactorDownLimit != null;
+        public bool HasLookSlopeBlendSpeedFactor => LookSlopeBlendSpeedFactor != null;
         public bool HasCustomCollisionCapsule => CustomCollisionCapsule != null;
 
         // 类型安全的便捷属性
@@ -179,14 +179,14 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? R { get; set; }
 
         // ShouldSerialize方法
-        public bool ShouldSerializeP1() => !string.IsNullOrEmpty(P1);
-        public bool ShouldSerializeP2() => !string.IsNullOrEmpty(P2);
-        public bool ShouldSerializeR() => !string.IsNullOrEmpty(R);
+        public bool ShouldSerializeP1() => P1 != null;
+        public bool ShouldSerializeP2() => P2 != null;
+        public bool ShouldSerializeR() => R != null;
 
         // 便捷属性
-        public bool HasP1 => !string.IsNullOrEmpty(P1);
-        public bool HasP2 => !string.IsNullOrEmpty(P2);
-        public bool HasR => !string.IsNullOrEmpty(R);
+        public bool HasP1 => P1 != null;
+        public bool HasP2 => P2 != null;
+        public bool HasR => R != null;
 
         // 类型安全的便捷属性
         public float? P1Float => float.TryParse(P1, out float val) ? val : (float?)null;

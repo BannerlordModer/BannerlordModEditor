@@ -22,15 +22,15 @@ namespace BannerlordModEditor.Common.Models.DTO
         public string? ActionStage { get; set; }
 
         // ShouldSerialize方法
-        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-        public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
-        public bool ShouldSerializeUsageDirection() => !string.IsNullOrEmpty(UsageDirection);
-        public bool ShouldSerializeActionStage() => !string.IsNullOrEmpty(ActionStage);
+        public bool ShouldSerializeName() => Name != null;
+        public bool ShouldSerializeType() => Type != null;
+        public bool ShouldSerializeUsageDirection() => UsageDirection != null;
+        public bool ShouldSerializeActionStage() => ActionStage != null;
 
         // 类型安全的便捷属性
-        public bool HasName => !string.IsNullOrEmpty(Name);
-        public bool HasType => !string.IsNullOrEmpty(Type);
-        public bool HasUsageDirection => !string.IsNullOrEmpty(UsageDirection);
-        public bool HasActionStage => !string.IsNullOrEmpty(ActionStage);
+        public bool HasName => Name != null;
+        public bool HasType => Type != null;
+        public bool HasUsageDirection => UsageDirection != null;
+        public bool HasActionStage => ActionStage != null;
     }
 }

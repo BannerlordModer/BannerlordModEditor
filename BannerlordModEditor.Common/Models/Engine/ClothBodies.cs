@@ -22,7 +22,7 @@ namespace BannerlordModEditor.Common.Models.Engine
         public CapsulesContainer? Capsules { get; set; }
 
         // 确保null值不会序列化
-        public bool ShouldSerializeOwnerSkeleton() => !string.IsNullOrEmpty(OwnerSkeleton);
+        public bool ShouldSerializeOwnerSkeleton() => OwnerSkeleton != null;
     }
 
     public class CapsulesContainer

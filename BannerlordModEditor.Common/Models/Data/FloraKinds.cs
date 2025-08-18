@@ -103,6 +103,12 @@ namespace BannerlordModEditor.Common.Models.Data
         }
         [XmlIgnore]
         public float? BbRadius { get; set; }
+        
+        // 简化实现：添加缺失的body_name属性
+        // 原本实现：FloraVariation类没有body_name属性
+        // 简化实现：添加body_name属性以匹配XML结构
+        [XmlAttribute("body_name")]
+        public string BodyName { get; set; }
 
         [XmlElement("mesh")]
         public List<Mesh> Meshes { get; set; } = new List<Mesh>();
@@ -110,6 +116,7 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeName() => !string.IsNullOrWhiteSpace(Name);
         public bool ShouldSerializeDensityMultiplier() => DensityMultiplier.HasValue;
         public bool ShouldSerializeBbRadius() => BbRadius.HasValue;
+        public bool ShouldSerializeBodyName() => !string.IsNullOrWhiteSpace(BodyName);
         public bool ShouldSerializeMeshes() => Meshes != null && Meshes.Count > 0;
     }
 

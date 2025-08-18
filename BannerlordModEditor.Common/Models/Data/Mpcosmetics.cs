@@ -34,14 +34,25 @@ namespace BannerlordModEditor.Common.Models.Data
         public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
         public bool ShouldSerializeRarity() => !string.IsNullOrEmpty(Rarity);
         public bool ShouldSerializeCost() => !string.IsNullOrEmpty(Cost);
-        public bool ShouldSerializeReplace() => Replace != null && Replace.Items != null && Replace.Items.Count > 0;
+        
+        // 简化实现：总是序列化Replace元素，即使为null，以匹配原始XML结构
+        // 原本实现：Replace只在非null时才序列化
+        // 简化实现：总是序列化Replace元素，确保XML结构一致性
+        public bool ShouldSerializeReplace() => true;
     }
 
     public class Replace
     {
+        // 简化实现：调整属性顺序以匹配原始XML中的元素顺序
+        // 原本实现：Item在Itemless之前
+        // 简化实现：Itemless在Item之前，以匹配实际XML结构
+        [XmlElement("Itemless")]
+        public List<Itemless> ItemlessList { get; set; } = new List<Itemless>();
+        
         [XmlElement("Item")]
         public List<Item> Items { get; set; } = new List<Item>();
 
+        public bool ShouldSerializeItemlessList() => ItemlessList != null && ItemlessList.Count > 0;
         public bool ShouldSerializeItems() => Items != null && Items.Count > 0;
     }
 
@@ -51,5 +62,17 @@ namespace BannerlordModEditor.Common.Models.Data
         public string Id { get; set; }
 
         public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
+    }
+    
+    public class Itemless
+    {
+        [XmlAttribute("troop")]
+        public string Troop { get; set; }
+        
+        [XmlAttribute("slot")]
+        public string Slot { get; set; }
+
+        public bool ShouldSerializeTroop() => !string.IsNullOrEmpty(Troop);
+        public bool ShouldSerializeSlot() => !string.IsNullOrEmpty(Slot);
     }
 }

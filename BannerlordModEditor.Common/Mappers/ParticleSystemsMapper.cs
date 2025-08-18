@@ -51,8 +51,19 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Name = source.Name,
                 Index = source.Index,
+                Children = ToDTO(source.Children),
                 Flags = ToDTO(source.Flags),
                 Parameters = ToDTO(source.Parameters)
+            };
+        }
+
+        public static ChildrenDTO ToDTO(ChildrenDO source)
+        {
+            if (source == null) return null;
+
+            return new ChildrenDTO
+            {
+                EmitterList = source.EmitterList?.Select(ToDTO).ToList() ?? new List<EmitterDTO>()
             };
         }
 
@@ -83,7 +94,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ParametersDTO
             {
-                ParameterList = source.ParameterList?.Select(ToDTO).ToList() ?? new List<ParameterDTO>()
+                ParameterList = source.ParameterList?.Select(ToDTO).ToList() ?? new List<ParameterDTO>(),
+                DecalMaterials = ToDTO(source.DecalMaterials)
             };
         }
 
@@ -98,9 +110,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Base = source.Base,
                 Bias = source.Bias,
                 Curve = source.Curve,
+                ParameterCurve = source.ParameterCurves?.FirstOrDefault() != null ? ToDTO(source.ParameterCurves.FirstOrDefault()) : null,
                 ColorElement = ToDTO(source.ColorElement),
-                AlphaElement = ToDTO(source.AlphaElement),
-                ParameterCurve = ToDTO(source.ParameterCurve)
+                AlphaElement = ToDTO(source.AlphaElement)
             };
         }
 
@@ -138,6 +150,46 @@ namespace BannerlordModEditor.Common.Mappers
                 Value = source.Value,
                 Position = source.Position,
                 Tangent = source.Tangent
+            };
+        }
+
+        public static ColorDTO ToDTO(ColorDO source)
+        {
+            if (source == null) return null;
+
+            return new ColorDTO
+            {
+                Keys = ToDTO(source.Keys)
+            };
+        }
+
+        public static AlphaDTO ToDTO(AlphaDO source)
+        {
+            if (source == null) return null;
+
+            return new AlphaDTO
+            {
+                Keys = ToDTO(source.Keys)
+            };
+        }
+
+        public static DecalMaterialsDTO ToDTO(DecalMaterialsDO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialsDTO
+            {
+                DecalMaterialList = source.DecalMaterialList?.Select(ToDTO).ToList() ?? new List<DecalMaterialDTO>()
+            };
+        }
+
+        public static DecalMaterialDTO ToDTO(DecalMaterialDO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialDTO
+            {
+                Value = source.Value
             };
         }
 
@@ -186,8 +238,19 @@ namespace BannerlordModEditor.Common.Mappers
             {
                 Name = source.Name,
                 Index = source.Index,
+                Children = ToDO(source.Children),
                 Flags = ToDO(source.Flags),
                 Parameters = ToDO(source.Parameters)
+            };
+        }
+
+        public static ChildrenDO ToDO(ChildrenDTO source)
+        {
+            if (source == null) return null;
+
+            return new ChildrenDO
+            {
+                EmitterList = source.EmitterList?.Select(ToDO).ToList() ?? new List<EmitterDO>()
             };
         }
 
@@ -218,7 +281,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ParametersDO
             {
-                ParameterList = source.ParameterList?.Select(ToDO).ToList() ?? new List<ParameterDO>()
+                ParameterList = source.ParameterList?.Select(ToDO).ToList() ?? new List<ParameterDO>(),
+                DecalMaterials = ToDO(source.DecalMaterials)
             };
         }
 
@@ -233,9 +297,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Base = source.Base,
                 Bias = source.Bias,
                 Curve = source.Curve,
+                ParameterCurves = source.ParameterCurve != null ? new List<CurveDO> { ToDO(source.ParameterCurve) } : new List<CurveDO>(),
                 ColorElement = ToDO(source.ColorElement),
-                AlphaElement = ToDO(source.AlphaElement),
-                ParameterCurve = ToDO(source.ParameterCurve)
+                AlphaElement = ToDO(source.AlphaElement)
             };
         }
 
@@ -276,26 +340,6 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static ColorDTO ToDTO(ColorDO source)
-        {
-            if (source == null) return null;
-
-            return new ColorDTO
-            {
-                Keys = ToDTO(source.Keys)
-            };
-        }
-
-        public static AlphaDTO ToDTO(AlphaDO source)
-        {
-            if (source == null) return null;
-
-            return new AlphaDTO
-            {
-                Keys = ToDTO(source.Keys)
-            };
-        }
-
         public static ColorDO ToDO(ColorDTO source)
         {
             if (source == null) return null;
@@ -313,6 +357,26 @@ namespace BannerlordModEditor.Common.Mappers
             return new AlphaDO
             {
                 Keys = ToDO(source.Keys)
+            };
+        }
+
+        public static DecalMaterialsDO ToDO(DecalMaterialsDTO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialsDO
+            {
+                DecalMaterialList = source.DecalMaterialList?.Select(ToDO).ToList() ?? new List<DecalMaterialDO>()
+            };
+        }
+
+        public static DecalMaterialDO ToDO(DecalMaterialDTO source)
+        {
+            if (source == null) return null;
+
+            return new DecalMaterialDO
+            {
+                Value = source.Value
             };
         }
 

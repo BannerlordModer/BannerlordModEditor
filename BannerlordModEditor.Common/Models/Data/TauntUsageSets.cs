@@ -29,7 +29,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _isLeftStance;
             set => _isLeftStance = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeIsLeftStance() => !string.IsNullOrEmpty(IsLeftStance);
+        public bool ShouldSerializeIsLeftStance() => IsLeftStance != null;
 
         private string? _requiresBow;
         [XmlAttribute("requires_bow")]
@@ -38,7 +38,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _requiresBow;
             set => _requiresBow = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeRequiresBow() => !string.IsNullOrEmpty(RequiresBow);
+        public bool ShouldSerializeRequiresBow() => RequiresBow != null;
 
         private string? _requiresOnFoot;
         [XmlAttribute("requires_on_foot")]
@@ -47,7 +47,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _requiresOnFoot;
             set => _requiresOnFoot = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeRequiresOnFoot() => !string.IsNullOrEmpty(RequiresOnFoot);
+        public bool ShouldSerializeRequiresOnFoot() => RequiresOnFoot != null;
 
         private string? _requiresShield;
         [XmlAttribute("requires_shield")]
@@ -56,7 +56,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _requiresShield;
             set => _requiresShield = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeRequiresShield() => !string.IsNullOrEmpty(RequiresShield);
+        public bool ShouldSerializeRequiresShield() => RequiresShield != null;
 
         private string? _unsuitableForShield;
         [XmlAttribute("unsuitable_for_shield")]
@@ -65,7 +65,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _unsuitableForShield;
             set => _unsuitableForShield = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeUnsuitableForShield() => !string.IsNullOrEmpty(UnsuitableForShield);
+        public bool ShouldSerializeUnsuitableForShield() => UnsuitableForShield != null;
 
         private string? _unsuitableForBow;
         [XmlAttribute("unsuitable_for_bow")]
@@ -74,7 +74,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _unsuitableForBow;
             set => _unsuitableForBow = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeUnsuitableForBow() => !string.IsNullOrEmpty(UnsuitableForBow);
+        public bool ShouldSerializeUnsuitableForBow() => UnsuitableForBow != null;
 
         private string? _unsuitableForCrossbow;
         [XmlAttribute("unsuitable_for_crossbow")]
@@ -83,7 +83,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _unsuitableForCrossbow;
             set => _unsuitableForCrossbow = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeUnsuitableForCrossbow() => !string.IsNullOrEmpty(UnsuitableForCrossbow);
+        public bool ShouldSerializeUnsuitableForCrossbow() => UnsuitableForCrossbow != null;
 
         private string? _unsuitableForTwoHanded;
         [XmlAttribute("unsuitable_for_two_handed")]
@@ -92,7 +92,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _unsuitableForTwoHanded;
             set => _unsuitableForTwoHanded = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeUnsuitableForTwoHanded() => !string.IsNullOrEmpty(UnsuitableForTwoHanded);
+        public bool ShouldSerializeUnsuitableForTwoHanded() => UnsuitableForTwoHanded != null;
 
         private string? _unsuitableForEmpty;
         [XmlAttribute("unsuitable_for_empty")]
@@ -101,7 +101,7 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _unsuitableForEmpty;
             set => _unsuitableForEmpty = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeUnsuitableForEmpty() => !string.IsNullOrEmpty(UnsuitableForEmpty);
+        public bool ShouldSerializeUnsuitableForEmpty() => UnsuitableForEmpty != null;
 
         private string? _unsuitableForOneHanded;
         [XmlAttribute("unsuitable_for_one_handed")]
@@ -110,10 +110,10 @@ namespace BannerlordModEditor.Common.Models.Data
             get => _unsuitableForOneHanded;
             set => _unsuitableForOneHanded = value != null ? value.ToLower() : null;
         }
-        public bool ShouldSerializeUnsuitableForOneHanded() => !string.IsNullOrEmpty(UnsuitableForOneHanded);
+        public bool ShouldSerializeUnsuitableForOneHanded() => UnsuitableForOneHanded != null;
 
         [XmlAttribute("action")]
         public string Action { get; set; }
-        public bool ShouldSerializeAction() => !string.IsNullOrEmpty(Action);
+        public bool ShouldSerializeAction() => Action != null;
     }
 }

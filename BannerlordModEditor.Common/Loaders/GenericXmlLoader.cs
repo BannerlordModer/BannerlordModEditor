@@ -81,5 +81,67 @@ namespace BannerlordModEditor.Common.Loaders
         {
             await Task.Run(() => Save(data, filePath, originalXml));
         }
+
+        public string SaveToString(T data, string? originalXml = null)
+        {
+            var serializer = new XmlSerializer(typeof(T));
+            var settings = new XmlWriterSettings
+            {
+                Indent = true,
+                IndentChars = "\t",
+                NewLineChars = "\n",
+                Encoding = new System.Text.UTF8Encoding(false)
+            };
+
+            using var writer = new StringWriter();
+            using var xmlWriter = XmlWriter.Create(writer, settings);
+            
+            var ns = new XmlSerializerNamespaces();
+            
+            // 如果提供了原始XML，则提取并保留其命名空间声明
+            if (!string.IsNullOrEmpty(originalXml))
+            {
+                try
+                {
+                    var doc = XDocument.Parse(originalXml);
+                    if (doc.Root != null)
+                    {
+                        foreach (var attr in doc.Root.Attributes())
+                        {
+                            if (attr.IsNamespaceDeclaration)
+                            {
+                                ns.Add(attr.Name.LocalName, attr.Value);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    ns.Add("", "");
+                }
+            }
+            else
+            {
+                ns.Add("", "");
+            }
+
+            serializer.Serialize(xmlWriter, data, ns);
+            return writer.ToString();
+        }
+
+        public async Task<T?> LoadFromXmlStringAsync(string xml)
+        {
+            return await Task.Run(() => LoadFromXmlString(xml));
+        }
+
+        public T? LoadFromXmlString(string xml)
+        {
+            if (string.IsNullOrEmpty(xml))
+                throw new ArgumentException("XML cannot be null or empty", nameof(xml));
+                
+            var serializer = new XmlSerializer(typeof(T));
+            using var reader = new StringReader(xml);
+            return serializer.Deserialize(reader) as T;
+        }
     }
 } 

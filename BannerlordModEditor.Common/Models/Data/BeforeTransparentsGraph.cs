@@ -60,11 +60,11 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("height")]
         public string Height { get; set; }
 
-        [XmlElement("input")]
-        public List<PostfxNodeInput> Inputs { get; set; }
-
         [XmlElement("output")]
         public List<PostfxNodeOutput> Outputs { get; set; }
+
+        [XmlElement("input")]
+        public List<PostfxNodeInput> Inputs { get; set; }
 
         [XmlElement("preconditions")]
         public PostfxNodePreconditions Preconditions { get; set; }

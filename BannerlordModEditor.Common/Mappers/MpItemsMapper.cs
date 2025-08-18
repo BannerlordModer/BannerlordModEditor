@@ -16,16 +16,16 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new MpItemsDTO
             {
-                Items = source.Items?.Select(ToDTO).ToList() ?? new List<ItemDTO>(),
+                Items = source.Items?.Select(ToDTO).ToList() ?? new List<MpItemDTO>(),
                 CraftedItems = source.CraftedItems?.Select(ToDTO).ToList() ?? new List<CraftedItemDTO>()
             };
         }
 
-        public static ItemDTO ToDTO(ItemDO source)
+        public static MpItemDTO ToDTO(MpItemDO source)
         {
             if (source == null) return null;
 
-            return new ItemDTO
+            return new MpItemDTO
             {
                 MultiplayerItem = BoolFromString(source.MultiplayerItem) ?? false,
                 Id = source.Id ?? string.Empty,
@@ -183,11 +183,11 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static WeaponFlagsDTO ToDTO(WeaponFlagsDO source)
+        public static MpWeaponFlagsDTO ToDTO(MpWeaponFlagsDO source)
         {
             if (source == null) return null;
 
-            return new WeaponFlagsDTO
+            return new MpWeaponFlagsDTO
             {
                 MeleeWeapon = BoolFromString(source.MeleeWeapon) ?? false,
                 RangedWeapon = BoolFromString(source.RangedWeapon) ?? false,
@@ -262,42 +262,42 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static MaterialsDTO ToDTO(MaterialsDO source)
+        public static MpItemMaterialsDTO ToDTO(MpItemMaterialsDO source)
         {
             if (source == null) return null;
 
-            return new MaterialsDTO
+            return new MpItemMaterialsDTO
             {
-                MaterialList = source.MaterialList?.Select(ToDTO).ToList() ?? new List<MaterialDTO>()
+                MaterialList = source.MaterialList?.Select(ToDTO).ToList() ?? new List<MpItemMaterialDTO>()
             };
         }
 
-        public static MaterialDTO ToDTO(MaterialDO source)
+        public static MpItemMaterialDTO ToDTO(MpItemMaterialDO source)
         {
             if (source == null) return null;
 
-            return new MaterialDTO
+            return new MpItemMaterialDTO
             {
                 Name = source.Name,
                 MeshMultipliers = ToDTO(source.MeshMultipliers)
             };
         }
 
-        public static MeshMultipliersDTO ToDTO(MeshMultipliersDO source)
+        public static MpItemMeshMultipliersDTO ToDTO(MpItemMeshMultipliersDO source)
         {
             if (source == null) return null;
 
-            return new MeshMultipliersDTO
+            return new MpItemMeshMultipliersDTO
             {
-                Multipliers = source.Multipliers?.Select(ToDTO).ToList() ?? new List<MeshMultiplierDTO>()
+                Multipliers = source.Multipliers?.Select(ToDTO).ToList() ?? new List<MpItemMeshMultiplierDTO>()
             };
         }
 
-        public static MeshMultiplierDTO ToDTO(MeshMultiplierDO source)
+        public static MpItemMeshMultiplierDTO ToDTO(MpItemMeshMultiplierDO source)
         {
             if (source == null) return null;
 
-            return new MeshMultiplierDTO
+            return new MpItemMeshMultiplierDTO
             {
                 MeshMultiplierValue = source.MeshMultiplierValue,
                 Percentage = source.Percentage
@@ -347,16 +347,16 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new MpItemsDO
             {
-                Items = source.Items?.Select(ToDO).ToList() ?? new List<ItemDO>(),
+                Items = source.Items?.Select(ToDO).ToList() ?? new List<MpItemDO>(),
                 CraftedItems = source.CraftedItems?.Select(ToDO).ToList() ?? new List<CraftedItemDO>()
             };
         }
 
-        public static ItemDO ToDO(ItemDTO source)
+        public static MpItemDO ToDO(MpItemDTO source)
         {
             if (source == null) return null;
 
-            return new ItemDO
+            return new MpItemDO
             {
                 MultiplayerItem = StringFromBool(source.MultiplayerItem),
                 Id = source.Id,
@@ -514,11 +514,11 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static WeaponFlagsDO ToDO(WeaponFlagsDTO source)
+        public static MpWeaponFlagsDO ToDO(MpWeaponFlagsDTO source)
         {
             if (source == null) return null;
 
-            return new WeaponFlagsDO
+            return new MpWeaponFlagsDO
             {
                 MeleeWeapon = StringFromBool(source.MeleeWeapon),
                 RangedWeapon = StringFromBool(source.RangedWeapon),
@@ -593,42 +593,42 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static MaterialsDO ToDO(MaterialsDTO source)
+        public static MpItemMaterialsDO ToDO(MpItemMaterialsDTO source)
         {
             if (source == null) return null;
 
-            return new MaterialsDO
+            return new MpItemMaterialsDO
             {
-                MaterialList = source.MaterialList?.Select(ToDO).ToList() ?? new List<MaterialDO>()
+                MaterialList = source.MaterialList?.Select(ToDO).ToList() ?? new List<MpItemMaterialDO>()
             };
         }
 
-        public static MaterialDO ToDO(MaterialDTO source)
+        public static MpItemMaterialDO ToDO(MpItemMaterialDTO source)
         {
             if (source == null) return null;
 
-            return new MaterialDO
+            return new MpItemMaterialDO
             {
                 Name = source.Name,
                 MeshMultipliers = ToDO(source.MeshMultipliers)
             };
         }
 
-        public static MeshMultipliersDO ToDO(MeshMultipliersDTO source)
+        public static MpItemMeshMultipliersDO ToDO(MpItemMeshMultipliersDTO source)
         {
             if (source == null) return null;
 
-            return new MeshMultipliersDO
+            return new MpItemMeshMultipliersDO
             {
-                Multipliers = source.Multipliers?.Select(ToDO).ToList() ?? new List<MeshMultiplierDO>()
+                Multipliers = source.Multipliers?.Select(ToDO).ToList() ?? new List<MpItemMeshMultiplierDO>()
             };
         }
 
-        public static MeshMultiplierDO ToDO(MeshMultiplierDTO source)
+        public static MpItemMeshMultiplierDO ToDO(MpItemMeshMultiplierDTO source)
         {
             if (source == null) return null;
 
-            return new MeshMultiplierDO
+            return new MpItemMeshMultiplierDO
             {
                 MeshMultiplierValue = source.MeshMultiplierValue,
                 Percentage = source.Percentage

@@ -52,7 +52,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("Text")]
         public string Text { get; set; }
 
-        public bool ShouldSerializeText() => !string.IsNullOrEmpty(Text);
+        public bool ShouldSerializeText() => Text != null;
     }
 
     public class Image
@@ -60,7 +60,7 @@ namespace BannerlordModEditor.Common.Models.Data
         [XmlAttribute("Text")]
         public string Text { get; set; }
 
-        public bool ShouldSerializeText() => !string.IsNullOrEmpty(Text);
+        public bool ShouldSerializeText() => Text != null;
     }
 
     public class CreditsLegalPCEmptyLine

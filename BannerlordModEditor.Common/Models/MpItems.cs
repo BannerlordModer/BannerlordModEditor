@@ -139,11 +139,11 @@ namespace BannerlordModEditor.Common.Models
         public double? AppearanceDouble => double.TryParse(Appearance, out double appearance) ? appearance : (double?)null;
         public int? LodAtlasIndexInt => int.TryParse(LodAtlasIndex, out int lodAtlasIndex) ? lodAtlasIndex : (int?)null;
 
-        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
-        public bool ShouldSerializeWeight() => !string.IsNullOrEmpty(Weight);
-        public bool ShouldSerializeDifficulty() => !string.IsNullOrEmpty(Difficulty);
-        public bool ShouldSerializeAppearance() => !string.IsNullOrEmpty(Appearance);
-        public bool ShouldSerializeLodAtlasIndex() => !string.IsNullOrEmpty(LodAtlasIndex);
+        public bool ShouldSerializeValue() => Value != null;
+        public bool ShouldSerializeWeight() => Weight != null;
+        public bool ShouldSerializeDifficulty() => Difficulty != null;
+        public bool ShouldSerializeAppearance() => Appearance != null;
+        public bool ShouldSerializeLodAtlasIndex() => LodAtlasIndex != null;
     }
 
     public class CraftedItem
