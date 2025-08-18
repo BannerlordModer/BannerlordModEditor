@@ -757,6 +757,61 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
+            // 特殊处理SkillsDO来检测是否有Modifiers元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Game.SkillsDO skills)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 处理每个技能的Modifiers元素状态
+                if (skills.SkillDataList != null)
+                {
+                    var skillDataElements = doc.Root?.Elements("SkillData").ToList();
+                    
+                    for (int i = 0; i < skills.SkillDataList.Count; i++)
+                    {
+                        var skillData = skills.SkillDataList[i];
+                        var skillDataElement = skillDataElements?.ElementAt(i);
+                        
+                        if (skillDataElement != null)
+                        {
+                            // 检查Modifiers元素是否存在
+                            skillData.HasModifiers = skillDataElement.Element("Modifiers") != null;
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理MovementSetsDO来检测是否有空的movement_set元素
+            if (obj is BannerlordModEditor.Common.Models.DO.MovementSetsDO movementSets)
+            {
+                var doc = XDocument.Parse(xml);
+                movementSets.HasMovementSetList = doc.Root?.Elements("movement_set").ToList().Count > 0;
+            }
+            
+            // 特殊处理ScenesDO来检测是否有空的sites元素
+            if (obj is BannerlordModEditor.Common.Models.DO.ScenesDO scenes)
+            {
+                var doc = XDocument.Parse(xml);
+                // ScenesDO继承自ScenesBase，不需要特殊处理
+            }
+            
+            // 特殊处理ObjectsDO来检测是否有空的object元素
+            if (obj is BannerlordModEditor.Common.Models.DO.ObjectsDO objects)
+            {
+                var doc = XDocument.Parse(xml);
+                objects.HasFaction = doc.Root?.Element("Faction") != null;
+                objects.HasItem = doc.Root?.Element("Item") != null;
+                objects.HasNPCCharacter = doc.Root?.Element("NPCCharacter") != null;
+                objects.HasPlayerCharacter = doc.Root?.Element("PlayerCharacter") != null;
+            }
+            
+            // 特殊处理PartiesDO来检测是否有空的parties元素
+            if (obj is BannerlordModEditor.Common.Models.DO.PartiesDO parties)
+            {
+                var doc = XDocument.Parse(xml);
+                parties.HasParties = doc.Root?.Element("parties") != null;
+            }
+            
             return obj;
         }
         

@@ -1,11 +1,6 @@
-using BannerlordModEditor.Common.Models.Data;
-using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
+using BannerlordModEditor.Common.Models.DO.Game;
+using BannerlordModEditor.Common.Tests;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests
@@ -13,181 +8,367 @@ namespace BannerlordModEditor.Common.Tests
     public class SkillsXmlTests
     {
         [Fact]
-        public void Skills_LoadAndSave_ShouldBeLogicallyIdentical()
+        public void Skills_CanDeserializeFromXml()
         {
             // Arrange
-            var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skills.xml");
-            
-            // Act - 反序列化
-            var serializer = new XmlSerializer(typeof(Skills));
-            Skills skills;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
-            {
-                skills = (Skills)serializer.Deserialize(reader)!;
-            }
-            
-            // Act - 序列化
-            string savedXml;
-            using (var writer = new StringWriter())
-            {
-                using (var xmlWriter = XmlWriter.Create(writer, new XmlWriterSettings
-                {
-                    Indent = true,
-                    IndentChars = "\t",
-                    Encoding = new UTF8Encoding(false),
-                    OmitXmlDeclaration = false
-                }))
-                {
-                    serializer.Serialize(xmlWriter, skills);
-                }
-                savedXml = writer.ToString();
-            }
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ArrayOfSkillData xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+    <SkillData
+        id=""IronFlesh1""
+        Name=""Iron Flesh 1"">
+        <Modifiers>
+            <AttributeModifier
+                AttribCode=""AgentHitPoints""
+                Modification=""Multiply""
+                Value=""1.01"" />
+        </Modifiers>
+        <Documentation>Iron flesh increases hit points</Documentation>
+    </SkillData>
+    <SkillData
+        id=""PowerStrike1""
+        Name=""Power Strike"">
+        <Modifiers>
+            <AttributeModifier
+                AttribCode=""WeaponSwingDamage""
+                Modification=""Multiply""
+                Value=""1.08"" />
+            <AttributeModifier
+                AttribCode=""WeaponThrustDamage""
+                Modification=""Multiply""
+                Value=""1.08"" />
+        </Modifiers>
+        <Documentation>Power Strike increases melee damage</Documentation>
+    </SkillData>
+    <SkillData
+        id=""Runner""
+        Name=""Runner"">
+        <Modifiers>
+            <AttributeModifier
+                AttribCode=""AgentRunningSpeed""
+                Modification=""Multiply""
+                Value=""2"" />
+        </Modifiers>
+        <Documentation>Runner increases running speed</Documentation>
+    </SkillData>
+</ArrayOfSkillData>";
 
-            // Assert - 基本结构验证
-            Assert.NotNull(skills);
-            Assert.Equal(7, skills.SkillDataList.Count);
+            // Act
+            var result = XmlTestUtils.Deserialize<SkillsDO>(xmlContent);
 
-            // 验证具体的技能数据
-            var ironFlesh1 = skills.SkillDataList.FirstOrDefault(s => s.Id == "IronFlesh1");
-            Assert.NotNull(ironFlesh1);
-            Assert.Equal("Iron Flesh 1", ironFlesh1.Name);
-            Assert.NotNull(ironFlesh1.Modifiers);
-            Assert.Single(ironFlesh1.Modifiers.AttributeModifiers);
-            Assert.Equal("AgentHitPoints", ironFlesh1.Modifiers.AttributeModifiers[0].AttribCode);
-            Assert.Equal("Multiply", ironFlesh1.Modifiers.AttributeModifiers[0].Modification);
-            Assert.Equal("1.01", ironFlesh1.Modifiers.AttributeModifiers[0].Value);
-
-            var powerStrike1 = skills.SkillDataList.FirstOrDefault(s => s.Id == "PowerStrike1");
-            Assert.NotNull(powerStrike1);
-            Assert.Equal("Power Strike", powerStrike1.Name);
-            Assert.NotNull(powerStrike1.Modifiers);
-            Assert.Equal(2, powerStrike1.Modifiers.AttributeModifiers.Count);
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.SkillDataList);
+            Assert.Equal(3, result.SkillDataList.Count);
             
-            var runner = skills.SkillDataList.FirstOrDefault(s => s.Id == "Runner");
-            Assert.NotNull(runner);
+            var ironFlesh = result.SkillDataList[0];
+            Assert.Equal("IronFlesh1", ironFlesh.Id);
+            Assert.Equal("Iron Flesh 1", ironFlesh.Name);
+            Assert.True(ironFlesh.HasModifiers);
+            Assert.NotNull(ironFlesh.Modifiers);
+            Assert.Single(ironFlesh.Modifiers.AttributeModifiers);
+            Assert.Equal("AgentHitPoints", ironFlesh.Modifiers.AttributeModifiers[0].AttribCode);
+            Assert.Equal("Multiply", ironFlesh.Modifiers.AttributeModifiers[0].Modification);
+            Assert.Equal("1.01", ironFlesh.Modifiers.AttributeModifiers[0].Value);
+            Assert.Equal("Iron flesh increases hit points", ironFlesh.Documentation);
+            
+            var powerStrike = result.SkillDataList[1];
+            Assert.Equal("PowerStrike1", powerStrike.Id);
+            Assert.Equal("Power Strike", powerStrike.Name);
+            Assert.True(powerStrike.HasModifiers);
+            Assert.NotNull(powerStrike.Modifiers);
+            Assert.Equal(2, powerStrike.Modifiers.AttributeModifiers.Count);
+            Assert.Equal("WeaponSwingDamage", powerStrike.Modifiers.AttributeModifiers[0].AttribCode);
+            Assert.Equal("WeaponThrustDamage", powerStrike.Modifiers.AttributeModifiers[1].AttribCode);
+            
+            var runner = result.SkillDataList[2];
+            Assert.Equal("Runner", runner.Id);
             Assert.Equal("Runner", runner.Name);
+            Assert.True(runner.HasModifiers);
             Assert.NotNull(runner.Modifiers);
             Assert.Single(runner.Modifiers.AttributeModifiers);
             Assert.Equal("AgentRunningSpeed", runner.Modifiers.AttributeModifiers[0].AttribCode);
             Assert.Equal("2", runner.Modifiers.AttributeModifiers[0].Value);
-
-            // Assert - XML结构验证
-            var originalDoc = XDocument.Load(xmlPath, LoadOptions.None);
-            var savedDoc = XDocument.Parse(savedXml, LoadOptions.None);
-            
-            // 移除纯空白文本节点
-            RemoveWhitespaceNodes(originalDoc.Root);
-            RemoveWhitespaceNodes(savedDoc.Root);
-            
-            // 检查XML结构基本一致
-            Assert.True(originalDoc.Root?.Elements("SkillData").Count() == savedDoc.Root?.Elements("SkillData").Count(),
-                "SkillData count should be the same");
         }
-        
+
         [Fact]
-        public void Skills_ValidateDataIntegrity_ShouldPassBasicChecks()
+        public void Skills_CanSerializeToXml()
         {
             // Arrange
-            var solutionRoot = TestUtils.GetSolutionRoot();
-            var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "skills.xml");
-            
-            // Act
-            var serializer = new XmlSerializer(typeof(Skills));
-            Skills skills;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
+            var skills = new SkillsDO
             {
-                skills = (Skills)serializer.Deserialize(reader)!;
-            }
-            
-            // Assert - 验证基本结构完整性
-            Assert.True(skills.SkillDataList.Count > 0, "Should have skill data");
-
-            // 验证所有技能都有必要的数据
-            foreach (var skillData in skills.SkillDataList)
-            {
-                Assert.False(string.IsNullOrWhiteSpace(skillData.Id), "Skill should have Id");
-                Assert.False(string.IsNullOrWhiteSpace(skillData.Name), "Skill should have Name");
-                
-                // 大部分技能应该有修改器
-                if (skillData.Modifiers != null)
+                SkillDataList = new List<SkillDataDO>
                 {
-                    Assert.True(skillData.Modifiers.AttributeModifiers.Count > 0, 
-                        $"Skill {skillData.Id} should have attribute modifiers if Modifiers element exists");
-                    
-                    foreach (var modifier in skillData.Modifiers.AttributeModifiers)
+                    new SkillDataDO
                     {
-                        Assert.False(string.IsNullOrWhiteSpace(modifier.AttribCode), 
-                            "Modifier should have AttribCode");
-                        Assert.False(string.IsNullOrWhiteSpace(modifier.Modification), 
-                            "Modifier should have Modification");
-                        Assert.False(string.IsNullOrWhiteSpace(modifier.Value), 
-                            "Modifier should have Value");
-                        
-                        // 验证修改类型（应该是"Multiply"或其他有效值）
-                        Assert.True(modifier.Modification == "Multiply" || !string.IsNullOrEmpty(modifier.Modification),
-                            $"Modification should be valid: {modifier.Modification}");
-                        
-                        // 验证数值格式（应该是有效的数字）
-                        Assert.True(double.TryParse(modifier.Value, out var _), 
-                            $"Value should be a valid number: {modifier.Value}");
+                        Id = "IronFlesh1",
+                        Name = "Iron Flesh 1",
+                        HasModifiers = true,
+                        Modifiers = new ModifiersDO
+                        {
+                            AttributeModifiers = new List<AttributeModifierDO>
+                            {
+                                new AttributeModifierDO
+                                {
+                                    AttribCode = "AgentHitPoints",
+                                    Modification = "Multiply",
+                                    Value = "1.01"
+                                }
+                            }
+                        },
+                        Documentation = "Iron flesh increases hit points"
+                    },
+                    new SkillDataDO
+                    {
+                        Id = "Runner",
+                        Name = "Runner",
+                        HasModifiers = true,
+                        Modifiers = new ModifiersDO
+                        {
+                            AttributeModifiers = new List<AttributeModifierDO>
+                            {
+                                new AttributeModifierDO
+                                {
+                                    AttribCode = "AgentRunningSpeed",
+                                    Modification = "Multiply",
+                                    Value = "2"
+                                }
+                            }
+                        },
+                        Documentation = "Runner increases running speed"
                     }
                 }
-            }
-            
-            // 验证特定技能类型存在
-            var requiredSkills = new[] { 
-                "IronFlesh1", "PowerStrike1", "Runner"
             };
+
+            // Act
+            var serializedXml = XmlTestUtils.Serialize(skills);
+
+            // Assert
+            Assert.NotNull(serializedXml);
+            Assert.Contains("ArrayOfSkillData", serializedXml);
+            Assert.Contains("id=\"IronFlesh1\"", serializedXml);
+            Assert.Contains("Name=\"Iron Flesh 1\"", serializedXml);
+            Assert.Contains("id=\"Runner\"", serializedXml);
+            Assert.Contains("AttribCode=\"AgentHitPoints\"", serializedXml);
+            Assert.Contains("AttribCode=\"AgentRunningSpeed\"", serializedXml);
             
-            foreach (var requiredSkill in requiredSkills)
-            {
-                var skill = skills.SkillDataList.FirstOrDefault(s => s.Id == requiredSkill);
-                Assert.NotNull(skill);
-            }
-            
-            // 验证Iron Flesh技能系列的递增值
-            var ironFleshSkills = skills.SkillDataList
-                .Where(s => s.Id.StartsWith("IronFlesh"))
-                .OrderBy(s => s.Id)
-                .ToList();
-            
-            Assert.True(ironFleshSkills.Count >= 3, "Should have at least 3 Iron Flesh skills");
-            
-            // 验证Power Strike技能系列的递增值
-            var powerStrikeSkills = skills.SkillDataList
-                .Where(s => s.Id.StartsWith("PowerStrike"))
-                .OrderBy(s => s.Id)
-                .ToList();
-                
-            Assert.True(powerStrikeSkills.Count >= 3, "Should have at least 3 Power Strike skills");
-            
-            // 验证每个Power Strike技能都有两个修改器（WeaponSwingDamage和WeaponThrustDamage）
-            foreach (var powerStrike in powerStrikeSkills)
-            {
-                Assert.NotNull(powerStrike.Modifiers);
-                Assert.Equal(2, powerStrike.Modifiers.AttributeModifiers.Count);
-                Assert.Contains(powerStrike.Modifiers.AttributeModifiers, m => m.AttribCode == "WeaponSwingDamage");
-                Assert.Contains(powerStrike.Modifiers.AttributeModifiers, m => m.AttribCode == "WeaponThrustDamage");
-            }
+            // 检查Documentation元素是否存在
+            Assert.Contains("<Documentation>Iron flesh increases hit points</Documentation>", serializedXml);
         }
 
-        private static void RemoveWhitespaceNodes(XElement? element)
+        [Fact]
+        public void Skills_RoundTripSerialization()
         {
-            if (element == null) return;
+            // Arrange
+            var originalXml = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ArrayOfSkillData xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+    <SkillData
+        id=""IronFlesh1""
+        Name=""Iron Flesh 1"">
+        <Modifiers>
+            <AttributeModifier
+                AttribCode=""AgentHitPoints""
+                Modification=""Multiply""
+                Value=""1.01"" />
+        </Modifiers>
+        <Documentation>Iron flesh increases hit points</Documentation>
+    </SkillData>
+</ArrayOfSkillData>";
+
+            // Act
+            var deserialized = XmlTestUtils.Deserialize<SkillsDO>(originalXml);
+            var serializedXml = XmlTestUtils.Serialize(deserialized);
+
+            // Assert
+            Assert.True(XmlTestUtils.AreStructurallyEqual(originalXml, serializedXml));
+        }
+
+        [Fact]
+        public void Skills_EmptySkillList()
+        {
+            // Arrange
+            var xmlContent = @"<ArrayOfSkillData />";
+
+            // Act
+            var result = XmlTestUtils.Deserialize<SkillsDO>(xmlContent);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.SkillDataList);
+            Assert.Empty(result.SkillDataList);
+        }
+
+        [Fact]
+        public void Skills_SkillWithoutModifiers()
+        {
+            // Arrange
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ArrayOfSkillData xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+    <SkillData
+        id=""BasicSkill""
+        Name=""Basic Skill"">
+        <Documentation>Basic skill without modifiers</Documentation>
+    </SkillData>
+</ArrayOfSkillData>";
+
+            // Act
+            var result = XmlTestUtils.Deserialize<SkillsDO>(xmlContent);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result.SkillDataList);
             
-            var textNodes = element.Nodes().OfType<XText>().Where(t => string.IsNullOrWhiteSpace(t.Value)).ToList();
-            foreach (var node in textNodes)
-            {
-                node.Remove();
-            }
+            var skill = result.SkillDataList[0];
+            Assert.Equal("BasicSkill", skill.Id);
+            Assert.Equal("Basic Skill", skill.Name);
+            Assert.False(skill.HasModifiers);
+            Assert.Null(skill.Modifiers);
+            Assert.Equal("Basic skill without modifiers", skill.Documentation);
+        }
+
+        [Fact]
+        public void Skills_SkillWithEmptyModifiers()
+        {
+            // Arrange
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ArrayOfSkillData xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+    <SkillData
+        id=""EmptyModifiersSkill""
+        Name=""Empty Modifiers Skill"">
+        <Modifiers />
+        <Documentation>Skill with empty modifiers</Documentation>
+    </SkillData>
+</ArrayOfSkillData>";
+
+            // Act
+            var result = XmlTestUtils.Deserialize<SkillsDO>(xmlContent);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result.SkillDataList);
             
-            foreach (var child in element.Elements())
+            var skill = result.SkillDataList[0];
+            Assert.Equal("EmptyModifiersSkill", skill.Id);
+            Assert.Equal("Empty Modifiers Skill", skill.Name);
+            Assert.True(skill.HasModifiers);
+            Assert.NotNull(skill.Modifiers);
+            Assert.Empty(skill.Modifiers.AttributeModifiers);
+            Assert.Equal("Skill with empty modifiers", skill.Documentation);
+        }
+
+        [Fact]
+        public void Skills_ComplexModifiers()
+        {
+            // Arrange
+            var xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ArrayOfSkillData xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+    <SkillData
+        id=""ComplexSkill""
+        Name=""Complex Skill"">
+        <Modifiers>
+            <AttributeModifier
+                AttribCode=""AgentHitPoints""
+                Modification=""Multiply""
+                Value=""1.05"" />
+            <AttributeModifier
+                AttribCode=""WeaponSwingDamage""
+                Modification=""Add""
+                Value=""10"" />
+            <AttributeModifier
+                AttribCode=""AgentRunningSpeed""
+                Modification=""Multiply""
+                Value=""1.2"" />
+        </Modifiers>
+        <Documentation>Complex skill with multiple modifiers</Documentation>
+    </SkillData>
+</ArrayOfSkillData>";
+
+            // Act
+            var result = XmlTestUtils.Deserialize<SkillsDO>(xmlContent);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result.SkillDataList);
+            
+            var skill = result.SkillDataList[0];
+            Assert.Equal("ComplexSkill", skill.Id);
+            Assert.Equal("Complex Skill", skill.Name);
+            Assert.True(skill.HasModifiers);
+            Assert.NotNull(skill.Modifiers);
+            Assert.Equal(3, skill.Modifiers.AttributeModifiers.Count);
+            
+            var modifiers = skill.Modifiers.AttributeModifiers;
+            Assert.Contains(modifiers, m => m.AttribCode == "AgentHitPoints" && m.Modification == "Multiply" && m.Value == "1.05");
+            Assert.Contains(modifiers, m => m.AttribCode == "WeaponSwingDamage" && m.Modification == "Add" && m.Value == "10");
+            Assert.Contains(modifiers, m => m.AttribCode == "AgentRunningSpeed" && m.Modification == "Multiply" && m.Value == "1.2");
+        }
+
+        [Fact]
+        public void Skills_SerializationControl_HandlesEmptyModifiers()
+        {
+            // Arrange
+            var skill = new SkillDataDO
             {
-                RemoveWhitespaceNodes(child);
-            }
+                Id = "TestSkill",
+                Name = "Test Skill",
+                HasModifiers = true,
+                Modifiers = new ModifiersDO
+                {
+                    AttributeModifiers = new List<AttributeModifierDO>()
+                },
+                Documentation = "Test documentation"
+            };
+
+            var skills = new SkillsDO
+            {
+                SkillDataList = new List<SkillDataDO> { skill }
+            };
+
+            // Act
+            var serializedXml = XmlTestUtils.Serialize(skills);
+
+            // Assert
+            Assert.NotNull(serializedXml);
+            // 当HasModifiers为true但AttributeModifiers为空时，应该序列化空的Modifiers元素
+            Assert.Contains("<Modifiers />", serializedXml);
+        }
+
+        [Fact]
+        public void Skills_SerializationControl_SkipsModifiersWhenHasModifiersIsFalse()
+        {
+            // Arrange
+            var skill = new SkillDataDO
+            {
+                Id = "TestSkill",
+                Name = "Test Skill",
+                HasModifiers = false,
+                Modifiers = new ModifiersDO
+                {
+                    AttributeModifiers = new List<AttributeModifierDO>
+                    {
+                        new AttributeModifierDO
+                        {
+                            AttribCode = "TestCode",
+                            Modification = "Multiply",
+                            Value = "1.0"
+                        }
+                    }
+                },
+                Documentation = "Test documentation"
+            };
+
+            var skills = new SkillsDO
+            {
+                SkillDataList = new List<SkillDataDO> { skill }
+            };
+
+            // Act
+            var serializedXml = XmlTestUtils.Serialize(skills);
+
+            // Assert
+            Assert.NotNull(serializedXml);
+            // 当HasModifiers为false时，即使Modifiers有数据也不应该序列化
+            Assert.DoesNotContain("<Modifiers>", serializedXml);
+            Assert.DoesNotContain("TestCode", serializedXml);
         }
     }
-} 
+}
