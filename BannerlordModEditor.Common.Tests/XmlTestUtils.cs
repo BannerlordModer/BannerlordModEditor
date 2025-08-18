@@ -107,6 +107,141 @@ namespace BannerlordModEditor.Common.Tests
                 weaponDescriptions.HasEmptyDescriptions = doc.Root?.Elements("WeaponDescription").Count() == 0;
             }
             
+            // 特殊处理PrerenderDO来检测是否有postfx_graphs元素
+            if (obj is PrerenderDO prerender)
+            {
+                var doc = XDocument.Parse(xml);
+                prerender.HasPostfxGraphs = doc.Root?.Element("postfx_graphs") != null;
+                Console.WriteLine($"[DEBUG] PrerenderDO: HasPostfxGraphs set to {prerender.HasPostfxGraphs}");
+                
+                // 处理每个postfx_graph的空元素状态
+                if (prerender.PostfxGraphs?.PostfxGraphList != null)
+                {
+                    var postfxGraphsElement = doc.Root?.Element("postfx_graphs");
+                    var postfxGraphElements = postfxGraphsElement?.Elements("postfx_graph").ToList() ?? new List<XElement>();
+                    
+                    for (int i = 0; i < prerender.PostfxGraphs.PostfxGraphList.Count; i++)
+                    {
+                        var graph = prerender.PostfxGraphs.PostfxGraphList[i];
+                        var graphElement = postfxGraphElements.ElementAtOrDefault(i);
+                        
+                        if (graphElement != null)
+                        {
+                            // 处理postfx_node的空元素状态
+                            var postfxNodeElements = graphElement.Elements("postfx_node").ToList();
+                            for (int j = 0; j < graph.PostfxNodes.Count; j++)
+                            {
+                                var node = graph.PostfxNodes[j];
+                                var nodeElement = postfxNodeElements.ElementAtOrDefault(j);
+                                
+                                if (nodeElement != null)
+                                {
+                                    // 检查input元素
+                                    var inputElements = nodeElement.Elements("input").ToList();
+                                    node.HasEmptyInputs = inputElements.Count == 0;
+                                    
+                                    // 检查preconditions元素
+                                    node.HasPreconditions = nodeElement.Element("preconditions") != null;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理SkinsDO来检测是否有skins元素
+            if (obj is SkinsDO skins)
+            {
+                var doc = XDocument.Parse(xml);
+                skins.HasSkins = doc.Root?.Element("skins") != null;
+                
+                // 处理每个skin的空元素状态
+                if (skins.Skins?.SkinList != null)
+                {
+                    var skinsContainerElement = doc.Root?.Element("skins");
+                    var skinElements = skinsContainerElement?.Elements("skin").ToList() ?? new List<XElement>();
+                    
+                    for (int i = 0; i < skins.Skins.SkinList.Count; i++)
+                    {
+                        var skin = skins.Skins.SkinList[i];
+                        var skinElement = skinElements.ElementAtOrDefault(i);
+                        
+                        if (skinElement != null)
+                        {
+                            // 检查skeleton元素
+                            var skeletonElement = skinElement.Element("skeleton");
+                            skin.HasSkeleton = skeletonElement != null;
+                            
+                            // 检查hair_meshes元素
+                            var hairMeshesElement = skinElement.Element("hair_meshes");
+                            skin.HasHairMeshes = hairMeshesElement != null;
+                            
+                            // 检查beard_meshes元素
+                            var beardMeshesElement = skinElement.Element("beard_meshes");
+                            skin.HasBeardMeshes = beardMeshesElement != null;
+                            
+                            // 检查voice_types元素
+                            var voiceTypesElement = skinElement.Element("voice_types");
+                            skin.HasVoiceTypes = voiceTypesElement != null;
+                            
+                            // 检查face_textures元素
+                            var faceTexturesElement = skinElement.Element("face_textures");
+                            skin.HasFaceTextures = faceTexturesElement != null;
+                            
+                            // 检查body_meshes元素
+                            var bodyMeshesElement = skinElement.Element("body_meshes");
+                            skin.HasBodyMeshes = bodyMeshesElement != null;
+                            
+                            // 检查tattoo_materials元素
+                            var tattooMaterialsElement = skinElement.Element("tattoo_materials");
+                            skin.HasTattooMaterials = tattooMaterialsElement != null;
+                            
+                            // 设置HairMeshes的HasHairMeshes属性
+                            if (skin.HasHairMeshes && skin.HairMeshes != null)
+                            {
+                                skin.HairMeshes.HasHairMeshes = skin.HairMeshes.HairMeshList.Count > 0;
+                                skin.HairMeshes.HasEmptyHairMeshes = skin.HairMeshes.HairMeshList.Count == 0;
+                            }
+                            
+                            // 设置BeardMeshes的HasBeardMeshes属性
+                            if (skin.HasBeardMeshes && skin.BeardMeshes != null)
+                            {
+                                skin.BeardMeshes.HasBeardMeshes = skin.BeardMeshes.BeardMeshList.Count > 0;
+                                skin.BeardMeshes.HasEmptyBeardMeshes = skin.BeardMeshes.BeardMeshList.Count == 0;
+                            }
+                            
+                            // 设置VoiceTypes的HasVoiceTypes属性
+                            if (skin.HasVoiceTypes && skin.VoiceTypes != null)
+                            {
+                                skin.VoiceTypes.HasVoiceTypes = skin.VoiceTypes.VoiceList.Count > 0;
+                                skin.VoiceTypes.HasEmptyVoiceTypes = skin.VoiceTypes.VoiceList.Count == 0;
+                            }
+                            
+                            // 设置FaceTextures的HasFaceTextures属性
+                            if (skin.HasFaceTextures && skin.FaceTextures != null)
+                            {
+                                skin.FaceTextures.HasFaceTextures = skin.FaceTextures.FaceTextureList.Count > 0;
+                                skin.FaceTextures.HasEmptyFaceTextures = skin.FaceTextures.FaceTextureList.Count == 0;
+                            }
+                            
+                            // 设置BodyMeshes的HasBodyMeshes属性
+                            if (skin.HasBodyMeshes && skin.BodyMeshes != null)
+                            {
+                                skin.BodyMeshes.HasBodyMeshes = skin.BodyMeshes.BodyMeshList.Count > 0;
+                                skin.BodyMeshes.HasEmptyBodyMeshes = skin.BodyMeshes.BodyMeshList.Count == 0;
+                            }
+                            
+                            // 设置TattooMaterials的HasTattooMaterials属性
+                            if (skin.HasTattooMaterials && skin.TattooMaterials != null)
+                            {
+                                skin.TattooMaterials.HasTattooMaterials = skin.TattooMaterials.TattooMaterialList.Count > 0;
+                                skin.TattooMaterials.HasEmptyTattooMaterials = skin.TattooMaterials.TattooMaterialList.Count == 0;
+                            }
+                        }
+                    }
+                }
+            }
+            
             // 简化实现：移除复杂的Credits重新排序逻辑，直接保持XML序列化的原始顺序
             // 这种简化实现避免了重新排序导致的Text属性交换问题
             
@@ -851,82 +986,50 @@ namespace BannerlordModEditor.Common.Tests
                 parties.HasParties = doc.Root?.Element("parties") != null;
             }
             
-            // 特殊处理SkinsDO来检测各个子元素的存在状态
-            if (obj is BannerlordModEditor.Common.Models.DO.SkinsDO skins)
+            // 特殊处理FloraLayerSetsDO来检测空集合状态
+            if (obj is BannerlordModEditor.Common.Models.DO.FloraLayerSetsDO floraLayerSets)
             {
                 var doc = XDocument.Parse(xml);
                 
-                // 检查是否有skins元素
-                skins.HasSkins = doc.Root?.Element("skins") != null;
+                // 检查是否有空的layer_flora_sets元素
+                var layerFloraSetsElement = doc.Root;
+                floraLayerSets.HasEmptyLayerFloraSets = layerFloraSetsElement != null && 
+                    !layerFloraSetsElement.Elements("layer_flora_set").Any();
                 
-                // 处理每个skin的子元素状态
-                if (skins.Skins != null && skins.Skins.SkinList != null)
+                // 处理每个layer_flora_set及其子元素的状态
+                if (floraLayerSets.LayerFloraSets != null)
                 {
-                    var skinElements = doc.Root?.Element("skins")?.Elements("skin").ToList();
+                    var layerFloraSetElements = doc.Root?.Elements("layer_flora_set").ToList();
                     
-                    for (int i = 0; i < skins.Skins.SkinList.Count && i < (skinElements?.Count ?? 0); i++)
+                    for (int i = 0; i < floraLayerSets.LayerFloraSets.Count && i < (layerFloraSetElements?.Count ?? 0); i++)
                     {
-                        var skin = skins.Skins.SkinList[i];
-                        var skinElement = skinElements?[i];
+                        var layerFloraSet = floraLayerSets.LayerFloraSets[i];
+                        var layerFloraSetElement = layerFloraSetElements?[i];
                         
-                        if (skinElement != null)
+                        if (layerFloraSetElement != null)
                         {
-                            // 检查各个子元素是否存在
-                            skin.HasSkeleton = skinElement.Element("skeleton") != null;
-                            skin.HasHairMeshes = skinElement.Element("hair_meshes") != null;
-                            skin.HasBeardMeshes = skinElement.Element("beard_meshes") != null;
-                            skin.HasVoiceTypes = skinElement.Element("voice_types") != null;
-                            skin.HasFaceTextures = skinElement.Element("face_textures") != null;
-                            skin.HasBodyMeshes = skinElement.Element("body_meshes") != null;
-                            skin.HasTattooMaterials = skinElement.Element("tattoo_materials") != null;
+                            // 检查是否有空的layer_floras元素
+                            var layerFlorasElement = layerFloraSetElement;
+                            layerFloraSet.HasEmptyLayerFloras = layerFlorasElement != null && 
+                                !layerFlorasElement.Elements("layer_flora").Any();
                             
-                            // 处理空集合状态
-                            if (skin.HairMeshes != null)
+                            // 处理每个layer_flora及其子元素的状态
+                            if (layerFloraSet.LayerFloras != null)
                             {
-                                var hairMeshesElement = skinElement.Element("hair_meshes");
-                                skin.HairMeshes.HasHairMeshes = hairMeshesElement != null;
-                                skin.HairMeshes.HasEmptyHairMeshes = hairMeshesElement != null && 
-                                    !hairMeshesElement.Elements("hair_mesh").Any();
-                            }
-                            
-                            if (skin.BeardMeshes != null)
-                            {
-                                var beardMeshesElement = skinElement.Element("beard_meshes");
-                                skin.BeardMeshes.HasBeardMeshes = beardMeshesElement != null;
-                                skin.BeardMeshes.HasEmptyBeardMeshes = beardMeshesElement != null && 
-                                    !beardMeshesElement.Elements("beard_mesh").Any();
-                            }
-                            
-                            if (skin.VoiceTypes != null)
-                            {
-                                var voiceTypesElement = skinElement.Element("voice_types");
-                                skin.VoiceTypes.HasVoiceTypes = voiceTypesElement != null;
-                                skin.VoiceTypes.HasEmptyVoiceTypes = voiceTypesElement != null && 
-                                    !voiceTypesElement.Elements("voice").Any();
-                            }
-                            
-                            if (skin.FaceTextures != null)
-                            {
-                                var faceTexturesElement = skinElement.Element("face_textures");
-                                skin.FaceTextures.HasFaceTextures = faceTexturesElement != null;
-                                skin.FaceTextures.HasEmptyFaceTextures = faceTexturesElement != null && 
-                                    !faceTexturesElement.Elements("face_texture").Any();
-                            }
-                            
-                            if (skin.BodyMeshes != null)
-                            {
-                                var bodyMeshesElement = skinElement.Element("body_meshes");
-                                skin.BodyMeshes.HasBodyMeshes = bodyMeshesElement != null;
-                                skin.BodyMeshes.HasEmptyBodyMeshes = bodyMeshesElement != null && 
-                                    !bodyMeshesElement.Elements("body_mesh").Any();
-                            }
-                            
-                            if (skin.TattooMaterials != null)
-                            {
-                                var tattooMaterialsElement = skinElement.Element("tattoo_materials");
-                                skin.TattooMaterials.HasTattooMaterials = tattooMaterialsElement != null;
-                                skin.TattooMaterials.HasEmptyTattooMaterials = tattooMaterialsElement != null && 
-                                    !tattooMaterialsElement.Elements("tattoo_material").Any();
+                                var layerFloraElements = layerFloraSetElement.Elements("layer_flora").ToList();
+                                
+                                for (int j = 0; j < layerFloraSet.LayerFloras.Count && j < (layerFloraElements?.Count ?? 0); j++)
+                                {
+                                    var layerFlora = layerFloraSet.LayerFloras[j];
+                                    var layerFloraElement = layerFloraElements?[j];
+                                    
+                                    if (layerFloraElement != null)
+                                    {
+                                        // 检查是否有空的mesh元素
+                                        var meshElement = layerFloraElement.Element("mesh");
+                                        layerFlora.HasMesh = meshElement != null;
+                                    }
+                                }
                             }
                         }
                     }
@@ -1093,6 +1196,41 @@ namespace BannerlordModEditor.Common.Tests
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            
+            // 特殊处理TerrainMaterialsDO来检测textures、layer_flags和meshes元素
+            if (obj is BannerlordModEditor.Common.Models.DO.Engine.TerrainMaterialsDO terrainMaterialsObj)
+            {
+                var doc = XDocument.Parse(xml);
+                
+                // 处理每个terrain_material的空元素状态
+                if (terrainMaterialsObj.TerrainMaterialList != null)
+                {
+                    var terrainMaterialElements = doc.Root?.Elements("terrain_material").ToList() ?? new List<XElement>();
+                    
+                    for (int i = 0; i < terrainMaterialsObj.TerrainMaterialList.Count; i++)
+                    {
+                        var material = terrainMaterialsObj.TerrainMaterialList[i];
+                        var materialElement = terrainMaterialElements.ElementAtOrDefault(i);
+                        
+                        if (materialElement != null)
+                        {
+                            // 检查textures元素
+                            material.HasTextures = materialElement.Element("textures") != null;
+                            
+                            // 检查layer_flags元素
+                            material.HasLayerFlags = materialElement.Element("layer_flags") != null;
+                            
+                            // 检查meshes元素
+                            material.HasMeshes = materialElement.Element("meshes") != null;
+                            
+                            // 检查空的meshes元素
+                            var meshesElement = materialElement.Element("meshes");
+                            material.HasEmptyMeshes = meshesElement != null && 
+                                (meshesElement.Elements().Count() == 0 || meshesElement.Elements("mesh").Count() == 0);
                         }
                     }
                 }

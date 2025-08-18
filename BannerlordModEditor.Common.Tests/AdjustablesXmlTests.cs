@@ -1,6 +1,6 @@
 using System.IO;
 using Xunit;
-using BannerlordModEditor.Common.Models.Data;
+using BannerlordModEditor.Common.Models.DO;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -15,7 +15,7 @@ namespace BannerlordModEditor.Common.Tests
             if (xml == null) return; // 文件不存在则跳过
 
             // 反序列化
-            var model = XmlTestUtils.Deserialize<AdjustablesDataModel>(xml);
+            var model = XmlTestUtils.Deserialize<AdjustablesDO>(xml);
 
             // 再序列化
             var serialized = XmlTestUtils.Serialize(model);

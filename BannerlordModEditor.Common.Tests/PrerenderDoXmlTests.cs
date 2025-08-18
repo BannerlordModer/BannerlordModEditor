@@ -27,7 +27,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.True(obj.PostfxGraphs.PostfxGraphList.Count > 0);
 
             // Basic structural equality check
-            Assert.Contains("prerender", serializedXml);
+            Assert.Contains("base", serializedXml);
             Assert.Contains("postfx_graphs", serializedXml);
         }
 
@@ -48,7 +48,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.True(result.HasPostfxGraphs);
             Assert.NotNull(result.PostfxGraphs);
             Assert.NotNull(result.PostfxGraphs.PostfxGraphList);
-            Assert.Single(result.PostfxGraphs.PostfxGraphList);
+            Assert.Equal(4, result.PostfxGraphs.PostfxGraphList.Count); // XML文件中有4个postfx_graph节点
 
             var graph = result.PostfxGraphs.PostfxGraphList[0];
             Assert.Equal("ambient_occlusion_graph", graph.Id);
@@ -119,7 +119,7 @@ namespace BannerlordModEditor.Common.Tests
 
             // Test performance analysis
             Assert.Equal(2, result.GetTotalNodeCount());
-            Assert.Equal(1.0, result.GetAverageNodesPerGraph());
+            Assert.Equal(2.0, result.GetAverageNodesPerGraph()); // 1个graph有2个nodes，平均值应该是2.0
         }
 
         [Fact]

@@ -49,6 +49,27 @@ public class SkinDTO
     [XmlElement("voice_types")]
     public VoiceTypesDTO? VoiceTypes { get; set; }
 
+    [XmlIgnore]
+    public bool HasSkeleton { get; set; }
+
+    [XmlIgnore]
+    public bool HasHairMeshes { get; set; }
+
+    [XmlIgnore]
+    public bool HasBeardMeshes { get; set; }
+
+    [XmlIgnore]
+    public bool HasVoiceTypes { get; set; }
+
+    [XmlIgnore]
+    public bool HasFaceTextures { get; set; }
+
+    [XmlIgnore]
+    public bool HasBodyMeshes { get; set; }
+
+    [XmlIgnore]
+    public bool HasTattooMaterials { get; set; }
+
     [XmlElement("face_textures")]
     public FaceTexturesDTO? FaceTextures { get; set; }
 

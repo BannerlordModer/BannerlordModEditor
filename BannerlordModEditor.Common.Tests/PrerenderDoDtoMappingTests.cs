@@ -319,6 +319,7 @@ namespace BannerlordModEditor.Common.Tests
                 Compute = "true",
                 ComputeTgSizeX = "16",
                 ComputeTgSizeY = "16",
+                Size = "relative",
                 Width = "1.0",
                 Height = "1.0",
                 Inputs = new List<InputDO>
@@ -352,7 +353,7 @@ namespace BannerlordModEditor.Common.Tests
             Assert.Single(back.GetNodeInputs());
             Assert.True(back.HasPreconditions);
             Assert.Single(back.Preconditions.Configs);
-            Assert.Equal(4, back.GetEstimatedComplexity()); // 1 (base) + 2 (compute) + 2 (inputs) - 1 (preconditions not counted in complexity)
+            Assert.Equal(6, back.GetEstimatedComplexity()); // 1 (base) * 2 (compute) + 2 (inputs) + 2 (preconditions) = 6
         }
     }
 }

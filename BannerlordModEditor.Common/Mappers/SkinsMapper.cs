@@ -25,7 +25,8 @@ public static class SkinsMapper
         return new SkinsDO
         {
             Type = source.Type,
-            Skins = SkinsMapper.ToDO(source.Skins)
+            Skins = SkinsMapper.ToDO(source.Skins),
+            HasSkins = source.Skins != null && source.Skins.SkinList.Count > 0
         };
     }
 
@@ -85,12 +86,19 @@ public static class SkinsMapper
             Race = source.Race,
             Gender = source.Gender,
             Age = source.Age,
+            HasSkeleton = source.Skeleton != null,
             Skeleton = SkinsMapper.ToDO(source.Skeleton),
+            HasHairMeshes = source.HairMeshes != null,
             HairMeshes = SkinsMapper.ToDO(source.HairMeshes),
+            HasBeardMeshes = source.BeardMeshes != null,
             BeardMeshes = SkinsMapper.ToDO(source.BeardMeshes),
+            HasVoiceTypes = source.VoiceTypes != null,
             VoiceTypes = SkinsMapper.ToDO(source.VoiceTypes),
+            HasFaceTextures = source.FaceTextures != null,
             FaceTextures = SkinsMapper.ToDO(source.FaceTextures),
+            HasBodyMeshes = source.BodyMeshes != null,
             BodyMeshes = SkinsMapper.ToDO(source.BodyMeshes),
+            HasTattooMaterials = source.TattooMaterials != null,
             TattooMaterials = SkinsMapper.ToDO(source.TattooMaterials)
         };
     }

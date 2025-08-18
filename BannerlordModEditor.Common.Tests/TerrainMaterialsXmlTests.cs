@@ -16,32 +16,13 @@ namespace BannerlordModEditor.Common.Tests
             // Arrange
             var solutionRoot = TestUtils.GetSolutionRoot();
             var xmlPath = Path.Combine(solutionRoot, "BannerlordModEditor.Common.Tests", "TestData", "terrain_materials.xml");
+            var originalXml = File.ReadAllText(xmlPath);
             
             // Act - 反序列化
-            var serializer = new XmlSerializer(typeof(TerrainMaterialsDO));
-            TerrainMaterialsDO terrainMaterials;
-            
-            using (var reader = new FileStream(xmlPath, FileMode.Open))
-            {
-                terrainMaterials = (TerrainMaterialsDO)serializer.Deserialize(reader)!;
-            }
+            var terrainMaterials = XmlTestUtils.Deserialize<TerrainMaterialsDO>(originalXml);
             
             // Act - 序列化
-            string savedXml;
-            using (var stringWriter = new StringWriter())
-            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings 
-            { 
-                Indent = true, 
-                IndentChars = "\t",
-                OmitXmlDeclaration = false,
-                Encoding = Encoding.UTF8
-            }))
-            {
-                var ns = new XmlSerializerNamespaces();
-                ns.Add("", "");
-                serializer.Serialize(xmlWriter, terrainMaterials, ns);
-                savedXml = stringWriter.ToString();
-            }
+            var savedXml = XmlTestUtils.Serialize(terrainMaterials, originalXml);
             
             // Assert - 基本结构验证
             Assert.NotNull(terrainMaterials);
