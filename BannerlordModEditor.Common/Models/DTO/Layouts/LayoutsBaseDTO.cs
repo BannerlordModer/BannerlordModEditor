@@ -223,11 +223,18 @@ namespace BannerlordModEditor.Common.Models.DTO.Layouts
         [XmlElement("properties")]
         public PropertiesDTO Properties { get; set; } = new PropertiesDTO();
 
+        [XmlElement("default_node")]
+        public DefaultNodeDTO DefaultNode { get; set; } = new DefaultNodeDTO();
+
         [XmlIgnore]
         public bool HasProperties { get; set; } = false;
+        
+        [XmlIgnore]
+        public bool HasDefaultNode { get; set; } = false;
 
         public bool ShouldSerializeProperties() => HasProperties && Properties != null && Properties.PropertyList.Count > 0;
         public bool ShouldSerializeOptional() => HasOptional && !string.IsNullOrEmpty(Optional);
+        public bool ShouldSerializeDefaultNode() => HasDefaultNode && DefaultNode != null && DefaultNode.HasAnyElements;
     }
 
     /// <summary>

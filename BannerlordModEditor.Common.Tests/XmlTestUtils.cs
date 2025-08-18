@@ -543,7 +543,7 @@ namespace BannerlordModEditor.Common.Tests
                                 }
                             }
                             
-                            // 处理items中的properties状态
+                            // 处理items中的properties状态和default_node状态
                             if (layout.Items != null && layout.Items.ItemList != null)
                             {
                                 var itemsElement2 = layoutElement.Element("items");
@@ -561,6 +561,30 @@ namespace BannerlordModEditor.Common.Tests
                                         // 检查optional属性
                                         var optionalAttribute = itemElement.Attribute("optional");
                                         item.HasOptional = optionalAttribute != null;
+                                        
+                                        // 处理default_node状态 - 修复FloraKindsLayout问题
+                                        var defaultNodeElement = itemElement.Element("default_node");
+                                        item.HasDefaultNode = defaultNodeElement != null && defaultNodeElement.Elements().Count() > 0;
+                                        
+                                        if (item.DefaultNode != null)
+                                        {
+                                            item.DefaultNode.HasAnyElements = defaultNodeElement != null && defaultNodeElement.Elements().Count() > 0;
+                                            // 复制default_node的内容
+                                            if (defaultNodeElement != null && defaultNodeElement.Elements().Count() > 0)
+                                            {
+                                                // 使用XNode的DeepClone方法
+                                                var xmlDoc = new System.Xml.XmlDocument();
+                                                item.DefaultNode.AnyElements = defaultNodeElement.Elements()
+                                                    .Select(e => 
+                                                    {
+                                                        var reader = e.CreateReader();
+                                                        var doc = xmlDoc.ReadNode(reader) as System.Xml.XmlElement;
+                                                        return doc;
+                                                    })
+                                                    .Where(e => e != null)
+                                                    .ToArray();
+                                            }
+                                        }
                                     }
                                 }
                             }

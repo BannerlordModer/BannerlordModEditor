@@ -385,7 +385,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Optional = source.Optional,
                 HasOptional = source.HasOptional,
                 Properties = PropertiesMapper.ToDTO(source.Properties),
-                HasProperties = source.HasProperties
+                HasProperties = source.HasProperties,
+                DefaultNode = DefaultNodeMapper.ToDTO(source.DefaultNode),
+                HasDefaultNode = source.HasDefaultNode
             };
         }
 
@@ -403,7 +405,9 @@ namespace BannerlordModEditor.Common.Mappers
                 Optional = source.Optional,
                 HasOptional = source.HasOptional,
                 Properties = PropertiesMapper.ToDO(source.Properties),
-                HasProperties = source.HasProperties
+                HasProperties = source.HasProperties,
+                DefaultNode = DefaultNodeMapper.ToDO(source.DefaultNode),
+                HasDefaultNode = source.HasDefaultNode
             };
         }
     }
