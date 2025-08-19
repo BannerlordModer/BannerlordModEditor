@@ -387,15 +387,29 @@ jobs:
         echo "" >> test-summary.md
         
         # 汇总各测试结果
-        for dir in */; do
-          if [ -f "$dir/*.trx" ]; then
-            echo "### $dir" >> test-summary.md
-            echo "\`\`\`" >> test-summary.md
-            find "$dir" -name "*.trx" -exec echo "处理文件: {}" \; >> test-summary.md
-            echo "\`\`\`" >> test-summary.md
-            echo "" >> test-summary.md
-          fi
-        done
+        if [ -d "unit-test-results" ]; then
+          echo "### 单元测试结果" >> test-summary.md
+          echo "\`\`\`" >> test-summary.md
+          find unit-test-results -name "*.trx" -exec echo "处理文件: {}" \; 2>/dev/null || echo "未找到.trx文件" >> test-summary.md
+          echo "\`\`\`" >> test-summary.md
+          echo "" >> test-summary.md
+        fi
+        
+        if [ -d "integration-test-results" ]; then
+          echo "### 集成测试结果" >> test-summary.md
+          echo "\`\`\`" >> test-summary.md
+          find integration-test-results -name "*.trx" -exec echo "处理文件: {}" \; 2>/dev/null || echo "未找到.trx文件" >> test-summary.md
+          echo "\`\`\`" >> test-summary.md
+          echo "" >> test-summary.md
+        fi
+        
+        if [ -d "ui-test-results" ]; then
+          echo "### UI测试结果" >> test-summary.md
+          echo "\`\`\`" >> test-summary.md
+          find ui-test-results -name "*.trx" -exec echo "处理文件: {}" \; 2>/dev/null || echo "未找到.trx文件" >> test-summary.md
+          echo "\`\`\`" >> test-summary.md
+          echo "" >> test-summary.md
+        fi
         
         echo "## 测试覆盖率" >> test-summary.md
         if [ -f "unit-test-results/TestResults/CoverageReport/index.html" ]; then
@@ -415,7 +429,7 @@ jobs:
       if: success() || failure()
       with:
         name: BannerlordModEditor Tests
-        path: '*/**/*.trx'
+        path: '**/*.trx'
         reporter: java-junit
 
   # 11. 安全扫描

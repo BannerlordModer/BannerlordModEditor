@@ -7,6 +7,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
     <AssemblyName>BannerlordModEditor</AssemblyName>
+    <WarningsAsErrors />
+    <NoWarn>$(NoWarn);CS8618;CS8603;CS8604;CS8602;CS8600;CS8625</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -72,10 +72,7 @@ public partial class App : Application
         services.AddTransient<ItemModifierEditorViewModel>();
         services.AddTransient<ItemModifierEditorView>();
         
-        // 注册文件发现服务
-        services.AddTransient<XmlFileDiscoveryViewModel>();
-        services.AddTransient<XmlFileDiscoveryView>();
-        
+                
         return services;
     }
 
