@@ -420,7 +420,7 @@ jobs:
       if: success() || failure()
       with:
         name: BannerlordModEditor Tests
-        path: '*/**/*.trx'
+        path: 'unit-test-results/**/*.trx'
         reporter: java-junit
 
   # 11. 安全扫描
