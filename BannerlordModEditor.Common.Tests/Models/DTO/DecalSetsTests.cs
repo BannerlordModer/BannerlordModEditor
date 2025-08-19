@@ -59,7 +59,7 @@ public class DecalSetsTests
             var dto = XmlTestUtils.Deserialize<DecalSetsDTO>(xml);
             var serialized = XmlTestUtils.Serialize(dto, xml);
 
-            Assert.True(XmlTestUtils.AreStructurallyEqual(xml, serialized));
+            Assert.Equal(XmlTestUtils.NormalizeXml(xml), XmlTestUtils.NormalizeXml(serialized));
         }
     }
 }
