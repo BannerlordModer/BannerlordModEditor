@@ -1,72 +1,67 @@
+using Xunit;
 using Avalonia.Controls;
 using Avalonia.Headless.XUnit;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels.Editors;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
 public class BoneBodyTypeEditorTests
 {
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeEditor_ShouldInitializeWithSampleData()
     {
-        var viewModel = new BoneBodyTypeEditorViewModel();
-        var view = new BoneBodyTypeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
 
-        // 验证初始化状态
+        // Assert
         Assert.NotEmpty(viewModel.BoneBodyTypes);
         Assert.Equal("head", viewModel.BoneBodyTypes[0].Type);
         Assert.Equal("4", viewModel.BoneBodyTypes[0].Priority);
         Assert.False(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeEditor_ShouldAddNewBoneBodyType()
     {
-        var viewModel = new BoneBodyTypeEditorViewModel();
-        var view = new BoneBodyTypeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
         var initialCount = viewModel.BoneBodyTypes.Count;
         
-        // 添加新骨骼类型
+        // Act
         viewModel.AddBoneBodyTypeCommand.Execute(null);
 
+        // Assert
         Assert.Equal(initialCount + 1, viewModel.BoneBodyTypes.Count);
         Assert.True(viewModel.HasUnsavedChanges);
         Assert.Equal("new_bone_type", viewModel.BoneBodyTypes.Last().Type);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeEditor_ShouldRemoveBoneBodyType()
     {
-        var viewModel = new BoneBodyTypeEditorViewModel();
-        var view = new BoneBodyTypeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
         var boneTypeToRemove = viewModel.BoneBodyTypes.First();
         var initialCount = viewModel.BoneBodyTypes.Count;
         
-        // 删除骨骼类型
+        // Act
         viewModel.RemoveBoneBodyTypeCommand.Execute(boneTypeToRemove);
 
+        // Assert
         Assert.Equal(initialCount - 1, viewModel.BoneBodyTypes.Count);
         Assert.DoesNotContain(boneTypeToRemove, viewModel.BoneBodyTypes);
         Assert.True(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeViewModel_ShouldValidateCorrectly()
     {
+        // Arrange
         var boneTypeViewModel = new BoneBodyTypeViewModel();
 
+        // Act & Assert
         // 初始状态应该无效（空Type）
         Assert.False(boneTypeViewModel.IsValid);
 
@@ -84,15 +79,18 @@ public class BoneBodyTypeEditorTests
         Assert.False(boneTypeViewModel.IsValid);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeViewModel_ShouldHaveCorrectOptions()
     {
+        // Arrange
         var boneTypeViewModel = new BoneBodyTypeViewModel();
         
+        // Act
         var typeOptions = boneTypeViewModel.TypeOptions.ToList();
         var priorityOptions = boneTypeViewModel.PriorityOptions.ToList();
         var booleanOptions = boneTypeViewModel.BooleanOptions.ToList();
         
+        // Assert
         // 验证类型选项
         Assert.Contains("head", typeOptions);
         Assert.Contains("neck", typeOptions);
@@ -109,9 +107,10 @@ public class BoneBodyTypeEditorTests
         Assert.Contains("false", booleanOptions);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeViewModel_ShouldHandleOptionalFields()
     {
+        // Arrange & Act
         var boneTypeViewModel = new BoneBodyTypeViewModel
         {
             Type = "arm_left",
@@ -121,25 +120,25 @@ public class BoneBodyTypeEditorTests
             DoNotScaleAccordingToAgentScale = "false"
         };
 
+        // Assert
         Assert.True(boneTypeViewModel.IsValid);
         Assert.Equal("true", boneTypeViewModel.ActivateSweep);
         Assert.Equal("", boneTypeViewModel.UseSmallerRadiusMultWhileHoldingShield);
         Assert.Equal("false", boneTypeViewModel.DoNotScaleAccordingToAgentScale);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeEditor_ShouldHandleComplexScenario()
     {
-        var viewModel = new BoneBodyTypeEditorViewModel();
-        var view = new BoneBodyTypeEditorView { DataContext = viewModel };
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
         
-        var window = new Window { Content = view };
-        window.Show();
-
+        // Act
         // 添加多个骨骼类型
         viewModel.AddBoneBodyTypeCommand.Execute(null);
         viewModel.AddBoneBodyTypeCommand.Execute(null);
         
+        // Assert
         Assert.Equal(3, viewModel.BoneBodyTypes.Count); // 1 initial + 2 added
         Assert.True(viewModel.HasUnsavedChanges);
 
