@@ -97,6 +97,18 @@ namespace BannerlordModEditor.Common.Services
             return false;
         }
 
+        public bool IsFileAdapted(string xmlFileName)
+        {
+            if (string.IsNullOrEmpty(xmlFileName))
+                return false;
+
+            var baseName = Path.GetFileNameWithoutExtension(xmlFileName);
+            var expectedModelName = ConvertToModelName(baseName);
+            var searchDirectories = GetModelSearchDirectories();
+
+            return ModelExists(expectedModelName, searchDirectories);
+        }
+
         private string[] GetModelSearchDirectories()
         {
             var directories = new List<string> { _modelsRootDirectory };

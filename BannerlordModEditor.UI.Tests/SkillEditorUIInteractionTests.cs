@@ -3,6 +3,7 @@ using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -12,7 +13,7 @@ public class SkillEditorCommandTests
     public void SkillEditor_AddCommand_ShouldAddNewSkill()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         var initialCount = viewModel.Skills.Count;
 
         // Act
@@ -28,7 +29,7 @@ public class SkillEditorCommandTests
     public void SkillEditor_RemoveCommand_ShouldRemoveSkill()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         viewModel.AddSkillCommand.Execute(null); // 添加一个技能以便删除
         
         var skillToRemove = viewModel.Skills.Last();
@@ -47,7 +48,7 @@ public class SkillEditorCommandTests
     public void SkillEditor_LoadCommand_ShouldAttemptLoad()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         var originalFilePath = viewModel.FilePath;
 
         // Act
@@ -175,7 +176,7 @@ public class SkillEditorCommandTests
     public void MainWindow_Integration_ShouldSelectSkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var skillEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "SkillEditor");
@@ -194,7 +195,7 @@ public class SkillEditorCommandTests
     public void SkillEditor_Search_ShouldFindSkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
 
         // Act
         mainViewModel.EditorManager.SearchText = "技能";

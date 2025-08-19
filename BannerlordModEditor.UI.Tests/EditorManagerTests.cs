@@ -1,6 +1,7 @@
 using Xunit;
 using BannerlordModEditor.UI.ViewModels;
 using System.Linq;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -10,7 +11,7 @@ public class EditorManagerTests
     public void EditorManager_Should_Initialize_Categories()
     {
         // Arrange & Act
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
 
         // Assert
         Assert.NotEmpty(editorManager.Categories);
@@ -21,7 +22,7 @@ public class EditorManagerTests
     public void EditorManager_Should_Have_Character_Category_With_Editors()
     {
         // Arrange & Act
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var characterCategory = editorManager.Categories.FirstOrDefault(c => c.Name == "角色设定");
 
         // Assert
@@ -35,7 +36,7 @@ public class EditorManagerTests
     public void EditorManager_Should_Have_Equipment_Category_With_Editors()
     {
         // Arrange & Act
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var equipmentCategory = editorManager.Categories.FirstOrDefault(c => c.Name == "装备物品");
 
         // Assert
@@ -49,7 +50,7 @@ public class EditorManagerTests
     public void SelectEditor_Should_Update_Current_Editor()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var characterCategory = editorManager.Categories.FirstOrDefault(c => c.Name == "角色设定");
         var attributeEditor = characterCategory?.Editors.FirstOrDefault(e => e.Name == "属性定义");
 
@@ -67,7 +68,7 @@ public class EditorManagerTests
     public void SearchEditors_Should_Filter_Results()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
 
         // Act - 搜索"属性"
         editorManager.SearchText = "属性";
@@ -91,7 +92,7 @@ public class EditorManagerTests
     public void SearchEditors_Empty_Should_Show_All()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         
         // 先搜索一些东西，然后清空
         editorManager.SearchText = "属性";
@@ -108,7 +109,7 @@ public class EditorManagerTests
     public void CreateEditorViewModel_Should_Return_Correct_Types()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var attributeEditor = editorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "AttributeEditor");
@@ -133,7 +134,7 @@ public class EditorManagerTests
     public void EditorCategories_Should_Have_Appropriate_Icons()
     {
         // Arrange & Act
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
 
         // Assert
         foreach (var category in editorManager.Categories)

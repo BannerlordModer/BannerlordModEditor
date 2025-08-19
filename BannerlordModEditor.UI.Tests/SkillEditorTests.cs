@@ -8,6 +8,7 @@ using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -249,7 +250,7 @@ public class SkillEditorTests
     public async Task MainWindow_Integration_ShouldSelectSkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var skillEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "SkillEditor");
@@ -269,7 +270,7 @@ public class SkillEditorTests
     public async Task SkillEditor_Search_ShouldFindSkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
 
         // Act
         mainViewModel.EditorManager.SearchText = "技能";

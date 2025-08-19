@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace BannerlordModEditor.UI.Views.Editors;
 
-public partial class BoneBodyTypeEditorView : UserControl
+public partial class BoneBodyTypeEditorView : BaseEditorView
 {
     public BoneBodyTypeEditorView()
     {

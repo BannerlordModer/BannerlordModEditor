@@ -1,0 +1,190 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:BannerlordModEditor.UI.ViewModels"
+             x:Class="BannerlordModEditor.UI.Views.XmlFileDiscoveryView"
+             x:DataType="vm:XmlFileDiscoveryViewModel">
+
+  <Grid RowDefinitions="Auto,*,Auto">
+    <!-- 工具栏 -->
+    <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,0,0,1" Padding="16,12">
+      <Grid ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto">
+        <Button Grid.Column="0" Content="🔍 扫描文件" Command="{Binding ScanFilesAsyncCommand}" Margin="0,0,8,0" Classes="accent" />
+        <Button Grid.Column="1" Content="🔄 刷新" Command="{Binding RefreshAsyncCommand}" Margin="0,0,16,0" Classes="accent" />
+        
+        <!-- 搜索框 -->
+        <TextBox Grid.Column="3" Text="{Binding SearchFilter}" 
+                 Watermark="搜索XML文件..." 
+                 Margin="8,0"
+                 Width="200"
+                 VerticalAlignment="Center" />
+        
+        <!-- 计数信息 -->
+        <StackPanel Grid.Column="4" Orientation="Horizontal" VerticalAlignment="Center" Margin="8,0">
+          <TextBlock Text="总计: " Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+          <TextBlock Text="{Binding TotalFilesCount}" FontWeight="Medium" />
+          <TextBlock Text=" | 已适配: " Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" Margin="8,0,0,0" />
+          <TextBlock Text="{Binding AdaptedFilesCount}" FontWeight="Medium" />
+          <TextBlock Text=" | 未适配: " Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" Margin="8,0,0,0" />
+          <TextBlock Text="{Binding UnadaptedFilesCount}" FontWeight="Medium" />
+        </StackPanel>
+        
+        <!-- 状态指示器 -->
+        <ProgressBar Grid.Column="5" 
+                     IsIndeterminate="True" 
+                     Width="100" 
+                     Height="20"
+                     IsVisible="{Binding IsScanning}" />
+      </Grid>
+    </Border>
+
+    <!-- 文件列表 -->
+    <TabControl Grid.Row="1" Classes="file-tabs">
+      <!-- 所有文件标签页 -->
+      <TabItem Header="所有文件" Classes="all-files">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          
+          <!-- 文件列表 -->
+          <DataGrid Grid.Row="0"
+                    ItemsSource="{Binding AvailableFiles}"
+                    AutoGenerateColumns="False"
+                    CanUserResizeColumns="True"
+                    CanUserSortColumns="True"
+                    GridLinesVisibility="Horizontal"
+                    HeadersVisibility="Column"
+                    Margin="8">
+            
+            <DataGrid.Columns>
+              <DataGridTextColumn Header="文件名" Binding="{Binding FileName}" Width="200" />
+              <DataGridTextColumn Header="相对路径" Binding="{Binding RelativePath}" Width="300" />
+              <DataGridTextColumn Header="大小" Binding="{Binding FileSize, StringFormat='{}{0} bytes'}" Width="100" />
+              <DataGridTextColumn Header="修改时间" Binding="{Binding LastModified, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" Width="150" />
+              <DataGridTextColumn Header="状态" Binding="{Binding Status}" Width="80" />
+              <DataGridTemplateColumn Header="操作" Width="150">
+                <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                      <Button Content="打开" Classes="accent" FontSize="10" Padding="4,2"
+                              Command="{Binding $parent[DataGrid].((vm:XmlFileDiscoveryViewModel)DataContext).OpenFileCommand}"
+                              CommandParameter="{Binding}" />
+                      <Button Content="适配" Classes="accent" FontSize="10" Padding="4,2"
+                              Command="{Binding $parent[DataGrid].((vm:XmlFileDiscoveryViewModel)DataContext).AdaptFileAsyncCommand}"
+                              CommandParameter="{Binding}"
+                              IsVisible="{Binding !IsAdapted}" />
+                    </StackPanel>
+                  </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+              </DataGridTemplateColumn>
+            </DataGrid.Columns>
+          </DataGrid>
+          
+          <!-- 状态信息 -->
+          <Border Grid.Row="1" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+                  Padding="8" Margin="0,4,0,0">
+            <TextBlock Text="{Binding StatusMessage}" 
+                       Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                       FontSize="12" />
+          </Border>
+        </Grid>
+      </TabItem>
+      
+      <!-- 已适配文件标签页 -->
+      <TabItem Header="已适配文件" Classes="adapted-files">
+        <DataGrid ItemsSource="{Binding AdaptedFiles}"
+                  AutoGenerateColumns="False"
+                  CanUserResizeColumns="True"
+                  CanUserSortColumns="True"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  Margin="8">
+          
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="文件名" Binding="{Binding FileName}" Width="200" />
+            <DataGridTextColumn Header="相对路径" Binding="{Binding RelativePath}" Width="300" />
+            <DataGridTextColumn Header="大小" Binding="{Binding FileSize, StringFormat='{}{0} bytes'}" Width="100" />
+            <DataGridTextColumn Header="修改时间" Binding="{Binding LastModified, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" Width="150" />
+            <DataGridTemplateColumn Header="操作" Width="80">
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <Button Content="打开" Classes="accent" FontSize="10" Padding="4,2"
+                          Command="{Binding $parent[DataGrid].((vm:XmlFileDiscoveryViewModel)DataContext).OpenFileCommand}"
+                          CommandParameter="{Binding}" />
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+          </DataGrid.Columns>
+        </DataGrid>
+      </TabItem>
+      
+      <!-- 未适配文件标签页 -->
+      <TabItem Header="未适配文件" Classes="unadapted-files">
+        <DataGrid ItemsSource="{Binding UnadaptedFiles}"
+                  AutoGenerateColumns="False"
+                  CanUserResizeColumns="True"
+                  CanUserSortColumns="True"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  Margin="8">
+          
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="文件名" Binding="{Binding FileName}" Width="200" />
+            <DataGridTextColumn Header="相对路径" Binding="{Binding RelativePath}" Width="300" />
+            <DataGridTextColumn Header="大小" Binding="{Binding FileSize, StringFormat='{}{0} bytes'}" Width="100" />
+            <DataGridTextColumn Header="修改时间" Binding="{Binding LastModified, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" Width="150" />
+            <DataGridTemplateColumn Header="操作" Width="80">
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <Button Content="适配" Classes="accent" FontSize="10" Padding="4,2"
+                          Command="{Binding $parent[DataGrid].((vm:XmlFileDiscoveryViewModel)DataContext).AdaptFileAsyncCommand}"
+                          CommandParameter="{Binding}" />
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+          </DataGrid.Columns>
+        </DataGrid>
+      </TabItem>
+    </TabControl>
+
+    <!-- 底部工具栏 -->
+    <Border Grid.Row="2" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+            BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" BorderThickness="0,1,0,0" 
+            Padding="16,8">
+      <Grid ColumnDefinitions="Auto,*,Auto">
+        <!-- 批量操作按钮 -->
+        <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="8">
+          <Button Content="📁 批量适配" Classes="accent" />
+          <Button Content="📊 生成报告" Classes="accent" />
+        </StackPanel>
+        
+        <!-- 帮助信息 -->
+        <TextBlock Grid.Column="2" 
+                   Text="提示: 点击'扫描文件'开始搜索XML文件，使用搜索框可快速过滤文件"
+                   Foreground="{DynamicResource SystemControlForegroundBaseLowBrush}"
+                   FontSize="11"
+                   VerticalAlignment="Center" />
+      </Grid>
+    </Border>
+  </Grid>
+
+  <!-- 样式定义 -->
+  <UserControl.Styles>
+    <Style Selector="TabControl.file-tabs">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    
+    <Style Selector="TabItem.all-files">
+      <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+    </Style>
+    
+    <Style Selector="TabItem.adapted-files">
+      <Setter Property="Background" Value="{DynamicResource SystemControlSuccessBackgroundBrush}" />
+    </Style>
+    
+    <Style Selector="TabItem.unadapted-files">
+      <Setter Property="Background" Value="{DynamicResource SystemControlWarningBackgroundBrush}" />
+    </Style>
+  </UserControl.Styles>
+</UserControl>
