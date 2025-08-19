@@ -51,7 +51,7 @@ jobs:
     - name: 生成覆盖率报告
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator -reports:TestResults/coverage.xml -targetdir:TestResults/CoverageReport -reporttypes:Html
+        reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:TestResults/CoverageReport -reporttypes:Html
         
     - name: 上传覆盖率报告
       uses: actions/upload-artifact@v4
@@ -387,17 +387,22 @@ jobs:
         
         # 汇总各测试结果
         for dir in */; do
-          if [ -f "$dir/*.trx" ]; then
+          if [ -d "$dir" ]; then
             echo "### $dir" >> test-summary.md
             echo "\`\`\`" >> test-summary.md
             find "$dir" -name "*.trx" -exec echo "处理文件: {}" \; >> test-summary.md
+            if [ -f "$dir/*.trx" ]; then
+              echo "找到TRX文件" >> test-summary.md
+            else
+              echo "未找到TRX文件" >> test-summary.md
+            fi
             echo "\`\`\`" >> test-summary.md
             echo "" >> test-summary.md
           fi
         done
         
         echo "## 测试覆盖率" >> test-summary.md
-        if [ -f "coverage-report/index.html" ]; then
+        if [ -f "unit-test-results/TestResults/CoverageReport/index.html" ]; then
           echo "覆盖率报告已生成" >> test-summary.md
         else
           echo "覆盖率报告未生成" >> test-summary.md
