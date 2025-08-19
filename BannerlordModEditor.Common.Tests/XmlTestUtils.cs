@@ -113,8 +113,8 @@ namespace BannerlordModEditor.Common.Tests
                 Encoding = new System.Text.UTF8Encoding(false)
             };
 
-            using var writer = new StringWriter();
-            using var xmlWriter = XmlWriter.Create(writer, settings);
+            using var stream = new MemoryStream();
+            using var xmlWriter = XmlWriter.Create(stream, settings);
             
             var ns = new XmlSerializerNamespaces();
             
@@ -146,7 +146,10 @@ namespace BannerlordModEditor.Common.Tests
             }
 
             serializer.Serialize(xmlWriter, obj, ns);
-            return writer.ToString();
+            xmlWriter.Flush();
+            stream.Position = 0;
+            using var reader = new StreamReader(stream, new System.Text.UTF8Encoding(false));
+            return reader.ReadToEnd();
         }
 
         public static bool AreStructurallyEqual<T>(T obj1, T obj2, XmlComparisonOptions? options = null)
@@ -160,7 +163,7 @@ namespace BannerlordModEditor.Common.Tests
             return NormalizeXml(xml1, options) == NormalizeXml(xml2, options);
         }
 
-        private static string NormalizeXml(string xml, XmlComparisonOptions? options = null)
+        public static string NormalizeXml(string xml, XmlComparisonOptions? options = null)
         {
             options ??= new XmlComparisonOptions();
             
@@ -180,6 +183,23 @@ namespace BannerlordModEditor.Common.Tests
                     {
                         element.Value = "";
                     }
+                }
+            }
+            
+            // 对所有元素的属性进行排序以确保一致的输出
+            foreach (var element in doc.Descendants())
+            {
+                var sortedAttributes = element.Attributes()
+                    .OrderBy(a => a.IsNamespaceDeclaration ? 0 : 1)
+                    .ThenBy(a => a.Name.NamespaceName)
+                    .ThenBy(a => a.Name.LocalName)
+                    .ToList();
+                
+                // 移除所有属性然后按顺序重新添加
+                element.RemoveAttributes();
+                foreach (var attr in sortedAttributes)
+                {
+                    element.Add(attr);
                 }
             }
             
