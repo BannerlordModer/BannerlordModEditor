@@ -28,5 +28,12 @@ namespace BannerlordModEditor.Common.Services
         /// <param name="searchDirectories">搜索目录数组</param>
         /// <returns>如果模型存在则返回 true</returns>
         bool ModelExists(string modelName, string[] searchDirectories);
+
+        /// <summary>
+        /// 检查XML文件是否已适配
+        /// </summary>
+        /// <param name="xmlFileName">XML文件名</param>
+        /// <returns>如果文件已适配则返回 true</returns>
+        bool IsFileAdapted(string xmlFileName);
     }
 }

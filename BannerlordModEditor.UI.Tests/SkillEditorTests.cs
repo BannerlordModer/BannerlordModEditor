@@ -8,6 +8,7 @@ using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -27,47 +28,29 @@ public class SkillEditorTests
         Assert.False(editor.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
-    public async Task SkillEditorView_ShouldInitializeCorrectly()
+    [Fact]
+    public void SkillEditorViewModel_ShouldInitializeCorrectly()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
-        var view = new SkillEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
-        // Act
-        await Task.Delay(100); // 等待UI渲染
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
 
         // Assert
-        Assert.Equal(viewModel, view.DataContext);
         Assert.NotNull(viewModel.Skills);
         Assert.Single(viewModel.Skills);
+        Assert.Equal("NewSkill", viewModel.Skills.First().Id);
+        Assert.Equal("New Skill", viewModel.Skills.First().Name);
+        Assert.False(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
-    public async Task AddSkillButton_ShouldAddNewSkill()
+    [Fact]
+    public void AddSkillCommand_ShouldAddNewSkill()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
-        var view = new SkillEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         var initialCount = viewModel.Skills.Count;
         
         // Act
-        var addButton = view.FindLogicalDescendantOfType<Button>();
-        while (addButton != null && !addButton.Name?.Contains("Add") == true)
-        {
-            addButton = addButton.GetLogicalSiblings().OfType<Button>().FirstOrDefault();
-        }
-        
-        // 模拟点击添加按钮
         viewModel.AddSkillCommand.Execute(null);
-        await Task.Delay(50);
 
         // Assert
         Assert.Equal(initialCount + 1, viewModel.Skills.Count);
@@ -75,22 +58,16 @@ public class SkillEditorTests
         Assert.Equal("NewSkill2", viewModel.Skills.Last().Id);
     }
 
-    [AvaloniaFact]
-    public async Task RemoveSkillButton_ShouldRemoveSkill()
+    [Fact]
+    public void RemoveSkillCommand_ShouldRemoveSkill()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
-        var view = new SkillEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         var skillToRemove = viewModel.Skills.First();
         var initialCount = viewModel.Skills.Count;
         
         // Act
         viewModel.RemoveSkillCommand.Execute(skillToRemove);
-        await Task.Delay(50);
 
         // Assert
         Assert.Equal(initialCount - 1, viewModel.Skills.Count);
@@ -98,21 +75,15 @@ public class SkillEditorTests
         Assert.True(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
-    public async Task LoadFileButton_ShouldAttemptToLoadFile()
+    [Fact]
+    public void LoadFileCommand_ShouldAttemptToLoadFile()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
-        var view = new SkillEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         var originalFilePath = viewModel.FilePath;
         
         // Act
         viewModel.LoadFileCommand.Execute(null);
-        await Task.Delay(50);
 
         // Assert
         // 文件路径应该更新，即使文件不存在
@@ -120,16 +91,11 @@ public class SkillEditorTests
         Assert.False(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
-    public async Task TextBox_DataBinding_ShouldUpdateViewModel()
+    [Fact]
+    public void SkillDataViewModel_PropertyChanges_ShouldUpdateCorrectly()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
-        var view = new SkillEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         var skill = viewModel.Skills.First();
         var originalId = skill.Id;
         var originalName = skill.Name;
@@ -138,8 +104,6 @@ public class SkillEditorTests
         skill.Id = "ModifiedId";
         skill.Name = "Modified Name";
         skill.Documentation = "Modified Documentation";
-        
-        await Task.Delay(50);
 
         // Assert
         Assert.NotEqual(originalId, skill.Id);
@@ -245,18 +209,17 @@ public class SkillEditorTests
         Assert.Null(exception);
     }
 
-    [AvaloniaFact]
-    public async Task MainWindow_Integration_ShouldSelectSkillEditor()
+    [Fact]
+    public void MainWindow_Integration_ShouldSelectSkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var skillEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "SkillEditor");
 
         // Act
         mainViewModel.EditorManager.SelectEditorCommand.Execute(skillEditor);
-        await Task.Delay(50);
 
         // Assert
         Assert.Equal(skillEditor, mainViewModel.EditorManager.SelectedEditor);
@@ -265,15 +228,14 @@ public class SkillEditorTests
         Assert.Contains("技能系统", mainViewModel.EditorManager.CurrentBreadcrumb);
     }
 
-    [AvaloniaFact]
-    public async Task SkillEditor_Search_ShouldFindSkillEditor()
+    [Fact]
+    public void SkillEditor_Search_ShouldFindSkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
 
         // Act
         mainViewModel.EditorManager.SearchText = "技能";
-        await Task.Delay(50);
 
         // Assert
         var skillCategory = mainViewModel.EditorManager.Categories
@@ -287,16 +249,12 @@ public class SkillEditorTests
         Assert.True(skillEditor.IsAvailable);
     }
 
-    [AvaloniaFact]
-    public async Task SkillEditor_MultipleOperations_ShouldMaintainDataIntegrity()
+    [Fact]
+    public void SkillEditor_MultipleOperations_ShouldMaintainDataIntegrity()
     {
         // Arrange
-        var viewModel = new SkillEditorViewModel();
-        var view = new SkillEditorView { DataContext = viewModel };
+        var viewModel = TestServiceProvider.GetService<SkillEditorViewModel>();
         
-        var window = new Window { Content = view };
-        window.Show();
-
         // Act - 执行多个操作
         var originalCount = viewModel.Skills.Count;
         
@@ -312,8 +270,6 @@ public class SkillEditorTests
         // 删除最后一个技能
         var lastSkill = viewModel.Skills.Last();
         viewModel.RemoveSkillCommand.Execute(lastSkill);
-        
-        await Task.Delay(100);
 
         // Assert
         Assert.Equal(originalCount + 1, viewModel.Skills.Count); // +2-1

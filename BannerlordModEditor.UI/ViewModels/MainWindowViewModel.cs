@@ -13,6 +13,8 @@ using BannerlordModEditor.Common.Models.Configuration;
 using CommunityToolkit.Mvvm.Input;
 using Velopack;
 using Velopack.Sources;
+using Microsoft.Extensions.DependencyInjection;
+using BannerlordModEditor.UI.Factories;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
@@ -52,12 +54,13 @@ public partial class MainWindowViewModel : ViewModelBase
     public ICommand OpenSettingsCommand { get; }
     public ICommand CheckForUpdatesCommand { get; }
 
-    public MainWindowViewModel()
+    public MainWindowViewModel(IServiceProvider serviceProvider)
     {
-        EditorManager = new EditorManagerViewModel();
-        AttributeEditor = new AttributeEditorViewModel();
-        BoneBodyTypeEditor = new BoneBodyTypeEditorViewModel();
-        SkillEditor = new SkillEditorViewModel();
+        var editorFactory = serviceProvider.GetRequiredService<IEditorFactory>();
+        EditorManager = new EditorManagerViewModel(editorFactory);
+        AttributeEditor = serviceProvider.GetRequiredService<AttributeEditorViewModel>();
+        BoneBodyTypeEditor = serviceProvider.GetRequiredService<BoneBodyTypeEditorViewModel>();
+        SkillEditor = serviceProvider.GetRequiredService<SkillEditorViewModel>();
         
         // 订阅编辑器选择事件
         EditorManager.PropertyChanged += (s, e) =>

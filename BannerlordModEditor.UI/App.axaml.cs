@@ -6,6 +6,10 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.Views;
+using BannerlordModEditor.UI.Factories;
+using BannerlordModEditor.UI.ViewModels.Editors;
+using BannerlordModEditor.UI.Views.Editors;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BannerlordModEditor.UI;
 
@@ -23,13 +27,53 @@ public partial class App : Application
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainWindowViewModel(),
-            };
+            
+            // 设置依赖注入
+            var services = ConfigureServices();
+            var serviceProvider = services.BuildServiceProvider();
+            
+            // 创建主窗口并设置服务提供器
+            var mainWindow = new MainWindow();
+            var mainViewModel = new MainWindowViewModel(serviceProvider);
+            mainWindow.DataContext = mainViewModel;
+            
+            // 设置ViewLocator的服务提供器
+            var viewLocator = new ViewLocator(serviceProvider);
+            mainWindow.Resources["ViewLocator"] = viewLocator;
+            
+            desktop.MainWindow = mainWindow;
         }
 
         base.OnFrameworkInitializationCompleted();
+    }
+
+    /// <summary>
+    /// 配置依赖注入服务
+    /// </summary>
+    private IServiceCollection ConfigureServices()
+    {
+        var services = new ServiceCollection();
+        
+        // 注册编辑器工厂
+        services.AddSingleton<IEditorFactory, EditorFactory>();
+        
+        // 注册Common层服务
+        services.AddTransient<BannerlordModEditor.Common.Services.IFileDiscoveryService, BannerlordModEditor.Common.Services.FileDiscoveryService>();
+        
+        // 注册所有编辑器ViewModel和View
+        services.AddTransient<AttributeEditorViewModel>();
+        services.AddTransient<AttributeEditorView>();
+        services.AddTransient<SkillEditorViewModel>();
+        services.AddTransient<SkillEditorView>();
+        services.AddTransient<BoneBodyTypeEditorViewModel>();
+        services.AddTransient<BoneBodyTypeEditorView>();
+        services.AddTransient<CraftingPieceEditorViewModel>();
+        services.AddTransient<CraftingPieceEditorView>();
+        services.AddTransient<ItemModifierEditorViewModel>();
+        services.AddTransient<ItemModifierEditorView>();
+        
+                
+        return services;
     }
 
     private void DisableAvaloniaDataAnnotationValidation()

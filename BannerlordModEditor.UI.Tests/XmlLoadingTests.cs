@@ -2,6 +2,7 @@ using Xunit;
 using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using System.Linq;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -11,7 +12,7 @@ public class XmlLoadingTests
     public void AttributeEditor_Should_Load_Xml_File()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var attributeEditor = editorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "AttributeEditor");
@@ -30,7 +31,7 @@ public class XmlLoadingTests
     public void BoneBodyTypeEditor_Should_Load_Xml_File()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var boneBodyTypeEditor = editorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "BoneBodyTypeEditor");
@@ -49,7 +50,7 @@ public class XmlLoadingTests
     public void AttributeEditor_Should_Handle_Missing_File_Gracefully()
     {
         // Arrange
-        var attributeEditor = new AttributeEditorViewModel();
+        var attributeEditor = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
         // Act
         attributeEditor.LoadXmlFile("nonexistent.xml");
@@ -64,7 +65,7 @@ public class XmlLoadingTests
     public void BoneBodyTypeEditor_Should_Handle_Missing_File_Gracefully()
     {
         // Arrange
-        var boneBodyTypeEditor = new BoneBodyTypeEditorViewModel();
+        var boneBodyTypeEditor = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
 
         // Act
         boneBodyTypeEditor.LoadXmlFile("nonexistent.xml");
@@ -79,7 +80,7 @@ public class XmlLoadingTests
     public void EditorManager_Should_Update_Breadcrumb_When_Selecting_Editor()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var attributeEditor = editorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.Name == "属性定义");
@@ -96,7 +97,7 @@ public class XmlLoadingTests
     public void Multiple_Editor_Selections_Should_Work_Correctly()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel();
+        var editorManager = TestServiceProvider.GetService<EditorManagerViewModel>();
         var attributeEditor = editorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "AttributeEditor");

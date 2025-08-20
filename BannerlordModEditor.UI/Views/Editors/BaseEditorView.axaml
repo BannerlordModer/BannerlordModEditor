@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BannerlordModEditor.UI.Views.Editors.BaseEditorView">
+             
+  <Grid RowDefinitions="Auto,*">
+    <!-- 工具栏 -->
+    <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+            BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}" 
+            BorderThickness="0,0,0,1" Padding="16,12">
+      <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto,Auto">
+        <!-- 文件操作 -->
+        <Button Grid.Column="0" Content="📁 加载" Command="{Binding LoadFileAsyncCommand}" 
+                Margin="0,0,8,0" Classes="accent" />
+        <Button Grid.Column="1" Content="💾 保存" Command="{Binding SaveFileAsyncCommand}" 
+                Margin="0,0,8,0" Classes="accent" />
+        <Button Grid.Column="2" Content="➕ 添加" Command="{Binding AddItemCommand}" 
+                Margin="0,0,16,0" Classes="accent" />
+        
+        <!-- 文件信息 -->
+        <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock Text="📄 " Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+          <TextBlock Text="{Binding FilePath}" FontWeight="Medium" />
+          <TextBlock Text=" (未保存)" IsVisible="{Binding HasUnsavedChanges}" 
+                     Foreground="{DynamicResource SystemAccentColor}" FontWeight="Bold" Margin="8,0,0,0" />
+        </StackPanel>
+        
+        <!-- 搜索框 -->
+        <TextBox Grid.Column="4" Width="200" Margin="0,0,8,0"
+                 Text="{Binding SearchFilter}" 
+                 Watermark="搜索..." />
+        
+        <!-- 状态信息 -->
+        <StackPanel Grid.Column="5" Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock Text="{Binding StatusMessage}" 
+                     Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+          <ProgressBar IsVisible="{Binding IsLoading}" Width="60" Height="16" Margin="8,0,0,0" />
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- 主要内容区域 - 由派生类实现 -->
+    <ContentControl Grid.Row="1" Content="{Binding}" />
+  </Grid>
+</UserControl>

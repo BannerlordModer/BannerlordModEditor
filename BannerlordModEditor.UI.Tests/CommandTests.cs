@@ -1,21 +1,20 @@
+using Xunit;
 using Avalonia.Controls;
 using Avalonia.Headless.XUnit;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels.Editors;
+using BannerlordModEditor.UI.Tests.Helpers;
+using System.IO;
 
 namespace BannerlordModEditor.UI.Tests;
 
 public class CommandTests
 {
-    [AvaloniaFact]
+    [Fact]
     public void AttributeEditor_Commands_ShouldWork()
     {
         // 创建属性编辑器
-        var viewModel = new AttributeEditorViewModel();
-        var view = new AttributeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
+        var viewModel = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
         // 验证初始状态
         var initialCount = viewModel.Attributes.Count;
@@ -49,15 +48,11 @@ public class CommandTests
         Assert.True(viewModel.SaveFileCommand.CanExecute(null));
     }
     
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeEditor_Commands_ShouldWork()
     {
         // 创建骨骼编辑器
-        var viewModel = new BoneBodyTypeEditorViewModel();
-        var view = new BoneBodyTypeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
+        var viewModel = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
 
         // 验证初始状态
         var initialCount = viewModel.BoneBodyTypes.Count;
@@ -91,14 +86,10 @@ public class CommandTests
         Assert.True(viewModel.SaveFileCommand.CanExecute(null));
     }
     
-    [AvaloniaFact]
+    [Fact]
     public void AttributeEditor_LoadFile_ShouldLoadTestData()
     {
-        var viewModel = new AttributeEditorViewModel();
-        var view = new AttributeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
+        var viewModel = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
         var initialCount = viewModel.Attributes.Count;
         
@@ -114,14 +105,10 @@ public class CommandTests
         }
     }
     
-    [AvaloniaFact]
+    [Fact]
     public void BoneBodyTypeEditor_LoadFile_ShouldLoadTestData()
     {
-        var viewModel = new BoneBodyTypeEditorViewModel();
-        var view = new BoneBodyTypeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
+        var viewModel = TestServiceProvider.GetService<BoneBodyTypeEditorViewModel>();
 
         var initialCount = viewModel.BoneBodyTypes.Count;
         

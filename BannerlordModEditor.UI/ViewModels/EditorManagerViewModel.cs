@@ -3,11 +3,14 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using System;
+using BannerlordModEditor.UI.Factories;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
 public partial class EditorManagerViewModel : ViewModelBase
 {
+    private readonly IEditorFactory _editorFactory;
+
     [ObservableProperty]
     private ObservableCollection<EditorCategoryViewModel> categories = new();
 
@@ -23,8 +26,9 @@ public partial class EditorManagerViewModel : ViewModelBase
     [ObservableProperty]
     private string currentBreadcrumb = "选择要编辑的XML文件";
 
-    public EditorManagerViewModel()
+    public EditorManagerViewModel(IEditorFactory editorFactory)
     {
+        _editorFactory = editorFactory;
         InitializeCategories();
     }
 
@@ -92,8 +96,14 @@ public partial class EditorManagerViewModel : ViewModelBase
         SelectedEditor = editor;
         CurrentBreadcrumb = $"{GetCategoryName(editor)} > {editor.Name}";
         
-        // 动态创建对应的编辑器ViewModel并加载XML文件
-        CurrentEditorViewModel = CreateEditorViewModel(editor.EditorType, editor.XmlFileName);
+        // 使用编辑器工厂创建对应的编辑器ViewModel
+        CurrentEditorViewModel = _editorFactory.CreateEditorViewModel(editor.EditorType, editor.XmlFileName);
+        
+        // 如果编辑器支持自动加载，则加载XML文件
+        if (CurrentEditorViewModel != null)
+        {
+            AutoLoadXmlFile(CurrentEditorViewModel, editor.XmlFileName);
+        }
     }
 
     private string GetCategoryName(EditorItemViewModel editor)
@@ -106,58 +116,23 @@ public partial class EditorManagerViewModel : ViewModelBase
         return "未知分类";
     }
 
-    private ViewModelBase? CreateEditorViewModel(string editorType, string xmlFileName)
-    {
-        ViewModelBase? viewModel = editorType switch
-        {
-            "AttributeEditor" => new AttributeEditorViewModel(),
-            "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
-            "SkillEditor" => new SkillEditorViewModel(),
-            "ItemEditor" => new AttributeEditorViewModel(),  // 暂时复用
-            "ItemModifierEditor" => new ItemModifierEditorViewModel(),
-            "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
-            // TODO: 添加更多编辑器类型
-            _ => null
-        };
-
-        // 加载对应的XML文件
-        if (viewModel != null)
-        {
-            LoadXmlFile(viewModel, xmlFileName);
-        }
-
-        return viewModel;
-    }
-
-    private void LoadXmlFile(ViewModelBase editorViewModel, string xmlFileName)
+    /// <summary>
+    /// 自动加载XML文件（如果编辑器支持）
+    /// </summary>
+    private void AutoLoadXmlFile(ViewModelBase editorViewModel, string xmlFileName)
     {
         try
         {
-            // 根据编辑器类型调用相应的加载方法
-            switch (editorViewModel)
+            // 检查编辑器是否有LoadXmlFile方法
+            var loadMethod = editorViewModel.GetType().GetMethod("LoadXmlFile");
+            if (loadMethod != null)
             {
-                case AttributeEditorViewModel attributeEditor:
-                    attributeEditor.LoadXmlFile(xmlFileName);
-                    break;
-                case BoneBodyTypeEditorViewModel boneBodyTypeEditor:
-                    boneBodyTypeEditor.LoadXmlFile(xmlFileName);
-                    break;
-                case SkillEditorViewModel skillEditor:
-                    skillEditor.LoadXmlFile(xmlFileName);
-                    break;
-                case ItemModifierEditorViewModel itemModifierEditor:
-                    itemModifierEditor.LoadXmlFile(xmlFileName);
-                    break;
-                case CraftingPieceEditorViewModel craftingPieceEditor:
-                    craftingPieceEditor.LoadXmlFile(xmlFileName);
-                    break;
-                // TODO: 添加其他编辑器的加载方法
+                loadMethod.Invoke(editorViewModel, new object[] { xmlFileName });
             }
         }
         catch (Exception ex)
         {
-            // TODO: 显示错误消息给用户
-            System.Diagnostics.Debug.WriteLine($"加载XML文件失败: {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"Failed to auto-load XML file: {ex.Message}");
         }
     }
 
