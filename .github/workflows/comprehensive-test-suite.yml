@@ -53,8 +53,8 @@ jobs:
     - name: 生成覆盖率报告
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        # 查找所有覆盖率文件并生成报告
         reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:TestResults/CoverageReport -reporttypes:Html
+      if: always()
         
     - name: 上传覆盖率报告
       uses: actions/upload-artifact@v4
@@ -425,7 +425,7 @@ jobs:
         if [ -f "unit-test-results/TestResults/CoverageReport/index.html" ]; then
           echo "覆盖率报告已生成" >> test-summary.md
         else
-          echo "覆盖率报告未生成" >> test-summary.md
+          echo "- 覆盖率报告未生成" >> test-summary.md
         fi
         
     - name: 查找所有.trx文件
@@ -434,6 +434,13 @@ jobs:
         find . -name "*.trx" -type f
         echo "当前目录结构:"
         ls -la
+        echo "" >> test-summary.md
+        echo "## 构建信息" >> test-summary.md
+        echo "- GitHub Run ID: ${{ github.run_id }}" >> test-summary.md
+        echo "- GitHub Run Number: ${{ github.run_number }}" >> test-summary.md
+        echo "- 分支: ${{ github.ref_name }}" >> test-summary.md
+        echo "- 提交: ${{ github.sha }}" >> test-summary.md
+
         
     - name: 上传测试汇总报告
       uses: actions/upload-artifact@v4
@@ -442,7 +449,7 @@ jobs:
         path: test-summary.md
         
     - name: 发布测试结果
-      uses: dorny/test-reporter@v1
+      uses: EnricoMi/publish-unit-test-result-action@v2
       if: success() || failure()
       with:
         name: BannerlordModEditor Tests
@@ -451,6 +458,7 @@ jobs:
         fail-on-error: false
         max-annotations: 10
         only-summary: false
+
 
   # 11. 安全扫描
   security-scan:
