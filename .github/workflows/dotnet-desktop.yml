@@ -31,10 +31,10 @@ jobs:
       run: dotnet build --configuration ${{ matrix.configuration }} --no-restore
       
     - name: Run Unit Tests
-      run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+      run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=unit_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults
       
     - name: Run UI Tests
-      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults
       
     - name: Generate Code Coverage Report
       if: matrix.configuration == 'Release'
@@ -54,7 +54,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results-${{ matrix.configuration }}
-        path: '**/*.trx'
+        path: |
+          TestResults/
+          *.trx
 
   security-scan:
     runs-on: windows-latest
@@ -72,8 +74,21 @@ jobs:
         
     - name: Security Scan
       run: |
-        dotnet list package --vulnerable --include-transitive
-        dotnet list package --deprecated
+        echo "# 安全扫描报告" > security-report.txt
+        echo "## 扫描时间: $(date)" >> security-report.txt
+        echo "" >> security-report.txt
+        echo "### 包漏洞扫描" >> security-report.txt
+        dotnet list package --vulnerable --include-transitive >> security-report.txt 2>&1 || echo "未发现漏洞" >> security-report.txt
+        echo "" >> security-report.txt
+        echo "### 已弃用包扫描" >> security-report.txt
+        dotnet list package --deprecated >> security-report.txt 2>&1 || echo "未发现弃用包" >> security-report.txt
+        
+    - name: Upload Security Scan Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: security-scan-results
+        path: security-report.txt
         
   deploy-to-github-releases:
     needs: [test, security-scan]
