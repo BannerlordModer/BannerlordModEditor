@@ -386,22 +386,41 @@ jobs:
         echo "" >> test-summary.md
         
         # 汇总各测试结果
-        for dir in */; do
-          if [ -f "$dir/*.trx" ]; then
-            echo "### $dir" >> test-summary.md
-            echo "\`\`\`" >> test-summary.md
-            find "$dir" -name "*.trx" -exec echo "处理文件: {}" \; >> test-summary.md
-            echo "\`\`\`" >> test-summary.md
-            echo "" >> test-summary.md
+        echo "## 测试结果汇总" >> test-summary.md
+        echo "" >> test-summary.md
+        
+        # 检查各个测试结果目录
+        test_dirs=("unit-test-results" "integration-test-results" "performance-test-results" "error-handling-test-results" "concurrency-test-results" "regression-test-results" "large-xml-test-results" "memory-test-results" "ui-test-results")
+        
+        for dir in "${test_dirs[@]}"; do
+          echo "### $dir" >> test-summary.md
+          if [ -d "$dir" ]; then
+            trx_files=$(find "$dir" -name "*.trx" 2>/dev/null | wc -l)
+            if [ "$trx_files" -gt 0 ]; then
+              echo "- 找到 $trx_files 个测试结果文件" >> test-summary.md
+              find "$dir" -name "*.trx" -exec echo "  - {}" \; >> test-summary.md
+            else
+              echo "- 未找到测试结果文件" >> test-summary.md
+            fi
+          else
+            echo "- 目录不存在" >> test-summary.md
           fi
+          echo "" >> test-summary.md
         done
         
         echo "## 测试覆盖率" >> test-summary.md
         if [ -f "coverage-report/index.html" ]; then
-          echo "覆盖率报告已生成" >> test-summary.md
+          echo "- 覆盖率报告已生成" >> test-summary.md
         else
-          echo "覆盖率报告未生成" >> test-summary.md
+          echo "- 覆盖率报告未生成" >> test-summary.md
         fi
+        
+        echo "" >> test-summary.md
+        echo "## 构建信息" >> test-summary.md
+        echo "- GitHub Run ID: ${{ github.run_id }}" >> test-summary.md
+        echo "- GitHub Run Number: ${{ github.run_number }}" >> test-summary.md
+        echo "- 分支: ${{ github.ref_name }}" >> test-summary.md
+        echo "- 提交: ${{ github.sha }}" >> test-summary.md
         
     - name: 上传测试汇总报告
       uses: actions/upload-artifact@v4
@@ -410,12 +429,12 @@ jobs:
         path: test-summary.md
         
     - name: 发布测试结果
-      uses: dorny/test-reporter@v1
+      uses: EnricoMi/publish-unit-test-result-action@v2
       if: success() || failure()
       with:
-        name: BannerlordModEditor Tests
-        path: '*/**/*.trx'
-        reporter: java-junit
+        files: '**/*.trx'
+        comment_mode: off
+      continue-on-error: true
 
   # 11. 安全扫描
   security-scan:
