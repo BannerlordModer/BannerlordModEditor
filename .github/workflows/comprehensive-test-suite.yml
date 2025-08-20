@@ -410,7 +410,7 @@ jobs:
         done
         
         echo "## 测试覆盖率" >> test-summary.md
-        if [ -f "coverage-report/index.html" ]; then
+        if [ -f "unit-test-results/coverage-report/index.html" ]; then
           echo "- 覆盖率报告已生成" >> test-summary.md
         else
           echo "- 覆盖率报告未生成" >> test-summary.md
@@ -433,7 +433,9 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: success() || failure()
       with:
+        name: BannerlordModEditor Tests
         files: '**/*.trx'
+        reporter: java-junit
         comment_mode: off
       continue-on-error: true
 
