@@ -28,25 +28,26 @@ jobs:
       run: dotnet restore
       
     - name: Build Solution
-      run: dotnet build --configuration ${{ matrix.configuration }} --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration ${{ matrix.configuration }} --no-restore || Write-Host "构建完成，带有警告"
       
     - name: Run Unit Tests
-      run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=unit_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || echo "单元测试完成，带有失败"
+      run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=unit_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "单元测试完成，带有失败"
       
     - name: Run UI Tests
-      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || echo "UI测试完成，带有失败"
+      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
       
     - name: Generate Code Coverage Report
       if: matrix.configuration == 'Release'
+      shell: pwsh
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        if [ -f "**/coverage.cobertura.xml" ]; then
+        if (Test-Path "**/coverage.cobertura.xml") {
           reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
-        else
-          echo "未找到覆盖率文件，跳过覆盖率报告生成"
-          mkdir -p coverage
-          echo "<html><body><h1>覆盖率报告未生成</h1><p>未找到覆盖率文件</p></body></html>" > coverage/index.html
-        fi
+        } else {
+          Write-Host "未找到覆盖率文件，跳过覆盖率报告生成"
+          New-Item -ItemType Directory -Force -Path "coverage"
+          "<html><body><h1>覆盖率报告未生成</h1><p>未找到覆盖率文件</p></body></html>" | Out-File -FilePath "coverage/index.html" -Encoding utf8
+        }
         
     - name: Upload Coverage Reports
       if: matrix.configuration == 'Release'
@@ -84,10 +85,10 @@ jobs:
         echo "## 扫描时间: $(date)" >> security-report.txt
         echo "" >> security-report.txt
         echo "### 包漏洞扫描" >> security-report.txt
-        dotnet list package --vulnerable --include-transitive >> security-report.txt 2>&1 || echo "未发现漏洞" >> security-report.txt
+        dotnet list package --vulnerable --include-transitive >> security-report.txt 2>&1 || Write-Host "未发现漏洞" >> security-report.txt
         echo "" >> security-report.txt
         echo "### 已弃用包扫描" >> security-report.txt
-        dotnet list package --deprecated >> security-report.txt 2>&1 || echo "未发现弃用包" >> security-report.txt
+        dotnet list package --deprecated >> security-report.txt 2>&1 || Write-Host "未发现弃用包" >> security-report.txt
         
     - name: Upload Security Scan Results
       uses: actions/upload-artifact@v4
@@ -117,7 +118,7 @@ jobs:
       run: dotnet restore
       
     - name: Build Solution (Release)
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore || Write-Host "构建完成，带有警告"
       
     - name: Run Final Tests Before Deploy
       run: |
