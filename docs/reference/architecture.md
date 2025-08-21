@@ -1,129 +1,129 @@
-# System Architecture
+# 系统架构
 
-## Executive Summary
+## 执行摘要
 
-This architecture document describes the enhanced system design for the Bannerlord Mod Editor project to resolve the remaining XML test failures. The solution implements a robust DO/DTO layered architecture with improved XML serialization/deserialization capabilities that preserve exact XML formatting while providing type-safe business logic interfaces.
+本文档描述了Bannerlord Mod Editor项目的增强系统设计，用于解决剩余的XML测试失败问题。该方案实现了稳健的DO/DTO分层架构，具有改进的XML序列化/反序列化功能，能够保留精确的XML格式，同时提供类型安全的业务逻辑接口。
 
-## Architecture Overview
+## 架构概述
 
-### System Context
+### 系统上下文
 ```mermaid
 C4Context
-    Person(editor, "Mod Editor User", "Creates and edits Bannerlord mod configuration files")
-    System(modEditor, "Bannerlord Mod Editor", "XML-based configuration editor for Mount & Blade II: Bannerlord")
-    System_Ext(bannerlord, "Bannerlord Game", "Mount & Blade II: Bannerlord executable")
-    System_Ext(xmlFiles, "XML Configuration Files", "Native Bannerlord configuration files")
+    Person(editor, "Mod编辑器用户", "创建和编辑骑马与砍杀2模组配置文件")
+    System(modEditor, "Bannerlord Mod Editor", "基于XML的骑马与砍杀2配置编辑器")
+    System_Ext(bannerlord, "骑马与砍杀2游戏", "骑马与砍杀2可执行文件")
+    System_Ext(xmlFiles, "XML配置文件", "原生骑马与砍杀2配置文件")
     
-    Rel(editor, modEditor, "Uses")
-    Rel(modEditor, xmlFiles, "Reads/Writes")
-    Rel(bannerlord, xmlFiles, "Consumes")
+    Rel(editor, modEditor, "使用")
+    Rel(modEditor, xmlFiles, "读取/写入")
+    Rel(bannerlord, xmlFiles, "消费")
 ```
 
-### Container Diagram
+### 容器图
 ```mermaid
 C4Container
-    Container(ui, "UI Application", "Avalonia", "User interface for editing mod files")
-    Container(editorCore, "Editor Core", ".NET 9", "Business logic and orchestration layer")
-    Container_Do(doLayer, "DO Layer", ".NET 9", "Raw XML data representation preserving exact string values")
-    Container_Do(dtoLayer, "DTO Layer", ".NET 9", "Strongly-typed business objects with validation")
-    Container_Services(mapping, "Mapping Services", ".NET 9", "Bidirectional conversion between DO and DTO")
-    Container(xmlProcessor, "XML Processor", ".NET 9", "Handles serialization/deserialization with namespace preservation")
-    Container(testFramework, "Test Framework", "xUnit", "XML validation and comparison framework")
-    Container(fileSystem, "File System", "OS", "Physical storage of XML files")
+    Container(ui, "UI应用程序", "Avalonia", "用于编辑模组文件的用户界面")
+    Container(editorCore, "编辑器核心", ".NET 9", "业务逻辑和编排层")
+    Container(doLayer, "DO层", ".NET 9", "保留精确字符串值的原始XML数据表示")
+    Container(dtoLayer, "DTO层", ".NET 9", "具有验证功能的强类型业务对象")
+    Container(mapping, "映射服务", ".NET 9", "DO和DTO之间的双向转换")
+    Container(xmlProcessor, "XML处理器", ".NET 9", "处理具有命名空间保留的序列化/反序列化")
+    Container(testFramework, "测试框架", "xUnit", "XML验证和比较框架")
+    Container(fileSystem, "文件系统", "操作系统", "XML文件的物理存储")
     
-    Rel(ui, editorCore, "Uses")
-    Rel(editorCore, doLayer, "Manipulates")
-    Rel(editorCore, dtoLayer, "Consumes")
-    Rel(dtoLayer, mapping, "Converted via")
-    Rel(doLayer, mapping, "Converted via")
-    Rel(xmlProcessor, doLayer, "Creates/Consumes")
-    Rel(xmlProcessor, fileSystem, "Reads/Writes")
-    Rel(testFramework, xmlProcessor, "Validates")
-    Rel(testFramework, doLayer, "Tests")
+    Rel(ui, editorCore, "使用")
+    Rel(editorCore, doLayer, "操作")
+    Rel(editorCore, dtoLayer, "消费")
+    Rel(dtoLayer, mapping, "通过转换")
+    Rel(doLayer, mapping, "通过转换")
+    Rel(xmlProcessor, doLayer, "创建/消费")
+    Rel(xmlProcessor, fileSystem, "读取/写入")
+    Rel(testFramework, xmlProcessor, "验证")
+    Rel(testFramework, doLayer, "测试")
 ```
 
-## Technology Stack
+## 技术栈
 
-### Frontend
-- **Framework**: Avalonia UI 11.3
-- **State Management**: CommunityToolkit.Mvvm 8.2
-- **UI Library**: Fluent theme
-- **Build Tool**: .NET SDK
+### 前端
+- **框架**: Avalonia UI 11.3
+- **状态管理**: CommunityToolkit.Mvvm 8.2
+- **UI库**: Fluent主题
+- **构建工具**: .NET SDK
 
-### Backend  
-- **Runtime**: .NET 9.0
-- **Framework**: Core .NET libraries
-- **XML Processing**: System.Xml.Serialization with custom extensions
-- **Testing**: xUnit 2.5
+### 后端  
+- **运行时**: .NET 9.0
+- **框架**: 核心.NET库
+- **XML处理**: 带有自定义扩展的System.Xml.Serialization
+- **测试**: xUnit 2.5
 
-### Infrastructure
-- **Build System**: dotnet CLI
-- **Package Management**: NuGet
+### 基础设施
+- **构建系统**: dotnet CLI
+- **包管理**: NuGet
 - **CI/CD**: GitHub Actions
-- **Testing**: xUnit with custom XML validation helpers
+- **测试**: 带有自定义XML验证助手的xUnit
 
-## Component Design
+## 组件设计
 
-### DO (Data Object) Layer
-**Purpose**: Represent raw XML data exactly as it exists in files, preserving exact string representations
-**Technology**: .NET 9 with custom XML serialization attributes
-**Interfaces**: 
-- Input: Raw XML strings from files
-- Output: String-preserving data objects
-**Dependencies**: System.Xml.Serialization
+### DO (数据对象) 层
+**目的**: 精确表示文件中存在的原始XML数据，保留精确的字符串表示
+**技术**: 带有自定义XML序列化属性的.NET 9
+**接口**: 
+- 输入: 来自文件的原始XML字符串
+- 输出: 保留字符串的数据对象
+**依赖项**: System.Xml.Serialization
 
-### DTO (Data Transfer Object) Layer
-**Purpose**: Provide strongly-typed, business-logic-friendly representations with validation
-**Technology**: .NET 9 with data annotations
-**Interfaces**: 
-- Input: DO objects via mapping services
-- Output: Validated business objects for UI/consumption
-**Dependencies**: DO Layer, Mapping Services
+### DTO (数据传输对象) 层
+**目的**: 提供具有验证功能的强类型、业务逻辑友好的表示
+**技术**: 带有数据注释的.NET 9
+**接口**: 
+- 输入: 通过映射服务的DO对象
+- 输出: 用于UI/消费的验证业务对象
+**依赖项**: DO层，映射服务
 
-### Mapping Services
-**Purpose**: Provide bidirectional conversion between DO and DTO representations
-**Technology**: Custom mapping logic with reflection
-**Interfaces**: 
-- Input: DO/DTO objects
-- Output: Converted objects preserving data integrity
-**Dependencies**: DO Layer, DTO Layer
+### 映射服务
+**目的**: 提供DO和DTO表示之间的双向转换
+**技术**: 带有反射的自定义映射逻辑
+**接口**: 
+- 输入: DO/DTO对象
+- 输出: 保留数据完整性的转换对象
+**依赖项**: DO层，DTO层
 
-### XML Processor
-**Purpose**: Handle serialization/deserialization with namespace and formatting preservation
-**Technology**: System.Xml with custom extensions
-**Interfaces**: 
-- Input: File paths, DO/DTO objects
-- Output: XML strings, deserialized objects
-**Dependencies**: DO Layer, System.Xml
+### XML处理器
+**目的**: 处理具有命名空间和格式保留的序列化/反序列化
+**技术**: 带有自定义扩展的System.Xml
+**接口**: 
+- 输入: 文件路径，DO/DTO对象
+- 输出: XML字符串，反序列化对象
+**依赖项**: DO层，System.Xml
 
-### Test Framework
-**Purpose**: Provide comprehensive XML validation and comparison capabilities
-**Technology**: xUnit with custom XML processing extensions
-**Interfaces**: 
-- Input: XML strings, DO/DTO objects
-- Output: Test results, validation reports
-**Dependencies**: DO Layer, XML Processor
+### 测试框架
+**目的**: 提供全面的XML验证和比较功能
+**技术**: 带有自定义XML处理扩展的xUnit
+**接口**: 
+- 输入: XML字符串，DO/DTO对象
+- 输出: 测试结果，验证报告
+**依赖项**: DO层，XML处理器
 
-## Data Architecture
+## 数据架构
 
-### Data Flow
+### 数据流
 ```mermaid
 graph TD
-    A[XML File] --> B[XML Processor]
-    B --> C[DO Object]
-    C --> D[Mapping Service]
-    D --> E[DTO Object]
-    E --> F[Business Logic]
-    F --> G[DTO Object]
-    G --> H[Mapping Service]
-    H --> I[DO Object]
-    I --> J[XML Processor]
-    J --> K[XML File]
+    A[XML文件] --> B[XML处理器]
+    B --> C[DO对象]
+    C --> D[映射服务]
+    D --> E[DTO对象]
+    E --> F[业务逻辑]
+    F --> G[DTO对象]
+    G --> H[映射服务]
+    H --> I[DO对象]
+    I --> J[XML处理器]
+    J --> K[XML文件]
 ```
 
-### Data Models
+### 数据模型
 
-#### DO Layer Example (Raw XML Representation)
+#### DO层示例（原始XML表示）
 ```csharp
 [XmlRoot("Item")]
 public class ItemDo
@@ -132,10 +132,10 @@ public class ItemDo
     public string Id { get; set; } = string.Empty;
     
     [XmlAttribute("multiplayer_item")]
-    public string MultiplayerItem { get; set; } = string.Empty; // Preserves exact string like "true", "True", "1"
+    public string MultiplayerItem { get; set; } = string.Empty; // 保留精确字符串如 "true", "True", "1"
     
     [XmlAttribute("weight")]
-    public string Weight { get; set; } = string.Empty; // Preserves exact string like "1.1", "1.100"
+    public string Weight { get; set; } = string.Empty; // 保留精确字符串如 "1.1", "1.100"
     
     [XmlElement("ItemComponent")]
     public ItemComponentDo? ItemComponent { get; set; }
@@ -148,7 +148,7 @@ public class ItemComponentDo
 }
 ```
 
-#### DTO Layer Example (Strongly-Typed Business Object)
+#### DTO层示例（强类型业务对象）
 ```csharp
 public class ItemDto
 {
@@ -168,90 +168,90 @@ public class ItemComponentDto
 }
 ```
 
-## Security Architecture
+## 安全架构
 
-### Authentication & Authorization
-- Authentication method: Local file-based access
-- Authorization model: File system permissions
-- Token lifecycle: Session-based with application lifetime
+### 认证与授权
+- 认证方式：基于本地文件的访问
+- 授权模型：文件系统权限
+- 令牌生命周期：基于会话的应用程序生命周期
 
-### Security Measures
-- [x] Input validation and sanitization
-- [x] XML injection prevention
-- [x] File path validation
-- [ ] Rate limiting (not applicable for local desktop app)
-- [ ] Secrets management (minimal for local app)
+### 安全措施
+- [x] 输入验证和清理
+- [x] XML注入防护
+- [x] 文件路径验证
+- [ ] 速率限制（不适用于本地桌面应用）
+- [ ] 密钥管理（本地应用最少需要）
 
-## Scalability Strategy
+## 可扩展性策略
 
-### Horizontal Scaling
-- Load balancing approach: Not applicable (desktop application)
-- Session management: In-memory application state
-- Database replication: Not applicable (file-based storage)
-- Caching strategy: In-memory object caching
+### 水平扩展
+- 负载均衡方法：不适用（桌面应用程序）
+- 会话管理：内存中的应用程序状态
+- 数据库复制：不适用（基于文件的存储）
+- 缓存策略：内存对象缓存
 
-### Performance Optimization
-- File I/O optimization with async operations
-- Object pooling for frequently used objects
-- Lazy loading of large XML structures
-- Memory-efficient XML processing
+### 性能优化
+- 使用异步操作进行文件I/O优化
+- 频繁使用对象的对象池化
+- 大型XML结构的延迟加载
+- 内存高效的XML处理
 
-## Deployment Architecture
+## 部署架构
 
-### Environments
-- Development: Local developer machines
-- Testing: CI/CD pipeline with unit tests
-- Production: End-user desktop installations
+### 环境
+- 开发：本地开发机器
+- 测试：带有单元测试的CI/CD管道
+- 生产：最终用户桌面安装
 
-### Deployment Strategy
-- Application packaging with Velopack
-- Single-file deployment
-- Automatic updates via Velopack infrastructure
-- Rollback procedures via Velopack
+### 部署策略
+- 使用Velopack进行应用程序打包
+- 单文件部署
+- 通过Velopack基础设施自动更新
+- 通过Velopack进行回滚程序
 
-## Monitoring & Observability
+## 监控与可观测性
 
-### Metrics
-- Application startup time
-- XML processing performance
-- Memory usage patterns
-- Error rates and types
+### 指标
+- 应用程序启动时间
+- XML处理性能
+- 内存使用模式
+- 错误率和类型
 
-### Logging
-- File-based logging with timestamped entries
-- Error logging with stack traces
-- Performance logging for XML operations
-- Structured logging format
+### 日志记录
+- 基于文件的时间戳条目日志记录
+- 带有堆栈跟踪的错误日志记录
+- XML操作的性能日志记录
+- 结构化日志格式
 
-### Alerting
-- Exception handling with user notifications
-- Performance degradation alerts
-- File operation failure notifications
-- Validation error reporting
+### 告警
+- 带有用户通知的异常处理
+- 性能下降告警
+- 文件操作失败通知
+- 验证错误报告
 
-## Architectural Decisions (ADRs)
+## 架构决策 (ADRs)
 
-### ADR-001: DO/DTO Layered Architecture
-**Status**: Accepted
-**Context**: The Bannerlord Mod Editor needs to preserve exact XML string representations while providing strongly-typed interfaces for business logic. Existing XML serializers don't handle case-sensitive boolean values correctly, and there's a need to distinguish between missing attributes and empty values.
-**Decision**: Implement a DO/DTO layered architecture where DOs preserve exact string representations and DTOs provide strongly-typed interfaces.
-**Consequences**: 
-- Positive: Exact XML preservation, proper boolean handling, clear separation of concerns
-- Negative: Additional complexity in mapping layer, potential performance overhead
-**Alternatives Considered**: 
-- Using only DOs with string properties throughout - would complicate business logic
-- Using only DTOs with custom serializers - wouldn't preserve exact XML representation
+### ADR-001: DO/DTO分层架构
+**状态**: 已接受
+**上下文**: Bannerlord Mod Editor需要保留精确的XML字符串表示，同时为业务逻辑提供强类型接口。现有的XML序列化程序无法正确处理区分大小写的布尔值，并且需要区分缺失属性和空值。
+**决策**: 实现DO/DTO分层架构，其中DO保留精确的字符串表示，DTO提供强类型接口。
+**后果**: 
+- 正面：精确的XML保留，正确的布尔处理，清晰的关注点分离
+- 负面：映射层增加复杂性，潜在的性能开销
+**考虑的替代方案**: 
+- 在整个过程中使用带有字符串属性的DO - 会使业务逻辑复杂化
+- 仅使用带有自定义序列化程序的DTO - 无法保留精确的XML表示
 
-### ADR-002: Boolean Value Handling
-**Status**: Accepted
-**Context**: Bannerlord XML files contain boolean values in various formats (true, True, TRUE, 1, false, False, FALSE, 0) that must be preserved exactly when saving but normalized for comparison.
-**Decision**: Create BooleanProperty wrapper class that preserves original string representation while providing normalized boolean value access.
-**Consequences**: 
-- Positive: Exact preservation of original values, case-insensitive parsing, consistent comparison logic
-- Negative: Additional wrapper object overhead
-**Alternatives Considered**: 
-- Custom XmlSerializer with boolean conversion - complex and error-prone
-- String properties with helper methods - would lose type safety
+### ADR-002: 布尔值处理
+**状态**: 已接受
+**上下文**: Bannerlord XML文件包含各种格式的布尔值（true, True, TRUE, 1, false, False, FALSE, 0），这些值在保存时必须精确保留，但在比较时需要标准化。
+**决策**: 创建BooleanProperty包装类，保留原始字符串表示，同时提供标准化的布尔值访问。
+**后果**: 
+- 正面：原始值的精确保留，不区分大小写的解析，一致的比较逻辑
+- 负面：额外的包装对象开销
+**考虑的替代方案**: 
+- 带有布尔转换的自定义XmlSerializer - 复杂且容易出错
+- 带有辅助方法的字符串属性 - 会失去类型安全性
 
 ### ADR-003: Namespace Preservation Strategy
 **Status**: Accepted
