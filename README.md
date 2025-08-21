@@ -146,46 +146,104 @@ BannerlordModEditor.sln
 
 ## 开发指南
 
-### 添加新的XML适配
+### 🔧 添加新的XML适配
 
-1. **创建模型类**:
-   ```csharp
-   // 在Models/相应功能域创建DO和DTO类
-   public class NewXmlTypeDO { ... }
-   public class NewXmlTypeDTO { ... }
-   ```
+#### 1. 创建分层模型类
+```csharp
+// 在Models/相应功能域创建DO和DTO类
+namespace BannerlordModEditor.Common.Models.Game
+{
+    public class NewXmlTypeDO
+    {
+        [XmlElement("property")]
+        public string Property { get; set; } = string.Empty;
+        
+        [XmlIgnore]
+        public bool HasProperty { get; set; } = false;
+        
+        public bool ShouldSerializeProperty() => HasProperty && !string.IsNullOrEmpty(Property);
+    }
+    
+    public class NewXmlTypeDTO
+    {
+        [XmlElement("property")]
+        public string Property { get; set; } = string.Empty;
+    }
+}
+```
 
-2. **创建映射器**:
-   ```csharp
-   public static class NewXmlTypeMapper
-   {
-       public static NewXmlTypeDTO ToDTO(NewXmlTypeDO source) { ... }
-       public static NewXmlTypeDO ToDO(NewXmlTypeDTO source) { ... }
-   }
-   ```
+#### 2. 创建映射器
+```csharp
+namespace BannerlordModEditor.Common.Mappers
+{
+    public static class NewXmlTypeMapper
+    {
+        public static NewXmlTypeDTO ToDTO(NewXmlTypeDO source)
+        {
+            if (source == null) return null;
+            
+            return new NewXmlTypeDTO
+            {
+                Property = source.Property
+            };
+        }
+        
+        public static NewXmlTypeDO ToDO(NewXmlTypeDTO source)
+        {
+            if (source == null) return null;
+            
+            return new NewXmlTypeDO
+            {
+                Property = source.Property,
+                HasProperty = !string.IsNullOrEmpty(source.Property)
+            };
+        }
+    }
+}
+```
 
-3. **添加测试**:
-   ```csharp
-   [Fact]
-   public void NewXmlTypeXmlTests()
-   {
-       // 添加XML序列化/反序列化测试
-   }
-   ```
+#### 3. 添加综合测试
+```csharp
+namespace BannerlordModEditor.Common.Tests
+{
+    public class NewXmlTypeXmlTests : BaseXmlTestClass
+    {
+        [Fact]
+        public void SerializeDeserialize_ShouldPreserveData()
+        {
+            // 往返测试确保数据完整性
+            var xml = File.ReadAllText("TestData/new_xml_type.xml");
+            var result = XmlTestUtils.DeserializeSerializeAndCompare<NewXmlTypeDO>(xml);
+            Assert.True(result);
+        }
+        
+        [Fact]
+        public void LargeFile_ShouldHandleEfficiently()
+        {
+            // 大型文件性能测试
+            var xml = File.ReadAllText("TestData/new_xml_type_large.xml");
+            var obj = XmlTestUtils.Deserialize<NewXmlTypeDO>(xml);
+            Assert.NotNull(obj);
+        }
+    }
+}
+```
 
-### 测试策略
+### 🎯 测试策略
 
-- **所有XML适配都需要对应的单元测试**
-- **测试数据使用真实的骑砍2XML文件**
-- **大型XML文件支持分片测试以避免性能问题**
-- **往返测试确保数据完整性**
+- **100%测试覆盖**: 所有XML适配都需要对应的单元测试
+- **真实数据驱动**: 测试数据使用真实的骑砍2XML文件
+- **性能优化**: 大型XML文件支持分片测试以避免性能问题
+- **数据完整性**: 往返测试确保序列化和反序列化的数据100%一致性
+- **边界情况**: 测试空元素、缺失字段、特殊字符等边界情况
 
-### 代码规范
+### 📝 代码规范
 
-- 使用C# 9.0特性和模式匹配
-- 启用Nullable引用类型
-- 遵循现有的命名约定
-- XML注释用于公共API文档
+- **现代C#**: 使用C# 9.0+特性和模式匹配
+- **空安全**: 启用Nullable引用类型，彻底处理null情况
+- **命名约定**: 遵循现有的命名约定和代码风格
+- **文档化**: XML注释用于公共API文档
+- **性能**: 异步处理大型文件，优化内存使用
 
 ## 技术栈
 
