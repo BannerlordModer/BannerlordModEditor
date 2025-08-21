@@ -452,12 +452,9 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: success() || failure()
       with:
-        name: BannerlordModEditor Tests
-        path: '**/*.trx'
-        reporter: java-junit
-        fail-on-error: false
-        max-annotations: 10
-        only-summary: false
+        files: '**/*.trx'
+        check_name: 'Test Results'
+        fail_on: 'test failures'
 
 
   # 11. 安全扫描
