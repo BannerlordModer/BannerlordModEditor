@@ -448,16 +448,14 @@ jobs:
         name: test-summary-report
         path: test-summary.md
         
-    - name: 发布测试结果
-      uses: EnricoMi/publish-unit-test-result-action@v2
-      if: success() || failure()
-      with:
-        name: BannerlordModEditor Tests
-        path: '**/*.trx'
-        reporter: java-junit
-        fail-on-error: false
-        max-annotations: 10
-        only-summary: false
+    # - name: 发布测试结果
+    #   uses: EnricoMi/publish-unit-test-result-action@v2
+    #   if: success() || failure()
+    #   with:
+    #     files: '**/*.trx'
+    #     check_name: 'Test Results'
+    #     fail_on: 'test failures'
+    #   # 注释掉此步骤因为权限问题：403 Resource not accessible by integration
 
 
   # 11. 安全扫描
