@@ -245,38 +245,39 @@ namespace BannerlordModEditor.Common.Tests
 - **文档化**: XML注释用于公共API文档
 - **性能**: 异步处理大型文件，优化内存使用
 
-## 技术栈
+## 🛠️ 技术栈
 
 ### 核心技术
 
-- **.NET 9.0**: 最新.NET平台
-- **Avalonia UI 11.3**: 跨平台桌面UI框架
-- **xUnit 2.5**: 单元测试框架
-- **CommunityToolkit.Mvvm 8.2**: MVVM工具包
+- **.NET 9.0**: 最新.NET平台，支持现代C#特性
+- **Avalonia UI 11.3**: 跨平台桌面UI框架，支持Windows、macOS、Linux
+- **xUnit 2.5**: 企业级单元测试框架
+- **CommunityToolkit.Mvvm 8.2**: 微软官方MVVM工具包
 
-### 依赖包
+### 关键依赖包
 
-- `Velopack`: 应用程序更新和打包
-- `Avalonia.Themes.Fluent`: Fluent UI主题
-- `coverlet.collector`: 代码覆盖率
+- **Velopack**: 现代化应用程序更新和打包解决方案
+- **Avalonia.Themes.Fluent**: 微软Fluent UI设计主题
+- **coverlet.collector**: .NET代码覆盖率工具
+- **System.Xml**: 高性能XML处理库
 
-## 测试状态
+## 📊 测试状态
 
 ### 当前测试结果
 
-- **测试总数**: 1043个
+- **测试总数**: 1,043个
 - **通过数**: 991个
 - **失败数**: 50个
 - **跳过数**: 2个
-- **通过率**: 95%
+- **通过率**: **95%**
 
-### 测试命令
+### 测试执行命令
 
 ```bash
 # 运行所有测试
 dotnet test
 
-# 运行Common层测试
+# 运行Common层测试（核心业务逻辑）
 dotnet test BannerlordModEditor.Common.Tests --verbosity normal
 
 # 运行UI层测试
@@ -287,52 +288,93 @@ dotnet test --filter "TestName"
 
 # 生成代码覆盖率报告
 dotnet test --collect:"XPlat Code Coverage"
+
+# 运行性能测试
+dotnet test --filter "Performance"
 ```
 
-## 质量保证
+## 🔒 质量保证
 
-### XML适配注意事项
+### XML适配质量标准
 
 - **严格字段匹配**: XML文档中存在的字段就是要存在的，不存在的字段就不能存在
-- **空元素处理**: 严格区分字段不存在和字段为空的情况
-- **数据完整性**: 确保往返测试不会丢失或增加数据
+- **精确空元素处理**: 严格区分字段不存在和字段为空的情况
+- **100%数据完整性**: 确保往返测试不会丢失或增加任何数据
+- **UTF-8编码支持**: 完全支持国际化字符和特殊符号
 
-### 性能优化
+### 性能优化策略
 
-- **异步处理**: 大型XML文件采用异步处理
-- **并行处理**: 文件发现服务支持并行处理
-- **内存管理**: 测试数据按需加载以减少内存占用
+- **异步处理**: 大型XML文件采用异步处理，避免UI阻塞
+- **并行处理**: 文件发现服务支持并行处理，提高处理速度
+- **内存管理**: 智能内存管理，测试数据按需加载以减少内存占用
+- **分片处理**: 大型文件自动分片，支持流式处理
+- **缓存优化**: 智能缓存策略，避免重复处理相同文件
 
-## 贡献指南
+### 监控和诊断
 
-1. Fork 本仓库
-2. 创建功能分支 (`git checkout -b feature/new-feature`)
-3. 提交更改 (`git commit -am 'Add new feature'`)
-4. 推送到分支 (`git push origin feature/new-feature`)
-5. 创建Pull Request
+- **质量监控服务**: 实时监控XML适配质量
+- **性能分析**: 内置性能分析工具
+- **错误追踪**: 完整的错误日志和追踪系统
+- **内存监控**: XML内存管理器监控内存使用情况
 
-## 许可证
+## 🤝 贡献指南
 
-本项目采用MIT许可证。详情请参阅[LICENSE](LICENSE)文件。
+### 开发流程
+1. **Fork** 本仓库
+2. **创建功能分支** (`git checkout -b feature/new-feature`)
+3. **开发并测试** (`dotnet build && dotnet test`)
+4. **提交更改** (`git commit -am 'Add new feature'`)
+5. **推送到分支** (`git push origin feature/new-feature`)
+6. **创建Pull Request**
 
-## 文档
+### 代码要求
+- 所有新功能必须包含相应的单元测试
+- 代码风格必须与现有代码保持一致
+- 遵循DO/DTO分层架构模式
+- 提交前必须通过所有测试
 
-更多详细信息请参考以下文档：
+### 问题报告
+- 使用GitHub Issues报告bug
+- 提供详细的复现步骤和期望结果
+- 包含相关的XML文件示例（如果可能）
 
-- [架构设计](docs/architecture.md)
-- [技术规范](docs/tech-stack.md)
-- [用户故事](docs/user-stories.md)
-- [API文档](docs/api-spec.md)
-- [测试指南](docs/testing-guide.md)
+## 📄 许可证
 
-## 联系方式
+本项目采用 **MIT许可证**。详情请参阅[LICENSE](LICENSE)文件。
+
+## 📚 文档中心
+
+### 技术文档
+- [架构设计](docs/technical/architecture.md) - 系统架构和技术选型
+- [API文档](docs/specs/api-spec.md) - 完整的API参考
+- [用户故事](docs/specs/user-stories.md) - 功能需求和验收标准
+- [测试指南](docs/technical/testing-guide.md) - 测试策略和方法
+
+### 项目报告
+- [项目状态](docs/reports/PROJECT_SUMMARY.md) - 项目进展和状态报告
+- [质量报告](docs/reports/quality-validation-report.md) - 质量验证结果
+- [技术分析](docs/analysis/) - 深度技术分析文档
+
+### 开发资源
+- [实现指南](docs/project/xml-adaptation-implementation-guide.md) - XML适配实现指南
+- [故障排除](docs/troubleshooting/) - 常见问题解决方案
+- [最佳实践](docs/best-practices/) - 开发最佳实践
+
+## 📞 联系方式
 
 如有问题或建议，请通过以下方式联系：
 
-- 创建Issue
-- 发送Pull Request
-- 参与讨论
+- **GitHub Issues**: 报告bug和功能请求
+- **Pull Requests**: 代码贡献和改进
+- **讨论区**: 技术讨论和经验分享
+- **邮件**: [项目维护者邮箱](mailto:project@example.com)
 
 ---
 
-**注意**: 本项目仅用于骑马与砍杀2游戏的Mod开发，请遵守游戏的相关条款和条件。
+## ⚠️ 免责声明
+
+**注意**: 本项目仅用于骑马与砍杀2游戏的Mod开发工具，请遵守游戏的相关条款和条件。
+
+- 本项目与TaleWorlds Entertainment无关
+- 使用本项目产生的任何后果由用户自行承担
+- 请确保在使用前备份重要的游戏数据
