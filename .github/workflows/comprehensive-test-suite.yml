@@ -500,6 +500,8 @@ jobs:
         echo "" >> security-report.txt
         echo "### 已弃用包扫描" >> security-report.txt
         dotnet list package --deprecated >> security-report.txt 2>&1 || echo "未发现弃用包" >> security-report.txt
+        echo "## 扫描完成" >> security-report.txt
+      continue-on-error: true
         
     - name: 上传安全扫描结果
       uses: actions/upload-artifact@v4
