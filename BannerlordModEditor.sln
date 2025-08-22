@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.TUI", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.TUI.Tests", "BannerlordModEditor.TUI.Tests\BannerlordModEditor.TUI.Tests.csproj", "{E8F1E3A2-F226-4925-9AD3-E8C0C7721CEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.UAT.Tests", "BannerlordModEditor.UAT.Tests\BannerlordModEditor.UAT.Tests.csproj", "{F8F1E3A2-F226-4925-9AD3-E8C0C7721CFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.TUI.UATTests", "BannerlordModEditor.TUI.UATTests\BannerlordModEditor.TUI.UATTests.csproj", "{F8F1E3A2-F226-4925-9AD3-E8C0C7721CFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

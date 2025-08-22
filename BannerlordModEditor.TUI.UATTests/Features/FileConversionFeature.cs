@@ -9,9 +9,9 @@ using BannerlordModEditor.TUI.Services;
 using BannerlordModEditor.TUI.ViewModels;
 using BannerlordModEditor.Common.Models;
 using System.Collections.Generic;
-using BannerlordModEditor.UAT.Tests.Common;
+using BannerlordModEditor.TUI.UATTests.Common;
 
-namespace BannerlordModEditor.UAT.Tests.Features
+namespace BannerlordModEditor.TUI.UATTests.Features
 {
     /// <summary>
     /// BDD特性：文件格式转换功能
@@ -58,7 +58,7 @@ jump_force,1.5,跳跃力倍率");
                 var result = await ConversionService.ExcelToXmlAsync(excelFilePath, xmlFilePath);
 
                 // Then 转换应该成功完成
-                result.Success.ShouldBeTrue("转换应该成功");
+                result.Success.Should().BeTrue("转换应该成功");
                 result.Errors.ShouldBeEmpty("不应该有错误");
                 result.RecordsProcessed.ShouldBeGreaterThan(0, "应该处理了记录");
 
@@ -67,9 +67,9 @@ jump_force,1.5,跳跃力倍率");
                 VerifyFileFormat(xmlFilePath, ".xml");
 
                 var xmlContent = await File.ReadAllTextAsync(xmlFilePath);
-                xmlContent.ShouldContain("player_health", "XML应该包含player_health");
-                xmlContent.ShouldContain("100", "XML应该包含值100");
-                xmlContent.ShouldContain("玩家生命值", "XML应该包含中文描述");
+                xmlContent.Should().Contain("player_health", "XML应该包含player_health");
+                xmlContent.Should().Contain("100", "XML应该包含值100");
+                xmlContent.Should().Contain("玩家生命值", "XML应该包含中文描述");
                 
                 Output.WriteLine($"转换成功: {result.Message}");
                 Output.WriteLine($"处理记录数: {result.RecordsProcessed}");
@@ -126,7 +126,7 @@ jump_force,1.5,跳跃力倍率");
                 var result = await ConversionService.XmlToExcelAsync(xmlFilePath, excelFilePath);
 
                 // Then 转换应该成功完成
-                result.Success.ShouldBeTrue("转换应该成功");
+                result.Success.Should().BeTrue("转换应该成功");
                 result.Errors.ShouldBeEmpty("不应该有错误");
                 result.RecordsProcessed.ShouldBeGreaterThan(0, "应该处理了记录");
 
@@ -135,9 +135,9 @@ jump_force,1.5,跳跃力倍率");
                 VerifyFileFormat(excelFilePath, ".xlsx");
 
                 var excelContent = await File.ReadAllTextAsync(excelFilePath);
-                excelContent.ShouldContain("sword_iron", "Excel应该包含sword_iron");
-                excelContent.ShouldContain("铁剑", "Excel应该包含中文武器名称");
-                excelContent.ShouldContain("25", "Excel应该包含伤害值25");
+                excelContent.Should().Contain("sword_iron", "Excel应该包含sword_iron");
+                excelContent.Should().Contain("铁剑", "Excel应该包含中文武器名称");
+                excelContent.Should().Contain("25", "Excel应该包含伤害值25");
                 
                 Output.WriteLine($"转换成功: {result.Message}");
                 Output.WriteLine($"处理记录数: {result.RecordsProcessed}");
@@ -188,12 +188,12 @@ jump_force,1.5,跳跃力倍率");
                 result.RecordsProcessed.ShouldBe(1000, "应该处理1000条记录");
 
                 // And 在合理时间内完成转换
-                duration.ShouldBeLessThan(10000, "1000条记录转换应该在10秒内完成"); // 10秒阈值
+                duration.Should().BeLessThan(10000, "1000条记录转换应该在10秒内完成"); // 10秒阈值
 
                 // And 生成的文件应该包含所有数据
                 VerifyFileExistsAndNotEmpty(xmlFilePath);
                 var xmlContent = await File.ReadAllTextAsync(xmlFilePath);
-                xmlContent.ShouldContain("item_999", "XML应该包含最后一条记录");
+                xmlContent.Should().Contain("item_999", "XML应该包含最后一条记录");
                 
                 Output.WriteLine($"大型文件转换成功");
                 Output.WriteLine($"记录数: {result.RecordsProcessed}");
@@ -260,15 +260,15 @@ jump_force,1.5,跳跃力倍率");
                 var xmlContent = await File.ReadAllTextAsync(xmlFilePath);
                 
                 // 验证中文字符
-                xmlContent.ShouldContain("火球术", "应该正确处理中文字符");
-                xmlContent.ShouldContain("冰霜护甲", "应该正确处理中文字符");
+                xmlContent.Should().Contain("火球术", "应该正确处理中文字符");
+                xmlContent.Should().Contain("冰霜护甲", "应该正确处理中文字符");
                 
                 // 验证特殊字符
-                xmlContent.ShouldContain("<fire>", "应该正确处理XML特殊字符");
-                xmlContent.ShouldContain("<ice>", "应该正确处理XML特殊字符");
-                xmlContent.ShouldContain("<heal>", "应该正确处理XML特殊字符");
-                xmlContent.ShouldContain("20%", "应该正确处理百分号");
-                xmlContent.ShouldContain("等级×5", "应该正确处理数学符号");
+                xmlContent.Should().Contain("<fire>", "应该正确处理XML特殊字符");
+                xmlContent.Should().Contain("<ice>", "应该正确处理XML特殊字符");
+                xmlContent.Should().Contain("<heal>", "应该正确处理XML特殊字符");
+                xmlContent.Should().Contain("20%", "应该正确处理百分号");
+                xmlContent.Should().Contain("等级×5", "应该正确处理数学符号");
                 
                 Output.WriteLine($"特殊字符转换成功: {result.Message}");
                 Output.WriteLine($"处理记录数: {result.RecordsProcessed}");
@@ -312,11 +312,11 @@ jump_force,1.5,跳跃力倍率");
 
                 // When 我将Excel文件转换为XML
                 var excelToXmlResult = await ConversionService.ExcelToXmlAsync(originalExcelPath, intermediateXmlPath);
-                excelToXmlResult.Success.ShouldBeTrue("Excel到XML转换应该成功");
+                excelToXmlResult.Success.Should().BeTrue("Excel到XML转换应该成功");
 
                 // 然后再将XML转换回Excel
                 var xmlToExcelResult = await ConversionService.XmlToExcelAsync(intermediateXmlPath, finalExcelPath);
-                xmlToExcelResult.Success.ShouldBeTrue("XML到Excel转换应该成功");
+                xmlToExcelResult.Success.Should().BeTrue("XML到Excel转换应该成功");
 
                 // Then 两次转换后的数据应该与原始数据保持一致
                 VerifyFileExistsAndNotEmpty(finalExcelPath);
@@ -325,14 +325,14 @@ jump_force,1.5,跳跃力倍率");
                 var finalContent = await File.ReadAllTextAsync(finalExcelPath);
 
                 // 验证关键数据点
-                originalContent.ShouldContain("health_base", "原始数据应该包含health_base");
-                finalContent.ShouldContain("health_base", "最终数据应该包含health_base");
+                originalContent.Should().Contain("health_base", "原始数据应该包含health_base");
+                finalContent.Should().Contain("health_base", "最终数据应该包含health_base");
                 
-                originalContent.ShouldContain("100", "原始数据应该包含值100");
-                finalContent.ShouldContain("100", "最终数据应该包含值100");
+                originalContent.Should().Contain("100", "原始数据应该包含值100");
+                finalContent.Should().Contain("100", "最终数据应该包含值100");
                 
-                originalContent.ShouldContain("基础生命值", "原始数据应该包含中文描述");
-                finalContent.ShouldContain("基础生命值", "最终数据应该包含中文描述");
+                originalContent.Should().Contain("基础生命值", "原始数据应该包含中文描述");
+                finalContent.Should().Contain("基础生命值", "最终数据应该包含中文描述");
 
                 Output.WriteLine($"往返转换测试通过");
                 Output.WriteLine($"Excel→XML: {excelToXmlResult.Message}");

@@ -9,9 +9,9 @@ using BannerlordModEditor.TUI.Services;
 using BannerlordModEditor.TUI.ViewModels;
 using BannerlordModEditor.Common.Models;
 using System.Security;
-using BannerlordModEditor.UAT.Tests.Common;
+using BannerlordModEditor.TUI.UATTests.Common;
 
-namespace BannerlordModEditor.UAT.Tests.Features
+namespace BannerlordModEditor.TUI.UATTests.Features
 {
     /// <summary>
     /// BDD特性：错误处理和异常情况
@@ -52,12 +52,12 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var result = await ConversionService.ExcelToXmlAsync(nonExistentFile, outputPath);
 
                 // Then 系统应该提供明确的错误信息
-                result.Success.ShouldBeFalse("转换应该失败");
-                result.Message.ShouldContain("不存在", "错误信息应该包含'不存在'");
+                result.Success.Should().BeFalse("转换应该失败");
+                result.Message.Should().Contain("不存在", "错误信息应该包含'不存在'");
                 result.Errors.ShouldNotBeEmpty("应该有错误信息");
 
                 // And 不应该创建输出文件
-                File.Exists(outputPath).ShouldBeFalse("不应该创建输出文件");
+                File.Exists(outputPath).Should().BeFalse("不应该创建输出文件");
                 
                 Output.WriteLine($"错误处理正确: {result.Message}");
                 Output.WriteLine($"错误数量: {result.Errors.Count}");
@@ -95,12 +95,12 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var result = await ConversionService.ExcelToXmlAsync(invalidFile, outputPath);
 
                 // Then 系统应该识别格式问题
-                result.Success.ShouldBeFalse("转换应该失败");
+                result.Success.Should().BeFalse("转换应该失败");
                 result.Message.ShouldNotBeNullOrEmpty("应该有错误信息");
 
                 // And 提供格式相关的错误信息
                 var xmlResult = await ConversionService.XmlToExcelAsync(invalidFile, outputPath + ".xlsx");
-                xmlResult.Success.ShouldBeFalse("XML转换也应该失败");
+                xmlResult.Success.Should().BeFalse("XML转换也应该失败");
                 
                 Output.WriteLine($"格式检测正确: {result.Message}");
                 Output.WriteLine($"XML转换错误: {xmlResult.Message}");
@@ -138,7 +138,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var result = await ConversionService.ExcelToXmlAsync(sourceFile, invalidOutputPath);
 
                 // Then 系统应该捕获权限异常
-                result.Success.ShouldBeFalse("转换应该失败");
+                result.Success.Should().BeFalse("转换应该失败");
                 
                 // And 提供权限相关的错误信息
                 result.Message.ShouldNotBeNullOrEmpty("应该有错误信息");
@@ -202,7 +202,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var result = await ConversionService.XmlToExcelAsync(corruptedXml, outputPath);
 
                 // Then 系统应该检测到内容问题
-                result.Success.ShouldBeFalse("转换应该失败");
+                result.Success.Should().BeFalse("转换应该失败");
                 
                 // And 提供内容相关的错误信息
                 result.Message.ShouldNotBeNullOrEmpty("应该有错误信息");
@@ -223,7 +223,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 }
                 
                 // And 不应该创建输出文件
-                File.Exists(outputPath).ShouldBeFalse("不应该为损坏的文件创建输出");
+                File.Exists(outputPath).Should().BeFalse("不应该为损坏的文件创建输出");
             }
             finally
             {
@@ -325,21 +325,21 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var emptyResult = await ConversionService.ExcelToXmlAsync(emptyFile, outputPath);
 
                 // Then 系统应该验证输入参数
-                emptyResult.Success.ShouldBeFalse("空文件转换应该失败");
+                emptyResult.Success.Should().BeFalse("空文件转换应该失败");
                 emptyResult.Message.ShouldNotBeNullOrEmpty("应该有错误信息");
 
                 // When 我使用null路径
                 var nullResult = await ConversionService.ExcelToXmlAsync(null, outputPath);
 
                 // Then 系统应该提供参数验证错误信息
-                nullResult.Success.ShouldBeFalse("null路径转换应该失败");
+                nullResult.Success.Should().BeFalse("null路径转换应该失败");
                 nullResult.Message.ShouldNotBeNullOrEmpty("应该有错误信息");
 
                 // When 我使用空字符串路径
                 var emptyPathResult = await ConversionService.ExcelToXmlAsync("", outputPath);
 
                 // Then 系统应该提供参数验证错误信息
-                emptyPathResult.Success.ShouldBeFalse("空路径转换应该失败");
+                emptyPathResult.Success.Should().BeFalse("空路径转换应该失败");
                 emptyPathResult.Message.ShouldNotBeNullOrEmpty("应该有错误信息");
 
                 Output.WriteLine($"空文件错误: {emptyResult.Message}");

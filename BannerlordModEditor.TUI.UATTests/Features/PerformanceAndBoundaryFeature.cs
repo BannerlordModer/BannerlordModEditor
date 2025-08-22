@@ -10,9 +10,9 @@ using System.Diagnostics;
 using BannerlordModEditor.TUI.Services;
 using BannerlordModEditor.TUI.ViewModels;
 using BannerlordModEditor.Common.Models;
-using BannerlordModEditor.UAT.Tests.Common;
+using BannerlordModEditor.TUI.UATTests.Common;
 
-namespace BannerlordModEditor.UAT.Tests.Features
+namespace BannerlordModEditor.TUI.UATTests.Features
 {
     /// <summary>
     /// BDD特性：性能和边界条件测试
@@ -62,19 +62,19 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var memoryUsed = memoryAfter - memoryBefore;
 
                 // Then 系统应该在可接受的时间内完成处理
-                result.Success.ShouldBeTrue("大文件转换应该成功");
+                result.Success.Should().BeTrue("大文件转换应该成功");
                 result.RecordsProcessed.ShouldBe(recordCount, $"应该处理{recordCount}条记录");
 
                 // 性能断言 - 根据实际情况调整阈值
                 var executionTime = stopwatch.ElapsedMilliseconds;
                 var timePerRecord = executionTime / (double)recordCount;
 
-                executionTime.ShouldBeLessThan(30000, $"5000条记录应该在30秒内完成，实际用时: {executionTime}ms");
-                timePerRecord.ShouldBeLessThan(10, $"每条记录处理时间应该小于10ms，实际: {timePerRecord:F2}ms");
+                executionTime.Should().BeLessThan(30000, $"5000条记录应该在30秒内完成，实际用时: {executionTime}ms");
+                timePerRecord.Should().BeLessThan(10, $"每条记录处理时间应该小于10ms，实际: {timePerRecord:F2}ms");
 
                 // And 内存使用应该保持在合理范围内
                 var memoryPerRecord = memoryUsed / (double)recordCount;
-                memoryUsed.ShouldBeLessThan(100 * 1024 * 1024, "内存使用应该小于100MB"); // 100MB阈值
+                memoryUsed.Should().BeLessThan(100 * 1024 * 1024, "内存使用应该小于100MB"); // 100MB阈值
                 
                 Output.WriteLine($"=== 大文件性能测试结果 ===");
                 Output.WriteLine($"记录数量: {recordCount}");
@@ -132,7 +132,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
 
                 for (int i = 0; i < results.Length; i++)
                 {
-                    results[i].Success.ShouldBeTrue($"任务{i}应该成功");
+                    results[i].Success.Should().BeTrue($"任务{i}应该成功");
                     results[i].Errors.ShouldBeEmpty($"任务{i}不应该有错误");
                 }
 
@@ -143,7 +143,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                     VerifyFileExistsAndNotEmpty(outputFile);
                     
                     var content = await File.ReadAllTextAsync(outputFile);
-                    content.ShouldContain($"Item{i}", $"输出文件{i}应该包含正确的数据");
+                    content.Should().Contain($"Item{i}", $"输出文件{i}应该包含正确的数据");
                 }
 
                 var totalTime = stopwatch.ElapsedMilliseconds;
@@ -197,7 +197,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var afterConversionMemory = GC.GetTotalMemory(true);
 
                 // Then 系统应该及时释放内存
-                result.Success.ShouldBeTrue("大文件转换应该成功");
+                result.Success.Should().BeTrue("大文件转换应该成功");
                 result.RecordsProcessed.ShouldBe(hugeRecordCount, $"应该处理{hugeRecordCount}条记录");
 
                 // 验证文件确实被创建
@@ -207,8 +207,8 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var memoryGrowth = afterConversionMemory - baselineMemory;
                 var memoryPerRecord = memoryGrowth / (double)hugeRecordCount;
 
-                memoryGrowth.ShouldBeLessThan(50 * 1024 * 1024, "内存增长应该小于50MB");
-                memoryPerRecord.ShouldBeLessThan(1024, "每条记录内存增长应该小于1KB");
+                memoryGrowth.Should().BeLessThan(50 * 1024 * 1024, "内存增长应该小于50MB");
+                memoryPerRecord.Should().BeLessThan(1024, "每条记录内存增长应该小于1KB");
 
                 Output.WriteLine($"=== 内存使用监控结果 ===");
                 Output.WriteLine($"记录数量: {hugeRecordCount}");
@@ -420,7 +420,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 // 验证所有转换都成功
                 foreach (var result in results)
                 {
-                    result.Success.ShouldBeTrue("所有转换都应该成功");
+                    result.Success.Should().BeTrue("所有转换都应该成功");
                     result.Errors.ShouldBeEmpty("不应该有错误");
                     result.RecordsProcessed.ShouldBe(3, "每次都应该处理3条记录");
                 }
@@ -438,7 +438,7 @@ namespace BannerlordModEditor.UAT.Tests.Features
                 var maxTime = executionTimes.Max();
                 var minTime = executionTimes.Min();
 
-                maxTime.ShouldBeLessThan(avgTime * 3, "最慢的转换时间不应该超过平均时间的3倍");
+                ((long)maxTime).Should().BeLessThan((long)(avgTime * 3), "最慢的转换时间不应该超过平均时间的3倍");
 
                 Output.WriteLine($"=== 重复转换测试结果 ===");
                 Output.WriteLine($"转换次数: {conversionCount}");

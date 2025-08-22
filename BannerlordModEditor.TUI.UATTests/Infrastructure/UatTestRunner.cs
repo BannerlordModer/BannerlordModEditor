@@ -6,9 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text.Json;
-using BannerlordModEditor.UAT.Tests.Common;
+using BannerlordModEditor.TUI.UATTests.Common;
 
-namespace BannerlordModEditor.UAT.Tests.Infrastructure
+namespace BannerlordModEditor.TUI.UATTests.Infrastructure
 {
     /// <summary>
     /// UAT测试运行器和报告生成器

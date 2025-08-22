@@ -11,7 +11,7 @@ using BannerlordModEditor.Common.Models;
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 
-namespace BannerlordModEditor.UAT.Tests.Common
+namespace BannerlordModEditor.TUI.UATTests.Common
 {
     /// <summary>
     /// BDD测试基类，提供通用的测试设置和工具方法
@@ -31,10 +31,11 @@ namespace BannerlordModEditor.UAT.Tests.Common
             
             // 设置测试目录
             TestTempDir = Path.Combine(Path.GetTempPath(), $"BddTest_{Guid.NewGuid():N}");
-            TestDataDir = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "BannerlordModEditor.UAT.Tests", "TestData");
+            TestDataDir = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "BannerlordModEditor.TUI.UATTests", "TestData");
             
             // 创建实际的转换服务（使用真实文件系统进行UAT）
-            ConversionService = new FormatConversionService();
+            var fileDiscoveryService = new BannerlordModEditor.Common.Services.FileDiscoveryService();
+            ConversionService = new FormatConversionService(fileDiscoveryService);
             
             // 确保测试目录存在
             Directory.CreateDirectory(TestTempDir);
@@ -112,8 +113,8 @@ Test3,300,测试数据3";
         /// </summary>
         protected void VerifyFileExistsAndNotEmpty(string filePath)
         {
-            File.Exists(filePath).ShouldBeTrue($"文件应该存在: {filePath}");
-            new FileInfo(filePath).Length.ShouldBeGreaterThan(0, $"文件内容不应为空: {filePath}");
+            File.Exists(filePath).Should().BeTrue($"文件应该存在: {filePath}");
+            new FileInfo(filePath).Length.Should().BeGreaterThan(0, $"文件内容不应为空: {filePath}");
         }
 
         /// <summary>

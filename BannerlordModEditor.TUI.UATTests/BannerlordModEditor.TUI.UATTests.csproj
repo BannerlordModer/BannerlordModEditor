@@ -4,13 +4,14 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>BannerlordModEditor.TUI.UATTests</RootNamespace>
     
     <!-- 测试项目设置 -->
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     
     <!-- BDD测试特定设置 -->
-    <AssemblyTitle>BannerlordModEditor User Acceptance Tests</AssemblyTitle>
+    <AssemblyTitle>BannerlordModEditor TUI User Acceptance Tests</AssemblyTitle>
     <AssemblyDescription>BDD-style UAT tests for BannerlordModEditor TUI application</AssemblyDescription>
   </PropertyGroup>
 

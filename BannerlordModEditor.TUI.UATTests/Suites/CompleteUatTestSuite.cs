@@ -1,10 +1,10 @@
 using Xunit;
 using Xunit.Abstractions;
 using System.Threading.Tasks;
-using BannerlordModEditor.UAT.Tests.Features;
-using BannerlordModEditor.UAT.Tests.Infrastructure;
+using BannerlordModEditor.TUI.UATTests.Features;
+using BannerlordModEditor.TUI.UATTests.Infrastructure;
 
-namespace BannerlordModEditor.UAT.Tests.Suites
+namespace BannerlordModEditor.TUI.UATTests.Suites
 {
     /// <summary>
     /// 完整的UAT测试套件
