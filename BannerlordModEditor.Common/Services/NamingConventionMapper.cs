@@ -66,7 +66,13 @@ namespace BannerlordModEditor.Common.Services
             { "std_mpclassdivisions_xml", "LanguageBase" },
             { "std_mpitems_xml", "LanguageBase" },
             { "std_photo_mode_strings_xml", "LanguageBase" },
-            { "std_siegeengines_xml", "LanguageBase" }
+            { "std_siegeengines_xml", "LanguageBase" },
+            
+            // 数组类型的XML根元素
+            { "arrayofattributedata", "Attributes" },
+            
+            // 特殊的base元素映射
+            { "base", "Base" }
         };
 
         /// <summary>
