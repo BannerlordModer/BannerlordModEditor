@@ -114,7 +114,16 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 
                 // 其他系统
                 ["objects"] = new GenericXmlLoader<ObjectsDO>(),
-                ["skins"] = new GenericXmlLoader<SkinsDO>()
+                ["skins"] = new GenericXmlLoader<SkinsDO>(),
+                
+                // 动作和移动系统
+                ["full_movement_sets"] = new GenericXmlLoader<FullMovementSetsDO>(),
+                
+                // 音频系统
+                ["hard_coded_sounds"] = new GenericXmlLoader<HardCodedSoundsRootDO>(),
+                
+                // 语音和动画系统
+                ["voices"] = new GenericXmlLoader<VoicesBaseDO>()
             };
         }
 
@@ -156,6 +165,9 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
         [InlineData("movement_sets")]
         [InlineData("cloth_bodies")]
         [InlineData("collision_infos")]
+        [InlineData("full_movement_sets")]
+        [InlineData("hard_coded_sounds")]
+        [InlineData("voices")]
         public async Task RealXmlType_ShouldProcessCorrectly(string xmlType)
         {
             // 测试真实存在的XML类型的处理
