@@ -100,6 +100,7 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 // 配置和参数
                 ["Adjustables"] = new GenericXmlLoader<AdjustablesDO>(),
                 ["native_strings"] = new GenericXmlLoader<NativeStringsDO>(),
+                ["module_strings"] = new GenericXmlLoader<ModuleStringsDO>(),
                 
                 // 特殊效果
                 ["before_transparents_graph"] = new GenericXmlLoader<BeforeTransparentsGraphDO>(),
@@ -149,6 +150,7 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
         [InlineData("sound_files")]
         [InlineData("scenes")]
         [InlineData("flora_kinds")]
+        [InlineData("module_strings")]
         [InlineData("mpitems")]
         [InlineData("objects")]
         [InlineData("movement_sets")]

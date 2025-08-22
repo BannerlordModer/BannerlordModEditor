@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Xml.Serialization;
 using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Models.DO.Game;
+using BannerlordModEditor.Common.Models.DO.Audio;
 using BannerlordModEditor.Common.Services;
 
 namespace BannerlordModEditor.Cli.Services
@@ -24,7 +25,13 @@ namespace BannerlordModEditor.Cli.Services
                 [nameof(AttributesDO)] = ConvertExcelToAttributes,
                 [nameof(CraftingPiecesDO)] = ConvertExcelToCraftingPieces,
                 [nameof(ItemModifiersDO)] = ConvertExcelToItemModifiers,
-                [nameof(SkillsDO)] = ConvertExcelToSkills
+                [nameof(SkillsDO)] = ConvertExcelToSkills,
+                [nameof(GogAchievementDataDO)] = ConvertExcelToGogAchievementData,
+                [nameof(ClothMaterialsDO)] = ConvertExcelToClothMaterials,
+                [nameof(DecalSetsDO)] = ConvertExcelToDecalSets,
+                [nameof(GlobalStringsDO)] = ConvertExcelToGlobalStrings,
+                [nameof(MusicDO)] = ConvertExcelToMusic,
+                [nameof(SoundFilesDO)] = ConvertExcelToSoundFiles
             };
 
             _modelToExcelConverters = new Dictionary<string, Func<object, ExcelData>>(StringComparer.OrdinalIgnoreCase)
@@ -35,7 +42,13 @@ namespace BannerlordModEditor.Cli.Services
                 [nameof(AttributesDO)] = obj => ConvertAttributesToExcel((AttributesDO)obj),
                 [nameof(CraftingPiecesDO)] = obj => ConvertCraftingPiecesToExcel((CraftingPiecesDO)obj),
                 [nameof(ItemModifiersDO)] = obj => ConvertItemModifiersToExcel((ItemModifiersDO)obj),
-                [nameof(SkillsDO)] = obj => ConvertSkillsToExcel((SkillsDO)obj)
+                [nameof(SkillsDO)] = obj => ConvertSkillsToExcel((SkillsDO)obj),
+                [nameof(GogAchievementDataDO)] = obj => ConvertGogAchievementDataToExcel((GogAchievementDataDO)obj),
+                [nameof(ClothMaterialsDO)] = obj => ConvertClothMaterialsToExcel((ClothMaterialsDO)obj),
+                [nameof(DecalSetsDO)] = obj => ConvertDecalSetsToExcel((DecalSetsDO)obj),
+                [nameof(GlobalStringsDO)] = obj => ConvertGlobalStringsToExcel((GlobalStringsDO)obj),
+                [nameof(MusicDO)] = obj => ConvertMusicToExcel((MusicDO)obj),
+                [nameof(SoundFilesDO)] = obj => ConvertSoundFilesToExcel((SoundFilesDO)obj)
             };
         }
 
@@ -541,6 +554,114 @@ namespace BannerlordModEditor.Cli.Services
             return excelData;
         }
 
+        /// <summary>
+        /// Excel 转 SoundFiles
+        /// </summary>
+        private static SoundFilesDO ConvertExcelToSoundFiles(ExcelData excelData)
+        {
+            var soundFiles = new SoundFilesDO();
+            
+            // 处理 type 字段
+            if (excelData.Rows.Any() && excelData.Rows[0].TryGetValue("type", out var type))
+            {
+                soundFiles.Type = type?.ToString() ?? "sound";
+            }
+            
+            // 处理 bank_files
+            var bankFileRows = excelData.Rows.Where(r => r.ContainsKey("name") && r.ContainsKey("decompress_samples")).ToList();
+            if (bankFileRows.Any())
+            {
+                soundFiles.HasBankFiles = true;
+                foreach (var row in bankFileRows)
+                {
+                    var soundFile = new SoundFileDO();
+                    if (row.TryGetValue("name", out var name))
+                        soundFile.Name = name?.ToString();
+                    if (row.TryGetValue("decompress_samples", out var decompressSamples))
+                        soundFile.DecompressSamples = decompressSamples?.ToString();
+                    soundFiles.BankFiles.File.Add(soundFile);
+                }
+            }
+            
+            return soundFiles;
+        }
+
+        /// <summary>
+        /// SoundFiles 转 Excel
+        /// </summary>
+        private static ExcelData ConvertSoundFilesToExcel(SoundFilesDO soundFiles)
+        {
+            var excelData = new ExcelData
+            {
+                Headers = new List<string>(),
+                Rows = new List<Dictionary<string, object?>>()
+            };
+            
+            // 添加 type 列
+            if (!string.IsNullOrEmpty(soundFiles.Type))
+            {
+                excelData.Headers.Add("type");
+                var typeRow = new Dictionary<string, object?>
+                {
+                    ["type"] = soundFiles.Type
+                };
+                excelData.Rows.Add(typeRow);
+            }
+            
+            // 添加 bank_files
+            if (soundFiles.HasBankFiles && soundFiles.BankFiles.File.Any())
+            {
+                if (!excelData.Headers.Contains("name")) excelData.Headers.Add("name");
+                if (!excelData.Headers.Contains("decompress_samples")) excelData.Headers.Add("decompress_samples");
+                
+                foreach (var soundFile in soundFiles.BankFiles.File)
+                {
+                    var row = new Dictionary<string, object?>
+                    {
+                        ["name"] = soundFile.Name,
+                        ["decompress_samples"] = soundFile.DecompressSamples
+                    };
+                    excelData.Rows.Add(row);
+                }
+            }
+            
+            return excelData;
+        }
+
+        /// <summary>
+        /// 其他新模型的转换器方法可以在此添加
+        /// 这些方法将根据需要逐步实现
+        /// </summary>
+        private static GogAchievementDataDO ConvertExcelToGogAchievementData(ExcelData excelData) => 
+            (GogAchievementDataDO)ConvertExcelToModelGeneric(excelData, typeof(GogAchievementDataDO));
+        
+        private static ExcelData ConvertGogAchievementDataToExcel(GogAchievementDataDO data) => 
+            ConvertModelToExcelGeneric(data);
+        
+        private static ClothMaterialsDO ConvertExcelToClothMaterials(ExcelData excelData) => 
+            (ClothMaterialsDO)ConvertExcelToModelGeneric(excelData, typeof(ClothMaterialsDO));
+        
+        private static ExcelData ConvertClothMaterialsToExcel(ClothMaterialsDO data) => 
+            ConvertModelToExcelGeneric(data);
+        
+        private static DecalSetsDO ConvertExcelToDecalSets(ExcelData excelData) => 
+            (DecalSetsDO)ConvertExcelToModelGeneric(excelData, typeof(DecalSetsDO));
+        
+        private static ExcelData ConvertDecalSetsToExcel(DecalSetsDO data) => 
+            ConvertModelToExcelGeneric(data);
+        
+        private static GlobalStringsDO ConvertExcelToGlobalStrings(ExcelData excelData) => 
+            (GlobalStringsDO)ConvertExcelToModelGeneric(excelData, typeof(GlobalStringsDO));
+        
+        private static ExcelData ConvertGlobalStringsToExcel(GlobalStringsDO data) => 
+            ConvertModelToExcelGeneric(data);
+        
+        private static MusicDO ConvertExcelToMusic(ExcelData excelData) => 
+            (MusicDO)ConvertExcelToModelGeneric(excelData, typeof(MusicDO));
+        
+        private static ExcelData ConvertMusicToExcel(MusicDO data) => 
+            ConvertModelToExcelGeneric(data);
+
         #endregion
 
         /// <summary>
@@ -656,7 +777,13 @@ namespace BannerlordModEditor.Cli.Services
                 ["ArrayOfAttributeData"] = nameof(AttributesDO),
                 ["crafting_pieces"] = nameof(CraftingPiecesDO),
                 ["item_modifiers"] = nameof(ItemModifiersDO),
-                ["skills"] = nameof(SkillsDO)
+                ["skills"] = nameof(SkillsDO),
+                ["gog_achievement_data"] = nameof(GogAchievementDataDO),
+                ["cloth_materials"] = nameof(ClothMaterialsDO),
+                ["decal_sets"] = nameof(DecalSetsDO),
+                ["global_strings"] = nameof(GlobalStringsDO),
+                ["music"] = nameof(MusicDO),
+                ["sound_files"] = nameof(SoundFilesDO)
             };
 
             if (mappings.TryGetValue(modelType, out var doTypeName))
