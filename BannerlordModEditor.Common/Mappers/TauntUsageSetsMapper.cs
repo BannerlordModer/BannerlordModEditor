@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using BannerlordModEditor.Common.Models.DO;
-using BannerlordModEditor.Common.Models.DTO;
+using BannerlordModEditor.Common.Models.Multiplayer;
 
 namespace BannerlordModEditor.Common.Mappers
 {
