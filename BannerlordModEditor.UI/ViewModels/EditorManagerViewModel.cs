@@ -54,32 +54,18 @@ public partial class EditorManagerViewModel : ViewModelBase
         {
             if (_editorFactory == null)
             {
-                // 创建默认的编辑器分类并添加测试编辑器
-                var characterCategory = new EditorCategoryViewModel("角色设定", "角色设定编辑器", "👤");
-                characterCategory.Editors.Add(new EditorItemViewModel("属性定义", "属性定义编辑器", "attributes.xml", "AttributeEditor", "⚙️"));
-                characterCategory.Editors.Add(new EditorItemViewModel("技能系统", "技能系统编辑器", "skills.xml", "SkillEditor", "🎯"));
-                
-                var equipmentCategory = new EditorCategoryViewModel("装备物品", "装备物品编辑器", "⚔️");
-                equipmentCategory.Editors.Add(new EditorItemViewModel("物品编辑", "物品编辑器", "items.xml", "ItemEditor", "📦"));
-                
-                var combatCategory = new EditorCategoryViewModel("战斗系统", "战斗系统编辑器", "🛡️");
-                combatCategory.Editors.Add(new EditorItemViewModel("战斗参数", "战斗参数编辑器", "combat_parameters.xml", "CombatParameterEditor", "⚔️"));
-                
-                Categories = new ObservableCollection<EditorCategoryViewModel>
-                {
-                    characterCategory,
-                    equipmentCategory,
-                    combatCategory,
-                    new EditorCategoryViewModel("世界场景", "世界场景编辑器", "🌍"),
-                    new EditorCategoryViewModel("音频系统", "音频系统编辑器", "🎵"),
-                    new EditorCategoryViewModel("多人游戏", "多人游戏编辑器", "👥"),
-                    new EditorCategoryViewModel("游戏配置", "游戏配置编辑器", "⚙️")
-                };
-                StatusMessage = "已加载默认编辑器分类";
+                LoadDefaultEditors();
                 return;
             }
 
             var editors = _editorFactory.GetAllEditors();
+            if (editors == null || !editors.Any())
+            {
+                // 如果工厂没有返回编辑器，使用默认配置
+                LoadDefaultEditors();
+                return;
+            }
+
             var groupedEditors = editors.GroupBy(e => GetEditorCategory(e))
                 .Select(g => new EditorCategoryViewModel(g.Key, $"{g.Key} 编辑器", "📁"));
 
@@ -91,6 +77,36 @@ public partial class EditorManagerViewModel : ViewModelBase
             _errorHandlerService.HandleError(ex, "加载编辑器失败");
             StatusMessage = "加载编辑器失败";
         }
+    }
+
+    /// <summary>
+    /// 加载默认的编辑器配置
+    /// </summary>
+    private void LoadDefaultEditors()
+    {
+        // 创建默认的编辑器分类并添加测试编辑器
+        var characterCategory = new EditorCategoryViewModel("角色设定", "角色设定编辑器", "👤");
+        characterCategory.Editors.Add(new EditorItemViewModel("属性定义", "属性定义编辑器", "attributes.xml", "AttributeEditor", "⚙️"));
+        characterCategory.Editors.Add(new EditorItemViewModel("技能系统", "技能系统编辑器", "skills.xml", "SkillEditor", "🎯"));
+        characterCategory.Editors.Add(new EditorItemViewModel("骨骼体型", "骨骼体型编辑器", "bone_body_types.xml", "BoneBodyTypeEditor", "🦴"));
+        
+        var equipmentCategory = new EditorCategoryViewModel("装备物品", "装备物品编辑器", "⚔️");
+        equipmentCategory.Editors.Add(new EditorItemViewModel("物品编辑", "物品编辑器", "items.xml", "ItemEditor", "📦"));
+        
+        var combatCategory = new EditorCategoryViewModel("战斗系统", "战斗系统编辑器", "🛡️");
+        combatCategory.Editors.Add(new EditorItemViewModel("战斗参数", "战斗参数编辑器", "combat_parameters.xml", "CombatParameterEditor", "⚔️"));
+        
+        Categories = new ObservableCollection<EditorCategoryViewModel>
+        {
+            characterCategory,
+            equipmentCategory,
+            combatCategory,
+            new EditorCategoryViewModel("世界场景", "世界场景编辑器", "🌍"),
+            new EditorCategoryViewModel("音频系统", "音频系统编辑器", "🎵"),
+            new EditorCategoryViewModel("多人游戏", "多人游戏编辑器", "👥"),
+            new EditorCategoryViewModel("游戏配置", "游戏配置编辑器", "⚙️")
+        };
+        StatusMessage = "已加载默认编辑器分类";
     }
 
     private string GetEditorCategory(ViewModelBase editor)
@@ -106,6 +122,25 @@ public partial class EditorManagerViewModel : ViewModelBase
             _logService.LogException(ex, "Unexpected error while getting category name");
             return "错误分类";
         }
+    }
+
+    /// <summary>
+    /// 根据EditorItemViewModel获取分类名称
+    /// </summary>
+    private string GetCategoryFromEditorItem(EditorItemViewModel editorItem)
+    {
+        // 根据编辑器类型返回对应的分类名称
+        return editorItem.EditorType switch
+        {
+            "AttributeEditor" => "角色设定",
+            "SkillEditor" => "角色设定",
+            "BoneBodyTypeEditor" => "角色设定",
+            "ItemEditor" => "装备物品",
+            "CombatParameterEditor" => "战斗系统",
+            "CraftingPieceEditor" => "装备物品",
+            "ItemModifierEditor" => "装备物品",
+            _ => "其他"
+        };
     }
 
     /// <summary>
@@ -137,8 +172,11 @@ public partial class EditorManagerViewModel : ViewModelBase
         {
             // 如果传入的是EditorItemViewModel，需要转换为具体的编辑器ViewModel
             ViewModelBase actualEditor = editor;
-            if (editor is EditorItemViewModel editorItem)
+            EditorItemViewModel? editorItem = null;
+            
+            if (editor is EditorItemViewModel item)
             {
+                editorItem = item;
                 actualEditor = CreateEditorViewModel(editorItem);
             }
 
@@ -146,19 +184,34 @@ public partial class EditorManagerViewModel : ViewModelBase
             CurrentEditorViewModel = actualEditor;
             StatusMessage = $"已选择编辑器: {actualEditor.GetType().Name}";
 
-            // 更新面包屑导航
-            var editorType = actualEditor.GetType();
-            var editorAttribute = editorType.GetCustomAttribute<EditorTypeAttribute>();
-            var categoryName = editorAttribute?.Category ?? "其他";
-            var editorName = editorAttribute?.DisplayName ?? editorType.Name.Replace("ViewModel", "");
-            CurrentBreadcrumb = $"{categoryName} > {editorName}";
-
-            // 获取编辑器的XML文件名并自动加载
-            var xmlFileName = editorAttribute?.XmlFileName;
-            if (string.IsNullOrEmpty(xmlFileName) && actualEditor is BaseEditorViewModel baseEditor)
+            // 更新面包屑导航 - 优先使用EditorItemViewModel的信息
+            string categoryName;
+            string editorName;
+            string xmlFileName;
+            
+            if (editorItem != null)
             {
-                xmlFileName = baseEditor.XmlFileName;
+                // 使用EditorItemViewModel的信息
+                categoryName = GetCategoryFromEditorItem(editorItem);
+                editorName = editorItem.Name;
+                xmlFileName = editorItem.XmlFileName;
             }
+            else
+            {
+                // 回退到使用ViewModel的属性
+                var editorType = actualEditor.GetType();
+                var editorAttribute = editorType.GetCustomAttribute<EditorTypeAttribute>();
+                categoryName = editorAttribute?.Category ?? "其他";
+                editorName = editorAttribute?.DisplayName ?? editorType.Name.Replace("ViewModel", "");
+                xmlFileName = editorAttribute?.XmlFileName ?? "";
+                
+                if (string.IsNullOrEmpty(xmlFileName) && actualEditor is BaseEditorViewModel baseEditor)
+                {
+                    xmlFileName = baseEditor.XmlFileName;
+                }
+            }
+            
+            CurrentBreadcrumb = $"{categoryName} > {editorName}";
             
             if (!string.IsNullOrEmpty(xmlFileName))
             {

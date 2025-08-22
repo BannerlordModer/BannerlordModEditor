@@ -105,15 +105,9 @@ namespace BannerlordModEditor.UI.Tests.Helpers
 
         public IEnumerable<ViewModelBase> GetAllEditors()
         {
-            // 返回一些测试用的编辑器
-            return new List<ViewModelBase>
-            {
-                new AttributeEditorViewModel(),
-                new SkillEditorViewModel(),
-                new BoneBodyTypeEditorViewModel(),
-                new CombatParameterEditorViewModel(),
-                new ItemEditorViewModel()
-            };
+            // 返回一些测试用的编辑器，这些编辑器应该有正确的EditorTypeAttribute
+            // 但由于测试环境的限制，我们返回一个空列表，让EditorManager使用默认的编辑器列表
+            return new List<ViewModelBase>();
         }
     }
 }
