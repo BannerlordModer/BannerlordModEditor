@@ -33,7 +33,7 @@ namespace BannerlordModEditor.Common.Services
                 }
 
                 var searchDirectories = GetModelSearchDirectories();
-                var xmlFiles = Directory.GetFiles(_xmlDirectory, "*.xml", SearchOption.TopDirectoryOnly);
+                var xmlFiles = Directory.GetFiles(_xmlDirectory, "*.xml", SearchOption.AllDirectories);
 
                 foreach (var xmlFile in xmlFiles)
                 {
