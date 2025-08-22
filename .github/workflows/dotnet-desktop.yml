@@ -185,9 +185,7 @@ jobs:
           Write-Host "Release uploaded successfully"
         } catch {
           Write-Host "Release upload failed with error: $_"
-          Write-Host "Attempting to create release without upload..."
-          # 如果上传失败，尝试只创建release
-          gh release create $tagName releasenotes.md --title "BannerlordModEditor v$Version" --notes-file releasenotes.md
+          exit 1
         }
         
     - name: Upload Build Artifacts
