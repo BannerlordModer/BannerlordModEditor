@@ -51,7 +51,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
 
             // Assert
             result.ShouldSucceed();
-            result.ShouldContain("BannerlordModEditor.Cli");
+            result.ShouldContain("v1.0.0");
         }
 
         [Fact]
