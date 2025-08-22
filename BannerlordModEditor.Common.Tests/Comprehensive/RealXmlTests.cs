@@ -79,6 +79,7 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 // 音频系统
                 ["voice_definitions"] = new GenericXmlLoader<VoiceDefinitionsDO>(),
                 ["module_sounds"] = new GenericXmlLoader<ModuleSoundsDO>(),
+                ["sound_files"] = new GenericXmlLoader<SoundFilesDO>(),
                 
                 // 多人游戏
                 ["mpcharacters"] = new GenericXmlLoader<MPCharactersDO>(),
@@ -145,6 +146,7 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
         [InlineData("physics_materials")]
         [InlineData("particle_systems2")]
         [InlineData("module_sounds")]
+        [InlineData("sound_files")]
         [InlineData("scenes")]
         [InlineData("flora_kinds")]
         [InlineData("mpitems")]
@@ -158,6 +160,15 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
             var testDataPath = Path.Combine(Directory.GetCurrentDirectory(), "TestData");
             var testFiles = Directory.GetFiles(testDataPath, $"{xmlType}*.xml").ToList();
 
+            // 特殊处理某些XML类型的命名差异
+            if (testFiles.Count == 0)
+            {
+                if (xmlType == "sound_files")
+                {
+                    testFiles = Directory.GetFiles(testDataPath, "soundfiles.xml").ToList();
+                }
+            }
+
             if (testFiles.Count == 0)
             {
                 _output.WriteLine($"警告: 未找到 {xmlType} 测试文件，跳过测试");
@@ -170,13 +181,18 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
             {
                 _output.WriteLine($"  处理: {Path.GetFileName(testFile)}");
 
-                // 特殊处理item_modifiers，有两种不同的XML结构
+                // 特殊处理某些XML类型的命名差异
                 object loader;
                 string loaderKey;
                 
                 if (xmlType == "item_modifiers" && testFile.Contains("item_modifiers_groups"))
                 {
                     loaderKey = "item_modifiers_groups";
+                    loader = _loaders[loaderKey];
+                }
+                else if (xmlType == "sound_files")
+                {
+                    loaderKey = "sound_files";
                     loader = _loaders[loaderKey];
                 }
                 else
