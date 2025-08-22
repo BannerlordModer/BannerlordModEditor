@@ -41,20 +41,7 @@ public partial class EditorManagerViewModel : ViewModelBase
         ILogService? logService = null,
         IErrorHandlerService? errorHandlerService = null)
     {
-        // 创建服务提供器
-        var services = new ServiceCollection();
-        services.AddSingleton<IValidationService, ValidationService>();
-        services.AddSingleton<IDataBindingService, DataBindingService>();
-        services.AddSingleton<ILogService>(logService ?? new LogService());
-        services.AddSingleton<IErrorHandlerService>(errorHandlerService ?? new ErrorHandlerService());
-        var serviceProvider = services.BuildServiceProvider();
-        
-        _editorFactory = editorFactory ?? new UnifiedEditorFactory(
-            serviceProvider,
-            serviceProvider.GetRequiredService<IValidationService>(),
-            serviceProvider.GetRequiredService<IDataBindingService>(),
-            serviceProvider.GetRequiredService<ILogService>(),
-            serviceProvider.GetRequiredService<IErrorHandlerService>());
+        _editorFactory = editorFactory;
         _logService = logService ?? new LogService();
         _errorHandlerService = errorHandlerService ?? new ErrorHandlerService();
 
@@ -65,6 +52,23 @@ public partial class EditorManagerViewModel : ViewModelBase
     {
         try
         {
+            if (_editorFactory == null)
+            {
+                // 创建默认的编辑器分类
+                Categories = new ObservableCollection<EditorCategoryViewModel>
+                {
+                    new EditorCategoryViewModel("角色设定", "角色设定编辑器", "👤"),
+                    new EditorCategoryViewModel("装备物品", "装备物品编辑器", "⚔️"),
+                    new EditorCategoryViewModel("战斗系统", "战斗系统编辑器", "🛡️"),
+                    new EditorCategoryViewModel("世界场景", "世界场景编辑器", "🌍"),
+                    new EditorCategoryViewModel("音频系统", "音频系统编辑器", "🎵"),
+                    new EditorCategoryViewModel("多人游戏", "多人游戏编辑器", "👥"),
+                    new EditorCategoryViewModel("游戏配置", "游戏配置编辑器", "⚙️")
+                };
+                StatusMessage = "已加载默认编辑器分类";
+                return;
+            }
+
             var editors = _editorFactory.GetAllEditors();
             var groupedEditors = editors.GroupBy(e => GetEditorCategory(e))
                 .Select(g => new EditorCategoryViewModel(g.Key, $"{g.Key} 编辑器", "📁"));

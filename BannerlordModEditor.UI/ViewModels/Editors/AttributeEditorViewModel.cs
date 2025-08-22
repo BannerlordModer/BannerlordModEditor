@@ -164,7 +164,7 @@ public partial class AttributeEditorViewModel : SimpleEditorViewModel<ArrayOfAtt
     }
 
     [RelayCommand]
-    private async void LoadFile()
+    private async Task LoadFile()
     {
         try
         {
@@ -178,7 +178,7 @@ public partial class AttributeEditorViewModel : SimpleEditorViewModel<ArrayOfAtt
     }
 
     [RelayCommand]
-    private async void SaveFile()
+    private async Task SaveFile()
     {
         await SaveXmlFileAsync();
     }
