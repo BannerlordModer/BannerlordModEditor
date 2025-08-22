@@ -214,9 +214,7 @@ public class SkillEditorTests
     {
         // Arrange
         var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
-        var skillEditor = mainViewModel.EditorManager.Categories
-            .SelectMany(c => c.Editors)
-            .FirstOrDefault(e => e.EditorType == "SkillEditor");
+        var skillEditor = TestServiceProvider.GetService<SkillEditorViewModel>();
 
         // Act
         mainViewModel.EditorManager.SelectEditorCommand.Execute(skillEditor);
@@ -225,7 +223,7 @@ public class SkillEditorTests
         Assert.Equal(skillEditor, mainViewModel.EditorManager.SelectedEditor);
         Assert.NotNull(mainViewModel.EditorManager.CurrentEditorViewModel);
         Assert.IsType<SkillEditorViewModel>(mainViewModel.EditorManager.CurrentEditorViewModel);
-        Assert.Contains("技能系统", mainViewModel.EditorManager.CurrentBreadcrumb);
+        Assert.Contains("角色设定", mainViewModel.EditorManager.CurrentBreadcrumb);
     }
 
     [Fact]

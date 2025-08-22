@@ -179,15 +179,15 @@ public class EditorIntegrationTests
     }
 
     [Fact]
-    public void CrossEditorCommunication_Should_Work()
+    public async Task CrossEditorCommunication_Should_Work()
     {
         // Arrange
         var attributeEditor = _serviceProvider.GetRequiredService<AttributeEditorViewModel>();
         var skillEditor = _serviceProvider.GetRequiredService<SkillEditorViewModel>();
 
         // Act - 测试编辑器之间的通信
-        attributeEditor.LoadXmlFileAsync("attributes.xml").Wait();
-        skillEditor.LoadXmlFileAsync("skills.xml").Wait();
+        await attributeEditor.LoadXmlFileAsync("attributes.xml");
+        await skillEditor.LoadXmlFileAsync("skills.xml");
 
         // Assert
         Assert.NotNull(attributeEditor.FilePath);
@@ -211,13 +211,13 @@ public class EditorIntegrationTests
     }
 
     [Fact]
-    public void ErrorHandling_Should_Be_Graceful()
+    public async Task ErrorHandling_Should_Be_Graceful()
     {
         // Arrange
         var viewModel = _serviceProvider.GetRequiredService<AttributeEditorViewModel>();
 
         // Act - 尝试加载不存在的文件
-        viewModel.LoadXmlFileAsync("non_existent_file.xml").Wait();
+        await viewModel.LoadXmlFileAsync("non_existent_file.xml");
 
         // Assert
         Assert.NotNull(viewModel);

@@ -251,7 +251,7 @@ public class AttributeEditorViewModelTests
             Id = "test_id",
             Name = "Test Name",
             Source = "Character",
-            Documentation = null
+            Documentation = ""
         };
 
         // Act

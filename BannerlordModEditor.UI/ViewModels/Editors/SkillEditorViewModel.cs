@@ -7,9 +7,11 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using System.Threading.Tasks;
+using BannerlordModEditor.UI.Factories;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
+[EditorType(EditorType = "SkillEditor", DisplayName = "技能编辑器", Description = "编辑角色技能数据", XmlFileName = "skills.xml", Category = "角色设定")]
 public partial class SkillEditorViewModel : ViewModelBase
 {
     [ObservableProperty]

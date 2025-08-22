@@ -2,6 +2,7 @@ using Xunit;
 using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using System.Linq;
+using System.Threading.Tasks;
 using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
@@ -47,13 +48,13 @@ public class XmlLoadingTests
     }
 
     [Fact]
-    public void AttributeEditor_Should_Handle_Missing_File_Gracefully()
+    public async Task AttributeEditor_Should_Handle_Missing_File_Gracefully()
     {
         // Arrange
         var attributeEditor = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
         // Act
-        attributeEditor.LoadXmlFileAsync("nonexistent.xml").Wait();
+        await attributeEditor.LoadXmlFileAsync("nonexistent.xml");
 
         // Assert - 应该创建一个默认的编辑器，不崩溃
         Assert.NotEmpty(attributeEditor.Attributes);

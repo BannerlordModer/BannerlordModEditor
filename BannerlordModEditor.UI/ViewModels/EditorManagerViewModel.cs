@@ -54,12 +54,22 @@ public partial class EditorManagerViewModel : ViewModelBase
         {
             if (_editorFactory == null)
             {
-                // 创建默认的编辑器分类
+                // 创建默认的编辑器分类并添加测试编辑器
+                var characterCategory = new EditorCategoryViewModel("角色设定", "角色设定编辑器", "👤");
+                characterCategory.Editors.Add(new EditorItemViewModel("属性定义", "属性定义编辑器", "attributes.xml", "AttributeEditor", "⚙️"));
+                characterCategory.Editors.Add(new EditorItemViewModel("技能系统", "技能系统编辑器", "skills.xml", "SkillEditor", "🎯"));
+                
+                var equipmentCategory = new EditorCategoryViewModel("装备物品", "装备物品编辑器", "⚔️");
+                equipmentCategory.Editors.Add(new EditorItemViewModel("物品编辑", "物品编辑器", "items.xml", "ItemEditor", "📦"));
+                
+                var combatCategory = new EditorCategoryViewModel("战斗系统", "战斗系统编辑器", "🛡️");
+                combatCategory.Editors.Add(new EditorItemViewModel("战斗参数", "战斗参数编辑器", "combat_parameters.xml", "CombatParameterEditor", "⚔️"));
+                
                 Categories = new ObservableCollection<EditorCategoryViewModel>
                 {
-                    new EditorCategoryViewModel("角色设定", "角色设定编辑器", "👤"),
-                    new EditorCategoryViewModel("装备物品", "装备物品编辑器", "⚔️"),
-                    new EditorCategoryViewModel("战斗系统", "战斗系统编辑器", "🛡️"),
+                    characterCategory,
+                    equipmentCategory,
+                    combatCategory,
                     new EditorCategoryViewModel("世界场景", "世界场景编辑器", "🌍"),
                     new EditorCategoryViewModel("音频系统", "音频系统编辑器", "🎵"),
                     new EditorCategoryViewModel("多人游戏", "多人游戏编辑器", "👥"),
@@ -125,20 +135,27 @@ public partial class EditorManagerViewModel : ViewModelBase
     {
         try
         {
-            SelectedEditor = editor;
-            CurrentEditorViewModel = editor;
-            StatusMessage = $"已选择编辑器: {editor.GetType().Name}";
+            // 如果传入的是EditorItemViewModel，需要转换为具体的编辑器ViewModel
+            ViewModelBase actualEditor = editor;
+            if (editor is EditorItemViewModel editorItem)
+            {
+                actualEditor = CreateEditorViewModel(editorItem);
+            }
+
+            SelectedEditor = actualEditor;
+            CurrentEditorViewModel = actualEditor;
+            StatusMessage = $"已选择编辑器: {actualEditor.GetType().Name}";
 
             // 更新面包屑导航
-            var editorType = editor.GetType();
+            var editorType = actualEditor.GetType();
             var editorAttribute = editorType.GetCustomAttribute<EditorTypeAttribute>();
-            CurrentBreadcrumb = $"{editorAttribute?.Category ?? "其他"} > {editor.GetType().Name}";
+            CurrentBreadcrumb = $"{editorAttribute?.Category ?? "其他"} > {editorType.Name}";
 
             // 获取编辑器的XML文件名并自动加载
             if (editorAttribute?.XmlFileName != null)
             {
                 // 异步加载XML文件，不等待完成
-                _ = AutoLoadXmlFileAsync(editor, editorAttribute.XmlFileName);
+                _ = AutoLoadXmlFileAsync(actualEditor, editorAttribute.XmlFileName);
             }
         }
         catch (Exception ex)
@@ -146,6 +163,21 @@ public partial class EditorManagerViewModel : ViewModelBase
             _errorHandlerService.HandleError(ex, "选择编辑器失败");
             StatusMessage = "选择编辑器失败";
         }
+    }
+
+    private ViewModelBase CreateEditorViewModel(EditorItemViewModel editorItem)
+    {
+        return editorItem.EditorType switch
+        {
+            "AttributeEditor" => new AttributeEditorViewModel(),
+            "SkillEditor" => new SkillEditorViewModel(),
+            "CombatParameterEditor" => new CombatParameterEditorViewModel(),
+            "ItemEditor" => new ItemEditorViewModel(),
+            "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
+            "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
+            "ItemModifierEditor" => new ItemModifierEditorViewModel(),
+            _ => throw new NotSupportedException($"不支持的编辑器类型: {editorItem.EditorType}")
+        };
     }
 
     [RelayCommand]
