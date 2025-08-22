@@ -134,7 +134,20 @@ jump_force,1.5,跳跃力倍率");
                 VerifyFileExistsAndNotEmpty(excelFilePath);
                 VerifyFileFormat(excelFilePath, ".xlsx");
 
-                var excelContent = await File.ReadAllTextAsync(excelFilePath);
+                // 使用ClosedXML读取Excel文件内容进行验证
+                using var workbook = new ClosedXML.Excel.XLWorkbook(excelFilePath);
+                var worksheet = workbook.Worksheets.First();
+                
+                var excelData = new List<string>();
+                foreach (var row in worksheet.RowsUsed())
+                {
+                    foreach (var cell in row.Cells())
+                    {
+                        excelData.Add(cell.Value.ToString() ?? "");
+                    }
+                }
+                
+                var excelContent = string.Join("|", excelData);
                 excelContent.Should().Contain("sword_iron", "Excel应该包含sword_iron");
                 excelContent.Should().Contain("铁剑", "Excel应该包含中文武器名称");
                 excelContent.Should().Contain("25", "Excel应该包含伤害值25");
@@ -263,10 +276,10 @@ jump_force,1.5,跳跃力倍率");
                 xmlContent.Should().Contain("火球术", "应该正确处理中文字符");
                 xmlContent.Should().Contain("冰霜护甲", "应该正确处理中文字符");
                 
-                // 验证特殊字符
-                xmlContent.Should().Contain("<fire>", "应该正确处理XML特殊字符");
-                xmlContent.Should().Contain("<ice>", "应该正确处理XML特殊字符");
-                xmlContent.Should().Contain("<heal>", "应该正确处理XML特殊字符");
+                // 验证特殊字符（XML会正确转义这些字符）
+                xmlContent.Should().Contain("&lt;fire&gt;", "应该正确转义XML特殊字符");
+                xmlContent.Should().Contain("&lt;ice&gt;", "应该正确转义XML特殊字符");
+                xmlContent.Should().Contain("&lt;heal&gt;", "应该正确转义XML特殊字符");
                 xmlContent.Should().Contain("20%", "应该正确处理百分号");
                 xmlContent.Should().Contain("等级×5", "应该正确处理数学符号");
                 
@@ -321,18 +334,53 @@ jump_force,1.5,跳跃力倍率");
                 // Then 两次转换后的数据应该与原始数据保持一致
                 VerifyFileExistsAndNotEmpty(finalExcelPath);
 
-                var originalContent = await File.ReadAllTextAsync(originalExcelPath);
-                var finalContent = await File.ReadAllTextAsync(finalExcelPath);
-
+                // 使用ClosedXML读取Excel文件内容进行验证
+                using var originalWorkbook = new ClosedXML.Excel.XLWorkbook(originalExcelPath);
+                using var finalWorkbook = new ClosedXML.Excel.XLWorkbook(finalExcelPath);
+                
+                var originalWorksheet = originalWorkbook.Worksheets.First();
+                var finalWorksheet = finalWorkbook.Worksheets.First();
+                
+                // 验证数据行数一致（包含标题行）
+                finalWorksheet.RowsUsed().Count().Should().Be(originalWorksheet.RowsUsed().Count(), "转换后的行数应该与原始数据一致");
+                
                 // 验证关键数据点
-                originalContent.Should().Contain("health_base", "原始数据应该包含health_base");
-                finalContent.Should().Contain("health_base", "最终数据应该包含health_base");
+                var originalData = new List<List<string>>();
+                var finalData = new List<List<string>>();
                 
-                originalContent.Should().Contain("100", "原始数据应该包含值100");
-                finalContent.Should().Contain("100", "最终数据应该包含值100");
+                // 读取原始数据
+                foreach (var row in originalWorksheet.RowsUsed())
+                {
+                    var rowData = new List<string>();
+                    foreach (var cell in row.Cells())
+                    {
+                        rowData.Add(cell.Value.ToString() ?? "");
+                    }
+                    originalData.Add(rowData);
+                }
                 
-                originalContent.Should().Contain("基础生命值", "原始数据应该包含中文描述");
-                finalContent.Should().Contain("基础生命值", "最终数据应该包含中文描述");
+                // 读取最终数据
+                foreach (var row in finalWorksheet.RowsUsed())
+                {
+                    var rowData = new List<string>();
+                    foreach (var cell in row.Cells())
+                    {
+                        rowData.Add(cell.Value.ToString() ?? "");
+                    }
+                    finalData.Add(rowData);
+                }
+                
+                // 验证关键数据点在原始数据中存在
+                var originalFlatData = string.Join("|", originalData.SelectMany(row => row));
+                originalFlatData.Should().Contain("health_base", "原始数据应该包含health_base");
+                originalFlatData.Should().Contain("100", "原始数据应该包含值100");
+                originalFlatData.Should().Contain("基础生命值", "原始数据应该包含中文描述");
+                
+                // 验证关键数据点在最终数据中存在
+                var finalFlatData = string.Join("|", finalData.SelectMany(row => row));
+                finalFlatData.Should().Contain("health_base", "最终数据应该包含health_base");
+                finalFlatData.Should().Contain("100", "最终数据应该包含值100");
+                finalFlatData.Should().Contain("基础生命值", "最终数据应该包含中文描述");
 
                 Output.WriteLine($"往返转换测试通过");
                 Output.WriteLine($"Excel→XML: {excelToXmlResult.Message}");

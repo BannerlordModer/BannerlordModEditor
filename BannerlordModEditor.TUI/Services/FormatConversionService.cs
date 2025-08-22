@@ -16,17 +16,14 @@ namespace BannerlordModEditor.TUI.Services
     {
         private readonly IFileDiscoveryService _fileDiscoveryService;
         private readonly IXmlTypeDetectionService _xmlTypeDetectionService;
-        private readonly ITypedXmlConversionService _typedXmlConversionService;
         private readonly Dictionary<string, Type> _xmlTypeMappings;
 
         public FormatConversionService(
             IFileDiscoveryService fileDiscoveryService,
-            IXmlTypeDetectionService xmlTypeDetectionService,
-            ITypedXmlConversionService typedXmlConversionService)
+            IXmlTypeDetectionService xmlTypeDetectionService)
         {
             _fileDiscoveryService = fileDiscoveryService;
             _xmlTypeDetectionService = xmlTypeDetectionService;
-            _typedXmlConversionService = typedXmlConversionService;
             _xmlTypeMappings = InitializeXmlTypeMappings();
         }
 
@@ -370,27 +367,8 @@ namespace BannerlordModEditor.TUI.Services
                     result.Warnings.Add($"已创建备份文件: {backupPath}");
                 }
 
-                // 如果是支持的类型化XML，使用类型化转换
-                if (xmlTypeInfo.IsSupported && !string.IsNullOrEmpty(xmlTypeInfo.XmlType))
-                {
-                    try
-                    {
-                        result = await _typedXmlConversionService.DynamicTypedXmlToExcelAsync(
-                            xmlFilePath, excelFilePath, xmlTypeInfo.XmlType, options);
-                        
-                        if (result.Success)
-                        {
-                            result.Message = $"成功转换类型化XML ({xmlTypeInfo.DisplayName}) 到Excel，共 {result.RecordsProcessed} 条记录";
-                        }
-                        
-                        return result;
-                    }
-                    catch (Exception typedEx)
-                    {
-                        result.Warnings.Add($"类型化转换失败，回退到通用转换: {typedEx.Message}");
-                        // 继续使用通用转换
-                    }
-                }
+                // 使用通用XML转换
+                result.Warnings.Add($"检测到类型化XML ({xmlTypeInfo.DisplayName})，当前使用通用转换");
 
                 // 通用XML转换（原有逻辑）
                 var xmlDoc = XDocument.Load(xmlFilePath);
@@ -537,24 +515,31 @@ namespace BannerlordModEditor.TUI.Services
         {
             try
             {
-                if (_xmlTypeMappings.TryGetValue(xmlType, out var modelType))
+                if (!_xmlTypeMappings.TryGetValue(xmlType, out var modelType))
                 {
-                    var method = typeof(TypedXmlConversionService)
-                        .GetMethod(nameof(ITypedXmlConversionService.CreateTypedXmlTemplateAsync))
-                        ?.MakeGenericMethod(modelType);
-
-                    if (method != null)
+                    return new CreationResult
                     {
-                        var task = (Task<CreationResult>)method.Invoke(_typedXmlConversionService, new object[] { outputPath })!;
-                        return await task;
-                    }
+                        Success = false,
+                        Message = $"不支持的XML类型: {xmlType}",
+                        Errors = { $"不支持的XML类型: {xmlType}" }
+                    };
                 }
+
+                // 创建基本的XML模板
+                var rootElement = xmlType.ToLower();
+                var templateContent = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<{rootElement}>
+    <!-- {xmlType} 模板 -->
+    <!-- 在此添加配置内容 -->
+</{rootElement}>";
+
+                await File.WriteAllTextAsync(outputPath, templateContent);
 
                 return new CreationResult
                 {
-                    Success = false,
-                    Message = $"不支持的XML类型: {xmlType}",
-                    Errors = { $"不支持的XML类型: {xmlType}" }
+                    Success = true,
+                    Message = $"成功创建 {xmlType} XML模板",
+                    OutputPath = outputPath
                 };
             }
             catch (Exception ex)

@@ -99,7 +99,7 @@ namespace BannerlordModEditor.TUI.Services
 
         public TypedXmlConversionService(
             IFileDiscoveryService fileDiscoveryService,
-            IFormatConversionService formatConversionService)
+            IFormatConversionService? formatConversionService = null)
         {
             _fileDiscoveryService = fileDiscoveryService;
             _formatConversionService = formatConversionService;

@@ -20,14 +20,11 @@ namespace BannerlordModEditor.TUI
             var fileDiscoveryService = new FileDiscoveryService();
             var xmlTypeDetectionService = new XmlTypeDetectionService(fileDiscoveryService);
             
-            // 创建基础转换服务
-            var baseConversionService = new FormatConversionService(fileDiscoveryService, null, null);
+            // 创建转换服务
+            var conversionService = new FormatConversionService(fileDiscoveryService, xmlTypeDetectionService);
             
-            // 创建类型化转换服务
-            var typedXmlConversionService = new TypedXmlConversionService(fileDiscoveryService, baseConversionService);
-            
-            // 创建完整的转换服务
-            var conversionService = new FormatConversionService(fileDiscoveryService, xmlTypeDetectionService, typedXmlConversionService);
+            // 创建类型化转换服务（可选功能）
+            var typedXmlConversionService = new TypedXmlConversionService(fileDiscoveryService, conversionService);
 
             // 创建主窗口
             var mainViewModel = new MainViewModel(conversionService);

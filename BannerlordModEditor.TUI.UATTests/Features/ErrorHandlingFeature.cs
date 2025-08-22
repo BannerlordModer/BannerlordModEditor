@@ -88,7 +88,8 @@ namespace BannerlordModEditor.TUI.UATTests.Features
             try
             {
                 // Given 我尝试转换一个格式不支持的文件
-                invalidFile = CreateTestExcelFile("invalid_format.txt", "这不是一个有效的Excel或XML文件");
+                invalidFile = Path.Combine(TestTempDir, "invalid_format.txt");
+                File.WriteAllText(invalidFile, "这不是一个有效的Excel或XML文件");
                 outputPath = Path.Combine(TestTempDir, "output.xml");
 
                 // When 我尝试进行转换
@@ -132,7 +133,8 @@ namespace BannerlordModEditor.TUI.UATTests.Features
             {
                 // Given 我尝试在没有写入权限的目录创建文件
                 sourceFile = CreateTestExcelFile("test.xlsx", "Name,Value\nTest,100");
-                invalidOutputPath = "/root/protected_output.xml"; // 通常没有写入权限
+                // 使用一个不存在的目录来模拟权限问题
+                invalidOutputPath = "/nonexistent/directory/protected_output.xml";
 
                 // When 我尝试进行转换
                 var result = await ConversionService.ExcelToXmlAsync(sourceFile, invalidOutputPath);
@@ -318,7 +320,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
             try
             {
                 // Given 我使用空的文件路径
-                emptyFile = CreateTestExcelFile("empty.xlsx", ""); // 创建空文件
+                emptyFile = CreateTestExcelFile("empty.xlsx"); // 创建默认的空Excel文件
                 outputPath = Path.Combine(TestTempDir, "output.xml");
 
                 // When 我尝试转换空文件

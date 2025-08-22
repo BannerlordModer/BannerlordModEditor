@@ -18,7 +18,10 @@ namespace BannerlordModEditor.TUI.Tests
 
         public FormatConversionServiceTests()
         {
-            _conversionService = new FormatConversionService(new FileDiscoveryService());
+            var fileDiscoveryService = new FileDiscoveryService();
+            var xmlTypeDetectionService = new BannerlordModEditor.TUI.Models.XmlTypeDetectionService(fileDiscoveryService);
+            
+            _conversionService = new FormatConversionService(fileDiscoveryService, xmlTypeDetectionService);
             _testDataDir = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "BannerlordModEditor.Common.Tests", "TestData");
             _tempDir = Path.Combine(Path.GetTempPath(), "BannerlordModEditor_TUI_Tests");
             

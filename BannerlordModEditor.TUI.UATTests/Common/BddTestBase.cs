@@ -35,7 +35,8 @@ namespace BannerlordModEditor.TUI.UATTests.Common
             
             // 创建实际的转换服务（使用真实文件系统进行UAT）
             var fileDiscoveryService = new BannerlordModEditor.Common.Services.FileDiscoveryService();
-            ConversionService = new FormatConversionService(fileDiscoveryService);
+            var xmlTypeDetectionService = new BannerlordModEditor.TUI.Models.XmlTypeDetectionService(fileDiscoveryService);
+            ConversionService = new FormatConversionService(fileDiscoveryService, xmlTypeDetectionService);
             
             // 确保测试目录存在
             Directory.CreateDirectory(TestTempDir);
@@ -51,16 +52,69 @@ namespace BannerlordModEditor.TUI.UATTests.Common
         {
             var filePath = Path.Combine(TestTempDir, fileName);
             
-            // 创建简单的Excel内容
+            // 创建真正的Excel文件
+            using var workbook = new ClosedXML.Excel.XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Data");
+            
             if (string.IsNullOrEmpty(content))
             {
-                content = @"Name,Value,Description
-Test1,100,测试数据1
-Test2,200,测试数据2
-Test3,300,测试数据3";
+                // 默认测试数据
+                var data = new List<object[]>
+                {
+                    new object[] { "Name", "Value", "Description" },
+                    new object[] { "Test1", 100, "测试数据1" },
+                    new object[] { "Test2", 200, "测试数据2" },
+                    new object[] { "Test3", 300, "测试数据3" }
+                };
+                
+                for (int i = 0; i < data.Count; i++)
+                {
+                    for (int j = 0; j < data[i].Length; j++)
+                    {
+                        var value = data[i][j];
+                        if (value is string strValue)
+                        {
+                            worksheet.Cell(i + 1, j + 1).Value = strValue;
+                        }
+                        else if (value is int intValue)
+                        {
+                            worksheet.Cell(i + 1, j + 1).Value = intValue;
+                        }
+                        else if (value is decimal decimalValue)
+                        {
+                            worksheet.Cell(i + 1, j + 1).Value = decimalValue;
+                        }
+                        else
+                        {
+                            worksheet.Cell(i + 1, j + 1).Value = value?.ToString() ?? "";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // 解析CSV内容并创建Excel文件
+                var lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    var columns = lines[i].Split(',');
+                    for (int j = 0; j < columns.Length; j++)
+                    {
+                        var cellValue = columns[j].Trim();
+                        // 尝试解析为数字
+                        if (decimal.TryParse(cellValue, out var numericValue))
+                        {
+                            worksheet.Cell(i + 1, j + 1).Value = (ClosedXML.Excel.XLCellValue)numericValue;
+                        }
+                        else
+                        {
+                            worksheet.Cell(i + 1, j + 1).Value = (ClosedXML.Excel.XLCellValue)cellValue;
+                        }
+                    }
+                }
             }
             
-            File.WriteAllText(filePath, content);
+            workbook.SaveAs(filePath);
             Output.WriteLine($"创建测试Excel文件: {filePath}");
             return filePath;
         }
