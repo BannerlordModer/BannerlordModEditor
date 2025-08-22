@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\XmlAdaptationChecker\XmlAdaptationChecker.csproj" />
-    <ProjectReference Include="..\..\..\BannerlordModEditor.Common\BannerlordModEditor.Common.csproj" />
+    <ProjectReference Include="..\..\BannerlordModEditor.Common\BannerlordModEditor.Common.csproj" />
   </ItemGroup>
 
 </Project>

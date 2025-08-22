@@ -208,7 +208,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Performance
             var outputService = _serviceProvider.GetRequiredService<IOutputFormatService>();
             var taskCount = 10;
 
-            var tasks = new List<Task<XmlAdaptationChecker.AdaptationCheckResult>>();
+            var tasks = new List<Task<XmlChecker.AdaptationCheckResult>>();
 
             // Act
             var stopwatch = Stopwatch.StartNew();
@@ -479,7 +479,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Performance
             return string.Join("\n", lines);
         }
 
-        private XmlAdaptationChecker.AdaptationCheckResult CreateLargeTestResult(int fileCount)
+        private XmlChecker.AdaptationCheckResult CreateLargeTestResult(int fileCount)
         {
             var result = new XmlChecker.AdaptationCheckResult
             {

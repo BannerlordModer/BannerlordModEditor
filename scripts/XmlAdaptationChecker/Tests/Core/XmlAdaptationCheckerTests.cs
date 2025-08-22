@@ -14,15 +14,15 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
     public class XmlAdaptationCheckerTests
     {
         private readonly Mock<IFileDiscoveryService> _mockFileDiscoveryService;
-        private readonly Mock<ILogger<Core.XmlAdaptationChecker>> _mockLogger;
+        private readonly Mock<ILogger<BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker>> _mockLogger;
         private readonly Mock<IConfigurationValidator> _mockConfigurationValidator;
         private readonly AdaptationCheckerConfiguration _validConfiguration;
-        private readonly Core.XmlAdaptationChecker _checker;
+        private readonly BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker _checker;
 
         public XmlAdaptationCheckerTests()
         {
             _mockFileDiscoveryService = new Mock<IFileDiscoveryService>();
-            _mockLogger = new Mock<ILogger<Core.XmlAdaptationChecker>>();
+            _mockLogger = new Mock<ILogger<BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker>>();
             _mockConfigurationValidator = new Mock<IConfigurationValidator>();
 
             _validConfiguration = new AdaptationCheckerConfiguration
@@ -38,7 +38,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
             _mockConfigurationValidator.Setup(v => v.Validate(_validConfiguration))
                 .Returns(new ValidationResult { IsValid = true });
 
-            _checker = new Core.XmlAdaptationChecker(
+            _checker = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker(
                 _mockFileDiscoveryService.Object,
                 _validConfiguration,
                 _mockLogger.Object,
@@ -77,7 +77,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
             _mockConfigurationValidator.Setup(v => v.Validate(invalidConfig))
                 .Returns(new ValidationResult { IsValid = false, Errors = validationErrors });
 
-            var invalidChecker = new Core.XmlAdaptationChecker(
+            var invalidChecker = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker(
                 _mockFileDiscoveryService.Object,
                 invalidConfig,
                 _mockLogger.Object,
@@ -127,7 +127,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
             _mockConfigurationValidator.Setup(v => v.Validate(config))
                 .Returns(new ValidationResult { IsValid = true });
 
-            var parallelChecker = new Core.XmlAdaptationChecker(
+            var parallelChecker = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker(
                 _mockFileDiscoveryService.Object,
                 config,
                 _mockLogger.Object,
@@ -160,7 +160,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
             _mockConfigurationValidator.Setup(v => v.Validate(config))
                 .Returns(new ValidationResult { IsValid = true });
 
-            var sequentialChecker = new Core.XmlAdaptationChecker(
+            var sequentialChecker = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker(
                 _mockFileDiscoveryService.Object,
                 config,
                 _mockLogger.Object,
@@ -192,7 +192,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
             _mockConfigurationValidator.Setup(v => v.Validate(config))
                 .Returns(new ValidationResult { IsValid = true });
 
-            var excludeChecker = new Core.XmlAdaptationChecker(
+            var excludeChecker = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker(
                 _mockFileDiscoveryService.Object,
                 config,
                 _mockLogger.Object,
@@ -246,7 +246,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
             _mockConfigurationValidator.Setup(v => v.Validate(invalidConfig))
                 .Returns(new ValidationResult { IsValid = false, Errors = validationErrors });
 
-            var invalidChecker = new Core.XmlAdaptationChecker(
+            var invalidChecker = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker(
                 _mockFileDiscoveryService.Object,
                 invalidConfig,
                 _mockLogger.Object,
@@ -266,7 +266,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
         public void AdaptationCheckResult_ShouldCalculateAdaptationRateCorrectly()
         {
             // Arrange
-            var result = new Core.XmlAdaptationChecker.AdaptationCheckResult
+            var result = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker.AdaptationCheckResult
             {
                 TotalFiles = 10,
                 AdaptedFiles = 7
@@ -280,7 +280,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
         public void AdaptationCheckResult_WithZeroTotalFiles_ShouldReturnZeroAdaptationRate()
         {
             // Arrange
-            var result = new Core.XmlAdaptationChecker.AdaptationCheckResult
+            var result = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker.AdaptationCheckResult
             {
                 TotalFiles = 0,
                 AdaptedFiles = 0
@@ -294,7 +294,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
         public void AdaptedFileInfo_ShouldInitializeWithDefaultValues()
         {
             // Arrange & Act
-            var info = new Core.XmlAdaptationChecker.AdaptedFileInfo();
+            var info = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker.AdaptedFileInfo();
 
             // Assert
             info.FileName.Should().Be(string.Empty);
@@ -307,7 +307,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Core
         public void UnadaptedFileInfo_ShouldInitializeWithDefaultValues()
         {
             // Arrange & Act
-            var info = new Core.XmlAdaptationChecker.UnadaptedFileInfo();
+            var info = new BannerlordModEditor.XmlAdaptationChecker.Core.XmlAdaptationChecker.UnadaptedFileInfo();
 
             // Assert
             info.FileName.Should().Be(string.Empty);

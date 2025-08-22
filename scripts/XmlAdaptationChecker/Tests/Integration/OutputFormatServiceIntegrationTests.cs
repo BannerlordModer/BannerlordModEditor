@@ -371,7 +371,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Integration
             };
         }
 
-        private XmlAdaptationChecker.AdaptationCheckResult CreateLargeTestResult()
+        private XmlChecker.AdaptationCheckResult CreateLargeTestResult()
         {
             var result = new XmlChecker.AdaptationCheckResult
             {
@@ -411,7 +411,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Integration
             return result;
         }
 
-        private XmlAdaptationChecker.AdaptationCheckResult CreateMixedComplexityResult()
+        private XmlChecker.AdaptationCheckResult CreateMixedComplexityResult()
         {
             var result = new XmlChecker.AdaptationCheckResult
             {
@@ -450,7 +450,7 @@ namespace BannerlordModEditor.XmlAdaptationChecker.Tests.Integration
             return result;
         }
 
-        private XmlAdaptationChecker.AdaptationCheckResult CreateDifferentFileSizeResult()
+        private XmlChecker.AdaptationCheckResult CreateDifferentFileSizeResult()
         {
             return new XmlChecker.AdaptationCheckResult
             {
