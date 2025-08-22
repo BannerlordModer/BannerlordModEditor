@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/xunit.runner.schema.json",
+  "diagnosticMessages": true,
+  "maxParallelThreads": 0,
+  "parallelizeTestCollections": false,
+  "methodDisplay": "classAndMethod",
+  "preEnumerateTheories": true,
+  "shadowCopy": true,
+  "longRunningTestSeconds": 30,
+  "stopOnFail": false,
+  "appDomain": "required",
+  "workingDirectory": null,
+  "xmlDiagnosticMessages": true,
+  "failBuildWarnings": [
+    "UnexpectedTestMethod",
+    "MissingTestFile"
+  ],
+  "failBuildSkips": false,
+  "failBuildNotRun": false
+}
