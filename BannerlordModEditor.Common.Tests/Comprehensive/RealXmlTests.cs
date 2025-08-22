@@ -123,7 +123,11 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 ["hard_coded_sounds"] = new GenericXmlLoader<HardCodedSoundsRootDO>(),
                 
                 // 语音和动画系统
-                ["voices"] = new GenericXmlLoader<VoicesBaseDO>()
+                ["voices"] = new GenericXmlLoader<VoicesBaseDO>(),
+                
+                // 多人游戏系统
+                ["mpbadges"] = new GenericXmlLoader<MPBadgesDO>(),
+                ["multiplayer_scenes"] = new GenericXmlLoader<MultiplayerScenesDO>()
             };
         }
 
@@ -168,6 +172,8 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
         [InlineData("full_movement_sets")]
         [InlineData("hard_coded_sounds")]
         [InlineData("voices")]
+        [InlineData("mpbadges")]
+        [InlineData("multiplayer_scenes")]
         public async Task RealXmlType_ShouldProcessCorrectly(string xmlType)
         {
             // 测试真实存在的XML类型的处理
