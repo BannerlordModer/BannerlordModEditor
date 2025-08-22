@@ -31,7 +31,7 @@ namespace BannerlordModEditor.Common.Models.DO
         [XmlArrayItem("function")]
         public List<LanguageFunctionDO> Functions { get; set; }
 
-        // 强制内容属性，确保标签不会自闭合
+      // 强制内容属性，确保标签不会自闭合
         [XmlIgnore]
         public string ForceContent { get; set; } = string.Empty;
         
@@ -56,7 +56,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool HasStrings => Strings != null && Strings.Count > 0;
         [XmlIgnore]
         public bool HasFunctions => Functions != null && Functions.Count > 0;
-        
+      
         // 空元素标记
         [XmlIgnore]
         public bool HasEmptyTags { get; set; } = false;
