@@ -25,6 +25,12 @@ public class EditorIntegrationTests
         // 设置依赖注入
         var services = new ServiceCollection();
         
+        // 注册Mock服务
+        var mockLogService = new Mock<ILogService>();
+        var mockErrorHandlerService = new Mock<IErrorHandlerService>();
+        services.AddSingleton(mockLogService.Object);
+        services.AddSingleton(mockErrorHandlerService.Object);
+        
         // 注册服务
         services.AddSingleton<IValidationService, ValidationService>();
         services.AddSingleton<IDataBindingService, DataBindingService>();
@@ -163,7 +169,7 @@ public class EditorIntegrationTests
     public void EditorIntegration_Should_Work_With_Dependency_Injection()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel(_editorFactory);
+        var editorManager = new EditorManagerViewModel(_editorFactory, _serviceProvider.GetRequiredService<ILogService>(), _serviceProvider.GetRequiredService<IErrorHandlerService>());
 
         // Act
         var attributeEditor = editorManager.Categories
