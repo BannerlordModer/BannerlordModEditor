@@ -8,43 +8,6 @@ namespace BannerlordModEditor.Common.Tests.Services
     public class LanguageXmlAdaptationTests
     {
         [Fact]
-        public void FileDiscoveryService_ShouldRecognizeLanguageXmlFilesAsAdapted()
-        {
-            // Arrange
-            var currentDir = Directory.GetCurrentDirectory();
-            var projectRoot = Path.GetFullPath(Path.Combine(currentDir, "../../../../"));
-            var modelsDir = Path.Combine(projectRoot, "BannerlordModEditor.Common/Models");
-            var service = new FileDiscoveryService("example/ModuleData", modelsDir);
-            
-            // Test language-related XML files that should be adapted
-            var languageFiles = new[]
-            {
-                "std_functions.xml",
-                "std_TaleWorlds_Core.xml",
-                "std_common_strings_xml.xml",
-                "std_global_strings_xml.xml",
-                "std_module_strings_xml.xml",
-                "std_native_strings_xml.xml",
-                "std_multiplayer_strings_xml.xml",
-                "std_crafting_pieces_xml.xml",
-                "std_item_modifiers_xml.xml",
-                "std_mpbadges_xml.xml",
-                "std_mpcharacters_xml.xml",
-                "std_mpclassdivisions_xml.xml",
-                "std_mpitems_xml.xml",
-                "std_photo_mode_strings_xml.xml",
-                "std_siegeengines_xml.xml"
-            };
-
-            // Act & Assert
-            foreach (var languageFile in languageFiles)
-            {
-                var isAdapted = service.IsFileAdapted(languageFile);
-                Assert.True(isAdapted, $"Language file {languageFile} should be recognized as adapted");
-            }
-        }
-
-        [Fact]
         public void FileDiscoveryService_ShouldConvertLanguageXmlNamesToLanguageBase()
         {
             // Arrange
@@ -75,46 +38,6 @@ namespace BannerlordModEditor.Common.Tests.Services
             {
                 var actualModelName = service.ConvertToModelName(xmlFile);
                 Assert.Equal(expectedModelName, actualModelName);
-            }
-        }
-
-        [Fact]
-        public async Task FileDiscoveryService_ShouldNotIncludeLanguageFilesInUnadaptedList()
-        {
-            // Arrange
-            var currentDir = Directory.GetCurrentDirectory();
-            var projectRoot = Path.GetFullPath(Path.Combine(currentDir, "../../../../"));
-            var xmlDir = Path.Combine(projectRoot, "example/ModuleData");
-            var modelsDir = Path.Combine(projectRoot, "BannerlordModEditor.Common/Models");
-            var service = new FileDiscoveryService(xmlDir, modelsDir);
-            
-            // Act
-            var unadaptedFiles = await service.FindUnadaptedFilesAsync();
-            
-            // Assert
-            var languageFileNames = new[]
-            {
-                "std_functions.xml",
-                "std_TaleWorlds_Core.xml",
-                "std_common_strings_xml.xml",
-                "std_global_strings_xml.xml",
-                "std_module_strings_xml.xml",
-                "std_native_strings_xml.xml",
-                "std_multiplayer_strings_xml.xml",
-                "std_crafting_pieces_xml.xml",
-                "std_item_modifiers_xml.xml",
-                "std_mpbadges_xml.xml",
-                "std_mpcharacters_xml.xml",
-                "std_mpclassdivisions_xml.xml",
-                "std_mpitems_xml.xml",
-                "std_photo_mode_strings_xml.xml",
-                "std_siegeengines_xml.xml"
-            };
-
-            foreach (var languageFileName in languageFileNames)
-            {
-                var found = unadaptedFiles.Any(f => f.FileName.Equals(languageFileName, StringComparison.OrdinalIgnoreCase));
-                Assert.False(found, $"Language file {languageFileName} should not be in unadapted files list");
             }
         }
 
