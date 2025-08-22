@@ -199,7 +199,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(complexXml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, complexXml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert

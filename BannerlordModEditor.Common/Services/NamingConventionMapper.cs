@@ -49,11 +49,11 @@ namespace BannerlordModEditor.Common.Services
             
             // 语言相关XML文件映射到LanguageBaseDO
             { "std_functions", "LanguageBase" },
-            { "std_TaleWorlds_Core", "LanguageBase" },
-            { "std_TaleWorlds_MountAndBlade", "LanguageBase" },
-            { "std_TaleWorlds_MountAndBlade_View", "LanguageBase" },
-            { "std_TaleWorlds_MountAndBlade_ViewModelCollection", "LanguageBase" },
-            { "std_TaleWorlds_MountAndBlade_GauntletUI", "LanguageBase" },
+            { "std_taleworlds_core", "LanguageBase" },
+            { "std_taleworlds_mountandblade", "LanguageBase" },
+            { "std_taleworlds_mountandblade_view", "LanguageBase" },
+            { "std_taleworlds_mountandblade_viewmodelcollection", "LanguageBase" },
+            { "std_taleworlds_mountandblade_gauntletui", "LanguageBase" },
             { "std_common_strings_xml", "LanguageBase" },
             { "std_global_strings_xml", "LanguageBase" },
             { "std_module_strings_xml", "LanguageBase" },

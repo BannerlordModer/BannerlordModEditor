@@ -124,7 +124,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
@@ -150,7 +150,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
@@ -181,7 +181,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
@@ -202,7 +202,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
@@ -221,7 +221,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
@@ -245,7 +245,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
@@ -269,7 +269,7 @@ namespace BannerlordModEditor.Common.Tests.Models.DO
 
             // Act - Round Trip Test
             var deserialized = XmlTestUtils.Deserialize<LanguageBaseDO>(xml);
-            var serialized = XmlTestUtils.Serialize(deserialized);
+            var serialized = XmlTestUtils.Serialize(deserialized, xml);
             var roundTripResult = XmlTestUtils.Deserialize<LanguageBaseDO>(serialized);
 
             // Assert
