@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.DTO
 {
+    [XmlRoot("action_types")]
     public class ActionTypesDTO
     {
+        [XmlElement("action")]
         public List<ActionTypeDTO> Actions { get; set; } = new List<ActionTypeDTO>();
 
         // ShouldSerialize方法（对应DO层）
@@ -16,9 +19,16 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class ActionTypeDTO
     {
+        [XmlAttribute("name")]
         public string? Name { get; set; }
+
+        [XmlAttribute("type")]
         public string? Type { get; set; }
+
+        [XmlAttribute("usage_direction")]
         public string? UsageDirection { get; set; }
+
+        [XmlAttribute("action_stage")]
         public string? ActionStage { get; set; }
 
         // ShouldSerialize方法

@@ -36,7 +36,7 @@ public sealed class Program
     {
         // 注册服务
         services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
-        services.AddTransient<IExcelXmlConverterService, ExcelXmlConverterService>();
+        services.AddTransient<IExcelXmlConverterService, EnhancedExcelXmlConverterService>();
         services.AddTransient<ErrorMessageService>();
         
         // 注册命令

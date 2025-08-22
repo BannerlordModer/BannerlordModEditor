@@ -45,7 +45,13 @@ namespace BannerlordModEditor.Common.Services
             { "looknfeel", "LookAndFeel" },
             { "flora_layer_sets", "FloraLayerSets" },
             { "prebaked_animations", "PrebakedAnimations" },
-            { "prerender", "Prerender" }
+            { "prerender", "Prerender" },
+            
+            // 数组类型的XML根元素
+            { "arrayofattributedata", "Attributes" },
+            
+            // 特殊的base元素映射
+            { "base", "Base" }
         };
 
         /// <summary>
