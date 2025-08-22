@@ -132,6 +132,7 @@ jobs:
       env:
         BUILD_NUMBER: ${{github.run_number}}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       shell: pwsh
       run: |
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
@@ -185,7 +186,6 @@ jobs:
           Write-Host "Release uploaded successfully"
           
           # 添加 release notes
-          gh release edit $tagName --notes-file releasenotes.md
           try {
             gh release edit $tagName --notes-file releasenotes.md --repo $env:GITHUB_REPOSITORY
             Write-Host "Release notes updated successfully"
