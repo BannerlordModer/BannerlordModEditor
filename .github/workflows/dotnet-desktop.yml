@@ -183,6 +183,10 @@ jobs:
         try {
           vpk upload github -o Releases --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag $tagName --token $env:GITHUB_TOKEN
           Write-Host "Release uploaded successfully"
+          
+          # 添加 release notes
+          gh release edit $tagName --notes-file releasenotes.md
+          Write-Host "Release notes updated successfully"
         } catch {
           Write-Host "Release upload failed with error: $_"
           exit 1
