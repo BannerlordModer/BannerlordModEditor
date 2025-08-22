@@ -56,7 +56,7 @@ namespace BannerlordModEditor.Common.Models.DO
         public bool HasStrings => Strings != null && Strings.Count > 0;
         [XmlIgnore]
         public bool HasFunctions => Functions != null && Functions.Count > 0;
-      
+  
         // 空元素标记
         [XmlIgnore]
         public bool HasEmptyTags { get; set; } = false;

@@ -11,7 +11,10 @@ namespace BannerlordModEditor.Common.Tests.Services
         public void FileDiscoveryService_ShouldRecognizeLanguageXmlFilesAsAdapted()
         {
             // Arrange
-            var service = new FileDiscoveryService();
+            var currentDir = Directory.GetCurrentDirectory();
+            var projectRoot = Path.GetFullPath(Path.Combine(currentDir, "../../../../"));
+            var modelsDir = Path.Combine(projectRoot, "BannerlordModEditor.Common/Models");
+            var service = new FileDiscoveryService("example/ModuleData", modelsDir);
             
             // Test language-related XML files that should be adapted
             var languageFiles = new[]
@@ -79,7 +82,11 @@ namespace BannerlordModEditor.Common.Tests.Services
         public async Task FileDiscoveryService_ShouldNotIncludeLanguageFilesInUnadaptedList()
         {
             // Arrange
-            var service = new FileDiscoveryService("example/ModuleData");
+            var currentDir = Directory.GetCurrentDirectory();
+            var projectRoot = Path.GetFullPath(Path.Combine(currentDir, "../../../../"));
+            var xmlDir = Path.Combine(projectRoot, "example/ModuleData");
+            var modelsDir = Path.Combine(projectRoot, "BannerlordModEditor.Common/Models");
+            var service = new FileDiscoveryService(xmlDir, modelsDir);
             
             // Act
             var unadaptedFiles = await service.FindUnadaptedFilesAsync();
