@@ -29,7 +29,7 @@ namespace BannerlordModEditor.TUI.Views
         {
             _viewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             
-            Title = "骑马与砍杀2模组编辑器 - Excel/XML转换工具";
+            Title = "骑马与砍杀2模组编辑器 - Excel/XML转换工具 [F1:方向 F2:浏览 F3:分析 F4:目标 F5:转换 F6:XML信息 F7:选项 F8:清除 F9:退出]";
             X = 0;
             Y = 0;
             Width = Dim.Fill();
@@ -265,6 +265,9 @@ namespace BannerlordModEditor.TUI.Views
                     case nameof(MainViewModel.SourceFileInfo):
                         UpdateFileInfoDisplay();
                         break;
+                    case nameof(MainViewModel.XmlTypeInfo):
+                        UpdateFileInfoDisplay();
+                        break;
                     case nameof(MainViewModel.IsBusy):
                         UpdateControlStates();
                         break;
@@ -321,14 +324,18 @@ namespace BannerlordModEditor.TUI.Views
                         e.Handled = true;
                         break;
                     case Key.F6:
-                        _viewModel.ShowOptionsCommand.Execute();
+                        _viewModel.ShowXmlTypeInfoCommand.Execute();
                         e.Handled = true;
                         break;
                     case Key.F7:
-                        _viewModel.ClearCommand.Execute();
+                        _viewModel.ShowOptionsCommand.Execute();
                         e.Handled = true;
                         break;
                     case Key.F8:
+                        _viewModel.ClearCommand.Execute();
+                        e.Handled = true;
+                        break;
+                    case Key.F9:
                     case Key.Esc:
                         _viewModel.ExitCommand.Execute();
                         e.Handled = true;
@@ -341,21 +348,25 @@ namespace BannerlordModEditor.TUI.Views
             {
                 _viewModel.ConvertCommand.NotifyCanExecuteChanged();
                 _viewModel.AnalyzeSourceFileCommand.NotifyCanExecuteChanged();
+                _viewModel.ShowXmlTypeInfoCommand.NotifyCanExecuteChanged();
                 return true;
             });
         }
 
         private void UpdateFileInfoDisplay()
         {
+            var infoLines = new List<string>();
+
+            // 显示基础文件信息
             if (_viewModel.SourceFileInfo != null)
             {
                 var fileInfo = _viewModel.SourceFileInfo;
-                var infoLines = new List<string>
+                infoLines.AddRange(new[]
                 {
                     $"格式类型: {fileInfo.FormatType}",
                     $"是否支持: {fileInfo.IsSupported}",
                     $"描述: {fileInfo.FormatDescription}"
-                };
+                });
 
                 if (fileInfo.ColumnNames.Count > 0)
                 {
@@ -371,11 +382,50 @@ namespace BannerlordModEditor.TUI.Views
                         infoLines.Add("列名: " + string.Join(", ", fileInfo.ColumnNames.Take(10)) + "...");
                     }
                 }
+            }
 
+            // 显示XML类型信息
+            if (_viewModel.XmlTypeInfo != null)
+            {
+                var xmlTypeInfo = _viewModel.XmlTypeInfo;
+                infoLines.AddRange(new[]
+                {
+                    "",
+                    "=== XML类型信息 ===",
+                    $"XML类型: {xmlTypeInfo.XmlType}",
+                    $"显示名称: {xmlTypeInfo.DisplayName}",
+                    $"是否已适配: {xmlTypeInfo.IsAdapted}",
+                    $"是否支持: {xmlTypeInfo.IsSupported}",
+                    $"命名空间: {xmlTypeInfo.Namespace}"
+                });
+
+                if (xmlTypeInfo.EstimatedRecordCount.HasValue)
+                {
+                    infoLines.Add($"预计记录数: {xmlTypeInfo.EstimatedRecordCount}");
+                }
+
+                if (xmlTypeInfo.FileSize > 0)
+                {
+                    infoLines.Add($"文件大小: {xmlTypeInfo.FileSize} 字节");
+                }
+
+                if (xmlTypeInfo.SupportedOperations.Count > 0)
+                {
+                    infoLines.Add($"支持的操作: {string.Join(", ", xmlTypeInfo.SupportedOperations)}");
+                }
+
+                AddMessage($"检测到XML类型: {xmlTypeInfo.DisplayName}");
+            }
+
+            if (infoLines.Count > 0)
+            {
                 _fileInfoListView.SetSource(infoLines);
                 _fileInfoListView.Visible = true;
                 
-                AddMessage($"文件分析完成: {fileInfo.FormatDescription}");
+                if (_viewModel.SourceFileInfo != null)
+                {
+                    AddMessage($"文件分析完成: {_viewModel.SourceFileInfo.FormatDescription}");
+                }
             }
             else
             {

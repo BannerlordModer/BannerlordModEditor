@@ -3,6 +3,7 @@ using Terminal.Gui;
 using BannerlordModEditor.TUI.ViewModels;
 using BannerlordModEditor.TUI.Views;
 using BannerlordModEditor.TUI.Services;
+using BannerlordModEditor.TUI.Models;
 using BannerlordModEditor.Common.Services;
 
 namespace BannerlordModEditor.TUI
@@ -17,7 +18,16 @@ namespace BannerlordModEditor.TUI
 
             // 初始化服务
             var fileDiscoveryService = new FileDiscoveryService();
-            var conversionService = new FormatConversionService(fileDiscoveryService);
+            var xmlTypeDetectionService = new XmlTypeDetectionService(fileDiscoveryService);
+            
+            // 创建基础转换服务
+            var baseConversionService = new FormatConversionService(fileDiscoveryService, null, null);
+            
+            // 创建类型化转换服务
+            var typedXmlConversionService = new TypedXmlConversionService(fileDiscoveryService, baseConversionService);
+            
+            // 创建完整的转换服务
+            var conversionService = new FormatConversionService(fileDiscoveryService, xmlTypeDetectionService, typedXmlConversionService);
 
             // 创建主窗口
             var mainViewModel = new MainViewModel(conversionService);

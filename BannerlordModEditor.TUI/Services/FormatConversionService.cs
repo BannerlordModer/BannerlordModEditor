@@ -8,16 +8,45 @@ using System.Xml.Linq;
 using ClosedXML.Excel;
 using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Services;
+using BannerlordModEditor.TUI.Models;
 
 namespace BannerlordModEditor.TUI.Services
 {
     public class FormatConversionService : IFormatConversionService
     {
         private readonly IFileDiscoveryService _fileDiscoveryService;
+        private readonly IXmlTypeDetectionService _xmlTypeDetectionService;
+        private readonly ITypedXmlConversionService _typedXmlConversionService;
+        private readonly Dictionary<string, Type> _xmlTypeMappings;
 
-        public FormatConversionService(IFileDiscoveryService fileDiscoveryService)
+        public FormatConversionService(
+            IFileDiscoveryService fileDiscoveryService,
+            IXmlTypeDetectionService xmlTypeDetectionService,
+            ITypedXmlConversionService typedXmlConversionService)
         {
             _fileDiscoveryService = fileDiscoveryService;
+            _xmlTypeDetectionService = xmlTypeDetectionService;
+            _typedXmlConversionService = typedXmlConversionService;
+            _xmlTypeMappings = InitializeXmlTypeMappings();
+        }
+
+        private Dictionary<string, Type> InitializeXmlTypeMappings()
+        {
+            var mappings = new Dictionary<string, Type>();
+
+            // 获取所有Common层的DO类型
+            var doTypes = typeof(ActionTypesDO).Assembly
+                .GetTypes()
+                .Where(t => t.Name.EndsWith("DO") && !t.IsInterface && !t.IsAbstract)
+                .ToList();
+
+            foreach (var type in doTypes)
+            {
+                var xmlTypeName = type.Name.Replace("DO", "");
+                mappings[xmlTypeName] = type;
+            }
+
+            return mappings;
         }
 
         public async Task<ConversionResult> ExcelToXmlAsync(string excelFilePath, string xmlFilePath, ConversionOptions? options = null)
@@ -330,6 +359,9 @@ namespace BannerlordModEditor.TUI.Services
                     return result;
                 }
 
+                // 检测XML类型
+                var xmlTypeInfo = await _xmlTypeDetectionService.DetectXmlTypeAsync(xmlFilePath);
+                
                 // 创建备份
                 if (options.CreateBackup && File.Exists(excelFilePath))
                 {
@@ -338,7 +370,29 @@ namespace BannerlordModEditor.TUI.Services
                     result.Warnings.Add($"已创建备份文件: {backupPath}");
                 }
 
-                // 读取XML文件
+                // 如果是支持的类型化XML，使用类型化转换
+                if (xmlTypeInfo.IsSupported && !string.IsNullOrEmpty(xmlTypeInfo.XmlType))
+                {
+                    try
+                    {
+                        result = await _typedXmlConversionService.DynamicTypedXmlToExcelAsync(
+                            xmlFilePath, excelFilePath, xmlTypeInfo.XmlType, options);
+                        
+                        if (result.Success)
+                        {
+                            result.Message = $"成功转换类型化XML ({xmlTypeInfo.DisplayName}) 到Excel，共 {result.RecordsProcessed} 条记录";
+                        }
+                        
+                        return result;
+                    }
+                    catch (Exception typedEx)
+                    {
+                        result.Warnings.Add($"类型化转换失败，回退到通用转换: {typedEx.Message}");
+                        // 继续使用通用转换
+                    }
+                }
+
+                // 通用XML转换（原有逻辑）
                 var xmlDoc = XDocument.Load(xmlFilePath);
                 var rootElement = xmlDoc.Root;
 
@@ -452,6 +506,66 @@ namespace BannerlordModEditor.TUI.Services
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 检测XML文件类型
+        /// </summary>
+        /// <param name="xmlFilePath">XML文件路径</param>
+        /// <returns>XML类型信息</returns>
+        public async Task<XmlTypeInfo> DetectXmlTypeAsync(string xmlFilePath)
+        {
+            return await _xmlTypeDetectionService.DetectXmlTypeAsync(xmlFilePath);
+        }
+
+        /// <summary>
+        /// 获取所有支持的XML类型
+        /// </summary>
+        /// <returns>支持的XML类型列表</returns>
+        public async Task<List<XmlTypeInfo>> GetSupportedXmlTypesAsync()
+        {
+            return await _xmlTypeDetectionService.GetSupportedXmlTypesAsync();
+        }
+
+        /// <summary>
+        /// 创建类型化XML模板
+        /// </summary>
+        /// <param name="xmlType">XML类型名称</param>
+        /// <param name="outputPath">输出路径</param>
+        /// <returns>创建结果</returns>
+        public async Task<CreationResult> CreateTypedXmlTemplateAsync(string xmlType, string outputPath)
+        {
+            try
+            {
+                if (_xmlTypeMappings.TryGetValue(xmlType, out var modelType))
+                {
+                    var method = typeof(TypedXmlConversionService)
+                        .GetMethod(nameof(ITypedXmlConversionService.CreateTypedXmlTemplateAsync))
+                        ?.MakeGenericMethod(modelType);
+
+                    if (method != null)
+                    {
+                        var task = (Task<CreationResult>)method.Invoke(_typedXmlConversionService, new object[] { outputPath })!;
+                        return await task;
+                    }
+                }
+
+                return new CreationResult
+                {
+                    Success = false,
+                    Message = $"不支持的XML类型: {xmlType}",
+                    Errors = { $"不支持的XML类型: {xmlType}" }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new CreationResult
+                {
+                    Success = false,
+                    Message = $"创建XML模板失败: {ex.Message}",
+                    Errors = { $"创建XML模板失败: {ex.Message}" }
+                };
+            }
         }
 
         public async Task<FileFormatInfo> DetectFileFormatAsync(string filePath)

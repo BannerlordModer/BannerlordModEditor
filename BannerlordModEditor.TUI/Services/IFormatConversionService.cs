@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BannerlordModEditor.TUI.Models;
 
 namespace BannerlordModEditor.TUI.Services
 {
@@ -10,6 +11,9 @@ namespace BannerlordModEditor.TUI.Services
         Task<ConversionResult> XmlToExcelAsync(string xmlFilePath, string excelFilePath, ConversionOptions? options = null);
         Task<FileFormatInfo> DetectFileFormatAsync(string filePath);
         Task<ValidationResult> ValidateConversionAsync(string sourceFilePath, string targetFilePath, ConversionDirection direction);
+        Task<XmlTypeInfo> DetectXmlTypeAsync(string xmlFilePath);
+        Task<List<XmlTypeInfo>> GetSupportedXmlTypesAsync();
+        Task<CreationResult> CreateTypedXmlTemplateAsync(string xmlType, string outputPath);
     }
 
     public enum ConversionDirection

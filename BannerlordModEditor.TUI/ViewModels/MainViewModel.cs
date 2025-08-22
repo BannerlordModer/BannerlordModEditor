@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Terminal.Gui;
 using BannerlordModEditor.TUI.Services;
+using BannerlordModEditor.TUI.Models;
 
 namespace BannerlordModEditor.TUI.ViewModels
 {
@@ -17,6 +18,7 @@ namespace BannerlordModEditor.TUI.ViewModels
         private FileFormatInfo? _sourceFileInfo;
         private ConversionDirection _conversionDirection = ConversionDirection.ExcelToXml;
         private ConversionOptions _conversionOptions = new ConversionOptions();
+        private XmlTypeInfo? _xmlTypeInfo;
 
         public string SourceFilePath
         {
@@ -60,11 +62,18 @@ namespace BannerlordModEditor.TUI.ViewModels
             set => SetProperty(ref _conversionOptions, value);
         }
 
+        public XmlTypeInfo? XmlTypeInfo
+        {
+            get => _xmlTypeInfo;
+            set => SetProperty(ref _xmlTypeInfo, value);
+        }
+
         public Command BrowseSourceFileCommand { get; }
         public Command BrowseTargetFileCommand { get; }
         public Command ConvertCommand { get; }
         public Command AnalyzeSourceFileCommand { get; }
         public Command ShowOptionsCommand { get; }
+        public Command ShowXmlTypeInfoCommand { get; }
         public Command ClearCommand { get; }
         public Command ExitCommand { get; }
 
@@ -77,6 +86,7 @@ namespace BannerlordModEditor.TUI.ViewModels
             ConvertCommand = new Command(async () => await ConvertAsync(), () => CanConvert());
             AnalyzeSourceFileCommand = new Command(async () => await AnalyzeSourceFileAsync(), () => !string.IsNullOrEmpty(SourceFilePath));
             ShowOptionsCommand = new Command(ShowOptions);
+            ShowXmlTypeInfoCommand = new Command(ShowXmlTypeInfo, () => XmlTypeInfo != null);
             ClearCommand = new Command(Clear);
             ExitCommand = new Command(() => Application.RequestStop());
 
@@ -321,6 +331,61 @@ namespace BannerlordModEditor.TUI.ViewModels
                 {
                     StatusMessage = $"文件格式: {SourceFileInfo.FormatDescription}";
                     
+                    // 如果是XML文件，检测XML类型
+                    if (SourceFileInfo.FormatType == FileFormatType.Xml)
+                    {
+                        try
+                        {
+                            XmlTypeInfo = await _conversionService.DetectXmlTypeAsync(SourceFilePath);
+                            if (XmlTypeInfo?.IsSupported == true)
+                            {
+                                var messageParts = new List<string>
+                                {
+                                    $"XML类型: {XmlTypeInfo.DisplayName} ({XmlTypeInfo.XmlType})"
+                                };
+                                
+                                if (XmlTypeInfo.IsAdapted)
+                                {
+                                    messageParts.Add("已适配");
+                                }
+                                else
+                                {
+                                    messageParts.Add("未适配");
+                                }
+                                
+                                if (XmlTypeInfo.EstimatedRecordCount.HasValue)
+                                {
+                                    messageParts.Add($"预计记录数: {XmlTypeInfo.EstimatedRecordCount}");
+                                }
+                                
+                                if (XmlTypeInfo.FileSize > 0)
+                                {
+                                    var sizeInKB = XmlTypeInfo.FileSize / 1024.0;
+                                    var sizeDisplay = sizeInKB > 1024 
+                                        ? $"{sizeInKB / 1024:F1}MB" 
+                                        : $"{sizeInKB:F1}KB";
+                                    messageParts.Add($"文件大小: {sizeDisplay}");
+                                }
+                                
+                                if (XmlTypeInfo.SupportedOperations.Count > 0)
+                                {
+                                    var operations = string.Join(", ", XmlTypeInfo.SupportedOperations);
+                                    messageParts.Add($"支持操作: {operations}");
+                                }
+                                
+                                StatusMessage = string.Join(", ", messageParts);
+                            }
+                            else
+                            {
+                                StatusMessage = "XML文件格式不支持";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            StatusMessage += $" (XML类型检测失败: {ex.Message})";
+                        }
+                    }
+                    
                     // 自动设置目标文件路径
                     if (string.IsNullOrEmpty(TargetFilePath))
                     {
@@ -388,11 +453,77 @@ namespace BannerlordModEditor.TUI.ViewModels
             }
         }
 
+        private void ShowXmlTypeInfo()
+        {
+            if (XmlTypeInfo == null) return;
+
+            var message = new List<string>
+            {
+                $"XML类型详细信息",
+                "",
+                $"类型名称: {XmlTypeInfo.XmlType}",
+                $"显示名称: {XmlTypeInfo.DisplayName}",
+                $"模型类型: {XmlTypeInfo.ModelType}",
+                $"命名空间: {XmlTypeInfo.Namespace}",
+                $"适配状态: {(XmlTypeInfo.IsAdapted ? "已适配" : "未适配")}",
+                $"支持状态: {(XmlTypeInfo.IsSupported ? "支持" : "不支持")}"
+            };
+
+            if (XmlTypeInfo.EstimatedRecordCount.HasValue)
+            {
+                message.Add($"预计记录数: {XmlTypeInfo.EstimatedRecordCount}");
+            }
+
+            if (XmlTypeInfo.FileSize > 0)
+            {
+                var sizeInKB = XmlTypeInfo.FileSize / 1024.0;
+                var sizeDisplay = sizeInKB > 1024 
+                    ? $"{sizeInKB / 1024:F1}MB" 
+                    : $"{sizeInKB:F1}KB";
+                message.Add($"文件大小: {sizeDisplay}");
+            }
+
+            if (XmlTypeInfo.LastModified != default)
+            {
+                message.Add($"最后修改: {XmlTypeInfo.LastModified:yyyy-MM-dd HH:mm:ss}");
+            }
+
+            if (XmlTypeInfo.SupportedOperations.Count > 0)
+            {
+                message.Add($"支持的操作: {string.Join(", ", XmlTypeInfo.SupportedOperations)}");
+            }
+
+            message.Add("");
+            message.Add("按任意键关闭...");
+
+            var dialog = new Dialog()
+            {
+                Title = "XML类型信息",
+                Width = 60,
+                Height = message.Count + 2
+            };
+
+            var text = new TextView()
+            {
+                X = 1,
+                Y = 1,
+                Width = 58,
+                Height = message.Count,
+                Text = string.Join("\n", message),
+                ReadOnly = true,
+                WordWrap = true
+            };
+
+            dialog.Add(text);
+            Application.Run(dialog);
+        }
+
         private void Clear()
         {
             SourceFilePath = string.Empty;
             TargetFilePath = string.Empty;
             SourceFileInfo = null;
+            XmlTypeInfo = null;
             StatusMessage = "就绪";
         }
 
