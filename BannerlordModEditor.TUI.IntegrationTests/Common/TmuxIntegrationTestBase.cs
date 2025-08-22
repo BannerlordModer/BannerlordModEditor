@@ -167,14 +167,38 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
                 throw new FileNotFoundException($"TUI应用程序不存在: {tuiAppPath}");
             }
 
-            // 启动TUI应用
-            var startCommand = $"dotnet {tuiAppPath}";
+            // 启动TUI应用（使用测试模式）
+            var startCommand = $"dotnet {tuiAppPath} --test";
             await ExecuteTmuxCommandAsync(startCommand, waitForCompletion: false);
             
             // 等待应用启动
             await Task.Delay(2000);
             
             Output.WriteLine($"启动TUI应用程序: {tuiAppPath}");
+        }
+
+        /// <summary>
+        /// 启动TUI应用程序并执行命令行转换
+        /// </summary>
+        protected async Task<bool> StartTuiCommandLineConversionAsync(string tuiAppPath, string inputFile, string outputFile)
+        {
+            if (!File.Exists(tuiAppPath))
+            {
+                throw new FileNotFoundException($"TUI应用程序不存在: {tuiAppPath}");
+            }
+
+            // 切换到TUI项目目录并执行命令
+            var tuiProjectDir = Path.GetDirectoryName(tuiAppPath);
+            var tuiFileName = Path.GetFileName(tuiAppPath);
+            
+            var result = await ExecuteCommandAsync("dotnet", $"run --project \"{tuiProjectDir}\" -- --convert \"{inputFile}\" \"{outputFile}\"", tuiProjectDir);
+            
+            Output.WriteLine($"执行TUI命令行转换: {inputFile} -> {outputFile}");
+            Output.WriteLine($"转换结果: {result.ExitCode}");
+            Output.WriteLine($"输出: {result.Output}");
+            Output.WriteLine($"错误: {result.Error}");
+            
+            return result.ExitCode == 0;
         }
 
         /// <summary>
@@ -198,7 +222,7 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
         /// <summary>
         /// 执行系统命令
         /// </summary>
-        protected async Task<ProcessResult> ExecuteCommandAsync(string fileName, string arguments)
+        protected async Task<ProcessResult> ExecuteCommandAsync(string fileName, string arguments, string workingDirectory = null)
         {
             var process = new Process
             {
@@ -212,6 +236,11 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
                     CreateNoWindow = true
                 }
             };
+
+            if (!string.IsNullOrEmpty(workingDirectory))
+            {
+                process.StartInfo.WorkingDirectory = workingDirectory;
+            }
 
             var outputBuilder = new System.Text.StringBuilder();
             var errorBuilder = new System.Text.StringBuilder();

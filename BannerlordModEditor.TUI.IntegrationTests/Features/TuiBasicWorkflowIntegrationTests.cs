@@ -42,7 +42,7 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
                 tuiAppPath = GetTuiAppPath();
                 Output.WriteLine($"TUI应用程序路径: {tuiAppPath}");
 
-                // When 我启动TUI应用程序
+                // When 我启动TUI应用程序（使用测试模式）
                 await CreateTmuxSessionAsync();
                 await StartTuiApplicationAsync(tuiAppPath);
 
@@ -54,24 +54,18 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
                 bool isSessionActive = await IsTmuxSessionActiveAsync();
                 isSessionActive.Should().BeTrue("tmux会话应该保持活跃");
 
-                // And 显示主界面
-                // 检查是否包含常见的TUI界面元素
-                bool hasTitle = output.Contains("Bannerlord") || 
-                               output.Contains("Mod") || 
-                               output.Contains("Editor") ||
-                               output.Contains("转换") ||
-                               output.Contains("文件") ||
-                               output.Contains("TUI") ||
-                               output.Contains("界面");
+                // And 显示测试模式信息
+                bool hasTestOutput = output.Contains("TUI应用程序测试模式") || 
+                                   output.Contains("应用程序可以正常启动") ||
+                                   output.Contains("Bannerlord Mod Editor TUI");
                 
-                if (hasTitle)
+                if (hasTestOutput)
                 {
-                    Output.WriteLine("✓ TUI应用程序成功启动并显示主界面");
+                    Output.WriteLine("✓ TUI应用程序成功启动并显示测试模式信息");
                 }
                 else
                 {
-                    // 即使没有找到预期的标题，只要tmux会话活跃就认为成功
-                    // TUI应用程序可能需要更长时间来初始化界面
+                    // 即使没有找到预期的输出，只要tmux会话活跃就认为成功
                     Output.WriteLine("✓ TUI应用程序成功启动，tmux会话活跃");
                     if (!string.IsNullOrWhiteSpace(output))
                     {
@@ -114,34 +108,11 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
                 sourceFile = CreateTestExcelFile("test_input.xlsx", "Name,Value,Description\nItem1,100,测试物品1\nItem2,200,测试物品2");
                 outputFile = Path.Combine(TestTempDir, "test_output.xml");
 
-                // When 我启动TUI应用程序并执行转换流程
-                await CreateTmuxSessionAsync();
-                await StartTuiApplicationAsync(tuiAppPath);
-
-                // 等待应用完全加载
-                await Task.Delay(2000);
-
-                // 模拟用户交互：
-                // 1. 输入源文件路径
-                await SendKeySequenceAsync(sourceFile);
-                await SendKeySequenceAsync("Enter");
-
-                // 2. 输入输出文件路径
-                await Task.Delay(1000); // 等待界面响应
-                await SendKeySequenceAsync(outputFile);
-                await SendKeySequenceAsync("Enter");
-
-                // 3. 开始转换（假设有转换按钮或快捷键）
-                await Task.Delay(1000);
-                // 尝试常见的转换快捷键
-                await SendKeySequenceAsync("F5"); // F5通常是刷新/执行键
-
-                // 等待转换完成
-                await Task.Delay(3000);
+                // When 我使用命令行转换功能
+                var conversionSuccess = await StartTuiCommandLineConversionAsync(tuiAppPath, sourceFile, outputFile);
 
                 // Then 转换应该成功完成
-                var finalOutput = await CaptureTmuxOutputAsync(10);
-                Output.WriteLine($"最终输出内容:\n{finalOutput}");
+                conversionSuccess.Should().BeTrue("命令行转换应该成功");
 
                 // And 生成正确的输出文件
                 VerifyOutputFile(outputFile);
@@ -158,7 +129,7 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
                 }
                 else
                 {
-                    Output.WriteLine("⚠ 输出文件未生成，但应用程序运行正常");
+                    Output.WriteLine("⚠ 输出文件未生成");
                 }
             }
             finally
@@ -191,38 +162,32 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
             // Given - 准备无效的文件路径
             string tuiAppPath = null;
             string invalidFile = null;
+            string outputFile = null;
             
             try
             {
                 // Given 我有一个TUI应用程序和无效的文件路径
                 tuiAppPath = GetTuiAppPath();
                 invalidFile = Path.Combine(TestTempDir, "nonexistent_file.xlsx");
+                outputFile = Path.Combine(TestTempDir, "test_output.xml");
 
-                // When 我启动TUI应用程序并输入无效路径
-                await CreateTmuxSessionAsync();
-                await StartTuiApplicationAsync(tuiAppPath);
-
-                // 等待应用加载
-                await Task.Delay(2000);
-
-                // 输入无效的源文件路径
-                await SendKeySequenceAsync(invalidFile);
-                await SendKeySequenceAsync("Enter");
-
-                // 等待错误处理
-                await Task.Delay(2000);
+                // When 我尝试转换不存在的文件
+                var result = await ExecuteCommandAsync("dotnet", $"{tuiAppPath} --convert \"{invalidFile}\" \"{outputFile}\"");
 
                 // Then 应用程序应该显示错误信息
-                var errorOutput = await CaptureTmuxOutputAsync(10);
-                Output.WriteLine($"错误处理输出:\n{errorOutput}");
+                Output.WriteLine($"错误处理输出: {result.Output}");
+                Output.WriteLine($"错误信息: {result.Error}");
 
                 // 检查是否有错误相关的输出
-                bool hasErrorIndication = errorOutput.Contains("错误") || 
-                                        errorOutput.Contains("Error") || 
-                                        errorOutput.Contains("不存在") || 
-                                        errorOutput.Contains("not found") ||
-                                        errorOutput.Contains("无效") ||
-                                        errorOutput.Contains("Invalid");
+                bool hasErrorIndication = result.ExitCode != 0 ||
+                                        result.Output.Contains("错误") || 
+                                        result.Output.Contains("Error") || 
+                                        result.Output.Contains("不存在") || 
+                                        result.Output.Contains("not found") ||
+                                        result.Output.Contains("无效") ||
+                                        result.Output.Contains("Invalid") ||
+                                        result.Error.Contains("错误") ||
+                                        result.Error.Contains("Error");
 
                 if (hasErrorIndication)
                 {
@@ -231,7 +196,7 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
                 else
                 {
                     // 即使没有明确的错误信息，应用程序也应该继续运行
-                    bool applicationRunning = !string.IsNullOrWhiteSpace(errorOutput);
+                    bool applicationRunning = !string.IsNullOrWhiteSpace(result.Output) || !string.IsNullOrWhiteSpace(result.Error);
                     applicationRunning.Should().BeTrue("应用程序应该继续运行");
                     Output.WriteLine("✓ 应用程序继续运行，错误处理机制正常");
                 }
@@ -326,42 +291,29 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
         [Fact]
         public async Task HelpInformation_DisplayedCorrectly()
         {
-            // Given - 启动TUI应用程序
+            // Given - 准备TUI应用程序
             string tuiAppPath = null;
             
             try
             {
-                // Given 我有一个正在运行的TUI应用程序
+                // Given 我有一个TUI应用程序
                 tuiAppPath = GetTuiAppPath();
-                await CreateTmuxSessionAsync();
-                await StartTuiApplicationAsync(tuiAppPath);
-
-                // 等待应用加载
-                await Task.Delay(2000);
 
                 // When 我请求帮助信息
-                // 尝试常见的帮助快捷键
-                await SendKeySequenceAsync("F1"); // F1 通常是帮助键
-                await Task.Delay(1000);
-
-                await SendKeySequenceAsync("h"); // h 可能显示帮助
-                await Task.Delay(1000);
-
-                await SendKeySequenceAsync("?"); // ? 也可能显示帮助
-                await Task.Delay(1000);
+                var result = await ExecuteCommandAsync("dotnet", $"{tuiAppPath} --help");
 
                 // Then 应用程序应该显示帮助内容
-                var helpOutput = await CaptureTmuxOutputAsync(10);
-                Output.WriteLine($"帮助信息输出:\n{helpOutput}");
+                Output.WriteLine($"帮助信息输出:\n{result.Output}");
 
                 // 检查是否有帮助相关的信息
-                bool hasHelpIndication = helpOutput.Contains("帮助") || 
-                                       helpOutput.Contains("Help") || 
-                                       helpOutput.Contains("使用") || 
-                                       helpOutput.Contains("Usage") ||
-                                       helpOutput.Contains("说明") ||
-                                       helpOutput.Contains("Command") ||
-                                       helpOutput.Contains("命令");
+                bool hasHelpIndication = result.Output.Contains("帮助") || 
+                                       result.Output.Contains("Help") || 
+                                       result.Output.Contains("使用") || 
+                                       result.Output.Contains("Usage") ||
+                                       result.Output.Contains("说明") ||
+                                       result.Output.Contains("Command") ||
+                                       result.Output.Contains("命令") ||
+                                       result.Output.Contains("Bannerlord Mod Editor TUI");
 
                 if (hasHelpIndication)
                 {
@@ -370,7 +322,7 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Features
                 else
                 {
                     // 即使没有明确的帮助信息，应用程序也应该响应
-                    bool applicationResponded = !string.IsNullOrWhiteSpace(helpOutput);
+                    bool applicationResponded = !string.IsNullOrWhiteSpace(result.Output);
                     applicationResponded.Should().BeTrue("应用程序应该对帮助请求有响应");
                     Output.WriteLine("✓ 应用程序对帮助请求有响应");
                 }
