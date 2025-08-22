@@ -1,52 +1,93 @@
-# 文档目录结构说明
+# 📚 文档中心
 
-本目录包含项目的所有文档资料，按用途分类组织：
+欢迎来到BannerlordModEditor项目的文档中心。这里包含了项目的所有技术文档、开发指南和参考资料。
 
-## 📁 docs/analysis
-技术分析和深度研究文档
-- `XML字段分析追踪文档.md` - XML字段变化追踪
-- `骑马与砍杀2_XML字段完整分析报告.md` - 完整的XML字段分析
-- `骑马与砍杀2动画系统深度分析报告.md` - 动画系统技术分析
+## 📁 文档结构
 
-## 📁 docs/reports
-项目进展和问题修复报告
-- 各种修复完成报告
-- 测试结果报告
-- 项目状态总结
-- 质量改进报告
+### 🎯 核心文档
+- **[项目最终总结](PROJECT_FINAL_SUMMARY.md)** - 项目完整状态和成果总结
+- **[CLAUDE.md](CLAUDE.md)** - Claude AI助手的项目指导文档
 
-## 📁 docs/specs
-需求规格和用户故事
-- `acceptance-criteria.md` - 验收标准
-- `requirements.md` - 需求规格
-- `user-stories.md` - 用户故事
-- API规范文档
+### 🛠️ 开发文档 (`development/`)
+- **项目计划** (`project/`) - 项目需求、用户故事、验收标准和实施策略
+- **技术规格** (`technical/`) - 架构设计、API规格、XML适配规格和实现指南
 
-## 📁 docs/technical
-技术架构和设计文档
-- `architecture.md` - 系统架构
-- `tech-stack.md` - 技术栈
-- `data-flow.md` - 数据流设计
-- XML适配技术文档
+### 📖 使用指南 (`guides/`)
+- **测试指南** - 测试策略和方法
+- **最佳实践** - 开发最佳实践建议
+- **故障排除** - 常见问题解决方案
 
-## 📁 docs/temporary
-临时文档和草稿
-- 这些文档可能会被移动或删除
+### 🔧 技术参考 (`reference/`)
+- **[系统架构](reference/architecture.md)** - 系统整体架构设计
+- **[数据流设计](reference/data-flow.md)** - 系统数据流程和交互
+- **[技术栈](reference/tech-stack.md)** - 项目使用的技术和工具
+- **[技术分析](reference/tech-analysis.md)** - 项目技术分析
+- **[XML适配技术分析](reference/XML_Adaptation_Technical_Analysis.md)** - XML适配技术深度分析
+- **[字符串基础XML策略](reference/STRING_BASED_XML_STRATEGY.md)** - XML处理策略
 
-## 📄 根目录文档 (重要)
-- `README.md` - 项目主要说明文档
-- `CLAUDE.md` - Claude Code 指导文档
-- `CLAUDE.local.md` - 本地开发配置
+### 📦 归档文档 (`archive/`)
+- **旧报告** - 过期的项目报告
+- **旧分析** - 历史技术分析文档
 
-## 文档命名约定
-- 中文文档：使用中文命名，便于中文开发者阅读
-- 英文文档：使用英文命名，符合国际惯例
-- 报告类：以 `_报告.md` 或 `_Report.md` 结尾
-- 规格类：以 `_规格.md` 或 `_Spec.md` 结尾
-- 分析类：以 `_分析.md` 或 `_Analysis.md` 结尾
+## 🚀 快速开始
 
-## 维护说明
-1. 新增文档时请按分类放入对应文件夹
-2. 临时文档请放入 `temporary` 文件夹
-3. 重要文档完成后移动到对应分类文件夹
-4. 定期清理 `temporary` 文件夹中的过期文档
+### 新开发者
+1. 阅读 [项目最终总结](PROJECT_FINAL_SUMMARY.md) 了解项目状态
+2. 查看 `development/project/` 目录中的项目需求和计划
+3. 参考 `development/technical/` 目录中的技术规格和架构设计
+4. 使用 `guides/` 目录中的测试和开发指南
+
+### 贡献者
+1. 熟悉 `development/technical/` 目录中的技术规格
+2. 参考 `guides/` 目录中的最佳实践
+3. 查看 `reference/` 目录中的技术细节
+
+### 维护者
+1. 定期清理 `archive/` 目录中的过期文档
+2. 更新 `development/project/` 目录中的项目计划
+3. 维护 `development/technical/` 目录中的技术规格
+4. 维护文档的整体结构和一致性
+
+## 📝 文档维护
+
+### 添加新文档
+- 项目计划文档放在 `development/project/` 目录
+- 技术规格文档放在 `development/technical/` 目录
+- 用户指南文档放在 `guides/` 目录
+- 技术参考文档放在 `reference/` 目录
+- 过期文档移到 `archive/` 目录
+
+### 文档规范
+- 使用中文编写文档
+- 文档名称应清晰描述内容
+- 每个目录应包含README说明
+- 定期清理过期和重复文档
+
+### 质量标准
+- 文档内容应准确无误
+- 代码示例应可运行
+- 技术说明应详细清晰
+- 保持文档结构的一致性
+
+## 🔍 快速导航
+
+| 需求 | 推荐文档 |
+|------|----------|
+| 了解项目概况 | [项目最终总结](PROJECT_FINAL_SUMMARY.md) |
+| 项目需求和计划 | `development/project/` 目录 |
+| 技术架构设计 | `development/technical/` 目录 |
+| 开发指南 | `guides/` 目录 |
+| 技术细节参考 | `reference/` 目录 |
+| 历史文档 | `archive/` 目录 |
+
+## 📞 联系方式
+
+如有文档相关问题，请通过以下方式联系：
+- **GitHub Issues**: 报告文档问题或建议
+- **Pull Requests**: 贡献文档改进
+- **邮件**: [项目维护者](mailto:project@example.com)
+
+---
+
+**最后更新**: 2025年8月21日  
+**维护**: BannerlordModEditor开发团队
