@@ -186,7 +186,13 @@ jobs:
           
           # 添加 release notes
           gh release edit $tagName --notes-file releasenotes.md
-          Write-Host "Release notes updated successfully"
+          try {
+            gh release edit $tagName --notes-file releasenotes.md --repo $env:GITHUB_REPOSITORY
+            Write-Host "Release notes updated successfully"
+          } catch {
+            Write-Host "Failed to update release notes: $_"
+            exit 1
+          }
         } catch {
           Write-Host "Release upload failed with error: $_"
           exit 1
