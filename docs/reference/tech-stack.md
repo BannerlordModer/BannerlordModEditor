@@ -3,120 +3,120 @@
 ## 概述
 本文档概述了用于修复Bannerlord Mod Editor剩余单元测试失败的技术栈决策，重点关注DO/DTO分层架构的进一步完善和扩展应用。
 
-## Core Technologies
+## 核心技术
 
 ### .NET 9.0
-| Aspect | Choice | Rationale |
-|--------|--------|-----------|
-| Runtime | .NET 9.0 | Latest LTS version with performance improvements, nullable reference types, and modern C# features |
-| Language Features | C# 9.0+ | Pattern matching, nullable reference types, and records for better code safety and expressiveness |
+| 方面 | 选择 | 理由 |
+|------|------|------|
+| 运行时 | .NET 9.0 | 最新的LTS版本，具有性能改进、可空引用类型和现代C#功能 |
+| 语言特性 | C# 9.0+ | 模式匹配、可空引用类型和记录，提供更好的代码安全性和表达性 |
 
-### XML Processing
-| Aspect | Choice | Rationale |
-|--------|--------|-----------|
-| Serialization | System.Xml.Serialization | Native .NET XML serialization with attribute-driven control, well-documented and performant |
-| Extensions | Custom XmlSerializer extensions | Handle namespace preservation and boolean value normalization |
-| Validation | Custom validation logic | Ensure exact XML preservation and structural consistency |
+### XML处理
+| 方面 | 选择 | 理由 |
+|------|------|------|
+| 序列化 | System.Xml.Serialization | 原生.NET XML序列化，具有属性驱动的控制，文档完善且性能良好 |
+| 扩展 | 自定义XmlSerializer扩展 | 处理命名空间保留和布尔值标准化 |
+| 验证 | 自定义验证逻辑 | 确保精确的XML保留和结构一致性 |
 
-### UI Framework
-| Aspect | Choice | Rationale |
-|--------|--------|-----------|
-| Framework | Avalonia UI 11.3 | Cross-platform desktop UI framework with good .NET integration |
-| MVVM | CommunityToolkit.Mvvm 8.2 | Provides robust MVVM implementation with source generators |
-| Theme | Fluent theme | Modern UI consistent with contemporary design guidelines |
+### UI框架
+| 方面 | 选择 | 理由 |
+|------|------|------|
+| 框架 | Avalonia UI 11.3 | 跨平台桌面UI框架，与.NET集成良好 |
+| MVVM | CommunityToolkit.Mvvm 8.2 | 提供强大的MVVM实现，支持源生成器 |
+| 主题 | Fluent主题 | 现代UI，符合当代设计指南 |
 
-### Testing Framework
-| Aspect | Choice | Rationale |
-|--------|--------|-----------|
-| Framework | xUnit 2.5 | Industry-standard testing framework with good .NET integration |
-| Assertions | Custom XML validation helpers | Handle structural equality and format preservation verification |
+### 测试框架
+| 方面 | 选择 | 理由 |
+|------|------|------|
+| 框架 | xUnit 2.5 | 行业标准的测试框架，与.NET集成良好 |
+| 断言 | 自定义XML验证助手 | 处理结构相等性和格式保留验证 |
 
-## Architecture Layers
+## 架构层
 
-### DO (Data Object) Layer
-| Technology | Choice | Rationale |
-|------------|--------|-----------|
-| Properties | String-based | Preserve exact XML representations including formatting and case |
-| Serialization | System.Xml.Serialization attributes | Standard .NET approach with attribute control |
-| Conditional Serialization | ShouldSerialize pattern | Prevent serialization of absent attributes |
+### DO（数据对象）层
+| 技术 | 选择 | 理由 |
+|------|------|------|
+| 属性 | 基于字符串 | 保留精确的XML表示，包括格式和大小写 |
+| 序列化 | System.Xml.Serialization属性 | 标准的.NET方法，具有属性控制 |
+| 条件序列化 | ShouldSerialize模式 | 防止序列化不存在的属性 |
 
-### DTO (Data Transfer Object) Layer
-| Technology | Choice | Rationale |
-|------------|--------|-----------|
-| Properties | Strongly-typed | Provide type safety for business logic |
-| Validation | Data Annotations | Standard .NET validation approach |
-| Boolean Handling | BooleanProperty wrapper | Preserve original string values while providing normalized access |
+### DTO（数据传输对象）层
+| 技术 | 选择 | 理由 |
+|------|------|------|
+| 属性 | 强类型 | 为业务逻辑提供类型安全 |
+| 验证 | 数据注释 | 标准的.NET验证方法 |
+| 布尔处理 | BooleanProperty包装器 | 保留原始字符串值，同时提供标准化访问 |
 
-### Mapping Layer
-| Technology | Choice | Rationale |
-|------------|--------|-----------|
-| Implementation | Custom reflection-based mapping | Flexible and extensible conversion between DO/DTO |
-| Performance | Object pooling | Reduce allocation overhead for frequent conversions |
+### 映射层
+| 技术 | 选择 | 理由 |
+|------|------|------|
+| 实现 | 自定义基于反射的映射 | DO/DTO之间灵活且可扩展的转换 |
+| 性能 | 对象池化 | 减少频繁转换的分配开销 |
 
-### XML Processing Layer
-| Technology | Choice | Rationale |
-|------------|--------|-----------|
-| Namespace Preservation | XDocument parsing | Extract and preserve namespace declarations from original XML |
-| Formatting | XmlWriterSettings | Maintain consistent formatting with original files |
-| Encoding | UTF-8 without BOM | Match Bannerlord's XML file encoding |
+### XML处理层
+| 技术 | 选择 | 理由 |
+|------|------|------|
+| 命名空间保留 | XDocument解析 | 从原始XML提取并保留命名空间声明 |
+| 格式化 | XmlWriterSettings | 与原始文件保持一致的格式 |
+| 编码 | 不带BOM的UTF-8 | 匹配Bannerlord的XML文件编码 |
 
-## Development Tools
+## 开发工具
 
-### Build System
-| Tool | Choice | Rationale |
-|------|--------|-----------|
-| Build Tool | dotnet CLI | Standard .NET build tooling with good IDE integration |
-| Package Management | NuGet | Standard .NET package management |
-| CI/CD | GitHub Actions | Integrated with GitHub repository hosting |
+### 构建系统
+| 工具 | 选择 | 理由 |
+|------|------|------|
+| 构建工具 | dotnet CLI | 标准的.NET构建工具，IDE集成良好 |
+| 包管理 | NuGet | 标准的.NET包管理 |
+| CI/CD | GitHub Actions | 与GitHub仓库托管集成 |
 
-### IDE Support
-| Tool | Choice | Rationale |
-|------|--------|-----------|
-| Primary IDEs | Visual Studio 2022, Rider | Full .NET support and debugging capabilities |
-| Code Analysis | Built-in analyzers | Ensure code quality and consistency |
+### IDE支持
+| 工具 | 选择 | 理由 |
+|------|------|------|
+| 主要IDE | Visual Studio 2022, Rider | 完整的.NET支持和调试功能 |
+| 代码分析 | 内置分析器 | 确保代码质量和一致性 |
 
-## Quality Attributes
+## 质量属性
 
-### Performance Considerations
-1. **Memory Efficiency**: String interning for frequently used values
-2. **Object Pooling**: Reuse of mapping objects and XML processors
-3. **Async Operations**: Non-blocking file I/O operations
-4. **Lazy Loading**: Deferred loading of large XML structures
+### 性能考虑
+1. **内存效率**: 频繁使用值的字符串驻留
+2. **对象池化**: 重用映射对象和XML处理器
+3. **异步操作**: 非阻塞文件I/O操作
+4. **延迟加载**: 大型XML结构的延迟加载
 
-### Security Measures
-1. **XML Security**: DTD processing disabled to prevent XXE attacks
-2. **File Validation**: Path validation to prevent directory traversal
-3. **Input Sanitization**: Validation of XML content before processing
+### 安全措施
+1. **XML安全**: 禁用DTD处理以防止XXE攻击
+2. **文件验证**: 路径验证以防止目录遍历
+3. **输入清理**: 处理前验证XML内容
 
-### Maintainability
-1. **Separation of Concerns**: Clear DO/DTO layer separation
-2. **Standard Patterns**: Use of established .NET patterns and practices
-3. **Comprehensive Testing**: Round-trip validation for all XML models
-4. **Documentation**: Inline XML documentation and architectural decision records
+### 可维护性
+1. **关注点分离**: 清晰的DO/DTO层分离
+2. **标准模式**: 使用成熟的.NET模式和实践
+3. **全面测试**: 所有XML模型的往返验证
+4. **文档**: 内联XML文档和架构决策记录
 
-## Decision Factors
+## 决策因素
 
-### Primary Considerations
-1. **XML Fidelity**: Exact preservation of original XML format is critical for game compatibility
-2. **Boolean Handling**: Case-insensitive parsing with original value preservation
-3. **Type Safety**: Strong typing for business logic while maintaining flexibility
-4. **Performance**: Efficient processing of large XML files
-5. **Maintainability**: Clear architecture that's easy to extend and modify
+### 主要考虑因素
+1. **XML保真度**: 精确保留原始XML格式对游戏兼容性至关重要
+2. **布尔处理**: 不区分大小写的解析，保留原始值
+3. **类型安全**: 业务逻辑的强类型，同时保持灵活性
+4. **性能**: 高效处理大型XML文件
+5. **可维护性**: 易于扩展和修改的清晰架构
 
-### Trade-offs
-1. **Complexity vs. Fidelity**: Additional mapping layer complexity for exact XML preservation
-2. **Performance vs. Safety**: String-based properties for safety with potential performance impact
-3. **Standardization vs. Customization**: Custom solutions for specific XML challenges where standard approaches fall short
+### 权衡
+1. **复杂性 vs. 保真度**: 额外的映射层复杂性用于精确的XML保留
+2. **性能 vs. 安全**: 基于字符串的属性确保安全性，但可能影响性能
+3. **标准化 vs. 定制化**: 在标准方法不足的地方为特定XML挑战提供定制解决方案
 
-## Future Considerations
+## 未来考虑
 
-### Potential Enhancements
-1. **Performance**: Investigate System.Text.Json for alternative serialization approaches
-2. **Scalability**: Consider streaming XML processing for extremely large files
-3. **Extensibility**: Plugin architecture for custom XML model adapters
-4. **Monitoring**: Enhanced telemetry for XML processing performance and errors
+### 潜在增强
+1. **性能**: 研究System.Text.Json作为替代序列化方法
+2. **可扩展性**: 考虑超大型文件的流式XML处理
+3. **扩展性**: 自定义XML模型适配器的插件架构
+4. **监控**: 增强的XML处理性能和错误遥测
 
-### Migration Path
-1. **Incremental Adoption**: Gradually migrate existing models to DO/DTO pattern
-2. **Backward Compatibility**: Ensure existing functionality continues to work during transition
-3. **Testing Coverage**: Maintain comprehensive test coverage throughout migration
+### 迁移路径
+1. **增量采用**: 逐步将现有模型迁移到DO/DTO模式
+2. **向后兼容**: 确保现有功能在迁移期间继续工作
+3. **测试覆盖**: 在整个迁移过程中保持全面的测试覆盖
