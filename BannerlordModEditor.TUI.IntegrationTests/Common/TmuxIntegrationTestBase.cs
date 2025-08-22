@@ -123,9 +123,13 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
         /// </summary>
         protected async Task<string> CaptureTmuxOutputAsync(int lineCount = 10)
         {
-            var result = await ExecuteCommandAsync("tmux", $"capture-pane -t {TestSessionName} -p -{lineCount}");
+            // 修复capture-pane命令的参数格式
+            var result = await ExecuteCommandAsync("tmux", $"capture-pane -t {TestSessionName} -p");
             result.ExitCode.ShouldBe(0, $"应该成功捕获tmux输出: {result.Error}");
-            return result.Output;
+            
+            // 只返回最后几行
+            var lines = result.Output.Split('\n');
+            return string.Join('\n', lines.Skip(Math.Max(0, lines.Length - lineCount)));
         }
 
         /// <summary>
