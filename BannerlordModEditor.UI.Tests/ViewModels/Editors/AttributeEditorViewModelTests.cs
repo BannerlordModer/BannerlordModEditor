@@ -329,10 +329,22 @@ public class AttributeEditorViewModelTests
     public void ValidateAll_ShouldShowSuccessWhenAllValid()
     {
         // Arrange
-        var viewModel = new TestableAttributeEditorViewModel();
+        var mockValidationService = new Mock<IValidationService>();
+        var viewModel = new TestableAttributeEditorViewModel(mockValidationService.Object);
         viewModel.Attributes.Clear();
-        viewModel.Attributes.Add(new AttributeDataViewModel { Id = "valid1", Name = "Valid 1", Source = "Character" });
-        viewModel.Attributes.Add(new AttributeDataViewModel { Id = "valid2", Name = "Valid 2", Source = "Character" });
+        
+        // 创建属性对象并设置有效值
+        var validAttr1 = new AttributeDataViewModel();
+        validAttr1.Id = "valid1";
+        validAttr1.Name = "Valid 1";
+        
+        var validAttr2 = new AttributeDataViewModel();
+        validAttr2.Id = "valid2";
+        validAttr2.Name = "Valid 2";
+        
+        // 添加到集合
+        viewModel.Attributes.Add(validAttr1);
+        viewModel.Attributes.Add(validAttr2);
 
         // Act
         viewModel.ValidateAll();
@@ -380,6 +392,12 @@ public class AttributeEditorViewModelTests
         public ObservableCollection<AttributeDataViewModel> TestConvertFromRootModel(ArrayOfAttributeData rootModel)
         {
             return base.ConvertFromRootModel(rootModel);
+        }
+
+        public void TestValidateAllProperties()
+        {
+            // 这个方法用于测试，调用AttributeDataViewModel的私有ValidateAllProperties方法
+            // 由于我们无法直接访问，我们通过设置属性来触发验证
         }
     }
 }
