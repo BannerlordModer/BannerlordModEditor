@@ -10,18 +10,16 @@ using System;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
-public partial class AttributeEditorViewModel : ViewModelBase
+public partial class AttributeEditorViewModel : BaseEditorViewModel
 {
     [ObservableProperty]
     private ObservableCollection<AttributeDataViewModel> attributes = new();
 
-    [ObservableProperty]
-    private string filePath = string.Empty;
+    // FilePath 已经在基类中定义
 
-    [ObservableProperty]
-    private bool hasUnsavedChanges;
+    // HasUnsavedChanges 已经在基类中定义
 
-    public AttributeEditorViewModel()
+    public AttributeEditorViewModel() : base("attributes.xml", "属性编辑器")
     {
         // 添加示例数据
         Attributes.Add(new AttributeDataViewModel 
@@ -74,7 +72,10 @@ public partial class AttributeEditorViewModel : ViewModelBase
         }
     }
 
-    public void LoadXmlFile(string fileName)
+    /// <summary>
+    /// 加载XML文件
+    /// </summary>
+    public override void LoadXmlFile(string fileName)
     {
         try
         {
@@ -117,6 +118,7 @@ public partial class AttributeEditorViewModel : ViewModelBase
                     
                     FilePath = foundPath;
                     HasUnsavedChanges = false;
+                    StatusMessage = $"已加载 {Path.GetFileName(foundPath)}";
                 }
             }
             else
@@ -132,10 +134,12 @@ public partial class AttributeEditorViewModel : ViewModelBase
                 });
                 FilePath = fileName;
                 HasUnsavedChanges = false;
+                StatusMessage = $"未找到 {fileName}，创建新文件";
             }
         }
         catch (Exception ex)
         {
+            StatusMessage = $"加载失败: {ex.Message}";
             System.Diagnostics.Debug.WriteLine($"LoadXmlFile failed: {ex.Message}");
             // 创建空的编辑器以防止崩溃
             Attributes.Clear();
@@ -151,6 +155,14 @@ public partial class AttributeEditorViewModel : ViewModelBase
 
     [RelayCommand]
     private void SaveFile()
+    {
+        SaveXmlFile();
+    }
+
+    /// <summary>
+    /// 保存XML文件
+    /// </summary>
+    public override void SaveXmlFile()
     {
         try
         {
@@ -171,10 +183,16 @@ public partial class AttributeEditorViewModel : ViewModelBase
             {
                 loader.Save(data, FilePath);
                 HasUnsavedChanges = false;
+                StatusMessage = "保存成功";
+            }
+            else
+            {
+                StatusMessage = "请先加载文件";
             }
         }
         catch (Exception ex)
         {
+            StatusMessage = $"保存失败: {ex.Message}";
             System.Diagnostics.Debug.WriteLine($"Save failed: {ex.Message}");
         }
     }

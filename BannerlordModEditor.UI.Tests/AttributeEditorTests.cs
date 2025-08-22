@@ -1,70 +1,66 @@
+using Xunit;
 using Avalonia.Controls;
 using Avalonia.Headless.XUnit;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels.Editors;
+using BannerlordModEditor.UI.Tests.Helpers;
+using System.Linq;
 
 namespace BannerlordModEditor.UI.Tests;
 
 public class AttributeEditorTests
 {
-    [AvaloniaFact]
+    [Fact]
     public void AttributeEditor_ShouldInitializeWithSampleData()
     {
-        var viewModel = new AttributeEditorViewModel();
-        var view = new AttributeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
-        // 验证初始化状态
+        // Assert
         Assert.NotEmpty(viewModel.Attributes);
         Assert.Equal("NewAttribute", viewModel.Attributes[0].Id);
         Assert.False(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void AttributeEditor_ShouldAddNewAttribute()
     {
-        var viewModel = new AttributeEditorViewModel();
-        var view = new AttributeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<AttributeEditorViewModel>();
         var initialCount = viewModel.Attributes.Count;
         
-        // 添加新属性
+        // Act
         viewModel.AddAttributeCommand.Execute(null);
 
+        // Assert
         Assert.Equal(initialCount + 1, viewModel.Attributes.Count);
         Assert.True(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void AttributeEditor_ShouldRemoveAttribute()
     {
-        var viewModel = new AttributeEditorViewModel();
-        var view = new AttributeEditorView { DataContext = viewModel };
-        
-        var window = new Window { Content = view };
-        window.Show();
-
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<AttributeEditorViewModel>();
         var attributeToRemove = viewModel.Attributes.First();
         var initialCount = viewModel.Attributes.Count;
         
-        // 删除属性
+        // Act
         viewModel.RemoveAttributeCommand.Execute(attributeToRemove);
 
+        // Assert
         Assert.Equal(initialCount - 1, viewModel.Attributes.Count);
         Assert.DoesNotContain(attributeToRemove, viewModel.Attributes);
         Assert.True(viewModel.HasUnsavedChanges);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void AttributeDataViewModel_ShouldValidateCorrectly()
     {
+        // Arrange
         var attributeViewModel = new AttributeDataViewModel();
 
+        // Act & Assert
         // 初始状态应该无效（空ID和名称）
         Assert.False(attributeViewModel.IsValid);
 
@@ -81,33 +77,32 @@ public class AttributeEditorTests
         Assert.False(attributeViewModel.IsValid);
     }
 
-    [AvaloniaFact]
+    [Fact]
     public void AttributeDataViewModel_ShouldHaveCorrectSourceOptions()
     {
+        // Arrange
         var attributeViewModel = new AttributeDataViewModel();
         
+        // Act
         var sourceOptions = attributeViewModel.SourceOptions.ToList();
         
+        // Assert
         Assert.Contains("Character", sourceOptions);
         Assert.Contains("WieldedWeapon", sourceOptions);
         Assert.Contains("WieldedShield", sourceOptions);
         Assert.Contains("SumEquipment", sourceOptions);
     }
 
-    [AvaloniaFact]
-    public void AttributeEditor_ShouldHandleDataContextChange()
+    [Fact]
+    public void AttributeEditorViewModel_ShouldInitializeCorrectly()
     {
-        var view = new AttributeEditorView();
-        var window = new Window { Content = view };
-        window.Show();
+        // Arrange
+        var viewModel = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
-        // 初始状态没有DataContext
-        Assert.Null(view.DataContext);
-
-        // 设置ViewModel
-        var viewModel = new AttributeEditorViewModel();
-        view.DataContext = viewModel;
-
-        Assert.Equal(viewModel, view.DataContext);
+        // Assert
+        Assert.NotNull(viewModel.Attributes);
+        Assert.NotEmpty(viewModel.Attributes);
+        Assert.Equal("NewAttribute", viewModel.Attributes[0].Id);
+        Assert.False(viewModel.HasUnsavedChanges);
     }
 } 

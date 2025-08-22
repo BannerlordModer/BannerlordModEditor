@@ -1,6 +1,7 @@
 using Xunit;
 using BannerlordModEditor.UI.ViewModels;
 using System.Linq;
+using BannerlordModEditor.UI.Tests.Helpers;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -10,7 +11,7 @@ public class UIVisibilityTests
     public void MainWindow_Should_Show_Default_Content_Initially()
     {
         // Arrange & Act
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
 
         // Assert
         Assert.True(mainViewModel.ShowDefaultContent);
@@ -22,7 +23,7 @@ public class UIVisibilityTests
     public void Selecting_AttributeEditor_Should_Show_AttributeEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var attributeEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "AttributeEditor");
@@ -41,7 +42,7 @@ public class UIVisibilityTests
     public void Selecting_BoneBodyTypeEditor_Should_Show_BoneBodyTypeEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var boneBodyTypeEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "BoneBodyTypeEditor");
@@ -60,7 +61,7 @@ public class UIVisibilityTests
     public void Selecting_SkillEditor_Should_Show_SkillEditor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var skillEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "SkillEditor");
@@ -79,7 +80,7 @@ public class UIVisibilityTests
     public void Switching_Between_Editors_Should_Update_Visibility()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var attributeEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "AttributeEditor");
@@ -113,7 +114,7 @@ public class UIVisibilityTests
     public void XML_Loading_Should_Work_When_Selecting_Editor()
     {
         // Arrange
-        var mainViewModel = new MainWindowViewModel();
+        var mainViewModel = TestServiceProvider.GetService<MainWindowViewModel>();
         var attributeEditor = mainViewModel.EditorManager.Categories
             .SelectMany(c => c.Editors)
             .FirstOrDefault(e => e.EditorType == "AttributeEditor");

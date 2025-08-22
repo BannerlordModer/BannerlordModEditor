@@ -27,6 +27,7 @@
     <ProjectReference Include="..\BannerlordModEditor.Common\BannerlordModEditor.Common.csproj" />
   </ItemGroup>
 
+  
 
 
 </Project> 
