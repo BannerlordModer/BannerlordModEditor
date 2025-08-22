@@ -1,5 +1,6 @@
 using Xunit;
 using BannerlordModEditor.UI.ViewModels;
+using BannerlordModEditor.UI.ViewModels.Editors;
 using System.Linq;
 using BannerlordModEditor.UI.Tests.Helpers;
 
@@ -126,8 +127,8 @@ public class EditorManagerTests
         var boneBodyTypeVM = editorManager.CurrentEditorViewModel;
 
         // Assert
-        Assert.IsType<ViewModels.Editors.AttributeEditorViewModel>(attributeVM);
-        Assert.IsType<ViewModels.Editors.BoneBodyTypeEditorViewModel>(boneBodyTypeVM);
+        Assert.IsType<AttributeEditorViewModel>(attributeVM);
+        Assert.IsType<BoneBodyTypeEditorViewModel>(boneBodyTypeVM);
     }
 
     [Fact]

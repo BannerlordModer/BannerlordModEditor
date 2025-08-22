@@ -1,0 +1,270 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:BannerlordModEditor.UI.ViewModels.Editors"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="BannerlordModEditor.UI.Views.Editors.CombatParameterEditorView">
+
+  <Design.DataContext>
+    <vm:CombatParameterEditorViewModel/>
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto, *, Auto">
+    <!-- 工具栏 -->
+    <Border Grid.Row="0" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+            Padding="10" Margin="0,0,0,5">
+      <StackPanel Spacing="10" Orientation="Horizontal">
+        <Button Command="{Binding LoadFile}" Content="加载文件" />
+        <Button Command="{Binding SaveFile}" Content="保存文件" />
+        <Button Command="{Binding AddCombatParameter}" Content="添加参数" />
+        <Button Command="{Binding AddDefinition}" Content="添加定义" />
+        <Button Command="{Binding ValidateAll}" Content="验证所有" />
+        <ToggleButton IsChecked="{Binding HasEmptyCombatParameters}" 
+                      Command="{Binding ToggleEmptyCombatParameters}"
+                      Content="空参数" />
+        <TextBlock Text="{Binding StatusMessage}" VerticalAlignment="Center" 
+                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+      </StackPanel>
+    </Border>
+
+    <!-- 主内容区域 -->
+    <Grid Grid.Row="1" ColumnDefinitions="250, *" Margin="0,0,0,5">
+      <!-- 左侧过滤器列表 -->
+      <Border Grid.Column="0" Background="{DynamicResource SystemControlBackgroundAltLowBrush}" 
+              Margin="0,0,5,0">
+        <Grid RowDefinitions="Auto, *">
+          <!-- 搜索框 -->
+          <TextBox Grid.Row="0" Watermark="搜索参数..." 
+                   Text="{Binding FilterText, Mode=TwoWay}"
+                   Margin="5" />
+          
+          <!-- 参数列表 -->
+          <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding FilteredItems}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                          Margin="2" Padding="10" CornerRadius="4"
+                          BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                          BorderThickness="1">
+                    <StackPanel Spacing="5">
+                      <TextBlock Text="{Binding Id}" FontWeight="Bold" />
+                      <TextBlock Text="{Binding CollisionRadius}" FontSize="10" 
+                                 Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+                      <StackPanel.Styles>
+                        <Style Selector="Border:pointerover">
+                          <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}" />
+                          <Setter Property="BorderBrush" Value="{DynamicResource SystemControlHighlightAccentBrush}" />
+                        </Style>
+                        <Style Selector="Border:selected">
+                          <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAccentBrush}" />
+                          <Setter Property="BorderBrush" Value="{DynamicResource SystemControlHighlightAccentBrush}" />
+                        </Style>
+                      </StackPanel.Styles>
+                    </StackPanel>
+                  </Border>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </ScrollViewer>
+        </Grid>
+      </Border>
+
+      <!-- 右侧编辑区域 -->
+      <TabControl Grid.Column="1">
+        <!-- 参数编辑标签页 -->
+        <TabItem Header="战斗参数">
+          <ScrollViewer>
+            <StackPanel Spacing="15" Margin="10">
+              <!-- 基本信息 -->
+              <GroupBox Header="基本信息" Padding="10">
+                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="类型:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Type}" />
+                  
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="ID:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCombatParameter.Id}" />
+                </Grid>
+              </GroupBox>
+
+              <!-- 碰撞参数 -->
+              <GroupBox Header="碰撞参数" Padding="10">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *">
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="碰撞检查起始百分比:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCombatParameter.CollisionCheckStartingPercent}" />
+                  
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="碰撞伤害起始百分比:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCombatParameter.CollisionDamageStartingPercent}" />
+                  
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="碰撞检查结束百分比:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedCombatParameter.CollisionCheckEndingPercent}" />
+                  
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="碰撞半径:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCombatParameter.CollisionRadius}" />
+                </Grid>
+              </GroupBox>
+
+              <!-- 旋转限制 -->
+              <GroupBox Header="旋转限制" Padding="10">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *">
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="垂直旋转限制上限:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCombatParameter.VerticalRotLimitMultiplierUp}" />
+                  
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="垂直旋转限制下限:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCombatParameter.VerticalRotLimitMultiplierDown}" />
+                  
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="左侧骑手旋转限制:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedCombatParameter.LeftRiderRotLimit}" />
+                  
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="右侧骑手旋转限制:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCombatParameter.RightRiderRotLimit}" />
+                  
+                  <TextBlock Grid.Row="4" Grid.Column="0" Text="左侧梯子旋转限制:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedCombatParameter.LeftLadderRotLimit}" />
+                  
+                  <TextBlock Grid.Row="5" Grid.Column="0" Text="右侧梯子旋转限制:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                  <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding SelectedCombatParameter.RightLadderRotLimit}" />
+                </Grid>
+              </GroupBox>
+
+              <!-- 高级参数 -->
+              <Expander Header="高级参数" IsExpanded="False">
+                <StackPanel Spacing="10" Margin="10">
+                  <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="武器偏移:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCombatParameter.WeaponOffset}" />
+                    
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="攻击冷却周期:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCombatParameter.AlternativeAttackCooldownPeriod}" />
+                    
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="命中骨骼索引:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedCombatParameter.HitBoneIndex}" />
+                    
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="肩部命中骨骼索引:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCombatParameter.ShoulderHitBoneIndex}" />
+                    
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="骑手下看限制:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedCombatParameter.RiderLookDownLimit}" />
+                  </Grid>
+                </StackPanel>
+              </Expander>
+
+              <!-- 自定义碰撞胶囊 -->
+              <Expander Header="自定义碰撞胶囊" IsExpanded="False">
+                <StackPanel Spacing="10" Margin="10">
+                  <CheckBox IsChecked="{Binding SelectedCombatParameter.HasCustomCollisionCapsule}" 
+                            Content="启用自定义碰撞胶囊" />
+                  
+                  <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="Auto, *" IsEnabled="{Binding SelectedCombatParameter.HasCustomCollisionCapsule}">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="点1 (P1):" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCombatParameter.CustomCollisionCapsuleP1}" />
+                    
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="点2 (P2):" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCombatParameter.CustomCollisionCapsuleP2}" />
+                    
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="半径 (R):" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedCombatParameter.CustomCollisionCapsuleR}" />
+                  </Grid>
+                </StackPanel>
+              </Expander>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+
+        <!-- 定义编辑标签页 -->
+        <TabItem Header="定义">
+          <Grid RowDefinitions="Auto, *">
+            <!-- 定义工具栏 -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="10">
+              <Button Command="{Binding AddDefinition}" Content="添加定义" />
+              <Button Command="{Binding RemoveDefinition}" Content="删除定义" 
+                      CommandParameter="{Binding SelectedDefinition}" />
+            </StackPanel>
+
+            <!-- 定义列表 -->
+            <DataGrid Grid.Row="1" ItemsSource="{Binding Definitions}" 
+                      AutoGenerateColumns="False" CanUserAddRows="False"
+                      SelectedItem="{Binding SelectedDefinition}">
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="值" Binding="{Binding Value}" Width="*" />
+                <DataGridTemplateColumn Header="操作" Width="100">
+                  <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                      <Button Content="删除" Command="{Binding DataContext.RemoveDefinition, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                              CommandParameter="{Binding}" />
+                    </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+          </Grid>
+        </TabItem>
+
+        <!-- 验证标签页 -->
+        <TabItem Header="验证">
+          <ScrollViewer>
+            <StackPanel Spacing="10" Margin="10">
+              <TextBlock Text="验证结果" FontSize="16" FontWeight="Bold" />
+              
+              <GroupBox Header="战斗参数验证">
+                <ItemsControl ItemsSource="{Binding CombatParameters}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                              Margin="2" Padding="5" CornerRadius="4"
+                              BorderBrush="{Binding IsValid, Converter={StaticResource BoolToBrushConverter}}"
+                              BorderThickness="2">
+                        <StackPanel Spacing="5">
+                          <TextBlock Text="{Binding Id}" FontWeight="Bold" />
+                          <ItemsControl ItemsSource="{Binding ValidationErrors}">
+                            <ItemsControl.ItemTemplate>
+                              <DataTemplate>
+                                <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
+                              </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                          </ItemsControl>
+                        </StackPanel>
+                      </Border>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </GroupBox>
+
+              <GroupBox Header="定义验证">
+                <ItemsControl ItemsSource="{Binding Definitions}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                              Margin="2" Padding="5" CornerRadius="4"
+                              BorderBrush="{Binding IsValid, Converter={StaticResource BoolToBrushConverter}}"
+                              BorderThickness="2">
+                        <StackPanel Spacing="5">
+                          <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                          <ItemsControl ItemsSource="{Binding ValidationErrors}">
+                            <ItemsControl.ItemTemplate>
+                              <DataTemplate>
+                                <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
+                              </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                          </ItemsControl>
+                        </StackPanel>
+                      </Border>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </GroupBox>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+      </TabControl>
+    </Grid>
+
+    <!-- 状态栏 -->
+    <Border Grid.Row="2" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+            Padding="10" Margin="5,0,0,0">
+      <TextBlock Text="{Binding StatusMessage}" />
+    </Border>
+  </Grid>
+</UserControl>

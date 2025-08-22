@@ -1,0 +1,123 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="400"
+             x:Class="BannerlordModEditor.UI.Controls.FilterPanel">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.header">
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="Margin" Value="0,0,0,5" />
+    </Style>
+    
+    <Style Selector="ComboBox.filter">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Margin" Value="0,0,0,5" />
+    </Style>
+    
+    <Style Selector="TextBox.filter">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Margin" Value="0,0,0,10" />
+    </Style>
+    
+    <Style Selector="Button.clear">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Margin" Value="0,10,0,0" />
+    </Style>
+  </UserControl.Styles>
+
+  <ScrollViewer>
+    <StackPanel Spacing="15" Margin="10">
+      <!-- 搜索过滤器 -->
+      <Expander Header="搜索" IsExpanded="true">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <TextBox Classes="filter" Watermark="搜索..." 
+                   Text="{Binding SearchText, Mode=TwoWay}" />
+          <CheckBox Content="区分大小写" IsChecked="{Binding CaseSensitive}" />
+          <CheckBox Content="全词匹配" IsChecked="{Binding WholeWord}" />
+        </StackPanel>
+      </Expander>
+
+      <!-- 分类过滤器 -->
+      <Expander Header="分类" IsExpanded="true">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <ComboBox Classes="filter" ItemsSource="{Binding CategoryOptions}" 
+                    SelectedItem="{Binding SelectedCategory}" />
+          <ComboBox Classes="filter" ItemsSource="{Binding SubcategoryOptions}" 
+                    SelectedItem="{Binding SelectedSubcategory}" />
+        </StackPanel>
+      </Expander>
+
+      <!-- 状态过滤器 -->
+      <Expander Header="状态" IsExpanded="true">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <CheckBox Content="仅显示有效项" IsChecked="{Binding ShowValidOnly}" />
+          <CheckBox Content="仅显示无效项" IsChecked="{Binding ShowInvalidOnly}" />
+          <CheckBox Content="仅显示已修改项" IsChecked="{Binding ShowModifiedOnly}" />
+        </StackPanel>
+      </Expander>
+
+      <!-- 日期过滤器 -->
+      <Expander Header="日期" IsExpanded="false">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <DatePicker SelectedDate="{Binding StartDate}" 
+                     Watermark="开始日期" />
+          <DatePicker SelectedDate="{Binding EndDate}" 
+                     Watermark="结束日期" />
+        </StackPanel>
+      </Expander>
+
+      <!-- 数值范围过滤器 -->
+      <Expander Header="数值范围" IsExpanded="false">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <Grid ColumnDefinitions="*, *" Margin="0,0,0,5">
+            <TextBox Grid.Column="0" Watermark="最小值" 
+                     Text="{Binding MinValue}" Margin="0,0,5,0" />
+            <TextBox Grid.Column="1" Watermark="最大值" 
+                     Text="{Binding MaxValue}" />
+          </Grid>
+        </StackPanel>
+      </Expander>
+
+      <!-- 自定义过滤器 -->
+      <Expander Header="自定义" IsExpanded="false">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <TextBox Classes="filter" Watermark="自定义过滤条件..." 
+                   Text="{Binding CustomFilter}" />
+          <Button Content="应用自定义过滤器" 
+                  Command="{Binding ApplyCustomFilter}" />
+        </StackPanel>
+      </Expander>
+
+      <!-- 统计信息 -->
+      <Expander Header="统计" IsExpanded="true">
+        <StackPanel Spacing="5" Margin="0,5,0,0">
+          <Grid ColumnDefinitions="Auto, *">
+            <TextBlock Grid.Column="0" Text="总计:" Margin="0,0,5,0" />
+            <TextBlock Grid.Column="1" Text="{Binding TotalCount}" />
+          </Grid>
+          <Grid ColumnDefinitions="Auto, *">
+            <TextBlock Grid.Column="0" Text="过滤后:" Margin="0,0,5,0" />
+            <TextBlock Grid.Column="1" Text="{Binding FilteredCount}" />
+          </Grid>
+          <Grid ColumnDefinitions="Auto, *">
+            <TextBlock Grid.Column="0" Text="有效:" Margin="0,0,5,0" />
+            <TextBlock Grid.Column="1" Text="{Binding ValidCount}" />
+          </Grid>
+          <Grid ColumnDefinitions="Auto, *">
+            <TextBlock Grid.Column="0" Text="无效:" Margin="0,0,5,0" />
+            <TextBlock Grid.Column="1" Text="{Binding InvalidCount}" />
+          </Grid>
+        </StackPanel>
+      </Expander>
+
+      <!-- 操作按钮 -->
+      <Button Classes="clear" Content="清除所有过滤器" 
+              Command="{Binding ClearAllFilters}" />
+      <Button Classes="clear" Content="保存过滤器配置" 
+              Command="{Binding SaveFilterConfig}" />
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

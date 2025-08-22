@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using BannerlordModEditor.UI.Services;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml;
@@ -49,10 +50,15 @@ public abstract partial class BaseEditorViewModel<TData, TItem> : ViewModelBase
     protected readonly string XmlFileName;
     protected readonly string EditorName;
 
-    protected BaseEditorViewModel(string xmlFileName, string editorName)
+    protected BaseEditorViewModel(string xmlFileName, string editorName,
+        IErrorHandlerService? errorHandler = null,
+        ILogService? logService = null)
+        : base(errorHandler, logService)
     {
         XmlFileName = xmlFileName;
         EditorName = editorName;
+        
+        LogInfo($"Initialized {EditorName} editor", "BaseEditorViewModel");
         
         // 初始化过滤后的集合
         FilteredItems = new ObservableCollection<TItem>(Items);
@@ -72,32 +78,29 @@ public abstract partial class BaseEditorViewModel<TData, TItem> : ViewModelBase
     [RelayCommand]
     private async Task LoadFileAsync()
     {
-        try
+        await ExecuteSafelyAsync(async () =>
         {
             IsLoading = true;
             StatusMessage = "正在加载文件...";
+
+            LogInfo($"Starting to load file: {XmlFileName}", "BaseEditorViewModel");
 
             var foundPath = await FindFileAsync(XmlFileName);
             if (foundPath != null)
             {
                 await LoadDataAsync(foundPath);
                 StatusMessage = $"已加载 {Path.GetFileName(foundPath)}";
+                LogInfo($"Successfully loaded file: {foundPath}", "BaseEditorViewModel");
             }
             else
             {
                 await CreateEmptyEditorAsync();
                 StatusMessage = $"未找到 {XmlFileName}，创建新文件";
+                LogWarning($"File not found: {XmlFileName}, created empty editor", "BaseEditorViewModel");
             }
-        }
-        catch (Exception ex)
-        {
-            StatusMessage = $"加载失败: {ex.Message}";
-            await CreateErrorEditorAsync(ex.Message);
-        }
-        finally
-        {
-            IsLoading = false;
-        }
+        }, "BaseEditorViewModel.LoadFileAsync");
+        
+        IsLoading = false;
     }
 
     /// <summary>
@@ -106,7 +109,7 @@ public abstract partial class BaseEditorViewModel<TData, TItem> : ViewModelBase
     [RelayCommand]
     private async Task SaveFileAsync()
     {
-        try
+        await ExecuteSafelyAsync(async () =>
         {
             IsLoading = true;
             StatusMessage = "正在保存文件...";
@@ -117,44 +120,52 @@ public abstract partial class BaseEditorViewModel<TData, TItem> : ViewModelBase
                 FilePath = XmlFileName;
             }
 
+            LogInfo($"Starting to save file: {FilePath}", "BaseEditorViewModel");
+
             await SaveDataAsync(FilePath);
             HasUnsavedChanges = false;
             StatusMessage = "保存成功";
-        }
-        catch (Exception ex)
-        {
-            StatusMessage = $"保存失败: {ex.Message}";
-        }
-        finally
-        {
-            IsLoading = false;
-        }
+            
+            LogInfo($"Successfully saved file: {FilePath}", "BaseEditorViewModel");
+        }, "BaseEditorViewModel.SaveFileAsync");
+        
+        IsLoading = false;
     }
 
     /// <summary>
     /// 添加新项
     /// </summary>
     [RelayCommand]
-    private void AddItem()
+    protected void AddItem()
     {
-        var newItem = CreateNewItem();
-        Items.Add(newItem);
-        HasUnsavedChanges = true;
-        StatusMessage = "已添加新项";
+        ExecuteSafely(() =>
+        {
+            var newItem = CreateNewItem();
+            Items.Add(newItem);
+            HasUnsavedChanges = true;
+            StatusMessage = "已添加新项";
+            
+            LogInfo($"Added new item to {EditorName}", "BaseEditorViewModel");
+        }, "BaseEditorViewModel.AddItem");
     }
 
     /// <summary>
     /// 删除选中项
     /// </summary>
     [RelayCommand]
-    private void RemoveItem(TItem item)
+    protected void RemoveItem(TItem item)
     {
-        if (item != null)
+        ExecuteSafely(() =>
         {
-            Items.Remove(item);
-            HasUnsavedChanges = true;
-            StatusMessage = "已删除项";
-        }
+            if (item != null)
+            {
+                Items.Remove(item);
+                HasUnsavedChanges = true;
+                StatusMessage = "已删除项";
+                
+                LogInfo($"Removed item from {EditorName}", "BaseEditorViewModel");
+            }
+        }, "BaseEditorViewModel.RemoveItem");
     }
 
     /// <summary>
@@ -286,6 +297,26 @@ public abstract partial class BaseEditorViewModel<TData, TItem> : ViewModelBase
             FilePath = XmlFileName;
             HasUnsavedChanges = false;
         });
+    }
+
+    // 虚拟方法 - 子类可以重写以实现特定的XML文件处理
+
+    /// <summary>
+    /// 加载XML文件（异步）
+    /// </summary>
+    public virtual async Task LoadXmlFileAsync(string fileName)
+    {
+        // 默认实现使用抽象方法，子类可以重写以提供特定逻辑
+        await LoadFileAsync();
+    }
+
+    /// <summary>
+    /// 保存XML文件（异步）
+    /// </summary>
+    public virtual async Task SaveXmlFileAsync()
+    {
+        // 默认实现使用抽象方法，子类可以重写以提供特定逻辑
+        await SaveFileAsync();
     }
 
     // 抽象方法 - 需要在派生类中实现

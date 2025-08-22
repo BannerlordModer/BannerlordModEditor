@@ -78,7 +78,7 @@ public partial class MainWindowViewModel : ViewModelBase
         CheckForUpdatesCommand = new AsyncRelayCommand(CheckForUpdatesAsync);
     }
 
-    private void LoadSelectedEditor()
+    private async void LoadSelectedEditor()
     {
         var selectedEditor = EditorManager.SelectedEditor;
         
@@ -97,15 +97,15 @@ public partial class MainWindowViewModel : ViewModelBase
         switch (selectedEditor.EditorType)
         {
             case "AttributeEditor":
-                AttributeEditor.LoadXmlFile(selectedEditor.XmlFileName);
+                await AttributeEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
                 ShowAttributeEditor = true;
                 break;
             case "BoneBodyTypeEditor":
-                BoneBodyTypeEditor.LoadXmlFile(selectedEditor.XmlFileName);
+                await BoneBodyTypeEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
                 ShowBoneBodyTypeEditor = true;
                 break;
             case "SkillEditor":
-                SkillEditor.LoadXmlFile(selectedEditor.XmlFileName);
+                await SkillEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
                 ShowSkillEditor = true;
                 break;
             default:
