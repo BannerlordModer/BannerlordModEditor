@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>BannerlordModEditor.Cli</AssemblyName>
+    <RootNamespace>BannerlordModEditor.Cli</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <WarningsAsErrors />
+    <NoWarn>$(NoWarn);CS8618;CS8603;CS8604;CS8602;CS8600;CS8625</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BannerlordModEditor.Common\BannerlordModEditor.Common.csproj" />
+  </ItemGroup>
+</Project>
