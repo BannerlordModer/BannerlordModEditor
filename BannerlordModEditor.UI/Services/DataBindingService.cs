@@ -260,11 +260,13 @@ public class PropertyChangeObservable : IObservable<DataBindingEventArgs>
 {
     private readonly ObservableObject _source;
     private readonly string _propertyName;
+    private object? _lastKnownValue;
 
     public PropertyChangeObservable(ObservableObject source, string propertyName)
     {
         _source = source;
         _propertyName = propertyName;
+        _lastKnownValue = GetPropertyValue(source, propertyName);
     }
 
     public IDisposable Subscribe(IObserver<DataBindingEventArgs> observer)
@@ -273,13 +275,18 @@ public class PropertyChangeObservable : IObservable<DataBindingEventArgs>
         {
             if (e.PropertyName == _propertyName)
             {
+                var oldValue = _lastKnownValue;
+                var newValue = GetPropertyValue(_source, _propertyName);
+                
                 var args = new DataBindingEventArgs
                 {
                     PropertyName = e.PropertyName ?? string.Empty,
-                    OldValue = null, // 简化实现，不跟踪旧值
-                    NewValue = GetPropertyValue(_source, _propertyName),
+                    OldValue = oldValue,
+                    NewValue = newValue,
                     IsChanging = true
                 };
+                
+                _lastKnownValue = newValue;
                 observer.OnNext(args);
             }
         });

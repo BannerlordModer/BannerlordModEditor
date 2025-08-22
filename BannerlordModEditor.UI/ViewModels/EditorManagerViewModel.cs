@@ -149,13 +149,21 @@ public partial class EditorManagerViewModel : ViewModelBase
             // 更新面包屑导航
             var editorType = actualEditor.GetType();
             var editorAttribute = editorType.GetCustomAttribute<EditorTypeAttribute>();
-            CurrentBreadcrumb = $"{editorAttribute?.Category ?? "其他"} > {editorType.Name}";
+            var categoryName = editorAttribute?.Category ?? "其他";
+            var editorName = editorAttribute?.DisplayName ?? editorType.Name.Replace("ViewModel", "");
+            CurrentBreadcrumb = $"{categoryName} > {editorName}";
 
             // 获取编辑器的XML文件名并自动加载
-            if (editorAttribute?.XmlFileName != null)
+            var xmlFileName = editorAttribute?.XmlFileName;
+            if (string.IsNullOrEmpty(xmlFileName) && actualEditor is BaseEditorViewModel baseEditor)
+            {
+                xmlFileName = baseEditor.XmlFileName;
+            }
+            
+            if (!string.IsNullOrEmpty(xmlFileName))
             {
                 // 异步加载XML文件，不等待完成
-                _ = AutoLoadXmlFileAsync(actualEditor, editorAttribute.XmlFileName);
+                _ = AutoLoadXmlFileAsync(actualEditor, xmlFileName);
             }
         }
         catch (Exception ex)
@@ -167,17 +175,36 @@ public partial class EditorManagerViewModel : ViewModelBase
 
     private ViewModelBase CreateEditorViewModel(EditorItemViewModel editorItem)
     {
-        return editorItem.EditorType switch
+        try
         {
-            "AttributeEditor" => new AttributeEditorViewModel(),
-            "SkillEditor" => new SkillEditorViewModel(),
-            "CombatParameterEditor" => new CombatParameterEditorViewModel(),
-            "ItemEditor" => new ItemEditorViewModel(),
-            "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
-            "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
-            "ItemModifierEditor" => new ItemModifierEditorViewModel(),
-            _ => throw new NotSupportedException($"不支持的编辑器类型: {editorItem.EditorType}")
-        };
+            if (_editorFactory != null)
+            {
+                var viewModel = _editorFactory.CreateEditorViewModel(editorItem.EditorType, editorItem.XmlFileName);
+                if (viewModel != null)
+                {
+                    return viewModel;
+                }
+                _logService.LogWarning($"Failed to create editor via factory: {editorItem.EditorType}", "EditorManager");
+            }
+
+            // 回退到直接创建（用于测试或没有工厂的情况）
+            return editorItem.EditorType switch
+            {
+                "AttributeEditor" => new AttributeEditorViewModel(),
+                "SkillEditor" => new SkillEditorViewModel(),
+                "CombatParameterEditor" => new CombatParameterEditorViewModel(),
+                "ItemEditor" => new ItemEditorViewModel(),
+                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
+                "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
+                "ItemModifierEditor" => new ItemModifierEditorViewModel(),
+                _ => throw new NotSupportedException($"不支持的编辑器类型: {editorItem.EditorType}")
+            };
+        }
+        catch (Exception ex)
+        {
+            _logService.LogException(ex, $"Failed to create editor view model: {editorItem.EditorType}");
+            throw;
+        }
     }
 
     [RelayCommand]

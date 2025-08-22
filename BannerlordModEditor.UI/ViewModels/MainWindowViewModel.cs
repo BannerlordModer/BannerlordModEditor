@@ -80,37 +80,72 @@ public partial class MainWindowViewModel : ViewModelBase
 
     private async void LoadSelectedEditor()
     {
-        var selectedEditor = EditorManager.SelectedEditor;
-        
-        // 隐藏所有编辑器
-        ShowDefaultContent = false;
-        ShowAttributeEditor = false;
-        ShowBoneBodyTypeEditor = false;
-        ShowSkillEditor = false;
-        
-        if (selectedEditor == null) 
+        try
         {
-            ShowDefaultContent = true;
-            return;
-        }
-
-        switch (selectedEditor.EditorType)
-        {
-            case "AttributeEditor":
-                await AttributeEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
-                ShowAttributeEditor = true;
-                break;
-            case "BoneBodyTypeEditor":
-                await BoneBodyTypeEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
-                ShowBoneBodyTypeEditor = true;
-                break;
-            case "SkillEditor":
-                await SkillEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
-                ShowSkillEditor = true;
-                break;
-            default:
+            var selectedEditor = EditorManager.SelectedEditor;
+            
+            // 隐藏所有编辑器
+            ShowDefaultContent = false;
+            ShowAttributeEditor = false;
+            ShowBoneBodyTypeEditor = false;
+            ShowSkillEditor = false;
+            
+            if (selectedEditor == null) 
+            {
                 ShowDefaultContent = true;
-                break;
+                return;
+            }
+
+            switch (selectedEditor.EditorType)
+            {
+                case "AttributeEditor":
+                    if (AttributeEditor != null)
+                    {
+                        await AttributeEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
+                        ShowAttributeEditor = true;
+                    }
+                    else
+                    {
+                        ShowDefaultContent = true;
+                    }
+                    break;
+                case "BoneBodyTypeEditor":
+                    if (BoneBodyTypeEditor != null)
+                    {
+                        await BoneBodyTypeEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
+                        ShowBoneBodyTypeEditor = true;
+                    }
+                    else
+                    {
+                        ShowDefaultContent = true;
+                    }
+                    break;
+                case "SkillEditor":
+                    if (SkillEditor != null)
+                    {
+                        await SkillEditor.LoadXmlFileAsync(selectedEditor.XmlFileName);
+                        ShowSkillEditor = true;
+                    }
+                    else
+                    {
+                        ShowDefaultContent = true;
+                    }
+                    break;
+                default:
+                    ShowDefaultContent = true;
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            // 发生异常时显示默认内容
+            ShowDefaultContent = true;
+            ShowAttributeEditor = false;
+            ShowBoneBodyTypeEditor = false;
+            ShowSkillEditor = false;
+            
+            // 记录错误（如果有日志服务）
+            System.Diagnostics.Debug.WriteLine($"Error in LoadSelectedEditor: {ex.Message}");
         }
     }
 

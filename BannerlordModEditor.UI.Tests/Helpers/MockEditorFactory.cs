@@ -29,6 +29,12 @@ namespace BannerlordModEditor.UI.Tests.Helpers
                 DisplayName = "技能编辑器", 
                 Category = "角色设定" 
             };
+            _editorTypes["BoneBodyTypeEditor"] = new EditorTypeInfo 
+            { 
+                EditorType = "BoneBodyTypeEditor", 
+                DisplayName = "骨骼类型编辑器", 
+                Category = "角色设定" 
+            };
             _editorTypes["CombatParameterEditor"] = new EditorTypeInfo 
             { 
                 EditorType = "CombatParameterEditor", 
@@ -49,6 +55,7 @@ namespace BannerlordModEditor.UI.Tests.Helpers
             {
                 "AttributeEditor" => new AttributeEditorViewModel(),
                 "SkillEditor" => new SkillEditorViewModel(),
+                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
                 "CombatParameterEditor" => new CombatParameterEditorViewModel(),
                 "ItemEditor" => new ItemEditorViewModel(),
                 _ => null
@@ -103,6 +110,7 @@ namespace BannerlordModEditor.UI.Tests.Helpers
             {
                 new AttributeEditorViewModel(),
                 new SkillEditorViewModel(),
+                new BoneBodyTypeEditorViewModel(),
                 new CombatParameterEditorViewModel(),
                 new ItemEditorViewModel()
             };

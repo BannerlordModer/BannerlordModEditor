@@ -173,8 +173,16 @@ public class ValidationService : IValidationService
         };
 
         var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+        
+        var propertyInfo = obj.GetType().GetProperty(propertyName);
+        if (propertyInfo == null)
+        {
+            // 属性不存在，返回空结果
+            return results;
+        }
+        
         Validator.TryValidateProperty(
-            obj.GetType().GetProperty(propertyName)?.GetValue(obj),
+            propertyInfo.GetValue(obj),
             validationContext,
             validationResults
         );

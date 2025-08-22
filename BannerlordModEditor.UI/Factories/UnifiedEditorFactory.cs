@@ -45,20 +45,66 @@ public class UnifiedEditorFactory : IEditorFactory
     /// </summary>
     private void RegisterDefaultEditors()
     {
-        RegisterEditor<AttributeEditorViewModel, AttributeEditorView>("AttributeEditor", 
-            "属性编辑器", "编辑角色属性", "attributes.xml", "Character");
+        try
+        {
+            RegisterEditor<AttributeEditorViewModel, AttributeEditorView>("AttributeEditor", 
+                "属性编辑器", "编辑角色属性", "attributes.xml", "Character");
+        }
+        catch (Exception ex)
+        {
+            _logService.LogWarning($"Failed to register AttributeEditor: {ex.Message}", "EditorFactory");
+            // 尝试只注册ViewModel，不注册View
+            RegisterEditorViewModelOnly<AttributeEditorViewModel>("AttributeEditor", 
+                "属性编辑器", "编辑角色属性", "attributes.xml", "Character");
+        }
         
-        RegisterEditor<SkillEditorViewModel, SkillEditorView>("SkillEditor", 
-            "技能编辑器", "编辑角色技能", "skills.xml", "Character");
+        try
+        {
+            RegisterEditor<SkillEditorViewModel, SkillEditorView>("SkillEditor", 
+                "技能编辑器", "编辑角色技能", "skills.xml", "Character");
+        }
+        catch (Exception ex)
+        {
+            _logService.LogWarning($"Failed to register SkillEditor: {ex.Message}", "EditorFactory");
+            RegisterEditorViewModelOnly<SkillEditorViewModel>("SkillEditor", 
+                "技能编辑器", "编辑角色技能", "skills.xml", "Character");
+        }
         
-        RegisterEditor<BoneBodyTypeEditorViewModel, BoneBodyTypeEditorView>("BoneBodyTypeEditor", 
-            "骨骼类型编辑器", "编辑骨骼类型", "bone_body_types.xml", "Character");
+        try
+        {
+            RegisterEditor<BoneBodyTypeEditorViewModel, BoneBodyTypeEditorView>("BoneBodyTypeEditor", 
+                "骨骼类型编辑器", "编辑骨骼类型", "bone_body_types.xml", "Character");
+        }
+        catch (Exception ex)
+        {
+            _logService.LogWarning($"Failed to register BoneBodyTypeEditor: {ex.Message}", "EditorFactory");
+            RegisterEditorViewModelOnly<BoneBodyTypeEditorViewModel>("BoneBodyTypeEditor", 
+                "骨骼类型编辑器", "编辑骨骼类型", "bone_body_types.xml", "Character");
+        }
         
-        RegisterEditor<CraftingPieceEditorViewModel, CraftingPieceEditorView>("CraftingPieceEditor", 
-            "制作件编辑器", "编辑制作件", "crafting_pieces.xml", "Crafting");
+        try
+        {
+            RegisterEditor<CraftingPieceEditorViewModel, CraftingPieceEditorView>("CraftingPieceEditor", 
+                "制作件编辑器", "编辑制作件", "crafting_pieces.xml", "Crafting");
+        }
+        catch (Exception ex)
+        {
+            _logService.LogWarning($"Failed to register CraftingPieceEditor: {ex.Message}", "EditorFactory");
+            RegisterEditorViewModelOnly<CraftingPieceEditorViewModel>("CraftingPieceEditor", 
+                "制作件编辑器", "编辑制作件", "crafting_pieces.xml", "Crafting");
+        }
         
-        RegisterEditor<ItemModifierEditorViewModel, ItemModifierEditorView>("ItemModifierEditor", 
-            "物品修饰器编辑器", "编辑物品修饰器", "item_modifiers.xml", "Items");
+        try
+        {
+            RegisterEditor<ItemModifierEditorViewModel, ItemModifierEditorView>("ItemModifierEditor", 
+                "物品修饰器编辑器", "编辑物品修饰器", "item_modifiers.xml", "Items");
+        }
+        catch (Exception ex)
+        {
+            _logService.LogWarning($"Failed to register ItemModifierEditor: {ex.Message}", "EditorFactory");
+            RegisterEditorViewModelOnly<ItemModifierEditorViewModel>("ItemModifierEditor", 
+                "物品修饰器编辑器", "编辑物品修饰器", "item_modifiers.xml", "Items");
+        }
     }
 
     /// <summary>
@@ -145,6 +191,28 @@ public class UnifiedEditorFactory : IEditorFactory
             ViewType = typeof(TView),
             Category = category,
             SupportsDto = false // 默认不支持DTO，可以通过属性设置
+        };
+
+        _editorTypes[editorType] = editorInfo;
+    }
+
+    /// <summary>
+    /// 只注册ViewModel（用于测试环境或没有View的情况）
+    /// </summary>
+    public void RegisterEditorViewModelOnly<TViewModel>(string editorType, 
+        string displayName, string description, string xmlFileName, string category = "General")
+        where TViewModel : ViewModelBase
+    {
+        var editorInfo = new EditorTypeInfo
+        {
+            EditorType = editorType,
+            DisplayName = displayName,
+            Description = description,
+            XmlFileName = xmlFileName,
+            ViewModelType = typeof(TViewModel),
+            ViewType = typeof(BaseEditorView), // 使用基类作为默认View
+            Category = category,
+            SupportsDto = false
         };
 
         _editorTypes[editorType] = editorInfo;
