@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.TUI.UAT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.TUI.TmuxTest", "BannerlordModEditor.TUI.TmuxTest\BannerlordModEditor.TUI.TmuxTest.csproj", "{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordModEditor.Cli", "BannerlordModEditor.Cli\BannerlordModEditor.Cli.csproj", "{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,7 +103,7 @@ Global
 		{F8F1E3A2-F226-4925-9AD3-E8C0C7721CFE}.Release|x64.Build.0 = Release|Any CPU
 		{F8F1E3A2-F226-4925-9AD3-E8C0C7721CFE}.Release|x86.ActiveCfg = Release|Any CPU
 		{F8F1E3A2-F226-4925-9AD3-E8C0C7721CFE}.Release|x86.Build.0 = Release|Any CPU
-				{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Debug|x64.Build.0 = Debug|Any CPU
@@ -113,6 +115,18 @@ Global
 		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Release|x64.Build.0 = Release|Any CPU
 		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Release|x86.ActiveCfg = Release|Any CPU
 		{08F1E3A2-F226-4925-9AD3-E8C0C7721CFF}.Release|x86.Build.0 = Release|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Debug|x64.Build.0 = Debug|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Debug|x86.Build.0 = Debug|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Release|x64.ActiveCfg = Release|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Release|x64.Build.0 = Release|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Release|x86.ActiveCfg = Release|Any CPU
+		{18F1E3A2-F226-4925-9AD3-E8C0C7721CG0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
