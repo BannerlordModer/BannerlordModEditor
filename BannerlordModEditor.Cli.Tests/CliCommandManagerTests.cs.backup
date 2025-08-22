@@ -1,0 +1,156 @@
+using Xunit;
+using Xunit.Abstractions;
+using BannerlordModEditor.Cli.Commands;
+using BannerlordModEditor.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System.CommandLine;
+using System.CommandLine.Invocation;
+
+namespace BannerlordModEditor.Cli.Tests
+{
+    public class CliCommandManagerTests
+    {
+        private readonly ITestOutputHelper _output;
+
+        public CliCommandManagerTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
+        [Fact]
+        public void Constructor_ShouldInitializeWithServiceProvider()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
+            var serviceProvider = services.BuildServiceProvider();
+
+            // Act
+            var commandManager = new CliCommandManager(serviceProvider);
+
+            // Assert
+            Assert.NotNull(commandManager);
+        }
+
+        [Fact]
+        public void GetRootCommand_ShouldReturnValidRootCommand()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
+            var serviceProvider = services.BuildServiceProvider();
+            var commandManager = new CliCommandManager(serviceProvider);
+
+            // Act
+            var rootCommand = commandManager.GetRootCommand();
+
+            // Assert
+            Assert.NotNull(rootCommand);
+            Assert.Equal("Bannerlord Mod Editor - Command Line Interface", rootCommand.Description);
+            
+            // 验证子命令存在
+            var subcommands = rootCommand.Children.OfType<Command>().ToList();
+            Assert.Contains(subcommands, c => c.Name == "list");
+            Assert.Contains(subcommands, c => c.Name == "check");
+            Assert.Contains(subcommands, c => c.Name == "test");
+            Assert.Contains(subcommands, c => c.Name == "discover");
+        }
+
+        [Fact]
+        public void ListCommand_ShouldHaveCorrectOptions()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
+            var serviceProvider = services.BuildServiceProvider();
+            var commandManager = new CliCommandManager(serviceProvider);
+            var rootCommand = commandManager.GetRootCommand();
+
+            // Act
+            var listCommand = rootCommand.Children.OfType<Command>().FirstOrDefault(c => c.Name == "list");
+
+            // Assert
+            Assert.NotNull(listCommand);
+            Assert.Equal("列出所有XML文件及其适配状态", listCommand.Description);
+            
+            // 验证选项存在
+            var options = listCommand.Options.ToList();
+            Assert.Contains(options, o => o.HasAlias("--xml-dir") || o.HasAlias("-x"));
+            Assert.Contains(options, o => o.HasAlias("--adapted-only") || o.HasAlias("-a"));
+            Assert.Contains(options, o => o.HasAlias("--unadapted-only") || o.HasAlias("-u"));
+        }
+
+        [Fact]
+        public void CheckCommand_ShouldHaveCorrectArgumentsAndOptions()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
+            var serviceProvider = services.BuildServiceProvider();
+            var commandManager = new CliCommandManager(serviceProvider);
+            var rootCommand = commandManager.GetRootCommand();
+
+            // Act
+            var checkCommand = rootCommand.Children.OfType<Command>().FirstOrDefault(c => c.Name == "check");
+
+            // Assert
+            Assert.NotNull(checkCommand);
+            Assert.Equal("验证XML文件格式", checkCommand.Description);
+            
+            // 验证参数和选项存在
+            var arguments = checkCommand.Arguments.ToList();
+            var options = checkCommand.Options.ToList();
+            
+            Assert.Contains(arguments, a => a.Name == "file");
+            Assert.Contains(options, o => o.HasAlias("--verbose") || o.HasAlias("-v"));
+        }
+
+        [Fact]
+        public void TestCommand_ShouldHaveCorrectArgumentsAndOptions()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
+            var serviceProvider = services.BuildServiceProvider();
+            var commandManager = new CliCommandManager(serviceProvider);
+            var rootCommand = commandManager.GetRootCommand();
+
+            // Act
+            var testCommand = rootCommand.Children.OfType<Command>().FirstOrDefault(c => c.Name == "test");
+
+            // Assert
+            Assert.NotNull(testCommand);
+            Assert.Equal("运行XML序列化/反序列化测试", testCommand.Description);
+            
+            // 验证参数和选项存在
+            var arguments = testCommand.Arguments.ToList();
+            var options = testCommand.Options.ToList();
+            
+            Assert.Contains(arguments, a => a.Name == "file");
+            Assert.Contains(options, o => o.HasAlias("--model-type") || o.HasAlias("-m"));
+        }
+
+        [Fact]
+        public void DiscoverCommand_ShouldHaveCorrectOptions()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddTransient<IFileDiscoveryService, FileDiscoveryService>();
+            var serviceProvider = services.BuildServiceProvider();
+            var commandManager = new CliCommandManager(serviceProvider);
+            var rootCommand = commandManager.GetRootCommand();
+
+            // Act
+            var discoverCommand = rootCommand.Children.OfType<Command>().FirstOrDefault(c => c.Name == "discover");
+
+            // Assert
+            Assert.NotNull(discoverCommand);
+            Assert.Equal("发现未适配的XML文件", discoverCommand.Description);
+            
+            // 验证选项存在
+            var options = discoverCommand.Options.ToList();
+            Assert.Contains(options, o => o.HasAlias("--xml-dir") || o.HasAlias("-x"));
+            Assert.Contains(options, o => o.HasAlias("--output") || o.HasAlias("-o"));
+        }
+    }
+}

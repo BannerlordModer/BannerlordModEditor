@@ -13,6 +13,7 @@
 - **XML适配**: 支持50+种骑砍2XML配置文件类型
 - **性能优化**: 大型XML文件分片处理，内存使用优化
 - **文档完善**: 完整的项目文档和使用指南
+- **新增CLI工具**: 基于CliFx的现代化命令行界面，支持Excel/XML双向转换
 
 ### 核心架构特性
 
@@ -47,8 +48,11 @@ dotnet build
 # 运行所有测试（推荐）
 dotnet test --verbosity normal
 
-# 启动应用程序
+# 启动UI应用程序
 dotnet run --project BannerlordModEditor.UI
+
+# 使用CLI工具
+dotnet run --project BannerlordModEditor.Cli -- --help
 
 # 运行特定测试
 dotnet test --filter "TestName"
@@ -99,6 +103,10 @@ BannerlordModEditor.sln
 │   ├── Comprehensive/                  # 综合测试套件
 │   └── Integration/                    # 集成测试
 ├── BannerlordModEditor.UI.Tests/         # UI层测试
+├── BannerlordModEditor.Cli/            # CLI应用程序 (新增)
+│   ├── Commands/                      # CLI命令 (convert, recognize, list-models)
+│   └── Services/                      # CLI服务 (Excel/XML转换)
+├── BannerlordModEditor.Cli.Tests/      # CLI测试
 ├── docs/                                # 完整项目文档
 │   ├── README.md                       # 文档中心导航
 │   ├── CLAUDE.md                       # 文档管理规范
@@ -124,6 +132,34 @@ BannerlordModEditor.sln
 2. **命名约定映射**: `NamingConventionMapper`处理XML文件名到C#类名的智能转换
 3. **分层模型生成**: 基于XML结构生成对应的DO/DTO分层模型类
 4. **高性能序列化**: `GenericXmlLoader`处理XML的读写操作，支持大型文件
+
+### 🛠️ CLI工具 (新增)
+
+基于CliFx的现代化命令行工具，提供Excel和XML文件的双向转换：
+
+```bash
+# 列出支持的模型类型
+dotnet run --project BannerlordModEditor.Cli -- list-models
+
+# 识别XML文件格式
+dotnet run --project BannerlordModEditor.Cli -- recognize -i "file.xml"
+
+# Excel转XML
+dotnet run --project BannerlordModEditor.Cli -- convert -i "data.xlsx" -o "data.xml" -m "ActionTypesDO"
+
+# XML转Excel
+dotnet run --project BannerlordModEditor.Cli -- convert -i "data.xml" -o "data.xlsx"
+
+# 验证格式
+dotnet run --project BannerlordModEditor.Cli -- convert -i "data.xlsx" -o "data.xml" -m "ActionTypesDO" --validate
+```
+
+**主要特性**:
+- 支持35+种Bannerlord数据模型
+- 自动格式识别和验证
+- 友好的错误提示和建议
+- 详细的输出和调试信息
+- 支持批量处理
 
 ### 📋 支持的XML类型 (50+种)
 
