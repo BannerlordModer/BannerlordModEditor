@@ -83,6 +83,17 @@ public abstract partial class GenericEditorViewModel<TDO, TDTO, TItemDO, TItemDT
     }
 
     /// <summary>
+    /// 添加新项
+    /// </summary>
+    protected void AddItem()
+    {
+        var newItem = CreateNewItemViewModel();
+        Items.Add(newItem);
+        HasUnsavedChanges = true;
+        StatusMessage = "已添加新项";
+    }
+
+    /// <summary>
     /// 删除视图模型项
     /// </summary>
     protected void RemoveItem(TItemViewModel? item)
