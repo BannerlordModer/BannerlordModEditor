@@ -1,0 +1,68 @@
+using Xunit;
+using Xunit.Abstractions;
+using System.CommandLine;
+using System.CommandLine.Invocation;
+using BannerlordModEditor.Cli;
+using BannerlordModEditor.Cli.Commands;
+using BannerlordModEditor.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace BannerlordModEditor.Cli.Tests
+{
+    public class ProgramIntegrationTests
+    {
+        private readonly ITestOutputHelper _output;
+
+        public ProgramIntegrationTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
+        [Fact]
+        public void Program_ShouldHaveValidEntryPoint()
+        {
+            // Assert
+            var method = typeof(Program).GetMethod("Main", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            Assert.NotNull(method);
+            Assert.Equal(typeof(Task), method.ReturnType);
+            
+            var parameters = method.GetParameters();
+            Assert.Single(parameters);
+            Assert.Equal(typeof(string[]), parameters[0].ParameterType);
+        }
+
+        [Fact]
+        public void Program_ShouldBeAbleToCreateServiceCollection()
+        {
+            // Arrange & Act
+            var services = new ServiceCollection();
+            Program.ConfigureServices(services);
+            var serviceProvider = services.BuildServiceProvider();
+
+            // Assert
+            Assert.NotNull(serviceProvider);
+            
+            // 验证服务可以正常解析
+            var fileDiscoveryService = serviceProvider.GetService<IFileDiscoveryService>();
+            Assert.NotNull(fileDiscoveryService);
+            Assert.IsType<FileDiscoveryService>(fileDiscoveryService);
+        }
+
+        [Fact]
+        public void CommandManager_ShouldBeAbleToCreateRootCommand()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            Program.ConfigureServices(services);
+            var serviceProvider = services.BuildServiceProvider();
+            var commandManager = new CliCommandManager(serviceProvider);
+
+            // Act
+            var rootCommand = commandManager.GetRootCommand();
+
+            // Assert
+            Assert.NotNull(rootCommand);
+            Assert.Equal("Bannerlord Mod Editor - Command Line Interface", rootCommand.Description);
+        }
+    }
+}

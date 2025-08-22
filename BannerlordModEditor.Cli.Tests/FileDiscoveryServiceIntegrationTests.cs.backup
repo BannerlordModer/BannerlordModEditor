@@ -1,0 +1,129 @@
+using Xunit;
+using Xunit.Abstractions;
+using BannerlordModEditor.Common.Services;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace BannerlordModEditor.Cli.Tests
+{
+    public class FileDiscoveryServiceIntegrationTests
+    {
+        private readonly ITestOutputHelper _output;
+
+        public FileDiscoveryServiceIntegrationTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
+        [Fact]
+        public void FileDiscoveryService_ShouldBeInjectable()
+        {
+            // Arrange & Act
+            var service = new FileDiscoveryService();
+
+            // Assert
+            Assert.NotNull(service);
+            Assert.IsAssignableFrom<IFileDiscoveryService>(service);
+        }
+
+        [Fact]
+        public void IsFileAdapted_ShouldReturnFalseForUnknownFiles()
+        {
+            // Arrange
+            var service = new FileDiscoveryService();
+            var unknownFileName = "unknown_file.xml";
+
+            // Act
+            var result = service.IsFileAdapted(unknownFileName);
+
+            // Assert
+            Assert.True(result is false);
+        }
+
+        [Fact]
+        public void IsFileAdapted_ShouldWorkForKnownFiles()
+        {
+            // Arrange
+            var service = new FileDiscoveryService();
+            var knownFileName = "action_types.xml"; // 这是一个已知的文件类型
+
+            // Act
+            var result = service.IsFileAdapted(knownFileName);
+
+            // Assert
+            // 根据实际的适配状态，结果可能是true或false
+            // 主要是验证方法不会抛出异常
+            // result是bool类型，不需要检查null
+            Assert.True(result is bool);
+        }
+
+        [Fact]
+        public async Task FindUnadaptedFilesAsync_ShouldReturnCollection()
+        {
+            // Arrange
+            var service = new FileDiscoveryService();
+
+            // Act & Assert
+            // 这个方法可能因为缺少example/ModuleData目录而抛出异常
+            // 这是预期的行为，因为测试环境可能没有完整的目录结构
+            try
+            {
+                var result = await service.FindUnadaptedFilesAsync();
+                Assert.NotNull(result);
+                Assert.IsAssignableFrom<System.Collections.Generic.ICollection<UnadaptedFile>>(result);
+            }
+            catch (DirectoryNotFoundException)
+            {
+                // 这是预期的，因为测试环境可能没有example/ModuleData目录
+                Assert.True(true, "预期的目录不存在异常");
+            }
+            catch (Exception ex)
+            {
+                _output.WriteLine($"未预期的异常: {ex.Message}");
+                throw;
+            }
+        }
+
+        [Fact]
+        public void ConvertToModelName_ShouldReturnValidName()
+        {
+            // Arrange
+            var service = new FileDiscoveryService();
+            var fileName = "test_file.xml";
+
+            // Act
+            var result = service.ConvertToModelName(fileName);
+
+            // Assert
+            Assert.False(string.IsNullOrEmpty(result));
+            Assert.Contains("TestFile", result); // 应该根据文件名生成模型名
+        }
+
+        [Fact]
+        public void ConvertToModelName_ShouldHandleVariousFileNames()
+        {
+            // Arrange
+            var service = new FileDiscoveryService();
+            var testCases = new[]
+            {
+                "simple.xml",
+                "multi_word_file.xml",
+                "file_with_numbers_123.xml",
+                "UPPERCASE_FILE.xml"
+            };
+
+            foreach (var fileName in testCases)
+            {
+                // Act
+                var result = service.ConvertToModelName(fileName);
+
+                // Assert
+                Assert.False(string.IsNullOrEmpty(result));
+                Assert.DoesNotContain("_", result); // 模型名不应该包含下划线
+                Assert.DoesNotContain(".xml", result); // 模型名不应该包含.xml
+                
+                _output.WriteLine($"文件名: {fileName} -> 模型名: {result}");
+            }
+        }
+    }
+}

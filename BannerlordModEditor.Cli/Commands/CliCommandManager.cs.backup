@@ -1,0 +1,330 @@
+using System.CommandLine;
+using BannerlordModEditor.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace BannerlordModEditor.Cli.Commands
+{
+    /// <summary>
+    /// CLI命令管理器
+    /// </summary>
+    public class CliCommandManager
+    {
+        private readonly IServiceProvider _serviceProvider;
+
+        public CliCommandManager(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
+        /// <summary>
+        /// 配置并返回根命令
+        /// </summary>
+        public RootCommand GetRootCommand()
+        {
+            var rootCommand = new RootCommand("Bannerlord Mod Editor - Command Line Interface");
+
+            // 添加子命令
+            rootCommand.AddCommand(CreateListCommand());
+            rootCommand.AddCommand(CreateCheckCommand());
+            rootCommand.AddCommand(CreateTestCommand());
+            rootCommand.AddCommand(CreateDiscoverCommand());
+
+            return rootCommand;
+        }
+
+        /// <summary>
+        /// 创建列表命令 - 显示所有XML文件
+        /// </summary>
+        private Command CreateListCommand()
+        {
+            var command = new Command("list", "列出所有XML文件及其适配状态");
+            
+            var xmlDirOption = new Option<string>(
+                new[] { "--xml-dir", "-x" },
+                () => "example/ModuleData",
+                "XML文件目录路径");
+            
+            var adaptedOnlyOption = new Option<bool>(
+                new[] { "--adapted-only", "-a" },
+                "只显示已适配的文件");
+            
+            var unadaptedOnlyOption = new Option<bool>(
+                new[] { "--unadapted-only", "-u" },
+                "只显示未适配的文件");
+
+            command.AddOption(xmlDirOption);
+            command.AddOption(adaptedOnlyOption);
+            command.AddOption(unadaptedOnlyOption);
+
+            command.SetHandler(async (string xmlDir, bool adaptedOnly, bool unadaptedOnly) =>
+            {
+                await HandleListCommand(xmlDir, adaptedOnly, unadaptedOnly);
+            }, xmlDirOption, adaptedOnlyOption, unadaptedOnlyOption);
+
+            return command;
+        }
+
+        /// <summary>
+        /// 创建检查命令 - 验证XML文件格式
+        /// </summary>
+        private Command CreateCheckCommand()
+        {
+            var command = new Command("check", "验证XML文件格式");
+            
+            var fileArgument = new Argument<string>("file", "要检查的XML文件路径");
+            var verboseOption = new Option<bool>(
+                new[] { "--verbose", "-v" },
+                "显示详细信息");
+
+            command.AddArgument(fileArgument);
+            command.AddOption(verboseOption);
+
+            command.SetHandler(async (string file, bool verbose) =>
+            {
+                await HandleCheckCommand(file, verbose);
+            }, fileArgument, verboseOption);
+
+            return command;
+        }
+
+        /// <summary>
+        /// 创建测试命令 - 运行序列化/反序列化测试
+        /// </summary>
+        private Command CreateTestCommand()
+        {
+            var command = new Command("test", "运行XML序列化/反序列化测试");
+            
+            var fileArgument = new Argument<string>("file", "要测试的XML文件路径");
+            var modelTypeOption = new Option<string>(
+                new[] { "--model-type", "-m" },
+                "指定模型类型名称");
+
+            command.AddArgument(fileArgument);
+            command.AddOption(modelTypeOption);
+
+            command.SetHandler(async (string file, string? modelType) =>
+            {
+                await HandleTestCommand(file, modelType);
+            }, fileArgument, modelTypeOption);
+
+            return command;
+        }
+
+        /// <summary>
+        /// 创建发现命令 - 发现未适配的文件
+        /// </summary>
+        private Command CreateDiscoverCommand()
+        {
+            var command = new Command("discover", "发现未适配的XML文件");
+            
+            var xmlDirOption = new Option<string>(
+                new[] { "--xml-dir", "-x" },
+                () => "example/ModuleData",
+                "XML文件目录路径");
+            
+            var outputOption = new Option<string>(
+                new[] { "--output", "-o" },
+                "输出文件路径（JSON格式）");
+
+            command.AddOption(xmlDirOption);
+            command.AddOption(outputOption);
+
+            command.SetHandler(async (string xmlDir, string? output) =>
+            {
+                await HandleDiscoverCommand(xmlDir, output);
+            }, xmlDirOption, outputOption);
+
+            return command;
+        }
+
+        /// <summary>
+        /// 处理列表命令
+        /// </summary>
+        private async Task HandleListCommand(string xmlDir, bool adaptedOnly, bool unadaptedOnly)
+        {
+            try
+            {
+                var fileDiscoveryService = _serviceProvider.GetRequiredService<IFileDiscoveryService>();
+                
+                if (!Directory.Exists(xmlDir))
+                {
+                    Console.WriteLine($"错误：目录不存在 - {xmlDir}");
+                    return;
+                }
+
+                var xmlFiles = Directory.GetFiles(xmlDir, "*.xml", SearchOption.TopDirectoryOnly);
+                
+                Console.WriteLine($"XML文件列表 ({xmlDir}):");
+                Console.WriteLine(new string('-', 80));
+                
+                foreach (var file in xmlFiles)
+                {
+                    var fileName = Path.GetFileName(file);
+                    var isAdapted = fileDiscoveryService.IsFileAdapted(fileName);
+                    
+                    // 根据选项过滤
+                    if (adaptedOnly && !isAdapted) continue;
+                    if (unadaptedOnly && isAdapted) continue;
+                    
+                    var status = isAdapted ? "✓ 已适配" : "✗ 未适配";
+                    var fileSize = new FileInfo(file).Length;
+                    var sizeStr = fileSize > 1024 * 1024 ? $"{fileSize / (1024.0 * 1024):F1}MB" : 
+                                 fileSize > 1024 ? $"{fileSize / 1024:F1}KB" : $"{fileSize}B";
+                    
+                    Console.WriteLine($"{status,-12} {sizeStr,-10} {fileName}");
+                }
+                
+                Console.WriteLine(new string('-', 80));
+                var totalFiles = xmlFiles.Length;
+                var adaptedCount = xmlFiles.Count(f => fileDiscoveryService.IsFileAdapted(Path.GetFileName(f)));
+                var unadaptedCount = totalFiles - adaptedCount;
+                
+                Console.WriteLine($"总计：{totalFiles} 个文件 (已适配：{adaptedCount}, 未适配：{unadaptedCount})");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"错误：{ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// 处理检查命令
+        /// </summary>
+        private async Task HandleCheckCommand(string file, bool verbose)
+        {
+            try
+            {
+                if (!File.Exists(file))
+                {
+                    Console.WriteLine($"错误：文件不存在 - {file}");
+                    return;
+                }
+
+                var fileInfo = new FileInfo(file);
+                Console.WriteLine($"检查文件：{file}");
+                Console.WriteLine($"文件大小：{fileInfo.Length:N0} 字节");
+                
+                try
+                {
+                    var content = await File.ReadAllTextAsync(file);
+                    var doc = System.Xml.Linq.XDocument.Parse(content);
+                    
+                    Console.WriteLine("✓ XML格式有效");
+                    
+                    if (verbose)
+                    {
+                        var rootElement = doc.Root;
+                        if (rootElement != null)
+                        {
+                            Console.WriteLine($"根元素：{rootElement.Name.LocalName}");
+                            Console.WriteLine($"子元素数量：{rootElement.Elements().Count()}");
+                            Console.WriteLine($"属性数量：{rootElement.Attributes().Count()}");
+                            
+                            if (rootElement.HasElements)
+                            {
+                                Console.WriteLine("主要子元素：");
+                                foreach (var element in rootElement.Elements().Take(5))
+                                {
+                                    Console.WriteLine($"  - {element.Name.LocalName}");
+                                }
+                                if (rootElement.Elements().Count() > 5)
+                                {
+                                    Console.WriteLine($"  ... 还有 {rootElement.Elements().Count() - 5} 个元素");
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (System.Xml.XmlException ex)
+                {
+                    Console.WriteLine($"✗ XML格式错误：{ex.Message}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"错误：{ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// 处理测试命令
+        /// </summary>
+        private async Task HandleTestCommand(string file, string? modelType)
+        {
+            try
+            {
+                if (!File.Exists(file))
+                {
+                    Console.WriteLine($"错误：文件不存在 - {file}");
+                    return;
+                }
+
+                Console.WriteLine($"测试文件：{file}");
+                
+                // TODO: 实现XML序列化/反序列化测试
+                Console.WriteLine("⚠️  测试功能正在开发中...");
+                
+                if (!string.IsNullOrEmpty(modelType))
+                {
+                    Console.WriteLine($"指定模型类型：{modelType}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"错误：{ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// 处理发现命令
+        /// </summary>
+        private async Task HandleDiscoverCommand(string xmlDir, string? output)
+        {
+            try
+            {
+                var fileDiscoveryService = _serviceProvider.GetRequiredService<IFileDiscoveryService>();
+                
+                Console.WriteLine($"发现未适配的XML文件...");
+                Console.WriteLine($"XML目录：{xmlDir}");
+                
+                var unadaptedFiles = await fileDiscoveryService.FindUnadaptedFilesAsync();
+                
+                if (unadaptedFiles.Count == 0)
+                {
+                    Console.WriteLine("✓ 所有XML文件都已适配！");
+                    return;
+                }
+
+                Console.WriteLine($"发现 {unadaptedFiles.Count} 个未适配的文件：");
+                Console.WriteLine(new string('-', 80));
+                
+                foreach (var file in unadaptedFiles)
+                {
+                    var sizeStr = file.FileSize > 1024 * 1024 ? $"{file.FileSize / (1024.0 * 1024):F1}MB" : 
+                                 file.FileSize > 1024 ? $"{file.FileSize / 1024:F1}KB" : $"{file.FileSize}B";
+                    
+                    Console.WriteLine($"{file.FileName,-40} {sizeStr,-10} {file.Complexity,-10} -> {file.ExpectedModelName}");
+                }
+                
+                Console.WriteLine(new string('-', 80));
+                
+                // 如果需要输出到文件
+                if (!string.IsNullOrEmpty(output))
+                {
+                    var json = System.Text.Json.JsonSerializer.Serialize(unadaptedFiles, new System.Text.Json.JsonSerializerOptions
+                    {
+                        WriteIndented = true,
+                        PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase
+                    });
+                    
+                    await File.WriteAllTextAsync(output, json);
+                    Console.WriteLine($"结果已保存到：{output}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"错误：{ex.Message}");
+            }
+        }
+    }
+}
