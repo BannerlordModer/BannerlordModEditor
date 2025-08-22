@@ -62,10 +62,14 @@
       <!-- 日期过滤器 -->
       <Expander Header="日期" IsExpanded="false">
         <StackPanel Spacing="5" Margin="0,5,0,0">
-          <DatePicker SelectedDate="{Binding StartDate}" 
-                     Watermark="开始日期" />
-          <DatePicker SelectedDate="{Binding EndDate}" 
-                     Watermark="结束日期" />
+          <StackPanel Spacing="2">
+            <TextBlock Text="开始日期" FontSize="12" Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+            <DatePicker SelectedDate="{Binding StartDate}" />
+          </StackPanel>
+          <StackPanel Spacing="2">
+            <TextBlock Text="结束日期" FontSize="12" Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+            <DatePicker SelectedDate="{Binding EndDate}" />
+          </StackPanel>
         </StackPanel>
       </Expander>
 

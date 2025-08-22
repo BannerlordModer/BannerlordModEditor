@@ -19,8 +19,8 @@ namespace BannerlordModEditor.UI.Tests.EditorFactoryTests
             // Arrange
             var services = new ServiceCollection();
             
-            // 注册编辑器工厂
-            services.AddSingleton<IEditorFactory, EditorFactory>();
+            // 注册编辑器工厂 - 使用统一的编辑器工厂
+            services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
             
             // 注册所有编辑器ViewModel
             services.AddTransient<AttributeEditorViewModel>();
@@ -65,7 +65,7 @@ namespace BannerlordModEditor.UI.Tests.EditorFactoryTests
         {
             // Arrange
             var services = new ServiceCollection();
-            services.AddSingleton<IEditorFactory, EditorFactory>();
+            services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
             var serviceProvider = services.BuildServiceProvider();
             var factory = serviceProvider.GetRequiredService<IEditorFactory>();
             
@@ -79,7 +79,7 @@ namespace BannerlordModEditor.UI.Tests.EditorFactoryTests
         {
             // Arrange
             var services = new ServiceCollection();
-            services.AddSingleton<IEditorFactory, EditorFactory>();
+            services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
             var serviceProvider = services.BuildServiceProvider();
             var factory = serviceProvider.GetRequiredService<IEditorFactory>();
             

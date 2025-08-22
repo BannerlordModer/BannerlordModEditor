@@ -56,7 +56,7 @@ public partial class App : Application
         var services = new ServiceCollection();
         
         // 注册编辑器工厂
-        services.AddSingleton<IEditorFactory, EnhancedEditorFactory>();
+        services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
         
         // 注册验证和数据绑定服务
         services.AddSingleton<IValidationService, ValidationService>();

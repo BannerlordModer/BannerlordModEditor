@@ -1,7 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using BannerlordModEditor.UI.Services;
 using System;
 using System.Threading.Tasks;
+using System.Reflection;
+using BannerlordModEditor.UI.Factories;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
@@ -44,6 +46,30 @@ public class ViewModelBase : ObservableObject
     {
         ErrorHandler = errorHandler ?? new ErrorHandlerService();
         LogService = logService ?? new LogService();
+    }
+
+    /// <summary>
+    /// 获取编辑器类型（从EditorTypeAttribute获取）
+    /// </summary>
+    public string EditorType
+    {
+        get
+        {
+            var editorTypeAttribute = GetType().GetCustomAttribute<EditorTypeAttribute>();
+            return editorTypeAttribute?.EditorType ?? GetType().Name;
+        }
+    }
+
+    /// <summary>
+    /// 获取XML文件名（从EditorTypeAttribute获取）
+    /// </summary>
+    public string XmlFileName
+    {
+        get
+        {
+            var editorTypeAttribute = GetType().GetCustomAttribute<EditorTypeAttribute>();
+            return editorTypeAttribute?.XmlFileName ?? $"{GetType().Name}.xml";
+        }
     }
 
     /// <summary>

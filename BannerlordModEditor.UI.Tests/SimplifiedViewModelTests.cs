@@ -22,7 +22,7 @@ public class SimplifiedViewModelTests
         // 验证基本属性
         Assert.NotNull(viewModel);
         Assert.NotNull(viewModel.Attributes);
-        Assert.Equal("attributes.xml", viewModel.XmlFileName);
+        Assert.Equal("attributes.xml", ((IBaseEditorViewModel)viewModel).XmlFileName);
         Assert.False(viewModel.HasUnsavedChanges);
     }
 

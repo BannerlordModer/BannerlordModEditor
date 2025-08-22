@@ -53,7 +53,7 @@ public class XmlLoadingTests
         var attributeEditor = TestServiceProvider.GetService<AttributeEditorViewModel>();
 
         // Act
-        attributeEditor.LoadXmlFile("nonexistent.xml");
+        attributeEditor.LoadXmlFileAsync("nonexistent.xml").Wait();
 
         // Assert - 应该创建一个默认的编辑器，不崩溃
         Assert.NotEmpty(attributeEditor.Attributes);

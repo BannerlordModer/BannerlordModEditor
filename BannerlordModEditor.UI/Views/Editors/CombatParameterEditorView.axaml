@@ -78,19 +78,23 @@
           <ScrollViewer>
             <StackPanel Spacing="15" Margin="10">
               <!-- 基本信息 -->
-              <GroupBox Header="基本信息" Padding="10">
-                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">
+              <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                      BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                      BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *" Margin="10">
                   <TextBlock Grid.Row="0" Grid.Column="0" Text="类型:" VerticalAlignment="Center" Margin="0,0,10,0" />
                   <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Type}" />
                   
                   <TextBlock Grid.Row="1" Grid.Column="0" Text="ID:" VerticalAlignment="Center" Margin="0,0,10,0" />
                   <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCombatParameter.Id}" />
                 </Grid>
-              </GroupBox>
+              </Border>
 
               <!-- 碰撞参数 -->
-              <GroupBox Header="碰撞参数" Padding="10">
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *">
+              <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                      BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                      BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *" Margin="10">
                   <TextBlock Grid.Row="0" Grid.Column="0" Text="碰撞检查起始百分比:" VerticalAlignment="Center" Margin="0,0,10,0" />
                   <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCombatParameter.CollisionCheckStartingPercent}" />
                   
@@ -103,11 +107,13 @@
                   <TextBlock Grid.Row="3" Grid.Column="0" Text="碰撞半径:" VerticalAlignment="Center" Margin="0,0,10,0" />
                   <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedCombatParameter.CollisionRadius}" />
                 </Grid>
-              </GroupBox>
+              </Border>
 
               <!-- 旋转限制 -->
-              <GroupBox Header="旋转限制" Padding="10">
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *">
+              <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                      BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                      BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *" Margin="10">
                   <TextBlock Grid.Row="0" Grid.Column="0" Text="垂直旋转限制上限:" VerticalAlignment="Center" Margin="0,0,10,0" />
                   <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCombatParameter.VerticalRotLimitMultiplierUp}" />
                   
@@ -126,7 +132,7 @@
                   <TextBlock Grid.Row="5" Grid.Column="0" Text="右侧梯子旋转限制:" VerticalAlignment="Center" Margin="0,0,10,0" />
                   <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding SelectedCombatParameter.RightLadderRotLimit}" />
                 </Grid>
-              </GroupBox>
+              </Border>
 
               <!-- 高级参数 -->
               <Expander Header="高级参数" IsExpanded="False">
@@ -184,7 +190,7 @@
 
             <!-- 定义列表 -->
             <DataGrid Grid.Row="1" ItemsSource="{Binding Definitions}" 
-                      AutoGenerateColumns="False" CanUserAddRows="False"
+                      AutoGenerateColumns="False"
                       SelectedItem="{Binding SelectedDefinition}">
               <DataGrid.Columns>
                 <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="*" />
@@ -208,53 +214,63 @@
             <StackPanel Spacing="10" Margin="10">
               <TextBlock Text="验证结果" FontSize="16" FontWeight="Bold" />
               
-              <GroupBox Header="战斗参数验证">
-                <ItemsControl ItemsSource="{Binding CombatParameters}">
-                  <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
-                              Margin="2" Padding="5" CornerRadius="4"
-                              BorderBrush="{Binding IsValid, Converter={StaticResource BoolToBrushConverter}}"
-                              BorderThickness="2">
-                        <StackPanel Spacing="5">
-                          <TextBlock Text="{Binding Id}" FontWeight="Bold" />
-                          <ItemsControl ItemsSource="{Binding ValidationErrors}">
-                            <ItemsControl.ItemTemplate>
-                              <DataTemplate>
-                                <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
-                              </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                          </ItemsControl>
-                        </StackPanel>
-                      </Border>
-                    </DataTemplate>
-                  </ItemsControl.ItemTemplate>
-                </ItemsControl>
-              </GroupBox>
+              <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                      BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                      BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+                <StackPanel Margin="10">
+                  <TextBlock Text="战斗参数验证" FontWeight="Bold" Margin="0,0,0,10" />
+                  <ItemsControl ItemsSource="{Binding CombatParameters}">
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate>
+                        <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                                Margin="2" Padding="5" CornerRadius="4"
+                                BorderBrush="{Binding IsValid, Converter={StaticResource BoolToBrushConverter}}"
+                                BorderThickness="2">
+                          <StackPanel Spacing="5">
+                            <TextBlock Text="{Binding Id}" FontWeight="Bold" />
+                            <ItemsControl ItemsSource="{Binding ValidationErrors}">
+                              <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                  <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
+                                </DataTemplate>
+                              </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                          </StackPanel>
+                        </Border>
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </StackPanel>
+              </Border>
 
-              <GroupBox Header="定义验证">
-                <ItemsControl ItemsSource="{Binding Definitions}">
-                  <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
-                              Margin="2" Padding="5" CornerRadius="4"
-                              BorderBrush="{Binding IsValid, Converter={StaticResource BoolToBrushConverter}}"
-                              BorderThickness="2">
-                        <StackPanel Spacing="5">
-                          <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                          <ItemsControl ItemsSource="{Binding ValidationErrors}">
-                            <ItemsControl.ItemTemplate>
-                              <DataTemplate>
-                                <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
-                              </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                          </ItemsControl>
-                        </StackPanel>
-                      </Border>
-                    </DataTemplate>
-                  </ItemsControl.ItemTemplate>
-                </ItemsControl>
-              </GroupBox>
+              <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                      BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                      BorderThickness="1" CornerRadius="4">
+                <StackPanel Margin="10">
+                  <TextBlock Text="定义验证" FontWeight="Bold" Margin="0,0,0,10" />
+                  <ItemsControl ItemsSource="{Binding Definitions}">
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate>
+                        <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                                Margin="2" Padding="5" CornerRadius="4"
+                                BorderBrush="{Binding IsValid, Converter={StaticResource BoolToBrushConverter}}"
+                                BorderThickness="2">
+                          <StackPanel Spacing="5">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                            <ItemsControl ItemsSource="{Binding ValidationErrors}">
+                              <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                  <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
+                                </DataTemplate>
+                              </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                          </StackPanel>
+                        </Border>
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </StackPanel>
+              </Border>
             </StackPanel>
           </ScrollViewer>
         </TabItem>

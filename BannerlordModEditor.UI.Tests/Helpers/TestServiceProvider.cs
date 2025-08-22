@@ -3,6 +3,7 @@ using BannerlordModEditor.UI.Factories;
 using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.Common.Services;
+using BannerlordModEditor.UI.Services;
 
 namespace BannerlordModEditor.UI.Tests.Helpers
 {
@@ -19,8 +20,14 @@ namespace BannerlordModEditor.UI.Tests.Helpers
             {
                 var services = new ServiceCollection();
                 
-                // 注册编辑器工厂
-                services.AddSingleton<IEditorFactory, EditorFactory>();
+                // 注册核心服务
+                services.AddSingleton<ILogService, LogService>();
+                services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
+                services.AddSingleton<IValidationService, ValidationService>();
+                services.AddSingleton<IDataBindingService, DataBindingService>();
+                
+                // 注册编辑器工厂 - 使用统一的编辑器工厂
+                services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
                 
                 // 注册所有编辑器ViewModel
                 services.AddTransient<AttributeEditorViewModel>();
@@ -28,10 +35,13 @@ namespace BannerlordModEditor.UI.Tests.Helpers
                 services.AddTransient<CraftingPieceEditorViewModel>();
                 services.AddTransient<ItemModifierEditorViewModel>();
                 services.AddTransient<BoneBodyTypeEditorViewModel>();
+                services.AddTransient<CombatParameterEditorViewModel>();
+                services.AddTransient<ItemEditorViewModel>();
                 
                 // 注册其他服务
                 services.AddTransient<MainWindowViewModel>();
                 services.AddTransient<EditorManagerViewModel>();
+                services.AddTransient<EditorCategoryViewModel>();
                 
                 // 注册Common层服务
                 services.AddSingleton<IFileDiscoveryService, FileDiscoveryService>();

@@ -82,6 +82,35 @@ public partial class ErrorHandlerService : ObservableObject, IErrorHandlerServic
         return await Task.FromResult(errorResult);
     }
 
+    /// <summary>
+    /// 处理异常（同步版本）
+    /// </summary>
+    /// <param name="exception">异常对象</param>
+    /// <param name="context">错误上下文</param>
+    public void HandleError(Exception exception, string context = "")
+    {
+        try
+        {
+            // 根据异常类型设置错误严重程度
+            var severity = GetErrorSeverity(exception);
+            
+            // 生成用户友好的错误消息
+            var userMessage = GenerateUserMessage(exception);
+            
+            // 记录错误日志
+            LogError(exception, context);
+            
+            // 显示错误消息
+            ShowErrorMessage(userMessage, "错误", severity);
+        }
+        catch (Exception ex)
+        {
+            // 如果错误处理本身出错，至少记录原始错误
+            LogError(ex, "ErrorHandlerService.HandleError");
+            ShowErrorMessage("处理错误时发生了一个异常。", "错误");
+        }
+    }
+
     public void ShowErrorMessage(string message, string title = "错误", ErrorSeverity severity = ErrorSeverity.Error)
     {
         CurrentMessage = message;

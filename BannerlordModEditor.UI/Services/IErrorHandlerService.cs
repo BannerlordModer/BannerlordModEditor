@@ -19,6 +19,13 @@ public interface IErrorHandlerService
     Task<ErrorResult> HandleExceptionAsync(Exception exception, string context = "");
 
     /// <summary>
+    /// 处理异常（同步版本）
+    /// </summary>
+    /// <param name="exception">异常对象</param>
+    /// <param name="context">错误上下文</param>
+    void HandleError(Exception exception, string context = "");
+
+    /// <summary>
     /// 显示错误消息
     /// </summary>
     /// <param name="message">错误消息</param>

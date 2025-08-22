@@ -28,7 +28,7 @@ public class EditorIntegrationTests
         // 注册服务
         services.AddSingleton<IValidationService, ValidationService>();
         services.AddSingleton<IDataBindingService, DataBindingService>();
-        services.AddSingleton<IEditorFactory, EditorFactory>();
+        services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
         
         // 注册ViewModels
         services.AddTransient<AttributeEditorViewModel>();
@@ -186,8 +186,8 @@ public class EditorIntegrationTests
         var skillEditor = _serviceProvider.GetRequiredService<SkillEditorViewModel>();
 
         // Act - 测试编辑器之间的通信
-        attributeEditor.LoadXmlFile("attributes.xml");
-        skillEditor.LoadXmlFile("skills.xml");
+        attributeEditor.LoadXmlFileAsync("attributes.xml").Wait();
+        skillEditor.LoadXmlFileAsync("skills.xml").Wait();
 
         // Assert
         Assert.NotNull(attributeEditor.FilePath);
@@ -217,7 +217,7 @@ public class EditorIntegrationTests
         var viewModel = _serviceProvider.GetRequiredService<AttributeEditorViewModel>();
 
         // Act - 尝试加载不存在的文件
-        viewModel.LoadXmlFile("non_existent_file.xml");
+        viewModel.LoadXmlFileAsync("non_existent_file.xml").Wait();
 
         // Assert
         Assert.NotNull(viewModel);
