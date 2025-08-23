@@ -189,26 +189,91 @@ public partial class AttributeEditorViewModel : SimpleEditorViewModel<ArrayOfAtt
 /// </summary>
 public partial class AttributeDataViewModel : ObservableValidator
 {
-    [ObservableProperty]
+    private string _id = string.Empty;
+    
     [Required(ErrorMessage = "ID不能为空")]
     [StringLength(50, ErrorMessage = "ID长度不能超过50个字符")]
-    private string id = string.Empty;
+    public string Id
+    {
+        get => _id;
+        set
+        {
+            if (SetProperty(ref _id, value))
+            {
+                ValidateProperty(nameof(Id));
+                OnPropertyChanged(nameof(IsValid));
+                OnPropertyChanged(nameof(ValidationErrors));
+            }
+        }
+    }
 
-    [ObservableProperty]
+    private string _name = string.Empty;
+    
     [Required(ErrorMessage = "名称不能为空")]
     [StringLength(100, ErrorMessage = "名称长度不能超过100个字符")]
-    private string name = string.Empty;
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            if (SetProperty(ref _name, value))
+            {
+                ValidateProperty(nameof(Name));
+                OnPropertyChanged(nameof(IsValid));
+                OnPropertyChanged(nameof(ValidationErrors));
+            }
+        }
+    }
 
-    [ObservableProperty]
+    private string _source = "Character";
+    
     [Required(ErrorMessage = "来源不能为空")]
-    private string source = "Character";
+    public string Source
+    {
+        get => _source;
+        set
+        {
+            if (SetProperty(ref _source, value))
+            {
+                ValidateProperty(nameof(Source));
+                OnPropertyChanged(nameof(IsValid));
+                OnPropertyChanged(nameof(ValidationErrors));
+            }
+        }
+    }
 
-    [ObservableProperty]
+    private string _documentation = string.Empty;
+    
     [StringLength(1000, ErrorMessage = "文档长度不能超过1000个字符")]
-    private string documentation = string.Empty;
+    public string Documentation
+    {
+        get => _documentation;
+        set
+        {
+            if (SetProperty(ref _documentation, value))
+            {
+                ValidateProperty(nameof(Documentation));
+                OnPropertyChanged(nameof(IsValid));
+                OnPropertyChanged(nameof(ValidationErrors));
+            }
+        }
+    }
 
-    [ObservableProperty]
-    private string defaultValue = string.Empty;
+    private string _defaultValue = string.Empty;
+    
+    public string DefaultValue
+    {
+        get => _defaultValue;
+        set
+        {
+            if (SetProperty(ref _defaultValue, value))
+            {
+                ValidateProperty(nameof(DefaultValue));
+                OnPropertyChanged(nameof(IsValid));
+                OnPropertyChanged(nameof(ValidationErrors));
+            }
+        }
+    }
 
     private readonly List<string> _validationErrors = new();
 
@@ -218,49 +283,20 @@ public partial class AttributeDataViewModel : ObservableValidator
         ValidateAllProperties();
     }
 
-    partial void OnIdChanged(string value)
-    {
-        ValidateProperty(nameof(Id));
-        OnPropertyChanged(nameof(IsValid));
-        OnPropertyChanged(nameof(ValidationErrors));
-    }
-
-    partial void OnNameChanged(string value)
-    {
-        ValidateProperty(nameof(Name));
-        OnPropertyChanged(nameof(IsValid));
-        OnPropertyChanged(nameof(ValidationErrors));
-    }
-
-    partial void OnSourceChanged(string value)
-    {
-        ValidateProperty(nameof(Source));
-        OnPropertyChanged(nameof(IsValid));
-        OnPropertyChanged(nameof(ValidationErrors));
-    }
-
-    partial void OnDocumentationChanged(string value)
-    {
-        ValidateProperty(nameof(Documentation));
-        OnPropertyChanged(nameof(IsValid));
-        OnPropertyChanged(nameof(ValidationErrors));
-    }
-
-    partial void OnDefaultValueChanged(string value)
-    {
-        ValidateProperty(nameof(DefaultValue));
-        OnPropertyChanged(nameof(IsValid));
-        OnPropertyChanged(nameof(ValidationErrors));
-    }
-
+    
     private void ValidateProperty(string propertyName)
     {
         var validationService = new ValidationService();
         var errors = validationService.ValidateProperty(this, propertyName);
         
-        // 更新验证错误
+        // 更新验证错误 - 清除该属性的所有错误
         _validationErrors.RemoveAll(e => e.StartsWith($"{propertyName}:"));
-        _validationErrors.AddRange(errors.Select(e => $"{propertyName}: {e}"));
+        
+        // 添加新的错误
+        foreach (var error in errors)
+        {
+            _validationErrors.Add($"{propertyName}: {error}");
+        }
         
         OnPropertyChanged(nameof(ValidationErrors));
     }
@@ -282,8 +318,7 @@ public partial class AttributeDataViewModel : ObservableValidator
 
     public bool IsValid => !string.IsNullOrWhiteSpace(Id) && 
                            !string.IsNullOrWhiteSpace(Name) && 
-                           !string.IsNullOrWhiteSpace(Source) &&
-                           _validationErrors.Count == 0;
+                           !string.IsNullOrWhiteSpace(Source);
 
     public IReadOnlyList<string> ValidationErrors => _validationErrors.AsReadOnly();
 

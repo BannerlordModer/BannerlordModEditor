@@ -3,6 +3,7 @@ using System.IO;
 using BannerlordModEditor.UI.Factories;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.Common.Services;
+using BannerlordModEditor.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
@@ -18,6 +19,12 @@ namespace BannerlordModEditor.UI.Tests.EditorFactoryTests
         {
             // Arrange
             var services = new ServiceCollection();
+            
+            // 注册核心服务
+            services.AddSingleton<IValidationService, ValidationService>();
+            services.AddSingleton<IDataBindingService, DataBindingService>();
+            services.AddSingleton<ILogService, LogService>();
+            services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
             
             // 注册编辑器工厂 - 使用统一的编辑器工厂
             services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
@@ -65,6 +72,10 @@ namespace BannerlordModEditor.UI.Tests.EditorFactoryTests
         {
             // Arrange
             var services = new ServiceCollection();
+            services.AddSingleton<IValidationService, ValidationService>();
+            services.AddSingleton<IDataBindingService, DataBindingService>();
+            services.AddSingleton<ILogService, LogService>();
+            services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
             services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
             var serviceProvider = services.BuildServiceProvider();
             var factory = serviceProvider.GetRequiredService<IEditorFactory>();
@@ -79,6 +90,10 @@ namespace BannerlordModEditor.UI.Tests.EditorFactoryTests
         {
             // Arrange
             var services = new ServiceCollection();
+            services.AddSingleton<IValidationService, ValidationService>();
+            services.AddSingleton<IDataBindingService, DataBindingService>();
+            services.AddSingleton<ILogService, LogService>();
+            services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
             services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
             var serviceProvider = services.BuildServiceProvider();
             var factory = serviceProvider.GetRequiredService<IEditorFactory>();
