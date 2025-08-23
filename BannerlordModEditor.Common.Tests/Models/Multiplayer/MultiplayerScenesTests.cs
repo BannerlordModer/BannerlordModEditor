@@ -1,6 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
-using BannerlordModEditor.Common.Models.Multiplayer;
+using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DTO;
 using BannerlordModEditor.Common.Mappers;
 using Xunit;
 
