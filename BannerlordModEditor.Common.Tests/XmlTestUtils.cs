@@ -118,6 +118,9 @@ namespace BannerlordModEditor.Common.Tests
             
             var ns = new XmlSerializerNamespaces();
             
+            // 默认添加空命名空间以避免自动生成命名空间
+            ns.Add("", "");
+            
             // 如果提供了原始XML，则提取并保留其命名空间声明
             if (!string.IsNullOrEmpty(originalXml))
             {
@@ -137,12 +140,8 @@ namespace BannerlordModEditor.Common.Tests
                 }
                 catch
                 {
-                    ns.Add("", "");
+                    // 如果解析失败，使用默认的空命名空间
                 }
-            }
-            else
-            {
-                ns.Add("", "");
             }
 
             serializer.Serialize(xmlWriter, obj, ns);
@@ -159,6 +158,14 @@ namespace BannerlordModEditor.Common.Tests
 
             var xml1 = Serialize(obj1);
             var xml2 = Serialize(obj2);
+            
+            return NormalizeXml(xml1, options) == NormalizeXml(xml2, options);
+        }
+
+        public static bool AreStructurallyEqual(string xml1, string xml2, XmlComparisonOptions? options = null)
+        {
+            if (string.IsNullOrEmpty(xml1) && string.IsNullOrEmpty(xml2)) return true;
+            if (string.IsNullOrEmpty(xml1) || string.IsNullOrEmpty(xml2)) return false;
             
             return NormalizeXml(xml1, options) == NormalizeXml(xml2, options);
         }

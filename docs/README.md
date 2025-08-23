@@ -1,16 +1,18 @@
-# 📚 文档中心
+# 📚 Bannerlord Mod Editor 文档中心
 
 欢迎来到BannerlordModEditor项目的文档中心。这里包含了项目的所有技术文档、开发指南和参考资料。
 
 ## 📁 文档结构
 
-### 🎯 核心文档
-- **[项目最终总结](PROJECT_FINAL_SUMMARY.md)** - 项目完整状态和成果总结
-- **[CLAUDE.md](CLAUDE.md)** - Claude AI助手的项目指导文档
+### 🎯 项目文档 (`project/`)
+- **[多人游戏XML适配](project/multiplayer-xml-adaptation/)** - 最新的多人游戏XML文件适配项目
+  - 完整的需求规格、用户故事、验收标准
+  - 技术实现文档和测试结果
+  - 项目状态和后续计划
 
 ### 🛠️ 开发文档 (`development/`)
-- **项目计划** (`project/`) - 项目需求、用户故事、验收标准和实施策略
-- **技术规格** (`technical/`) - 架构设计、API规格、XML适配规格和实现指南
+- **项目计划** (`project/`) - 历史项目需求和计划文档
+- **技术规格** (`technical/`) - 架构设计和技术规格文档
 
 ### 📖 使用指南 (`guides/`)
 - **测试指南** - 测试策略和方法
@@ -23,11 +25,10 @@
 - **[技术栈](reference/tech-stack.md)** - 项目使用的技术和工具
 - **[技术分析](reference/tech-analysis.md)** - 项目技术分析
 - **[XML适配技术分析](reference/XML_Adaptation_Technical_Analysis.md)** - XML适配技术深度分析
-- **[字符串基础XML策略](reference/STRING_BASED_XML_STRATEGY.md)** - XML处理策略
 
 ### 📦 归档文档 (`archive/`)
-- **旧报告** - 过期的项目报告
-- **旧分析** - 历史技术分析文档
+- **旧报告** (`old-reports/`) - 过期的项目报告
+- **旧分析** (`old-analysis/`) - 历史技术分析文档
 
 ## 🚀 快速开始
 

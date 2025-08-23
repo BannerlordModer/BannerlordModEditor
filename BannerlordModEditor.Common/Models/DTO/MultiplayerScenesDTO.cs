@@ -11,6 +11,8 @@ namespace BannerlordModEditor.Common.Models.DTO
     {
         [XmlElement("Scene")]
         public List<SceneDTO> Scenes { get; set; } = new List<SceneDTO>();
+
+        public bool ShouldSerializeScenes() => Scenes != null && Scenes.Count > 0;
     }
 
     /// <summary>
@@ -23,6 +25,9 @@ namespace BannerlordModEditor.Common.Models.DTO
 
         [XmlElement("GameType")]
         public List<GameTypeDTO> GameTypes { get; set; } = new List<GameTypeDTO>();
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
+        public bool ShouldSerializeGameTypes() => GameTypes != null && GameTypes.Count > 0;
     }
 
     /// <summary>
@@ -32,5 +37,7 @@ namespace BannerlordModEditor.Common.Models.DTO
     {
         [XmlAttribute("name")]
         public string Name { get; set; } = string.Empty;
+
+        public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
     }
 }

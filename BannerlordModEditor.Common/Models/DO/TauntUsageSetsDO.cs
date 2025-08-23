@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace BannerlordModEditor.Common.Models.DO
+namespace BannerlordModEditor.Common.Models.Multiplayer
 {
-    [XmlRoot("taunt_usage_sets")]
+    [XmlRoot("taunt_usage_sets", Namespace = "")]
     public class TauntUsageSetsDO
     {
         [XmlElement("taunt_usage_set")]

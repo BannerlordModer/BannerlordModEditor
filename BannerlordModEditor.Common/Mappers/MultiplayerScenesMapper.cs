@@ -13,7 +13,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new MultiplayerScenesDTO
             {
-                Scenes = source.Scenes?.Select(SceneToDTO).ToList() ?? new List<SceneDTO>()
+                Scenes = source.Scenes?.Select(ToDTO).ToList() ?? new List<SceneDTO>()
             };
         }
 
@@ -23,33 +23,33 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new MultiplayerScenesDO
             {
-                Scenes = source.Scenes?.Select(SceneToDo).ToList() ?? new List<SceneDO>()
+                Scenes = source.Scenes?.Select(ToDo).ToList() ?? new List<SceneDO>()
             };
         }
 
-        public static SceneDTO SceneToDTO(SceneDO source)
+        public static SceneDTO ToDTO(SceneDO source)
         {
             if (source == null) return null;
 
             return new SceneDTO
             {
                 Name = source.Name,
-                GameTypes = source.GameTypes?.Select(GameTypeToDTO).ToList() ?? new List<GameTypeDTO>()
+                GameTypes = source.GameTypes?.Select(ToDTO).ToList() ?? new List<GameTypeDTO>()
             };
         }
 
-        public static SceneDO SceneToDo(SceneDTO source)
+        public static SceneDO ToDo(SceneDTO source)
         {
             if (source == null) return null;
 
             return new SceneDO
             {
                 Name = source.Name,
-                GameTypes = source.GameTypes?.Select(GameTypeToDo).ToList() ?? new List<GameTypeDO>()
+                GameTypes = source.GameTypes?.Select(ToDo).ToList() ?? new List<GameTypeDO>()
             };
         }
 
-        public static GameTypeDTO GameTypeToDTO(GameTypeDO source)
+        public static GameTypeDTO ToDTO(GameTypeDO source)
         {
             if (source == null) return null;
 
@@ -59,7 +59,7 @@ namespace BannerlordModEditor.Common.Mappers
             };
         }
 
-        public static GameTypeDO GameTypeToDo(GameTypeDTO source)
+        public static GameTypeDO ToDo(GameTypeDTO source)
         {
             if (source == null) return null;
 
