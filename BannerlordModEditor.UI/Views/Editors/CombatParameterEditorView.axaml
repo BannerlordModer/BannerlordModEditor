@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:BannerlordModEditor.UI.ViewModels.Editors"
+             xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              x:Class="BannerlordModEditor.UI.Views.Editors.CombatParameterEditorView">
 
@@ -193,16 +194,16 @@
                       AutoGenerateColumns="False"
                       SelectedItem="{Binding SelectedDefinition}">
               <DataGrid.Columns>
-                <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="值" Binding="{Binding Value}" Width="*" />
-                <DataGridTemplateColumn Header="操作" Width="100">
-                  <DataGridTemplateColumn.CellTemplate>
+                <dg:DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="*" />
+                <dg:DataGridTextColumn Header="值" Binding="{Binding Value}" Width="*" />
+                <dg:DataGridTemplateColumn Header="操作" Width="100">
+                  <dg:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
                       <Button Content="删除" Command="{Binding DataContext.RemoveDefinition, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
                               CommandParameter="{Binding}" />
                     </DataTemplate>
-                  </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                  </dg:DataGridTemplateColumn.CellTemplate>
+                </dg:DataGridTemplateColumn>
               </DataGrid.Columns>
             </DataGrid>
           </Grid>

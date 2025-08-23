@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:BannerlordModEditor.UI.ViewModels.Editors"
+             xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
              x:Class="BannerlordModEditor.UI.Views.Editors.ItemEditorView">
 
@@ -49,11 +50,11 @@
                   SelectedItem="{Binding SelectedItem}"
                   AutoGenerateColumns="False" Margin="10">
           <DataGrid.Columns>
-            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="150" />
-            <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="200" />
-            <DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="100" />
-            <DataGridTextColumn Header="类别" Binding="{Binding ItemCategory}" Width="120" />
-            <DataGridTextColumn Header="文化" Binding="{Binding Culture}" Width="100" />
+            <dg:DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="150" />
+            <dg:DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="200" />
+            <dg:DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="100" />
+            <dg:DataGridTextColumn Header="类别" Binding="{Binding ItemCategory}" Width="120" />
+            <dg:DataGridTextColumn Header="文化" Binding="{Binding Culture}" Width="100" />
           </DataGrid.Columns>
         </DataGrid>
       </Grid>
