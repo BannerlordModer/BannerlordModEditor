@@ -26,7 +26,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsCategoryDTO
             {
-                Text = source.Text,
+                Text = source.Text ?? string.Empty,
                 Sections = MapList(source.Sections, SectionToDTO),
                 Entries = MapList(source.Entries, EntryToDTO),
                 EmptyLines = MapList(source.EmptyLines, EmptyLineToDTO),
@@ -41,7 +41,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsSectionDTO
             {
-                Text = source.Text,
+                Text = source.Text ?? string.Empty,
                 Entries = MapList(source.Entries, EntryToDTO),
                 EmptyLines = MapList(source.EmptyLines, EmptyLineToDTO)
             };
@@ -53,7 +53,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsEntryDTO
             {
-                Text = source.Text,
+                Text = source.Text ?? string.Empty,
                 EmptyLines = MapList(source.EmptyLines, EmptyLineToDTO)
             };
         }
@@ -83,7 +83,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsImageDTO
             {
-                Text = source.Text
+                Text = source.Text ?? string.Empty
             };
         }
 
@@ -108,7 +108,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             var category = new CreditsCategoryDO
             {
-                Text = source.Text
+                Text = source.Text ?? string.Empty
             };
 
             // 按照原始顺序添加元素到Elements列表
@@ -142,7 +142,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsSectionDO
             {
-                Text = source.Text,
+                Text = source.Text ?? string.Empty,
                 Entries = MapList(source.Entries, EntryToDO),
                 EmptyLines = MapList(source.EmptyLines, EmptyLineToDO)
             };
@@ -154,7 +154,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsEntryDO
             {
-                Text = source.Text,
+                Text = source.Text ?? string.Empty,
                 EmptyLines = MapList(source.EmptyLines, EmptyLineToDO)
             };
         }
@@ -172,9 +172,9 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsLoadFromFileDO
             {
-                Name = source.Name,
-                PlatformSpecific = source.PlatformSpecific,
-                ConsoleSpecific = source.ConsoleSpecific
+                Name = source.Name ?? string.Empty,
+                PlatformSpecific = source.PlatformSpecific ?? string.Empty,
+                ConsoleSpecific = source.ConsoleSpecific ?? string.Empty
             };
         }
 
@@ -184,7 +184,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new CreditsImageDO
             {
-                Text = source.Text
+                Text = source.Text ?? string.Empty
             };
         }
 

@@ -34,7 +34,36 @@ public partial class EditorManagerViewModel : ViewModelBase
     private string? currentBreadcrumb;
 
     [ObservableProperty]
-    private string? searchText;
+    private string? searchText = string.Empty;
+
+    partial void OnSearchTextChanged(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            // 显示所有编辑器
+            foreach (var category in Categories)
+            {
+                foreach (var editor in category.Editors)
+                {
+                    editor.IsAvailable = true;
+                }
+            }
+        }
+        else
+        {
+            // 过滤编辑器
+            var searchLower = value.ToLower();
+            foreach (var category in Categories)
+            {
+                foreach (var editor in category.Editors)
+                {
+                    editor.IsAvailable = editor.Name.ToLower().Contains(searchLower) ||
+                                        editor.Description.ToLower().Contains(searchLower) ||
+                                        editor.EditorType.ToLower().Contains(searchLower);
+                }
+            }
+        }
+    }
 
     public EditorManagerViewModel(
         IEditorFactory? editorFactory = null,
@@ -180,7 +209,8 @@ public partial class EditorManagerViewModel : ViewModelBase
                 actualEditor = CreateEditorViewModel(editorItem);
             }
 
-            SelectedEditor = actualEditor;
+            // 保持SelectedEditor为传入的原始对象（可能是EditorItemViewModel）
+            SelectedEditor = editor;
             CurrentEditorViewModel = actualEditor;
             StatusMessage = $"已选择编辑器: {actualEditor.GetType().Name}";
 

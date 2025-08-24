@@ -83,7 +83,8 @@ public class EditorManagerTests
         // Assert
         Assert.Equal(mockEditor, editorManager.SelectedEditor);
         Assert.NotNull(editorManager.CurrentEditorViewModel);
-        Assert.Contains("MockBaseEditorViewModel", editorManager.CurrentBreadcrumb);
+        // 面包屑应该包含分类和编辑器名称，而不是类型名
+        Assert.Contains("MockBaseEditor", editorManager.CurrentBreadcrumb);
     }
 
     [Fact]
