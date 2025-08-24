@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace BannerlordModEditor.TUI.IntegrationTests.Common
+namespace BannerlordModEditor.TUI.TmuxTest.Common
 {
     /// <summary>
     /// tmux集成测试基类，提供通用的tmux操作和测试工具方法
@@ -65,7 +65,7 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
         /// <summary>
         /// 创建新的tmux会话
         /// </summary>
-        protected async Task CreateTmuxSessionAsync()
+        protected async Task CreateTmuxSessionAsync(string workingDirectory = null)
         {
             // 检查tmux可用性，如果不可用则返回false
             if (!IsTmuxAvailable())
@@ -77,11 +77,19 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
             // 杀死可能存在的同名会话
             await ExecuteCommandAsync("tmux", $"kill-session -t {TestSessionName} 2>/dev/null || true");
             
-            // 创建新会话
-            var result = await ExecuteCommandAsync("tmux", $"new-session -d -s {TestSessionName}");
+            // 创建新会话，指定工作目录
+            var createCommand = string.IsNullOrEmpty(workingDirectory) 
+                ? $"new-session -d -s {TestSessionName}"
+                : $"new-session -d -s {TestSessionName} -c \"{workingDirectory}\"";
+            
+            var result = await ExecuteCommandAsync("tmux", createCommand);
             result.ExitCode.ShouldBe(0, $"应该成功创建tmux会话: {result.Error}");
             
             Output.WriteLine($"创建tmux会话: {TestSessionName}");
+            if (!string.IsNullOrEmpty(workingDirectory))
+            {
+                Output.WriteLine($"工作目录: {workingDirectory}");
+            }
         }
 
         /// <summary>
@@ -103,7 +111,8 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
         /// </summary>
         protected async Task<ProcessResult> ExecuteTmuxCommandAsync(string command, bool waitForCompletion = true)
         {
-            var fullCommand = $"send-keys -t {TestSessionName} '{command}' Enter";
+            // 使用tmux的send-keys命令，用引号包围整个命令
+            var fullCommand = $"send-keys -t {TestSessionName} \"{command}\" Enter";
             var result = await ExecuteCommandAsync("tmux", fullCommand);
             
             result.ExitCode.ShouldBe(0, $"应该成功发送命令到tmux会话: {result.Error}");
@@ -167,8 +176,20 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
                 throw new FileNotFoundException($"TUI应用程序不存在: {tuiAppPath}");
             }
 
-            // 启动TUI应用（使用测试模式）
-            var startCommand = $"dotnet {tuiAppPath} --test";
+            // 启动TUI应用（使用测试模式）- 使用dll文件而不是exe文件
+            var tuiProjectDir = Path.GetDirectoryName(tuiAppPath);
+            var tuiDllPath = Path.Combine(tuiProjectDir, "BannerlordModEditor.TUI.dll");
+            
+            if (!File.Exists(tuiDllPath))
+            {
+                throw new FileNotFoundException($"TUI应用程序DLL不存在: {tuiDllPath}");
+            }
+            
+            // 重新创建tmux会话，在TUI项目目录中启动
+            await ExecuteCommandAsync("tmux", $"kill-session -t {TestSessionName} 2>/dev/null || true");
+            await CreateTmuxSessionAsync(tuiProjectDir);
+            
+            var startCommand = $"dotnet ./BannerlordModEditor.TUI.dll --test";
             await ExecuteTmuxCommandAsync(startCommand, waitForCompletion: false);
             
             // 等待应用启动
@@ -187,9 +208,15 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
                 throw new FileNotFoundException($"TUI应用程序不存在: {tuiAppPath}");
             }
 
-            // 切换到TUI项目目录并执行命令
-            var tuiProjectDir = Path.GetDirectoryName(tuiAppPath);
-            var tuiFileName = Path.GetFileName(tuiAppPath);
+            // 获取TUI项目的真实目录（包含.csproj文件的目录）
+            var buildDir = Path.GetDirectoryName(tuiAppPath);
+            var tuiProjectDir = Directory.GetParent(buildDir)?.Parent?.Parent?.FullName;
+            
+                        
+            if (tuiProjectDir == null || !File.Exists(Path.Combine(tuiProjectDir, "BannerlordModEditor.TUI.csproj")))
+            {
+                throw new DirectoryNotFoundException($"无法找到TUI项目目录: {buildDir}, 计算的项目目录: {tuiProjectDir}");
+            }
             
             var result = await ExecuteCommandAsync("dotnet", $"run --project \"{tuiProjectDir}\" -- --convert \"{inputFile}\" \"{outputFile}\"", tuiProjectDir);
             
@@ -281,20 +308,27 @@ namespace BannerlordModEditor.TUI.IntegrationTests.Common
         }
 
         /// <summary>
-        /// 创建测试用的Excel文件
+        /// 创建测试用的CSV文件（Excel格式）
         /// </summary>
         protected string CreateTestExcelFile(string fileName, string content = "")
         {
             var filePath = Path.Combine(TestTempDir, fileName);
             
-            // 创建简单的CSV文件（TUI应该能处理）
+            // 创建简单的CSV文件（扩展名改为.csv以避免Excel格式问题）
             if (string.IsNullOrEmpty(content))
             {
                 content = "Name,Value,Description\nTest1,100,测试数据1\nTest2,200,测试数据2";
             }
             
+            // 如果文件名有.xlsx扩展名，改为.csv
+            if (fileName.EndsWith(".xlsx"))
+            {
+                fileName = fileName.Replace(".xlsx", ".csv");
+                filePath = Path.Combine(TestTempDir, fileName);
+            }
+            
             File.WriteAllText(filePath, content);
-            Output.WriteLine($"创建测试文件: {filePath}");
+            Output.WriteLine($"创建测试CSV文件: {filePath}");
             return filePath;
         }
 

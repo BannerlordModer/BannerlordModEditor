@@ -1,4 +1,6 @@
-﻿namespace BannerlordModEditor.TUI.IntegrationTests;
+﻿using Xunit;
+
+namespace BannerlordModEditor.TUI.TmuxTest;
 
 public class UnitTest1
 {

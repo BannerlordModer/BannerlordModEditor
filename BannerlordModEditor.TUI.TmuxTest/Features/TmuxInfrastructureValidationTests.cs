@@ -5,9 +5,9 @@ using Shouldly;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using BannerlordModEditor.TUI.IntegrationTests.Common;
+using BannerlordModEditor.TUI.TmuxTest.Common;
 
-namespace BannerlordModEditor.TUI.IntegrationTests.Features
+namespace BannerlordModEditor.TUI.TmuxTest.Features
 {
     /// <summary>
     /// tmux集成测试：简单的tmux功能验证
