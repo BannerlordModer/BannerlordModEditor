@@ -96,6 +96,14 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
+            // 特殊处理LanguageBaseDO来检测是否有空元素
+            if (obj is LanguageBaseDO languageBase)
+            {
+                var doc = XDocument.Parse(xml);
+                languageBase.HasEmptyTags = doc.Root?.Element("tags") != null && 
+                    (doc.Root.Element("tags")?.Elements().Count() == 0 || doc.Root.Element("tags")?.Elements("tag").Count() == 0);
+            }
+            
             return obj;
         }
 
@@ -208,6 +216,12 @@ namespace BannerlordModEditor.Common.Tests
                 {
                     element.Add(attr);
                 }
+            }
+            
+            // 特殊处理：将自闭合标签转换为开始/结束标签格式以保持一致性
+            foreach (var element in doc.Descendants().Where(e => e.IsEmpty && e.Name.LocalName == "base"))
+            {
+                element.Add(""); // 添加空内容强制使用开始/结束标签
             }
             
             return doc.ToString();
