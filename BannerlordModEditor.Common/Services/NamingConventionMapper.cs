@@ -45,7 +45,28 @@ namespace BannerlordModEditor.Common.Services
             { "looknfeel", "LookAndFeel" },
             { "flora_layer_sets", "FloraLayerSets" },
             { "prebaked_animations", "PrebakedAnimations" },
-            { "prerender", "Prerender" }
+            { "prerender", "Prerender" },
+            
+            // 语言相关XML文件映射到LanguageBaseDO
+            { "std_functions", "LanguageBase" },
+            { "std_taleworlds_core", "LanguageBase" },
+            { "std_taleworlds_mountandblade", "LanguageBase" },
+            { "std_taleworlds_mountandblade_view", "LanguageBase" },
+            { "std_taleworlds_mountandblade_viewmodelcollection", "LanguageBase" },
+            { "std_taleworlds_mountandblade_gauntletui", "LanguageBase" },
+            { "std_common_strings_xml", "LanguageBase" },
+            { "std_global_strings_xml", "LanguageBase" },
+            { "std_module_strings_xml", "LanguageBase" },
+            { "std_native_strings_xml", "LanguageBase" },
+            { "std_multiplayer_strings_xml", "LanguageBase" },
+            { "std_crafting_pieces_xml", "LanguageBase" },
+            { "std_item_modifiers_xml", "LanguageBase" },
+            { "std_mpbadges_xml", "LanguageBase" },
+            { "std_mpcharacters_xml", "LanguageBase" },
+            { "std_mpclassdivisions_xml", "LanguageBase" },
+            { "std_mpitems_xml", "LanguageBase" },
+            { "std_photo_mode_strings_xml", "LanguageBase" },
+            { "std_siegeengines_xml", "LanguageBase" }
         };
 
         /// <summary>

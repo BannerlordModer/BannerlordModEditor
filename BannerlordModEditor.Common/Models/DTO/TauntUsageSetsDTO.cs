@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace BannerlordModEditor.Common.Models.DTO
+namespace BannerlordModEditor.Common.Models.Multiplayer
 {
+    [XmlRoot("taunt_usage_sets", Namespace = "")]
     public class TauntUsageSetsDTO
     {
         [XmlElement("taunt_usage_set")]
