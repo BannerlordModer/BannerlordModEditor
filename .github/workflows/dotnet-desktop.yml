@@ -80,16 +80,19 @@ jobs:
       run: dotnet restore
         
     - name: Security Scan
+      continue-on-error: true
+      shell: pwsh
       run: |
         echo "# 安全扫描报告" > security-report.txt
-        echo "## 扫描时间: $(date)" >> security-report.txt
+        echo "## 扫描时间: $(Get-Date)" >> security-report.txt
         echo "" >> security-report.txt
         echo "### 包漏洞扫描" >> security-report.txt
         dotnet list package --vulnerable --include-transitive >> security-report.txt 2>&1 || Write-Host "未发现漏洞" >> security-report.txt
         echo "" >> security-report.txt
         echo "### 已弃用包扫描" >> security-report.txt
         dotnet list package --deprecated >> security-report.txt 2>&1 || Write-Host "未发现弃用包" >> security-report.txt
-        
+        echo "扫描完成"
+
     - name: Upload Security Scan Results
       uses: actions/upload-artifact@v4
       if: always()

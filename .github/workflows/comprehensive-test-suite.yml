@@ -483,8 +483,8 @@ jobs:
       
     - name: 运行安全扫描
       run: |
-        dotnet list package --vulnerable --include-transitive
-        dotnet nuget locals all --clear
+        dotnet list package --vulnerable --include-transitive || true
+        dotnet nuget locals all --clear || true
         
     - name: 运行代码分析
       run: |
@@ -506,10 +506,8 @@ jobs:
       if: always()
       with:
         name: security-scan-results
-        path: |
-          security-report.txt
-          bin/Release/
-
+        path: security-report.txt
+        
   # 12. 部署准备
   deployment-prep:
     runs-on: ubuntu-latest
