@@ -243,8 +243,8 @@ echo '批量处理完成'
         await CreateTestReportAsync("ErrorHandling_UserMistakes", testResults);
     }
 
-        [Fact]
-        public async Task Scenario05_RealWorldWorkflow_CompleteDevelopmentCycle()
+    [Fact]
+    public async Task Scenario05_RealWorldWorkflow_CompleteDevelopmentCycle()
         {
             // 场景：完整的开发工作流程 - 从XML到Excel再回到XML
 
