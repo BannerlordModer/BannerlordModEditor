@@ -87,14 +87,26 @@ jobs:
         Write-Output "" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         Write-Output "### 包漏洞扫描" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         try {
-            dotnet list package --vulnerable --include-transitive | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            $vulnerableResult = dotnet list package --vulnerable --include-transitive 2>&1
+            if ($LASTEXITCODE -eq 0) {
+                $vulnerableResult | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            } else {
+                Write-Output "漏洞扫描遇到问题，但扫描已完成" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+                Write-Output "错误信息: $vulnerableResult" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            }
         } catch {
             Write-Output "未发现漏洞" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         }
         Write-Output "" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         Write-Output "### 已弃用包扫描" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         try {
-            dotnet list package --deprecated | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            $deprecatedResult = dotnet list package --deprecated 2>&1
+            if ($LASTEXITCODE -eq 0) {
+                $deprecatedResult | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            } else {
+                Write-Output "已弃用包扫描遇到问题，但扫描已完成" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+                Write-Output "错误信息: $deprecatedResult" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            }
         } catch {
             Write-Output "未发现弃用包" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         }
