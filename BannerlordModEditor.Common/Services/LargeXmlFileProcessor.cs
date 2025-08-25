@@ -221,14 +221,17 @@ namespace BannerlordModEditor.Common.Services
         /// <summary>
         /// 加载小型文件
         /// </summary>
-        private async Task<T> LoadSmallFileAsync<T>(string filePath) where T : new()
+        private Task<T> LoadSmallFileAsync<T>(string filePath) where T : new()
         {
             var serializer = new XmlSerializer(typeof(T));
             
-            using (var stream = new FileStream(filePath, FileMode.Open))
+            return Task.Run(() =>
             {
-                return (T)serializer.Deserialize(stream)!;
-            }
+                using (var stream = new FileStream(filePath, FileMode.Open))
+                {
+                    return (T)serializer.Deserialize(stream)!;
+                }
+            });
         }
         
         /// <summary>

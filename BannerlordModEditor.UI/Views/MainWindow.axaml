@@ -5,7 +5,6 @@
         xmlns:vmEditors="using:BannerlordModEditor.UI.ViewModels.Editors"
         x:Class="BannerlordModEditor.UI.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
         Title="骑砍2模组编辑器 - Bannerlord Mod Editor"
         WindowStartupLocation="CenterScreen"
         MinWidth="800" MinHeight="600">

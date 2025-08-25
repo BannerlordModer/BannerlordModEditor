@@ -6,6 +6,7 @@ using BannerlordModEditor.Common.Loaders;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using System.Threading.Tasks;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
@@ -68,64 +69,67 @@ public partial class BoneBodyTypeEditorViewModel : ViewModelBase
         }
     }
 
-    public void LoadXmlFile(string fileName)
+    public async Task LoadXmlFileAsync(string fileName)
     {
         try
         {
-            // 尝试多个可能的路径
-            var possiblePaths = new[]
+            await Task.Run(() =>
             {
-                Path.Combine("TestData", fileName),
-                Path.Combine("BannerlordModEditor.Common.Tests", "TestData", fileName),
-                fileName
-            };
-
-            string? foundPath = null;
-            foreach (var path in possiblePaths)
-            {
-                if (File.Exists(path))
+                // 尝试多个可能的路径
+                var possiblePaths = new[]
                 {
-                    foundPath = path;
-                    break;
-                }
-            }
+                    Path.Combine("TestData", fileName),
+                    Path.Combine("BannerlordModEditor.Common.Tests", "TestData", fileName),
+                    fileName
+                };
 
-            if (foundPath != null)
-            {
-                var loader = new GenericXmlLoader<BoneBodyTypes>();
-                var data = loader.Load(foundPath);
-                
-                if (data != null)
+                string? foundPath = null;
+                foreach (var path in possiblePaths)
                 {
-                    BoneBodyTypes.Clear();
-                    foreach (var boneType in data.BoneBodyType)
+                    if (File.Exists(path))
                     {
-                        BoneBodyTypes.Add(new BoneBodyTypeViewModel
-                        {
-                            Type = boneType.Type,
-                            Priority = boneType.Priority,
-                            ActivateSweep = boneType.ActivateSweep,
-                            UseSmallerRadiusMultWhileHoldingShield = boneType.UseSmallerRadiusMultWhileHoldingShield,
-                            DoNotScaleAccordingToAgentScale = boneType.DoNotScaleAccordingToAgentScale
-                        });
+                        foundPath = path;
+                        break;
                     }
+                }
+
+                if (foundPath != null)
+                {
+                    var loader = new GenericXmlLoader<BoneBodyTypes>();
+                    var data = loader.Load(foundPath);
                     
-                    FilePath = foundPath;
+                    if (data != null)
+                    {
+                        BoneBodyTypes.Clear();
+                        foreach (var boneType in data.BoneBodyType)
+                        {
+                            BoneBodyTypes.Add(new BoneBodyTypeViewModel
+                            {
+                                Type = boneType.Type,
+                                Priority = boneType.Priority,
+                                ActivateSweep = boneType.ActivateSweep,
+                                UseSmallerRadiusMultWhileHoldingShield = boneType.UseSmallerRadiusMultWhileHoldingShield,
+                                DoNotScaleAccordingToAgentScale = boneType.DoNotScaleAccordingToAgentScale
+                            });
+                        }
+                        
+                        FilePath = foundPath;
+                        HasUnsavedChanges = false;
+                    }
+                }
+                else
+                {
+                    // 如果没有找到文件，创建空的编辑器
+                    BoneBodyTypes.Clear();
+                    BoneBodyTypes.Add(new BoneBodyTypeViewModel 
+                    { 
+                        Type = "new_bone_type",
+                        Priority = "1"
+                    });
+                    FilePath = fileName;
                     HasUnsavedChanges = false;
                 }
-            }
-            else
-            {
-                // 如果没有找到文件，创建空的编辑器
-                BoneBodyTypes.Clear();
-                BoneBodyTypes.Add(new BoneBodyTypeViewModel 
-                { 
-                    Type = "new_bone_type",
-                    Priority = "1"
-                });
-                FilePath = fileName;
-                HasUnsavedChanges = false;
-            }
+            });
         }
         catch (Exception ex)
         {
@@ -138,6 +142,11 @@ public partial class BoneBodyTypeEditorViewModel : ViewModelBase
                 Priority = "1"
             });
         }
+    }
+
+    public void LoadXmlFile(string fileName)
+    {
+        LoadXmlFileAsync(fileName).Wait();
     }
 
     [RelayCommand]

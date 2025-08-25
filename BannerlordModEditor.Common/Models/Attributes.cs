@@ -22,5 +22,8 @@ namespace BannerlordModEditor.Common.Models
 
         [XmlElement("Documentation")]
         public NullableStringProperty Documentation { get; set; } = new();
+
+        [XmlElement("DefaultValue")]
+        public NullableStringProperty DefaultValue { get; set; } = new();
     }
 }

@@ -1,45 +1,46 @@
-# 📋 项目计划
+# 📋 项目计划文档
 
-本目录包含项目的计划文档，包括需求分析、用户故事、验收标准和实施策略。
+本目录包含BannerlordModEditor项目的计划文档，包括需求规格、用户故事、验收标准等。
 
 ## 📋 目录内容
 
-### 项目需求
+### 📋 基础项目文档
 - **[需求规格](requirements.md)** - 项目的详细需求分析
 - **[用户故事](user-stories.md)** - 用户需求故事和场景描述
 - **[验收标准](acceptance-criteria.md)** - 项目验收的标准和条件
-
-### 实施策略
 - **[实施策略](implementation-strategy.md)** - 项目实施的方法和步骤
+
+### 📋 TUI项目文档
+- **[TUI改进建议](tui-improvement-recommendations.md)** - TUI项目XML编辑功能改进建议
+- **[TUI XML覆盖分析](tui-xml-coverage-analysis.md)** - TUI项目XML编辑功能覆盖分析
+- **[TUI XML总结](tui-xml-summary.md)** - TUI项目XML编辑功能总结报告
 
 ## 🎯 使用指南
 
-### 项目经理
+### 新开发者
 1. 阅读[需求规格](requirements.md)了解项目需求
-2. 参考[用户故事](user-stories.md)理解用户需求
-3. 根据[验收标准](acceptance-criteria.md)制定验收计划
-4. 使用[实施策略](implementation-strategy.md)指导项目实施
+2. 查看[用户故事](user-stories.md)理解用户场景
+3. 参考[验收标准](acceptance-criteria.md)明确验收条件
 
-### 开发者
-1. 了解项目需求背景
-2. 理解用户场景和需求
-3. 明确验收标准
-4. 遵循实施策略进行开发
+### 项目维护者
+1. 定期更新[需求规格](requirements.md)反映需求变更
+2. 维护[用户故事](user-stories.md)确保用户需求被正确理解
+3. 更新[实施策略](implementation-strategy.md)跟踪项目进度
 
 ## 📝 维护说明
 
-- 项目需求变更时及时更新相关文档
-- 用户故事应该反映真实的用户需求
-- 验收标准应具体、可衡量
-- 实施策略应具有可操作性
+- 项目计划文档应及时更新
+- 需求变更需要经过评审
+- 用户故事应保持可测试性
+- 验收标准应明确具体
 
 ## 🔗 相关文档
 
-- **[技术规格](../technical/)** - 详细的技术规格说明
-- **[架构设计](../technical/)** - 系统架构设计文档
-- **[实现指南](../technical/)** - 具体的实现指南
+- **[技术规格](../technical/)** - 架构设计和技术规格
+- **[使用指南](../../guides/)** - 测试指南和最佳实践
+- **[项目总结](../../PROJECT_FINAL_SUMMARY.md)** - 项目完整状态总结
 
 ---
 
-**维护**: 开发团队  
-**更新**: 2025年8月21日
+**维护**: BannerlordModEditor开发团队  
+**更新**: 2025年8月25日

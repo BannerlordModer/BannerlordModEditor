@@ -6,9 +6,12 @@ using BannerlordModEditor.Common.Loaders;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using System.Threading.Tasks;
+using BannerlordModEditor.UI.Factories;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
+[EditorType(EditorType = "SkillEditor", DisplayName = "技能编辑器", Description = "编辑角色技能数据", XmlFileName = "skills.xml", Category = "角色设定")]
 public partial class SkillEditorViewModel : ViewModelBase
 {
     [ObservableProperty]
@@ -69,61 +72,64 @@ public partial class SkillEditorViewModel : ViewModelBase
         }
     }
 
-    public void LoadXmlFile(string fileName)
+    public async Task LoadXmlFileAsync(string fileName)
     {
         try
         {
-            var possiblePaths = new[]
+            await Task.Run(() =>
             {
-                Path.Combine("TestData", fileName),
-                Path.Combine("BannerlordModEditor.Common.Tests", "TestData", fileName),
-                fileName
-            };
-
-            string? foundPath = null;
-            foreach (var path in possiblePaths)
-            {
-                if (File.Exists(path))
+                var possiblePaths = new[]
                 {
-                    foundPath = path;
-                    break;
-                }
-            }
+                    Path.Combine("TestData", fileName),
+                    Path.Combine("BannerlordModEditor.Common.Tests", "TestData", fileName),
+                    fileName
+                };
 
-            if (foundPath != null)
-            {
-                var loader = new GenericXmlLoader<Skills>();
-                var data = loader.Load(foundPath);
-                
-                if (data != null)
+                string? foundPath = null;
+                foreach (var path in possiblePaths)
+                {
+                    if (File.Exists(path))
+                    {
+                        foundPath = path;
+                        break;
+                    }
+                }
+
+                if (foundPath != null)
+                {
+                    var loader = new GenericXmlLoader<Skills>();
+                    var data = loader.Load(foundPath);
+                    
+                    if (data != null)
+                    {
+                        Skills.Clear();
+                        foreach (var skill in data.SkillDataList)
+                        {
+                            Skills.Add(new SkillDataViewModel
+                            {
+                                Id = skill.Id ?? string.Empty,
+                                Name = skill.Name ?? string.Empty,
+                                Documentation = skill.Documentation ?? string.Empty
+                            });
+                        }
+                        
+                        FilePath = foundPath;
+                        HasUnsavedChanges = false;
+                    }
+                }
+                else
                 {
                     Skills.Clear();
-                    foreach (var skill in data.SkillDataList)
-                    {
-                        Skills.Add(new SkillDataViewModel
-                        {
-                            Id = skill.Id ?? string.Empty,
-                            Name = skill.Name ?? string.Empty,
-                            Documentation = skill.Documentation ?? string.Empty
-                        });
-                    }
-                    
-                    FilePath = foundPath;
+                    Skills.Add(new SkillDataViewModel 
+                    { 
+                        Id = "NewSkill", 
+                        Name = "New Skill", 
+                        Documentation = $"正在编辑: {fileName}\n文件不存在，创建新的技能定义..."
+                    });
+                    FilePath = fileName;
                     HasUnsavedChanges = false;
                 }
-            }
-            else
-            {
-                Skills.Clear();
-                Skills.Add(new SkillDataViewModel 
-                { 
-                    Id = "NewSkill", 
-                    Name = "New Skill", 
-                    Documentation = $"正在编辑: {fileName}\n文件不存在，创建新的技能定�?.."
-                });
-                FilePath = fileName;
-                HasUnsavedChanges = false;
-            }
+            });
         }
         catch (Exception ex)
         {
@@ -133,9 +139,14 @@ public partial class SkillEditorViewModel : ViewModelBase
             { 
                 Id = "Error", 
                 Name = "Load Error", 
-                Documentation = $"加载 {fileName} 时出�? {ex.Message}"
+                Documentation = $"加载 {fileName} 时出错: {ex.Message}"
             });
         }
+    }
+
+    public void LoadXmlFile(string fileName)
+    {
+        LoadXmlFileAsync(fileName).Wait();
     }
 
     [RelayCommand]

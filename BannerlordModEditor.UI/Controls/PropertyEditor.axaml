@@ -1,0 +1,146 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+             x:Class="BannerlordModEditor.UI.Controls.PropertyEditor">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.label">
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0,0,10,0" />
+      <Setter Property="MinWidth" Value="120" />
+    </Style>
+    
+    <Style Selector="TextBox.error">
+      <Setter Property="BorderBrush" Value="Red" />
+      <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    
+    <Style Selector="TextBox:valid">
+      <Setter Property="BorderBrush" Value="Green" />
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+  </UserControl.Styles>
+
+  <ScrollViewer>
+    <StackPanel Spacing="15" Margin="10">
+      <!-- 基本属性 -->
+      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+              BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+              BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+        <StackPanel Margin="10">
+          <TextBlock Text="基本属性" FontWeight="Bold" Margin="0,0,0,10" />
+          <ItemsControl ItemsSource="{Binding BasicProperties}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, *" Margin="0,5">
+                  <TextBlock Grid.Column="0" Classes="label" Text="{Binding DisplayName}" />
+                  <TextBox Grid.Column="1" Text="{Binding Value, Mode=TwoWay}" 
+                           Watermark="{Binding Watermark}" />
+                </Grid>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </Border>
+
+      <!-- 数值属性 -->
+      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+              BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+              BorderThickness="1" CornerRadius="4" Margin="0,0,0,10"
+              IsVisible="{Binding HasNumericProperties}">
+        <StackPanel Margin="10">
+          <TextBlock Text="数值属性" FontWeight="Bold" Margin="0,0,0,10" />
+          <ItemsControl ItemsSource="{Binding NumericProperties}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, *, Auto" Margin="0,5">
+                  <TextBlock Grid.Column="0" Classes="label" Text="{Binding DisplayName}" />
+                  <TextBox Grid.Column="1" Text="{Binding Value, Mode=TwoWay}" 
+                           Watermark="{Binding Watermark}" />
+                  <TextBlock Grid.Column="2" Text="{Binding Range}" VerticalAlignment="Center" 
+                             Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+                </Grid>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </Border>
+
+      <!-- 布尔属性 -->
+      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+              BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+              BorderThickness="1" CornerRadius="4" Margin="0,0,0,10"
+              IsVisible="{Binding HasBooleanProperties}">
+        <StackPanel Margin="10">
+          <TextBlock Text="布尔属性" FontWeight="Bold" Margin="0,0,0,10" />
+          <ItemsControl ItemsSource="{Binding BooleanProperties}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <CheckBox Content="{Binding DisplayName}" 
+                          IsChecked="{Binding Value, Mode=TwoWay}"
+                          Margin="0,5" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </Border>
+
+      <!-- 枚举属性 -->
+      <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+              BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+              BorderThickness="1" CornerRadius="4" Margin="0,0,0,10"
+              IsVisible="{Binding HasEnumProperties}">
+        <StackPanel Margin="10">
+          <TextBlock Text="枚举属性" FontWeight="Bold" Margin="0,0,0,10" />
+          <ItemsControl ItemsSource="{Binding EnumProperties}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, *" Margin="0,5">
+                  <TextBlock Grid.Column="0" Classes="label" Text="{Binding DisplayName}" />
+                  <ComboBox Grid.Column="1" ItemsSource="{Binding Options}" 
+                            SelectedItem="{Binding Value, Mode=TwoWay}"
+                            HorizontalAlignment="Stretch" />
+                </Grid>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </Border>
+
+      <!-- 复杂属性 -->
+      <Expander Header="高级属性" IsExpanded="False" IsVisible="{Binding HasAdvancedProperties}">
+        <StackPanel Spacing="10" Margin="10">
+          <ItemsControl ItemsSource="{Binding AdvancedProperties}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, *" Margin="0,5">
+                  <TextBlock Grid.Column="0" Classes="label" Text="{Binding DisplayName}" />
+                  <TextBox Grid.Column="1" Text="{Binding Value, Mode=TwoWay}" 
+                           Watermark="{Binding Watermark}" />
+                </Grid>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </Expander>
+
+      <!-- 验证状态 -->
+      <Expander Header="验证状态" IsExpanded="False">
+        <StackPanel Spacing="5" Margin="10">
+          <TextBlock Text="验证结果:" FontWeight="Bold" />
+          <ItemsControl ItemsSource="{Binding ValidationErrors}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding}" Foreground="Red" FontSize="12" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+          <TextBlock Text="✓ 所有属性验证通过" FontWeight="Bold" Foreground="Green" 
+                     IsVisible="{Binding !HasErrors}" />
+        </StackPanel>
+      </Expander>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

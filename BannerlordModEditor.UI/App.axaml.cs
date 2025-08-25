@@ -9,6 +9,7 @@ using BannerlordModEditor.UI.Views;
 using BannerlordModEditor.UI.Factories;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.Views.Editors;
+using BannerlordModEditor.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BannerlordModEditor.UI;
@@ -55,7 +56,11 @@ public partial class App : Application
         var services = new ServiceCollection();
         
         // 注册编辑器工厂
-        services.AddSingleton<IEditorFactory, EditorFactory>();
+        services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
+        
+        // 注册验证和数据绑定服务
+        services.AddSingleton<IValidationService, ValidationService>();
+        services.AddSingleton<IDataBindingService, DataBindingService>();
         
         // 注册Common层服务
         services.AddTransient<BannerlordModEditor.Common.Services.IFileDiscoveryService, BannerlordModEditor.Common.Services.FileDiscoveryService>();
@@ -72,6 +77,13 @@ public partial class App : Application
         services.AddTransient<ItemModifierEditorViewModel>();
         services.AddTransient<ItemModifierEditorView>();
         
+        // 注册新的战斗参数编辑器
+        services.AddTransient<CombatParameterEditorViewModel>();
+        services.AddTransient<CombatParameterEditorView>();
+        
+        // 注册新的物品编辑器
+        services.AddTransient<ItemEditorViewModel>();
+        services.AddTransient<ItemEditorView>();
                 
         return services;
     }
