@@ -488,7 +488,7 @@ jobs:
         
     - name: 运行代码分析
       run: |
-        dotnet build --configuration Release --no-restore || Write-Host "构建完成，带有警告"
+        dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
         
     - name: 生成安全报告
       shell: pwsh
