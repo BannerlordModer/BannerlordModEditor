@@ -271,9 +271,10 @@ public partial class EditorManagerViewModel : ViewModelBase
             }
 
             // 回退到直接创建（用于测试或没有工厂的情况）
+            // 注意：这里需要提供必要的依赖项
             return editorItem.EditorType switch
             {
-                "AttributeEditor" => new AttributeEditorViewModel(),
+                "AttributeEditor" => new AttributeEditorViewModel(new ValidationService()),
                 "SkillEditor" => new SkillEditorViewModel(),
                 "CombatParameterEditor" => new CombatParameterEditorViewModel(),
                 "ItemEditor" => new ItemEditorViewModel(),

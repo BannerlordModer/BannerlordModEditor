@@ -22,7 +22,7 @@ dotnet test BannerlordModEditor.UI.Tests
 
 # 运行UI应用程序
 dotnet run --project BannerlordModEditor.UI
-
+# 如果在无图形界面的Linux中使用，可以使用xvfb来启动虚拟界面
 # 清理解决方案
 dotnet clean
 
