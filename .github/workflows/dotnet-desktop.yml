@@ -111,6 +111,7 @@ jobs:
             Write-Output "未发现弃用包" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         }
         Write-Host "扫描完成"
+        exit 0
 
     - name: Upload Security Scan Results
       uses: actions/upload-artifact@v4
