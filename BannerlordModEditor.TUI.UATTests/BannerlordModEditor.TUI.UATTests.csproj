@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BannerlordModEditor.TUI.UATTests</RootNamespace>
+    
+    <!-- 测试项目设置 -->
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    
+    <!-- BDD测试特定设置 -->
+    <AssemblyTitle>BannerlordModEditor TUI User Acceptance Tests</AssemblyTitle>
+    <AssemblyDescription>BDD-style UAT tests for BannerlordModEditor TUI application</AssemblyDescription>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- xUnit测试框架 -->
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    
+    <!-- BDD风格测试支持 -->
+    <PackageReference Include="FluentAssertions" Version="6.12.1" />
+    <PackageReference Include="Shouldly" Version="4.2.1" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    
+    <!-- 测试工具 -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    
+    <!-- 文件和系统操作 -->
+    <PackageReference Include="System.IO.Abstractions" Version="21.1.4" />
+    <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="21.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 项目引用 -->
+    <ProjectReference Include="..\BannerlordModEditor.TUI\BannerlordModEditor.TUI.csproj" />
+    <ProjectReference Include="..\BannerlordModEditor.Common\BannerlordModEditor.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 测试数据文件 -->
+    <None Update="TestData\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

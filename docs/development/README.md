@@ -11,22 +11,16 @@
 - **[实施策略](project/implementation-strategy.md)** - 项目实施的方法和步骤
 
 ### 🔧 技术规格 (`technical/`)
-- **[分层架构设计规格](technical/LAYERED_ARCHITECTURE_DESIGN_SPEC.md)** - 系统分层架构设计
-- **[架构实现示例](technical/架构实现示例.md)** - 系统架构实现示例
-- **[XML适配架构实现总结](technical/XML适配架构实现总结.md)** - XML适配架构实现总结
-- **[API规格](technical/api-spec.md)** - API接口规格说明
-- **[XML适配规格](technical/XML_Adaptation_Specifications.md)** - XML适配技术规格
-- **[XML映射类实现](technical/XML_Mapping_Classes_Implementation.md)** - XML映射类实现指南
-- **[XML序列化修复计划](technical/XML_Serialization_Fix_Plan.md)** - XML序列化修复计划
-- **[XML适配实施指南](technical/xml-adaptation-implementation-guide.md)** - XML适配实施指南
-- **[XML适配系统修复完成报告](technical/XML适配系统修复完成报告.md)** - 修复完成报告
+- **[GitHub Actions Tmux测试配置](technical/GitHub Actions Tmux测试配置.md)** - Tmux集成测试配置
+- **[TUI集成测试技术文档](technical/TUI集成测试技术文档.md)** - TUI集成测试技术细节
+- **[GUI增强计划](technical/GUI增强计划.md)** - GUI界面增强计划
 
 ## 🎯 使用指南
 
 ### 新开发者
 1. 阅读[项目计划](project/)了解项目需求和背景
 2. 查看[技术规格](technical/)中的架构设计和技术规格
-3. 参考[XML适配实施指南](technical/xml-adaptation-implementation-guide.md)进行开发
+3. 参考[GUI增强计划](technical/GUI增强计划.md)了解界面开发计划
 
 ### 项目维护者
 1. 定期更新[项目计划](project/)中的需求和用户故事
