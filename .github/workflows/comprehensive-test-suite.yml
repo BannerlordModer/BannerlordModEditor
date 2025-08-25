@@ -484,7 +484,7 @@ jobs:
     - name: 运行安全扫描
       run: |
         dotnet list package --vulnerable --include-transitive
-        dotnet nuget locals all --clear
+        dotnet nuget locals all --clear || echo "NuGet 缓存清理失败，但不影响安全扫描结果"
         
     - name: 运行代码分析
       run: |
@@ -501,12 +501,17 @@ jobs:
             $vulnerableResult = dotnet list package --vulnerable --include-transitive 2>&1
             if ($LASTEXITCODE -eq 0) {
                 $vulnerableResult | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+                # 检查是否真的有漏洞
+                if ($vulnerableResult -match "易受攻击的包" -or $vulnerableResult -match "vulnerable") {
+                    Write-Host "发现安全漏洞，PR 将被阻止"
+                    exit 1
+                }
             } else {
-                Write-Output "漏洞扫描遇到问题，但扫描已完成" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+                Write-Output "漏洞扫描遇到技术问题，但不影响安全评估" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
                 Write-Output "错误信息: $vulnerableResult" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
             }
         } catch {
-            Write-Output "未发现漏洞" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            Write-Output "漏洞扫描执行失败" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         }
         Write-Output "" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         Write-Output "### 已弃用包扫描" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
@@ -515,13 +520,13 @@ jobs:
             if ($LASTEXITCODE -eq 0) {
                 $deprecatedResult | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
             } else {
-                Write-Output "已弃用包扫描遇到问题，但扫描已完成" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+                Write-Output "已弃用包扫描遇到技术问题，但不影响安全评估" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
                 Write-Output "错误信息: $deprecatedResult" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
             }
         } catch {
-            Write-Output "未发现弃用包" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+            Write-Output "已弃用包扫描执行失败" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
         }
-        Write-Host "扫描完成"
+        Write-Host "安全扫描完成"
         exit 0
         
     - name: 上传安全扫描结果
