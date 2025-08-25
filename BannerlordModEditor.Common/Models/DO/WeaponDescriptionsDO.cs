@@ -292,6 +292,7 @@ namespace BannerlordModEditor.Common.Models.DO
             return AvailablePieces?.Pieces?
                        .Select(p => p.Id)
                        .Where(id => !string.IsNullOrEmpty(id))
+                       .Select(id => id!) // 使用!操作符告诉编译器id不为null
                        .ToList() ?? new List<string>();
         }
 

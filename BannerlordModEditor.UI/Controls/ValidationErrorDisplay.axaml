@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="100"
+             x:Class="BannerlordModEditor.UI.Controls.ValidationErrorDisplay">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.error">
+      <Setter Property="Foreground" Value="Red" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="Margin" Value="2,0,0,0" />
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel Spacing="2">
+    <TextBlock Text="验证错误:" FontWeight="Bold" Foreground="Red" 
+               IsVisible="{Binding HasErrors}" />
+    <ItemsControl ItemsSource="{Binding Errors}" IsVisible="{Binding HasErrors}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <TextBlock Classes="error" Text="{Binding}" />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+    <TextBlock Text="✓ 验证通过" FontWeight="Bold" Foreground="Green" 
+               IsVisible="{Binding !HasErrors}" />
+  </StackPanel>
+</UserControl>

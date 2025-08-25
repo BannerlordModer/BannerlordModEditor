@@ -10,6 +10,7 @@
   - **[用户故事](development/project/user-stories.md)** - 用户需求故事和场景
   - **[验收标准](development/project/acceptance-criteria.md)** - 项目验收标准
   - **[实施策略](development/project/implementation-strategy.md)** - 项目实施策略和计划
+  - **[多人游戏XML适配](project/multiplayer-xml-adaptation/)** - 多人游戏XML适配项目
 - **技术规格** (`technical/`) - 架构设计和技术规格文档
   - **[GitHub Actions Tmux测试配置](development/technical/GitHub Actions Tmux测试配置.md)** - Tmux集成测试配置
   - **[TUI集成测试技术文档](development/technical/TUI集成测试技术文档.md)** - TUI集成测试技术细节
@@ -32,7 +33,7 @@
 
 ### 📦 归档文档 (`archive/`)
 - **旧分析** (`old-analysis/`) - 历史技术分析文档
-- **旧报告** (`old-reports/`) - 过期的项目报告和总结
+- **旧报告** (`old-reports/`) - 过期的项目报告
 
 ## 🎯 快速导航
 
@@ -111,5 +112,5 @@
 
 ---
 
-**最后更新**: 2025年8月21日  
+**最后更新**: 2025年8月25日  
 **维护**: BannerlordModEditor开发团队
