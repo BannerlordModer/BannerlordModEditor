@@ -1,207 +1,30 @@
-﻿name: Build, Test and Deploy
+name: Deploy to GitHub Releases
 
 on:
   push:
     branches:
-      - "**"
-  pull_request:
-    branches:
       - master
 
 jobs:
-  test:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Install .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
-        
-    - name: Restore Dependencies
-      run: dotnet restore
-      
-    - name: Build Solution
-      run: dotnet build --configuration ${{ matrix.configuration }} --no-restore || Write-Host "构建完成，带有警告"
-      
-    - name: Run Unit Tests
-      run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=unit_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "单元测试完成，带有失败"
-      
-    - name: Run UI Tests
-      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
-      
-    - name: Generate Code Coverage Report
-      if: matrix.configuration == 'Release'
-      shell: pwsh
-      run: |
-        dotnet tool install -g dotnet-reportgenerator-globaltool
-        if (Test-Path "**/coverage.cobertura.xml") {
-          reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
-        } else {
-          Write-Host "未找到覆盖率文件，跳过覆盖率报告生成"
-          New-Item -ItemType Directory -Force -Path "coverage"
-          "<html><body><h1>覆盖率报告未生成</h1><p>未找到覆盖率文件</p></body></html>" | Out-File -FilePath "coverage/index.html" -Encoding utf8
-        }
-        
-    - name: Upload Coverage Reports
-      if: matrix.configuration == 'Release'
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-report
-        path: coverage/
-        
-    - name: Upload Test Results
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results-${{ matrix.configuration }}
-        path: |
-          TestResults/
-          *.trx
-
-  security-scan:
-    runs-on: windows-latest
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Install .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
-        
-    - name: Restore Dependencies
-      run: dotnet restore
-        
-    - name: Security Scan
-      run: |
-        echo "# 安全扫描报告" > security-report.txt
-        echo "## 扫描时间: $(date)" >> security-report.txt
-        echo "" >> security-report.txt
-        echo "### 包漏洞扫描" >> security-report.txt
-        dotnet list package --vulnerable --include-transitive >> security-report.txt 2>&1 || echo "未发现漏洞" >> security-report.txt
-        echo "" >> security-report.txt
-        echo "### 已弃用包扫描" >> security-report.txt
-        dotnet list package --deprecated >> security-report.txt 2>&1 || echo "未发现弃用包" >> security-report.txt
-        echo "## 扫描完成" >> security-report.txt
-      continue-on-error: true
-        
-    - name: Upload Security Scan Results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: security-scan-results
-        path: security-report.txt
-        
   deploy-to-github-releases:
-    needs: [test, security-scan]
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     permissions: write-all
     runs-on: windows-latest
-    
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-      
     - name: Install .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
-        
-    - name: Restore Dependencies
-      run: dotnet restore
-      
-    - name: Build Solution (Release)
-      run: dotnet build --configuration Release --no-restore || Write-Host "构建完成，带有警告"
-      
-    - name: Run Final Tests Before Deploy
-      run: |
-        dotnet test BannerlordModEditor.Common.Tests --configuration Release --no-build
-        dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build
-        
+        dotnet-version: 8.0.x
     - name: Publish Application
-      run: dotnet publish BannerlordModEditor.UI/BannerlordModEditor.UI.csproj -c Release -o publish -r win-x64 --self-contained false
-      
+      run: dotnet publish BannerlordModEditor/BannerlordModEditor.csproj -c Release -o publish -r win-x64 --self-contained true
     - name: Create Velopack Release
       env:
         BUILD_NUMBER: ${{github.run_number}}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       shell: pwsh
       run: |
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
-        Write-Host "Creating release version: $Version"
-
-        # Get previous tag
-        $PreviousTag = try { git describe --tags --abbrev=0 } catch { $null }
-        if ($PreviousTag) {
-          Write-Host "Previous tag: $PreviousTag"
-        } else {
-          Write-Host "No previous tag found. Generating release notes since the beginning."
-        }
-
-        # Generate release notes using gh cli
-        $owner,$repo = $env:GITHUB_REPOSITORY.Split('/')
-        $tagName = "v$Version"
-        
-        $gh_api_args = @(
-            'api',
-            "repos/$owner/$repo/releases/generate-notes",
-            '--method', 'POST',
-            '-f', "tag_name=$tagName"
-        )
-        if ($PreviousTag) {
-            $gh_api_args += @('-f', "previous_tag_name=$PreviousTag")
-        }
-        
-        $releaseNotesJson = & gh @gh_api_args
-        $releaseNotes = ($releaseNotesJson | ConvertFrom-Json).body
-        $releaseNotes | Out-File -FilePath "releasenotes.md" -Encoding utf8
-        Write-Host "Generated release notes:"
-        Get-Content releasenotes.md | ForEach-Object { Write-Host $_ }
-        
-        # 安装 Velopack
         dotnet tool install -g vpk
-        
-        # 下载之前的版本（如果存在）
-        try {
-          vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --channel nightly-win-x64
-          Write-Host "Previous release downloaded successfully"
-        } catch {
-          Write-Host "No previous releases found, creating initial release"
-        }
-        
-        # 创建发布包
-        vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net9.0-x64
-        
-        # 上传到 GitHub Releases
-        try {
-          vpk upload github -o Releases --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag $tagName --token $env:GITHUB_TOKEN
-          Write-Host "Release uploaded successfully"
-          
-          # 添加 release notes
-          try {
-            gh release edit $tagName --notes-file releasenotes.md --repo $env:GITHUB_REPOSITORY
-            Write-Host "Release notes updated successfully"
-          } catch {
-            Write-Host "Failed to update release notes: $_"
-            exit 1
-          }
-        } catch {
-          Write-Host "Release upload failed with error: $_"
-          exit 1
-        }
-        
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: published-app
-        path: publish/
+        vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor
+        vpk pack -u BannerlordModEditor -v $Version -p publish
+        vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --releaseName "BannerlordModEditor $Version" --tag v$Version --token ${{ secrets.GITHUB_TOKEN }}
