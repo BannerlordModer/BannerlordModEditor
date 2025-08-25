@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Linq;
 using BannerlordModEditor.Common.Models;
 using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DO.Language;
 
 namespace BannerlordModEditor.Common.Tests
 {
@@ -100,6 +101,9 @@ namespace BannerlordModEditor.Common.Tests
             if (obj is LanguageBaseDO languageBase)
             {
                 var doc = XDocument.Parse(xml);
+                languageBase.HasTags = doc.Root?.Element("tags") != null;
+                languageBase.HasStrings = doc.Root?.Element("strings") != null;
+                languageBase.HasFunctions = doc.Root?.Element("functions") != null;
                 languageBase.HasEmptyTags = doc.Root?.Element("tags") != null && 
                     (doc.Root.Element("tags")?.Elements().Count() == 0 || doc.Root.Element("tags")?.Elements("tag").Count() == 0);
             }

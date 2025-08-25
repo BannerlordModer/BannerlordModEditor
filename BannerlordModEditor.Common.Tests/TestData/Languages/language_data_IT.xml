@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData id="Italiano" name="Italiano" subtitle_extension="it" supported_iso="it,ita,it-it,it-ch" text_processor="TaleWorlds.Localization.TextProcessor.LanguageProcessors.ItalianTextProcessor" under_development="false">
+  <LanguageFile xml_path="IT/it_functions.xml" />
+  <LanguageFile xml_path="IT/std_common_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_crafting_pieces_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_Diamond_AccessProvider_GDK-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_Diamond_AccessProvider_GOG-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_Diamond_AccessProvider_PS-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_Diamond_AccessProvider_Steam-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_PlatformService_Epic-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_PlatformService_GDK-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_PlatformService_PS-ita.xml" />
+  <LanguageFile xml_path="IT/std_global_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_item_modifiers_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_module_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_mpbadges_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_mpcharacters_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_mpclassdivisions_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_mpitems_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_multiplayer_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_native_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_photo_mode_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_siegeengines_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_Core-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_MountAndBlade-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_MountAndBlade_GauntletUI-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_MountAndBlade_View-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_MountAndBlade_ViewModelCollection-ita.xml" />
+</LanguageData>

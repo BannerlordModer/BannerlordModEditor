@@ -1,7 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DO.Language;
 using BannerlordModEditor.Common.Tests;
 using Xunit;
 using Xunit.Abstractions;
