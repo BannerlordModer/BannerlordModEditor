@@ -482,15 +482,18 @@ jobs:
       run: dotnet restore
       
     - name: 运行安全扫描
+      working-directory: ${{ github.workspace }}
       run: |
         dotnet list package --vulnerable --include-transitive || true
         dotnet nuget locals all --clear || true
         
     - name: 运行代码分析
+      working-directory: ${{ github.workspace }}
       run: |
         dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
         
     - name: 生成安全报告
+      working-directory: ${{ github.workspace }}
       run: |
         echo "# 安全扫描报告" > security-report.txt
         echo "## 扫描时间: $(date)" >> security-report.txt
