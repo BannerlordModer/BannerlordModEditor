@@ -8,8 +8,8 @@
 - **[需求规格](requirements.md)** - 项目的详细需求分析
 - **[用户故事](user-stories.md)** - 用户需求故事和场景描述
 - **[验收标准](acceptance-criteria.md)** - 项目验收的标准和条件
+- **[API规格](api-spec.md)** - 应用程序API接口规格
 - **[实施策略](implementation-strategy.md)** - 项目实施的方法和步骤
-- **[API规格](api-spec.md)** - 项目接口规格和技术规范
 - **[技术栈](tech-stack.md)** - 项目使用的技术栈和工具
 
 ### 📋 TUI项目文档
