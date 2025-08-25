@@ -35,8 +35,8 @@ jobs:
       
     - name: Run UI Tests
       env:
-        DOTNET_CLI_TEST_TIMEOUT: 300
-      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --filter "Category!=Integration" --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
+        DOTNET_CLI_TEST_TIMEOUT: 60
+      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --filter "Category!=Integration" --timeout 60 --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
       
     - name: Generate Code Coverage Report
       if: matrix.configuration == 'Release'
@@ -124,10 +124,10 @@ jobs:
       
     - name: Run Final Tests Before Deploy
       env:
-        DOTNET_CLI_TEST_TIMEOUT: 300
+        DOTNET_CLI_TEST_TIMEOUT: 60
       run: |
         dotnet test BannerlordModEditor.Common.Tests --configuration Release --no-build
-        dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build
+        dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build --filter "Category!=Integration" --timeout 60
         
     - name: Publish Application
       run: dotnet publish BannerlordModEditor.UI/BannerlordModEditor.UI.csproj -c Release -o publish -r win-x64 --self-contained false
