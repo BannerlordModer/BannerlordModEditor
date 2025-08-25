@@ -8,12 +8,14 @@
 - **[需求规格](project/requirements.md)** - 项目的详细需求分析
 - **[用户故事](project/user-stories.md)** - 用户需求故事和场景描述
 - **[验收标准](project/acceptance-criteria.md)** - 项目验收的标准和条件
+- **[API规格](project/api-spec.md)** - 应用程序API接口规格
 - **[实施策略](project/implementation-strategy.md)** - 项目实施的方法和步骤
 
 ### 🔧 技术规格 (`technical/`)
 - **[GitHub Actions Tmux测试配置](technical/GitHub Actions Tmux测试配置.md)** - Tmux集成测试配置
 - **[TUI集成测试技术文档](technical/TUI集成测试技术文档.md)** - TUI集成测试技术细节
 - **[GUI增强计划](technical/GUI增强计划.md)** - GUI界面增强计划
+- **[UI界面空白问题诊断报告](technical/UI界面空白问题诊断报告.md)** - UI界面问题修复报告
 
 ## 🎯 使用指南
 

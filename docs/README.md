@@ -5,16 +5,18 @@
 ## 📁 文档结构
 
 ### 🛠️ 开发文档 (`development/`)
-- **项目计划** (`project/`) - 历史项目需求和计划文档
+- **项目计划** (`project/`) - 项目需求和计划文档
   - **[需求规格](development/project/requirements.md)** - 项目需求规格说明
   - **[用户故事](development/project/user-stories.md)** - 用户需求故事和场景
   - **[验收标准](development/project/acceptance-criteria.md)** - 项目验收标准
+  - **[API规格](development/project/api-spec.md)** - 应用程序API接口规格
   - **[实施策略](development/project/implementation-strategy.md)** - 项目实施策略和计划
   - **[多人游戏XML适配](project/multiplayer-xml-adaptation/)** - 多人游戏XML适配项目
 - **技术规格** (`technical/`) - 架构设计和技术规格文档
   - **[GitHub Actions Tmux测试配置](development/technical/GitHub Actions Tmux测试配置.md)** - Tmux集成测试配置
   - **[TUI集成测试技术文档](development/technical/TUI集成测试技术文档.md)** - TUI集成测试技术细节
   - **[GUI增强计划](development/technical/GUI增强计划.md)** - GUI界面增强计划
+  - **[UI界面空白问题诊断报告](development/technical/UI界面空白问题诊断报告.md)** - UI界面问题修复报告
 
 ### 📖 使用指南 (`guides/`)
 - **[TUI开发指南](guides/TUI开发指南.md)** - TUI应用程序开发指南
