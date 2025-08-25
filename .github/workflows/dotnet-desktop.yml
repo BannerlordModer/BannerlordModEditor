@@ -81,17 +81,24 @@ jobs:
         
     - name: Security Scan
       shell: pwsh
-      working-directory: ${{ github.workspace }}
       run: |
-        echo "# 安全扫描报告" > security-report.txt
-        echo "## 扫描时间: $(Get-Date)" >> security-report.txt
-        echo "" >> security-report.txt
-        echo "### 包漏洞扫描" >> security-report.txt
-        dotnet list package --vulnerable --include-transitive >> security-report.txt 2>&1 || echo "未发现漏洞" >> security-report.txt
-        echo "" >> security-report.txt
-        echo "### 已弃用包扫描" >> security-report.txt
-        dotnet list package --deprecated >> security-report.txt 2>&1 || echo "未发现弃用包" >> security-report.txt
-        echo "扫描完成"
+        Write-Output "# 安全扫描报告" | Out-File -FilePath "security-report.txt" -Encoding utf8
+        Write-Output "## 扫描时间: $(Get-Date)" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        Write-Output "" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        Write-Output "### 包漏洞扫描" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        try {
+            dotnet list package --vulnerable --include-transitive | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        } catch {
+            Write-Output "未发现漏洞" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        }
+        Write-Output "" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        Write-Output "### 已弃用包扫描" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        try {
+            dotnet list package --deprecated | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        } catch {
+            Write-Output "未发现弃用包" | Out-File -FilePath "security-report.txt" -Encoding utf8 -Append
+        }
+        Write-Host "扫描完成"
 
     - name: Upload Security Scan Results
       uses: actions/upload-artifact@v4
