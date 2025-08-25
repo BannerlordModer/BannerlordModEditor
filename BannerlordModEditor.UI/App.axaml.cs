@@ -58,6 +58,10 @@ public partial class App : Application
         // 注册编辑器工厂
         services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
         
+        // 注册日志和错误处理服务
+        services.AddSingleton<ILogService, LogService>();
+        services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
+        
         // 注册验证和数据绑定服务
         services.AddSingleton<IValidationService, ValidationService>();
         services.AddSingleton<IDataBindingService, DataBindingService>();

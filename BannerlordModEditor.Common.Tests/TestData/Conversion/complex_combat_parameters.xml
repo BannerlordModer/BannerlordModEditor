@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base>
+    <definitions>
+        <def name="hit_points" type="float" default="100" />
+        <def name="armor" type="float" default="0" />
+        <def name="speed" type="float" default="1" />
+    </definitions>
+    <combat_parameters>
+        <combat_parameter id="human_body" name="Human Body">
+            <hit_points>100</hit_points>
+            <armor>0</armor>
+            <speed>1</speed>
+            <vulnerabilities>
+                <vulnerability type="cut" multiplier="1.2" />
+                <vulnerability type="pierce" multiplier="1.1" />
+                <vulnerability type="blunt" multiplier="0.8" />
+            </vulnerabilities>
+        </combat_parameter>
+        <combat_parameter id="horse" name="Horse">
+            <hit_points>150</hit_points>
+            <armor>10</armor>
+            <speed>1.5</speed>
+            <vulnerabilities>
+                <vulnerability type="cut" multiplier="0.9" />
+                <vulnerability type="pierce" multiplier="1.3" />
+            </vulnerabilities>
+        </combat_parameter>
+    </combat_parameters>
+</base>

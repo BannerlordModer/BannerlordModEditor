@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base>
+    <characters>
+        <character id="hero_1" name="Warrior" level="10" health="150" mana="50">
+            <equipment>
+                <item id="1" name="Iron Sword" slot="main_hand" />
+                <item id="2" name="Wooden Shield" slot="off_hand" />
+            </equipment>
+            <skills>
+                <skill name="Swordsmanship" level="8" experience="1200" />
+                <skill name="Defense" level="6" experience="800" />
+            </skills>
+        </character>
+        <character id="hero_2" name="Mage" level="12" health="80" mana="200">
+            <equipment>
+                <item id="3" name="Magic Staff" slot="main_hand" />
+                <item id="4" name="Robe" slot="body" />
+            </equipment>
+            <skills>
+                <skill name="Fire Magic" level="10" experience="1500" />
+                <skill name="Ice Magic" level="7" experience="900" />
+            </skills>
+        </character>
+        <character id="hero_3" name="Archer" level="8" health="100" mana="30">
+            <equipment>
+                <item id="5" name="Longbow" slot="main_hand" />
+                <item id="6" name="Leather Armor" slot="body" />
+            </equipment>
+            <skills>
+                <skill name="Archery" level="9" experience="1100" />
+                <skill name="Stealth" level="5" experience="600" />
+            </skills>
+        </character>
+    </characters>
+</base>
