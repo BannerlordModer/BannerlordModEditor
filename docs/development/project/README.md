@@ -1,45 +1,72 @@
-# 📋 项目计划
+# TUI项目XML编辑功能文档
 
-本目录包含项目的计划文档，包括需求分析、用户故事、验收标准和实施策略。
+本目录包含BannerlordModEditor.TUI项目XML编辑功能的详细分析和改进建议。
 
-## 📋 目录内容
+## 文档列表
 
-### 项目需求
-- **[需求规格](requirements.md)** - 项目的详细需求分析
-- **[用户故事](user-stories.md)** - 用户需求故事和场景描述
-- **[验收标准](acceptance-criteria.md)** - 项目验收的标准和条件
+### 📊 分析报告
+- **[tui-xml-coverage-analysis.md](./tui-xml-coverage-analysis.md)** - TUI项目XML编辑功能覆盖分析
+  - 详细分析TUI项目当前支持的XML编辑功能
+  - 列出Common层支持的102种XML类型
+  - 对比分析功能差距和不足
 
-### 实施策略
-- **[实施策略](implementation-strategy.md)** - 项目实施的方法和步骤
+### 🚀 改进建议
+- **[tui-improvement-recommendations.md](./tui-improvement-recommendations.md)** - TUI项目XML编辑功能改进建议
+  - 分优先级的改进建议
+  - 具体的实现方案和代码示例
+  - 详细的实施计划
 
-## 🎯 使用指南
+### 📋 总结报告
+- **[tui-xml-summary.md](./tui-xml-summary.md)** - TUI项目XML编辑功能总结报告
+  - 执行摘要和核心发现
+  - 功能覆盖统计和商业价值分析
+  - 风险评估和成功指标
 
-### 项目经理
-1. 阅读[需求规格](requirements.md)了解项目需求
-2. 参考[用户故事](user-stories.md)理解用户需求
-3. 根据[验收标准](acceptance-criteria.md)制定验收计划
-4. 使用[实施策略](implementation-strategy.md)指导项目实施
+## 核心发现
 
-### 开发者
-1. 了解项目需求背景
-2. 理解用户场景和需求
-3. 明确验收标准
-4. 遵循实施策略进行开发
+### 当前状态
+- ✅ **优秀的通用XML转换功能**
+- ✅ **现代化的TUI界面**
+- ✅ **完善的测试覆盖**
+- ❌ **未集成Common层XML模型系统**
+- ❌ **缺乏类型化XML处理能力**
 
-## 📝 维护说明
+### 改进潜力
+通过集成Common层的XML模型系统，TUI项目可以从通用工具升级为专业的Bannerlord模组编辑器：
+- 支持102种XML类型的专门处理
+- 完整的验证和错误处理
+- 类型化的编辑界面
+- 与Common层深度集成
 
-- 项目需求变更时及时更新相关文档
-- 用户故事应该反映真实的用户需求
-- 验收标准应具体、可衡量
-- 实施策略应具有可操作性
+## 快速导航
 
-## 🔗 相关文档
+### 如果您想了解...
+- **当前功能覆盖**: 查看 [tui-xml-coverage-analysis.md](./tui-xml-coverage-analysis.md)
+- **如何改进项目**: 查看 [tui-improvement-recommendations.md](./tui-improvement-recommendations.md)
+- **项目整体情况**: 查看 [tui-xml-summary.md](./tui-xml-summary.md)
 
-- **[技术规格](../technical/)** - 详细的技术规格说明
-- **[架构设计](../technical/)** - 系统架构设计文档
-- **[实现指南](../technical/)** - 具体的实现指南
+### 关键统计数据
+- **Common层支持**: 102种XML类型
+- **TUI当前支持**: 0种类型化XML
+- **功能差距**: 100%
+- **改进潜力**: 显著
+
+## 后续步骤
+
+1. **评估改进建议**: 仔细阅读改进建议文档
+2. **制定实施计划**: 根据优先级制定具体计划
+3. **开始实施**: 从优先级1的核心集成开始
+4. **持续改进**: 根据用户反馈持续优化功能
+
+## 贡献
+
+如果您对这些文档有任何改进建议，请：
+1. 提交Issue描述问题
+2. 提交Pull Request进行改进
+3. 参与讨论和分享想法
 
 ---
 
-**维护**: 开发团队  
-**更新**: 2025年8月21日
+**最后更新**: 2025-01-22  
+**维护者**: Claude Code  
+**版本**: v1.0

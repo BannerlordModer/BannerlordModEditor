@@ -4,20 +4,22 @@
 
 ## 📁 文档结构
 
-### 🎯 项目文档 (`project/`)
-- **[多人游戏XML适配](project/multiplayer-xml-adaptation/)** - 最新的多人游戏XML文件适配项目
-  - 完整的需求规格、用户故事、验收标准
-  - 技术实现文档和测试结果
-  - 项目状态和后续计划
-
 ### 🛠️ 开发文档 (`development/`)
 - **项目计划** (`project/`) - 历史项目需求和计划文档
+  - **[需求规格](development/project/requirements.md)** - 项目需求规格说明
+  - **[用户故事](development/project/user-stories.md)** - 用户需求故事和场景
+  - **[验收标准](development/project/acceptance-criteria.md)** - 项目验收标准
+  - **[实施策略](development/project/implementation-strategy.md)** - 项目实施策略和计划
 - **技术规格** (`technical/`) - 架构设计和技术规格文档
+  - **[GitHub Actions Tmux测试配置](development/technical/GitHub Actions Tmux测试配置.md)** - Tmux集成测试配置
+  - **[TUI集成测试技术文档](development/technical/TUI集成测试技术文档.md)** - TUI集成测试技术细节
+  - **[GUI增强计划](development/technical/GUI增强计划.md)** - GUI界面增强计划
 
 ### 📖 使用指南 (`guides/`)
-- **测试指南** - 测试策略和方法
-- **最佳实践** - 开发最佳实践建议
-- **故障排除** - 常见问题解决方案
+- **[TUI开发指南](guides/TUI开发指南.md)** - TUI应用程序开发指南
+- **[TUI用户指南](guides/TUI用户指南.md)** - TUI应用程序使用指南
+- **[UAT用户验收测试指南](guides/UAT用户验收测试指南.md)** - UAT测试框架使用指南
+- **[综合测试套件指南](guides/综合测试套件指南.md)** - 完整测试套件使用指南
 
 ### 🔧 技术参考 (`reference/`)
 - **[系统架构](reference/architecture.md)** - 系统整体架构设计
@@ -25,10 +27,29 @@
 - **[技术栈](reference/tech-stack.md)** - 项目使用的技术和工具
 - **[技术分析](reference/tech-analysis.md)** - 项目技术分析
 - **[XML适配技术分析](reference/XML_Adaptation_Technical_Analysis.md)** - XML适配技术深度分析
+- **[API参考文档](reference/API参考文档.md)** - 应用程序API接口参考
+- **[字符串型XML策略](reference/STRING_BASED_XML_STRATEGY.md)** - 字符串型XML处理策略
 
 ### 📦 归档文档 (`archive/`)
-- **旧报告** (`old-reports/`) - 过期的项目报告
 - **旧分析** (`old-analysis/`) - 历史技术分析文档
+- **旧报告** (`old-reports/`) - 过期的项目报告和总结
+
+## 🎯 快速导航
+
+### 新用户入门
+1. 阅读 **[TUI用户指南](guides/TUI用户指南.md)** 了解应用程序使用方法
+2. 查看 **[项目最终总结](PROJECT_FINAL_SUMMARY.md)** 了解项目整体情况
+3. 浏览 **[系统架构](reference/architecture.md)** 了解技术架构
+
+### 开发者指南
+1. 阅读 **[TUI开发指南](guides/TUI开发指南.md)** 了解开发流程
+2. 查看 **[开发文档](development/)** 了解项目计划和技术规格
+3. 参考 **[使用指南](guides/)** 了解测试和最佳实践
+
+### 测试和验证
+1. 使用 **[UAT用户验收测试指南](guides/UAT用户验收测试指南.md)** 进行用户验收测试
+2. 参考 **[综合测试套件指南](guides/综合测试套件指南.md)** 运行完整测试套件
+3. 查看 **[GitHub Actions Tmux测试配置](development/technical/GitHub Actions Tmux测试配置.md)** 了解CI/CD配置
 
 ## 🚀 快速开始
 
