@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base>
+    <items>
+        <item id="1" name="Sword" type="weapon" damage="25" speed="1.2" />
+        <item id="2" name="Shield" type="armor" defense="30" weight="5.0" />
+        <item id="3" name="Helmet" type="armor" defense="15" weight="2.5" />
+        <item id="4" name="Boots" type="armor" defense="8" weight="1.5" />
+        <item id="5" name="Gloves" type="armor" defense="5" weight="0.8" />
+    </items>
+</base>

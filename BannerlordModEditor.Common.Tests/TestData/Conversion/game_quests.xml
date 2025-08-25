@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base>
+    <quests>
+        <quest id="quest_001" name="The Lost Sword" level="5" reward_gold="100" reward_exp="500">
+            <description>Find the legendary sword lost in the dark forest.</description>
+            <objectives>
+                <objective id="obj_1" description="Enter the Dark Forest" completed="false" />
+                <objective id="obj_2" description="Find the ancient ruins" completed="false" />
+                <objective id="obj_3" description="Defeat the guardian" completed="false" />
+                <objective id="obj_4" description="Retrieve the sword" completed="false" />
+            </objectives>
+            <requirements>
+                <requirement type="level" value="5" />
+                <requirement type="item" value="torch" />
+            </requirements>
+        </quest>
+        <quest id="quest_002" name="Merchant's Caravan" level="3" reward_gold="50" reward_exp="200">
+            <description>Escort the merchant's caravan safely to the next town.</description>
+            <objectives>
+                <objective id="obj_1" description="Meet the merchant at the gates" completed="false" />
+                <objective id="obj_2" description="Escort through the forest" completed="false" />
+                <objective id="obj_3" description="Defeat bandit ambush" completed="false" />
+                <objective id="obj_4" description="Reach the destination" completed="false" />
+            </objectives>
+            <requirements>
+                <requirement type="level" value="3" />
+            </requirements>
+        </quest>
+        <quest id="quest_003" name="Ancient Artifact" level="8" reward_gold="200" reward_exp="1000">
+            <description>Recover the ancient artifact from the forgotten temple.</description>
+            <objectives>
+                <objective id="obj_1" description="Research the temple location" completed="false" />
+                <objective id="obj_2" description="Solve the entrance puzzle" completed="false" />
+                <objective id="obj_3" description="Navigate the traps" completed="false" />
+                <objective id="obj_4" description="Defeat the temple guardian" completed="false" />
+                <objective id="obj_5" description="Retrieve the artifact" completed="false" />
+            </objectives>
+            <requirements>
+                <requirement type="level" value="8" />
+                <requirement type="skill" value="archaeology" level="3" />
+            </requirements>
+        </quest>
+    </quests>
+</base>

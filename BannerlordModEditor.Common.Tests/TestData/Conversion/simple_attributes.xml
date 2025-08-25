@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base>
+    <attributes>
+        <attribute id="strength" name="Strength" description="Increases health and melee damage" />
+        <attribute id="agility" name="Agility" description="Increases movement speed and ranged damage" />
+        <attribute id="intelligence" name="Intelligence" description="Increases skill limits and party size" />
+        <attribute id="charisma" name="Charisma" description="Increases influence and relation gain" />
+    </attributes>
+</base>
