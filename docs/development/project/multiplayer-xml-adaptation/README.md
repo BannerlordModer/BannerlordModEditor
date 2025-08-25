@@ -1,53 +1,65 @@
-# 📖 使用指南
+# 🎮 多人游戏XML适配项目
 
-本目录包含项目的使用指南和最佳实践文档，帮助开发者更好地使用和维护项目。
+本目录包含BannerlordModEditor项目中多人游戏XML适配功能的相关文档，这是一个专门针对多人游戏系统的XML适配子项目。
 
 ## 📋 目录内容
 
-### 测试指南
-- **[综合测试套件](comprehensive-test-suite.md)** - 完整的测试套件说明
-- **[测试执行计划和质量评估](test-execution-plan-and-quality-assessment.md)** - 测试执行策略和质量评估
+### 📋 项目文档
+- **[需求规格](requirements.md)** - 多人游戏XML适配的详细需求分析
+- **[用户故事](user-stories.md)** - 多人游戏用户需求故事和场景
+- **[验收标准](acceptance-criteria.md)** - 多人游戏适配验收标准
+- **[实施策略](implementation-strategy.md)** - 多人游戏适配实施策略
 
-### 最佳实践
-- *待添加* - 开发最佳实践指南
-- *待添加* - 代码规范和标准
-- *待添加* - 性能优化指南
+### 🏗️ 技术规格
+- **[分层架构设计规格](LAYERED_ARCHITECTURE_DESIGN_SPEC.md)** - 系统分层架构设计
+- **[XML适配规格](XML_Adaptation_Specifications.md)** - XML适配技术规格
+- **[API规格](api-spec.md)** - API接口规格说明
+- **[技术栈](tech-stack.md)** - 使用的技术和工具
 
-### 故障排除
-- *待添加* - 常见问题解决方案
-- *待添加* - 调试指南
-- *待添加* - 错误处理指南
+### 🔧 实现指南
+- **[XML映射类实现](XML_Mapping_Classes_Implementation.md)** - XML映射类实现指南
+- **[XML序列化修复计划](XML_Serialization_Fix_Plan.md)** - XML序列化修复计划
+- **[XML适配实施指南](xml-adaptation-implementation-guide.md)** - XML适配实施指南
+- **[增强的XML适配系统使用指南](增强的XML适配系统使用指南.md)** - 增强功能使用指南
+
+### 📊 报告和总结
+- **[XML适配架构实现总结](XML适配架构实现总结.md)** - 架构实现总结
+- **[XML适配系统修复完成报告](XML适配系统修复完成报告.md)** - 修复完成报告
+- **[XML适配状态](xml-adaptation-status.md)** - 当前适配状态
+- **[测试执行计划和质量评估](test-execution-plan-and-quality-assessment.md)** - 测试和质量评估
+- **[架构实现示例](架构实现示例.md)** - 实现示例代码
 
 ## 🎯 使用指南
 
-### 测试人员
-1. 阅读[综合测试套件](comprehensive-test-suite.md)了解测试覆盖范围
-2. 参考[测试执行计划](test-execution-plan-and-quality-assessment.md)执行测试
-3. 遵循测试规范和流程
-
 ### 开发者
-1. 遵循最佳实践进行开发
-2. 使用推荐的调试和故障排除方法
-3. 确保代码符合质量标准
+1. 阅读[需求规格](requirements.md)了解多人游戏适配需求
+2. 查看[分层架构设计规格](LAYERED_ARCHITECTURE_DESIGN_SPEC.md)理解系统架构
+3. 参考[XML适配实施指南](xml-adaptation-implementation-guide.md)进行开发
 
-### 维护者
-1. 定期更新测试指南和最佳实践
-2. 添加新的故障排除方案
-3. 保持文档的准确性和时效性
+### 测试人员
+1. 使用[测试执行计划和质量评估](test-execution-plan-and-quality-assessment.md)进行测试
+2. 参考[验收标准](acceptance-criteria.md)验证功能完整性
+3. 查看[XML适配状态](xml-adaptation-status.md)了解当前进度
+
+### 项目维护者
+1. 维护[XML适配规格](XML_Adaptation_Specifications.md)的技术规格
+2. 更新[XML适配系统修复完成报告](XML适配系统修复完成报告.md)的修复状态
+3. 确保[技术栈](tech-stack.md)文档的时效性
 
 ## 📝 维护说明
 
-- 新增指南文档时应提供清晰的步骤说明
-- 最佳实践应基于实际项目经验
-- 故障排除指南应包含常见问题和解决方案
-- 定期更新文档以反映项目变化
+- 多人游戏适配文档应保持与主项目文档的一致性
+- 技术规格变更需要经过评审
+- 实现指南应包含可运行的代码示例
+- 定期更新适配状态和修复报告
 
 ## 🔗 相关文档
 
-- **[开发文档](../development/)** - 架构设计和技术规格
-- **[技术参考](../reference/)** - 技术分析和参考文档
-- **[项目总结](../PROJECT_FINAL_SUMMARY.md)** - 项目完整状态总结
+- **[主项目文档](../)** - 整体项目文档
+- **[技术规格](../../technical/)** - 通用技术规格
+- **[使用指南](../../../guides/)** - 测试和使用指南
+- **[技术参考](../../../reference/)** - 深度技术参考
 
 ---
-**维护**: 开发团队  
-**更新**: 2025年8月21日
+**维护**: BannerlordModEditor开发团队  
+**更新**: 2025年8月25日
