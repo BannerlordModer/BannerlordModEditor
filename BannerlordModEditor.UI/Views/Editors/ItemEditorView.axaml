@@ -1,0 +1,95 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:BannerlordModEditor.UI.ViewModels.Editors"
+             xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="BannerlordModEditor.UI.Views.Editors.ItemEditorView">
+
+  <Design.DataContext>
+    <vm:ItemEditorViewModel/>
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto, *" ColumnDefinitions="250, *, 300">
+    <!-- 左侧过滤器面板 -->
+    <Border Grid.Row="1" Grid.Column="0" Background="{DynamicResource SystemControlBackgroundAltLowBrush}" 
+            Margin="0,5,5,0">
+      <StackPanel Spacing="10" Margin="10">
+        <TextBlock Text="过滤器" FontSize="16" FontWeight="Bold" />
+        
+        <TextBlock Text="类型:" />
+        <ComboBox ItemsSource="{Binding ItemTypes}" SelectedItem="{Binding SelectedTypeFilter}" />
+        
+        <TextBlock Text="类别:" />
+        <ComboBox ItemsSource="{Binding ItemCategories}" SelectedItem="{Binding SelectedCategoryFilter}" />
+        
+        <TextBlock Text="文化:" />
+        <ComboBox ItemsSource="{Binding Cultures}" SelectedItem="{Binding SelectedCultureFilter}" />
+        
+        <Button Content="清除过滤器" Command="{Binding ClearFilters}" />
+      </StackPanel>
+    </Border>
+
+    <!-- 中间列表 -->
+    <Border Grid.Row="1" Grid.Column="1" Background="{DynamicResource SystemControlBackgroundAltLowBrush}" 
+            Margin="5,5,5,0">
+      <Grid RowDefinitions="Auto, *">
+        <StackPanel Grid.Row="0" Spacing="10" Margin="10">
+          <TextBlock Text="物品列表" FontSize="16" FontWeight="Bold" />
+          
+          <Grid ColumnDefinitions="*, Auto">
+            <TextBox Grid.Column="0" Text="{Binding FilterText, Mode=TwoWay}" 
+                     Watermark="搜索物品..." />
+            <Button Grid.Column="1" Content="添加" Command="{Binding AddNewItem}" 
+                    Margin="5,0,0,0" />
+          </Grid>
+        </StackPanel>
+        
+        <DataGrid Grid.Row="1" ItemsSource="{Binding FilteredItems}" 
+                  SelectedItem="{Binding SelectedItem}"
+                  AutoGenerateColumns="False" Margin="10">
+          <DataGrid.Columns>
+            <dg:DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="150" />
+            <dg:DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="200" />
+            <dg:DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="100" />
+            <dg:DataGridTextColumn Header="类别" Binding="{Binding ItemCategory}" Width="120" />
+            <dg:DataGridTextColumn Header="文化" Binding="{Binding Culture}" Width="100" />
+          </DataGrid.Columns>
+        </DataGrid>
+      </Grid>
+    </Border>
+
+    <!-- 右侧编辑面板 -->
+    <Border Grid.Row="1" Grid.Column="2" Background="{DynamicResource SystemControlBackgroundAltLowBrush}" 
+            Margin="5,5,0,0">
+      <ScrollViewer>
+        <StackPanel Spacing="15" Margin="10">
+          <TextBlock Text="物品编辑" FontSize="16" FontWeight="Bold" />
+          
+          <!-- 基本信息 -->
+          <Border BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}" 
+                  BorderThickness="1" CornerRadius="4" Margin="0,5,0,5">
+            <StackPanel Spacing="10">
+              <TextBlock Text="基本信息" FontWeight="Bold" Margin="10,5,10,5" />
+              <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *" Margin="10,0,10,10">
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="ID:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.Id}" />
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="名称:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.Name}" />
+              </Grid>
+            </StackPanel>
+          </Border>
+
+          <!-- 操作按钮 -->
+          <StackPanel Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="保存" Command="{Binding SaveXmlFile}" Width="100" />
+            <Button Content="加载" Command="{Binding LoadFile}" Width="100" />
+            <Button Content="验证" Command="{Binding ValidateAll}" Width="100" />
+          </StackPanel>
+        </StackPanel>
+      </ScrollViewer>
+    </Border>
+  </Grid>
+</UserControl>
