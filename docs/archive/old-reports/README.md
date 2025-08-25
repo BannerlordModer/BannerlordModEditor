@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+# CI/CD 文档
+
+本目录包含与持续集成/持续部署相关的文档。
+
+## 文档列表
+
+- [GitHub Actions 恢复完成报告](github_actions_restoration_report.md)
+- [GitHub Actions CI/CD 分析报告](github-actions-cicd-analysis.md)
+- [GitHub Actions 修复总结](github-actions-fix-summary.md)
+- [CI 修复报告](ci-fix-report.md)
+=======
 # 📦 旧报告归档
 
 本目录包含BannerlordModEditor项目的历史报告和过期的项目文档。这些文档主要用于历史参考和追溯。
@@ -44,3 +56,4 @@
 
 **维护**: BannerlordModEditor开发团队  
 **更新**: 2025年8月25日
+>>>>>>> origin/master
