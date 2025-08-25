@@ -73,14 +73,19 @@ namespace BannerlordModEditor.Cli.Services
         /// </summary>
         public static ExcelData ConvertModelToExcel(object modelObject, string modelType)
         {
+            Console.WriteLine($"调试: ConvertModelToExcel 被调用，modelType = {modelType}");
+            
             // 将模型类型（如 action_types）转换为DO类型名称（如 ActionTypesDO）
             var doTypeName = ConvertModelTypeToDoTypeName(modelType);
+            Console.WriteLine($"调试: doTypeName = {doTypeName}");
             
             if (_modelToExcelConverters.TryGetValue(doTypeName, out var converter))
             {
+                Console.WriteLine($"调试: 找到转换器，调用专用转换方法");
                 return converter(modelObject);
             }
             
+            Console.WriteLine($"调试: 未找到转换器，使用通用转换");
             // 使用反射进行通用转换
             return ConvertModelToExcelGeneric(modelObject);
         }
@@ -119,12 +124,15 @@ namespace BannerlordModEditor.Cli.Services
         /// </summary>
         private static ExcelData ConvertActionTypesToExcel(ActionTypesDO actionTypes)
         {
+            Console.WriteLine($"调试: ConvertActionTypesToExcel 被调用，Actions.Count = {actionTypes.Actions.Count}");
+            
             var excelData = new ExcelData
             {
                 Headers = new List<string> { "name", "type", "usage_direction", "action_stage" },
                 Rows = new List<Dictionary<string, object?>>()
             };
             
+            Console.WriteLine($"调试: 开始遍历Actions列表");
             foreach (var action in actionTypes.Actions)
             {
                 var row = new Dictionary<string, object?>
@@ -137,6 +145,7 @@ namespace BannerlordModEditor.Cli.Services
                 excelData.Rows.Add(row);
             }
             
+            Console.WriteLine($"调试: Excel数据生成完成，Rows.Count = {excelData.Rows.Count}");
             return excelData;
         }
 

@@ -43,7 +43,8 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new ActionTypesDO
             {
-                Actions = source.Actions?.Select(ToDO).ToList() ?? new List<ActionTypeDO>()
+                Actions = source.Actions?.Select(ToDO).ToList() ?? new List<ActionTypeDO>(),
+                HasEmptyActions = source.Actions == null || source.Actions.Count == 0
             };
         }
 

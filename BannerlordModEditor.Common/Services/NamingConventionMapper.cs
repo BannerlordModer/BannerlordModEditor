@@ -47,6 +47,15 @@ namespace BannerlordModEditor.Common.Services
             { "prebaked_animations", "PrebakedAnimations" },
             { "prerender", "Prerender" },
             
+            // 数组类型的XML根元素
+            { "arrayofattributedata", "Attributes" },
+            
+            // 特殊的base元素映射
+            { "base", "Base" },
+            
+            // 地图图标相关
+            { "map_icon", "MapIcons" },
+            
             // 语言相关XML文件映射到LanguageBaseDO
             { "std_functions", "LanguageBase" },
             { "std_taleworlds_core", "LanguageBase" },

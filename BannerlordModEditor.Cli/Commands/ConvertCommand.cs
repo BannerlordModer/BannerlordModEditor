@@ -2,6 +2,7 @@ using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
 using BannerlordModEditor.Cli.Services;
+using BannerlordModEditor.Cli.Exceptions;
 
 namespace BannerlordModEditor.Cli.Commands
 {

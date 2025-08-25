@@ -1,4 +1,5 @@
 using BannerlordModEditor.Cli.Services;
+using BannerlordModEditor.Cli.Exceptions;
 
 namespace BannerlordModEditor.Cli.Services
 {
@@ -18,7 +19,8 @@ namespace BannerlordModEditor.Cli.Services
             [typeof(ExcelOperationException)] = "Excel 操作失败，请检查 Excel 文件格式。",
             [typeof(ConversionException)] = "转换失败，请检查输入数据格式。",
             [typeof(NotImplementedException)] = "该功能尚未实现。",
-            [typeof(NotSupportedException)] = "不支持的操作或格式。"
+            [typeof(NotSupportedException)] = "不支持的操作或格式。",
+            [typeof(CliCommandException)] = "命令执行失败。"
         };
 
         /// <summary>

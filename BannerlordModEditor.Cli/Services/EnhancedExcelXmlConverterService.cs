@@ -31,8 +31,11 @@ namespace BannerlordModEditor.Cli.Services
             _dtoModelTypes = LoadModelTypes("BannerlordModEditor.Common.Models.DTO");
             
             // 调试信息
-            Console.WriteLine($"调试: 加载了 {_doModelTypes.Count} 个DO模型类型");
-            Console.WriteLine($"调试: 加载了 {_dtoModelTypes.Count} 个DTO模型类型");
+            if (Environment.GetEnvironmentVariable("CLI_DEBUG") == "1")
+            {
+                Console.WriteLine($"调试: 加载了 {_doModelTypes.Count} 个DO模型类型");
+                Console.WriteLine($"调试: 加载了 {_dtoModelTypes.Count} 个DTO模型类型");
+            }
         }
 
         /// <summary>
@@ -57,8 +60,16 @@ namespace BannerlordModEditor.Cli.Services
                     var xmlRootAttr = type.GetCustomAttribute<XmlRootAttribute>();
                     if (xmlRootAttr != null)
                     {
-                        var modelName = xmlRootAttr.ElementName ?? type.Name;
+                        // 使用类型名作为键，这样可以避免多个使用相同XML根元素的模型冲突
+                        var modelName = type.Name;
                         modelTypes[modelName] = type;
+                        
+                        // 同时也存储XML根元素名的映射，用于向后兼容
+                        var xmlRootName = xmlRootAttr.ElementName ?? type.Name;
+                        if (xmlRootName != modelName)
+                        {
+                            modelTypes[xmlRootName] = type;
+                        }
                     }
                 }
             }
@@ -150,8 +161,9 @@ namespace BannerlordModEditor.Cli.Services
                 var doObject = ConvertDtoToDo(dtoObject, modelType);
                 Console.WriteLine($"DTO 转 DO 对象成功: {doObject.GetType().Name}");
                 
-                // 转换为 Excel 数据
-                var excelData = ConvertDoToExcel(doObject, modelType);
+                // 转换为 Excel 数据 - 使用XML根元素名称而不是DO类型名称
+                var xmlRootName = GetXmlRootNameFromModelType(modelType);
+                var excelData = ConvertDoToExcel(doObject, xmlRootName);
                 Console.WriteLine($"DO 转 Excel 数据成功: {excelData.Rows.Count} 行");
                 
                 // 保存 Excel 文件
@@ -181,13 +193,53 @@ namespace BannerlordModEditor.Cli.Services
 
                 var rootName = doc.Root.Name.LocalName;
                 
-                // 查找匹配的DO模型类型
+                // 首先检查是否有type属性（骑马与砍杀2 XML的常见模式）
+                var typeAttribute = doc.Root.Attribute("type")?.Value;
+                if (!string.IsNullOrEmpty(typeAttribute))
+                {
+                    // 基于type属性查找对应的模型类型
+                    var convertedTypeName = _fileDiscoveryService.ConvertToModelName(typeAttribute);
+                    
+                    // 尝试多种匹配方式
+                    string[] possibleNames = new[]
+                    {
+                        convertedTypeName,
+                        convertedTypeName + "DO",
+                        convertedTypeName + "DTO"
+                    };
+                    
+                    foreach (var name in possibleNames)
+                    {
+                        if (_doModelTypes.TryGetValue(name, out var typedModelType))
+                        {
+                            return name;
+                        }
+                    }
+                }
+                
+                // 查找匹配的DO模型类型，优先查找与type属性匹配的模型
                 foreach (var kvp in _doModelTypes)
                 {
                     var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
                     if (xmlRootAttr != null && 
                         (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
                     {
+                        // 如果找到了匹配的，检查是否有更具体的匹配
+                        if (!string.IsNullOrEmpty(typeAttribute))
+                        {
+                            // 对于有type属性的base元素，我们需要更精确的匹配
+                            var typeName = kvp.Key.ToLower();
+                            var typeAttrLower = typeAttribute.ToLower();
+                            
+                            // 检查类型名是否包含type属性的内容
+                            if (typeName.Contains(typeAttrLower))
+                            {
+                                Console.WriteLine($"调试: 找到精确匹配: {kvp.Key}");
+                                return kvp.Key;
+                            }
+                        }
+                        
+                        // 如果没有type属性或者没有找到更精确的匹配，返回第一个匹配的
                         return kvp.Key;
                     }
                 }
@@ -379,7 +431,9 @@ namespace BannerlordModEditor.Cli.Services
                     throw new InvalidOperationException("无法获取Common程序集");
                 }
                 
-                var mapperType = commonAssembly.GetType(mapperTypeName);
+                // 不区分大小写地查找Mapper类型
+                var mapperType = commonAssembly.GetTypes()
+                    .FirstOrDefault(t => t.FullName?.Equals(mapperTypeName, StringComparison.OrdinalIgnoreCase) ?? false);
                 
                 if (mapperType != null)
                 {
@@ -435,7 +489,16 @@ namespace BannerlordModEditor.Cli.Services
                     if (toDoMethod != null)
                     {
                         Console.WriteLine($"调试: 找到ToDo方法，调用转换");
-                        return toDoMethod.Invoke(null, new[] { dtoObject })!;
+                        var result = toDoMethod.Invoke(null, new[] { dtoObject })!;
+                        
+                        // 特殊调试：检查ActionTypesDO的Actions列表
+                        if (result is ActionTypesDO actionTypesDO)
+                        {
+                            Console.WriteLine($"调试: ActionTypesDO.Actions.Count = {actionTypesDO.Actions.Count}");
+                            Console.WriteLine($"调试: ActionTypesDO.HasEmptyActions = {actionTypesDO.HasEmptyActions}");
+                        }
+                        
+                        return result;
                     }
                     else
                     {
@@ -496,21 +559,50 @@ namespace BannerlordModEditor.Cli.Services
                 var xmlRootAttr = targetType.GetCustomAttribute<XmlRootAttribute>();
                 var xmlRootName = xmlRootAttr?.ElementName;
                 
-                Console.WriteLine($"调试: DO类型 {targetType.Name} -> XML根元素 {xmlRootName}");
+                                
+                // 读取XML文件内容以获取type属性
+                string? typeAttribute = null;
+                try
+                {
+                    var xmlContent = await File.ReadAllTextAsync(filePath);
+                    var doc = XDocument.Parse(xmlContent);
+                    typeAttribute = doc.Root?.Attribute("type")?.Value;
+                }
+                catch (Exception ex)
+                {
+                    // 如果读取type属性失败，继续使用默认匹配逻辑
+                }
                 
                 // 在DTO类型中查找对应的类型
                 var dtoType = _dtoModelTypes.Values.FirstOrDefault(t => 
                 {
                     var dtoXmlRootAttr = t.GetCustomAttribute<XmlRootAttribute>();
                     var dtoXmlRootName = dtoXmlRootAttr?.ElementName;
-                    return dtoXmlRootName == xmlRootName;
+                    
+                    // 首先检查XML根元素是否匹配
+                    if (dtoXmlRootName != xmlRootName)
+                        return false;
+                    
+                    // 如果有type属性，检查DTO类型名称是否包含type属性值
+                    if (!string.IsNullOrEmpty(typeAttribute))
+                    {
+                        var typeName = t.Name.ToLower();
+                        var typeAttrLower = typeAttribute.ToLower();
+                        
+                        // 特殊处理：map_icon -> MapIconsDTO
+                        if (typeAttrLower == "map_icon" && typeName == "mapiconsdto")
+                            return true;
+                        
+                        // 常规匹配：检查类型名称是否包含type属性值
+                        return typeName.Contains(typeAttrLower);
+                    }
+                    
+                    return true;
                 });
                 
-                Console.WriteLine($"调试: 找到的DTO类型: {dtoType?.Name ?? "null"}");
-                
+                                
                 if (dtoType == null)
                 {
-                    Console.WriteLine($"调试: 可用的DTO类型: {string.Join(", ", _dtoModelTypes.Keys)}");
                     throw new InvalidOperationException($"找不到对应的DTO类型，XML根元素: {xmlRootName}");
                 }
 
@@ -681,11 +773,46 @@ namespace BannerlordModEditor.Cli.Services
             if (string.IsNullOrEmpty(modelType))
                 return string.Empty;
 
+            // 移除DO/DTO后缀
+            var cleanModelType = modelType;
+            if (cleanModelType.EndsWith("DO", StringComparison.OrdinalIgnoreCase))
+            {
+                cleanModelType = cleanModelType.Substring(0, cleanModelType.Length - 2);
+            }
+            else if (cleanModelType.EndsWith("DTO", StringComparison.OrdinalIgnoreCase))
+            {
+                cleanModelType = cleanModelType.Substring(0, cleanModelType.Length - 3);
+            }
+
             // 使用FileDiscoveryService的ConvertToModelName方法将下划线命名转换为PascalCase
-            var pascalCaseName = _fileDiscoveryService.ConvertToModelName(modelType);
+            var pascalCaseName = _fileDiscoveryService.ConvertToModelName(cleanModelType);
             var mapperName = $"{pascalCaseName}Mapper";
-            Console.WriteLine($"调试: 模型类型 {modelType} -> Mapper类名 {mapperName}");
+            Console.WriteLine($"调试: 模型类型 {modelType} -> 清理后 {cleanModelType} -> Mapper类名 {mapperName}");
             return mapperName;
+        }
+        
+        /// <summary>
+        /// 从DO模型类型获取XML根元素名称
+        /// </summary>
+        private string GetXmlRootNameFromModelType(string modelType)
+        {
+            if (string.IsNullOrEmpty(modelType))
+                return string.Empty;
+                
+            // 从DO类型获取XML根元素名称
+            if (_doModelTypes.TryGetValue(modelType, out var doType))
+            {
+                var xmlRootAttr = doType.GetCustomAttribute<XmlRootAttribute>();
+                if (xmlRootAttr != null)
+                {
+                    return xmlRootAttr.ElementName ?? modelType.ToLower();
+                }
+            }
+            
+            // 如果没有找到，尝试从类型名推断
+            // 例如：ActionTypesDO -> action_types
+            var cleanModelType = modelType.EndsWith("DO") ? modelType[..^2] : modelType;
+            return System.Text.RegularExpressions.Regex.Replace(cleanModelType, @"([a-z])([A-Z])", "$1_$2").ToLower();
         }
     }
 }
