@@ -1,4 +1,4 @@
-using BannerlordModEditor.Common.Models.DO.Language;
+using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Models.DTO.Language;
 
 namespace BannerlordModEditor.Common.Mappers;
@@ -12,12 +12,12 @@ public static class LanguageBaseMapper
         return new LanguageBaseDTO
         {
             Type = source.Type,
-            Tags = TagsMapper.ToDTO(source.Tags),
+            Tags = LanguageTagsMapper.ToDTO(source.Tags),
             Strings = source.Strings?
-                .Select(StringItemMapper.ToDTO)
+                .Select(LanguageStringMapper.ToDTO)
                 .ToList() ?? new List<StringItemDTO>(),
             Functions = source.Functions?
-                .Select(FunctionItemMapper.ToDTO)
+                .Select(LanguageFunctionMapper.ToDTO)
                 .ToList() ?? new List<FunctionItemDTO>()
         };
     }
@@ -29,47 +29,47 @@ public static class LanguageBaseMapper
         return new LanguageBaseDO
         {
             Type = source.Type,
-            Tags = TagsMapper.ToDO(source.Tags),
+            Tags = LanguageTagsMapper.ToDO(source.Tags),
             Strings = source.Strings?
-                .Select(StringItemMapper.ToDO)
-                .ToList() ?? new List<StringItemDO>(),
+                .Select(LanguageStringMapper.ToDO)
+                .ToList() ?? new List<LanguageStringDO>(),
             Functions = source.Functions?
-                .Select(FunctionItemMapper.ToDO)
-                .ToList() ?? new List<FunctionItemDO>()
+                .Select(LanguageFunctionMapper.ToDO)
+                .ToList() ?? new List<LanguageFunctionDO>()
         };
     }
 }
 
-public static class TagsMapper
+public static class LanguageTagsMapper
 {
-    public static TagsDTO ToDTO(TagsDO source)
+    public static TagsDTO ToDTO(LanguageTagsDO source)
     {
         if (source == null) return null;
 
         return new TagsDTO
         {
             Tags = source.Tags?
-                .Select(TagMapper.ToDTO)
+                .Select(LanguageTagMapper.ToDTO)
                 .ToList() ?? new List<TagDTO>()
         };
     }
 
-    public static TagsDO ToDO(TagsDTO source)
+    public static LanguageTagsDO ToDO(TagsDTO source)
     {
         if (source == null) return null;
 
-        return new TagsDO
+        return new LanguageTagsDO
         {
             Tags = source.Tags?
-                .Select(TagMapper.ToDO)
-                .ToList() ?? new List<TagDO>()
+                .Select(LanguageTagMapper.ToDO)
+                .ToList() ?? new List<LanguageTagDO>()
         };
     }
 }
 
-public static class TagMapper
+public static class LanguageTagMapper
 {
-    public static TagDTO ToDTO(TagDO source)
+    public static TagDTO ToDTO(LanguageTagDO source)
     {
         if (source == null) return null;
 
@@ -79,20 +79,20 @@ public static class TagMapper
         };
     }
 
-    public static TagDO ToDO(TagDTO source)
+    public static LanguageTagDO ToDO(TagDTO source)
     {
         if (source == null) return null;
 
-        return new TagDO
+        return new LanguageTagDO
         {
             Language = source.Language
         };
     }
 }
 
-public static class StringItemMapper
+public static class LanguageStringMapper
 {
-    public static StringItemDTO ToDTO(StringItemDO source)
+    public static StringItemDTO ToDTO(LanguageStringDO source)
     {
         if (source == null) return null;
 
@@ -103,11 +103,11 @@ public static class StringItemMapper
         };
     }
 
-    public static StringItemDO ToDO(StringItemDTO source)
+    public static LanguageStringDO ToDO(StringItemDTO source)
     {
         if (source == null) return null;
 
-        return new StringItemDO
+        return new LanguageStringDO
         {
             Id = source.Id,
             Text = source.Text
@@ -115,9 +115,9 @@ public static class StringItemMapper
     }
 }
 
-public static class FunctionItemMapper
+public static class LanguageFunctionMapper
 {
-    public static FunctionItemDTO ToDTO(FunctionItemDO source)
+    public static FunctionItemDTO ToDTO(LanguageFunctionDO source)
     {
         if (source == null) return null;
 
@@ -128,11 +128,11 @@ public static class FunctionItemMapper
         };
     }
 
-    public static FunctionItemDO ToDO(FunctionItemDTO source)
+    public static LanguageFunctionDO ToDO(FunctionItemDTO source)
     {
         if (source == null) return null;
 
-        return new FunctionItemDO
+        return new LanguageFunctionDO
         {
             FunctionName = source.FunctionName,
             FunctionBody = source.FunctionBody
