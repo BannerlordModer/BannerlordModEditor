@@ -1,6 +1,6 @@
 using System.IO;
 using System.Threading.Tasks;
-using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DO.Language;
 using BannerlordModEditor.Common.Tests;
 using Xunit;
 
