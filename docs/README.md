@@ -17,12 +17,18 @@
   - **[TUI集成测试技术文档](development/technical/TUI集成测试技术文档.md)** - TUI集成测试技术细节
   - **[GUI增强计划](development/technical/GUI增强计划.md)** - GUI界面增强计划
   - **[UI界面空白问题诊断报告](development/technical/UI界面空白问题诊断报告.md)** - UI界面问题修复报告
+  - **[XML转换框架技术规格](development/technical/XML转换框架技术规格.md)** - 通用XML转换框架技术规格
+  - **[XML转换框架架构设计](development/technical/XML转换框架架构设计.md)** - XML转换框架架构设计
+  - **[基于TUI的XML转换框架实现指南](development/technical/基于TUI的XML转换框架实现指南.md)** - TUI集成实现指南
+  - **[XML转换框架实现示例](development/technical/XML转换框架实现示例.md)** - 框架实现示例
+  - **[XML转换框架测试报告](development/technical/XML转换框架测试报告.md)** - 框架测试报告
 
 ### 📖 使用指南 (`guides/`)
 - **[TUI开发指南](guides/TUI开发指南.md)** - TUI应用程序开发指南
 - **[TUI用户指南](guides/TUI用户指南.md)** - TUI应用程序使用指南
 - **[UAT用户验收测试指南](guides/UAT用户验收测试指南.md)** - UAT测试框架使用指南
 - **[综合测试套件指南](guides/综合测试套件指南.md)** - 完整测试套件使用指南
+- **[XML转换框架测试指南](guides/XML转换框架测试指南.md)** - XML转换框架测试指南
 
 ### 🔧 技术参考 (`reference/`)
 - **[系统架构](reference/architecture.md)** - 系统整体架构设计
@@ -43,16 +49,19 @@
 1. 阅读 **[TUI用户指南](guides/TUI用户指南.md)** 了解应用程序使用方法
 2. 查看 **[项目最终总结](PROJECT_FINAL_SUMMARY.md)** 了解项目整体情况
 3. 浏览 **[系统架构](reference/architecture.md)** 了解技术架构
+4. 了解 **[XML转换框架技术规格](development/technical/XML转换框架技术规格.md)** 了解XML转换功能
 
 ### 开发者指南
 1. 阅读 **[TUI开发指南](guides/TUI开发指南.md)** 了解开发流程
 2. 查看 **[开发文档](development/)** 了解项目计划和技术规格
 3. 参考 **[使用指南](guides/)** 了解测试和最佳实践
+4. 学习 **[XML转换框架实现指南](development/technical/基于TUI的XML转换框架实现指南.md)** 了解XML转换实现
 
 ### 测试和验证
 1. 使用 **[UAT用户验收测试指南](guides/UAT用户验收测试指南.md)** 进行用户验收测试
 2. 参考 **[综合测试套件指南](guides/综合测试套件指南.md)** 运行完整测试套件
 3. 查看 **[GitHub Actions Tmux测试配置](development/technical/GitHub Actions Tmux测试配置.md)** 了解CI/CD配置
+4. 参考 **[XML转换框架测试指南](guides/XML转换框架测试指南.md)** 进行XML转换框架测试
 
 ## 🚀 快速开始
 
@@ -61,17 +70,20 @@
 2. 查看 `development/project/` 目录中的项目需求和计划
 3. 参考 `development/technical/` 目录中的技术规格和架构设计
 4. 使用 `guides/` 目录中的测试和开发指南
+5. 学习 **[XML转换框架技术规格](development/technical/XML转换框架技术规格.md)** 了解XML转换功能
 
 ### 贡献者
 1. 熟悉 `development/technical/` 目录中的技术规格
 2. 参考 `guides/` 目录中的最佳实践
 3. 查看 `reference/` 目录中的技术细节
+4. 了解 **[XML转换框架实现指南](development/technical/基于TUI的XML转换框架实现指南.md)**
 
 ### 维护者
 1. 定期清理 `archive/` 目录中的过期文档
 2. 更新 `development/project/` 目录中的项目计划
 3. 维护 `development/technical/` 目录中的技术规格
 4. 维护文档的整体结构和一致性
+5. 更新XML转换框架相关文档
 
 ## 📝 文档维护
 
