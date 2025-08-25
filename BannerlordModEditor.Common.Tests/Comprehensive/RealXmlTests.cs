@@ -107,7 +107,7 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 
                 // 战斗系统
                 ["monster_usage_sets"] = new GenericXmlLoader<MonsterUsageSetsDO>(),
-                ["taunt_usage_sets"] = new GenericXmlLoader<TauntUsageSetsDO>(),
+                ["taunt_usage_sets"] = new GenericXmlLoader<BannerlordModEditor.Common.Models.Multiplayer.TauntUsageSetsDO>(),
                 ["weapon_descriptions"] = new GenericXmlLoader<WeaponDescriptionsDO>(),
                 
                 // 其他系统
