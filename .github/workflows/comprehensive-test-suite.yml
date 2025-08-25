@@ -485,12 +485,10 @@ jobs:
       run: |
         dotnet list package --vulnerable --include-transitive
         dotnet nuget locals all --clear
-      continue-on-error: true
         
     - name: 运行代码分析
       run: |
         dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
-      continue-on-error: true
         
     - name: 生成安全报告
       run: |
@@ -512,6 +510,7 @@ jobs:
         name: security-scan-results
         path: |
           security-report.txt
+          bin/Release/
 
   # 12. 部署准备
   deployment-prep:
