@@ -30,7 +30,7 @@ namespace BannerlordModEditor.Common.Mappers
 
             return new MovementSetsDO
             {
-                MovementSetList = movementSetList,
+                MovementSetList = movementSetList ?? new List<MovementSetDO>(),
                 HasMovementSetList = hasMovementSetList
             };
         }
