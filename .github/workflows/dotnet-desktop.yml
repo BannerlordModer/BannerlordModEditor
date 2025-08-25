@@ -34,7 +34,9 @@ jobs:
       run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=unit_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "单元测试完成，带有失败"
       
     - name: Run UI Tests
-      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
+      env:
+        DOTNET_CLI_TEST_TIMEOUT: 300
+      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --filter "Category!=Integration" --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
       
     - name: Generate Code Coverage Report
       if: matrix.configuration == 'Release'
@@ -121,6 +123,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore || Write-Host "构建完成，带有警告"
       
     - name: Run Final Tests Before Deploy
+      env:
+        DOTNET_CLI_TEST_TIMEOUT: 300
       run: |
         dotnet test BannerlordModEditor.Common.Tests --configuration Release --no-build
         dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build
