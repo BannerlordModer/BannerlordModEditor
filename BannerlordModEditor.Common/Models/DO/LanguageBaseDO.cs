@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace BannerlordModEditor.Common.Models.DO.Language;
+namespace BannerlordModEditor.Common.Models.DO;
 
 [XmlRoot("base")]
 public class LanguageBaseDO
@@ -9,19 +9,17 @@ public class LanguageBaseDO
     public string Type { get; set; } = "string";
 
     [XmlElement("tags")]
-    public TagsDO Tags { get; set; } = new TagsDO();
+    public LanguageTagsDO Tags { get; set; } = new LanguageTagsDO();
 
     [XmlArray("strings")]
     [XmlArrayItem("string")]
-    public List<StringItemDO> Strings { get; set; } = new List<StringItemDO>();
+    public List<LanguageStringDO> Strings { get; set; } = new List<LanguageStringDO>();
 
     [XmlArray("functions")]
     [XmlArrayItem("function")]
-    public List<FunctionItemDO> Functions { get; set; } = new List<FunctionItemDO>();
+    public List<LanguageFunctionDO> Functions { get; set; } = new List<LanguageFunctionDO>();
 
-    [XmlIgnore]
-    public bool HasTags { get; set; } = false;
-
+  
     // 强制内容属性，确保标签不会自闭合
         [XmlIgnore]
         public string ForceContent { get; set; } = string.Empty;
@@ -53,21 +51,21 @@ public class LanguageBaseDO
         public bool HasEmptyTags { get; set; } = false;
     }
 
-public class TagsDO
+public class LanguageTagsDO
 {
     [XmlElement("tag")]
-    public List<TagDO> Tags { get; set; } = new List<TagDO>();
+    public List<LanguageTagDO> Tags { get; set; } = new List<LanguageTagDO>();
 
     public bool ShouldSerializeTags() => Tags != null && Tags.Count > 0;
 }
 
-public class TagDO
+public class LanguageTagDO
 {
     [XmlAttribute("language")]
     public string Language { get; set; } = string.Empty;
 }
 
-public class StringItemDO
+public class LanguageStringDO
 {
     [XmlAttribute("id")]
     public string Id { get; set; } = string.Empty;
@@ -76,7 +74,7 @@ public class StringItemDO
     public string Text { get; set; } = string.Empty;
 }
 
-public class FunctionItemDO
+public class LanguageFunctionDO
 {
     [XmlAttribute("functionName")]
     public string FunctionName { get; set; } = string.Empty;
