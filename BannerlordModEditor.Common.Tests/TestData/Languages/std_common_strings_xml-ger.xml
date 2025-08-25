@@ -1,0 +1,1223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Deutsch" />
+  </tags>
+  <strings>
+    <string id="028iCb8B" text="Jythea" />
+    <string id="02c5bQSM" text="Ablegen" />
+    <string id="09gOOa0h" text="Waldhüter" />
+    <string id="09z8Q08f" text="Ihr stammt aus einer Familie von Kleinbauern, die gerade genug Land besaß, um sich zu ernähren und einen kleinen Gewinn zu erwirtschaften. Leute wie sie waren die Säulen der ländlichen Wirtschaft des Imperiums und das Rückgrat des Lehnsheeres." />
+    <string id="0a6Vz7wi" text="Ledertabard" />
+    <string id="0B27RrYJ" text="{.N}Battania" />
+    <string id="0CQgia2a" text="Culharn" />
+    <string id="0e17RZrZ" text="Arbalest" />
+    <string id="0oGz5rVx" text="Ehre" />
+    <string id="0rBsbw1T" text="Kein Effekt" />
+    <string id="0SpLcthg" text="Hochlandkeule mit Stacheln" />
+    <string id="0SsLGsXk" text="Lange wattierte Robe" />
+    <string id="0Suu1Q9q" text="Euer Vater war Verwalter eines örtlichen Lehnsherrn. Er verwaltete seine Güter, schlichtete Streitigkeiten im Dorf und half, die Männer für das Lehnsheer auszubilden. Er ritt mit der Kavallerie seines Fürsten und kämpfte als Ritter." />
+    <string id="0XEaaoah" text="Rosazia" />
+    <string id="11KckWau" text="Mitara" />
+    <string id="18NtjryL" text="Noch nicht, aber bald." />
+    <string id="1bdDdwub" text="Nasalhelm über Kettenhaube" />
+    <string id="1Bm1Wk1v" text="Infanterie" />
+    <string id="1BXuUR3s" text="Langer Infanteristengambeson" />
+    <string id="1cKxsHSh" text="Penton" />
+    <string id="1CPdu9K0" text="Stein" />
+    <string id="1cYka5tR" text="Ärmelloser Pelzmantel" />
+    <string id="1EkEElZd" text="Städtische Truppen verbringen einen Gutteil ihrer Zeit mit der Bewachung der Stadtmauern. Sie wurden hauptsächlich im Fernkampf ausgebildet." />
+    <string id="1GpTOIqU" text="Eisenhelm über wattierter Haube" />
+    <string id="1IEroJKs" text="Nicht jeder, der für das Lehnsheer abgestellt wird, zieht auch in den Krieg. Und nicht jeder, der an einem Feldzug beteiligt ist, nimmt auch an einer Schlacht teil. Ihr habt beides getan und zudem einen feindlichen Krieger vor den Augen Eurer Kameraden im direkten Zweikampf besiegt." />
+    <string id="1JlzQIXE" text="Deaktiviert" />
+    <string id="1jqxlEkT" text="Gewürz{@Plural}Säcke Gewürz{\@}" />
+    <string id="1jX7yxSW" text="Huscarlkettenhemd" />
+    <string id="1r0tDsrR" text="Angriff!" />
+    <string id="1sbJQR4H" text="{.F}Plünderer" />
+    <string id="1SUTcF0J" text="Die Bandenführer, die in den Armenvierteln der calradianischen Städte das Sagen hatten, waren immer auf der Suche nach armen Kindern, die ihnen als Boten oder Kämpfer bei ihren Gebietskämpfen dienten. Auch die Söhne und Töchter von reichen Kaufleuten mischten sich gelegentlich unter sie, um ein Abenteuer zu erleben." />
+    <string id="1zFYpSSY" text="Verzierte Fransenstahlkappe mit Wangenschutz" />
+    <string id="1zXrlaav" text="Ihr stammt aus einer Familie angesehener Händler in einer Oasenstadt. Sie ließen Karawanen durch die Wüste reisen und verstanden sich bestens darauf, mit den Wüstenstammen zu verhandeln, um deren Gebiete durchqueren zu dürfen." />
+    <string id="20moIxs1" text="Helm über geschnürter Haube" />
+    <string id="22a9fyiQ" text="Vater" />
+    <string id="275LD0Gh" text="Ladenverkäufer" />
+    <string id="2AcfBbCR" text="Kriegstunika" />
+    <string id="2awf1tei" text="Steuer" />
+    <string id="2Bh8DS8S" text="Siga" />
+    <string id="2cSOn9qb" text="Gambeson über Kettenhemd" />
+    <string id="2fYYfHUI" text="Martira" />
+    <string id="2I2uKJlw" text="Mitleid" />
+    <string id="2iDtlgM0" text="Geschlossener Kriegsfürstenhelm" />
+    <string id="2m1kWsao" text="Genieteter Lederhelm über dünner Fellhaube" />
+    <string id="2MdVVkVL" text="Eisenhut über wattierter Haube" />
+    <string id="2N0ZP2GB" text="Helm mit Turban und Haube" />
+    <string id="2OJEyP0d" text="Dasys" />
+    <string id="2OqAomZy" text="Oragur" />
+    <string id="2oy7atk6" text="Lundana" />
+    <string id="2qisE5ys" text="Eisenhelm über wattierter Kappe" />
+    <string id="2SDWhGmQ" text="Eure Familie zählte zu den armen Migranten, die in einem der Elendsviertel vor den Mauern der Flussstädte lebten. Eure Eltern hielten sich durch Gelegenheitsarbeiten mit Mühe und Not über Wasser. Manchmal verrichteten sie Aufträge für eine der vielen Verbrecherbanden der Region." />
+    <string id="2TptWc4m" text="das Gefolge eines Barons" />
+    <string id="2XEbqNQz" text="Verzierte imperiale Panzerhandschuhe" />
+    <string id="2YYRyrOO" text="Gehen ..." />
+    <string id="2ZarUUbw" text="{KILLERPLAYERNAME} hat {KILLEDPLAYERNAME} getötet!" />
+    <string id="2zcrC0h1" text="Spielablauf" />
+    <string id="3bqwOJ8z" text="Hochgeschlagene Pelzkappe" />
+    <string id="3CpNUnVl" text="Abbrechen" />
+    <string id="3CsACce8" text="Beenden" />
+    <string id="3DV3GoHb" text="Spitze Scheitelkappe mit Kette" />
+    <string id="3iq3rOh8" text="Eisenhelm über Unterhaube" />
+    <string id="3lauB1HH" text="Bronzene Lamellenweste über Gambeson" />
+    <string id="3o6FDRsq" text="Eingenommene Städte" />
+    <string id="3PzgpFGq" text="Neutral" />
+    <string id="3RBVn5yi" text="Zoros" />
+    <string id="3sRdGQou" text="Gehen" />
+    <string id="3UxfT9Bu" text="Lederumwickelte Kappe" />
+    <string id="3VosbFR0" text="Vlandianischer Recke" />
+    <string id="3Z91Nxbf" text="Spangenhelm mit Leder" />
+    <string id="45kZUyjh" text="Oliven{@Plural}Fässer Oliven{\@}" />
+    <string id="46orXtt0" text="Waldgewand" />
+    <string id="4AfHO0BA" text="Ärmellose genietete Pelzrüstung" />
+    <string id="4B2i8oxo" text="Mantel mit verspiegeltem Gürtel" />
+    <string id="4BfbPgkY" text="Nasalhirnhaube über wattierter Kappe" />
+    <string id="4C4WiTb2" text="Waräger" />
+    <string id="4cHMe6H2" text="Verzierte Kettenrüstung" />
+    <string id="4cU98rkg" text="Einschmelzen" />
+    <string id="4Dd2xgPm" text="Gewicht" />
+    <string id="4eOHPops" text="Robuster Schuppenpanzer" />
+    <string id="4f5xwzX0" text="Als Eure Gemeinschaft einen Trupp zusammenstellen musste, um Jagd auf Pferdediebe zu machen, wart Ihr ein offensichtlicher Kandidat. Ihr habt die Diebe aufgespürt, sie umzingelt und zur Kapitulation gezwungen und Euer gestohlenes Eigentum zurückgeholt." />
+    <string id="4gOGGbeQ" text="Benutzerdefinierte Schlacht" />
+    <string id="4HcrY0S2" text="Pelzbesetzte Lederhandschuhe" />
+    <string id="4IuXGSdc" text="Mauertrefferpunkte" />
+    <string id="4kvKQuXM" text="Fell{@Plural}Ladungen Fell{\@}" />
+    <string id="4KYF5iCd" text="Geschichtete Ledertunika" />
+    <string id="4lEEqyCg" text="Jacorios" />
+    <string id="4MwHbMFs" text="Carfyd" />
+    <string id="4n6n3KL7" text="Wüstenkopfbedeckung" />
+    <string id="4NaOKslb" text="-" />
+    <string id="4pqIsPhp" text="Wattierter Kurzmantel" />
+    <string id="4PrfimcK" text="Abzeichen" />
+    <string id="4wdgiTta" text="Sichel" />
+    <string id="4WYY0X59" text="Bevor Ihr ausgezogen seid, um Abenteuer zu erleben, war Folgendes Euer größter Erfolg ..." />
+    <string id="4YfjgtO2" text="Truppen spenden" />
+    <string id="4YTJJaTG" text="Schwerer Säbel" />
+    <string id="4YxbZlbi" text="Gewickelte Schuhe" />
+    <string id="51EcVnzd" text="Visierhelm über geschnürter Haube" />
+    <string id="564PHXk3" text="Verzierter Lederharnisch" />
+    <string id="5c4cHL9Z" text="Khuzaitische Kriegskrone" />
+    <string id="5DSafcSC" text="Konane" />
+    <string id="5EiKEdi5" text="Dorion" />
+    <string id="5eTb2xr7" text="Sanion" />
+    <string id="5HXS8HEY" text="Eure Kraft." />
+    <string id="5k4dxUEJ" text="Truppen" />
+    <string id="5kbeAC7k" text="Im vom Krieg gebeutelten Calradia, insbesondere in Grenz- und Stammesgebieten, lernen viele Frauen und Männer schon in jungen Jahren das Kämpfen. Ihr ..." />
+    <string id="5n4rWI9T" text="Dornhelm mit Gesichtsmaske" />
+    <string id="5nEh20ju" text="Vasylops" />
+    <string id="5P0KqBAw" text="Eure Familie bestellte in einer der Oasen der Nahasa das Land und die Palmenhaine, welche die berühmten Datteln der Wüste hervorbrachten. Euer Vater war Mitglied des größten Lehnsheers seines Stammes und kämpfte als Fußsoldat unter dem Banner des Emirs." />
+    <string id="5QSGoRFj" text="Eure Familie bestellte seit Generationen eines der kleinen Fleckchen fruchtbaren Landes in der Steppe. Als die Khuzait kamen, hörten sie auf, Steuern an den Kaiser zu entrichten und Rekruten für seine Armee abzustellen, und dienten stattdessen dem Khan." />
+    <string id="5rj7xQE4" text="Bogen" />
+    <string id="5siAbi69" text="Mu Torere" />
+    <string id="5sMBbn7y" text="Abgebrühtheit" />
+    <string id="5tbWdY1j" text="Avatar" />
+    <string id="5Unqsx3N" text="Bestätigen" />
+    <string id="5VzWRMTn" text="Artimendros" />
+    <string id="5yFy4U4i" text="Morynon" />
+    <string id="63TAYbkx" text="Städtische Truppen verbringen einen Gutteil ihrer Zeit mit der Bewachung der Stadtmauern. Sie wurden hauptsächlich im Umgang mit Fernkampfwaffen ausgebildet, was besonders während Belagerungen nützlich ist." />
+    <string id="64rWqBLN" text="Es gelang Euch, den Dienst in einer der großen Armeen Eures Reichs zu umgehen, und stattdessen im Zug zu folgen. Unter den Frauen, Liebhabern und Dienern der Truppen und jenen, die sich ihren Lebensunterhalt damit verdienten, die Soldaten zu pflegen, zu unterhalten oder zu betrügen." />
+    <string id="651FhzdR" text="Städtische Händler" />
+    <string id="6bUSbsKC" text="Euer Vater arbeitete für einen Fitiwi, einen der starken Männer, die in den ärmeren Vierteln der Oasenstädte für Ordnung sorgen. Er schlichtete Streitigkeiten um Grundstücke, Würfelspiele und Beleidigungen, und setzte seine Autorität mit dem traditionellen Stab des Fitiwi durch." />
+    <string id="6bx9IhpD" text="Verbesserungen" />
+    <string id="6Db7aDbF" text="Ballistenpfeile" />
+    <string id="6Dk7LClc" text="Luxusturban über Helm" />
+    <string id="6fA31IxF" text="Schwere Kettenweste" />
+    <string id="6GSXsdeX" text="Geschwindigkeit" />
+    <string id="6hwZwODh" text="Glefe" />
+    <string id="6LFj919J" text="Ihr habt geholfen, Brunnen zu graben, Dächer neu zu decken und Pflüge zu reparieren. Ihr habt die Grundlagen des Hausbaus erlernt – und was nötig ist, um eine landwirtschaftliche Gemeinde am Leben zu halten." />
+    <string id="6LMiTKZz" text="Lamenon" />
+    <string id="6n44BIll" text="Spitze Scheitelkappe über geschnürter Haube" />
+    <string id="6P1ruzsC" text="Vielleicht ..." />
+    <string id="6pNrNj93" text="Mauer" />
+    <string id="6vtmYjTW" text="Jolanna" />
+    <string id="6XxiMU52" text="Ledertabard über Kettenhemd" />
+    <string id="79ElOr2x" text="Pferdehändler" />
+    <string id="7AFlpaem" text="{STR1} {STR2}" />
+    <string id="7AYJ3SjK" text="Eure Familie arrangierte es, dass Ihr einen Häuptling Eures Volkes begleiten durftet. Ihr erhieltet keine bedeutenden Aufgaben, sondern musstet hauptsächlich Botschaften hin- und hertragen und Euch um seine Pferde kümmern. Doch das gab Euch die Gelegenheit, mit eigenen Augen zu sehen, wie Feldzüge geplant und Männer in der Schlacht eingesetzt werden." />
+    <string id="7b8Cwogx" text="Aketon" />
+    <string id="7cHsIMLP" text="Ihr hättet die Ausrüstung unmöglich alleine kaufen können, aber Ihr konntet gut genug reiten, dass ein örtlicher Fürst Euch ein Pferd und alles Nötige borgte. Ihr gingt zur gepanzerten Kavallerie und wurdet im Umgang mit der Lanze geschult." />
+    <string id="7D3jvAfS" text="Fellkappe" />
+    <string id="7dAy51ln" text="Hirnhaube über Unterhaube" />
+    <string id="7EAEIUIY" text="Schwerer Ringpanzer" />
+    <string id="7eWmU2mF" text="Waldarbeiter" />
+    <string id="7h6cXdW7" text="Baumeister" />
+    <string id="7HbspP6x" text="Verzierter Legionärsschuppenpanzer" />
+    <string id="7Hv984Sf" text="auf Docks und auf Baustellen." />
+    <string id="7jBroUUQ" text="Eure Familie besaß nur wenig eigenes Land, also verdiente sie sich ihren Lebensunterhalt im Wald durch Jagen und Fallenstellen. Ihr lerntet von frühester Kindheit an, dass Fertigkeiten wie das Fährtenlesen und das Töten eines Tieres mit einem Schuss darüber entscheiden können, ob man sich sattessen kann oder verhungert." />
+    <string id="7LmUe8fQ" text="Menaulion" />
+    <string id="7qySRF2T" text="Ping" />
+    <string id="7UkzXWTQ" text="Osarios" />
+    <string id="7Xynf4IA" text="Handpanzer" />
+    <string id="888lmJqs" text="Alle Königreiche Calradias wissen um den Wert einer guten leichten Kavallerie und guter berittener Bogenschützen. Sie rekrutieren Nomaden und Grenzlandbewohner mit den Fähigkeiten, diese Pflichten zu erfüllen. Ihr konntet derart gut reiten, dass Eure Nachbarn zusammenlegten, um Euch ein kleines Pony und einen guten Bogen zu kaufen, damit Ihr ihre Lehnsheerpflicht erfüllen konntet." />
+    <string id="8a6dnLd2" text="mit den Gassenbanden." />
+    <string id="8ba4tpRU" text="{.F}Jawwal" />
+    <string id="8bwpVpgy" text="Ihr habt einen Feind im Kampf besiegt." />
+    <string id="8hDoWBIa" text="Gemeinenhemd" />
+    <string id="8HMyTKF6" text="{.F}Vlandianer" />
+    <string id="8nNLS96w" text="Verstärkter Ovalschild" />
+    <string id="8OkPHu4f" text="Nein" />
+    <string id="8SNS2wF9" text="Turban" />
+    <string id="8tHbqjmB" text="Spitze Pelzgugel" />
+    <string id="8uBew3nD" text="Genietete Armschienen" />
+    <string id="8UBfIenN" text="Normal" />
+    <string id="8Yiwt1z6" text="Frühe Kindheit" />
+    <string id="8ZNOgT8Z" text="{BONUS_AMOUNT}% Nahkampfschaden für Truppen in Eurer Formation." />
+    <string id="915frsPd" text="Corena" />
+    <string id="927d3urB" text="Holzovalschild" />
+    <string id="92M0Pb5T" text="Späher" />
+    <string id="9ACJsI6S" text="Geblockt" />
+    <string id="9aehD627" text="Luxuriöse Tunika" />
+    <string id="9aoQYpZs" text="Der Clan Eurer Familie hat nie dem Khan die Treue geschworen und sich nie niedergelassen, sondern zog es vor, tief in der Steppe zu leben, außerhalb seines Einflussbereichs. Sie zählen noch heute zu den besten Spurenlesern und Kundschaftern des Graslands, denn die Fähigkeit, einen Feind kommen zu sehen und sich schnell zu bewegen, ist oft das Einzige, was ihre Herden vor den räuberischen Nachbarn beschützt." />
+    <string id="9BENgwRK" text="Rundhelm über geschnürter Stoffhaube" />
+    <string id="9cDw6vPF" text="Cadomenos" />
+    <string id="9cHyHQ7a" text="Lamellenplattenstiefel" />
+    <string id="9CnRKZOb" text="{KILLEDPLAYERNAME} ist gestorben!" />
+    <string id="9Eyd2qGo" text="Verstärkte Wildlederstiefel" />
+    <string id="9FgxK9se" text="Großhelm" />
+    <string id="9ks4u5cH" text="Ihr wurdet vom Dorfheiler in die Hügel geschickt, um nach Heilkräutern zu suchen. Ihr habt gelernt, welche Pflanzen Wunden heilen oder ein Fieber senken und wie man sie finden kann." />
+    <string id="9pgOGq7X" text="Tagebuch" />
+    <string id="9sokmYMZ" text="Padmos" />
+    <string id="9xyXdX4I" text="Tharos" />
+    <string id="9y0zpKUF" text="Ihr müsst der Besitzer dieser Siedlung sein!" />
+    <string id="9ZyXl25X" text="2." />
+    <string id="a1BGHdaU" text="Verstärkte Armwickel" />
+    <string id="A1zFbFta" text="Verstärkter flacher Drachenschild" />
+    <string id="a2ajWcI3" text="Viria" />
+    <string id="a3Vc59WV" text="Verringerter erlittener Schaden durch Nahkampfangriffe" />
+    <string id="A6llHL9s" text="Tieflandlangbogen" />
+    <string id="a6qaFH7L" text="Herena" />
+    <string id="a8arFSra" text="habt eine Infanterieausbildung absolviert." />
+    <string id="A8MJWbhf" text="Visierhelm über wattierter Stoffhaube" />
+    <string id="AAqB4QxB" text="Bortu" />
+    <string id="AB1mV5Pg" text="Eisenhelm über geschnürter Haube" />
+    <string id="abCBBVaU" text="Romund" />
+    <string id="AbEh2y8o" text="Speichern und verlassen" />
+    <string id="AccBcEIt" text="Zoana" />
+    <string id="acp2IcMs" text="Crotor" />
+    <string id="AdafHtud" text="Spitzhelm über Kettenhaube" />
+    <string id="ADJBbfbQ" text="Fell{@Plural}Bündel Fell{\@}" />
+    <string id="AdK4Ilzw" text="Chalia" />
+    <string id="AeBzTj6w" text="Heiler" />
+    <string id="aEke8dSb" text="Städtische Vagabunden" />
+    <string id="aeLgc0cU" text="Acthon" />
+    <string id="aeouhelq" text="Ja" />
+    <string id="aezwJGvY" text="Chenon" />
+    <string id="afH90aNs" text="Ein mit Speer und Schilden bewaffnetes Lehnsheer, rekrutiert aus den Familien von Kleinbauern, war schon immer das Rückgrat der meisten Armeen Calradias." />
+    <string id="aGbTPme1" text="Sense" />
+    <string id="agn93v7y" text="Yorig" />
+    <string id="agqzAXa9" text="Visierhelm über wattierter Haube" />
+    <string id="ahiBhAqU" text="Rüstung" />
+    <string id="Ai7qIb9I" text="Kleiner Dreieckschild" />
+    <string id="aIkffnN6" text="Charaktere" />
+    <string id="AK0lNDmN" text="Juwelenbesetzte Kriegskrone mit Schweif" />
+    <string id="alMmQrhK" text="Truppmoral" />
+    <string id="ALWqXMiP" text="Ja, ganz bestimmt." />
+    <string id="AmBEgOyq" text="Ah ..." />
+    <string id="aN85Kfnq" text="{SETTLEMENT} wurde überfallen. Eure Vereinbarung mit {QUEST_GIVER.LINK} ist aufgehoben." />
+    <string id="AobNdBBU" text="Billige Polster" />
+    <string id="aoPbMKwB" text="Federnbesetzter Spangenhelm über Kettenhaube" />
+    <string id="aOwcs7Un" text="Rundhelm über Lederhaube" />
+    <string id="aQeOcLX4" text="Zweizackige Bronzekrone" />
+    <string id="aQN4Dlx2" text="Schwerer Aketon" />
+    <string id="ArbBALwc" text="Ritterhelm mit Bronzegesichtsschutz" />
+    <string id="arCGUuR5" text="Die Siedlung wird belagert." />
+    <string id="ArPvuBYK" text="Gewebter Turban" />
+    <string id="aseraifaction" text="{.N}Aserai{@Type}2{\@}" />
+    <string id="aseraimembers" text="{.F}Aserai{@Type}2{\@}" />
+    <string id="aSNUtnbH" text="Temun" />
+    <string id="at4MdVBJ" text="Fathid" />
+    <string id="aTncHUfL" text="habt mit den Garnisonen Wache gestanden." />
+    <string id="aVGSZhCN" text="Pavese" />
+    <string id="AVoWvlue" text="{RANK} ({NUMBER})" />
+    <string id="aVzcyhhy" text="Euer Vater war ein Barde, der von Häuptlingssaal zu Häuptlingssaal zog, um sich seinen Lebensunterhalt zu verdienen. Erst sang er ein Loblied auf den einen battanianischen Aristokraten und verspottete dessen Feinde, dann tat er es im Saal eben dieses Feindes erneut, nur umgekehrt. Ihr habt von ihm gelernt, dass eine schnelle Zunge und ein scharfer Verstand einen vor einem mühsamen Leben auf den Feldern bewahren können." />
+    <string id="Awc23bFS" text="Marodeur" />
+    <string id="awQrcrt2" text="Keramik{@Plural}Kisten Keramik{\@}" />
+    <string id="axaK9y6E" text="Geschlossener Ritterhelm" />
+    <string id="Axe5FkET" text="Talison" />
+    <string id="Ay0G3f7I" text="Eure Familie verschaffte Euch einen Platz im Stab eines imperialen Strategen. Ihr erhieltet keine bedeutenden Aufgaben, sondern musstet hauptsächlich Botschaften hin- und hertragen und Euch um seine Pferde kümmern. Doch das gab Euch die Gelegenheit, mit eigenen Augen zu sehen, wie Feldzüge geplant und Männer in der Schlacht eingesetzt werden." />
+    <string id="aYoIrpe0" text="Riemenkettenbeinlinge" />
+    <string id="aZxHIra4" text="Ansehen" />
+    <string id="b1pqUQju" text="Segmentscheitelkappe über wattierter Stoffhaube" />
+    <string id="b2aRoXsb" text="Tessa" />
+    <string id="b2d9BYxT" text="Svana" />
+    <string id="b2EDkbhD" text="Gewickelter Armschutz" />
+    <string id="b4lDDcli" text="Familie" />
+    <string id="BAaS5Dkc" text="Anwenden" />
+    <string id="bAidg8fV" text="Verziertes Huscarlkettenhemd" />
+    <string id="BavVxSoC" text="Billige farbige Kleidung" />
+    <string id="BbhGL8XT" text="Brigantinenweste" />
+    <string id="bC5aMfG0" text="Dörfer" />
+    <string id="BCU6RezA" text="Schmiede" />
+    <string id="BCy1KpvR" text="Lacalion" />
+    <string id="bDMmX9YI" text="Luichan" />
+    <string id="bdpjqoGe" text="Segmenthirnhaube über Kettenhaube" />
+    <string id="beMSPAOG" text="Genieteter Lederhelm über Kopftuch" />
+    <string id="bF7HmNGQ" text="{.N}Khanat der Khuzait" />
+    <string id="bfQLwMUp" text="Clans" />
+    <string id="bgjiFSHZ" text="{.F}Battanianer" />
+    <string id="bGyrPe8c" text="Produktion" />
+    <string id="bHbR5Mgy" text="Losys" />
+    <string id="bhdkegZ4" text="In jeder Stadt gab es reichlich Bauvorhaben, für die gelernte und ungelernte Arbeiter nötig waren. Ihr habt gelernt, wie Winden und Gerüste gebaut werden, wie Bohlen und Steine gehauen und eingepasst werden und noch vieles andere mehr." />
+    <string id="bhE2i6OU" text="habt als Stallbursche eines Barons gedient." />
+    <string id="bHTdXTwC" text="Alary" />
+    <string id="bHx8jaeI" text="Krieger" />
+    <string id="bIiBytSB" text="Bogenschützen" />
+    <string id="billionabbr" text="Mrd." />
+    <string id="bjJkW9dO" text="Profil ansehen" />
+    <string id="bjVMtW3W" text="Eure Familie waren Kaufleute in einer der großen Flusshafenstädte Sturgias. Sie organisierten den Transport von Fellen, Honig und anderen Waren aus dem Norden in weit entfernte Länder." />
+    <string id="bKBa7ahF" text="Lange einfache Robe" />
+    <string id="Bl72Ribb" text="Wattierte Lederschulterpanzer" />
+    <string id="BlidMNGT" text="Verhältnis" />
+    <string id="BLZ4mdhb" text="Ihr stammt aus einer Familie von Kleinbauern, die gerade genug Land besaß, um sich zu ernähren und einen kleinen Gewinn zu erwirtschaften. Leute wie sie waren die Säulen der ländlichen Wirtschaft des Königreichs und das Rückgrat des Lehnsheeres." />
+    <string id="bmHAYBwX" text="Catila" />
+    <string id="BNnLbOkN" text="Adinea" />
+    <string id="bNnQt4jN" text="Schmied" />
+    <string id="BNuZ6nvd" text="Daniria" />
+    <string id="bqeWVVEE" text="Euer Vorgehen hat zu einem Krieg mit der Fraktion von {QUEST_GIVER.LINK} geführt. {?QUEST_GIVER.GENDER}Sie{?}Er{\?} kündigt Eure Vereinbarung auf und die Quest ist gescheitert." />
+    <string id="bQKbW8Tx" text="Thasyna" />
+    <string id="BrjpmaJH" text="Spiele verloren" />
+    <string id="BryUh6yQ" text="Stahlkappe" />
+    <string id="bSo9hKwr" text="{PERSUASION_OPTION_LINE} {SUCCESS_CHANCE}" />
+    <string id="bTKiN0hr" text="habt in der Dorfschmiede gearbeitet." />
+    <string id="btsMpRcA" text="Eure Familie besaß eine Schmiede in einer Stadt. Euer Vater spielte eine aktive, wenn auch kleine Rolle im Stadtrat und diente in der Miliz." />
+    <string id="bTUGfbH5" text="Robuster Gambeson" />
+    <string id="bubcrmTC" text="Nasalhelm über wattierter Stoffhaube" />
+    <string id="bV75iwKa" text="Speichern" />
+    <string id="bVzkrtUc" text="Pugio" />
+    <string id="bWb245zO" text="Voleos" />
+    <string id="bWlmGDf3" text="Als der Fluss nach einem heftigen Sturm plötzlich anfing, über die Ufer zu treten, suchten Eure Nachbarn händeringend nach einem Anführer, der ihnen sagte, was zu tun sei. Sie fanden ihn in Euch. Unter Eurer Anweisung bauten sie Dämme, um ihre Häuser zu retten." />
+    <string id="bxa4JHlU" text="Genietete Lederarmschienen" />
+    <string id="bXAg5w19" text="Jüngere oder zierlichere Rekruten oder jene, die zu arm sind, um sich Schild und Rüstung zu kaufen, schließen sich meist den Plänklern an. Sie kämpfen mit Bogen und Wurfspieß und versuchen, außer Reichweite der feindlichen Hauptarmee zu bleiben." />
+    <string id="ByxdPJzA" text="Pelzkappe mit Ohrenklappen" />
+    <string id="bz5lXkHS" text="Ärmelloser wattierter Kurzmantel" />
+    <string id="bz7Glmsm" text="Fertigkeiten" />
+    <string id="c2pdihCB" text="Karawanen" />
+    <string id="C4n1rgBC" text="Seega" />
+    <string id="C4qjBqLO" text="{.F}Sturgianer" />
+    <string id="c7UNJSNi" text="Gewebte Lederschulterpanzer" />
+    <string id="C8bVbM65" text="Tunika mit Lederweste" />
+    <string id="CAO0bycV" text="Schwere Tunika" />
+    <string id="captainasleader" text="Hauptmann" />
+    <string id="cbF9jdQo" text="Eure Eltern haben Euch nicht viel Geld hinterlassen, doch es ist gerade genug, um ein Stück Land am Rand eines Dorfs zu kaufen. Ihr habt die Steine entfernt und einen Bewässerungsgraben angelegt, habt einige Jahreszeiten lang Feldfrüchte angebaut und dann alles mit einem hübschen Gewinn wieder verkauft." />
+    <string id="cbnvgVhH" text="Räuber" />
+    <string id="CBUdkmIw" text="Farbiger Kaftan" />
+    <string id="CbxLZdVg" text="Lycos" />
+    <string id="CcWpkREW" text="Schweres Kettenhemd mit breitem Gürtel" />
+    <string id="cDetN1Ao" text="Provisorischer Übungsdrachenschild" />
+    <string id="cdmrCQfC" text="Hurunag" />
+    <string id="cDWbwBwI" text="seid der Kern beigetreten." />
+    <string id="CDXUehf0" text="Fein, fein." />
+    <string id="cEhDJAQp" text="Infanteristengambeson mit Rock" />
+    <string id="CePmep0z" text="Wilderer" />
+    <string id="Ch5NpCd0" text="Erhöhter Fernkampf-&#x200b;Schaden" />
+    <string id="CH7b5LaX" text="Ich habe es mir anders überlegt." />
+    <string id="character_creation_content_16" text="Als Kind wart Ihr bekannt für ..." />
+    <string id="CIDdPt1I" text="Bronzelamellenrüstung über Kettenhemd" />
+    <string id="CITG915d" text="habt Euch dem Stab eines Kommandanten angeschlossen." />
+    <string id="cjH1WFwy" text="Pelzbesetzte Kappe" />
+    <string id="cjhhuTZD" text="Gehärtete Lederlamellenrüstung" />
+    <string id="cK5DE88I" text="K. A." />
+    <string id="cKz1cyuM" text="Euer Clan befindet sich nun im Krieg mit {#TYPE(QUEST_GIVER_SETTLEMENT_FACTION)}{genderCreator(QUEST_GIVER_SETTLEMENT_FACTION)}der{.pd} {WEAK(QUEST_GIVER_SETTLEMENT_FACTION)}{.d}{#}den {QUEST_GIVER_SETTLEMENT_FACTION}{#}{QUEST_GIVER_SETTLEMENT_FACTION}{\#}. Quest abgebrochen." />
+    <string id="cL1lO5iP" text="Ergeon" />
+    <string id="CLTk2CMs" text="Infanteristengambeson mit Riemen" />
+    <string id="CLYcnUra" text="Gurtlederkürass" />
+    <string id="cMdtLfGB" text="Fransenrobe" />
+    <string id="cOgmdp9e" text="Lehnt ab" />
+    <string id="Cp7dI87a" text="Vorhut" />
+    <string id="cPbHqGrI" text="Spieler ausschließen" />
+    <string id="CPI0wkaZ" text="Hickory-&#x200b;Armbrust" />
+    <string id="CsjtWt1g" text="Tavernenbetreiber" />
+    <string id="csUq1RCC" text="Ihr wurdet im Stall der Stadt als Knecht angeheuert. Die Aufseher erkannten, dass Ihr ein Gespür für den Umgang mit Pferden hattet, und Ihr durftet mit ihnen üben und manchmal sogar neue Rösser zureiten." />
+    <string id="CtJPuRDa" text="Wattierter Lederübermantel" />
+    <string id="CTtjSwRb" text="Mittag" />
+    <string id="CvVJyKYA" text="Thelea" />
+    <string id="cZIhxH9e" text="Pacarios" />
+    <string id="D0xDRqvm" text="{PERSUASION_REACTION}" />
+    <string id="D33fIGQe" text="Vergesst es." />
+    <string id="D358wBWJ" text="Schwere Lamellenrüstung über Kettenrüstung" />
+    <string id="D6sMSANW" text="Amalgun" />
+    <string id="d8D98oFG" text="Melidir" />
+    <string id="d8DrtmwP" text="Visierhelm über Kettenhaube" />
+    <string id="D9JrTpwU" text="Schnabelstiefel" />
+    <string id="dacwWKE2" text="Abgenutzter Drachenschild" />
+    <string id="DaE0N37L" text="Honoratioren" />
+    <string id="dB6cFDmz" text="/" />
+    <string id="DbavaIis" text="Eiserner Nasalhelm über Kettenhaube" />
+    <string id="Dc4ia4m9" text="Wattierte Kappe" />
+    <string id="ddEu5IFQ" text="Das hoffe ich." />
+    <string id="dDmcqTzb" text="Euer Ruf reichte vielleicht nicht aus, um lokale Legenden zu begründen, aber er brachte Euch Respekt ein. Ihr wart immer gerecht und ehrlich bei Euren Geschäften und hilfreich gegenüber anderen. So konntet Ihr ein Gespür für andere entwickeln." />
+    <string id="DeWp2GjP" text="Schildbrecher" />
+    <string id="DFidSjIf" text="Die meisten Kinder um Euch herum hatten nur eine rudimentäre Bildung genossen, aber Ihr bliebt nach dem Unterricht noch, um das Lesen und Rechnen zu üben. Ihr wart fasziniert vom Marktplatz. Gewichte und Maße, Stückzahlen und Hauptbücher, das Gerede von Gewinnen und Verlusten." />
+    <string id="DIgsfYfz" text="Ihr habt die Waren Eurer Familie in die nächste Stadt gebracht, um sie dort zu verkaufen und Material einzukaufen. Es war harte Arbeit, aber Ihr mochtet das geschäftige Treiben auf dem Markt." />
+    <string id="Dj64aJKQ" text="Hippe" />
+    <string id="DjeAJtix" text="Vielleicht war es eine Liebesaffäre oder vielleicht habt Ihr beim Würfelspiel betrogen oder vielleicht habt Ihr einfach mit gefährlichen Gesellen getrunken und dabei unbedachte Worte gewählt. Wie dem auch sei, auf einem Eurer Ausflüge in die Stadt gerietet Ihr in bösen Ärger. Ärger, aus dem man sich nur mit einer schnellen Zunge oder schnellen Beinen retten kann." />
+    <string id="DKqLY1aJ" text="Ausrüsten" />
+    <string id="dlBFVkDj" text="Was die Aufgabe angeht, die Ihr mir übertragen habt ..." />
+    <string id="DM6luo3c" text="Fortfahren" />
+    <string id="DoiwC1Qa" text="Kettenbeinlinge" />
+    <string id="DOYS7dmq" text="Riemenlederarmschienen" />
+    <string id="dPQGxmJ7" text="Verstärkte Kettenfäustlinge" />
+    <string id="dQBArrqh" text="Gasse verwalten" />
+    <string id="ds294zxi" text="Sonst noch etwas?" />
+    <string id="dS4zm0UT" text="Genietete Lederrüstung über Aketon" />
+    <string id="DsCkf6Pb" text="Als Kind verbrachtet Ihr die meiste Zeit ..." />
+    <string id="dVekhkIU" text="Pelzmantel über Tunika" />
+    <string id="DvGueBrU" text="Leinen{@Plural}Rollen Leinen{\@}" />
+    <string id="dwFZFQ6V" text="Lysica" />
+    <string id="dWr3nuBq" text="Verstärkter eisenumrandeter Drachenschild" />
+    <string id="DwzrsJxS" text="Jamanys" />
+    <string id="DXczLzml" text="Status" />
+    <string id="dxlkHhw5" text="Spiele gewonnen" />
+    <string id="dzXaXKaC" text="Nun gut." />
+    <string id="e0KdfaNe" text="Speichern unter" />
+    <string id="e139gKZc" text="Zurück zum Spiel" />
+    <string id="E1OwmQFb" text="Zurück" />
+    <string id="E31IJyqs" text="Truppen rekrutieren" />
+    <string id="e4lKZhgv" text="Geschnürte Lederarmschienen" />
+    <string id="E4WhEvu7" text="Sotherys" />
+    <string id="e6csp4ha" text="{.F}Steppenbanditen" />
+    <string id="eALf5d30" text="Danke!" />
+    <string id="ebbyLN2i" text="Städte" />
+    <string id="ebHdQfbX" text="Spangenhelm mit wattiertem Stoff" />
+    <string id="ecUwABe2" text="Wüste" />
+    <string id="EEedqolz" text="Beduine" />
+    <string id="EezWSI6v" text="Verstärkte Söldnerrüstung" />
+    <string id="efW2XbK8" text="Emirhelm" />
+    <string id="EGatdCLg" text="Alena" />
+    <string id="egCbjHDT" text="Semnon" />
+    <string id="EHalkcEU" text="Morcon" />
+    <string id="eIws123Z" text="Beinpanzer" />
+    <string id="ekcBrNN1" text="Eren" />
+    <string id="elQnygal" text="Eure Familie hat das Geld für eine rudimentäre Schulausbildung zusammengekratzt, und Ihr habt die Chance nach Kräften genutzt. Ihr habt alles über Geschichte, Mathematik und Philosophie gelesen, was Euch in die Hände gefallen ist, und habt mit Eurem Lehrer und Euren Mitschülern darüber debattiert." />
+    <string id="ELsDFwAD" text="Wein{@Plural}Amphoren Wein{\@}" />
+    <string id="empirefaction" text="{.N}Imperium{.nn}{@HAS_ARTICLE}1{\@}{@Type}1{\@}" />
+    <string id="eN1eFdhF" text="Verzierter Lederharnisch über Schuppenhemd" />
+    <string id="EOplBvKz" text="Imperialer Schweifhelm" />
+    <string id="erlrhK2a" text="Kriegsfürstenschuppenpanzer" />
+    <string id="ErnykQEH" text="Produzierte Ware" />
+    <string id="es0Y3Bxc" text="Beitreten" />
+    <string id="etG87fB7" text="mit eurem Lehrer." />
+    <string id="eTw2aNV5" text="+" />
+    <string id="Ew69yN84" text="Juthys" />
+    <string id="eWf7bFGo" text="Pelzrüstung mit Riemen" />
+    <string id="EWR2MNeM" text="Nasalhelm mit Kette" />
+    <string id="ewSpZ10R" text="Grobe wattierte Kappe" />
+    <string id="ExjMoUiT" text="Hartholz{@Plural}Hartholzstämme{\@}" />
+    <string id="EXLY9mEb" text="Verstärkter großer Rundschild" />
+    <string id="EZ19JOGj" text="Haus von {MENTOR.NAME}" />
+    <string id="F13aYbuk" text="Lavalios" />
+    <string id="F2bgujPo" text="wart Diener eines Häuptlings." />
+    <string id="f3hTGKIP" text="Garitops" />
+    <string id="F4xD8gjJ" text="Francesca" />
+    <string id="F7OO5SAa" text="Während Eurer Jugend in Calradia war der Krieg nie weit weg. Ihr ..." />
+    <string id="f7vOVQb7" text="Sommer" />
+    <string id="F9HQABfN" text="Verstärkter viereckiger Flechtschild" />
+    <string id="Fa2nKXxI" text="Statthalter" />
+    <string id="FAPHmzxQ" text="Thawb" />
+    <string id="fAxjyMt5" text="Nacht" />
+    <string id="Fb7PrJuc" text="Beinschoner" />
+    <string id="fBAf3OWb" text="Verzierte Wüstenkriegskrone" />
+    <string id="FClEZIkT" text="Sovos" />
+    <string id="FDEIHpIN" text="Verspiegelte Brigantinenrüstung" />
+    <string id="femalechild" text="Kind" />
+    <string id="fEQAPJ2e" text="{KEY} Benutzen" />
+    <string id="FF3dQKc1" text="Nethor" />
+    <string id="FfNwXtii" text="Wenn das Wolfsrudel Eurer frühen Kindheit einen Leitwolf hatte, dann wart das ohne jeden Zweifel Ihr. Alle anderen Kinder sind Euch gefolgt. Ihr habt entschieden, was und wo gespielt wurde, Ihr habt die anderen zu Spielen und Streichen angetrieben." />
+    <string id="fGFMqlGz" text="Geschlecht" />
+    <string id="fGmpS0Dr" text="Gandarina" />
+    <string id="FhZPjhli" text="Eure Heimatstadt wurde vorübergehend belagert und Ihr musstet die Mauern verteidigen. Jeder leistete seinen Beitrag, um den feindlichen Angriff abzuwehren, und jeder ist stolz darauf, was er ertragen hat." />
+    <string id="FjwRsf1C" text="{.N}Vlandia" />
+    <string id="fk42FxCE" text="Geschichtete Robe" />
+    <string id="FkhJz0po" text="Ort" />
+    <string id="FKpLEamz" text="mit Pferden." />
+    <string id="FktkkUMK" text="Stahlrundschild" />
+    <string id="FLa5OuyK" text="Wanderer" />
+    <string id="FLrdHzSf" text="Anat" />
+    <string id="fMSYE6Ii" text="Standard" />
+    <string id="FOx5vZSJ" text="Gepanzertes Bärenfell" />
+    <string id="Fp68NbYO" text="Königreiche" />
+    <string id="fpdXZ0fl" text="Rekrutierung" />
+    <string id="fptsl0Qn" text="Kilt über Plattenlederrüstung" />
+    <string id="FQntPChs" text="Eure Familie waren Kaufleute in einer der größten Städte des Imperiums. Manchmal organisierten sie Karawanen in umliegende Städte oder beteiligten sich im Stadtrat an den Debatten." />
+    <string id="frBQ9mbP" text="{.N}Südliches{.ajs} {.N}Imperium{.nn}{@HAS_ARTICLE}1{\@}{@Weak}{.N}Südliches{.ajw} {.N}Imperium{.nn}{\@}{@Type}1{\@}" />
+    <string id="frwBm3Oh" text="Stoffkopftuch" />
+    <string id="FsDZC8Yl" text="Vollhelm über Kettenhaube" />
+    <string id="fUmehyHq" text="Gewebte Lederarmschienen" />
+    <string id="FUT6eXfw" text="Phaea" />
+    <string id="FVaRDe2a" text="Verwandte eines Noyan" />
+    <string id="FWFDkjBk" text="Nasalhelm über geschnürter Haube" />
+    <string id="fwxHsC1h" text="Kurzer Gambeson über Tunika" />
+    <string id="FxnFBhrF" text="Kavalleriedrachenschild" />
+    <string id="g0l7W5xQ" text="{BONUS_AMOUNT}% Bewegungsgeschwindigkeit für Reittiere in Eurer Formation." />
+    <string id="g31pXuqi" text="Oasenbauern" />
+    <string id="g51zVsKU" text="Kettenfäustlinge" />
+    <string id="g5BPd0Oc" text="Stoffhaube" />
+    <string id="G7AEWZ6c" text="Verzierter Ovalschild" />
+    <string id="G8FQ2exX" text="Verstärkte Plattenhandschuhe" />
+    <string id="g8qb3Ame" text="Danke." />
+    <string id="g9VIbA9s" text="Feldwebel" />
+    <string id="GD4aQgl7" text="Schaf{@Plural}Schafe{\@}" />
+    <string id="GeJobcre" text="Sinor" />
+    <string id="gENb9SSW" text="Abend" />
+    <string id="GeNKQlHR" text="Mitglieder der Hird des Häuptlings" />
+    <string id="GEYzLuwb" text="Euren Umgang mit anderen." />
+    <string id="gFtu0j4T" text="Pfeile" />
+    <string id="GFUggps8" text="seid mit den Marketendern marschiert." />
+    <string id="GghHAbIT" text="Beil" />
+    <string id="ggpRTQQl" text="Truppführer" />
+    <string id="gHnfFi1s" text="Im Ruhestand" />
+    <string id="Ghz90npw" text="Eure Familie besaß ein paar Pferde, die im städtischen Stall standen. Ihr habt sie versorgt. Oft seid Ihr abends mit ihnen aus ausgeritten und gemeinsam mit anderen Jugendlichen über die Felder vor den Stadtmauern galoppiert." />
+    <string id="gJG0xmAq" text="Das Dorf {QUEST_SETTLEMENT} von {QUEST_GIVER.LINK} wurde überfallen. Eure Vereinbarung mit {QUEST_GIVER.LINK} ist aufgehoben." />
+    <string id="GM3tAYMr" text="Feindselige Aktion durchführen" />
+    <string id="GmcgoiGy" text="Handel" />
+    <string id="GmU1to3Y" text="Statistiken" />
+    <string id="GNdVXMue" text="Schal" />
+    <string id="gQ2tAvCz" text="Bauern" />
+    <string id="GsPC2MgU" text="Euer Vater war Teil der Sklavenleibwachen, von denen die Emire der Aserai sich beschützen lassen. Er kämpfte mit der gepanzerten Kavallerie des Stamms an der Seite seines Herrn und wurde eines Tages aus der Sklaverei entlassen. Vielleicht als Dank für eine Heldentat, vielleicht bezahlte er seine Freiheit mit seinem Anteil an der Kriegsbeute. Danach heiratete er Eure Mutter." />
+    <string id="gsVtO9A7" text="Miliz" />
+    <string id="gT8WENO3" text="Dummy Higher Average" />
+    <string id="GTaxqBcv" text="Hilfsrüstung" />
+    <string id="guardnoun" text="Wache" />
+    <string id="gUTqDROO" text="Geschlossener Kopfschal" />
+    <string id="GWaJ7Ksq" text="Joculos" />
+    <string id="GXmDq2KR" text="Bärenkopf" />
+    <string id="gYATKZJp" text="{NUMBER}%" />
+    <string id="gYit4RTe" text="Euchor" />
+    <string id="GzgUzrFY" text="Kettenhemd" />
+    <string id="h2KnarLL" text="habt Euch von der Kavallerie ausbilden lassen." />
+    <string id="H5tiRTya" text="Übung" />
+    <string id="h60wQVVX" text="Spieß" />
+    <string id="h6UXvU3B" text="Nasalhirnhaube über geschnürter Haube" />
+    <string id="h9PP7EWc" text="Kappe mit Halsklappe" />
+    <string id="hab2DsOW" text="Hochlandkilt über Tartan-&#x200b;Hose" />
+    <string id="HBaSQlSJ" text="Fransenbronzekappe mit Wangenschutz" />
+    <string id="HcAV8x7p" text="Truppmitglied" />
+    <string id="hCavIm4G" text="Ihr werdet {AMOUNT}{GOLD_ICON} Denar zahlen." />
+    <string id="hchDYAKL" text="Lanzenträger" />
+    <string id="HCXHcBzT" text="Mattis" />
+    <string id="hE8s9bpP" text="Gebogener Rundschild" />
+    <string id="hELN8VXv" text="Zerrissene Robe" />
+    <string id="HfuAdGQX" text="Destor" />
+    <string id="HiSzYWeh" text="Bier{@Plural}Fässer Bier{\@}" />
+    <string id="HjqcmY6X" text="Bannen" />
+    <string id="HkfY3Ds5" text="Körperpanzer" />
+    <string id="HKRGEXqy" text="Waldhüterkettenrüstung" />
+    <string id="HkwJao2z" text="Fransenstahlkappe mit Wangenschutz" />
+    <string id="ho5EndaV" text="Entscheidung" />
+    <string id="hob3WVkU" text="Euer Vater gehörte zur Druschina eines Bojars, zu seinem Gefolge. Er saß im großen Saal am Tisch seines Fürsten, verwaltete die Güter des Bojars und stand im Kampf in der Mitte des Schildwalls an seiner Seite." />
+    <string id="hometab" text="Hauptmenü" />
+    <string id="HqzVBfpl" text="Städtische Händler" />
+    <string id="hRHPPQQP" text="Gewickeltes Kopftuch" />
+    <string id="hrhvEWP8" text="{PLAYER_MOTHER.NAME} war die Mutter von {PLAYER.LINK}. Sie wurde getötet, als Räuber das Gasthaus überfielen, in dem ihre Familie für die Nacht eingekehrt war." />
+    <string id="HSlPLC4m" text="Ira" />
+    <string id="hunterhorse" text="Jäger" />
+    <string id="HVJ9ax8Z" text="Steppenrobe" />
+    <string id="HvjviTTW" text="Stahlkappe mit Wangenschutz" />
+    <string id="hVZo7xdk" text="Burgen" />
+    <string id="hXB6gvD2" text="Gehärtetes Lederlamellenhemd " />
+    <string id="hXijcZyp" text="Grober Kurzmantel" />
+    <string id="hXl25avg" text="Eure Familie hat einen Privatlehrer bezahlt und Ihr habt die Chance nach Kräften genutzt. Ihr habt alles über Geschichte, Mathematik und Philosophie gelesen, was Euch in die Hände gefallen ist, und habt mit Eurem Lehrer und Euren Mitschülern darüber debattiert." />
+    <string id="HXNb6Cqz" text="Luxuriöser Kaftan mit Bund" />
+    <string id="hy7mIh48" text="Vidar" />
+    <string id="hYgmzZJX" text="Denar" />
+    <string id="I0vRCZ7U" text="Kriegsfürstenschuppenarmschienen" />
+    <string id="I3PcdaaL" text="Wölfe und Bären sind eine ständige Gefahr für die Herden im nördlichen Calradia, während im Süden Hyänen und Leoparden für Ärger sorgen. Ihr seid mit einer Gruppe anderer Dorfbewohner ausgezogen und habt das Geschoss abgeschossen, welches das Untier zu Fall gebracht hat." />
+    <string id="I8raOMRH" text="Verzeiht. Bisher gibt es noch keine Fortschritte." />
+    <string id="IagYTD5O" text="Wohlstand" />
+    <string id="iaUQ9lt9" text="Ingalther" />
+    <string id="iAWzr8Q0" text="Lederringharnisch über Kettenhemd" />
+    <string id="IcgVKFxZ" text="Herrscher" />
+    <string id="ICsecuVv" text="Gehärteter Lederschulterpanzer" />
+    <string id="iD0ePqi7" text="Geknöpfte Lederarmschienen" />
+    <string id="iDxygnVF" text="Gerotheon" />
+    <string id="IFqtwpb0" text="Spießträger" />
+    <string id="IGazuB9B" text="Kettennasalhelm" />
+    <string id="IHKXNP9H" text="Turniermeister" />
+    <string id="IK2IPJi1" text="Salz{@Plural}Säcke Salz{\@}" />
+    <string id="iLcfZ71B" text="Überredung" />
+    <string id="InGwtrWt" text="Verlassen" />
+    <string id="inKr3PbA" text="Armeen" />
+    <string id="InN5ZZt3" text="das Gefolge eines Grundbesitzers" />
+    <string id="iOYRpw24" text="Ratagost" />
+    <string id="ipQP6aVi" text="Söldner" />
+    <string id="ISQ0cdOc" text="Schwerer Nasalhelm über Kettenhaube" />
+    <string id="Ita1lG33" text="Ledergebundener Drachenschild" />
+    <string id="Itv3fgJm" text="Getreide{@Plural}Ladungen Getreide{\@}" />
+    <string id="IU63oxWD" text="Jemynon" />
+    <string id="IuD9SaQM" text="Leinenkleidung" />
+    <string id="IuWu5Bu7" text="Freigebigkeit" />
+    <string id="iVataLxL" text="Lederstreifen über wattierter Robe" />
+    <string id="ivKl4mV2" text="Euer Vater war der treue Leutnant eines adligen Grundbesitzers. Er ritt mit der Kavallerie seines Fürsten und kämpfte als gepanzerter Lanzenträger." />
+    <string id="iW9iKbb8" text="Nichts." />
+    <string id="IX3kafcb" text="Eisendornhelm über Kettenhaube" />
+    <string id="ixqTFMVA" text="Berittener Krieger" />
+    <string id="IXwOaa98" text="Truppgröße" />
+    <string id="iYCR3xuQ" text="{.N}Fürstentum Sturgia" />
+    <string id="iZKtGI6Y" text="Eure Familie arrangierte es, dass Ihr einen niederen Baron des vlandianischen Königreichs begleiten durftet. Ihr erhieltet keine bedeutenden Aufgaben, sondern musstet hauptsächlich Botschaften hin- und hertragen und Euch um seine Pferde kümmern. Doch das gab Euch die Gelegenheit, mit eigenen Augen zu sehen, wie Feldzüge geplant und Männer in der Schlacht eingesetzt werden." />
+    <string id="J00AF9Qv" text="Gewebte Lederstiefel" />
+    <string id="J1nh9YiN" text="Atilon" />
+    <string id="j1pFE61w" text="Waldstoffrüstung" />
+    <string id="J2gvnexb" text="Nachmittag" />
+    <string id="j2IVY6G6" text="Grobe Tierhautrüstung" />
+    <string id="J3YHMkL3" text="Wattierte Fäustlinge" />
+    <string id="j4F7tTzy" text="Clan" />
+    <string id="j6py5Rv5" text="Eure Eltern waren Heiler, die Kräuter sammelten und Kranke pflegten. Als lebendes Reservoir der battanianischen Traditionen wurden sie auch häufig gebeten, Dispute zwischen den Clans zu schlichten." />
+    <string id="j9Weia10" text="Leicht" />
+    <string id="jaaQijQs" text="Alter" />
+    <string id="jakLnIQv" text="Rauschuppenhelm" />
+    <string id="jAs3kDXh" text="Eure Familie waren die treuen Verwandten eines Khuzait-&#x200b;Noyan und aßen gemeinsam mit ihm in der Häuptlingsjurte. Euer Vater half dem Häuptling bei der Verwaltung der Angelegenheiten des Clans und kämpfte im Kern der gepanzerten Lanzenkämpfer in der Mitte der khuzaitischen Schlachtlinie." />
+    <string id="JbV0WoO7" text="Südländer-&#x200b;Schuppenpanzer von Meisterhand" />
+    <string id="JBVAeXx3" text="Heugabel" />
+    <string id="JCdVJYnQ" text="Leichte Tunika" />
+    <string id="Jd0Kq9lD" text="Schild" />
+    <string id="JFVseSa3" text="Oros" />
+    <string id="JhLPgr5x" text="Jinda" />
+    <string id="Jhshwa48" text="Geflickter Gambeson" />
+    <string id="Jif1C3X3" text="Laria" />
+    <string id="jimBaHvz" text="Verstärkte Lederrüstung" />
+    <string id="jIwjYOVj" text="Zerlumpte Armwickel" />
+    <string id="JJiKk4ow" text="Wählt Euren Nachnamen: " />
+    <string id="JjLQ2VdT" text="Nasalhirnhaube über wattierter Haube" />
+    <string id="JKRQ8RDA" text="Wattiertes Gewand mit Streifen" />
+    <string id="jlgjLDo7" text="Garnison" />
+    <string id="Jm3AiUo3" text="Einfacher Umhang" />
+    <string id="joRHKCkm" text="Eure Familie brauchte jemanden, dem man vertrauen konnte, um eine Karawane in eine benachbarte Stadt zu führen. Ihr organisiertet die Vorräte und eine durchgehende Wache und brachtet die Karawane sicher an ihr Ziel." />
+    <string id="jpBpwgAs" text="Siedlungen" />
+    <string id="JPimShCw" text="Spielmodus" />
+    <string id="JUSHAPnu" text="Ihr hattet eine gute Beobachtungsgabe und flinke Füße. Meist konntet Ihr davonlaufen, ehe Ihr Ärger bekamt, doch wenn Ihr in die Ecke gedrängt wurdet, konntet Ihr Euch im Kampf mit anderen Kindern auch behaupten." />
+    <string id="Jvf6K7TZ" text="Eure Familie zählte zu den vielen armen Migranten, die in einem der Elendsviertel vor den Mauern der imperialen Städte lebten. Eure Eltern hielten sich durch Gelegenheitsarbeiten mit Mühe und Not über Wasser. Manchmal verrichteten sie Aufträge für eine der vielen Verbrecherbanden des Imperiums, und Ihr bekamt die dunkle Seite des Lebens schon früh zu Gesicht." />
+    <string id="JvhvtKsT" text="Spitzhelm über Kettenhaube" />
+    <string id="jvOYgHOe" text="Benutzerdefiniert" />
+    <string id="jx8ohENz" text="Rüstungsschmied" />
+    <string id="JXyxj1J5" text="Module" />
+    <string id="jZYUdkXF" text="Hungernd" />
+    <string id="k0nSlwe9" text="Autom. Speicherungsintervall" />
+    <string id="k1E9DuKi" text="Alles auswählen" />
+    <string id="K1UFTirG" text="Leichte Armbrust" />
+    <string id="k1Xr4rKn" text="Druschinnik" />
+    <string id="K2xGw3Oo" text="Dummy Lower Average" />
+    <string id="K6GYskvJ" text="Kultur:" />
+    <string id="k71X3WNK" text="Robe über Kettenrüstung" />
+    <string id="k7ebznzr" text="Ja?" />
+    <string id="kaR27kWL" text="Langer Hochlandtartan" />
+    <string id="katzUyMI" text="Joron" />
+    <string id="kbcwb5TH" text="auf den Märkten und in den Karawansereien." />
+    <string id="KBq7aQRa" text="Lek" />
+    <string id="KdbHrcQx" text="Kurze Tunika" />
+    <string id="keqS2dGa" text="???" />
+    <string id="KfaqPpbK" text="Ihr seid mit anderen flinkfüßigen Jugendlichen ausgezogen, um die Schafe, Ziegen oder Rinder der Dörfer zu stehlen, die auf den Weiden grasten. Eure Aufgabe war es, die Tiere einzufangen, die allein davonliefen. Ihr hattet immer einen großen Stein zur Hand, um ihn auf eventuell lauernde Räuber zu schleudern." />
+    <string id="kfNW01y5" text="Tynops" />
+    <string id="kftE5nvv" text="Reittierrüstung" />
+    <string id="kg9YtrOg" text="Eure Familie waren Schmiede, ein angesehener Beruf unter den Battanianern. Sie fertigten alles an, von edlem Schmuck mit geometrischen Formen bis zu den perfekt austarierten Langschwertern, die beim battanianischen Adel so beliebt sind." />
+    <string id="Kgnm0FkE" text="Lederschuhe" />
+    <string id="KiJd6Xik" text="Bewegung" />
+    <string id="KjzJjj5n" text="Eronys" />
+    <string id="kkUQObZn" text="{.F}Wüstenbanditen" />
+    <string id="KKWEkA4P" text="Grobes Bärenfell" />
+    <string id="klGEDUmw" text="{BONUS_AMOUNT}% Schaden gegen Schilde für Truppen in Eurer Formation." />
+    <string id="kmdjRAoG" text="Geschnürte Stoffhaube" />
+    <string id="kmM68Qx4" text="Eure Führungsqualitäten." />
+    <string id="kNXet6Um" text="Ihr habt Euch eine legendäre Eskapade in der Stadt geleistet." />
+    <string id="koX9okuG" text="Keine" />
+    <string id="KoyU5yeY" text="Verzierte Fransenbronzekappe mit Wangenschutz" />
+    <string id="Kqt8RHh7" text="Schmiede" />
+    <string id="Kr8b1bxY" text="Infanteristenkettenweste" />
+    <string id="KsBoNHW5" text="Calatild" />
+    <string id="KTegaNPW" text="Langbogen" />
+    <string id="KUEHAD4U" text="Quests" />
+    <string id="KVG0Tzaa" text="Verstärkte Spiegelrüstung" />
+    <string id="KwbnODoT" text="Brigantine über Kettenrüstung" />
+    <string id="kx7q8ybD" text="Armpanzer" />
+    <string id="l5JDrvbW" text="Tartantunika" />
+    <string id="l5PPS5lG" text="Infanteristenkettenrüstung über Lederhemd" />
+    <string id="l69aXkKH" text="Stoßforke" />
+    <string id="L7wn49Uz" text="Diplomatie" />
+    <string id="l91l1TJo" text="Farbiger Turban" />
+    <string id="L9weGfoX" text="Salea" />
+    <string id="labbKop6" text="{BONUS_AMOUNT}% Fernkampfschaden für Truppen in Eurer Formation." />
+    <string id="lAWwcO6b" text="{.N}Königreich Vlandia" />
+    <string id="lB4UF1GT" text="Lange Tunika" />
+    <string id="Lbm7asY3" text="Großer Dreieckschild" />
+    <string id="lBn2pSBL" text="Mitglieder" />
+    <string id="LBNzsqyb" text="Lehen" />
+    <string id="lbVB6KPl" text="Gugel" />
+    <string id="lC5xsoSh" text="Unbegrenzt" />
+    <string id="lD1sl2XC" text="Camnon" />
+    <string id="lD5Ob3R4" text="Vielleicht war es eine Liebesaffäre oder vielleicht habt Ihr beim Würfelspiel betrogen oder vielleicht habt Ihr einfach mit gefährlichen Gesellen getrunken und dabei unbedachte Worte gewählt. Wie dem auch sei, Ihr gerietet in bösen Ärger. Ärger, aus dem man sich nur mit einer schnellen Zunge oder schnellen Beinen retten kann." />
+    <string id="LE9mRhSs" text="Hespedia" />
+    <string id="lEHjxPTs" text="Verbündeter" />
+    <string id="lEHtUGed" text="Diocosos" />
+    <string id="LgftnHPs" text="Gewebte Lederweste" />
+    <string id="lgvtLEDA" text="Melchea" />
+    <string id="lIJ1EVBh" text="Lederhandschuhe" />
+    <string id="lLJh7WAT" text="Ihr arbeitetet auf dem Marktplatz, wo Ihr in dem geschäftigen Treiben Tand und Getränke verkauftet." />
+    <string id="LMo6MaQS" text="Kataphraktenlamellenrüstung" />
+    <string id="LmwhFv5p" text="Fleisch{@Plural}Ladungen Fleisch{\@}" />
+    <string id="LMWiJi6V" text="Phirentos" />
+    <string id="LOPavWRp" text="Riemenschuhe" />
+    <string id="LP7yYoGQ" text="Caribos" />
+    <string id="LpH8SYFL" text="Eure Familie zählte zu den engsten Vertrauten eines battanianischen Häuptlings und saß im großen Saal an seinem Tisch. Euer Vater half dem Häuptling bei der Verwaltung der Angelegenheiten des Clans und beherrschte den Umgang mit den traditionellen Waffen der battanianischen Elite, dem Zweihandschwert oder Falx sowie dem Bogen." />
+    <string id="LqA9uBH9" text="Spitze Scheitelkappe über Stoffkopftuch" />
+    <string id="LRbGXEw2" text="Verzierter Kettennasalhelm mit Schweif" />
+    <string id="LsZEdD2z" text="Mauern" />
+    <string id="lULBZ714" text="Öl{@Plural}Amphoren Öl{\@}" />
+    <string id="luoXhz19" text="Schwere Lamellenweste" />
+    <string id="lVtoBMhp" text="Tartanumhang" />
+    <string id="lZ93DOrn" text="Ärmelloser wattierter Mantel" />
+    <string id="lZZOQsxc" text="Grober Kavalleriesattel" />
+    <string id="M0n609ut" text="Kettenschulterpanzer" />
+    <string id="M2wvaObX" text="Spatha" />
+    <string id="m3Nv9rt2" text="Nomadenschweifhelm" />
+    <string id="m6uSOtE4" text="Ihr habt zu wenig Geld." />
+    <string id="m9ZgghCo" text="Abagai" />
+    <string id="MafIe9yI" text="Junges Erwachsenenalter" />
+    <string id="malechild" text="Kind" />
+    <string id="malethug" text="Schläger" />
+    <string id="MamotK0a" text="Wattierte Armschienen" />
+    <string id="mBVCyRY5" text="Verziertes Legionärskettenhemd" />
+    <string id="mc78FEbA" text="Gefährten eines Bojars" />
+    <string id="Mcd3ZyKq" text="Eure Familie hatte gerade genügend Land, um sich zu ernähren und einen kleinen Gewinn zu erwirtschaften. Leute wie sie waren die Säulen der ländlichen Wirtschaft des Königreichs und das Rückgrat des Lehnsheeres." />
+    <string id="MChutiV6" text="Rundhelm über Stoffhaube" />
+    <string id="MEgLE2kj" text="Euren Umgang mit Pferden." />
+    <string id="mfeM775z" text="Hackebeil" />
+    <string id="mfRbx5KE" text="mit Lesen und Lernen." />
+    <string id="MFrIHJZM" text="Eure Familie stammte aus einem kleineren Nebenzweig des Stammes eines Emirs. Das Land Eures Vaters brachte ihm gerade genug ein, um sich ein Pferd leisten zu können, aber er war nicht wohlhabend genug, um auch die Rüstung kaufen zu können, die für die Aufnahme in die schwerere Kavallerie nötig gewesen wäre. Er kämpfte als einer der leichten Reiter, für die die Wüste so berühmt ist." />
+    <string id="millionabbr" text="Mio." />
+    <string id="MkBPRCuF" text="Verringerter Fernkampfwaffen-&#x200b;Präzisionsmalus" />
+    <string id="mkoMUmLh" text="Leinenweste" />
+    <string id="MKT5IzWm" text="Dicke Ärmelrobe" />
+    <string id="mlJKNbbn" text="Lederhaube" />
+    <string id="MnmUBlbL" text="Tartsche" />
+    <string id="mOa9CX13" text="{.F}Bergbanditen" />
+    <string id="mP3uFbcq" text="Ihr habt eine erfolgreiche Verfolgungsjagd angeführt." />
+    <string id="MQ8LCvCE" text="Gebundene Stofftunika" />
+    <string id="MqCH7R4A" text="Sicherheit" />
+    <string id="mRGIxvYh" text="Nasalhirnhaube über Kettenhaube" />
+    <string id="MRktqZwu" text="Fertigkeitsfokus" />
+    <string id="MT4b8H9h" text="Unbekannt" />
+    <string id="MTB2BunA" text="Verstärktes Hochlandkettenhemd über Tartan" />
+    <string id="mTsEaNKb" text="Pelzumhang" />
+    <string id="mU5CY4bz" text="Geschlossener Huscarlhelm" />
+    <string id="mvTueU1y" text="Plattierte Lederarmschienen" />
+    <string id="MxmOWsHj" text="Enzyklopädie" />
+    <string id="n1A47HcZ" text="Adligenspeerträgerhelm" />
+    <string id="n2FdWOtE" text="Adram" />
+    <string id="n3cjEB0X" text="Werkzeug{@Plural}Ladungen Werkzeug{\@}" />
+    <string id="n4UUrd1p" text="Bereits in Verwendung" />
+    <string id="N6QTvjMf" text="Gefangene" />
+    <string id="n7c7tnx9" text="Kriegsfürstenhelm mit Nasenschutz" />
+    <string id="NBAGX54b" text="Avigos" />
+    <string id="NbgeKwVr" text="Werkstätten" />
+    <string id="ndfDy5B8" text="Gebundene Kopfwickel" />
+    <string id="NF627oiX" text="{.N}Nördliches{.ajs} {.N}Imperium{.nn}{@HAS_ARTICLE}1{\@}{@Weak}{.N}Nördliches{.ajw} {.N}Imperium{.nn}{\@}{@Type}1{\@}" />
+    <string id="ngazFofr" text="Ihr fühltet Euch schon immer zu Tieren hingezogen und verbrachtet jede freie Minute in den Ställen des Dorfs. Ihr konntet Pferde beruhigen und wurdet manchmal gebeten, neue Fohlen zuzureiten. Ihr lerntet die Grundlagen der Tiermedizin, von der sich viel auch auf den Menschen übertragen lässt." />
+    <string id="ngFVgwDD" text="Kriegersklaven" />
+    <string id="NiBDR9ld" text="Verzierter Bronzehelm mit Wangenschutz" />
+    <string id="NLKmdNbt" text="Suche" />
+    <string id="NM5f1Q6I" text="Ariada" />
+    <string id="nMfxbc0Y" text="Erhöhte Reittier-&#x200b;Bewegungsgeschwindigkeit" />
+    <string id="NOchnEwX" text="Ghuzid" />
+    <string id="nOfSqRnI" text="auf dem Ausbildungsgelände der Stadtwache." />
+    <string id="nOMT0Cw6" text="Verringerter Moralschock" />
+    <string id="NqarFr4P" text="Optionen" />
+    <string id="nqWulUTP" text="{BONUS_AMOUNT}% Bewegungsgeschwindigkeit für Infanterie in Eurer Formation." />
+    <string id="nSoJkeBI" text="Sittacea" />
+    <string id="NTaol1uQ" text="Ringpanzer" />
+    <string id="NUHzapSv" text="Lange Hanftunika" />
+    <string id="NUmDuEqI" text="Imperialer Reitharnisch" />
+    <string id="Nv0eZmGL" text="Stahlnasalkappe" />
+    <string id="nWbp3o3H" text="Frühling" />
+    <string id="nwqUFaU8" text="Winter" />
+    <string id="NXOOJs2X" text="Patrys" />
+    <string id="O2oBC9sH" text="Erhöhter Sturmangriffsschaden" />
+    <string id="O37kzdXO" text="Leichter Harnisch" />
+    <string id="O3dhjtOS" text="Kopfpanzer" />
+    <string id="O75XlydW" text="Arcor" />
+    <string id="O8TpGSDA" text="Samt{@Plural}Rollen Samt{\@}" />
+    <string id="oAoTaAWg" text="1." />
+    <string id="oBbiVeKE" text="Trefferpunkte" />
+    <string id="oEJnxsQ1" text="Armwickel" />
+    <string id="oEvhhNNR" text="Lederreiterstiefel" />
+    <string id="oH8iFEv7" text="Stadtfaltstiefel" />
+    <string id="oHaWR73d" text="In Ordnung." />
+    <string id="OhEQUMk0" text="Breiter Dreieckschild" />
+    <string id="oibdTnXP" text="Handhabung" />
+    <string id="OJIRIm4j" text="Einfache Stofftunika" />
+    <string id="oJKXjRJ3" text="Hochlandschuppenpanzer über Stoffhemd" />
+    <string id="ok8lSW6M" text="Jugend" />
+    <string id="OKUTPdaa" text="Stufe" />
+    <string id="ol0rBSrb" text="{STR1}{newline}{STR2}" />
+    <string id="olamAwhb" text="Nasalhelm über Stoffkopftuch" />
+    <string id="OlOhuO7X" text="Nein danke. Einen schönen Tag noch." />
+    <string id="OM9achAa" text="Verstärkter Eichendrachenschild" />
+    <string id="oMbOIPc9" text="habt Euch den Plänklern angeschlossen." />
+    <string id="omLMiX89" text="Genähte Lederrüstung über Kettenhemd" />
+    <string id="ONaWEKSy" text="Nasalhelm über Lederhaube" />
+    <string id="Oo0baNaq" text="Grobe Schnürstiefel" />
+    <string id="OpYdqPWs" text="Offene Kettenhaube" />
+    <string id="oQSZ0XgP" text="Verzierte dicke Tunika" />
+    <string id="OrEgjXZ1" text="Grobe Kefije" />
+    <string id="ORFrCYSn" text="{BONUS_AMOUNT}% Schaden durch Nahkampfangriffe für Truppen in Eurer Formation." />
+    <string id="OVcoYxj1" text="Servername" />
+    <string id="OvlG2Vu1" text="Grobe Brigantine" />
+    <string id="OwqFpPwa" text="Filter" />
+    <string id="Oy5dH7gZ" text="Elea" />
+    <string id="oZrVNUOk" text="Fehler" />
+    <string id="p0hcyZdp" text="Zenon" />
+    <string id="p0JFbL7G" text="Verringerter erlittener Schaden durch Fernangriff" />
+    <string id="p2KIhGbE" text="Städtische Schmiede" />
+    <string id="p6NIgRpk" text="Grobfellkappe" />
+    <string id="P7iNhhPl" text="Turiados" />
+    <string id="P8GrNSkF" text="Segmentscheitelkappe über Kettenhaube" />
+    <string id="p9cQARqf" text="Hochgeborenenkettenrüstung" />
+    <string id="PbJAOKKZ" text="Erhöhte Truppen-&#x200b;Bewegungsgeschwindigkeit" />
+    <string id="pbp0GQdO" text="Spieler bannen" />
+    <string id="pBUc2pL8" text="{.F}Seeräuber" />
+    <string id="pCBkH35Q" text="Danos" />
+    <string id="PDdh1sBj" text="Name" />
+    <string id="pdqi2qz1" text="Diese Aktion könnt Ihr nicht ausführen, während Eure Gasse angegriffen wird." />
+    <string id="pEaYQqG9" text="Viereckiger Flechtschild" />
+    <string id="PeozdF9h" text="Genähter gehärteter Ledermantel" />
+    <string id="pgbC8UkU" text="Rebellion" />
+    <string id="pgw7LMRo" text="Serverkapazität überschritten." />
+    <string id="PiHpR4QL" text="Einhändig" />
+    <string id="PjO7oY16" text="{.N}Sturgia" />
+    <string id="pKf56MdS" text="Bagai" />
+    <string id="PKhcPbBX" text="Eure Familie gehörte einem nomadischen Clan an, der durch die Einöde zog, von einem Wadi-&#x200b;Bett und Brunnen zum nächsten, um ihre Ziegen- und Kamelherden an dem dürftigen Gestrüpp der Nahasa weiden zu lassen." />
+    <string id="PL5SG9hI" text="Lederschuppenpanzer" />
+    <string id="playgame" text="Spielen" />
+    <string id="PLtQdf23" text="Verstärkte wattierte Fäustlinge" />
+    <string id="plx8kkxa" text="Pelicos" />
+    <string id="ppi6eVos" text="Wie Ihr wünscht." />
+    <string id="pq0w8kry" text="Orachos" />
+    <string id="pqfz386V" text="Clanführer" />
+    <string id="PR4IqkTW" text="Temeon" />
+    <string id="pRbKbPK3" text="Vadrios" />
+    <string id="PtfbqMeg" text="Brigantine über Kettenhemd" />
+    <string id="PTKyNh2O" text="Legionärskettenhemd" />
+    <string id="PUjDWe5j" text="Kultur" />
+    <string id="PuRfbiW3" text="Erdurand" />
+    <string id="PVgSGCYK" text="Nasalhelm über Kettenhaube" />
+    <string id="pVkchhqX" text="{VICTIM.NAME} wird vermisst." />
+    <string id="Pya9aCTd" text="Elthild" />
+    <string id="PyeZ22FL" text="Bronzekappe mit Wangenschutz" />
+    <string id="PyVqDLBu" text="Eure Eltern haben Euch nicht viel Geld hinterlassen, doch es ist gerade genug, um ein Darlehen aufnehmen und davon eine kleine Werkstatt bauen zu können. Ihr habt Eure Schulden zurückbezahlt und Eure Werkstatt gewinnbringend verkauft." />
+    <string id="pzfbPbWW" text="Felsen" />
+    <string id="q186AQHt" text="Phadon" />
+    <string id="q1z4FQub" text="Kamelsattel" />
+    <string id="q2Y2DHiA" text="Berittene Bogenschützen" />
+    <string id="Q50hfNjW" text="Dünne Fellhaube" />
+    <string id="qAbMagWq" text="habt Ware auf dem Markt verkauft." />
+    <string id="qaDIU0XC" text="{.N}Hochkönigreich der Battanianer" />
+    <string id="qaKGuHSt" text="Verzierter Lederharnisch mit Wattierung" />
+    <string id="QaysED62" text="Tunika mit gerolltem Stoff" />
+    <string id="QbfOXJas" text="Wattierter Fußsoldatenmantel" />
+    <string id="QBPrRdQJ" text="Wundarzt" />
+    <string id="qc0P0b2r" text="Helm mit Augenschutz über Kettenhaube" />
+    <string id="Qd0tQLpA" text="Genietete Lederrüstung" />
+    <string id="qdMP2qWG" text="Kettenschulterverstärkung" />
+    <string id="qeKskdiY" text="Tablut" />
+    <string id="qFL0VxZX" text="Geschnürte Haube" />
+    <string id="qfzkMuLj" text="Handwerker" />
+    <string id="QGaIYQpg" text="Fisch{@Plural}Fässer Fisch{\@}" />
+    <string id="QGIAbglw" text="Obron" />
+    <string id="qH5VV8In" text="Dorfbewohnerledertunika" />
+    <string id="qILO0HdK" text="Ärmellose wattierte Umschlaggewänder" />
+    <string id="qiTtJyHE" text="Gala" />
+    <string id="QjJAbaoT" text="Apys" />
+    <string id="QJq4VAU7" text="Mesui" />
+    <string id="QLcP8bIs" text="Falx" />
+    <string id="qlOuiKXj" text="Ihr hattet eine legendäre Eskapade." />
+    <string id="QlvnKQbc" text="Hochlandschuppenpanzer über Kettenhemd" />
+    <string id="QndVFTbx" text="Ablegen" />
+    <string id="qnqdEJOv" text="Ihr habt der Stadtwache bei ihren Schießübungen zugesehen und beobachtet, wie sie ihren Plan perfektioniert hat, die Mauern im Falle einer Belagerung zu verteidigen." />
+    <string id="qNZFkxJb" text="Eure Familie waren Kaufleute in einer der größten Städte des Königreichs. Sie organisierten Karawanen in die benachbarten Städte und waren in der örtlichen Händlergilde aktiv." />
+    <string id="qo8hwDNU" text="Grobe Pelzrüstung" />
+    <string id="QOWyEJrm" text="Ihr habt zu wenig Denar." />
+    <string id="qPg3IDiq" text="Eure Familie kam aus einem der Händlerclans, die vor der Eroberung durch die Khuzait die Städte des östlichen Calradia dominierten. Sie passten sich schnell an ihre neuen Herren an, hielten die Karawanenrouten am Leben und sorgten dafür, dass die Steuern, die einst in das imperiale Säckel geflossen waren, nun ins Khanat strömten." />
+    <string id="QPoA6vvx" text="Einnahmen" />
+    <string id="qqW5n5Ox" text="Milos" />
+    <string id="qRqnrtdX" text="Besitzer" />
+    <string id="QrYjPUEf" text="Euer Auge fürs Detail." />
+    <string id="qSi4DlT4" text="Nahrung" />
+    <string id="qsVRoGUv" text="Offener Kopfschal" />
+    <string id="qT6jIu3v" text="Pelzrock mit Tunika" />
+    <string id="qtII2HbK" text="Vermögen" />
+    <string id="qtwYBHIn" text="Thomund" />
+    <string id="QvfUqzpF" text="Mina" />
+    <string id="qVj5NqrL" text="Vollhelm über wattierter Kappe" />
+    <string id="QWqvGa1P" text="Kuh{@Plural}Stück Vieh{\@}" />
+    <string id="QxzcuhmA" text="Leopardenfell" />
+    <string id="Qywm0F8B" text="Kettenhaube mit Helmfütterung" />
+    <string id="QyXwJXIV" text="Andrasa" />
+    <string id="QzAvlan7" text="Kurze wattierte Robe" />
+    <string id="r07M9xbT" text="Schwere Armbrust" />
+    <string id="R45H8quo" text="Toga" />
+    <string id="R4Gqskgq" text="Sieg" />
+    <string id="rA3KybBX" text="Ethirea" />
+    <string id="RamV6yLM" text="Zurück zum Hauptmenü" />
+    <string id="rcoueCmk" text="Jugend" />
+    <string id="RDbqA36B" text="Verzierte Bronzekammkappe mit Wangenschutz" />
+    <string id="RddFH0BA" text="Verstärkter großer Eisenspeichenrundschild" />
+    <string id="RDfXuVxT" text="Freisassen" />
+    <string id="redwEIlW" text="Quartiermeister" />
+    <string id="rF7Xm7C0" text="Schwerer Dreieckschild" />
+    <string id="rFbAjSWM" text="Gorigos" />
+    <string id="rg7OuWS2" text="Manöver" />
+    <string id="rGuYLmez" text="Ascyron" />
+    <string id="Rhfp7ath" text="Spitzhelm über geschnürter Haube" />
+    <string id="RHXdqjQY" text="Ilina" />
+    <string id="RKVNvimC" text="habt die Schafe gehütet." />
+    <string id="RmbWW6Bm" text="Ihr wart als Jugendlicher groß und imposant genug, dass die Leibwache des Anführers Euch unter die Fittiche genommen hat – um Euch darauf vorzubereiten, eines Tages zu ihr zu stoßen." />
+    <string id="rmMcwSn8" text="Ihr habt Eurer Familie bei ihren geschäftlichen Angelegenheiten geholfen. Ihr seid zum Markt gegangen, um Einkäufe zu tätigen und die Ankunft der Karawanen zu überwachen." />
+    <string id="RN6zHak0" text="Spieler" />
+    <string id="RoKwj5XN" text="Chagun" />
+    <string id="rSEXAMUx" text="Legionärshelm" />
+    <string id="RssJTUpL" text="Berserker" />
+    <string id="rTFaZCdY" text="Wald" />
+    <string id="rUvnbDi2" text="Encurion" />
+    <string id="RuvSk3QT" text="Ihr habt einen örtlichen Jäger in die Wildnis begleitet und ihm geholfen, Fallen auszulegen und kleine Tiere zu fangen." />
+    <string id="RvKwdXWs" text="{?IS_FEMALE}Befehlshaberin{?}Befehlshaber{\?}" />
+    <string id="RVPidk5a" text="Einfluss" />
+    <string id="Rvr1bcu8" text="Weiter" />
+    <string id="rVUhYuvE" text="Suterios" />
+    <string id="RXDyumYz" text="Lederharnisch mit Umhang" />
+    <string id="RyorjCXF" text="Galon" />
+    <string id="S1SUK8zk" text="Helm über Kettenhaube" />
+    <string id="S1XL4KJh" text="Dicker luxuriöser Mantel" />
+    <string id="s31DnnAf" text="Schaden" />
+    <string id="s8PNllPN" text="Ihr habt Euer Stadtviertel vor einem Feuer bewahrt." />
+    <string id="S9htzkbe" text="Händlerhut" />
+    <string id="s9oED1IR" text="Scharmützler" />
+    <string id="sAbjtZbB" text="{.F}Waldbanditen" />
+    <string id="sAml91Z3" text="Luxuriöse Brigantine" />
+    <string id="sb4gg8Ak" text="Grundbesitzer" />
+    <string id="sbbNL1qF" text="Verstärkte Schuppenschulterplatten" />
+    <string id="sDFb1PRI" text="Nortos" />
+    <string id="Settlements.Settlement.name.castle_EN6" text="Burg Ataconia{@ARTNOMINATIV}die{\@}{@ARTAKKUSATIV}die{\@}{@ARTDATIV}der{\@}{@ARTGENITIV}der{\@}" />
+    <string id="Settlements.Settlement.name.castle_EN9" text="Burg Mecalovea{@ARTNOMINATIV}die{\@}{@ARTAKKUSATIV}die{\@}{@ARTDATIV}der{\@}{@ARTGENITIV}der{\@}" />
+    <string id="Settlements.Settlement.name.town_A6" text="Sanala" />
+    <string id="SFybYZNK" text="Mengus" />
+    <string id="shL0WElC" text="{TROOP.NAME}{.o} Trupp" />
+    <string id="SHZ0P7Iu" text="Wattierter Lederüberwurf" />
+    <string id="siegeevent" text="Belagerung" />
+    <string id="sJ1R62Tn" text="Schweifhelm" />
+    <string id="smHA8Apa" text="Verzierte Nomadenkappe" />
+    <string id="smKogclC" text="Sackleinentunika" />
+    <string id="sO8Zh3ZH" text="Erfolge sind wegen Cheatens deaktiviert." />
+    <string id="SoTUisL3" text="Deltisos" />
+    <string id="SpJqhEEh" text="Barden" />
+    <string id="sPmQz21k" text="Feind" />
+    <string id="SrfYbg3x" text="Anführer" />
+    <string id="SRncaw79" text="Urios" />
+    <string id="SvYpE52J" text="Pelzbesetzte Tunika" />
+    <string id="SW3lkPHe" text="Farbiger Bischt" />
+    <string id="Sw8OxnNr" text="Verwandte eines Emirs" />
+    <string id="SyklU5aP" text="Informationen" />
+    <string id="sYuN6hPD" text="Alle Königreiche Calradias wissen um den Wert einer guten leichten Kavallerie. Sie rekrutieren Nomaden und Grenzlandbewohner mit den Fähigkeiten, diese Pflichten zu erfüllen. Ihr konntet derart gut reiten, dass Eure Nachbarn zusammenlegten, um Euch ein kleines Pony und einige Wurfspieße zu kaufen, damit Ihr ihre Lehnsheerpflicht erfüllen konntet." />
+    <string id="SYvBTD0p" text="Vollhelm über Stoffkopftuch" />
+    <string id="sZLd6VHi" text="{.N}Khuzait{@Type}2{\@}" />
+    <string id="Szuxa9Bs" text="Zerlumpte Stiefel" />
+    <string id="t1OpnZph" text="Jeremos" />
+    <string id="t2Oh6uty" text="Willkommensmeldung" />
+    <string id="T2POVRtg" text="Hilfsrüstung mit Riemen" />
+    <string id="t3tq0eoW" text="Trupps" />
+    <string id="t78atYqH" text="Zweihändig" />
+    <string id="T79exjaP" text="Verringerter erlittener Schildschaden" />
+    <string id="T7m7ReTq" text="habt kleine Tiere gejagt." />
+    <string id="TAnabTdy" text="Präzision" />
+    <string id="TbNRtUjb" text="Ihr habt ein gefährliches Tier gejagt." />
+    <string id="TCQQRQgI" text="Schlachtordnung" />
+    <string id="tCTzsaIu" text="Muinser" />
+    <string id="TeIcf3Cd" text="Schwere Lamellenrüstung über Kettenhemd" />
+    <string id="tEimkEsU" text="Nordischer Kurzbogen" />
+    <string id="TFT2Xapz" text="Spitzhelm über wattierter Haube" />
+    <string id="tG1Q8r2u" text="Speerträgerlamellenrüstung" />
+    <string id="tGEStbxb" text="Stammesangehörige" />
+    <string id="Th8q8wC2" text="Plündern" />
+    <string id="thousandabbr" text="Tsd." />
+    <string id="tHtt3HCn" text="Pryndor" />
+    <string id="tI8ZLtoA" text="habt Projekte repariert." />
+    <string id="TiJOjUi5" text="Valaos" />
+    <string id="tiTTWhpW" text="Wattiertes Lederhemd" />
+    <string id="TkgLEDRM" text="Händler" />
+    <string id="tMLH04n4" text="Eisenhut über Kettenhaube" />
+    <string id="tMwsE9IR" text="Riemenlederstiefel" />
+    <string id="Toj0vayQ" text="Monchug" />
+    <string id="toQLHG6x" text="Mut" />
+    <string id="Tp7zXWGa" text="Nasalhelm über wattierter Haube" />
+    <string id="TPoK3GSj" text="Vagabunden" />
+    <string id="tpQLvMSM" text="Nasalhelm über Kettenhaube" />
+    <string id="tQOPRBFg" text="Suche ..." />
+    <string id="tRIrbTvv" text="Städtische Straßengauner" />
+    <string id="TRwgSLD2" text="habt Kräuter in der Wüste gesammelt." />
+    <string id="tTb28jyU" text="Viele Battanianer kämpfen als Kern – vielseitige Truppen, die den Feind mit ihren Wurfspießen schwächen können, sich aber ebenso an dem letzten, brüllenden Ansturm beteiligen, der darauf folgt." />
+    <string id="tTLvo8sM" text="Clanrang" />
+    <string id="tTuaiLS6" text="Meritor" />
+    <string id="TTWL7RLe" text="Armbrust" />
+    <string id="tVyuxl8e" text="Zerlumpte Robe" />
+    <string id="tWDyWroN" text="Amnon" />
+    <string id="tWfAPrPa" text="Kettenreiterstiefel" />
+    <string id="TwuAVsCn" text="Pelzkappe" />
+    <string id="TxAYmCjr" text="Nasalhelm mit Leder" />
+    <string id="tXbRb3QO" text="Genietete Pelzrüstung" />
+    <string id="tYmOCuuQ" text="Rundhelm über Kettenhaube" />
+    <string id="u12ocP9f" text="Für weitere Informationen {EXTEND_KEY} halten." />
+    <string id="u1lTJoPO" text="Nemos" />
+    <string id="u1Pkt4HC" text="Räuber" />
+    <string id="U4n0uSlg" text="Enger Kopfschal" />
+    <string id="U7er3V9s" text="Gegenstände" />
+    <string id="U8QfF3Gw" text="Lange Wolltunika" />
+    <string id="Ua6CNLBZ" text="Dorf" />
+    <string id="UaN2lfwi" text="Waffenschmied" />
+    <string id="UB4sqrWx" text="Mutter" />
+    <string id="UC2XfY7V" text="Stoffgugel" />
+    <string id="uCyAnus4" text="Zostios" />
+    <string id="ud6rhXbn" text="Mostiros" />
+    <string id="uDlnsFIF" text="Urik" />
+    <string id="uducgNbf" text="Chaghan" />
+    <string id="uEcbnd5D" text="Rundschild" />
+    <string id="ueCm5y1C" text="Eure Familie besaß eine eigene Werkstatt in der Stadt. Sie stellte aus Rohmaterial aus den ländlichen Gebieten Güter her. Euer Vater spielte eine aktive, wenn auch kleine Rolle im Stadtrat und diente in der Miliz." />
+    <string id="uEPRE33m" text="Grobe gebundene Armschienen" />
+    <string id="ufnnUxKb" text="Leder{@Plural}Kisten Leder{\@}" />
+    <string id="ugJfuabA" text="Berittener Bogenschütze" />
+    <string id="uGM8DWrm" text="Pferd" />
+    <string id="Uh057UUb" text="Puluc" />
+    <string id="UI0q8rWw" text="Vieh" />
+    <string id="UjL7jVYF" text="Moral" />
+    <string id="uLjRHv9p" text="Nadea" />
+    <string id="uLpnmNkZ" text="Lederkappe" />
+    <string id="un7poy9x" text="Vorschau" />
+    <string id="unaWKloT" text="Erhöhter Nahkampfschaden" />
+    <string id="UoHZGyZa" text="Helm mit Gesichtsschutz" />
+    <string id="UPaP0B2L" text="Alchyla" />
+    <string id="uQgNPJnc" text="Truppen verwalten" />
+    <string id="uqO6e6vN" text="Drachenschild" />
+    <string id="URgZ4ai4" text="Eure Familie gehörte zu einem der Khuzait-&#x200b;Clans. Euer Vater besaß einige Herden, war aber nicht reich. Als die Khuzait-&#x200b;Horde in den Kampf gerufen wurde, kämpfte er mit den berittenen Bogenschützen, die den Feind unter Beschuss nahmen und zermürbten, bevor die Lanzenträger ihm den Todesstoß versetzten." />
+    <string id="urUwa4bf" text="Plünderer" />
+    <string id="uTFjknE2" text="Andros" />
+    <string id="uUGAMReu" text="Feine Stadtstiefel" />
+    <string id="uvjOVy5P" text="Tot" />
+    <string id="UvOa4elc" text="Grüne Gugel" />
+    <string id="uW38UtSH" text="Eupitor" />
+    <string id="UxAl9iyi" text="Persönlich" />
+    <string id="uYjEknNX" text="Hinrichtung von {VICTIM.NAME} durch {EXECUTER.NAME}" />
+    <string id="uZhHh7pm" text="{CURR_TEMPLATE_NAME} (hergestellt)" />
+    <string id="V1QLbhRl" text="Sora" />
+    <string id="v48N6h1t" text="Städtische Handwerker" />
+    <string id="v4THTk5O" text="Kaftan mit Ledergürtel" />
+    <string id="V8BXjyYq" text="Während der Installation deaktiviert." />
+    <string id="vAKB54zO" text="Arwa" />
+    <string id="VaqBBaQu" text="Pelzbesetzte kurze Tunika" />
+    <string id="vaUlAZba" text="Euer Clan befindet sich nun im Krieg mit {QUEST_GIVER.LINK}. Eure Übereinkunft mit {QUEST_GIVER.LINK} wurde beendet." />
+    <string id="VbAHQ1BS" text="Langer Pelzmantel" />
+    <string id="vBkrw5VV" text="Zufällig" />
+    <string id="VbL6GFmy" text="Butter{@Plural}Fässer Butter{\@}" />
+    <string id="vbPBXiPC" text="Reiche Tunika" />
+    <string id="VcbEaV7T" text="Eisenhelm über wattierter Stoffhaube" />
+    <string id="vCywYDmp" text="Leichte wattierte Rüstung" />
+    <string id="VDMkVMxt" text="Schwere Kettenfäustlinge" />
+    <string id="vEsKYrFR" text="Aldric" />
+    <string id="vfhVveLW" text="Schamanen" />
+    <string id="VG9ng2n2" text="Chandion" />
+    <string id="vgBRa2BE" text="Poraclys" />
+    <string id="vGF5S2hE" text="Rangliste" />
+    <string id="vH7GtuuK" text="im Stall zu arbeiten." />
+    <string id="VhbasI9J" text="Castor" />
+    <string id="vimhFdZp" text="Schwerer Nasalhelm über Lederhaube" />
+    <string id="ViYdZUbQ" text="Armee auflösen" />
+    <string id="vJOWy1QF" text="{.F}Khuzait{@Type}2{\@}" />
+    <string id="VkRIefyW" text="Luxuriöser Schuppenpanzer" />
+    <string id="vl2tgsKa" text="Urkhun" />
+    <string id="vLjgcdgB" text="Schnee" />
+    <string id="VlXOgIX6" text="seid mit den Spähern geritten." />
+    <string id="vmMqs3Ck" text="{?HERO.GENDER}Adlige{?}Adliger{\?}" />
+    <string id="VN4ctHIU" text="Kauft etwas" />
+    <string id="vOgACpuD" text="Gefährten" />
+    <string id="VQSdhQE3" text="Schwerer Schuppenpanzer über Kettenrüstung" />
+    <string id="Vqu67a3b" text="Rohseide{@Plural}Ballen Seide{\@}" />
+    <string id="vsavMoLZ" text="Segmentscheitelkappe über wattierter Stoffhaube" />
+    <string id="VSMpadvq" text="Pelzrüstung" />
+    <string id="vvabqi2w" text="Karawane" />
+    <string id="vW6kBki9" text="Euer Clan befindet sich nun im Krieg mit dem Reich von {QUEST_GIVER.LINK}. Eure Vereinbarung mit {QUEST_GIVER.LINK} ist aufgehoben." />
+    <string id="Vxt0xTvV" text="Mavea" />
+    <string id="VylHwqVq" text="Segmentscheitelkappe über geschnürter Haube" />
+    <string id="VzhbUL60" text="Vendelia" />
+    <string id="W0agPHes" text="{BONUS_AMOUNT}% Moralmalus durch Verluste für Truppen in Eurer Formation." />
+    <string id="W1uwgvAQ" text="Arion" />
+    <string id="w2TEQq26" text="Ihr konntet Euch schon immer gut in andere hineinversetzen und ihre Beweggründe erraten. Ihr habt studiert, wie jemand sich überzeugen lasst, und versucht, was Ihr Euch bei den Erwachsenen abgeguckt habt, bei Euren Freunden anzuwenden." />
+    <string id="W2WXkiAh" text="Lösegeldvermittler" />
+    <string id="w4RuDABQ" text="Plattenrock" />
+    <string id="W58TN2g5" text="Warägertunika" />
+    <string id="W73My5KO" text="Tod" />
+    <string id="w9m11T1y" text="Karte" />
+    <string id="WahziEXA" text="Gewickelte Lederstiefel" />
+    <string id="wBfGpcCO" text="Eisenhut über wattierter Stoffhaube" />
+    <string id="WbHfGCbd" text="Ihr habt eine Belagerung überlebt." />
+    <string id="wbJzSg3X" text="Ulbesos" />
+    <string id="wbLqHvjE" text="Zerosica" />
+    <string id="WchH8bS2" text="Eure Familie gehörte zur mittleren Schicht eines Battanianer-&#x200b;Clans und bestellte ihr eigenes Land. Euer Vater kämpfte mit der Kern, den Hauptkriegern seines Volkes. Er war Teil des brüllenden Ansturms, für den die Battanianer berühmt waren." />
+    <string id="wE7RWmIF" text="Eberhautledermantel" />
+    <string id="wEfZyccm" text="Vollhelm über geschnürter Haube" />
+    <string id="wErSpkjy" text="Ich arbeite noch daran." />
+    <string id="WEUSMkCp" text="Berittenes Bogenschießen" />
+    <string id="WfAuSpJq" text="Eutos" />
+    <string id="wfbtS71d" text="Ihr habt eine Karawane geführt." />
+    <string id="wG582fzT" text="Hirnhaube über wattierter Kappe" />
+    <string id="whvMZZba" text="Verstärkte wattierte Armschienen" />
+    <string id="WiNRdfsm" text="Fertig" />
+    <string id="wKucIANJ" text="Ledermantel über Stoffhemd" />
+    <string id="WLJOnehi" text="Verstärkte dicke Tunika" />
+    <string id="wlKtDR2z" text="Danke, {?PLAYER.GENDER}meine Dame{?}mein Herr{\?}." />
+    <string id="wltdyF2j" text="Jagdbogen" />
+    <string id="WMqHlEvb" text="Segmentscheitelkappe über Kettenhaube" />
+    <string id="wNUcqcJP" text="Clanname" />
+    <string id="WOKNhaG2" text="Eure Eltern waren Hüter der heiligen Traditionen der Khuzait. Sie kanalisierten die Geister der Wildnis und Eurer Ahnen. Sie pflegten die Kranken und teilten ihre Weisheit, indem sie Streitigkeiten schlichteten und praktische Ratschläge erteilten." />
+    <string id="wQY1oqdK" text="Verzierte Stahlkammkappe mit Wangenschutz" />
+    <string id="WrAMfIG1" text="Phenoria" />
+    <string id="wrbea2oa" text="Bolzen" />
+    <string id="WrwO8xsN" text="Genähte Lederschulterpanzer" />
+    <string id="WSk5Sibs" text="Käse{@Plural}Fässer Käse{\@}" />
+    <string id="wSUN0Dmo" text="Dummy Max Armor" />
+    <string id="WTCIOhvV" text="Nuqar" />
+    <string id="WtEoXblx" text="Ritter" />
+    <string id="WTePYMNF" text="Zaraclys" />
+    <string id="WUArer5A" text="Offene wattierte Haube" />
+    <string id="WvDZMmaj" text="Nomadenhelm" />
+    <string id="WVqaRKUm" text="Wolle{@Plural}Ladungen Wolle{\@}" />
+    <string id="wWqavjat" text="Leichte lange wattierte Robe" />
+    <string id="WXAaWZVf" text="Zurück" />
+    <string id="WYFDXE82" text="Großer Rundschild" />
+    <string id="WYvnWcXQ" text="Wie alle Kinder aus dem Dorf halft auch Ihr auf den Feldern. Und Ihr ..." />
+    <string id="WYytQbvS" text="Vollhelm über Unterhaube" />
+    <string id="WyZ2UtFF" text="Eure Familie hatte wenig für die Autorität der Bojaren übrig. Sie lebte tief im Wald, wo sie mit Klinge und Flamme Felder rodete, die sie dann ein oder zwei Jahre bestellte, ehe sie weiterzog. Sie jagte und stellte Fallen – Füchse, Hasen, Hermeline und andere Tiere mit Fell." />
+    <string id="x1HTX5hq" text="Ihr habt Euer Dorf vor einer Flut gerettet." />
+    <string id="x1kf94SW" text="Kammhelm" />
+    <string id="X1Wn0sBa" text="Genieteter Lederhelm über grober Schuppenhaube" />
+    <string id="X21PahQn" text="Menaclys" />
+    <string id="X3gcUz7C" text="Morgen" />
+    <string id="x3lcf2Do" text="Luxuriöse Lamellenweste über Lederhemd" />
+    <string id="xa7KRSCy" text="Genähte Lederweste" />
+    <string id="xC3kCGte" text="Dhiyul" />
+    <string id="XCz81XYm" text="Ausgangsmaterial" />
+    <string id="XDAQgjpH" text="Simir" />
+    <string id="xebFLnH2" text="Audio" />
+    <string id="XgFU1pCx" text="Eure Eltern waren ..." />
+    <string id="xgO3cCgR" text="Überlastet" />
+    <string id="XGX6DbFL" text="Lamellenplattenpanzerhandschuhe" />
+    <string id="XGytILlt" text="Kartätschenmunition" />
+    <string id="XH9f3yOX" text="Pelzweste über Tunika" />
+    <string id="xILeUbY3" text="Administratorfeld" />
+    <string id="XiwTesky" text="Seidenkaftan" />
+    <string id="xj0MgUO0" text="Verbrechen" />
+    <string id="XjMsnpgS" text="Tulag" />
+    <string id="XjT8S4ng" text="In der Nähe von {SETTLEMENT_NAME}." />
+    <string id="XkL1Re8b" text="Genieteter Ledermantel" />
+    <string id="xKXcqRJI" text="Ihr habt etwas Geld in Land investiert." />
+    <string id="XKxeaF0I" text="Dalidos" />
+    <string id="XMTD2clw" text="Rhoe" />
+    <string id="XmvaRfLM" text="{PLAYER_FATHER.NAME} war der Vater von {PLAYER.LINK}. Er wurde getötet, als Räuber das Gasthaus überfielen, in dem seine Familie für die Nacht eingekehrt war." />
+    <string id="xnDWqYKW" text="Jäger" />
+    <string id="Xnngcfg9" text="Sein" />
+    <string id="xnoAJwoy" text="Vollhelm über wattierter Stoffhaube" />
+    <string id="XNQPPIaA" text="Infanteristengambeson über Lederjacke" />
+    <string id="xORjDTal" text="Ihr habt etwas Geld in eine Werkstatt investiert." />
+    <string id="Xqba1Obq" text="Nomaden" />
+    <string id="XqcD0WEu" text="Asta" />
+    <string id="xQUi0F0k" text="Gestreifter Mantel" />
+    <string id="Xrb43Fv4" text="Bronzearmschienen" />
+    <string id="XseYJYka" text="Verwalten" />
+    <string id="xsu6bPTv" text="Flachs{@Plural}Säcke Flachs{\@}" />
+    <string id="XU9WgcIO" text="Verstärkte Wildlederrüstung" />
+    <string id="XuwQvSDo" text="Eiserner Rundhelm über Kettenhaube" />
+    <string id="xVSOKf0p" text="Chara" />
+    <string id="xXSFaGW8" text="Auflösen" />
+    <string id="XZxIpCQH" text="Phorys" />
+    <string id="y1YTxkmn" text="Schulterharnisch" />
+    <string id="y3CwqUDR" text="Hochlandkettenhemd" />
+    <string id="y3oIzUEp" text="Tunika mit Schulterpolstern" />
+    <string id="Y3UcaX74" text="Euer Zahlenverständnis." />
+    <string id="Y4LhmAdi" text="Klar doch. Nur zu." />
+    <string id="y6j1bJTH" text="Ihr wurdet zum örtlichen Schmied in die Lehre geschickt. Ihr habt gelernt, Metall zu erhitzen und zu formen. Stundenlang habt Ihr auf das Eisen eingedroschen, bis Eure Muskeln brannten wie das Feuer in der Esse." />
+    <string id="Y94H6XnK" text="Annehmen" />
+    <string id="Y9egTJg0" text="Tgl. Änderung" />
+    <string id="yAZC6F7P" text="Ecsorios" />
+    <string id="YBGCXSEx" text="Debana" />
+    <string id="yCEMiKjB" text="Legt fest: {SELECTION}" />
+    <string id="YcnK0Thk" text="Jäger" />
+    <string id="YDibTDob" text="Hochlandkronenhelm" />
+    <string id="yDykmlS7" text="Tartantoga" />
+    <string id="YDYnuBmC" text="Mehrspieler" />
+    <string id="yfa7tpbK" text="Alle" />
+    <string id="yG3YUySN" text="{.N}Westliches{.ajs} {.N}Imperium{.nn}{@HAS_ARTICLE}1{\@}{@Weak}{.N}Westliches{.ajw} {.N}Imperium{.nn}{\@}{@Type}1{\@}" />
+    <string id="ygfhbfr0" text="Dornhelm" />
+    <string id="YGQ6UXCo" text="Gebirgsjagdbogen" />
+    <string id="Yh7Dorsr" text="Streifenlederharnisch" />
+    <string id="YifFZaG7" text="Truppbesitzer" />
+    <string id="YJaNtktT" text="Alle rekrutieren" />
+    <string id="YKzuGc54" text="Ihr wart groß, und die anderen Kinder wollten Euch bei Auseinandersetzungen mit den Kindern aus dem Nachbardorf immer dabeihaben. Ihr konntet einen Pflug ziehen und eine Axt werfen wie ein Erwachsener." />
+    <string id="yMi4ijgI" text="Wattierte Nomadengugel" />
+    <string id="YNkPy4ta" text="Clanspiel" />
+    <string id="yNMrF2QF" text="Ihr seid verwundet." />
+    <string id="yNSLGTYc" text="Erta" />
+    <string id="YO0x7ZAo" text="Treue" />
+    <string id="YQd9C8u2" text="Helm über wattierter Haube" />
+    <string id="YqhOxb1Z" text="Lamellenschweifhelm" />
+    <string id="Yqm0Dics" text="Ihr habt die Leute gut behandelt." />
+    <string id="yQTBY9ie" text="Schmuck{@Plural}Schmuckstücke{\@}" />
+    <string id="yQtzabbe" text="Schließen" />
+    <string id="yRFSzSDZ" text="Eure Familie lebte in einem Dorf, besaß aber kein eigenes Land. Stattdessen musste Euer Vater neben seinen gelegentlichen bezahlten Tätigkeiten immer wieder in die Wälder schleichen und dort Fallen stellen und jagen, immer auf der Hut vor den Wildhütern des Fürsten." />
+    <string id="yS7PvrTD" text="In Ordnung." />
+    <string id="yTWOMSmv" text="Hanftunika" />
+    <string id="YuLLsAUb" text="Ihr habt keine {GOLD_AMOUNT}{GOLD_ICON}." />
+    <string id="YUoydtNS" text="Yana" />
+    <string id="YVGtcLHF" text="Kavallerie" />
+    <string id="Yvk8a2tb" text="Fußarbeit" />
+    <string id="YxglkaXU" text="Weißer Tabard über Kettenrüstung" />
+    <string id="yYhX6JQC" text="Euer Vater schloss sich einer der vielen Söldnerbanden in Vlandia an. Sie bestanden aus Männern, die in Diensten ihres Fürsten so einen Gefallen am Krieg gefunden hatten, dass sie einfach nicht mehr in Frieden leben konnten. Ihre Armbrustschützen waren in ganz Calradia gefragt. Eure Mutter war eine Marketenderin, weshalb auch Ihr Euch immer im Gefolge blutiger Feldzüge befunden habt." />
+    <string id="Z2xgnrDa" text="{BONUS_AMOUNT}% Sturmangriffsschaden durch berittene Angriffe für berittene Truppen in Eurer Formation." />
+    <string id="Z6Ak3H6G" text="Cirit" />
+    <string id="z6eTba5h" text="Schwerer Nasalhelm über geschnürter Stoffhaube" />
+    <string id="z7oMeRl3" text="Dicke Brigantinenweste" />
+    <string id="Z9RlnXrD" text="Pelzrock" />
+    <string id="ZAGR6PYc" text="Als in einer Gasse plötzlich ein Feuer ausbrach, suchten Eure Nachbarn händeringend nach einem Anführer, der ihnen sagte, was zu tun ist. Sie fanden ihn in Euch. Ihr organisiertet eine Eimerkette zum nächsten Brunnen und das Feuer wurde gelöscht, bevor auch nur ein einziges Haus den Flammen zum Opfer fiel." />
+    <string id="zAvb7WKe" text="Segmentscheitelkappe über wattierter Haube" />
+    <string id="zBRB0P5M" text="Geschlossener verzierter Helm mit Augenschutz" />
+    <string id="zbsajPMp" text="Voulge" />
+    <string id="ZbsGBv10" text="Schwein" />
+    <string id="zCQaPTOK" text="Söldner" />
+    <string id="zEoHYEUS" text="Hier ein wenig warten" />
+    <string id="ZeU1fvdz" text="Kartätschenstapel" />
+    <string id="zfCoeglY" text="Musiker" />
+    <string id="ZFETxZKP" text="Kefije mit Seidenband" />
+    <string id="ZFlIT1tH" text="Ganimynos" />
+    <string id="zfUhnG7y" text="Themestios" />
+    <string id="ZFwKlHIJ" text="Waldlangbogen" />
+    <string id="zGXZJFOb" text="Lamellenrüstung mit Schuppenrock" />
+    <string id="zInIqBD0" text="Arenicos" />
+    <string id="ZkaaXxeB" text="Isvan" />
+    <string id="zLdXCpne" text="Marktplatz" />
+    <string id="Zm4a2xsf" text="Salusios" />
+    <string id="zMMqgxb1" text="Typ" />
+    <string id="ZmQx4gT3" text="Olichor" />
+    <string id="zpqP5LsC" text="Ich breche sofort auf." />
+    <string id="ZqTFQeai" text="Ledertunika" />
+    <string id="zQv3w264" text="Wattierte Teilhaube" />
+    <string id="ZRDoABz9" text="Pelzbesetzter Schweifhelm" />
+    <string id="zrpqSWSh" text="Freibauern" />
+    <string id="zsC2t5Hb" text="seid bei der Hird in die Lehre gegangen." />
+    <string id="ZV1bKLUn" text="Eisenhelm mit Leder" />
+    <string id="Zwb65ufG" text="Ton{@Plural}Ladungen Ton{\@}" />
+    <string id="zWoj91XY" text="BaghChal" />
+    <string id="Zx4h7jDy" text="Dummy Min Armor" />
+    <string id="zxMOqlhs" text="Angreifen" />
+    <string id="zxZH2WbD" text="Zimena" />
+    <string id="zZ2G7uIO" text="Eisenhelm über Kettenhaube" />
+  </strings>
+</base>

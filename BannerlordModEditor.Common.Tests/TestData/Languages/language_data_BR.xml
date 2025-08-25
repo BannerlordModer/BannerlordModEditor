@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData id="Português (BR)" name="Português (BR)" subtitle_extension="pt" supported_iso="pt,por,pt-pt,pt-br" under_development="false">
+  <LanguageFile xml_path="BR/por_br_functions.xml" />
+  <LanguageFile xml_path="BR/std_common_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_crafting_pieces_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_Diamond_AccessProvider_GDK-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_Diamond_AccessProvider_GOG-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_Diamond_AccessProvider_PS-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_Diamond_AccessProvider_Steam-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_PlatformService_Epic-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_PlatformService_GDK-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_PlatformService_PS-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_global_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_item_modifiers_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_module_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_mpbadges_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_mpcharacters_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_mpclassdivisions_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_mpitems_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_multiplayer_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_native_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_photo_mode_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_siegeengines_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_Core-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_MountAndBlade-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_MountAndBlade_GauntletUI-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_MountAndBlade_View-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_MountAndBlade_ViewModelCollection-por-BR.xml" />
+</LanguageData>

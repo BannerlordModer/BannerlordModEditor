@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Linq;
 using BannerlordModEditor.Common.Models;
 using BannerlordModEditor.Common.Models.DO;
+using BannerlordModEditor.Common.Models.DO.Language;
 
 namespace BannerlordModEditor.Common.Tests
 {
