@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.DTO
 {
+    [XmlRoot("base")]
     public class MapIconsDTO
     {
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
+        [XmlElement("map_icons")]
         public MapIconsContainerDTO MapIconsContainer { get; set; } = new MapIconsContainerDTO();
 
         // ShouldSerialize方法（对应DO层）
@@ -18,6 +22,7 @@ namespace BannerlordModEditor.Common.Models.DTO
 
     public class MapIconsContainerDTO
     {
+        [XmlElement("map_icon")]
         public List<MapIconDTO> MapIconList { get; set; } = new List<MapIconDTO>();
 
         // ShouldSerialize方法
