@@ -2,6 +2,7 @@ using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
 using BannerlordModEditor.Cli.Services;
+using BannerlordModEditor.Cli.Exceptions;
 
 namespace BannerlordModEditor.Cli.Commands
 {
@@ -33,14 +34,14 @@ namespace BannerlordModEditor.Cli.Commands
                 if (!File.Exists(InputFile))
                 {
                     console.Error.WriteLine($"错误：文件不存在 - {InputFile}");
-                    return;
+                    throw new CommandException($"文件不存在: {InputFile}", 1);
                 }
 
                 var fileExt = Path.GetExtension(InputFile).ToLowerInvariant();
                 if (fileExt != ".xml")
                 {
                     console.Error.WriteLine($"错误：不支持的文件格式 - {fileExt}，仅支持 .xml 文件");
-                    return;
+                    throw new CommandException($"不支持的文件格式: {fileExt}，仅支持 .xml 文件", 2);
                 }
 
                 if (Verbose)
@@ -68,6 +69,8 @@ namespace BannerlordModEditor.Cli.Commands
                     {
                         console.Output.WriteLine("请检查 XML 文件格式或手动指定模型类型");
                     }
+                    
+                    throw new CommandException("无法识别 XML 格式", 3);
                 }
             }
             catch (Exception ex)

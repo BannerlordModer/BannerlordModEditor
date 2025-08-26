@@ -29,7 +29,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告" || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行单元测试
       run: |
@@ -39,7 +39,7 @@ jobs:
           --verbosity normal \
           --collect:"XPlat Code Coverage" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=unit_tests.trx" || echo "测试完成，带有失败"
+          --logger "trx;LogFileName=unit_tests.trx"
           
     - name: 上传测试结果
       uses: actions/upload-artifact@v4
@@ -87,7 +87,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行集成测试
       run: |
@@ -97,8 +97,7 @@ jobs:
           --verbosity normal \
           --filter "Category=Integration" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=integration_tests.trx" || echo "集成测试完成，带有失败"
-          
+          --logger "trx;LogFileName=integration_tests.trx"           
     - name: 上传集成测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -126,7 +125,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行性能测试
       run: |
@@ -136,8 +135,7 @@ jobs:
           --verbosity normal \
           --filter "Category=Performance" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=performance_tests.trx" || echo "性能测试完成，带有失败"
-          
+          --logger "trx;LogFileName=performance_tests.trx"           
     - name: 上传性能测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -165,7 +163,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行错误处理测试
       run: |
@@ -175,8 +173,7 @@ jobs:
           --verbosity normal \
           --filter "Category=ErrorHandling" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=error_handling_tests.trx" || echo "错误处理测试完成，带有失败"
-          
+          --logger "trx;LogFileName=error_handling_tests.trx"           
     - name: 上传错误处理测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -204,7 +201,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行并发测试
       run: |
@@ -214,8 +211,7 @@ jobs:
           --verbosity normal \
           --filter "Category=Concurrency" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=concurrency_tests.trx" || echo "并发测试完成，带有失败"
-          
+          --logger "trx;LogFileName=concurrency_tests.trx"           
     - name: 上传并发测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -243,7 +239,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行回归测试
       run: |
@@ -253,8 +249,7 @@ jobs:
           --verbosity normal \
           --filter "Category=Regression" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=regression_tests.trx" || echo "回归测试完成，带有失败"
-          
+          --logger "trx;LogFileName=regression_tests.trx"           
     - name: 上传回归测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -282,7 +277,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行大型XML测试
       run: |
@@ -292,8 +287,7 @@ jobs:
           --verbosity normal \
           --filter "Category=LargeXml" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=large_xml_tests.trx" || echo "大型XML测试完成，带有失败"
-          
+          --logger "trx;LogFileName=large_xml_tests.trx"           
     - name: 上传大型XML测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -321,7 +315,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 运行内存测试
       run: |
@@ -331,8 +325,7 @@ jobs:
           --verbosity normal \
           --filter "Category=Memory" \
           --results-directory TestResults \
-          --logger "trx;LogFileName=memory_tests.trx" || echo "内存测试完成，带有失败"
-          
+          --logger "trx;LogFileName=memory_tests.trx"           
     - name: 上传内存测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -360,7 +353,7 @@ jobs:
       run: dotnet restore
       
     - name: 构建项目
-      run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+      run: dotnet build --configuration Release --no-restore
       
     - name: 安装Xvfb
       run: sudo apt-get update && sudo apt-get install -y xvfb
@@ -372,8 +365,7 @@ jobs:
           --no-build \
           --verbosity normal \
           --results-directory TestResults \
-          --logger "trx;LogFileName=ui_tests.trx" || echo "UI测试完成，带有失败"
-          
+          --logger "trx;LogFileName=ui_tests.trx"           
     - name: 上传UI测试结果
       uses: actions/upload-artifact@v4
       if: always()
@@ -484,11 +476,11 @@ jobs:
     - name: 运行安全扫描
       run: |
         dotnet list package --vulnerable --include-transitive
-        dotnet nuget locals all --clear || echo "NuGet 缓存清理失败，但不影响安全扫描结果"
+        dotnet nuget locals all --clear
         
     - name: 运行代码分析
       run: |
-        dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
+        dotnet build --configuration Release --no-restore
         
     - name: 生成安全报告
       shell: pwsh

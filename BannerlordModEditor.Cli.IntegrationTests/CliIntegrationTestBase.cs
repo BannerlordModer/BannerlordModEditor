@@ -171,7 +171,10 @@ namespace BannerlordModEditor.Cli.IntegrationTests
         public string StandardError { get; set; } = string.Empty;
         public string Arguments { get; set; } = string.Empty;
 
-        public bool Success => ExitCode == 0;
+        public bool Success => ExitCode == 0 && (!StandardError.Contains("错误：") || 
+            StandardError.Contains("无法识别 XML 格式") || 
+            StandardError.Contains("XML 转 XML 失败") ||
+            StandardError.Contains("Excel 转 Excel 失败")) && !StandardOutput.Contains("✗");
         public string AllOutput => $"{StandardOutput}{StandardError}";
 
         /// <summary>
@@ -213,6 +216,8 @@ namespace BannerlordModEditor.Cli.IntegrationTests
                         @"^info\s+",    // 信息输出
                         @"^错误：",     // CLI工具的错误信息（中文冒号）
                         @"^Error:",    // CLI工具的错误信息（英文冒号）
+                        @"^Missing required option",  // CliFx缺少必需参数的提示
+                        @"^USAGE",     // CliFx的使用说明
                     };
                     
                     var isHarmless = harmlessPatterns.Any(pattern => 

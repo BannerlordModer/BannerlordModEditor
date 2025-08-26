@@ -39,7 +39,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task ExcelToXmlConversion_Success()
         {
             // Given - 准备测试数据
-            string excelFilePath = null;
+            string excelFilePath = string.Empty;
             string xmlFilePath = null;
             
             try
@@ -96,7 +96,7 @@ jump_force,1.5,跳跃力倍率");
         public async Task XmlToExcelConversion_Success()
         {
             // Given - 准备测试数据
-            string xmlFilePath = null;
+            string xmlFilePath = string.Empty;
             string excelFilePath = null;
             
             try
@@ -177,7 +177,7 @@ jump_force,1.5,跳跃力倍率");
         public async Task LargeFileConversion_Performance()
         {
             // Given - 准备大型测试数据
-            string excelFilePath = null;
+            string excelFilePath = string.Empty;
             string xmlFilePath = null;
             
             try
@@ -247,7 +247,7 @@ jump_force,1.5,跳跃力倍率");
         public async Task SpecialCharacterConversion_Integrity()
         {
             // Given - 准备包含特殊字符的测试数据
-            string excelFilePath = null;
+            string excelFilePath = string.Empty;
             string xmlFilePath = null;
             
             try
@@ -306,7 +306,7 @@ jump_force,1.5,跳跃力倍率");
         public async Task RoundTripConversion_DataIntegrity()
         {
             // Given - 准备原始数据
-            string originalExcelPath = null;
+            string originalExcelPath = string.Empty;
             string intermediateXmlPath = null;
             string finalExcelPath = null;
             

@@ -46,7 +46,7 @@ namespace BannerlordModEditor.Cli.Commands
                 if (!File.Exists(InputFile))
                 {
                     console.Error.WriteLine($"错误：输入文件不存在 - {InputFile}");
-                    return;
+                    throw new CommandException($"输入文件不存在: {InputFile}", 1);
                 }
 
                 var inputExt = Path.GetExtension(InputFile).ToLowerInvariant();
@@ -56,20 +56,20 @@ namespace BannerlordModEditor.Cli.Commands
                 if (inputExt != ".xlsx" && inputExt != ".xml")
                 {
                     console.Error.WriteLine($"错误：不支持的输入文件格式 - {inputExt}");
-                    return;
+                    throw new CommandException($"不支持的输入文件格式: {inputExt}", 2);
                 }
 
                 if (outputExt != ".xlsx" && outputExt != ".xml")
                 {
                     console.Error.WriteLine($"错误：不支持的输出文件格式 - {outputExt}");
-                    return;
+                    throw new CommandException($"不支持的输出文件格式: {outputExt}", 3);
                 }
 
                 // 验证转换方向
                 if (inputExt == outputExt)
                 {
                     console.Error.WriteLine("错误：输入和输出文件格式相同");
-                    return;
+                    throw new CommandException("输入和输出文件格式相同", 4);
                 }
 
                 if (Verbose)
@@ -89,18 +89,26 @@ namespace BannerlordModEditor.Cli.Commands
                     if (string.IsNullOrEmpty(ModelType))
                     {
                         console.Error.WriteLine("错误：Excel 转 XML 需要指定模型类型");
-                        return;
+                        throw new CommandException("Excel 转 XML 需要指定模型类型", 5);
                     }
 
                     if (ValidateOnly)
                     {
                         success = await _converterService.ValidateExcelFormatAsync(InputFile, ModelType, WorksheetName);
                         console.Output.WriteLine(success ? "✓ Excel 格式验证通过" : "✗ Excel 格式验证失败");
+                        if (!success)
+                        {
+                            throw new CommandException("Excel 格式验证失败", 7);
+                        }
                     }
                     else
                     {
                         success = await _converterService.ConvertExcelToXmlAsync(InputFile, OutputFile, ModelType, WorksheetName);
                         console.Output.WriteLine(success ? "✓ Excel 转 XML 转换成功" : "✗ Excel 转 XML 转换失败");
+                        if (!success)
+                        {
+                            throw new CommandException("Excel 转 XML 转换失败", 8);
+                        }
                     }
                 }
                 else
@@ -113,7 +121,7 @@ namespace BannerlordModEditor.Cli.Commands
                         if (string.IsNullOrEmpty(ModelType))
                         {
                             console.Error.WriteLine("错误：无法识别 XML 格式，请手动指定模型类型");
-                            return;
+                            throw new CommandException("无法识别 XML 格式，请手动指定模型类型", 6);
                         }
 
                         if (Verbose)
@@ -131,6 +139,10 @@ namespace BannerlordModEditor.Cli.Commands
                     {
                         success = await _converterService.ConvertXmlToExcelAsync(InputFile, OutputFile, WorksheetName);
                         console.Output.WriteLine(success ? "✓ XML 转 Excel 转换成功" : "✗ XML 转 Excel 转换失败");
+                        if (!success)
+                        {
+                            throw new CommandException("XML 转 Excel 转换失败", 9);
+                        }
                     }
                 }
 

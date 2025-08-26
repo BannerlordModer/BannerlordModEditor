@@ -2,6 +2,7 @@ using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
 using BannerlordModEditor.Cli.Services;
+using BannerlordModEditor.Cli.Exceptions;
 using System.Reflection;
 
 namespace BannerlordModEditor.Cli.Commands
@@ -100,11 +101,13 @@ namespace BannerlordModEditor.Cli.Commands
                 else
                 {
                     console.Error.WriteLine("错误：无法加载模型类型");
+                    throw new CommandException("无法加载模型类型", 1);
                 }
             }
             catch (Exception ex)
             {
                 console.Error.WriteLine($"错误：{ex.Message}");
+                throw new CommandException($"列出模型类型时发生错误: {ex.Message}", ex, 2);
             }
 
             return ValueTask.CompletedTask;

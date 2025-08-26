@@ -83,7 +83,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
             result.ShouldSucceed();
             result.ShouldContain("✓ 识别成功");
             var modelType = result.GetRecognizedModelType();
-            modelType.Should().Be("combat_parameters", "应该正确识别combat_parameters.xml");
+            modelType.Should().Be("CombatParametersDO", "应该正确识别combat_parameters.xml");
         }
 
         [Fact]
@@ -153,14 +153,17 @@ namespace BannerlordModEditor.Cli.IntegrationTests
         }
 
         [Fact]
-        public async Task ConvertCommand_WithMissingRequiredParameters_ShouldShowError()
+        public async Task ConvertCommand_WithMissingRequiredParameters_ShouldShowHelp()
         {
             // Act
             var result = await ExecuteCliCommandAsync("convert");
 
             // Assert
-            result.ShouldFailWithError("错误");
-            result.ShouldContain("缺少必需的参数");
+            result.ShouldSucceed();
+            result.ShouldContain("USAGE");
+            result.ShouldContain("Missing required option(s)");
+            result.ShouldContain("--input");
+            result.ShouldContain("--output");
         }
 
         [Fact]

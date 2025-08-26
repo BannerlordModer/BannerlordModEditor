@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base>
+    <skills>
+        <skill id="one_handed" name="One-Handed" description="Proficiency with one-handed weapons" attribute="agility" difficulty="1">
+            <effects>
+                <effect type="damage" value="0.35" />
+                <effect type="speed" value="0.25" />
+            </effects>
+        </skill>
+        <skill id="two_handed" name="Two-Handed" description="Proficiency with two-handed weapons" attribute="strength" difficulty="1">
+            <effects>
+                <effect type="damage" value="0.40" />
+                <effect type="speed" value="0.20" />
+            </effects>
+        </skill>
+        <skill id="polearm" name="Polearm" description="Proficiency with polearms" attribute="strength" difficulty="2">
+            <effects>
+                <effect type="damage" value="0.45" />
+                <effect type="reach" value="0.30" />
+            </effects>
+        </skill>
+    </skills>
+</base>

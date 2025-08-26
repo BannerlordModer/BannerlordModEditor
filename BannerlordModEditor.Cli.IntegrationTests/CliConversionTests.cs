@@ -222,7 +222,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
 
                 // Assert
                 result.ShouldFailWithError("错误");
-                result.ShouldContain("不支持的模型类型");
+                result.ShouldContain("不支持的DO模型类型");
             }
             finally
             {
@@ -311,7 +311,7 @@ print('Excel file created successfully')
                 CreateNoWindow = true
             };
 
-            using var process = System.Diagnostics.Process.Start(processStartInfo);
+            using var process = System.Diagnostics.Process.Start(processStartInfo) ?? throw new InvalidOperationException("Failed to start process");
             await process.WaitForExitAsync();
         }
     }
