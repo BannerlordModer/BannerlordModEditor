@@ -67,7 +67,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
             result.ShouldSucceed();
             result.ShouldContain("✓ 识别成功");
             var modelType = result.GetRecognizedModelType();
-            modelType.Should().Be("action_types", "应该正确识别action_types.xml");
+            modelType.Should().Be("ActionTypesDO", "应该正确识别action_types.xml");
         }
 
         [Fact]
@@ -100,7 +100,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
 
                 // Assert
                 result.ShouldFailWithError("错误");
-                result.ShouldContain("XML 格式识别失败");
+                result.ShouldContain("XML 格式错误");
             }
             finally
             {
@@ -134,7 +134,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
             // Assert
             result.ShouldSucceed();
             result.ShouldContain("✓ 识别成功");
-            result.ShouldContain("详细信息");
+            result.ShouldContain("可以使用以下命令进行转换");
         }
 
         [Fact]

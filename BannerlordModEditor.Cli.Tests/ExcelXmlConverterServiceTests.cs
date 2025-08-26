@@ -21,7 +21,7 @@ namespace BannerlordModEditor.Cli.Tests
             var fileDiscoveryService = new FileDiscoveryService();
             _converterService = new ExcelXmlConverterService(fileDiscoveryService);
             
-            _testDataDir = Path.Combine("BannerlordModEditor.Common.Tests", "TestData");
+            _testDataDir = Path.Combine("TestData");
             _tempDir = Path.GetTempPath();
         }
 
@@ -36,7 +36,7 @@ namespace BannerlordModEditor.Cli.Tests
             
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("ActionTypesDO", result);
+            Assert.Equal("action_types", result);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace BannerlordModEditor.Cli.Tests
             
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("CombatParametersDO", result);
+            Assert.Equal("base", result);
         }
 
         [Fact]

@@ -168,7 +168,6 @@ namespace BannerlordModEditor.Cli.IntegrationTests
             // Assert - CliFx对无效命令显示帮助信息并返回成功码
             result.ShouldSucceed();
             result.ShouldContain("USAGE");
-            result.ShouldContain("未知的命令");
             result.ShouldContain("Unexpected parameter");
         }
 

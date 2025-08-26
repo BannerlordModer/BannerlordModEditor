@@ -21,7 +21,7 @@ namespace BannerlordModEditor.Cli.Tests
         {
             _fileDiscoveryService = new FileDiscoveryService();
             _converterService = new EnhancedExcelXmlConverterService(_fileDiscoveryService);
-            _testDataPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "BannerlordModEditor.Common.Tests", "TestData");
+            _testDataPath = Path.Combine("TestData");
         }
 
         [Fact]

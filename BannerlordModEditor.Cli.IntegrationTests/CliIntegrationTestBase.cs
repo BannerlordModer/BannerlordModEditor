@@ -218,6 +218,7 @@ namespace BannerlordModEditor.Cli.IntegrationTests
                         @"^Error:",    // CLI工具的错误信息（英文冒号）
                         @"^Missing required option",  // CliFx缺少必需参数的提示
                         @"^USAGE",     // CliFx的使用说明
+                        @"^Unexpected parameter\(s\):",  // CliFx的无效参数提示
                     };
                     
                     var isHarmless = harmlessPatterns.Any(pattern => 

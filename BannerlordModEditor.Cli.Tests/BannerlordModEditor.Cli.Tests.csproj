@@ -20,6 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\BannerlordModEditor.Common.Tests\TestData\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>TestData\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
