@@ -82,7 +82,7 @@ namespace BannerlordModEditor.Cli.Tests
             await CreateTestActionTypesExcel(excelFile);
 
             // Act
-            var result = await _converterService.ConvertExcelToXmlAsync(excelFile, xmlFile, "ActionTypesDO");
+            var result = await _converterService.ConvertExcelToXmlAsync(excelFile, xmlFile, "action_types");
 
             // Assert
             Assert.True(result);
@@ -106,7 +106,7 @@ namespace BannerlordModEditor.Cli.Tests
             await CreateTestActionTypesExcel(excelFile);
 
             // Act
-            var result = await _converterService.ValidateExcelFormatAsync(excelFile, "ActionTypesDO");
+            var result = await _converterService.ValidateExcelFormatAsync(excelFile, "action_types");
 
             // Assert
             Assert.True(result);
@@ -168,7 +168,7 @@ namespace BannerlordModEditor.Cli.Tests
             Assert.True(xmlToExcelResult);
 
             // Excel -> XML
-            var excelToXmlResult = await _converterService.ConvertExcelToXmlAsync(intermediateExcel, finalXml, "ActionTypesDO");
+            var excelToXmlResult = await _converterService.ConvertExcelToXmlAsync(intermediateExcel, finalXml, "action_types");
             Assert.True(excelToXmlResult);
 
             // Assert

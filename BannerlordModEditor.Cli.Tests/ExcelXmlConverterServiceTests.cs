@@ -72,8 +72,9 @@ namespace BannerlordModEditor.Cli.Tests
             var nonexistentPath = Path.Combine(_tempDir, "nonexistent.xml");
             
             // Act & Assert
-            await Assert.ThrowsAsync<FileNotFoundException>(() => 
+            var exception = await Assert.ThrowsAsync<XmlFormatException>(() => 
                 _converterService.RecognizeXmlFormatAsync(nonexistentPath));
+            Assert.IsType<FileNotFoundException>(exception.InnerException);
         }
 
         [Fact]
@@ -141,8 +142,9 @@ namespace BannerlordModEditor.Cli.Tests
             var excelFilePath = Path.Combine(_tempDir, "test_output.xlsx");
             
             // Act & Assert
-            await Assert.ThrowsAsync<FileNotFoundException>(() => 
+            var exception = await Assert.ThrowsAsync<ConversionException>(() => 
                 _converterService.ConvertXmlToExcelAsync(nonexistentXmlPath, excelFilePath));
+            Assert.IsType<FileNotFoundException>(exception.InnerException);
         }
 
         [Fact]
@@ -155,7 +157,7 @@ namespace BannerlordModEditor.Cli.Tests
             try
             {
                 // Act
-                var result = await _converterService.ConvertExcelToXmlAsync(excelFilePath, xmlFilePath, "ActionTypesDO");
+                var result = await _converterService.ConvertExcelToXmlAsync(excelFilePath, xmlFilePath, "action_types");
                 
                 // Assert
                 Assert.True(result);
@@ -197,8 +199,9 @@ namespace BannerlordModEditor.Cli.Tests
             try
             {
                 // Act & Assert
-                await Assert.ThrowsAsync<ArgumentException>(() => 
+                var exception = await Assert.ThrowsAsync<ConversionException>(() => 
                     _converterService.ConvertExcelToXmlAsync(excelFilePath, xmlFilePath, "InvalidModelType"));
+                Assert.IsType<ArgumentException>(exception.InnerException);
             }
             finally
             {
@@ -218,8 +221,9 @@ namespace BannerlordModEditor.Cli.Tests
             var xmlFilePath = Path.Combine(_tempDir, "test_output.xml");
             
             // Act & Assert
-            await Assert.ThrowsAsync<FileNotFoundException>(() => 
-                _converterService.ConvertExcelToXmlAsync(nonexistentExcelPath, xmlFilePath, "ActionTypesDO"));
+            var exception = await Assert.ThrowsAsync<ConversionException>(() => 
+                _converterService.ConvertExcelToXmlAsync(nonexistentExcelPath, xmlFilePath, "action_types"));
+            Assert.IsType<FileNotFoundException>(exception.InnerException);
         }
 
         [Fact]
@@ -231,7 +235,7 @@ namespace BannerlordModEditor.Cli.Tests
             try
             {
                 // Act
-                var result = await _converterService.ValidateExcelFormatAsync(excelFilePath, "ActionTypesDO");
+                var result = await _converterService.ValidateExcelFormatAsync(excelFilePath, "action_types");
                 
                 // Assert
                 Assert.True(result);
@@ -255,8 +259,9 @@ namespace BannerlordModEditor.Cli.Tests
             try
             {
                 // Act & Assert
-                await Assert.ThrowsAsync<ArgumentException>(() => 
+                var exception = await Assert.ThrowsAsync<ExcelOperationException>(() => 
                     _converterService.ValidateExcelFormatAsync(excelFilePath, "InvalidModelType"));
+                Assert.IsType<ArgumentException>(exception.InnerException);
             }
             finally
             {
