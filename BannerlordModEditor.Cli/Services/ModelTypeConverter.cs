@@ -776,6 +776,12 @@ namespace BannerlordModEditor.Cli.Services
             if (string.IsNullOrEmpty(modelType))
                 return string.Empty;
 
+            // 如果已经是DO类型名称（以"DO"结尾），直接返回
+            if (modelType.EndsWith("DO", StringComparison.OrdinalIgnoreCase))
+            {
+                return modelType;
+            }
+
             // 已知的映射关系
             var mappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
