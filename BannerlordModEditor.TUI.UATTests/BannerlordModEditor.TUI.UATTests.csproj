@@ -17,8 +17,9 @@
 
   <ItemGroup>
     <!-- xUnit测试框架 -->
+    <PackageReference Include="System.IO.Packaging" Version="8.0.1" />
     <PackageReference Include="xunit" Version="2.9.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -29,15 +30,15 @@
     <PackageReference Include="Moq" Version="4.20.70" />
     
     <!-- 测试工具 -->
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
-    <PackageReference Include="coverlet.collector" Version="6.0.2">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     
     <!-- 文件和系统操作 -->
-    <PackageReference Include="System.IO.Abstractions" Version="21.1.4" />
-    <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="21.1.4" />
+    <PackageReference Include="System.IO.Abstractions" Version="21.1.7" />
+    <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="21.1.7" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="skin">
+  <skins>
+    <skin id="human_male_adult" name="Human Male Adult" race="human" gender="male" age="adult">
+      <skeleton name="human_male" scale="1.0" />
+      <hair_meshes>
+        <hair_mesh id="hair_male_01" name="Short Hair" mesh="hair_male_short" material="hair_brown" hair_cover_type="partial" body_name="male_head" />
+        <hair_mesh id="hair_male_02" name="Long Hair" mesh="hair_male_long" material="hair_black" hair_cover_type="full" body_name="male_head" />
+        <hair_mesh id="hair_male_03" name="Curly Hair" mesh="hair_male_curly" material="hair_blonde" hair_cover_type="partial" body_name="male_head" />
+      </hair_meshes>
+      <beard_meshes>
+        <beard_mesh id="beard_01" name="Full Beard" mesh="beard_full" material="beard_brown" body_name="male_head" />
+        <beard_mesh id="beard_02" name="Mustache" mesh="beard_mustache" material="beard_black" body_name="male_head" />
+        <beard_mesh id="beard_03" name="Goatee" mesh="beard_goatee" material="beard_gray" body_name="male_head" />
+      </beard_meshes>
+      <voice_types>
+        <voice id="voice_male_01" name="Deep Voice" sound_prefix="male_deep" pitch="0.9" />
+        <voice id="voice_male_02" name="Normal Voice" sound_prefix="male_normal" pitch="1.0" />
+        <voice id="voice_male_03" name="High Voice" sound_prefix="male_high" pitch="1.1" />
+      </voice_types>
+      <face_textures>
+        <face_texture id="face_01" name="Fair Skin" texture="face_fair" normal_map="face_fair_normal" specular_map="face_fair_spec" />
+        <face_texture id="face_02" name="Tan Skin" texture="face_tan" normal_map="face_tan_normal" specular_map="face_tan_spec" />
+        <face_texture id="face_03" name="Dark Skin" texture="face_dark" normal_map="face_dark_normal" specular_map="face_dark_spec" />
+      </face_textures>
+      <body_meshes>
+        <body_mesh id="body_male_01" name="Athletic Body" mesh="body_male_athletic" material="skin_male" body_part="torso" weight="1.0" build="1.2" />
+        <body_mesh id="body_male_02" name="Slim Body" mesh="body_male_slim" material="skin_male" body_part="torso" weight="0.8" build="0.9" />
+        <body_mesh id="body_male_03" name="Heavy Body" mesh="body_male_heavy" material="skin_male" body_part="torso" weight="1.3" build="1.1" />
+      </body_meshes>
+      <tattoo_materials>
+        <tattoo_material id="tattoo_01" name="Tribal Pattern" texture="tattoo_tribal" color_mask="tattoo_tribal_mask" alpha_texture="tattoo_tribal_alpha" />
+        <tattoo_material id="tattoo_02" name="Dragon Design" texture="tattoo_dragon" color_mask="tattoo_dragon_mask" alpha_texture="tattoo_dragon_alpha" />
+      </tattoo_materials>
+    </skin>
+    
+    <skin id="human_female_adult" name="Human Female Adult" race="human" gender="female" age="adult">
+      <skeleton name="human_female" scale="0.95" />
+      <hair_meshes>
+        <hair_mesh id="hair_female_01" name="Long Straight" mesh="hair_female_long_straight" material="hair_brown" hair_cover_type="full" body_name="female_head" />
+        <hair_mesh id="hair_female_02" name="Short Bob" mesh="hair_female_bob" material="hair_blonde" hair_cover_type="partial" body_name="female_head" />
+        <hair_mesh id="hair_female_03" name="Braided" mesh="hair_female_braided" material="hair_red" hair_cover_type="full" body_name="female_head" />
+      </hair_meshes>
+      <voice_types>
+        <voice id="voice_female_01" name="Soft Voice" sound_prefix="female_soft" pitch="1.2" />
+        <voice id="voice_female_02" name="Strong Voice" sound_prefix="female_strong" pitch="1.1" />
+        <voice id="voice_female_03" name="High Voice" sound_prefix="female_high" pitch="1.3" />
+      </voice_types>
+      <face_textures>
+        <face_texture id="face_female_01" name="Fair Skin" texture="face_female_fair" normal_map="face_female_fair_normal" specular_map="face_female_fair_spec" />
+        <face_texture id="face_female_02" name="Olive Skin" texture="face_female_olive" normal_map="face_female_olive_normal" specular_map="face_female_olive_spec" />
+      </face_textures>
+      <body_meshes>
+        <body_mesh id="body_female_01" name="Slim Body" mesh="body_female_slim" material="skin_female" body_part="torso" weight="0.9" build="1.0" />
+        <body_mesh id="body_female_02" name="Athletic Body" mesh="body_female_athletic" material="skin_female" body_part="torso" weight="1.0" build="1.1" />
+      </body_meshes>
+      <tattoo_materials>
+        <tattoo_material id="tattoo_female_01" name="Flower Pattern" texture="tattoo_flower" color_mask="tattoo_flower_mask" alpha_texture="tattoo_flower_alpha" />
+      </tattoo_materials>
+    </skin>
+  </skins>
+</base> 

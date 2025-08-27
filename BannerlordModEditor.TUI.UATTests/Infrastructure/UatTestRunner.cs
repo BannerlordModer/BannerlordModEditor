@@ -192,9 +192,9 @@ namespace BannerlordModEditor.TUI.UATTests.Infrastructure
     /// </summary>
     public class TestExecutionResult
     {
-        public string TestName { get; set; }
+        public string TestName { get; set; } = string.Empty;
         public bool Passed { get; set; }
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
         public TimeSpan? Duration { get; set; }
         public DateTime Timestamp { get; set; }
     }
@@ -233,7 +233,7 @@ namespace BannerlordModEditor.TUI.UATTests.Infrastructure
             finally
             {
                 stopwatch.Stop();
-                TestRunner.RecordTestResult(testName, passed, errorMessage, stopwatch.Elapsed);
+                TestRunner.RecordTestResult(testName, passed, errorMessage ?? string.Empty, stopwatch.Elapsed);
             }
         }
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<particle_systems>
+	<particle_system name="simple_effect" version="1">
+		<emitter>
+			<flags>
+				<flag name="emit_while_moving" value="false" />
+				<flag name="continuous" value="true" />
+			</flags>
+			<properties>
+				<property name="particle_count" value="100" />
+				<property name="emission_rate" value="10.0" />
+				<property name="life" value="2.0" />
+			</properties>
+		</emitter>
+	</particle_system>
+	<particle_system name="complex_effect" version="2">
+		<emitter>
+			<flags>
+				<flag name="emit_while_moving" value="true" />
+				<flag name="loop" value="true" />
+			</flags>
+			<properties>
+				<property name="particle_count" value="200" />
+				<property name="emission_rate" value="20.0" />
+				<property name="life" value="3.5" />
+				<property name="gravity" value="9.8" />
+			</properties>
+		</emitter>
+	</particle_system>
+</particle_systems>

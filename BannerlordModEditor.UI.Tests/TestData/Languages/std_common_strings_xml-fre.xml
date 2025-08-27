@@ -1,0 +1,1223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Français" />
+  </tags>
+  <strings>
+    <string id="028iCb8B" text="Jythéa" />
+    <string id="02c5bQSM" text="Jeter" />
+    <string id="09gOOa0h" text="Soldat" />
+    <string id="09z8Q08f" text="Vos parents étaient de petits fermiers, avec juste assez de terres pour se nourrir et faire quelques profits. Les gens comme eux étaient les piliers de l&apos;économie rurale impériale, ainsi que la base des levées." />
+    <string id="0a6Vz7wi" text="{.M}{.S}Tabard en cuir{@PLURAL}{.M}{.P}Tabards en cuir{\@}" />
+    <string id="0B27RrYJ" text="{.F}{.S}Battania" />
+    <string id="0CQgia2a" text="Culharn" />
+    <string id="0e17RZrZ" text="{.F}{.S}Arbalète militaire{@PLURAL}{.F}{.P}Arbalètes militaires{\@}" />
+    <string id="0oGz5rVx" text="Honneur" />
+    <string id="0rBsbw1T" text="Aucun effet" />
+    <string id="0SpLcthg" text="{.M}{.S}Gourdin à pointes des hautes terres{@PLURAL}{.M}{.P}Gourdins à pointes des hautes terres{\@}" />
+    <string id="0SsLGsXk" text="{.F}{.S}Robe longue matelassée{@PLURAL}{.F}{.P}Robes longues matelassées{\@}" />
+    <string id="0Suu1Q9q" text="Votre père était bailli pour le compte d&apos;un magnat féodal. Il veillait sur les propriétés de son seigneur, résolvait les conflits dans le village et aidait à l&apos;entraînement des conscrits. Il chevauchait avec la cavalerie du seigneur et combattait comme chevalier en armure." />
+    <string id="0XEaaoah" text="Rosazia" />
+    <string id="11KckWau" text="Mitara" />
+    <string id="18NtjryL" text="Pas encore, mais bientôt." />
+    <string id="1bdDdwub" text="{.M}{.S}Casque nasal sur cotte de mailles{@PLURAL}{.M}{.P}Casques nasaux sur cotte de mailles{\@}" />
+    <string id="1Bm1Wk1v" text="{.F}{.S}Infanterie" />
+    <string id="1BXuUR3s" text="{.M}{.S}Gambison long de soldat d&apos;infanterie{@PLURAL}{.M}{.P}Gambisons longs de soldat d&apos;infanterie{\@}" />
+    <string id="1cKxsHSh" text="Penton" />
+    <string id="1CPdu9K0" text="{.F}{.S}Pierre" />
+    <string id="1cYka5tR" text="{.M}{.S}Manteau de fourrure sans manches{@PLURAL}{.M}{.P}Manteaux de fourrure sans manches{\@}" />
+    <string id="1EkEElZd" text="Les troupes urbaines passent la majeure partie de leur temps à protéger les murs de la ville. Leur entraînement principal s&apos;est fait avec des armes." />
+    <string id="1GpTOIqU" text="{.M}{.S}Chapel de fer sur coiffe matelassée{@PLURAL}{.M}{.P}Chapels de fer sur coiffe matelassée{\@}" />
+    <string id="1IEroJKs" text="Tous ceux qui se font recruter lors des levées ne partent pas en guerre, et tous ceux qui partent en campagne ne participent pas forcément à l&apos;action. Mais vous avez fait les deux, et avez également tué un guerrier ennemi en combat singulier, devant tous vos camarades." />
+    <string id="1JlzQIXE" text="Désactivé" />
+    <string id="1jqxlEkT" text="Épices{@Plural}sacs d&apos;épices{\@}" />
+    <string id="1jX7yxSW" text="{.F}{.S}Chemise de mailles de housecarl{@PLURAL}{.F}{.P}Chemises de mailles de housecarl{\@}" />
+    <string id="1r0tDsrR" text="À l&apos;attaque !" />
+    <string id="1sbJQR4H" text="{.M}{.P}Pillards" />
+    <string id="1SUTcF0J" text="Les chefs de bande qui géraient les bas-quartiers des villes calradiennes étaient toujours à la recherche de jeunes démunis capables de livrer des messages et de les épauler dans les affrontements, tandis que les fils et filles de marchands en manque de frissons restaient parfois en leur compagnie." />
+    <string id="1zFYpSSY" text="{.M}{.S}Bonnet d&apos;acier décoré à franges avec oreillons{@PLURAL}{.M}{.P}Bonnets d&apos;acier décorés à franges avec oreillons{\@}" />
+    <string id="1zXrlaav" text="Vos parents étaient des marchands respectés dans une oasis. Ils menaient des caravanes dans le désert et étaient des experts dans l&apos;art de la négociation, notamment pour les droits de passage dans les territoires des différentes tribus." />
+    <string id="20moIxs1" text="{.M}{.S}Chapel de fer sur coiffe lacée{@PLURAL}{.M}{.P}Chapels de fer sur coiffe lacée{\@}" />
+    <string id="22a9fyiQ" text="Père" />
+    <string id="275LD0Gh" text="Employé" />
+    <string id="2AcfBbCR" text="{.F}{.S}Tunique militaire{@PLURAL}{.F}{.P}Tuniques militaires{\@}" />
+    <string id="2awf1tei" text="Taxer" />
+    <string id="2Bh8DS8S" text="Siga" />
+    <string id="2cSOn9qb" text="{.M}{.S}Gambison sur armure à cotte de mailles{@PLURAL}{.M}{.P}Gambisons sur armure à cotte de mailles{\@}" />
+    <string id="2fYYfHUI" text="Martira" />
+    <string id="2I2uKJlw" text="Pitié" />
+    <string id="2iDtlgM0" text="{.M}{.S}Casque de seigneur de guerre fermé{@PLURAL}{.M}{.P}Casques de seigneur de guerre fermés{\@}" />
+    <string id="2m1kWsao" text="{.M}{.S}Casque en cuir clouté sur peau fine{@PLURAL}{.M}{.P}Casques en cuir cloutés sur peau fine{\@}" />
+    <string id="2MdVVkVL" text="{.M}{.S}Chapel de fer sur coiffe matelassée{@PLURAL}{.M}{.P}Chapels de fer sur coiffe matelassée{\@}" />
+    <string id="2N0ZP2GB" text="{.M}{.S}Casque avec turban et coiffe{@PLURAL}{.M}{.P}Casques avec turban et coiffe{\@}" />
+    <string id="2OJEyP0d" text="Dasys" />
+    <string id="2OqAomZy" text="Oragur" />
+    <string id="2oy7atk6" text="Lundana" />
+    <string id="2qisE5ys" text="{.M}{.S}Chapel de fer sur bonnet matelassé{@PLURAL}{.M}{.P}Chapels de fer sur bonnet matelassé{\@}" />
+    <string id="2SDWhGmQ" text="Vos parents faisaient partie des migrants pauvres vivant dans les bas-quartiers qui se développaient sous les murs des villes fluviales, et ils gagnaient de l&apos;argent par tous les moyens possibles et imaginables. Il leur arrivait même de rendre service aux nombreuses bandes criminelles de la région." />
+    <string id="2TptWc4m" text="Serviteurs d&apos;un baron" />
+    <string id="2XEbqNQz" text="{.M}{.P}Gantelets impériaux décorés" />
+    <string id="2YYRyrOO" text="Partez..." />
+    <string id="2ZarUUbw" text="{KILLERPLAYERNAME} a tué {KILLEDPLAYERNAME} !" />
+    <string id="2zcrC0h1" text="Jouabilité" />
+    <string id="3bqwOJ8z" text="{.M}{.S}Bonnet de fourrure retourné{@PLURAL}{.M}{.P}Bonnets de fourrure retournés{\@}" />
+    <string id="3CpNUnVl" text="Annuler" />
+    <string id="3CsACce8" text="Quitter" />
+    <string id="3DV3GoHb" text="{.F}{.S}Calotte à pointe avec cotte de mailles{@PLURAL}{.F}{.P}Calottes à pointe avec cotte de mailles{\@}" />
+    <string id="3iq3rOh8" text="{.M}{.S}Chapel de fer sur coiffe renforcée{@PLURAL}{.M}{.P}Chapels de fer sur coiffe renforcée{\@}" />
+    <string id="3lauB1HH" text="{.M}{.S}Gilet lamellaire en bronze sur gambison{@PLURAL}{.M}{.P}Gilets lamellaires en bronze sur gambison{\@}" />
+    <string id="3o6FDRsq" text="Villes capturées" />
+    <string id="3PzgpFGq" text="{.M}{.S}Neutre" />
+    <string id="3RBVn5yi" text="Zoros" />
+    <string id="3sRdGQou" text="Partir" />
+    <string id="3UxfT9Bu" text="{.M}{.S}Bonnet de cuir enveloppé{@PLURAL}{.M}{.P}Bonnets de cuir enveloppés{\@}" />
+    <string id="3VosbFR0" text="Champion vlandais" />
+    <string id="3Z91Nxbf" text="{.M}{.S}Spangenhelm avec cuir{@PLURAL}{.M}{.P}Spangenhelms avec cuir{\@}" />
+    <string id="45kZUyjh" text="Olives{@Plural}tonneaux d&apos;olives{\@}" />
+    <string id="46orXtt0" text="{.M}{.P}Vêtements des terres boisées" />
+    <string id="4AfHO0BA" text="{.F}{.S}Armure de fourrure cloutée sans manches{@PLURAL}{.F}{.P}Armures de fourrure cloutées sans manches{\@}" />
+    <string id="4B2i8oxo" text="{.M}{.S}Manteau avec ceinture inversée{@PLURAL}{.M}{.P}Manteaux avec ceinture inversée{\@}" />
+    <string id="4BfbPgkY" text="{.F}{.S}Cervelière nasale sur bonnet matelassé{@PLURAL}{.F}{.P}Cervelières nasales sur bonnet matelassé{\@}" />
+    <string id="4C4WiTb2" text="Varègue" />
+    <string id="4cHMe6H2" text="{.M}{.S}Haubert décoré{@PLURAL}{.M}{.P}Hauberts décorés{\@}" />
+    <string id="4cU98rkg" text="Fonte" />
+    <string id="4Dd2xgPm" text="Poids" />
+    <string id="4eOHPops" text="{.F}{.S}Armure d&apos;écailles solide{@PLURAL}{.F}{.P}Armures d&apos;écailles solides{\@}" />
+    <string id="4f5xwzX0" text="Lorsque votre communauté a eu besoin d&apos;organiser une battue pour poursuivre des voleurs de chevaux, vous étiez le choix idéal. Vous avez traqué les pillards, puis les avez encerclés et forcés à se rendre avant de reprendre vos montures volées." />
+    <string id="4gOGGbeQ" text="Bataille personnalisée" />
+    <string id="4HcrY0S2" text="{.M}{.P}Gants de cuir à bords en fourrure" />
+    <string id="4IuXGSdc" text="Points de vie du mur" />
+    <string id="4kvKQuXM" text="Peaux{@Plural}cargaisons de peaux{\@}" />
+    <string id="4KYF5iCd" text="{.F}{.S}Tunique de cuir à couches multiples{@PLURAL}{.F}{.P}Tuniques de cuir à couches multiples{\@}" />
+    <string id="4lEEqyCg" text="Jacorios" />
+    <string id="4MwHbMFs" text="Carfyd" />
+    <string id="4n6n3KL7" text="{.F}{.S}Coiffe du désert{@PLURAL}{.F}{.P}Coiffes du désert{\@}" />
+    <string id="4NaOKslb" text="-" />
+    <string id="4pqIsPhp" text="{.M}{.S}Manteau court matelassé{@PLURAL}{.M}{.P}Manteaux courts matelassés{\@}" />
+    <string id="4PrfimcK" text="Écusson" />
+    <string id="4wdgiTta" text="{.F}{.S}Faucille{@PLURAL}{.F}{.P}Faucilles{\@}" />
+    <string id="4WYY0X59" text="Avant que vous ne partiez à l&apos;aventure, votre plus grande prouesse fut :" />
+    <string id="4YfjgtO2" text="Donner des troupes" />
+    <string id="4YTJJaTG" text="{.M}{.S}Sabre lourd{@PLURAL}{.M}{.P}Sabres lourds{\@}" />
+    <string id="4YxbZlbi" text="{.F}{.P}Chaussures enveloppées" />
+    <string id="51EcVnzd" text="{.M}{.S}Heaume à visière sur coiffe lacée{@PLURAL}{.M}{.P}Heaumes à visière sur coiffe lacée{\@}" />
+    <string id="564PHXk3" text="{.M}{.S}Harnais de cuir orné{@PLURAL}{.M}{.P}Harnais de cuir ornés{\@}" />
+    <string id="5c4cHL9Z" text="{.F}{.S}Couronne de bataille khuzaïte{@PLURAL}{.F}{.P}Couronnes de bataille khuzaïte{\@}" />
+    <string id="5DSafcSC" text="Konane" />
+    <string id="5EiKEdi5" text="Dorion" />
+    <string id="5eTb2xr7" text="Sanion" />
+    <string id="5HXS8HEY" text="vos muscles." />
+    <string id="5k4dxUEJ" text="Troupes" />
+    <string id="5kbeAC7k" text="Sur un continent de Calradia déchiré par la guerre, surtout dans les zones frontalières ou tribales, les femmes comme les hommes apprennent à se battre dès leur plus jeune âge. Vous..." />
+    <string id="5n4rWI9T" text="{.M}{.S}Casque à pointe avec masque{@PLURAL}{.M}{.P}Casques à pointe avec masque{\@}" />
+    <string id="5nEh20ju" text="Vasylops" />
+    <string id="5P0KqBAw" text="Vos parents cultivaient la terre dans une des oasis du Nahasa et s&apos;occupaient des palmeraies qui produisaient les célèbres dattes du désert. Votre père était un fantassin de la levée principale de sa tribu, et combattait avec ses pairs sous la bannière de l&apos;émir." />
+    <string id="5QSGoRFj" text="Votre famille cultivait une petite parcelle de terre arable dans les steppes depuis des générations. Lorsque les Khuzaïtes arrivèrent, elle cessa de payer des taxes à l&apos;empereur et de fournir des hommes pour son armée, et décida de servir le khan." />
+    <string id="5rj7xQE4" text="Arc" />
+    <string id="5siAbi69" text="Mu Torere" />
+    <string id="5sMBbn7y" text="Manipulation" />
+    <string id="5tbWdY1j" text="Avatar" />
+    <string id="5Unqsx3N" text="Confirmer" />
+    <string id="5VzWRMTn" text="Artimendros" />
+    <string id="5yFy4U4i" text="Morynon" />
+    <string id="63TAYbkx" text="Les troupes urbaines passent la majeure partie de leur temps à protéger les murs de la ville. Leur entraînement principal s&apos;est fait avec des armes à projectiles, ce qui s&apos;avère très utile en période de siège." />
+    <string id="64rWqBLN" text="Vous avez évité de servir au sein des forces principales des armées de votre royaume et préféré les suivre dans l&apos;arrière-garde avec les femmes, amantes et servantes des troupes, et avec ceux qui vivent en s&apos;occupant, distrayant ou arnaquant les soldats." />
+    <string id="651FhzdR" text="Marchands urbains" />
+    <string id="6bUSbsKC" text="Votre père était un fitiwi, un homme fort qui maintenait l&apos;ordre dans les quartiers pauvres des villages des oasis. Il mettait un terme aux disputes concernant les terres, les parties de dés et les insultes, et imposait son autorité avec le bâton traditionnel du fitiwi." />
+    <string id="6bx9IhpD" text="Améliorations" />
+    <string id="6Db7aDbF" text="{.F}{.P}Flèches de baliste" />
+    <string id="6Dk7LClc" text="{.M}{.S}Turban luxueux sur casque{@PLURAL}{.M}{.P}Turbans luxueux sur casque{\@}" />
+    <string id="6fA31IxF" text="{.M}{.S}Gilet de mailles lourd{@PLURAL}{.M}{.P}Gilets de mailles lourds{\@}" />
+    <string id="6GSXsdeX" text="Vitesse" />
+    <string id="6hwZwODh" text="{.M}{.S}Glaive{@PLURAL}{.M}{.P}Glaives{\@}" />
+    <string id="6LFj919J" text="Vous avez aidé à creuser des puits, rebâtir des maisons et réparer des charrues cassées. Vous avez appris les bases de la construction ainsi que tout le nécessaire pour faire prospérer une communauté agricole." />
+    <string id="6LMiTKZz" text="Laménon" />
+    <string id="6n44BIll" text="{.F}{.S}Calotte à pointe sur coiffe lacée{@PLURAL}{.F}{.P}Calottes à pointe sur coiffe lacée{\@}" />
+    <string id="6P1ruzsC" text="Peut-être..." />
+    <string id="6pNrNj93" text="Mur" />
+    <string id="6vtmYjTW" text="Jolanna" />
+    <string id="6XxiMU52" text="{.M}{.S}Tabard de cuir sur cotte de mailles{@PLURAL}{.M}{.P}Tabards de cuir sur cotte de mailles{\@}" />
+    <string id="79ElOr2x" text="Marchand de chevaux" />
+    <string id="7AFlpaem" text="{STR1} {STR2}" />
+    <string id="7AYJ3SjK" text="Votre famille s&apos;est arrangée pour que vous suiviez un chef de votre peuple. Il ne vous a confié aucune responsabilité majeure à part porter des messages et s&apos;occuper de son cheval, mais cela vous a donné la chance de voir la préparation des campagnes et le déploiement des hommes au combat." />
+    <string id="7b8Cwogx" text="{.M}{.S}Doublet armant{@PLURAL}{.M}{.P}Doublets armant{\@}" />
+    <string id="7cHsIMLP" text="Vous n&apos;auriez jamais pu vous procurer l&apos;équipement par vous-même, mais vous étiez suffisamment {?PLAYER.GENDER}douée{?}doué{\?} à cheval pour qu&apos;un seigneur local vous prête une monture et l&apos;équipement approprié. Vous avez ensuite rejoint la cavalerie et appris à manier la lance." />
+    <string id="7D3jvAfS" text="{.M}{.S}Bonnet en peau{@PLURAL}{.M}{.P}Bonnets en peau{\@}" />
+    <string id="7dAy51ln" text="{.F}{.S}Cervelière sur coiffe renforcée{@PLURAL}{.F}{.P}Cervelières sur coiffe renforcée{\@}" />
+    <string id="7EAEIUIY" text="{.F}{.S}Broigne lourde{@PLURAL}{.F}{.P}Broignes lourdes{\@}" />
+    <string id="7eWmU2mF" text="Forestiers" />
+    <string id="7h6cXdW7" text="{?NPC.GENDER}Ingénieure{?}Ingénieur{\?}" />
+    <string id="7HbspP6x" text="{.F}{.S}Armure d&apos;écaille de légionnaire décorée{@PLURAL}{.F}{.P}Armures d&apos;écaille de légionnaire décorées{\@}" />
+    <string id="7Hv984Sf" text="sur les quais et sites de construction" />
+    <string id="7jBroUUQ" text="Votre famille n&apos;avait que peu de terres, c&apos;est pourquoi elle vivait essentiellement de la chasse et du piégeage. Vos parents vous ont appris dès votre plus jeune âge que savoir suivre une piste et tuer un animal d&apos;un seul coup pouvait faire la différence entre manger et mourir de faim." />
+    <string id="7LmUe8fQ" text="{.M}{.S}Menaulion{@PLURAL}{.M}{.P}Menaulions{\@}" />
+    <string id="7qySRF2T" text="Ping" />
+    <string id="7UkzXWTQ" text="Osarios" />
+    <string id="7Xynf4IA" text="Armure de main" />
+    <string id="888lmJqs" text="Tous les royaumes de Calradia reconnaissent la valeur d&apos;une bonne cavalerie légère et de bons archers à cheval, et n&apos;hésitent pas à recruter nomades et frontaliers ayant les compétences pour occuper ces postes. Vous étiez {?PLAYER.GENDER}bonne cavalière{?}bon cavalier{\?}, si bien que vos voisins se sont cotisés pour vous acheter un petit poney et un bon arc afin que vous puissiez remplir leurs obligations de levée." />
+    <string id="8a6dnLd2" text="avec les bandes des ruelles." />
+    <string id="8ba4tpRU" text="{.M}{.P}Jawwal" />
+    <string id="8bwpVpgy" text="vous avez vaincu un ennemi au combat." />
+    <string id="8hDoWBIa" text="{.F}{.S}Chemise de roturier{@PLURAL}{.F}{.P}Chemises de roturier{\@}" />
+    <string id="8HMyTKF6" text="{.M}{.P}Vlandais" />
+    <string id="8nNLS96w" text="{.M}{.S}Bouclier ovale renforcé{@PLURAL}{.M}{.P}Boucliers ovales renforcés{\@}" />
+    <string id="8OkPHu4f" text="Non" />
+    <string id="8SNS2wF9" text="{.M}{.S}Turban{@PLURAL}{.M}{.P}Turbans{\@}" />
+    <string id="8tHbqjmB" text="{.F}{.S}Capuche en fourrure à visière{@PLURAL}{.F}{.P}Capuches en fourrure à visière{\@}" />
+    <string id="8uBew3nD" text="{.M}{.P}Canons d&apos;avant-bras cloutés" />
+    <string id="8UBfIenN" text="Normal" />
+    <string id="8Yiwt1z6" text="Petite enfance" />
+    <string id="8ZNOgT8Z" text="{BONUS_AMOUNT} % de dégâts au corps à corps aux troupes dans votre formation." />
+    <string id="915frsPd" text="Coréna" />
+    <string id="927d3urB" text="{.M}{.S}Bouclier ovale en bois{@PLURAL}{.M}{.P}Boucliers ovales en bois{\@}" />
+    <string id="92M0Pb5T" text="{?NPC.GENDER}Éclaireuse{?}Éclaireur{\?}" />
+    <string id="9ACJsI6S" text="Bloqué" />
+    <string id="9aehD627" text="{.F}{.S}Tunique luxueuse{@PLURAL}{.F}{.P}Tuniques luxueuses{\@}" />
+    <string id="9aoQYpZs" text="Le clan de votre famille n&apos;a jamais juré fidélité au khan et a refusé de se sédentariser, préférant vivre dans les steppes loin de son autorité. Ils font partie des meilleurs pisteurs et éclaireurs des prairies. En effet, la capacité de repérer un ennemi et de fondre rapidement sur lui est parfois tout ce qui protège leurs troupeaux contre les tentatives de vol de bétail des autres clans." />
+    <string id="9BENgwRK" text="{.M}{.S}Chapel rond sur tissu lacé{@PLURAL}{.M}{.P}Chapels ronds sur tissu lacé{\@}" />
+    <string id="9cDw6vPF" text="Cadoménos" />
+    <string id="9cHyHQ7a" text="{.F}{.P}Bottes de plates lamellaires" />
+    <string id="9CnRKZOb" text="{KILLEDPLAYERNAME} a péri !" />
+    <string id="9Eyd2qGo" text="{.F}{.P}Bottes de daim renforcées" />
+    <string id="9FgxK9se" text="{.M}{.S}Grand casque{@PLURAL}{.M}{.P}Grands casques{\@}" />
+    <string id="9ks4u5cH" text="Le soigneur du village vous envoyait dans les collines à la recherche d&apos;herbes médicinales. Vous avez appris quelles plantes soignaient les blessures ou faisaient tomber la fièvre, et comment les trouver." />
+    <string id="9pgOGq7X" text="Journal" />
+    <string id="9sokmYMZ" text="Padmos" />
+    <string id="9xyXdX4I" text="Tharos" />
+    <string id="9y0zpKUF" text="Vous devez posséder cette colonie !" />
+    <string id="9ZyXl25X" text="deuxième" />
+    <string id="a1BGHdaU" text="{.M}{.P}Brassards enveloppés de garde" />
+    <string id="A1zFbFta" text="{.M}{.S}Bouclier normand plat renforcé{@PLURAL}{.M}{.P}Boucliers normands plats renforcés{\@}" />
+    <string id="a2ajWcI3" text="Viria" />
+    <string id="a3Vc59WV" text="Réduction des dégâts de corps à corps reçus" />
+    <string id="A6llHL9s" text="{.M}{.S}Arc long des plaines{@PLURAL}{.M}{.P}Arcs longs des plaines{\@}" />
+    <string id="a6qaFH7L" text="Héréna" />
+    <string id="a8arFSra" text="vous êtes {?PLAYER.GENDER}entraînée{?}entraîné{\?} avec l&apos;infanterie." />
+    <string id="A8MJWbhf" text="{.M}{.S}Heaume à visière sur jaque{@PLURAL}{.M}{.P}Heaumes à visière sur jaque{\@}" />
+    <string id="AAqB4QxB" text="Bortu" />
+    <string id="AB1mV5Pg" text="{.M}{.S}Chapel de fer sur coiffe lacée{@PLURAL}{.M}{.P}Chapels de fer sur coiffe lacée{\@}" />
+    <string id="abCBBVaU" text="Romund" />
+    <string id="AbEh2y8o" text="Sauvegarder et quitter" />
+    <string id="AccBcEIt" text="Zoana" />
+    <string id="acp2IcMs" text="Crotor" />
+    <string id="AdafHtud" text="{.M}{.S}Casque à visière sur camail{@PLURAL}{.M}{.P}Casques à visière sur camail{\@}" />
+    <string id="ADJBbfbQ" text="Fourrure{@Plural}tas de fourrure{\@}" />
+    <string id="AdK4Ilzw" text="Chalia" />
+    <string id="AeBzTj6w" text="Soigneurs" />
+    <string id="aEke8dSb" text="Vagabonds urbains" />
+    <string id="aeLgc0cU" text="Acthon" />
+    <string id="aeouhelq" text="Oui" />
+    <string id="aezwJGvY" text="Chenon" />
+    <string id="afH90aNs" text="Les levées armées d&apos;épieux et de boucliers, constituées essentiellement de petits fermiers, ont toujours représenté le gros des troupes de Calradia." />
+    <string id="aGbTPme1" text="{.F}{.S}Faux{@PLURAL}{.F}{.P}Faux{\@}" />
+    <string id="agn93v7y" text="Yorig" />
+    <string id="agqzAXa9" text="{.M}{.S}Heaume à visière sur coiffe matelassée{@PLURAL}{.M}{.P}Heaumes à visière sur coiffe matelassée{\@}" />
+    <string id="ahiBhAqU" text="Armure" />
+    <string id="Ai7qIb9I" text="{.M}{.S}Petit écu{@PLURAL}{.M}{.P}Petits écus{\@}" />
+    <string id="aIkffnN6" text="Personnages" />
+    <string id="AK0lNDmN" text="{.F}{.S}Couronne de bataille à plumes et joyaux{@PLURAL}{.F}{.P}Couronnes de bataille à plumes et joyaux{\@}" />
+    <string id="alMmQrhK" text="Moral du groupe" />
+    <string id="ALWqXMiP" text="C&apos;est certain." />
+    <string id="AmBEgOyq" text="Je vois..." />
+    <string id="aN85Kfnq" text="{?settlementNeedsArticle(SETTLEMENT)}{.L}{?}{\?}{SETTLEMENT} {#GENDER(ITEMNAME)}ont été pillés{#}a été pillé{#}ont été pillées{#}a été pillée{\#}. Votre accord avec {QUEST_GIVER.LINK} est annulé." />
+    <string id="AobNdBBU" text="{.M}{.P}Rembourrages basiques" />
+    <string id="aoPbMKwB" text="{.M}{.S}Spangenhelm à plumes sur cotte de mailles{@PLURAL}{.M}{.P}Spangenhelms à plumes sur cotte de mailles{\@}" />
+    <string id="aOwcs7Un" text="{.M}{.S}Chapel rond sur cuir{@PLURAL}{.M}{.P}Chapels ronds sur cuir{\@}" />
+    <string id="aQeOcLX4" text="{.F}{.S}Couronne en bronze dentelée{@PLURAL}{.F}{.P}Couronnes en bronze dentelées{\@}" />
+    <string id="aQN4Dlx2" text="{.M}{.S}Doublet armant lourd{@PLURAL}{.M}{.P}Doublets armant lourds{\@}" />
+    <string id="ArbBALwc" text="{.M}{.S}Casque de chevalier avec masque en bronze{@PLURAL}{.M}{.P}Casques de chevalier avec masque en bronze{\@}" />
+    <string id="arCGUuR5" text="La colonie est assiégée." />
+    <string id="ArPvuBYK" text="{.M}{.S}Turban tissé{@PLURAL}{.M}{.P}Turbans tissés{\@}" />
+    <string id="aseraifaction" text="{?ADJECTIVE.GENDER}aseraï{?}aseraï{\?}{?ISPLURAL}s{?}{\?}" />
+    <string id="aseraimembers" text="{.M}{.P}Aseraïs" />
+    <string id="aSNUtnbH" text="Temun" />
+    <string id="at4MdVBJ" text="Fathid" />
+    <string id="aTncHUfL" text="avez monté la garde dans les garnisons." />
+    <string id="aVGSZhCN" text="{.M}{.S}Pavois{@PLURAL}{.M}{.P}Pavois{\@}" />
+    <string id="AVoWvlue" text="{RANK} ({NUMBER})" />
+    <string id="aVzcyhhy" text="Votre père était un barde, allant de cour en cour pour gagner sa vie en chantant les louanges d&apos;un aristocrate battanien et en se moquant de ses ennemis, puis en allant dans la cour adverse pour faire l&apos;inverse. Il vous a enseigné qu&apos;avoir la langue bien pendue pouvait éviter de passer une vie pénible dans les champs, si on savait tout de même la tenir un minimum." />
+    <string id="Awc23bFS" text="Maraudeur" />
+    <string id="awQrcrt2" text="Poterie{@Plural}caisses de poteries{\@}" />
+    <string id="axaK9y6E" text="{.M}{.S}Casque de chevalier fermé{@PLURAL}{.M}{.P}Casques de chevalier fermés{\@}" />
+    <string id="Axe5FkET" text="Talison" />
+    <string id="Ay0G3f7I" text="Votre famille s&apos;est arrangée pour que vous fassiez partie de l&apos;état-major d&apos;un stratège impérial. Il ne vous a confié aucune responsabilité majeure à part porter des messages et s&apos;occuper de son cheval, mais cela vous a donné la chance de voir la préparation des campagnes et le déploiement des hommes au combat." />
+    <string id="aYoIrpe0" text="{.F}{.P}Chausses de mailles à lanières" />
+    <string id="aZxHIra4" text="Renommée" />
+    <string id="b1pqUQju" text="{.F}{.S}Calotte sur jaque{@PLURAL}{.F}{.P}Calottes sur jaque{\@}" />
+    <string id="b2aRoXsb" text="Tessa" />
+    <string id="b2d9BYxT" text="Svana" />
+    <string id="b2EDkbhD" text="{.M}{.P}Brassards enveloppés" />
+    <string id="b4lDDcli" text="Famille" />
+    <string id="BAaS5Dkc" text="Appliquer" />
+    <string id="bAidg8fV" text="{.F}{.S}Chemise de mailles décorée de housecarl{@PLURAL}{.F}{.P}Chemises de mailles décorées de housecarl{\@}" />
+    <string id="BavVxSoC" text="{.M}{.P}Vêtements basiques colorés" />
+    <string id="BbhGL8XT" text="{.M}{.S}Gilet de brigandine{@PLURAL}{.M}{.P}Gilets de brigandine{\@}" />
+    <string id="bC5aMfG0" text="Villages" />
+    <string id="BCU6RezA" text="Forgerons" />
+    <string id="BCy1KpvR" text="Lacalion" />
+    <string id="bDMmX9YI" text="Luichan" />
+    <string id="bdpjqoGe" text="{.F}{.S}Cervelière sur cotte de mailles{@PLURAL}{.F}{.P}Cervelières sur cotte de mailles{\@}" />
+    <string id="beMSPAOG" text="{.M}{.S}Casque en cuir clouté sur chaperon{@PLURAL}{.M}{.P}Casques en cuir cloutés sur chaperon{\@}" />
+    <string id="bF7HmNGQ" text="{.M}{.S}Khanat de Khuzaït" />
+    <string id="bfQLwMUp" text="Clans" />
+    <string id="bgjiFSHZ" text="{.M}{.P}Battaniens" />
+    <string id="bGyrPe8c" text="Production" />
+    <string id="bHbR5Mgy" text="Losys" />
+    <string id="bhdkegZ4" text="Toutes les villes avaient leur lot de projets nécessitant beaucoup de main-d&apos;œuvre, aussi bien qualifiée que basique. Vous avez appris comment assembler les monte-charge et échafaudages, comment tailler et placer les planches et les pierres, ainsi que d&apos;autres compétences." />
+    <string id="bhE2i6OU" text="avez servi d&apos;{?PLAYER.GENDER}écuyère{?}écuyer{\?} à un baron." />
+    <string id="bHTdXTwC" text="Alary" />
+    <string id="bHx8jaeI" text="Guerrier" />
+    <string id="bIiBytSB" text="{.M}{.P}Archers" />
+    <string id="billionabbr" text="M" />
+    <string id="bjJkW9dO" text="Aperçu du profil" />
+    <string id="bjVMtW3W" text="Vos parents étaient des marchands qui vivaient dans l&apos;un des grands ports de Sturgie ; ils organisaient les expéditions de fourrures, de miel et autres biens provenant du nord vers les terres lointaines." />
+    <string id="bKBa7ahF" text="{.F}{.S}Robe longue simple{@PLURAL}{.F}{.P}Robes longues simples{\@}" />
+    <string id="Bl72Ribb" text="{.F}{.P}Spalières en cuir matelassées" />
+    <string id="BlidMNGT" text="Relation" />
+    <string id="BLZ4mdhb" text="Vos parents étaient de petits fermiers, avec juste assez de terres pour se nourrir et faire quelques profits. Les gens comme eux étaient les piliers de l&apos;économie du royaume, ainsi que la base des levées." />
+    <string id="bmHAYBwX" text="Catila" />
+    <string id="BNnLbOkN" text="Adinéa" />
+    <string id="bNnQt4jN" text="Forgeron" />
+    <string id="BNuZ6nvd" text="Daniria" />
+    <string id="bqeWVVEE" text="Vos actions ont déclenché une guerre avec la faction de {QUEST_GIVER.LINK}. {?QUEST_GIVER.GENDER}Elle{?}Il{\?} annule votre accord et la quête est un échec." />
+    <string id="bQKbW8Tx" text="Thasyna" />
+    <string id="BrjpmaJH" text="Parties perdues" />
+    <string id="BryUh6yQ" text="{.M}{.S}Bonnet d&apos;acier{@PLURAL}{.M}{.P}Bonnets d&apos;acier{\@}" />
+    <string id="bSo9hKwr" text="{PERSUASION_OPTION_LINE} {SUCCESS_CHANCE}" />
+    <string id="bTKiN0hr" text="travailler à la forge du village." />
+    <string id="btsMpRcA" text="Votre famille possédait une forge en ville. Votre père jouait un rôle mineur mais actif dans le conseil municipal, et servait aussi dans la milice." />
+    <string id="bTUGfbH5" text="{.M}{.S}Gambison solide{@PLURAL}{.M}{.P}Gambisons solides{\@}" />
+    <string id="bubcrmTC" text="{.M}{.S}Casque nasal sur jaque{@PLURAL}{.M}{.P}Casques nasaux sur jaque{\@}" />
+    <string id="bV75iwKa" text="Sauvegarder" />
+    <string id="bVzkrtUc" text="{.M}{.S}Pugio{@PLURAL}{.M}{.P}Pugios{\@}" />
+    <string id="bWb245zO" text="Voléos" />
+    <string id="bWlmGDf3" text="Lorsqu&apos;une tempête est survenue et a provoqué une crue rapide du cours d&apos;eau local, vos voisins eurent besoin d&apos;ordres rapides et précis, et vous les avez donnés. Vous leur avez ordonné de construire des digues pour sauver leurs maisons." />
+    <string id="bxa4JHlU" text="{.M}{.P}Canons d&apos;avant-bras en cuir cloutés" />
+    <string id="bXAg5w19" text="Les jeunes recrues, ou ceux à la carrure faible ou bien trop pauvres pour acheter un bouclier et une armure, ont tendance à rejoindre les escarmoucheurs. Combattant à l&apos;arc et au javelot, ils essaient de rester hors de portée des forces principales ennemies." />
+    <string id="ByxdPJzA" text="{.M}{.S}Bonnet de fourrure avec oreillettes{@PLURAL}{.M}{.P}Bonnets de fourrure avec oreillettes{\@}" />
+    <string id="bz5lXkHS" text="{.M}{.S}Manteau court matelassé sans manches{@PLURAL}{.M}{.P}Manteaux courts matelassés sans manches{\@}" />
+    <string id="bz7Glmsm" text="Compétences" />
+    <string id="c2pdihCB" text="Caravanes" />
+    <string id="C4n1rgBC" text="Seega" />
+    <string id="C4qjBqLO" text="{.M}{.P}Sturgiens" />
+    <string id="c7UNJSNi" text="{.F}{.P}Spalières en cuir tissées" />
+    <string id="C8bVbM65" text="{.F}{.S}Tunique avec gilet de cuir{@PLURAL}{.F}{.P}Tuniques avec gilet de cuir{\@}" />
+    <string id="CAO0bycV" text="{.F}{.S}Tunique lourde{@PLURAL}{.F}{.P}Tuniques lourdes{\@}" />
+    <string id="captainasleader" text="Capitaine" />
+    <string id="cbF9jdQo" text="Vos parents ne vous ont pas laissé beaucoup d&apos;argent, mais juste assez pour acheter une parcelle de terre en jachère en bordure du village. Vous avez retiré les pierres et creusé une rigole, fait pousser quelques plants et avez revendu le tout en réalisant un profit considérable." />
+    <string id="cbnvgVhH" text="Pillard" />
+    <string id="CBUdkmIw" text="{.M}{.S}Caftan coloré{@PLURAL}{.M}{.P}Caftans colorés{\@}" />
+    <string id="CbxLZdVg" text="Lycos" />
+    <string id="CcWpkREW" text="{.F}{.S}Chemise de mailles lourde avec ceinture large{@PLURAL}{.F}{.S}Chemises de mailles lourdes avec ceinture large{\@}" />
+    <string id="cDetN1Ao" text="{.M}{.S}Bouclier normand d&apos;entraînement de fortune{@PLURAL}{.M}{.P}Boucliers normands d&apos;entraînement de fortune{\@}" />
+    <string id="cdmrCQfC" text="Hurunag" />
+    <string id="cDWbwBwI" text="avez rejoint les kerns." />
+    <string id="CDXUehf0" text="Bien, bien." />
+    <string id="cEhDJAQp" text="{.F}{.S}Jupette gambisonnée de soldat d&apos;infanterie{@PLURAL}{.F}{.P}Jupettes gambisonnées de soldat d&apos;infanterie{\@}" />
+    <string id="CePmep0z" text="{?NPC.GENDER}Braconnière{?}Braconnier{\?}" />
+    <string id="Ch5NpCd0" text="Augmentation des dégâts à distance" />
+    <string id="CH7b5LaX" text="J&apos;ai changé d&apos;avis." />
+    <string id="character_creation_content_16" text="Dans votre enfance, vous étiez {?PLAYER.GENDER}caractérisée{?}caractérisé{\?} par..." />
+    <string id="CIDdPt1I" text="{.F}{.S}Armure lamellaire en bronze sur cotte de mailles{@PLURAL}{.F}{.P}Armures lamellaires en bronze sur cotte de mailles{\@}" />
+    <string id="CITG915d" text="avez rejoint l&apos;état-major d&apos;un commandant." />
+    <string id="cjH1WFwy" text="{.M}{.S}Bonnet à bords en fourrure{@PLURAL}{.M}{.P}Bonnets à bords en fourrure{\@}" />
+    <string id="cjhhuTZD" text="{.F}{.S}Armure lamellaire en cuir séché{@PLURAL}{.F}{.P}Armures lamellaires en cuir séché{\@}" />
+    <string id="cK5DE88I" text="N/A" />
+    <string id="cKz1cyuM" text="Votre clan est désormais en guerre contre {.l}{QUEST_GIVER_SETTLEMENT_FACTION}. La quête est annulée." />
+    <string id="cL1lO5iP" text="Ergeon" />
+    <string id="CLTk2CMs" text="{.M}{.S}Gambison à lanières de soldat d&apos;infanterie{@PLURAL}{.M}{.P}Gambisons à lanières de soldat d&apos;infanterie{\@}" />
+    <string id="CLYcnUra" text="{.F}{.S}Cuirasse en cuir à ceinture{@PLURAL}{.F}{.P}Cuirasses en cuir à ceinture{\@}" />
+    <string id="cMdtLfGB" text="{.F}{.S}Robe à glands{@PLURAL}{.F}{.P}Robes à glands{\@}" />
+    <string id="cOgmdp9e" text="Décliner" />
+    <string id="Cp7dI87a" text="Avant-garde" />
+    <string id="cPbHqGrI" text="Expulser un joueur" />
+    <string id="CPI0wkaZ" text="{.F}{.S}Arbalète en noyer blanc{@PLURAL}{.F}{.P}Arbalètes en noyer blanc{\@}" />
+    <string id="CsjtWt1g" text="Aubergiste" />
+    <string id="csUq1RCC" text="Vous travailliez comme petite main dans les écuries de la ville. Vos patrons reconnurent votre talent avec les chevaux, et vous autorisèrent à les entraîner et parfois même à dompter les étalons." />
+    <string id="CtJPuRDa" text="{.M}{.S}Surcot de cuir matelassé{@PLURAL}{.M}{.P}Surcots de cuir matelassés{\@}" />
+    <string id="CTtjSwRb" text="Midi" />
+    <string id="CvVJyKYA" text="Théléa" />
+    <string id="cZIhxH9e" text="Pacarios" />
+    <string id="D0xDRqvm" text="{PERSUASION_REACTION}" />
+    <string id="D33fIGQe" text="Oubliez cela." />
+    <string id="D358wBWJ" text="{.F}{.S}Armure lamellaire lourde sur haubert{@PLURAL}{.F}{.P}Armures lamellaires lourdes sur haubert{\@}" />
+    <string id="D6sMSANW" text="Amalgun" />
+    <string id="d8D98oFG" text="Melidir" />
+    <string id="d8DrtmwP" text="{.M}{.S}Heaume à visière sur camail{@PLURAL}{.M}{.P}Heaumes à visière sur camail{\@}" />
+    <string id="D9JrTpwU" text="{.F}{.P}Bottes courbées" />
+    <string id="dacwWKE2" text="{.M}{.S}Vieux bouclier normand{@PLURAL}{.M}{.P}Vieux boucliers normands{\@}" />
+    <string id="DaE0N37L" text="Notables" />
+    <string id="dB6cFDmz" text="/" />
+    <string id="DbavaIis" text="{.M}{.S}Casque nasal en fer sur cotte de mailles{@PLURAL}{.M}{.P}Casques nasaux en fer sur cotte de mailles{\@}" />
+    <string id="Dc4ia4m9" text="{.M}{.S}Bonnet matelassé{@PLURAL}{.M}{.P}Bonnets matelassés{\@}" />
+    <string id="ddEu5IFQ" text="Je l&apos;espère." />
+    <string id="dDmcqTzb" text="Votre prouesse n&apos;était pas du genre de celles des légendes locales, mais plutôt de celles qui vous font gagner le respect de ceux qui vous entourent. Votre honnêteté et votre sens de la justice et de l&apos;équité, aussi bien dans les affaires que pour aider ceux dans le besoin, ont été remarqués. Cela vous a permis de mieux savoir cerner les gens." />
+    <string id="DeWp2GjP" text="Brise-bouclier" />
+    <string id="DFidSjIf" text="La plupart des enfants autour de vous n&apos;avaient que des rudiments d&apos;éducation, mais vous aimiez rester après l&apos;école pour étudier les lettres et les mathématiques. Vous étiez {?PLAYER.GENDER}fascinée{?}fasciné{\?} par le marché : les poids et mesures, les livres de comptes, les discussions sur les pertes et profits..." />
+    <string id="DIgsfYfz" text="Vous emmeniez les produits de votre famille jusqu&apos;à la ville la plus proche pour les vendre et acheter des provisions. C&apos;était difficile, mais vous aimiez le tohu-bohu du marché." />
+    <string id="Dj64aJKQ" text="{.F}{.S}Serpette" />
+    <string id="DjeAJtix" text="Peut-être était-ce juste une histoire d&apos;un soir, ou peut-être avez-vous triché aux dés, ou bien avez-vous mal choisi vos mots au milieu d&apos;une foule dangereuse un soir de beuverie. Quoi qu&apos;il en soit, lors d&apos;une soirée en ville vous avez vécu le genre de problème dont on ne se sort que par des mots bien tournés ou un talent certain pour le sprint." />
+    <string id="DKqLY1aJ" text="Équiper" />
+    <string id="dlBFVkDj" text="À propos de cette tâche que vous m&apos;aviez confiée..." />
+    <string id="DM6luo3c" text="Continuer" />
+    <string id="DoiwC1Qa" text="{.F}{.P}Chausses de mailles" />
+    <string id="DOYS7dmq" text="{.M}{.P}Brassards de cuir à lanières" />
+    <string id="dPQGxmJ7" text="{.F}{.P}Mitaines de mailles renforcées" />
+    <string id="dQBArrqh" text="Gérer la ruelle" />
+    <string id="ds294zxi" text="Autre chose ?" />
+    <string id="dS4zm0UT" text="{.M}{.S}Cuir clouté sur doublet armant{@PLURAL}{.M}{.P}Cuirs cloutés sur doublet armant{\@}" />
+    <string id="DsCkf6Pb" text="En grandissant, vous avez passé la plupart de votre temps..." />
+    <string id="dVekhkIU" text="{.M}{.S}Manteau de fourrure sur tunique{@PLURAL}{.M}{.P}Manteaux de fourrure sur tunique{\@}" />
+    <string id="DvGueBrU" text="Lin tissé{@Plural}rouleaux de lin tissé{\@}" />
+    <string id="dwFZFQ6V" text="Lysica" />
+    <string id="dWr3nuBq" text="{.M}{.S}Bouclier normand renforcé cerclé de fer{@PLURAL}{.M}{.P}Boucliers normands renforcés cerclés de fer{\@}" />
+    <string id="DwzrsJxS" text="Jamanys" />
+    <string id="DXczLzml" text="Statut" />
+    <string id="dxlkHhw5" text="Parties gagnées" />
+    <string id="dzXaXKaC" text="Très bien." />
+    <string id="e0KdfaNe" text="Sauvegarder sous" />
+    <string id="e139gKZc" text="Retour au jeu" />
+    <string id="E1OwmQFb" text="Retour" />
+    <string id="E31IJyqs" text="Recruter des troupes" />
+    <string id="e4lKZhgv" text="{.M}{.P}Brassards de cuir bruts" />
+    <string id="E4WhEvu7" text="Sotherys" />
+    <string id="e6csp4ha" text="{.M}{.P}Bandits des steppes" />
+    <string id="eALf5d30" text="Merci !" />
+    <string id="ebbyLN2i" text="Villes" />
+    <string id="ebHdQfbX" text="{.M}{.S}Spangenhelm sur jaque{@PLURAL}{.M}{.P}Spangenhelms sur jaque{\@}" />
+    <string id="ecUwABe2" text="Désert" />
+    <string id="EEedqolz" text="Bédouin" />
+    <string id="EezWSI6v" text="{.F}{.S}Armure de mercenaire renforcée{@PLURAL}{.F}{.P}Armures de mercenaire renforcées{\@}" />
+    <string id="efW2XbK8" text="{.M}{.S}Casque d&apos;émir{@PLURAL}{.M}{.P}Casques d&apos;émir{\@}" />
+    <string id="EGatdCLg" text="Alena" />
+    <string id="egCbjHDT" text="Semnon" />
+    <string id="EHalkcEU" text="Morcon" />
+    <string id="eIws123Z" text="Armure de jambe" />
+    <string id="ekcBrNN1" text="Eren" />
+    <string id="elQnygal" text="Votre famille avait économisé de l&apos;argent pour vous offrir une éducation de base et vous en avez tiré profit au maximum, dévorant de nombreux livres d&apos;histoire, de mathématiques et de philosophie, et discutant de vos lectures avec votre professeur et vos camarades." />
+    <string id="ELsDFwAD" text="Vin{@Plural}amphores de vin{\@}" />
+    <string id="empirefaction" text="{.M}{.S}Empire" />
+    <string id="eN1eFdhF" text="{.M}{.S}Harnais de cuir orné sur écailles{@PLURAL}{.M}{.P}Harnais de cuir sur écailles{\@}" />
+    <string id="EOplBvKz" text="{.M}{.S}Casque à plumes impérial{@PLURAL}{.M}{.P}Casques à plumes impériaux{\@}" />
+    <string id="erlrhK2a" text="{.F}{.S}Armure d&apos;écailles de seigneur de guerre{@PLURAL}{.F}{.P}Armures d&apos;écailles de seigneur de guerre{\@}" />
+    <string id="ErnykQEH" text="Sorties" />
+    <string id="es0Y3Bxc" text="Rejoindre" />
+    <string id="etG87fB7" text="avec votre professeur." />
+    <string id="eTw2aNV5" text="+" />
+    <string id="Ew69yN84" text="Juthys" />
+    <string id="eWf7bFGo" text="{.F}{.S}Armure de fourrure à lanière{@PLURAL}{.F}{.P}Armures de fourrure à lanière{\@}" />
+    <string id="EWR2MNeM" text="{.M}{.S}Casque nasal avec cotte de mailles{@PLURAL}{.M}{.P}Casques nasaux avec cotte de mailles{\@}" />
+    <string id="ewSpZ10R" text="{.M}{.S}Bonnet matelassé rêche{@PLURAL}{.M}{.P}Bonnets matelassés rêches{\@}" />
+    <string id="ExjMoUiT" text="Bois dur{@Plural}troncs de bois dur{\@}" />
+    <string id="EXLY9mEb" text="{.M}{.S}Grand bouclier rond renforcé{@PLURAL}{.M}{.P}Grands boucliers ronds renforcés{\@}" />
+    <string id="EZ19JOGj" text="Maison {.d}{MENTOR.NAME}" />
+    <string id="F13aYbuk" text="Lavalios" />
+    <string id="F2bgujPo" text="étiez au service d&apos;un chef." />
+    <string id="f3hTGKIP" text="Garitops" />
+    <string id="F4xD8gjJ" text="{.F}{.S}Francisque{@PLURAL}{.F}{.P}Francisques{\@}" />
+    <string id="F7OO5SAa" text="En tant que jeune grandissant en Calradia, la guerre n&apos;était jamais bien loin. Vous..." />
+    <string id="f7vOVQb7" text="{.M}{.S}été" />
+    <string id="F9HQABfN" text="{.M}{.S}Bouclier carré en osier renforcé{@PLURAL}{.M}{.P}Boucliers carrés en osier renforcés{\@}" />
+    <string id="Fa2nKXxI" text="Gouverneur" />
+    <string id="FAPHmzxQ" text="{.F}{.S}Dishdasha{@PLURAL}{.F}{.P}Dishdashas{\@}" />
+    <string id="fAxjyMt5" text="Nuit" />
+    <string id="Fb7PrJuc" text="{.F}{.P}Bottes éclissées" />
+    <string id="fBAf3OWb" text="{.F}{.S}Couronne de bataille ornée du désert{@PLURAL}{.F}{.P}Couronnes de bataille ornées du désert{\@}" />
+    <string id="FClEZIkT" text="Sovos" />
+    <string id="FDEIHpIN" text="{.F}{.S}Brigandine miroir{@PLURAL}{.F}{.P}Brigandines miroir{\@}" />
+    <string id="femalechild" text="Enfant" />
+    <string id="fEQAPJ2e" text="{KEY} Utiliser" />
+    <string id="FF3dQKc1" text="Néthor" />
+    <string id="FfNwXtii" text="Si la bande de louveteaux de votre enfance avait un membre alpha, c&apos;était bel et bien vous. Tous les autres enfants suivaient vos ordres, qu&apos;il s&apos;agisse du choix du jeu ou de là où jouer, et vous accumuliez les bêtises tous ensemble." />
+    <string id="fGFMqlGz" text="Genre" />
+    <string id="fGmpS0Dr" text="Gandarina" />
+    <string id="FhZPjhli" text="Votre ville natale a subi un siège et on a fait appel à vous pour défendre ses murs. Tout le monde a fait ce qu&apos;il fallait pour repousser l&apos;assaut, et tout le monde est fier de ce qu&apos;il a enduré." />
+    <string id="FjwRsf1C" text="{.F}{.S}Vlande" />
+    <string id="fk42FxCE" text="{.F}{.S}Robe à couches multiples{@PLURAL}{.F}{.P}Robes à couches multiples{\@}" />
+    <string id="FkhJz0po" text="Lieu" />
+    <string id="FKpLEamz" text="à vous occuper des chevaux." />
+    <string id="FktkkUMK" text="{.M}{.S}Bouclier rond en acier{@PLURAL}{.M}{.P}Boucliers ronds en acier{\@}" />
+    <string id="FLa5OuyK" text="{?NPC.GENDER}Vagabonde{?}Vagabond{\?}" />
+    <string id="FLrdHzSf" text="Anat" />
+    <string id="fMSYE6Ii" text="Par défaut" />
+    <string id="FOx5vZSJ" text="{.F}{.S}Armure en peau d&apos;ours{@PLURAL}{.F}{.P}Armures en peau d&apos;ours{\@}" />
+    <string id="Fp68NbYO" text="Royaumes" />
+    <string id="fpdXZ0fl" text="Recrutement" />
+    <string id="fptsl0Qn" text="{.M}{.S}Kilt sur cuir recouvert de plates{@PLURAL}{.M}{.P}Kilts sur cuir recouverts de plates{\@}" />
+    <string id="FQntPChs" text="Vos parents étaient marchands dans une des plus grandes villes de l&apos;Empire. Ils envoyaient parfois des caravanes dans les villages voisins et discutaient de certains problèmes au conseil municipal." />
+    <string id="frBQ9mbP" text="{.M}{.S}Empire méridional" />
+    <string id="frwBm3Oh" text="{.F}{.S}Coiffe en tissu{@PLURAL}{.F}{.P}Coiffes en tissu{\@}" />
+    <string id="FsDZC8Yl" text="{.M}{.S}Casque intégral sur camail{@PLURAL}{.M}{.P}Casques intégraux sur camail{\@}" />
+    <string id="fUmehyHq" text="{.M}{.P}Brassards de cuir tissés" />
+    <string id="FUT6eXfw" text="Phaea" />
+    <string id="FVaRDe2a" text="Famille d&apos;un noyan" />
+    <string id="FWFDkjBk" text="{.M}{.S}Casque nasal sur coiffe lacée{@PLURAL}{.M}{.P}Casques nasaux sur coiffe lacée{\@}" />
+    <string id="fwxHsC1h" text="{.M}{.S}Gambison court sur tunique{@PLURAL}{.M}{.P}Gambisons courts sur tunique{\@}" />
+    <string id="FxnFBhrF" text="{.M}{.S}Bouclier normand de cavalerie{@PLURAL}{.M}{.P}Boucliers normands de cavalerie{\@}" />
+    <string id="g0l7W5xQ" text="{BONUS_AMOUNT} % en vitesse de déplacement aux montures dans votre formation." />
+    <string id="g31pXuqi" text="Fermiers d&apos;oasis" />
+    <string id="g51zVsKU" text="{.F}{.P}Mitaines de mailles" />
+    <string id="g5BPd0Oc" text="{.F}{.S}Coiffe en tissu{@PLURAL}{.F}{.P}Coiffes en tissu{\@}" />
+    <string id="G7AEWZ6c" text="{.M}{.S}Bouclier ovale décoré{@PLURAL}{.M}{.P}Boucliers ovales décorés{\@}" />
+    <string id="G8FQ2exX" text="{.M}{.P}Gants de plates renforcés" />
+    <string id="g8qb3Ame" text="Merci." />
+    <string id="g9VIbA9s" text="Sergent" />
+    <string id="GD4aQgl7" text="Mouton{@Plural}moutons{\@}" />
+    <string id="GeJobcre" text="Sinor" />
+    <string id="gENb9SSW" text="Soir" />
+    <string id="GeNKQlHR" text="Membres de la garde du chef" />
+    <string id="GEYzLuwb" text="votre sociabilité." />
+    <string id="gFtu0j4T" text="{.F}{.P}Flèches" />
+    <string id="GFUggps8" text="avez marché avec les aides de camp." />
+    <string id="GghHAbIT" text="{.F}{.S}Hachette{@PLURAL}{.F}{.P}Hachettes{\@}" />
+    <string id="ggpRTQQl" text="Chef de groupe" />
+    <string id="gHnfFi1s" text="À la retraite" />
+    <string id="Ghz90npw" text="Votre famille possédait quelques chevaux dans l&apos;écurie du village et c&apos;était à vous de vous en occuper. Le soir, vous les emmeniez souvent au-delà des murs pour galoper dans les champs et faire la course contre d&apos;autres jeunes." />
+    <string id="gJG0xmAq" text="{?settlementNeedsArticle(QUEST_SETTLEMENT)}{.L}{?}{\?}{QUEST_SETTLEMENT}, le village {.d}{QUEST_GIVER.LINK}, a été pillé. Votre accord avec {QUEST_GIVER.LINK} est annulé." />
+    <string id="GM3tAYMr" text="Lancer une action hostile" />
+    <string id="GmcgoiGy" text="Commerce" />
+    <string id="GmU1to3Y" text="Statistiques" />
+    <string id="GNdVXMue" text="{.F}{.S}Écharpe{@PLURAL}{.F}{.P}Écharpes{\@}" />
+    <string id="gQ2tAvCz" text="Fermiers" />
+    <string id="GsPC2MgU" text="Votre père était un esclave qui officiait comme garde du corps pour les émirs aseraïs. Il a combattu aux côtés de son maître dans la cavalerie de sa tribu et fut libéré. Peut-être fut-ce en raison de son courage, ou bien a-t-il acheté sa liberté grâce au butin de guerre. Il a ensuite épousé votre mère." />
+    <string id="gsVtO9A7" text="Milice" />
+    <string id="gT8WENO3" text="{.M}{.S}Mannequin de taille supérieure{@PLURAL}{.M}{.P}Mannequins de taille supérieure{\@}" />
+    <string id="GTaxqBcv" text="{.F}{.S}Armure auxiliaire{@PLURAL}{.F}{.P}Armures auxiliaires{\@}" />
+    <string id="guardnoun" text="Garde" />
+    <string id="gUTqDROO" text="{.M}{.S}Foulard fermé{@PLURAL}{.M}{.P}Foulards fermés{\@}" />
+    <string id="GWaJ7Ksq" text="Joculos" />
+    <string id="GXmDq2KR" text="{.F}{.S}Tête d&apos;ours{@PLURAL}{.F}{.P}Têtes d&apos;ours{\@}" />
+    <string id="gYATKZJp" text="{NUMBER} %" />
+    <string id="gYit4RTe" text="Euchor" />
+    <string id="GzgUzrFY" text="{.F}{.S}Chemise de mailles{@PLURAL}{.F}{.P}Chemises de mailles{\@}" />
+    <string id="h2KnarLL" text="vous êtes {?PLAYER.GENDER}entraînée{?}entraîné{\?} avec la cavalerie." />
+    <string id="H5tiRTya" text="Entraînement" />
+    <string id="h60wQVVX" text="{.F}{.S}Pique" />
+    <string id="h6UXvU3B" text="{.F}{.S}Cervelière nasale sur coiffe lacée{@PLURAL}{.F}{.P}Cervelières nasales sur coiffe lacée{\@}" />
+    <string id="h9PP7EWc" text="{.M}{.S}Bonnet avec protection nucale{@PLURAL}{.M}{.P}Bonnets avec protection nucales{\@}" />
+    <string id="hab2DsOW" text="{.M}{.S}Kilt des hautes terres sur pantalon avec tartan{@PLURAL}{.M}{.P}Kilts des hautes terres sur pantalon avec tartan{\@}" />
+    <string id="HBaSQlSJ" text="{.M}{.S}Casque en bronze à franges avec oreillons{@PLURAL}{.M}{.P}Casques en bronze à franges avec oreillons{\@}" />
+    <string id="HcAV8x7p" text="Membre de groupe" />
+    <string id="hCavIm4G" text="Vous paierez {AMOUNT}{GOLD_ICON} deniers." />
+    <string id="hchDYAKL" text="Lancier" />
+    <string id="HCXHcBzT" text="Mattis" />
+    <string id="hE8s9bpP" text="{.M}{.S}Bouclier rond courbé{@PLURAL}{.M}{.P}Boucliers ronds courbés{\@}" />
+    <string id="hELN8VXv" text="{.F}{.S}Robe déchirée{@PLURAL}{.F}{.P}Robes déchirées{\@}" />
+    <string id="HfuAdGQX" text="Destor" />
+    <string id="HiSzYWeh" text="Bière{@Plural}tonneaux de bière{\@}" />
+    <string id="HjqcmY6X" text="Bannir" />
+    <string id="HkfY3Ds5" text="Armure de corps" />
+    <string id="HKRGEXqy" text="{.F}{.S}Cotte de mailles de soldat{@PLURAL}{.F}{.P}Cottes de mailles de soldat{\@}" />
+    <string id="HkwJao2z" text="{.M}{.S}Bonnet d&apos;acier à franges avec oreillons{@PLURAL}{.M}{.P}Bonnets d&apos;acier à franges avec oreillons{\@}" />
+    <string id="ho5EndaV" text="Décision" />
+    <string id="hob3WVkU" text="Votre père était un membre des &quot;druzhina&quot; d&apos;un boyard, c&apos;est-à-dire son escorte. Il s&apos;asseyait à la table de son seigneur, supervisait ses propriétés et se tenait à ses côtés au centre du mur de boucliers lors des batailles." />
+    <string id="hometab" text="Accueil" />
+    <string id="HqzVBfpl" text="Marchands urbains" />
+    <string id="hRHPPQQP" text="{.M}{.S}Chaperon enveloppé{@PLURAL}{.M}{.P}Chaperons enveloppés{\@}" />
+    <string id="hrhvEWP8" text="{PLAYER_MOTHER.NAME} était la mère {.d}{PLAYER.LINK}. Elle fut assassinée lorsque des pillards attaquèrent l&apos;auberge dans laquelle toute la famille se reposait." />
+    <string id="HSlPLC4m" text="Ira" />
+    <string id="hunterhorse" text="{.M}{.S}Chasseur{@PLURAL}{.M}{.P}Chasseurs{\@}" />
+    <string id="HVJ9ax8Z" text="{.F}{.S}Robe des steppes{@PLURAL}{.F}{.P}Robe des steppes{\@}" />
+    <string id="HvjviTTW" text="{.M}{.S}Bonnet d&apos;acier avec oreillons{@PLURAL}{.M}{.P}Bonnets d&apos;acier avec oreillons{\@}" />
+    <string id="hVZo7xdk" text="Châteaux" />
+    <string id="hXB6gvD2" text="{.F}{.S}Chemise lamellaire en cuir séché{@PLURAL}{.F}{.P}Chemises lamellaires en cuir séché{\@} " />
+    <string id="hXijcZyp" text="{.M}{.S}Manteau court en tissu rêche{@PLURAL}{.M}{.P}Manteaux courts en tissu rêche{\@}" />
+    <string id="hXl25avg" text="Votre famille a engagé un instituteur privé et vous en avez tiré profit au maximum, dévorant de nombreux livres d&apos;histoire, de mathématiques et de philosophie, et discutant de vos lectures avec votre professeur et vos camarades." />
+    <string id="HXNb6Cqz" text="{.M}{.S}Caftan luxueux avec ceinture{@PLURAL}{.M}{.P}Caftans luxueux avec ceinture{\@}" />
+    <string id="hy7mIh48" text="Vidar" />
+    <string id="hYgmzZJX" text="Deniers" />
+    <string id="I0vRCZ7U" text="{.M}{.P}Brassards d&apos;écailles de seigneur de guerre" />
+    <string id="I3PcdaaL" text="Les loups et les ours sont une menace constante pour les troupeaux du nord de Calradia, tandis que les hyènes et les léopards posent problème au sud. Vous êtes {?PLAYER.GENDER}partie{?}parti{\?} avec un groupe de villageois et avez tiré la flèche qui a abattu la bête." />
+    <string id="I8raOMRH" text="Mes excuses. je n&apos;ai pas encore fait de progrès." />
+    <string id="IagYTD5O" text="Prospérité" />
+    <string id="iaUQ9lt9" text="Ingalther" />
+    <string id="iAWzr8Q0" text="{.F}{.S}Bande de cuir sur cotte de mailles{@PLURAL}{.F}{.P}Bandes de cuir sur cotte de mailles{\@}" />
+    <string id="IcgVKFxZ" text="Dirigeant" />
+    <string id="ICsecuVv" text="{.F}{.P}Épaulettes en cuir séché" />
+    <string id="iD0ePqi7" text="{.M}{.P}Brassards de cuir à boutons" />
+    <string id="iDxygnVF" text="Gérotheon" />
+    <string id="IFqtwpb0" text="Piquier" />
+    <string id="IGazuB9B" text="{.M}{.S}Casque nasal à mailles{@PLURAL}{.M}{.P}Casques nasaux à mailles{\@}" />
+    <string id="IHKXNP9H" text="Maître du tournoi" />
+    <string id="IK2IPJi1" text="Sel{@Plural}sacs de sel{\@}" />
+    <string id="iLcfZ71B" text="Persuasion" />
+    <string id="InGwtrWt" text="Arrêter" />
+    <string id="inKr3PbA" text="Armées" />
+    <string id="InN5ZZt3" text="Serviteurs d&apos;un propriétaire terrien" />
+    <string id="iOYRpw24" text="Ratagost" />
+    <string id="ipQP6aVi" text="Mercenaires" />
+    <string id="ISQ0cdOc" text="{.M}{.S}Casque nasal lourd sur cotte de mailles{@PLURAL}{.M}{.P}Casques nasaux lourds sur cotte de mailles{\@}" />
+    <string id="Ita1lG33" text="{.M}{.S}Bouclier normand cousu de cuir{@PLURAL}{.M}{.P}Boucliers normands cousus de cuir{\@}" />
+    <string id="Itv3fgJm" text="Céréales{@Plural}cargaisons de céréales{\@}" />
+    <string id="IU63oxWD" text="Jemynon" />
+    <string id="IuD9SaQM" text="{.F}{.S}Robe de toile{@PLURAL}{.F}{.P}Robes de toile{\@}" />
+    <string id="IuWu5Bu7" text="Générosité" />
+    <string id="iVataLxL" text="{.F}{.P}Bandes de cuir sur robe matelassée" />
+    <string id="ivKl4mV2" text="Votre père était un lieutenant apprécié du propriétaire terrien local. Il chevauchait avec la cavalerie du seigneur et combattait comme lancier en armure." />
+    <string id="iW9iKbb8" text="Rien." />
+    <string id="IX3kafcb" text="{.M}{.S}Chapel de fer à pointe sur cotte de mailles{@PLURAL}{.M}{.P}Chapels de fer à pointe sur cotte de mailles{\@}" />
+    <string id="ixqTFMVA" text="Guerrier monté" />
+    <string id="IXwOaa98" text="Taille de groupe" />
+    <string id="iYCR3xuQ" text="Principauté de Sturgie" />
+    <string id="iZKtGI6Y" text="Votre famille s&apos;est arrangée pour que vous suiviez un baron mineur du royaume vlandais. Il ne vous a confié aucune responsabilité majeure à part porter des messages et s&apos;occuper de son cheval, mais cela vous a donné la chance de voir la préparation des campagnes et le déploiement des hommes au combat." />
+    <string id="J00AF9Qv" text="{.F}{.P}Bottes de cuir tissées" />
+    <string id="J1nh9YiN" text="Atilon" />
+    <string id="j1pFE61w" text="{.F}{.S}Armure en tissu des terres boisées{@PLURAL}{.F}{.P}Armures en tissu des terres boisées{\@}" />
+    <string id="J2gvnexb" text="Après-midi" />
+    <string id="j2IVY6G6" text="{.F}{.S}Armure en peau sommaire{@PLURAL}{.F}{.P}Armures en peau sommaires{\@}" />
+    <string id="J3YHMkL3" text="{.F}{.P}Mitaines matelassées" />
+    <string id="j4F7tTzy" text="Clan" />
+    <string id="j6py5Rv5" text="Vos parents étaient des soigneurs qui cueillaient des plantes et guérissaient les malades. En tant que gardiens des traditions battaniennes, ils résolvaient aussi de nombreux conflits entre les clans." />
+    <string id="j9Weia10" text="Facile" />
+    <string id="jaaQijQs" text="Âge" />
+    <string id="jakLnIQv" text="{.M}{.S}Casque d&apos;écailles rugueuses{@PLURAL}{.M}{.P}Casques d&apos;écailles rugueuses{\@}" />
+    <string id="jAs3kDXh" text="Vos parents étaient les personnes de confiance d&apos;un noyan khuzaïte, et ils partageaient son repas dans la tente du chef. Votre père aidait le chef à gérer les affaires du clan et combattait comme lancier en armure au centre de la ligne de front khuzaïte." />
+    <string id="JbV0WoO7" text="{.F}{.S}Armure d&apos;écailles du sud somptueuse{@PLURAL}{.F}{.P}Armures d&apos;écailles du sud somptueuses{\@}" />
+    <string id="JBVAeXx3" text="{.F}{.S}Fourche{@PLURAL}{.F}{.P}Fourches{\@}" />
+    <string id="JCdVJYnQ" text="{.F}{.S}Tunique légère{@PLURAL}{.F}{.P}Tuniques légères{\@}" />
+    <string id="Jd0Kq9lD" text="Bouclier" />
+    <string id="JFVseSa3" text="Oros" />
+    <string id="JhLPgr5x" text="Jinda" />
+    <string id="Jhshwa48" text="{.M}{.S}Gambison rapiécé{@PLURAL}{.M}{.P}Gambisons rapiécés{\@}" />
+    <string id="Jif1C3X3" text="Laria" />
+    <string id="jimBaHvz" text="{.F}{.S}Armure de cuir renforcée{@PLURAL}{.F}{.P}Armures de cuir renforcées{\@}" />
+    <string id="jIwjYOVj" text="{.M}{.P}Brassards enveloppés en lambeaux" />
+    <string id="JJiKk4ow" text="Choisissez votre nom de famille : " />
+    <string id="JjLQ2VdT" text="{.F}{.S}Cervelière nasale sur coiffe matelassée{@PLURAL}{.F}{.P}Cervelières nasales sur coiffe matelassée{\@}" />
+    <string id="JKRQ8RDA" text="{.M}{.S}Jaque avec bandes{@PLURAL}{.M}{.P}Jaques avec bandes{\@}" />
+    <string id="jlgjLDo7" text="Garnison" />
+    <string id="Jm3AiUo3" text="{.F}{.S}Cape simple{@PLURAL}{.F}{.P}Capes simples{\@}" />
+    <string id="joRHKCkm" text="Votre famille avait besoin d&apos;une personne de confiance pour mener une caravane vers un village voisin. Vous avez organisé le chargement, surveillé les bandits en permanence pendant le trajet et mené la caravane à bon port." />
+    <string id="jpBpwgAs" text="Colonies" />
+    <string id="JPimShCw" text="Type de jeu" />
+    <string id="JUSHAPnu" text="Vous étiez rapide à la détente et {?PLAYER.GENDER}attentive{?}attentif{\?} à tout ce qu&apos;il se passait autour de vous. Vous préfériez éviter les ennuis, mais vous saviez vous défendre si jamais d&apos;autres enfants décidaient de s&apos;en prendre à vous." />
+    <string id="Jvf6K7TZ" text="Vos parents faisaient partie des nombreux migrants pauvres vivant dans les bas-quartiers qui se développaient sous les murs des villes impériales, et ils gagnaient de l&apos;argent par tous les moyens possibles et imaginables. Il leur arrivait même de rendre service aux nombreuses bandes criminelles de l&apos;Empire, et vous avez rapidement découvert le côté sombre de la vie." />
+    <string id="JvhvtKsT" text="{.M}{.S}Casque à visière sur cotte de mailles{@PLURAL}{.M}{.P}Casques à visière sur cotte de mailles{\@}" />
+    <string id="jvOYgHOe" text="Personnalisée" />
+    <string id="jx8ohENz" text="Armurier" />
+    <string id="JXyxj1J5" text="Modules" />
+    <string id="jZYUdkXF" text="Meurt de faim" />
+    <string id="k0nSlwe9" text="Intervalle de sauvegarde auto." />
+    <string id="k1E9DuKi" text="Tout sélectionner" />
+    <string id="K1UFTirG" text="{.F}{.S}Arbalète légère{@PLURAL}{.F}{.P}Arbalètes légères{\@}" />
+    <string id="k1Xr4rKn" text="Druzhinnik" />
+    <string id="K2xGw3Oo" text="{.M}{.S}Mannequin de taille inférieure{@PLURAL}{.M}{.P}Mannequins de taille inférieure{\@}" />
+    <string id="K6GYskvJ" text="Culture" />
+    <string id="k71X3WNK" text="{.F}{.S}Robe sur cotte de mailles et haubert{@PLURAL}{.F}{.P}Robes sur cotte de mailles et haubert{\@}" />
+    <string id="k7ebznzr" text="Oui ?" />
+    <string id="kaR27kWL" text="{.M}{.S}Tartan long des hautes terres{@PLURAL}{.M}{.P}Tartans longs des hautes terres{\@}" />
+    <string id="katzUyMI" text="Joron" />
+    <string id="kbcwb5TH" text="sur les marchés et caravansérails." />
+    <string id="KBq7aQRa" text="Lek" />
+    <string id="KdbHrcQx" text="{.F}{.S}Tunique courte{@PLURAL}{.F}{.P}Tuniques courtes{\@}" />
+    <string id="keqS2dGa" text="???" />
+    <string id="KfaqPpbK" text="Avec d&apos;autres jeunes, vous emmeniez les moutons, chèvres et autres bêtes paître dans les prairies à proximité du village. Vous étiez en charge de la récupération du bétail perdu, et gardiez toujours une grosse pierre à la main pour repousser un prédateur en cas de danger." />
+    <string id="kfNW01y5" text="Tynops" />
+    <string id="kftE5nvv" text="Armure de cheval" />
+    <string id="kg9YtrOg" text="Vos parents étaient forgerons, une profession respectée chez les Battaniens. Ils fabriquaient de tout, des bijoux fins arborant des figures géométriques aux épées longues équilibrées adulées par l&apos;aristocratie battanienne." />
+    <string id="Kgnm0FkE" text="{.F}{.P}Chaussures de cuir" />
+    <string id="KiJd6Xik" text="Déplacement" />
+    <string id="KjzJjj5n" text="Eronys" />
+    <string id="kkUQObZn" text="{.M}{.P}Bandits du désert" />
+    <string id="KKWEkA4P" text="{.F}{.S}Peau d&apos;ours rêche{@PLURAL}{.F}{.P}Peaux d&apos;ours rêches{\@}" />
+    <string id="klGEDUmw" text="{BONUS_AMOUNT} % de dégâts aux boucliers des troupes dans votre formation." />
+    <string id="kmdjRAoG" text="{.F}{.S}Coiffe en tissu lacée{@PLURAL}{.F}{.P}Coiffes en tissu lacées{\@}" />
+    <string id="kmM68Qx4" text="votre compétence à diriger." />
+    <string id="kNXet6Um" text="vous avez vécu une sacrée équipée en ville." />
+    <string id="koX9okuG" text="Aucun(e)" />
+    <string id="KoyU5yeY" text="{.M}{.S}Casque en bronze à franges décoré avec oreillons{@PLURAL}{.M}{.P}Casques en bronze à franges décorés avec oreillons{\@}" />
+    <string id="Kqt8RHh7" text="{.F}{.S}Forge" />
+    <string id="Kr8b1bxY" text="{.M}{.S}Gilet de mailles de soldat d&apos;infanterie{@PLURAL}{.M}{.P}Gilets de mailles de soldat d&apos;infanterie{\@}" />
+    <string id="KsBoNHW5" text="Calatild" />
+    <string id="KTegaNPW" text="{.M}{.S}Arc long{@PLURAL}{.M}{.P}Arcs longs{\@}" />
+    <string id="KUEHAD4U" text="Quêtes" />
+    <string id="KVG0Tzaa" text="{.F}{.S}Armure miroir renforcée{@PLURAL}{.F}{.P}Armures miroir renforcées{\@}" />
+    <string id="KwbnODoT" text="{.F}{.S}Brigandine sur haubert{@PLURAL}{.F}{.P}Brigandines sur haubert{\@}" />
+    <string id="kx7q8ybD" text="Armure de bras" />
+    <string id="l5JDrvbW" text="{.F}{.S}Tunique sur tartan{@PLURAL}{.F}{.P}Tuniques sur tartan{\@}" />
+    <string id="l5PPS5lG" text="{.F}{.S}Cotte de mailles de soldat d&apos;infanterie sur cuir{@PLURAL}{.F}{.P}Cottes de mailles de soldat d&apos;infanterie sur cuir{\@}" />
+    <string id="l69aXkKH" text="{.F}{.S}Fourche de campagne{@PLURAL}{.F}{.P}Fourches de campagne{\@}" />
+    <string id="L7wn49Uz" text="Diplomatie" />
+    <string id="l91l1TJo" text="{.M}{.S}Turban coloré{@PLURAL}{.M}{.P}Turbans colorés{\@}" />
+    <string id="L9weGfoX" text="Salea" />
+    <string id="labbKop6" text="{BONUS_AMOUNT} % de dégâts à distance aux troupes dans votre formation." />
+    <string id="lAWwcO6b" text="Royaume de Vlande" />
+    <string id="lB4UF1GT" text="{.F}{.S}Tunique longue{@PLURAL}{.F}{.P}Tuniques longues{\@}" />
+    <string id="Lbm7asY3" text="{.M}{.S}Grand écu{@PLURAL}{.M}{.P}Grands écus{\@}" />
+    <string id="lBn2pSBL" text="Membres" />
+    <string id="LBNzsqyb" text="Fiefs" />
+    <string id="lbVB6KPl" text="{.F}{.S}Capuche{@PLURAL}{.F}{.P}Capuches{\@}" />
+    <string id="lC5xsoSh" text="Illimité(e)" />
+    <string id="lD1sl2XC" text="Camnon" />
+    <string id="lD5Ob3R4" text="Peut-être était-ce juste une histoire d&apos;un soir, ou peut-être avez-vous triché aux dés, ou bien avez-vous mal choisi vos mots au milieu d&apos;une foule dangereuse un soir de beuverie. Quoi qu&apos;il en soit, vous avez vécu le genre de problème dont on ne se sort que par des mots bien tournés ou un talent certain pour le sprint." />
+    <string id="LE9mRhSs" text="Hespedia" />
+    <string id="lEHjxPTs" text="Allié" />
+    <string id="lEHtUGed" text="Diocosos" />
+    <string id="LgftnHPs" text="{.M}{.S}Gilet de cuir tissé{@PLURAL}{.M}{.P}Gilets de cuir tissés{\@}" />
+    <string id="lgvtLEDA" text="Melchéa" />
+    <string id="lIJ1EVBh" text="{.M}{.P}Gants de cuir" />
+    <string id="lLJh7WAT" text="Vous travailliez sur un marché, vendant des babioles et des rafraîchissements aux acheteurs occupés." />
+    <string id="LMo6MaQS" text="{.F}{.S}Armure lamellaire de cataphractaire{@PLURAL}{.F}{.P}Armures lamellaires de cataphractaire{\@}" />
+    <string id="LmwhFv5p" text="Viande{@Plural}cargaisons de viande{\@}" />
+    <string id="LMWiJi6V" text="Phirentos" />
+    <string id="LOPavWRp" text="{.F}{.P}Chaussures à lanières" />
+    <string id="LP7yYoGQ" text="Caribos" />
+    <string id="LpH8SYFL" text="Vos parents étaient les personnes de confiance d&apos;un chef battanien, et ils partageaient son repas dans son fief. Votre père aidait le chef à gérer les affaires du clan et s&apos;entraînait avec les armes traditionnelles de l&apos;élite battanienne : l&apos;épée à deux mains, la faux et l&apos;arc." />
+    <string id="LqA9uBH9" text="{.F}{.S}Calotte à pointe sur coiffe en tissu{@PLURAL}{.F}{.P}Calottes à pointe sur coiffe en tissu{\@}" />
+    <string id="LRbGXEw2" text="{.M}{.S}Casque nasal à mailles décoré avec plumes{@PLURAL}{.M}{.P}Casques nasaux à mailles décorés avec plumes{\@}" />
+    <string id="LsZEdD2z" text="Murs" />
+    <string id="lULBZ714" text="Huile{@Plural}amphores d&apos;huile{\@}" />
+    <string id="luoXhz19" text="{.M}{.S}Gilet lamellaire lourd{@PLURAL}{.M}{.P}Gilets lamellaires lourds{\@}" />
+    <string id="lVtoBMhp" text="{.F}{.S}Cape sur tartan{@PLURAL}{.F}{.P}Capes sur tartan{\@}" />
+    <string id="lZ93DOrn" text="{.M}{.S}Manteau matelassé sans manches{@PLURAL}{.M}{.P}Manteaux matelassés sans manches{\@}" />
+    <string id="lZZOQsxc" text="{.F}{.S}Selle de cavalerie rêche{@PLURAL}{.F}{.P}Selles de cavalerie rêches{\@}" />
+    <string id="M0n609ut" text="{.F}{.P}Épaulettes de mailles" />
+    <string id="M2wvaObX" text="{.F}{.S}Spatha{@PLURAL}{.F}{.P}Spathas{\@}" />
+    <string id="m3Nv9rt2" text="{.M}{.S}Casque de nomade à plumes{@PLURAL}{.M}{.P}Casques de nomade à plumes{\@}" />
+    <string id="m6uSOtE4" text="Vous n&apos;avez pas assez d&apos;argent." />
+    <string id="m9ZgghCo" text="Abagai" />
+    <string id="MafIe9yI" text="Jeune adulte" />
+    <string id="malechild" text="Enfant" />
+    <string id="malethug" text="Malfrat" />
+    <string id="MamotK0a" text="{.M}{.P}Canons d&apos;avant-bras matelassés" />
+    <string id="mBVCyRY5" text="{.F}{.S}Cotte de mailles de légionnaire décorée{@PLURAL}{.F}{.P}Cottes de mailles de légionnaire décorées{\@}" />
+    <string id="mc78FEbA" text="Compagnons d&apos;un boyard" />
+    <string id="Mcd3ZyKq" text="Vos parents avaient juste assez de terres pour se nourrir et faire quelques profits. Les gens comme eux étaient les piliers de l&apos;économie du royaume, ainsi que la base des levées." />
+    <string id="MChutiV6" text="{.M}{.S}Chapel rond sur tissu{@PLURAL}{.M}{.P}Chapels ronds sur tissu{\@}" />
+    <string id="MEgLE2kj" text="votre don avec les chevaux." />
+    <string id="mfeM775z" text="{.M}{.S}Hachoir{@PLURAL}{.M}{.P}Hachoirs{\@}" />
+    <string id="mfRbx5KE" text="à lire et écrire." />
+    <string id="MFrIHJZM" text="Votre famille avait des petites ramifications dans la tribu d&apos;un émir. Les terres de votre père lui procuraient assez d&apos;argent pour pouvoir s&apos;acheter un cheval, mais il n&apos;était pas assez riche pour acheter l&apos;armure nécessaire pour rejoindre la cavalerie lourde. C&apos;est pourquoi il combattait comme cavalier léger, ceux qui font la renommée du désert." />
+    <string id="millionabbr" text="m" />
+    <string id="MkBPRCuF" text="Pénalité de précision à distance diminuée" />
+    <string id="mkoMUmLh" text="{.M}{.S}Gilet de toile{@PLURAL}{.M}{.P}Gilets de toile{\@}" />
+    <string id="MKT5IzWm" text="{.F}{.S}Robe à manches épaisse{@PLURAL}{.F}{.P}Robes à manches épaisses{\@}" />
+    <string id="mlJKNbbn" text="{.F}{.S}Coiffe de cuir{@PLURAL}{.F}{.P}Coiffes de cuir{\@}" />
+    <string id="MnmUBlbL" text="{.F}{.S}Targe{@PLURAL}{.F}{.P}Targes{\@}" />
+    <string id="mOa9CX13" text="{.M}{.P}Band. des montagnes" />
+    <string id="mP3uFbcq" text="vous avez réussi une chasse à l&apos;homme." />
+    <string id="MQ8LCvCE" text="{.F}{.S}Tunique en tissu lacée{@PLURAL}{.F}{.P}Tuniques en tissu lacées{\@}" />
+    <string id="MqCH7R4A" text="Sécurité" />
+    <string id="mRGIxvYh" text="{.F}{.S}Cervelière nasale sur camail{@PLURAL}{.F}{.P}Cervelières nasales sur camail{\@}" />
+    <string id="MRktqZwu" text="Objectif de compétence" />
+    <string id="MT4b8H9h" text="Inconnu" />
+    <string id="MTB2BunA" text="{.M}{.S}Tartan de mailles des hautes terres renforcé{@PLURAL}{.M}{.P}Tartans de mailles des hautes terres renforcés{\@}" />
+    <string id="mTsEaNKb" text="{.F}{.S}Cape de fourrure{@PLURAL}{.F}{.P}Capes de fourrure{\@}" />
+    <string id="mU5CY4bz" text="{.M}{.S}Casque de housecarl fermé{@PLURAL}{.M}{.P}Casques de housecarl fermés{\@}" />
+    <string id="mvTueU1y" text="{.M}{.P}Canons d&apos;avant-bras en cuir avec plates" />
+    <string id="MxmOWsHj" text="Encyclopédie" />
+    <string id="n1A47HcZ" text="{.M}{.S}Casque de lancier noble{@PLURAL}{.M}{.P}Casques de lancier noble{\@}" />
+    <string id="n2FdWOtE" text="Adram" />
+    <string id="n3cjEB0X" text="Outils{@Plural}cargaisons d&apos;outils{\@}" />
+    <string id="n4UUrd1p" text="Déjà en cours d&apos;utilisation" />
+    <string id="N6QTvjMf" text="Prisonniers" />
+    <string id="n7c7tnx9" text="{.M}{.S}Casque de seigneur de guerre avec protection nasale{@PLURAL}{.M}{.P}Casques de seigneur de guerre avec protection nasale{\@}" />
+    <string id="NBAGX54b" text="Avigos" />
+    <string id="NbgeKwVr" text="Ateliers" />
+    <string id="ndfDy5B8" text="{.M}{.S}Turban serré{@PLURAL}{.M}{.P}Turbans serrés{\@}" />
+    <string id="NF627oiX" text="{.M}{.S}Empire septentrional" />
+    <string id="ngazFofr" text="Les animaux vous ont toujours {?PLAYER.GENDER}attirée{?}attiré{\?}, et vous passiez autant de temps que possible dans les écuries du village. Vous saviez calmer les chevaux, et on vous appelait parfois pour dresser les nouveaux poulains. Vous avez appris les bases de la médecine vétérinaire, qui sont pour la plupart également applicables aux humains." />
+    <string id="ngFVgwDD" text="Guerriers-esclaves" />
+    <string id="NiBDR9ld" text="{.M}{.S}Casque en bronze décoré avec oreillons{@PLURAL}{.M}{.P}Casques en bronze décorés avec oreillons{\@}" />
+    <string id="NLKmdNbt" text="Rechercher" />
+    <string id="NM5f1Q6I" text="Ariada" />
+    <string id="nMfxbc0Y" text="Augmentation de la vitesse de déplacement de la monture" />
+    <string id="NOchnEwX" text="Ghuzid" />
+    <string id="nOfSqRnI" text="sur le terrain d&apos;entraînement de la garde." />
+    <string id="nOMT0Cw6" text="Réduction des coups portés au moral" />
+    <string id="NqarFr4P" text="Options" />
+    <string id="nqWulUTP" text="{BONUS_AMOUNT} % à la vitesse de déplacement à l&apos;infanterie dans votre formation." />
+    <string id="nSoJkeBI" text="Sittacea" />
+    <string id="NTaol1uQ" text="{.F}{.S}Broigne{@PLURAL}{.F}{.P}Broignes{\@}" />
+    <string id="NUHzapSv" text="{.F}{.S}Tunique longue en chanvre{@PLURAL}{.F}{.P}Tuniques longues en chanvre{\@}" />
+    <string id="NUmDuEqI" text="{.M}{.S}Harnais impérial{@PLURAL}{.M}{.P}Harnais impériaux{\@}" />
+    <string id="Nv0eZmGL" text="{.M}{.S}Bonnet nasal en acier{@PLURAL}{.M}{.P}Bonnets nasaux en acier{\@}" />
+    <string id="nWbp3o3H" text="{.M}{.S}printemps" />
+    <string id="nwqUFaU8" text="{.M}{.S}hiver" />
+    <string id="NXOOJs2X" text="Patrys" />
+    <string id="O2oBC9sH" text="Augmentation des dégâts de charge" />
+    <string id="O37kzdXO" text="{.M}{.S}Harnais léger{@PLURAL}{.M}{.P}Harnais légers{\@}" />
+    <string id="O3dhjtOS" text="Armure de tête" />
+    <string id="O75XlydW" text="Arcor" />
+    <string id="O8TpGSDA" text="Velours{@Plural}rouleaux de velours{\@}" />
+    <string id="oAoTaAWg" text="premier" />
+    <string id="oBbiVeKE" text="Points de vie" />
+    <string id="oEJnxsQ1" text="{.M}{.P}Brassards enveloppés" />
+    <string id="oEvhhNNR" text="{.F}{.P}Bottes en cuir de cavalier" />
+    <string id="oH8iFEv7" text="{.F}{.P}Bottes de ville" />
+    <string id="oHaWR73d" text="OK" />
+    <string id="OhEQUMk0" text="{.M}{.S}Écu large{@PLURAL}{.M}{.P}Écus larges{\@}" />
+    <string id="oibdTnXP" text="Maniement" />
+    <string id="OJIRIm4j" text="{.F}{.S}Tunique simple en tissu{@PLURAL}{.F}{.P}Tuniques simples en tissu{\@}" />
+    <string id="oJKXjRJ3" text="{.F}{.S}Armure d&apos;écailles des hautes terres sur tissu{@PLURAL}{.F}{.P}Armures d&apos;écailles des hautes terres sur tissu{\@}" />
+    <string id="ok8lSW6M" text="Jeunesse" />
+    <string id="OKUTPdaa" text="Niveau" />
+    <string id="ol0rBSrb" text="{STR1}{newline}{STR2}" />
+    <string id="olamAwhb" text="{.M}{.S}Casque nasal sur coiffe en tissu{@PLURAL}{.M}{.P}Casques nasaux sur coiffe en tissu{\@}" />
+    <string id="OlOhuO7X" text="Non merci. Bonne journée à vous." />
+    <string id="OM9achAa" text="{.M}{.S}Bouclier normand en chêne renforcé{@PLURAL}{.M}{.P}Boucliers normands en chêne renforcés{\@}" />
+    <string id="oMbOIPc9" text="avez rejoint les escarmoucheurs." />
+    <string id="omLMiX89" text="{.M}{.S}Cuir cousu sur cotte de mailles{@PLURAL}{.M}{.P}Cuirs cousus sur cotte de mailles{\@}" />
+    <string id="ONaWEKSy" text="{.M}{.S}Casque nasal sur cuir{@PLURAL}{.M}{.P}Casques nasaux sur cuir{\@}" />
+    <string id="Oo0baNaq" text="{.F}{.P}Bottes à lacets rêches" />
+    <string id="OpYdqPWs" text="{.M}{.S}Camail ouvert{@PLURAL}{.M}{.P}Camails ouverts{\@}" />
+    <string id="oQSZ0XgP" text="{.F}{.S}Tunique épaisse décorée{@PLURAL}{.F}{.P}Tuniques épaisses décorées{\@}" />
+    <string id="OrEgjXZ1" text="{.M}{.S}Keffieh en toile de jute{@PLURAL}{.M}{.P}Keffiehs en toile de jute{\@}" />
+    <string id="ORFrCYSn" text="{BONUS_AMOUNT} % de dégâts d&apos;attaques au corps à corps aux troupes dans votre formation." />
+    <string id="OVcoYxj1" text="Nom du serveur" />
+    <string id="OvlG2Vu1" text="{.F}{.S}Brigandine rêche{@PLURAL}{.F}{.P}Brigandines rêches{\@}" />
+    <string id="OwqFpPwa" text="Filtres" />
+    <string id="Oy5dH7gZ" text="Élea" />
+    <string id="oZrVNUOk" text="Erreur" />
+    <string id="p0hcyZdp" text="Zénon" />
+    <string id="p0JFbL7G" text="Réduction des dégâts à distance reçus" />
+    <string id="p2KIhGbE" text="Forgerons urbains" />
+    <string id="p6NIgRpk" text="{.M}{.S}Bonnet en peau rêche{@PLURAL}{.M}{.P}Bonnets en peau rêches{\@}" />
+    <string id="P7iNhhPl" text="Turiados" />
+    <string id="P8GrNSkF" text="{.F}{.S}Calotte sur camail{@PLURAL}{.F}{.P}Calottes sur camail{\@}" />
+    <string id="p9cQARqf" text="{.F}{.S}Cotte de mailles de noble{@PLURAL}{.F}{.P}Cottes de mailles de noble{\@}" />
+    <string id="PbJAOKKZ" text="Augmentation de la vitesse de déplacement des troupes" />
+    <string id="pbp0GQdO" text="Bannir un joueur" />
+    <string id="pBUc2pL8" text="{.M}{.P}Pillards des mers" />
+    <string id="pCBkH35Q" text="Danos" />
+    <string id="PDdh1sBj" text="Nom" />
+    <string id="pdqi2qz1" text="Vous ne pouvez pas effectuer cette action lorsque votre ruelle est attaquée." />
+    <string id="pEaYQqG9" text="{.M}{.S}Bouclier carré en osier{@PLURAL}{.M}{.P}Boucliers carrés en osier{\@}" />
+    <string id="PeozdF9h" text="{.M}{.S}Manteau de cuir séché cousu{@PLURAL}{.M}{.P}Manteaux de cuir séché cousus{\@}" />
+    <string id="pgbC8UkU" text="Rébellion" />
+    <string id="pgw7LMRo" text="Serveur surchargé." />
+    <string id="PiHpR4QL" text="Maniement à une main" />
+    <string id="PjO7oY16" text="{.F}{.S}Sturgie" />
+    <string id="pKf56MdS" text="Bagai" />
+    <string id="PKhcPbBX" text="Votre famille faisait partie d&apos;un clan nomade, traversant les étendues désertes entre les lits des wadis et les puits pour nourrir leurs chèvres et leurs chameaux grâce aux petits buissons du Nahasa." />
+    <string id="PL5SG9hI" text="{.F}{.S}Armure d&apos;écailles en cuir{@PLURAL}{.F}{.P}Armures d&apos;écailles en cuir{\@}" />
+    <string id="playgame" text="Jouer" />
+    <string id="PLtQdf23" text="{.F}{.P}Mitaines matelassées renforcées" />
+    <string id="plx8kkxa" text="Pélicos" />
+    <string id="ppi6eVos" text="Comme vous voudrez." />
+    <string id="pq0w8kry" text="Orachos" />
+    <string id="pqfz386V" text="Chef de clan" />
+    <string id="PR4IqkTW" text="Téméon" />
+    <string id="pRbKbPK3" text="Vadrios" />
+    <string id="PtfbqMeg" text="{.F}{.S}Brigandine sur cotte de mailles{@PLURAL}{.F}{.P}Brigandines sur cotte de mailles{\@}" />
+    <string id="PTKyNh2O" text="{.F}{.S}Cotte de mailles de légionnaire{@PLURAL}{.F}{.P}Cottes de mailles de légionnaire{\@}" />
+    <string id="PUjDWe5j" text="Culture" />
+    <string id="PuRfbiW3" text="Erdurand" />
+    <string id="PVgSGCYK" text="{.M}{.S}Casque nasal sur camail{@PLURAL}{.M}{.P}Casques nasaux sur camail{\@}" />
+    <string id="pVkchhqX" text="{VICTIM.NAME} a été {?VICTIM.GENDER}perdue{?}perdu{\?}." />
+    <string id="Pya9aCTd" text="Elthild" />
+    <string id="PyeZ22FL" text="{.M}{.S}Casque en bronze avec oreillons{@PLURAL}{.M}{.P}Casques en bronze avec oreillons{\@}" />
+    <string id="PyVqDLBu" text="Vos parents ne vous ont pas laissé beaucoup d&apos;argent, mais juste assez pour obtenir un prêt et construire un petit atelier. Vous avez remboursé ce que vous aviez emprunté, et vendu votre entreprise en réalisant un gros profit." />
+    <string id="pzfbPbWW" text="{.M}{.S}Rocher" />
+    <string id="q186AQHt" text="Phadon" />
+    <string id="q1z4FQub" text="{.F}{.S}Selle de chameau{@PLURAL}{.F}{.P}Selles de chameau{\@}" />
+    <string id="q2Y2DHiA" text="{.M}{.P}Archers à cheval" />
+    <string id="Q50hfNjW" text="{.F}{.S}Coiffe en peau fine{@PLURAL}{.F}{.P}Coiffes en peau fine{\@}" />
+    <string id="qAbMagWq" text="vendre des produits au marché." />
+    <string id="qaDIU0XC" text="{.M}{.S}Haut-royaume de Battania" />
+    <string id="qaKGuHSt" text="{.M}{.S}Harnais de cuir orné matelassé{@PLURAL}{.M}{.P}Harnais de cuir ornés matelassés{\@}" />
+    <string id="QaysED62" text="{.F}{.S}Tunique avec tissu enroulé{@PLURAL}{.F}{.P}Tuniques avec tissu enroulé{\@}" />
+    <string id="QbfOXJas" text="{.M}{.S}Manteau de fantassin matelassé{@PLURAL}{.M}{.P}Manteaux de fantassin matelassés{\@}" />
+    <string id="QBPrRdQJ" text="{?NPC.GENDER}Chirurgienne{?}Chirurgien{\?}" />
+    <string id="qc0P0b2r" text="{.M}{.S}Casque à protection visuelle sur cotte de mailles{@PLURAL}{.M}{.P}Casques à protection visuelle sur cotte de mailles{\@}" />
+    <string id="Qd0tQLpA" text="{.F}{.S}Armure en cuir cloutée{@PLURAL}{.F}{.P}Armures en cuir cloutées{\@}" />
+    <string id="qdMP2qWG" text="{.M}{.P}Renforcements de spalières de mailles" />
+    <string id="qeKskdiY" text="Tablut" />
+    <string id="qFL0VxZX" text="{.F}{.S}Coiffe lacée{@PLURAL}{.F}{.P}Coiffes lacées{\@}" />
+    <string id="qfzkMuLj" text="Artisan" />
+    <string id="QGaIYQpg" text="Poisson{@Plural}barils de poissons{\@}" />
+    <string id="QGIAbglw" text="Obron" />
+    <string id="qH5VV8In" text="{.F}{.S}Tunique de cuir de villageois{@PLURAL}{.F}{.P}Tuniques de cuir de villageois{\@}" />
+    <string id="qILO0HdK" text="{.M}{.P}Vêtements matelassés sans manches" />
+    <string id="qiTtJyHE" text="Gala" />
+    <string id="QjJAbaoT" text="Apys" />
+    <string id="QJq4VAU7" text="Mesui" />
+    <string id="QLcP8bIs" text="{.F}{.S}Serpe{@PLURAL}{.F}{.P}Serpes{\@}" />
+    <string id="qlOuiKXj" text="vous avez vécu une sacrée équipée." />
+    <string id="QlvnKQbc" text="{.F}{.S}Armure d&apos;écailles des hautes terres sur cotte de mailles{@PLURAL}{.F}{.P}Armures d&apos;écailles des hautes terres sur cotte de mailles{\@}" />
+    <string id="QndVFTbx" text="Déséquiper" />
+    <string id="qnqdEJOv" text="Vous avez regardé la garde de la ville s&apos;entraîner au tir et perfectionner ses plans pour défendre les murs en cas de siège." />
+    <string id="qNZFkxJb" text="Vos parents étaient marchands dans une des plus grandes villes du royaume. Ils organisaient des caravanes vers les villages voisins et étaient actifs dans la guilde des marchands locale." />
+    <string id="qo8hwDNU" text="{.F}{.S}Armure de fourrure rêche{@PLURAL}{.F}{.P}Armures de fourrure rêches{\@}" />
+    <string id="QOWyEJrm" text="Vous n&apos;avez pas assez de deniers." />
+    <string id="qPg3IDiq" text="Vos parents venaient d&apos;un des clans marchands qui dominaient les villes dans l&apos;est de Calradia avant la conquête khuzaïte. Ils se sont rapidement faits à leurs nouveaux maîtres, ont continué à gérer leurs caravanes et se sont assurés que les revenus qui allaient autrefois dans les coffres impériaux finissaient désormais dans ceux du khanat." />
+    <string id="QPoA6vvx" text="Revenus" />
+    <string id="qqW5n5Ox" text="Milos" />
+    <string id="qRqnrtdX" text="Propriétaire" />
+    <string id="QrYjPUEf" text="votre attention au détail." />
+    <string id="qSi4DlT4" text="Nourriture" />
+    <string id="qsVRoGUv" text="{.M}{.S}Foulard ouvert{@PLURAL}{.M}{.P}Foulards ouverts{\@}" />
+    <string id="qT6jIu3v" text="{.F}{.S}Jupe de fourrure avec tunique{@PLURAL}{.F}{.P}Jupes de fourrure avec tunique{\@}" />
+    <string id="qtII2HbK" text="Richesse" />
+    <string id="qtwYBHIn" text="Thomund" />
+    <string id="QvfUqzpF" text="Mina" />
+    <string id="qVj5NqrL" text="{.M}{.S}Casque intégral sur bonnet matelassé{@PLURAL}{.M}{.P}Casques intégraux sur bonnet matelassé{\@}" />
+    <string id="QWqvGa1P" text="Vache{@Plural}têtes de bétail{\@}" />
+    <string id="QxzcuhmA" text="{.F}{.S}Peau de léopard{@PLURAL}{.F}{.P}Peaux de léopard{\@}" />
+    <string id="Qywm0F8B" text="{.M}{.S}Camail avec casque en cuir{@PLURAL}{.M}{.P}Camails avec casque en cuir{\@}" />
+    <string id="QyXwJXIV" text="Andrasa" />
+    <string id="QzAvlan7" text="{.F}{.S}Robe courte matelassée{@PLURAL}{.F}{.P}Robes courtes matelassées{\@}" />
+    <string id="r07M9xbT" text="{.F}{.S}Arbalète lourde{@PLURAL}{.F}{.P}Arbalètes lourdes{\@}" />
+    <string id="R45H8quo" text="{.F}{.S}Toge{@PLURAL}{.F}{.P}Toges{\@}" />
+    <string id="R4Gqskgq" text="Victoire" />
+    <string id="rA3KybBX" text="Éthirea" />
+    <string id="RamV6yLM" text="Retour au menu principal" />
+    <string id="rcoueCmk" text="Adolescence" />
+    <string id="RDbqA36B" text="{.M}{.S}Casque en bronze à franges strié avec oreillons{@PLURAL}{.M}{.P}Casques en bronze à franges striés avec oreillons{\@}" />
+    <string id="RddFH0BA" text="{.M}{.S}Grand bouclier rond à bordure en fer{@PLURAL}{.M}{.P}Grands boucliers ronds à bordure en fer{\@}" />
+    <string id="RDfXuVxT" text="Cavaliers" />
+    <string id="redwEIlW" text="{?NPC.GENDER}Intendante d&apos;armée{?}Intendant d&apos;armée{\?}" />
+    <string id="rF7Xm7C0" text="{.M}{.S}Écu lourd{@PLURAL}{.M}{.P}Écus lourds{\@}" />
+    <string id="rFbAjSWM" text="Gorigos" />
+    <string id="rg7OuWS2" text="Manœuvre" />
+    <string id="rGuYLmez" text="Ascyron" />
+    <string id="Rhfp7ath" text="{.M}{.S}Casque à visière sur coiffe lacée{@PLURAL}{.M}{.P}Casques à visière sur coiffe lacée{\@}" />
+    <string id="RHXdqjQY" text="Ilina" />
+    <string id="RKVNvimC" text="garder les moutons." />
+    <string id="RmbWW6Bm" text="Vous étiez jeune et suffisamment {?PLAYER.GENDER}imposante{?}imposant{\?} pour que le chef de la garde vous autorise à vous entraîner à leurs côtés, en préparation pour un recrutement futur." />
+    <string id="rmMcwSn8" text="Vous aidiez votre famille à gérer ses affaires, allant dans les marchés pour faire des achats et superviser l&apos;arrivée des caravanes." />
+    <string id="RN6zHak0" text="Joueur" />
+    <string id="RoKwj5XN" text="Chagun" />
+    <string id="rSEXAMUx" text="{.M}{.S}Casque de légionnaire{@PLURAL}{.M}{.P}Casques de légionnaire{\@}" />
+    <string id="RssJTUpL" text="Berserker" />
+    <string id="rTFaZCdY" text="Forêt" />
+    <string id="rUvnbDi2" text="Encurion" />
+    <string id="RuvSk3QT" text="Vous accompagniez un chasseur local lorsqu&apos;il partait dans la nature et l&apos;aidiez à poser des pièges et attraper des petits animaux." />
+    <string id="RvKwdXWs" text="Commandant" />
+    <string id="RVPidk5a" text="Influence" />
+    <string id="Rvr1bcu8" text="Suivant" />
+    <string id="rVUhYuvE" text="Sutérios" />
+    <string id="RXDyumYz" text="{.M}{.S}Harnais de cuir avec cape{@PLURAL}{.M}{.P}Harnais de cuir avec cape{\@}" />
+    <string id="RyorjCXF" text="Galon" />
+    <string id="S1SUK8zk" text="{.M}{.S}Chapel de fer sur camail{@PLURAL}{.M}{.P}Chapels de fer sur camail{\@}" />
+    <string id="S1XL4KJh" text="{.M}{.S}Manteau épais luxueux{@PLURAL}{.M}{.P}Manteaux épais luxueux{\@}" />
+    <string id="s31DnnAf" text="Dégâts" />
+    <string id="s8PNllPN" text="vous avez sauvé votre quartier d&apos;un incendie." />
+    <string id="S9htzkbe" text="{.M}{.S}Chapeau de marchand{@PLURAL}{.M}{.P}Chapeaux de marchand{\@}" />
+    <string id="s9oED1IR" text="Escarmoucheur" />
+    <string id="sAbjtZbB" text="{.M}{.P}Bandits des forêts" />
+    <string id="sAml91Z3" text="{.F}{.S}Brigandine luxueuse{@PLURAL}{.F}{.P}Brigandines luxueuses{\@}" />
+    <string id="sb4gg8Ak" text="Propriétaires fonciers" />
+    <string id="sbbNL1qF" text="{.F}{.P}Épaulières d&apos;écailles renforcées" />
+    <string id="sDFb1PRI" text="Nortos" />
+    <string id="Settlements.Settlement.name.castle_EN6" text="{.M}{.S}Château d&apos;Ataconia" />
+    <string id="Settlements.Settlement.name.castle_EN9" text="{.M}{.S}Château de Mécalovéa" />
+    <string id="Settlements.Settlement.name.town_A6" text="{.F}{.S}Sanala" />
+    <string id="SFybYZNK" text="Mengus" />
+    <string id="shL0WElC" text="Groupe {.d}{TROOP.NAME}" />
+    <string id="SHZ0P7Iu" text="{.F}{.S}Cape en cuir matelassée{@PLURAL}{.F}{.P}Capes en cuir matelassées{\@}" />
+    <string id="siegeevent" text="Siège" />
+    <string id="sJ1R62Tn" text="{.M}{.S}Casque à plumes{@PLURAL}{.M}{.P}Casques à plumes{\@}" />
+    <string id="smHA8Apa" text="{.M}{.S}Bonnet de nomade décoré{@PLURAL}{.M}{.P}Bonnets de nomade décorés{\@}" />
+    <string id="smKogclC" text="{.F}{.S}Tunique en toile grossière{@PLURAL}{.F}{.P}Tuniques en toile grossières{\@}" />
+    <string id="sO8Zh3ZH" text="Les succès sont désactivés à cause de tricheries." />
+    <string id="SoTUisL3" text="Deltisos" />
+    <string id="SpJqhEEh" text="Bardes" />
+    <string id="sPmQz21k" text="Ennemi" />
+    <string id="SrfYbg3x" text="Chef" />
+    <string id="SRncaw79" text="Urios" />
+    <string id="SvYpE52J" text="{.F}{.S}Tunique soignée en fourrure{@PLURAL}{.F}{.P}Tuniques soignées en fourrure{\@}" />
+    <string id="SW3lkPHe" text="{.M}{.S}Bisht coloré{@PLURAL}{.M}{.P}Bishts colorés{\@}" />
+    <string id="Sw8OxnNr" text="Famille d&apos;un émir" />
+    <string id="SyklU5aP" text="Informations" />
+    <string id="sYuN6hPD" text="Tous les royaumes de Calradia reconnaissent la valeur d&apos;une bonne cavalerie légère et n&apos;hésitent pas à recruter des nomades et frontaliers ayant les compétences pour occuper ces postes. Vous étiez {?PLAYER.GENDER}bonne cavalière{?}bon cavalier{\?}, si bien que vos voisins se sont cotisés pour vous acheter un petit poney et une poignée de javelots afin que vous puissiez remplir leurs obligations de levée." />
+    <string id="SYvBTD0p" text="{.M}{.S}Casque intégral sur coiffe en tissu{@PLURAL}{.M}{.P}Casques intégraux sur coiffe en tissu{\@}" />
+    <string id="sZLd6VHi" text="{?ADJECTIVE.GENDER}khuzaïte{?}khuzaïte{\?}{?ISPLURAL}s{?}{\?}" />
+    <string id="Szuxa9Bs" text="{.F}{.P}Bottes en lambeaux" />
+    <string id="t1OpnZph" text="Jérémos" />
+    <string id="t2Oh6uty" text="Message de bienvenue" />
+    <string id="T2POVRtg" text="{.F}{.S}Armure auxiliaire à lanières{@PLURAL}{.F}{.P}Armures auxiliaires à lanières{\@}" />
+    <string id="t3tq0eoW" text="Groupes" />
+    <string id="t78atYqH" text="Maniement à deux mains" />
+    <string id="T79exjaP" text="Réduction des dégâts de bouclier reçus" />
+    <string id="T7m7ReTq" text="chasser du petit gibier." />
+    <string id="TAnabTdy" text="Précision" />
+    <string id="TbNRtUjb" text="vous avez chassé un animal dangereux." />
+    <string id="TCQQRQgI" text="Ordre de bataille" />
+    <string id="tCTzsaIu" text="Muinser" />
+    <string id="TeIcf3Cd" text="{.F}{.S}Armure lamellaire lourde sur cotte de mailles{@PLURAL}{.F}{.P}Armures lamellaires lourdes sur cotte de mailles{\@}" />
+    <string id="tEimkEsU" text="{.M}{.S}Arc court nordique{@PLURAL}{.M}{.P}Arcs courts nordiques{\@}" />
+    <string id="TFT2Xapz" text="{.M}{.S}Casque à visière sur jaque{@PLURAL}{.M}{.P}Casques à visière sur jaque{\@}" />
+    <string id="tG1Q8r2u" text="{.F}{.S}Armure lamellaire de lancier{@PLURAL}{.F}{.P}Armures lamellaires de lancier{\@}" />
+    <string id="tGEStbxb" text="Membres de la tribu" />
+    <string id="Th8q8wC2" text="Butin" />
+    <string id="thousandabbr" text="k" />
+    <string id="tHtt3HCn" text="Pryndor" />
+    <string id="tI8ZLtoA" text="réparer certains projets." />
+    <string id="TiJOjUi5" text="Valaos" />
+    <string id="tiTTWhpW" text="{.F}{.S}Chemise de cuir matelassée{@PLURAL}{.F}{.P}Chemises de cuir matelassées{\@}" />
+    <string id="TkgLEDRM" text="Marchands" />
+    <string id="tMLH04n4" text="{.M}{.S}Chapel de fer sur camail{@PLURAL}{.M}{.P}Chapels de fer sur camail{\@}" />
+    <string id="tMwsE9IR" text="{.F}{.P}Bottes de cuir à lanières" />
+    <string id="Toj0vayQ" text="Monchug" />
+    <string id="toQLHG6x" text="Bravoure" />
+    <string id="Tp7zXWGa" text="{.M}{.S}Casque nasal sur coiffe matelassée{@PLURAL}{.M}{.P}Casques nasaux sur coiffe matelassée{\@}" />
+    <string id="TPoK3GSj" text="Vagabonds" />
+    <string id="tpQLvMSM" text="{.M}{.S}Casque nasal sur cotte de mailles{@PLURAL}{.M}{.P}Casques nasaux sur cotte de mailles{\@}" />
+    <string id="tQOPRBFg" text="Rechercher..." />
+    <string id="tRIrbTvv" text="Brutes des ruelles" />
+    <string id="TRwgSLD2" text="chercher des herbes dans la nature." />
+    <string id="tTb28jyU" text="De nombreux Battaniens se battent en tant que kerns, des troupes versatiles qui peuvent aussi bien harceler les lignes ennemies avec leurs javelots que rejoindre la charge finale en hurlant une fois l&apos;adversaire affaibli." />
+    <string id="tTLvo8sM" text="Niveau de clan" />
+    <string id="tTuaiLS6" text="Meritor" />
+    <string id="TTWL7RLe" text="{.F}{.S}Arbalète" />
+    <string id="tVyuxl8e" text="{.F}{.S}Robe en lambeaux{@PLURAL}{.F}{.P}Robes en lambeaux{\@}" />
+    <string id="tWDyWroN" text="Amnon" />
+    <string id="tWfAPrPa" text="{.F}{.P}Bottes de mailles de cavalier" />
+    <string id="TwuAVsCn" text="{.M}{.S}Bonnet de fourrure{@PLURAL}{.M}{.P}Bonnets de fourrure{\@}" />
+    <string id="TxAYmCjr" text="{.M}{.S}Casque nasal avec cuir{@PLURAL}{.M}{.P}Casques nasaux avec cuir{\@}" />
+    <string id="tXbRb3QO" text="{.F}{.S}Armure de fourrure cloutée{@PLURAL}{.F}{.P}Armures de fourrure cloutées{\@}" />
+    <string id="tYmOCuuQ" text="{.M}{.S}Chapel rond sur cotte de mailles{@PLURAL}{.M}{.P}Chapels ronds sur cotte de mailles{\@}" />
+    <string id="u12ocP9f" text="Maintenez &apos;{EXTEND_KEY}&apos; pour plus d&apos;infos." />
+    <string id="u1lTJoPO" text="Nemos" />
+    <string id="u1Pkt4HC" text="Pillards" />
+    <string id="U4n0uSlg" text="{.M}{.S}Foulard serré{@PLURAL}{.M}{.P}Foulards serrés{\@}" />
+    <string id="U7er3V9s" text="Objets" />
+    <string id="U8QfF3Gw" text="{.F}{.S}Tunique longue en laine{@PLURAL}{.F}{.P}Tuniques longues en laine{\@}" />
+    <string id="Ua6CNLBZ" text="Village" />
+    <string id="UaN2lfwi" text="Fabricant d&apos;armes" />
+    <string id="UB4sqrWx" text="Mère" />
+    <string id="UC2XfY7V" text="{.F}{.S}Capuche en tissu{@PLURAL}{.F}{.P}Capuches en tissu{\@}" />
+    <string id="uCyAnus4" text="Zostios" />
+    <string id="ud6rhXbn" text="Mostiros" />
+    <string id="uDlnsFIF" text="Urik" />
+    <string id="uducgNbf" text="Chaghan" />
+    <string id="uEcbnd5D" text="{.M}{.S}Bouclier rond{@PLURAL}{.M}{.P}Boucliers ronds{\@}" />
+    <string id="ueCm5y1C" text="Votre famille possédait son propre atelier en ville, fabriquant des biens à partir de matériaux bruts apportés depuis la campagne. Votre père jouait un rôle mineur mais actif dans le conseil municipal, et servait aussi dans la milice." />
+    <string id="uEPRE33m" text="{.M}{.P}Brassards à lacets rêches" />
+    <string id="ufnnUxKb" text="Cuir{@Plural}caisses de cuir{\@}" />
+    <string id="ugJfuabA" text="Archer à cheval" />
+    <string id="uGM8DWrm" text="Chevaucher" />
+    <string id="Uh057UUb" text="Puluc" />
+    <string id="UI0q8rWw" text="Cheval de base" />
+    <string id="UjL7jVYF" text="Moral" />
+    <string id="uLjRHv9p" text="Nadea" />
+    <string id="uLpnmNkZ" text="{.M}{.S}Bonnet de cuir{@PLURAL}{.M}{.P}Bonnets de cuir{\@}" />
+    <string id="un7poy9x" text="Prévisualiser" />
+    <string id="unaWKloT" text="Augmentation des dégâts au corps à corps" />
+    <string id="UoHZGyZa" text="{.M}{.S}Casque avec masque{@PLURAL}{.M}{.P}Casques avec masque{\@}" />
+    <string id="UPaP0B2L" text="Alchyla" />
+    <string id="uQgNPJnc" text="Gérer les troupes" />
+    <string id="uqO6e6vN" text="{.M}{.S}Bouclier normand{@PLURAL}{.M}{.P}Boucliers normands{\@}" />
+    <string id="URgZ4ai4" text="Vos parents étaient des membres de classe moyenne d&apos;un clan khuzaïte. Votre père avait quelques troupeaux, mais il n&apos;était pas riche. Lorsque la horde khuzaïte fut appelée au combat, il combattit avec les archers à cheval, harcelant et fatiguant les ennemis pour permettre aux lanciers de porter le coup final." />
+    <string id="urUwa4bf" text="Pillard" />
+    <string id="uTFjknE2" text="Andros" />
+    <string id="uUGAMReu" text="{.F}{.P}Bottes de ville raffinées" />
+    <string id="uvjOVy5P" text="Morts" />
+    <string id="UvOa4elc" text="{.M}{.S}Bonnet vert{@PLURAL}{.M}{.P}Bonnets verts{\@}" />
+    <string id="uW38UtSH" text="Eupitor" />
+    <string id="UxAl9iyi" text="Personnel" />
+    <string id="uYjEknNX" text="Exécution de {VICTIM.NAME} par {EXECUTER.NAME}" />
+    <string id="uZhHh7pm" text="{CURR_TEMPLATE_NAME} (fabr.)" />
+    <string id="V1QLbhRl" text="Sora" />
+    <string id="v48N6h1t" text="Artisans urbains" />
+    <string id="v4THTk5O" text="{.M}{.S}Caftan avec ceinture de cuir{@PLURAL}{.M}{.P}Caftans avec ceinture de cuir{\@}" />
+    <string id="V8BXjyYq" text="Désactivé pendant l&apos;installation." />
+    <string id="vAKB54zO" text="Arwa" />
+    <string id="VaqBBaQu" text="{.F}{.S}Tunique courte soignée en fourrure{@PLURAL}{.F}{.P}Tuniques courtes soignées en fourrure{\@}" />
+    <string id="vaUlAZba" text="Votre clan est désormais en guerre contre {QUEST_GIVER.LINK}. Votre accord avec {QUEST_GIVER.LINK} a été annulé." />
+    <string id="VbAHQ1BS" text="{.M}{.S}Long manteau de fourrure{@PLURAL}{.M}{.P}Longs manteaux de fourrure{\@}" />
+    <string id="vBkrw5VV" text="Aléatoire" />
+    <string id="VbL6GFmy" text="Beurre{@Plural}barriques de beurre{\@}" />
+    <string id="vbPBXiPC" text="{.F}{.S}Tunique riche{@PLURAL}{.F}{.P}Tuniques riches{\@}" />
+    <string id="VcbEaV7T" text="{.M}{.S}Chapel de fer sur jaque{@PLURAL}{.M}{.P}Chapels de fer sur jaque{\@}" />
+    <string id="vCywYDmp" text="{.F}{.S}Armure matelassée légère{@PLURAL}{.F}{.P}Armures matelassées légères{\@}" />
+    <string id="VDMkVMxt" text="{.F}{.P}Mitaines de mailles lourdes" />
+    <string id="vEsKYrFR" text="Aldric" />
+    <string id="vfhVveLW" text="Chamanes" />
+    <string id="VG9ng2n2" text="Chandion" />
+    <string id="vgBRa2BE" text="Poraclys" />
+    <string id="vGF5S2hE" text="Classement" />
+    <string id="vH7GtuuK" text="à travailler dans les écuries" />
+    <string id="VhbasI9J" text="Castor" />
+    <string id="vimhFdZp" text="{.M}{.S}Casque nasal lourd sur cuir{@PLURAL}{.M}{.P}Casques nasaux lourds sur cuir{\@}" />
+    <string id="ViYdZUbQ" text="Dissoudre l&apos;armée" />
+    <string id="vJOWy1QF" text="{.M}{.P}Khuzaïtes" />
+    <string id="VkRIefyW" text="{.F}{.S}Armure d&apos;écailles luxueuse{@PLURAL}{.F}{.P}Armures d&apos;écailles luxueuses{\@}" />
+    <string id="vl2tgsKa" text="Urkhun" />
+    <string id="vLjgcdgB" text="Neige" />
+    <string id="VlXOgIX6" text="avez chevauché avec les éclaireurs." />
+    <string id="vmMqs3Ck" text="Noble" />
+    <string id="VN4ctHIU" text="Acheter des produits" />
+    <string id="vOgACpuD" text="Compagnons" />
+    <string id="VQSdhQE3" text="{.F}{.S}Armure d&apos;écailles lourde sur cotte de mailles et haubert{@PLURAL}{.F}{.P}Armures d&apos;écailles lourdes sur cotte de mailles et haubert{\@}" />
+    <string id="Vqu67a3b" text="Soie brute{@Plural}rouleaux de soie{\@}" />
+    <string id="vsavMoLZ" text="{.F}{.S}Cervelière sur jaque{@PLURAL}{.F}{.P}Cervelières sur jaque{\@}" />
+    <string id="VSMpadvq" text="{.F}{.S}Armure de fourrure{@PLURAL}{.F}{.P}Armures de fourrure{\@}" />
+    <string id="vvabqi2w" text="Caravane" />
+    <string id="vW6kBki9" text="Votre clan est désormais en guerre contre le royaume {.d}{QUEST_GIVER.LINK}. Votre accord avec {QUEST_GIVER.LINK} est annulé." />
+    <string id="Vxt0xTvV" text="Mavéa" />
+    <string id="VylHwqVq" text="{.F}{.S}Calotte sur coiffe lacée{@PLURAL}{.F}{.P}Calottes sur coiffe lacée{\@}" />
+    <string id="VzhbUL60" text="Vendelia" />
+    <string id="W0agPHes" text="{BONUS_AMOUNT} % de pénalité au moral due aux pertes aux troupes dans votre formation." />
+    <string id="W1uwgvAQ" text="Arion" />
+    <string id="w2TEQq26" text="Vous étiez toujours {?PLAYER.GENDER}attentive{?}attentif{\?} aux autres et saviez deviner leurs intentions. Vous étudiiez le comportement des adultes et essayiez de vous servir de vos découvertes avec vos amis." />
+    <string id="W2WXkiAh" text="Négociant de rançons" />
+    <string id="w4RuDABQ" text="{.F}{.S}Cotte de plates{@PLURAL}{.F}{.P}Cottes de plates{\@}" />
+    <string id="W58TN2g5" text="{.F}{.S}Tunique varègue{@PLURAL}{.F}{.P}Tuniques varègues{\@}" />
+    <string id="W73My5KO" text="Mort" />
+    <string id="w9m11T1y" text="Carte" />
+    <string id="WahziEXA" text="{.F}{.P}Bottes de cuir enveloppées" />
+    <string id="wBfGpcCO" text="{.M}{.S}Chapel de fer sur jaque{@PLURAL}{.M}{.P}Chapels de fer sur jaque{\@}" />
+    <string id="WbHfGCbd" text="vous avez survécu à un siège." />
+    <string id="wbJzSg3X" text="Ulbesos" />
+    <string id="wbLqHvjE" text="Zerosica" />
+    <string id="WchH8bS2" text="Vos parents étaient des membres de classe moyenne d&apos;un clan battanien qui possédaient leurs propres terres. Votre père combattait avec les kerns, le corps principal des guerriers de ce peuple célèbre pour charger en hurlant." />
+    <string id="wE7RWmIF" text="{.M}{.S}Manteau en cuir de sanglier{@PLURAL}{.M}{.P}Manteaux en cuir de sanglier{\@}" />
+    <string id="wEfZyccm" text="{.M}{.S}Casque intégral sur coiffe lacée{@PLURAL}{.M}{.P}Casques intégraux sur coiffe lacée{\@}" />
+    <string id="wErSpkjy" text="J&apos;y travaille toujours." />
+    <string id="WEUSMkCp" text="{.F}{.S}Archerie montée" />
+    <string id="WfAuSpJq" text="Eutos" />
+    <string id="wfbtS71d" text="vous avez mené une caravane." />
+    <string id="wG582fzT" text="{.F}{.S}Cervelière sur bonnet matelassé{@PLURAL}{.F}{.P}Cervelières sur bonnet matelassé{\@}" />
+    <string id="whvMZZba" text="{.M}{.P}Canons d&apos;avant-bras matelassés de garde" />
+    <string id="WiNRdfsm" text="Terminé" />
+    <string id="wKucIANJ" text="{.M}{.S}Manteau de cuir sur tissu{@PLURAL}{.M}{.P}Manteaux de cuir sur tissu{\@}" />
+    <string id="WLJOnehi" text="{.F}{.S}Tunique épaisse renforcée{@PLURAL}{.F}{.P}Tuniques épaisses renforcées{\@}" />
+    <string id="wlKtDR2z" text="Merci, {?PLAYER.GENDER}ma dame{?}mon sieur{\?}." />
+    <string id="wltdyF2j" text="{.M}{.S}Arc de chasse{@PLURAL}{.M}{.P}Arcs de chasse{\@}" />
+    <string id="WMqHlEvb" text="{.F}{.S}Cervelière sur camail{@PLURAL}{.F}{.P}Cervelières sur camail{\@}" />
+    <string id="wNUcqcJP" text="Nom du clan" />
+    <string id="WOKNhaG2" text="Vos parents étaient les gardiens des traditions sacrées des Khuzaïtes et savaient appeler les esprits de la nature et des ancêtres. Ils soignaient les malades et dispensaient leur enseignement, résolvaient les conflits et prodiguaient des conseils pratiques." />
+    <string id="wQY1oqdK" text="{.M}{.S}Bonnet d&apos;acier décoré strié avec oreillons{@PLURAL}{.M}{.P}Bonnets d&apos;acier décorés striés avec oreillons{\@}" />
+    <string id="WrAMfIG1" text="Phenoria" />
+    <string id="wrbea2oa" text="Carreaux" />
+    <string id="WrwO8xsN" text="{.F}{.P}Spalières en cuir cousues" />
+    <string id="WSk5Sibs" text="Fromage{@Plural}caisses de fromage{\@}" />
+    <string id="wSUN0Dmo" text="{.M}{.S}Mannequin en armure maximale{@PLURAL}{.M}{.P}Mannequins en armure maximale{\@}" />
+    <string id="WTCIOhvV" text="Nuqar" />
+    <string id="WtEoXblx" text="Chevalier" />
+    <string id="WTePYMNF" text="Zaraclys" />
+    <string id="WUArer5A" text="{.F}{.S}Coiffe matelassée ouverte{@PLURAL}{.F}{.P}Coiffes matelassées ouvertes{\@}" />
+    <string id="WvDZMmaj" text="{.M}{.S}Casque de nomade{@PLURAL}{.M}{.P}Casques de nomade{\@}" />
+    <string id="WVqaRKUm" text="Laine{@Plural}cargaisons de laine{\@}" />
+    <string id="wWqavjat" text="{.F}{.S}Longue armure matelassée légère{@PLURAL}{.F}{.P}Longues armures matelassées légères{\@}" />
+    <string id="WXAaWZVf" text="Précédent" />
+    <string id="WYFDXE82" text="{.M}{.S}Grand bouclier rond{@PLURAL}{.M}{.P}Grands boucliers ronds{\@}" />
+    <string id="WYvnWcXQ" text="Comme tous les enfants du village, vous aidiez dans les champs. Il vous arrivait aussi de..." />
+    <string id="WYytQbvS" text="{.M}{.S}Casque intégral sur coiffe renforcée{@PLURAL}{.M}{.P}Casques intégraux sur coiffe renforcée{\@}" />
+    <string id="WyZ2UtFF" text="Vos parents n&apos;appréciaient guère l&apos;autorité des boyards. Ils vivaient dans les bois, préparant des parcelles qu&apos;ils cultivaient pendant un an ou deux avant de partir ailleurs. Ils chassaient et piégeaient des renards, des lièvres, des hermines et autres animaux à fourrure." />
+    <string id="x1HTX5hq" text="vous avez sauvé votre quartier d&apos;une crue." />
+    <string id="x1kf94SW" text="{.M}{.S}Casque strié{@PLURAL}{.M}{.P}Casques striés{\@}" />
+    <string id="X1Wn0sBa" text="{.M}{.S}Casque en cuir clouté sur écailles rugueuses{@PLURAL}{.M}{.P}Casques en cuir cloutés sur écailles rugueuses{\@}" />
+    <string id="X21PahQn" text="Ménaclys" />
+    <string id="X3gcUz7C" text="Matin" />
+    <string id="x3lcf2Do" text="{.M}{.S}Gilet lamellaire luxueux sur cuir{@PLURAL}{.M}{.P}Gilets lamellaires luxueux sur cuir{\@}" />
+    <string id="xa7KRSCy" text="{.M}{.S}Gilet de cuir cousu{@PLURAL}{.M}{.P}Gilets de cuir cousus{\@}" />
+    <string id="xC3kCGte" text="Dhiyul" />
+    <string id="XCz81XYm" text="Entrées" />
+    <string id="XDAQgjpH" text="Simir" />
+    <string id="xebFLnH2" text="Audio" />
+    <string id="XgFU1pCx" text="Vous êtes {?PLAYER.GENDER}née{?}né{\?} dans une famille de..." />
+    <string id="xgO3cCgR" text="Encombrement" />
+    <string id="XGX6DbFL" text="{.M}{.P}Gantelets de plates lamellaires" />
+    <string id="XGytILlt" text="{.F}{.S}Mitraille{@PLURAL}{.F}{.P}Mitrailles{\@}" />
+    <string id="XH9f3yOX" text="{.M}{.S}Gilet de fourrure sur tunique{@PLURAL}{.M}{.P}Gilets de fourrure sur tunique{\@}" />
+    <string id="xILeUbY3" text="Panneau administrateur" />
+    <string id="XiwTesky" text="{.M}{.S}Caftan en soie{@PLURAL}{.M}{.P}Caftans en soie{\@}" />
+    <string id="xj0MgUO0" text="Crimes" />
+    <string id="XjMsnpgS" text="Tulag" />
+    <string id="XjT8S4ng" text="Près {?settlementNeedsArticle(SETTLEMENT_NAME)}{.dl}{?}{.d}{\?}{SETTLEMENT_NAME}." />
+    <string id="XkL1Re8b" text="{.M}{.S}Manteau de cuir clouté{@PLURAL}{.M}{.P}Manteaux de cuir cloutés{\@}" />
+    <string id="xKXcqRJI" text="vous avez investi de l&apos;argent dans des terres." />
+    <string id="XKxeaF0I" text="Dalidos" />
+    <string id="XMTD2clw" text="Rhoé" />
+    <string id="XmvaRfLM" text="{PLAYER_FATHER.NAME} était le père {.d}{PLAYER.LINK}. Il fut assassiné lorsque des pillards attaquèrent l&apos;auberge dans laquelle toute la famille se reposait." />
+    <string id="xnDWqYKW" text="{.M}{.S}Chasseur" />
+    <string id="Xnngcfg9" text="Sein" />
+    <string id="xnoAJwoy" text="{.M}{.S}Casque intégral sur jaque{@PLURAL}{.M}{.P}Casques intégraux sur jaque{\@}" />
+    <string id="XNQPPIaA" text="{.M}{.S}Gambison de soldat d&apos;infanterie sur veste de cuir{@PLURAL}{.M}{.P}Gambisons de soldat d&apos;infanterie sur veste de cuir{\@}" />
+    <string id="xORjDTal" text="vous avez investi de l&apos;argent dans un atelier." />
+    <string id="Xqba1Obq" text="Nomades" />
+    <string id="XqcD0WEu" text="Asta" />
+    <string id="xQUi0F0k" text="{.M}{.S}Manteau à bandes de cuir{@PLURAL}{.M}{.P}Manteaux à bandes de cuir{\@}" />
+    <string id="Xrb43Fv4" text="{.M}{.P}Brassards en bronze" />
+    <string id="XseYJYka" text="Gérer" />
+    <string id="xsu6bPTv" text="Lin brut{@Plural}sacs de lin brut{\@}" />
+    <string id="XU9WgcIO" text="{.F}{.S}Armure de daim renforcée{@PLURAL}{.F}{.P}Armures de daim renforcées{\@}" />
+    <string id="XuwQvSDo" text="{.M}{.S}Chapel rond en fer sur cotte de mailles{@PLURAL}{.M}{.P}Chapels ronds en fer sur cotte de mailles{\@}" />
+    <string id="xVSOKf0p" text="Chara" />
+    <string id="xXSFaGW8" text="Dissoudre" />
+    <string id="XZxIpCQH" text="Phorys" />
+    <string id="y1YTxkmn" text="{.M}{.S}Harnais d&apos;épaule{@PLURAL}{.M}{.P}Harnais d&apos;épaule{\@}" />
+    <string id="y3CwqUDR" text="{.F}{.S}Chemise de mailles des hautes terres{@PLURAL}{.F}{.P}Chemises de mailles des hautes terres{\@}" />
+    <string id="y3oIzUEp" text="{.F}{.S}Tunique avec épaulettes{@PLURAL}{.F}{.P}Tuniques avec épaulettes{\@}" />
+    <string id="Y3UcaX74" text="votre talent avec les nombres." />
+    <string id="Y4LhmAdi" text="Bien sûr. Allez-y." />
+    <string id="y6j1bJTH" text="Vous étiez {?PLAYER.GENDER}l&apos;apprentie{?}l&apos;apprenti{\?} du forgeron local. Vous avez appris comment chauffer et forger le métal, martelant des heures et des heures jusqu&apos;à ce que vos muscles n&apos;en puissent plus." />
+    <string id="Y94H6XnK" text="Accepter" />
+    <string id="Y9egTJg0" text="Revenus quot." />
+    <string id="yAZC6F7P" text="Ecsorios" />
+    <string id="YBGCXSEx" text="Debana" />
+    <string id="yCEMiKjB" text="Choisissez votre {SELECTION}" />
+    <string id="YcnK0Thk" text="Chasseurs" />
+    <string id="YDibTDob" text="{.M}{.S}Casque couronné des hautes terres{@PLURAL}{.M}{.P}Casques couronnés des hautes terres{\@}" />
+    <string id="yDykmlS7" text="{.F}{.S}Toge sur tartan{@PLURAL}{.F}{.P}Toges sur tartan{\@}" />
+    <string id="YDYnuBmC" text="Multijoueur" />
+    <string id="yfa7tpbK" text="Tous" />
+    <string id="yG3YUySN" text="{.M}{.S}Empire occidental" />
+    <string id="ygfhbfr0" text="{.M}{.S}Casque à pointe{@PLURAL}{.M}{.P}Casques à pointe{\@}" />
+    <string id="YGQ6UXCo" text="{.M}{.S}Arc de chasse des montagnes{@PLURAL}{.M}{.P}Arcs de chasse des montagnes{\@}" />
+    <string id="Yh7Dorsr" text="{.M}{.S}Harnais à bandes de cuir{@PLURAL}{.M}{.P}Harnais à bandes de cuir{\@}" />
+    <string id="YifFZaG7" text="Propriétaire de groupe" />
+    <string id="YJaNtktT" text="Recruter tous" />
+    <string id="YKzuGc54" text="Vous étiez {?PLAYER.GENDER}grande{?}grand{\?}, et les autres enfants s&apos;assuraient de vous avoir à leurs côtés lors de bagarres contre les enfants des villages voisins. Vous saviez labourer les champs et lancer une hache comme un adulte." />
+    <string id="yMi4ijgI" text="{.M}{.S}Bonnet matelassé de nomade{@PLURAL}{.M}{.P}Bonnets matelassés de nomade{\@}" />
+    <string id="YNkPy4ta" text="Partie de clan" />
+    <string id="yNMrF2QF" text="Vous êtes {?PLAYER.GENDER}blessée{?}blessé{\?}." />
+    <string id="yNSLGTYc" text="Erta" />
+    <string id="YO0x7ZAo" text="Loyauté" />
+    <string id="YQd9C8u2" text="{.M}{.S}Chapel de fer sur coiffe matelassée{@PLURAL}{.M}{.P}Chapels de fer sur coiffe matelassée{\@}" />
+    <string id="YqhOxb1Z" text="{.M}{.S}Casque lamellaire à plumes{@PLURAL}{.M}{.P}Casques lamellaires à plumes{\@}" />
+    <string id="Yqm0Dics" text="vous traitiez bien les gens." />
+    <string id="yQTBY9ie" text="Bijou{@Plural}bijoux{\@}" />
+    <string id="yQtzabbe" text="Fermer" />
+    <string id="yRFSzSDZ" text="Vos parents vivaient dans un village mais ne possédaient pas de terres. Au lieu de cultiver, votre père gagnait sa vie en partant longtemps dans les bois pour chasser et piéger des proies, gardant toujours un œil sur les gardes-chasses du seigneur." />
+    <string id="yS7PvrTD" text="OK" />
+    <string id="yTWOMSmv" text="{.F}{.S}Tunique en chanvre{@PLURAL}{.F}{.P}Tuniques en chanvre{\@}" />
+    <string id="YuLLsAUb" text="Vous n&apos;avez pas {GOLD_AMOUNT}{GOLD_ICON}." />
+    <string id="YUoydtNS" text="Yana" />
+    <string id="YVGtcLHF" text="{.F}{.S}Cavalerie" />
+    <string id="Yvk8a2tb" text="Marche à pied" />
+    <string id="YxglkaXU" text="{.M}{.S}Tabard blanc sur cotte de mailles et haubert{@PLURAL}{.M}{.P}Tabards blancs sur cotte de mailles et haubert{\@}" />
+    <string id="yYhX6JQC" text="Votre père a rejoint une des nombreuses compagnies de mercenaires vlandaises, composée d&apos;hommes ayant un tel goût pour la guerre que les périodes de paix ne leur convenaient guère. Leurs arbalétriers étaient réputés dans tout Calradia. Votre mère était aide de camp, et vous emmenait dans le sillage des campagnes sanglantes." />
+    <string id="Z2xgnrDa" text="{BONUS_AMOUNT} % de dégâts de charge aux troupes montées dans votre formation." />
+    <string id="Z6Ak3H6G" text="{.M}{.S}Cirit{@PLURAL}{.M}{.P}Cirits{\@}" />
+    <string id="z6eTba5h" text="{.M}{.S}Casque nasal lourd sur tissu lacé{@PLURAL}{.M}{.P}Casques nasaux lourds sur tissu lacé{\@}" />
+    <string id="z7oMeRl3" text="{.M}{.S}Gilet de brigandine épais{@PLURAL}{.M}{.P}Gilets de brigandine épais{\@}" />
+    <string id="Z9RlnXrD" text="{.F}{.S}Jupe en fourrure{@PLURAL}{.F}{.P}Jupes en fourrure{\@}" />
+    <string id="ZAGR6PYc" text="Lorsqu&apos;un incendie s&apos;est déclenché dans une ruelle, vos voisins eurent besoin d&apos;ordres rapides et précis, et vous les avez donnés. Vous avez organisé un relais de seaux d&apos;eau depuis le puits le plus proche et avez circonscrit l&apos;incendie avant qu&apos;il ne détruise des habitations." />
+    <string id="zAvb7WKe" text="{.F}{.S}Calotte sur coiffe matelassée{@PLURAL}{.F}{.P}Calottes sur coiffe matelassée{\@}" />
+    <string id="zBRB0P5M" text="{.M}{.S}Casque à protection visuelle fermé décoré{@PLURAL}{.M}{.P}Casques à protection visuelle fermés décorés{\@}" />
+    <string id="zbsajPMp" text="{.M}{.S}Vouge{@PLURAL}{.M}{.P}Vouges{\@}" />
+    <string id="ZbsGBv10" text="{.M}{.S}Porc" />
+    <string id="zCQaPTOK" text="Mercenaire" />
+    <string id="zEoHYEUS" text="Attendre ici un moment" />
+    <string id="ZeU1fvdz" text="{.F}{.S}Pile de mitraille{@PLURAL}{.F}{.P}Piles de mitraille{\@}" />
+    <string id="zfCoeglY" text="Musicien" />
+    <string id="ZFETxZKP" text="{.M}{.S}Keffieh cerclé de soie{@PLURAL}{.M}{.P}Keffiehs cerclés de soie{\@}" />
+    <string id="ZFlIT1tH" text="Ganimynos" />
+    <string id="zfUhnG7y" text="Thémestios" />
+    <string id="ZFwKlHIJ" text="{.M}{.S}Arc long des terres boisées{@PLURAL}{.M}{.P}Arcs longs des terres boisées{\@}" />
+    <string id="zGXZJFOb" text="{.F}{.S}Armure lamellaire avec jupe d&apos;écailles{@PLURAL}{.F}{.P}Armures lamellaires avec jupe d&apos;écailles{\@}" />
+    <string id="zInIqBD0" text="Arénicos" />
+    <string id="ZkaaXxeB" text="Isvan" />
+    <string id="zLdXCpne" text="Place du marché" />
+    <string id="Zm4a2xsf" text="Salusios" />
+    <string id="zMMqgxb1" text="Type" />
+    <string id="ZmQx4gT3" text="Olichor" />
+    <string id="zpqP5LsC" text="J&apos;y vais de ce pas." />
+    <string id="ZqTFQeai" text="{.F}{.S}Tunique en cuir{@PLURAL}{.F}{.P}Tuniques en cuir{\@}" />
+    <string id="zQv3w264" text="{.F}{.S}Demi-coiffe matelassée{@PLURAL}{.F}{.P}Demi-coiffes matelassées{\@}" />
+    <string id="ZRDoABz9" text="{.M}{.S}Casque de fourrure à plumes{@PLURAL}{.M}{.P}Casques de fourrure à plumes{\@}" />
+    <string id="zrpqSWSh" text="Fermiers libres" />
+    <string id="zsC2t5Hb" text="vous êtes {?PLAYER.GENDER}entraînée{?}entraîné{\?} avec la garde personnelle." />
+    <string id="ZV1bKLUn" text="{.M}{.S}Chapel de fer avec cuir{@PLURAL}{.M}{.P}Chapels de fer avec cuir{\@}" />
+    <string id="Zwb65ufG" text="Argile{@Plural}cargaisons d&apos;argile{\@}" />
+    <string id="zWoj91XY" text="BaghChal" />
+    <string id="Zx4h7jDy" text="{.M}{.S}Mannequin en armure minimale{@PLURAL}{.M}{.P}Mannequins en armure minimale{\@}" />
+    <string id="zxMOqlhs" text="Attaquer" />
+    <string id="zxZH2WbD" text="Ziména" />
+    <string id="zZ2G7uIO" text="{.M}{.S}Chapel de fer sur cotte de mailles{@PLURAL}{.M}{.P}Chapels de fer sur cotte de mailles{\@}" />
+  </strings>
+</base>

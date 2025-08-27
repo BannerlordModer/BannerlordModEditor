@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	type="combat_parameters">
+	<definitions>
+		<!--
+			definition names must start with character!
+			values can only be integers or floats or other definitions!
+			if you want to use a definition as value. You should define it before using as value.
+		-->
+		<!-- vertical rot multipliers -->
+		<def name="narrow_vertical_rot_limit" val="0.4" />
+		<def name="wide_vertical_rot_limit" val="0.7" />
+		<def name="widest_vertical_rot_limit" val="1.0" />
+		<def name="fist_vertical_rot_limit" val="0.3" />
+		<def name="thrust_vertical_rot_limit" val="1.0" />
+		<def name="swing_vertical_rot_limit" val="0.75" />
+		<def name="mounted_vertical_rot_limit" val="1.0" />
+		<def name="down_swing_vertical_rot_limit" val="0.4" />
+		<def name="bow_vertical_rot_limit" val="1.0" />
+		<def name="bow_reload_vertical_rot_limit" val="0.4" />
+		<def name="shield_vertical_rot_limit" val="0.4" />
+		<def name="parry_vertical_rot_limit" val="0.4" />
+		<def name="couched_lance_vertical_rot_limit" val="0.48" />
+		<def name="brace_vertical_rot_limit" val="0.2" />
+		<!-- rider rotation limits -->
+		<def name="fist_rider_rot_limit_left" val="60.0" />
+		<def name="fist_rider_rot_limit_right" val="60.0" />
+		<def name="throwing_rider_rot_limit_left" val="120" />
+		<def name="throwing_rider_rot_limit_right" val="70" />
+		<def name="overswing_rider_look_down_limit" val="120" />
+		<def name="overswing_rider_rot_limit_left" val="100" />
+		<def name="overswing_rider_rot_limit_right" val="80" />
+		<def name="left_swing_rider_look_down_limit" val="-10" />
+		<def name="left_swing_rider_rot_limit_left" val="100" />
+		<def name="left_swing_rider_rot_limit_right" val="100" />
+		<def name="left_swing_polearm_rider_rot_limit_left" val="80" />
+		<def name="left_swing_polearm_rider_rot_limit_right" val="120" />
+		<def name="right_swing_rider_look_down_limit" val="-10" />
+		<def name="right_swing_rider_rot_limit_left" val="110" />
+		<def name="right_swing_rider_rot_limit_right" val="100" />
+		<def name="right_swing_polearm_rider_rot_limit_left" val="120" />
+		<def name="right_swing_polearm_rider_rot_limit_right" val="80" />
+		<def name="thrust_rider_look_down_limit" val="-10" />
+		<def name="upperthrust_rider_look_down_limit" val="-20" />
+		<def name="thrust_rider_rot_limit_left" val="120" />
+		<def name="thrust_rider_rot_limit_right" val="90" />
+		<def name="couched_lance_rider_look_down_limit" val="10" />
+		<def name="couched_lance_rider_rot_limit_left" val="48" />
+		<def name="couched_lance_rider_rot_limit_right" val="20" />
+		<def name="bow_rider_look_down_limit" val="-25" />
+		<def name="bow_rider_rot_limit_left" val="170" />
+		<def name="bow_rider_rot_limit_right" val="30" />
+		<def name="bow_reload_rider_rot_limit_left" val="90" />
+		<def name="bow_reload_rider_rot_limit_right" val="30" />
+		<def name="throw_rider_look_down_limit" val="-35" />
+		<def name="crossbow_rider_look_down_limit" val="-23" />
+		<def name="crossbow_rider_rot_limit_left" val="115" />
+		<def name="crossbow_rider_rot_limit_right" val="60" />
+		<def name="up_min_rider_rot_limit_left" val="45" />
+		<def name="up_min_rider_rot_limit_right" val="10" />
+		<def name="throwing_min_rider_rot_limit_left" val="5" />
+		<def name="throwing_min_rider_rot_limit_right" val="5" />
+		<def name="down_and_upperstab_min_rider_rot_limit_left" val="40" />
+		<def name="down_and_upperstab_min_rider_rot_limit_right" val="0" />
+		<def name="thrust_polearm_min_rider_rot_limit_left" val="40" />
+		<def name="thrust_polearm_min_rider_rot_limit_right" val="0" />
+		<def name="left_min_rider_rot_limit_left" val="110" />
+		<def name="left_min_rider_rot_limit_right" val="110" />
+		<def name="right_min_rider_rot_limit_left" val="120" />
+		<def name="right_min_rider_rot_limit_right" val="100" />
+		<def name="left_min_polearm_rider_rot_limit_left" val="100" />
+		<def name="left_min_polearm_rider_rot_limit_right" val="100" />
+		<def name="right_min_polearm_rider_rot_limit_left" val="100" />
+		<def name="right_min_polearm_rider_rot_limit_right" val="100" />
+		<def name="couched_lance_min_rider_rot_limit_left" val="43" />
+		<def name="couched_lance_min_rider_rot_limit_right" val="0" />
+		<def name="bow_rider_min_rot_limit_left" val="15" />
+		<def name="bow_rider_min_rot_limit_right" val="11" />
+		<def name="crossbow_rider_min_rot_limit_left" val="15" />
+		<def name="crossbow_rider_min_rot_limit_right" val="11" />
+		<def name="fist_ladder_rot_limit_left" val="60.0" />
+		<def name="fist_ladder_rot_limit_right" val="60.0" />
+		<def name="throwing_ladder_rot_limit_left" val="103.13" />
+		<def name="throwing_ladder_rot_limit_right" val="28.6" />
+		<def name="overswing_ladder_rot_limit_left" val="67.3" />
+		<def name="overswing_ladder_rot_limit_right" val="57.3" />
+		<def name="left_swing_ladder_rot_limit_left" val="57.3" />
+		<def name="left_swing_ladder_rot_limit_right" val="57.3" />
+		<def name="right_swing_ladder_rot_limit_left" val="57.3" />
+		<def name="right_swing_ladder_rot_limit_right" val="57.3" />
+		<def name="thrust_ladder_rot_limit_left" val="80.59" />
+		<def name="thrust_ladder_rot_limit_right" val="57.3" />
+		<def name="downswing_ladder_rot_limit_left" val="10.0" />
+		<def name="downswing_ladder_rot_limit_right" val="10.0" />
+		<def name="bow_ladder_rot_limit_left" val="86" />
+		<def name="bow_ladder_rot_limit_right" val="29" />
+		<def name="crossbow_ladder_rot_limit_left" val="86" />
+		<def name="crossbow_ladder_rot_limit_right" val="57" />
+		<def name="kick_cooldown" val="1.7" />
+		<def name="horse_kick_cooldown" val="3.0" />
+		<def name="weapon_1h_bash_cooldown" val="1.5" />
+		<def name="weapon_2h_bash_cooldown" val="1.5" />
+		<def name="weapon_spear_bash_cooldown" val="1.5" />
+		<def name="shield_bash_cooldown" val="1.9" />
+		<def name="hand_shield_bash_cooldown" val="1.9" />
+		<def name="kick_shieldbash_radius" val="0.2" />
+	</definitions>
+	<combat_parameters>
+<!-- 330-2256 行真实 combat_parameter 节点内容，已获取，略 -->
+	</combat_parameters>
+</base>

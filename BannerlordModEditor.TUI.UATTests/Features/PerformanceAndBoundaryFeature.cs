@@ -39,7 +39,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task LargeFilePerformance_Benchmark()
         {
             // Given - 准备大型测试文件
-            string largeExcelFile = null;
+            string largeExcelFile = string.Empty;
             string outputXmlFile = null;
             
             try
@@ -172,7 +172,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task MemoryUsageMonitoring_MemoryManagement()
         {
             // Given - 准备内存监控测试
-            string hugeFile = null;
+            string hugeFile = string.Empty;
             string outputFile = null;
             
             try
@@ -391,7 +391,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task RepeatedConversion_Consistency()
         {
             // Given - 准备重复转换测试
-            string sourceFile = null;
+            string sourceFile = string.Empty;
             var outputFiles = new List<string>();
             
             try

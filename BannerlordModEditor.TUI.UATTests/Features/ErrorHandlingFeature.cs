@@ -39,8 +39,8 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task NonExistentSourceFile_ClearErrorMessage()
         {
             // Given - 准备测试数据
-            string nonExistentFile = null;
-            string outputPath = null;
+            string nonExistentFile = string.Empty;
+            string outputPath = string.Empty;
             
             try
             {
@@ -82,7 +82,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task InvalidFileFormat_FormatDetection()
         {
             // Given - 准备无效格式的测试数据
-            string invalidFile = null;
+            string invalidFile = string.Empty;
             string outputPath = null;
             
             try
@@ -266,7 +266,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task CorruptedFileContent_ContentError()
         {
             // Given - 准备损坏的XML文件
-            string corruptedXml = null;
+            string corruptedXml = string.Empty;
             string outputPath = null;
             
             try
@@ -333,7 +333,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task InsufficientDiskSpace_SpaceError()
         {
             // Given - 创建一个相对较大的文件内容
-            string largeFile = null;
+            string largeFile = string.Empty;
             string outputPath = null;
             
             try
@@ -399,7 +399,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task EmptyInputs_ParameterValidation()
         {
             // Given - 测试各种空的输入情况
-            string emptyFile = null;
+            string emptyFile = string.Empty;
             string outputPath = null;
 
             try
@@ -466,7 +466,7 @@ namespace BannerlordModEditor.TUI.UATTests.Features
         public async Task LockedFile_FileAccessError()
         {
             // Given - 创建并模拟锁定文件
-            string lockedFile = null;
+            string lockedFile = string.Empty;
             string outputPath = null;
             FileStream fileStream = null;
 

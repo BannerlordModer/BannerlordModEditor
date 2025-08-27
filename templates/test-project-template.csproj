@@ -1,0 +1,73 @@
+<!-- BannerlordModEditor 测试项目标准模板 -->
+<!-- 使用说明: 复制此模板并根据需要修改项目名称和引用 -->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 基础配置 -->
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <!-- 测试项目配置 -->
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    
+    <!-- 可选: 项目特定配置 -->
+    <!-- <RootNamespace>BannerlordModEditor.Project.Tests</RootNamespace> -->
+    <!-- <AssemblyTitle>BannerlordModEditor Project Tests</AssemblyTitle> -->
+    <!-- <AssemblyDescription>Unit tests for BannerlordModEditor Project</AssemblyDescription> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 核心测试框架 -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    
+    <!-- BDD风格测试支持 -->
+    <PackageReference Include="FluentAssertions" Version="6.12.1" />
+    <PackageReference Include="Shouldly" Version="4.2.1" />
+    
+    <!-- 可选: Mocking框架 -->
+    <!-- <PackageReference Include="Moq" Version="4.20.70" /> -->
+    
+    <!-- 可选: 文件系统抽象 -->
+    <!-- <PackageReference Include="System.IO.Abstractions" Version="21.1.4" /> -->
+    <!-- <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="21.1.4" /> -->
+    
+    <!-- 可选: 其他测试工具 -->
+    <!-- <PackageReference Include="System.IO.Packaging" Version="8.0.1" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 项目引用 - 根据需要修改 -->
+    <!-- <ProjectReference Include="..\BannerlordModEditor.Project\BannerlordModEditor.Project.csproj" /> -->
+    <!-- <ProjectReference Include="..\BannerlordModEditor.Common\BannerlordModEditor.Common.csproj" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 全局using语句 -->
+    <!-- <Using Include="Xunit" /> -->
+    <!-- <Using Include="FluentAssertions" /> -->
+    <!-- <Using Include="Shouldly" /> -->
+    <!-- <Using Include="Moq" /> -->
+    <!-- <Using Include="BannerlordModEditor.Common.Services" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- TestData文件配置 - 统一引用Common.Tests的TestData -->
+    <Content Include="..\BannerlordModEditor.Common.Tests\TestData\**\*.*">
+      <Link>TestData\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
