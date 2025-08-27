@@ -73,7 +73,7 @@ namespace BannerlordModEditor.Common.Services
                     Validator = (doc, context) =>
                     {
                         var ids = doc.XPathSelectElements("//*[@id]")
-                            .Select(e => e.Attribute("id")?.Value)
+                            .Select(e => ((XElement)e).Attribute("id")?.Value)
                             .Where(id => !string.IsNullOrEmpty(id))
                             .ToList();
                         
@@ -99,7 +99,7 @@ namespace BannerlordModEditor.Common.Services
                     Validator = (doc, context) =>
                     {
                         var invalidIds = doc.XPathSelectElements("//*[@id]")
-                            .Select(e => e.Attribute("id")?.Value)
+                            .Select(e => ((XElement)e).Attribute("id")?.Value)
                             .Where(id => !string.IsNullOrEmpty(id) && !IsValidIdFormat(id))
                             .ToList();
                         
@@ -131,7 +131,7 @@ namespace BannerlordModEditor.Common.Services
                     {
                         var invalidLevels = doc.XPathSelectElements("//Character[@level]")
                             .Where(e => !int.TryParse(e.Attribute("level")?.Value, out int level) || level < 1 || level > 62)
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         return invalidLevels.Select(characterId => new ValidationResult
@@ -154,7 +154,7 @@ namespace BannerlordModEditor.Common.Services
                         
                         var invalidOccupations = doc.XPathSelectElements("//Character[@occupation]")
                             .Where(e => !validOccupations.Contains(e.Attribute("occupation")?.Value))
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         return invalidOccupations.Select(characterId => new ValidationResult
@@ -185,7 +185,7 @@ namespace BannerlordModEditor.Common.Services
                     {
                         var invalidWeights = doc.XPathSelectElements("//Item[@weight]")
                             .Where(e => !float.TryParse(e.Attribute("weight")?.Value, out float weight) || weight < 0 || weight > 1000)
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         return invalidWeights.Select(itemId => new ValidationResult
@@ -206,7 +206,7 @@ namespace BannerlordModEditor.Common.Services
                     {
                         var invalidValues = doc.XPathSelectElements("//Item[@value]")
                             .Where(e => !int.TryParse(e.Attribute("value")?.Value, out int value) || value < 0)
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         return invalidValues.Select(itemId => new ValidationResult
@@ -229,7 +229,7 @@ namespace BannerlordModEditor.Common.Services
                         
                         var invalidTypes = doc.XPathSelectElements("//Item[@type]")
                             .Where(e => !validItemTypes.Contains(e.Attribute("type")?.Value))
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         return invalidTypes.Select(itemId => new ValidationResult
@@ -263,7 +263,7 @@ namespace BannerlordModEditor.Common.Services
                         // 检查伤害倍数
                         var damageMultipliers = doc.XPathSelectElements("//combat_parameter[@damage_multiplier]")
                             .Where(e => !float.TryParse(e.Attribute("damage_multiplier")?.Value, out float multiplier) || multiplier < 0 || multiplier > 10)
-                            .Select(e => e.Attribute("name")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("name")?.Value ?? "Unknown")
                             .ToList();
                         
                         foreach (var param in damageMultipliers)
@@ -280,7 +280,7 @@ namespace BannerlordModEditor.Common.Services
                         // 检查速度倍数
                         var speedMultipliers = doc.XPathSelectElements("//combat_parameter[@speed_multiplier]")
                             .Where(e => !float.TryParse(e.Attribute("speed_multiplier")?.Value, out float multiplier) || multiplier < 0 || multiplier > 10)
-                            .Select(e => e.Attribute("name")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("name")?.Value ?? "Unknown")
                             .ToList();
                         
                         foreach (var param in speedMultipliers)
@@ -316,7 +316,7 @@ namespace BannerlordModEditor.Common.Services
                     {
                         var invalidDifficulties = doc.XPathSelectElements("//CraftingPiece[@difficulty]")
                             .Where(e => !int.TryParse(e.Attribute("difficulty")?.Value, out int difficulty) || difficulty < 0 || difficulty > 300)
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         return invalidDifficulties.Select(pieceId => new ValidationResult
@@ -340,7 +340,7 @@ namespace BannerlordModEditor.Common.Services
                         // 检查伤害
                         var damages = doc.XPathSelectElements("//CraftingPiece[@damage]")
                             .Where(e => !int.TryParse(e.Attribute("damage")?.Value, out int damage) || damage < 0 || damage > 1000)
-                            .Select(e => e.Attribute("id")?.Value ?? "Unknown")
+                            .Select(e => ((XElement)e).Attribute("id")?.Value ?? "Unknown")
                             .ToList();
                         
                         foreach (var pieceId in damages)
@@ -398,8 +398,8 @@ namespace BannerlordModEditor.Common.Services
                         .Select(e => new
                         {
                             Element = e,
-                            Reference = e.Attribute("item")?.Value,
-                            ElementId = e.Attribute("id")?.Value ?? e.Parent?.Attribute("id")?.Value ?? "Unknown"
+                            Reference = ((XElement)e).Attribute("item")?.Value,
+                            ElementId = ((XElement)e).Attribute("id")?.Value ?? ((XElement)e).Parent?.Attribute("id")?.Value ?? "Unknown"
                         })
                         .Where(r => !string.IsNullOrEmpty(r.Reference))
                         .ToList();
@@ -423,8 +423,8 @@ namespace BannerlordModEditor.Common.Services
                         .Select(e => new
                         {
                             Element = e,
-                            Reference = e.Attribute("character")?.Value,
-                            ElementId = e.Attribute("id")?.Value ?? e.Parent?.Attribute("id")?.Value ?? "Unknown"
+                            Reference = ((XElement)e).Attribute("character")?.Value,
+                            ElementId = ((XElement)e).Attribute("id")?.Value ?? ((XElement)e).Parent?.Attribute("id")?.Value ?? "Unknown"
                         })
                         .Where(r => !string.IsNullOrEmpty(r.Reference))
                         .ToList();
@@ -536,7 +536,18 @@ namespace BannerlordModEditor.Common.Services
             
             try
             {
-                var doc = XDocument.Load(xmlFilePath);
+                XDocument doc;
+                try
+                {
+                    doc = XDocument.Load(xmlFilePath);
+                }
+                catch (Exception ex)
+                {
+                    result.Errors.Add($"XML文件解析失败: {ex.Message}");
+                    result.IsValid = false;
+                    return result;
+                }
+                
                 var fileBaseName = System.IO.Path.GetFileNameWithoutExtension(xmlFilePath);
                 
                 // 获取适用的验证规则
@@ -616,14 +627,34 @@ namespace BannerlordModEditor.Common.Services
             
             try
             {
-                // 首先分析依赖关系
-                var dependencyResult = _dependencyAnalyzer.AnalyzeDependencies(moduleDataPath);
+                // 首先分析依赖关系（添加异常隔离）
+                XmlDependencyAnalysisResult dependencyResult;
+                try
+                {
+                    dependencyResult = _dependencyAnalyzer.AnalyzeDependencies(moduleDataPath);
+                }
+                catch (Exception ex)
+                {
+                    // 如果依赖分析失败，创建一个空的结果对象
+                    dependencyResult = new XmlDependencyAnalysisResult
+                    {
+                        FileResults = new List<XmlFileDependencyResult>(),
+                        CircularDependencies = new List<CircularDependencyInfo>(),
+                        LoadOrder = new List<string>()
+                    };
+                    // 记录错误但继续执行
+                    Console.WriteLine($"依赖分析失败，继续执行隐式校验: {ex.Message}");
+                }
                 
                 // 构建验证上下文
                 var context = new ValidationContext();
                 
                 // 收集所有可用的对象ID
-                CollectAvailableObjects(moduleDataPath, context);
+                var collectionErrors = CollectAvailableObjects(moduleDataPath, context);
+                if (collectionErrors.Count > 0)
+                {
+                    batchResult.Errors.AddRange(collectionErrors);
+                }
                 
                 // 获取所有XML文件
                 var xmlFiles = _fileDiscoveryService.GetAllXmlFiles(moduleDataPath);
@@ -637,7 +668,7 @@ namespace BannerlordModEditor.Common.Services
                 
                 // 计算汇总统计
                 batchResult.TotalFiles = batchResult.FileResults.Count;
-                batchResult.TotalErrors = batchResult.FileResults.Sum(r => r.ErrorCount);
+                batchResult.TotalErrors = batchResult.FileResults.Sum(r => r.ErrorCount) + batchResult.Errors.Count;
                 batchResult.TotalWarnings = batchResult.FileResults.Sum(r => r.WarningCount);
                 batchResult.TotalInfos = batchResult.FileResults.Sum(r => r.InfoCount);
                 batchResult.IsValid = batchResult.TotalErrors == 0;
@@ -657,8 +688,10 @@ namespace BannerlordModEditor.Common.Services
         /// <summary>
         /// 收集所有可用的对象ID
         /// </summary>
-        public void CollectAvailableObjects(string moduleDataPath, ValidationContext context)
+        public List<string> CollectAvailableObjects(string moduleDataPath, ValidationContext context)
         {
+            var errors = new List<string>();
+            
             try
             {
                 var xmlFiles = _fileDiscoveryService.GetAllXmlFiles(moduleDataPath);
@@ -669,13 +702,24 @@ namespace BannerlordModEditor.Common.Services
                     
                     try
                     {
-                        var doc = XDocument.Load(xmlFile);
+                        XDocument doc;
+                        try
+                        {
+                            doc = XDocument.Load(xmlFile);
+                        }
+                        catch (Exception ex)
+                        {
+                            var error = $"XML文件解析失败: {xmlFile} - {ex.Message}";
+                            Console.WriteLine($"收集对象ID时发生错误 {error}");
+                            errors.Add(error);
+                            continue; // 跳过无效的XML文件
+                        }
                         
                         // 收集物品ID
                         if (fileName == "items")
                         {
                             var itemIds = doc.XPathSelectElements("//Item[@id]")
-                                .Select(e => e.Attribute("id")?.Value)
+                                .Select(e => ((XElement)e).Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
                                 .Cast<string>()
                                 .ToList();
@@ -686,7 +730,7 @@ namespace BannerlordModEditor.Common.Services
                         if (fileName == "characters")
                         {
                             var characterIds = doc.XPathSelectElements("//Character[@id]")
-                                .Select(e => e.Attribute("id")?.Value)
+                                .Select(e => ((XElement)e).Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
                                 .Cast<string>()
                                 .ToList();
@@ -697,7 +741,7 @@ namespace BannerlordModEditor.Common.Services
                         if (fileName == "cultures")
                         {
                             var cultureIds = doc.XPathSelectElements("//Culture[@id]")
-                                .Select(e => e.Attribute("id")?.Value)
+                                .Select(e => ((XElement)e).Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
                                 .Cast<string>()
                                 .ToList();
@@ -708,7 +752,7 @@ namespace BannerlordModEditor.Common.Services
                         if (fileName == "skills")
                         {
                             var skillIds = doc.XPathSelectElements("//Skill[@id]")
-                                .Select(e => e.Attribute("id")?.Value)
+                                .Select(e => ((XElement)e).Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
                                 .Cast<string>()
                                 .ToList();
@@ -719,7 +763,7 @@ namespace BannerlordModEditor.Common.Services
                         if (fileName == "crafting_pieces")
                         {
                             var craftingIds = doc.XPathSelectElements("//CraftingPiece[@id]")
-                                .Select(e => e.Attribute("id")?.Value)
+                                .Select(e => ((XElement)e).Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
                                 .Cast<string>()
                                 .ToList();
@@ -734,8 +778,12 @@ namespace BannerlordModEditor.Common.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"收集可用对象时发生错误: {ex.Message}");
+                var error = $"收集可用对象时发生错误: {ex.Message}";
+                Console.WriteLine(error);
+                errors.Add(error);
             }
+            
+            return errors;
         }
     }
 

@@ -23,7 +23,7 @@ namespace BannerlordModEditor.Common.Tests.Services
             _testHelper = new TestHelper();
             _testDataPath = Path.Combine(Directory.GetCurrentDirectory(), "TestData");
             
-            var fileDiscoveryService = new FileDiscoveryService();
+            var fileDiscoveryService = new FileDiscoveryService(_testDataPath);
             var dependencyAnalyzer = new XmlDependencyAnalyzer(fileDiscoveryService);
             
             _detector = new ImplicitValidationDetector(fileDiscoveryService, dependencyAnalyzer);
@@ -44,7 +44,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""duplicate_item"" name=""Test Item 2""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -81,7 +81,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""test_item2"" weight=""1500"" value=""200""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -117,7 +117,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""test_item"" value=""-100""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -154,7 +154,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Character id=""test_char2"" level=""100"" occupation=""Soldier""/>
 </Characters>";
                 
-                var testFile = Path.Combine(tempDir, "test_characters.xml");
+                var testFile = Path.Combine(tempDir, "characters.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -191,7 +191,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <CraftingPiece id=""test_piece2"" difficulty=""500""/>
 </CraftingPieces>";
                 
-                var testFile = Path.Combine(tempDir, "test_crafting_pieces.xml");
+                var testFile = Path.Combine(tempDir, "crafting_pieces.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -229,7 +229,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""valid_id""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -303,7 +303,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""test_item2"" weight=""-5"" value=""200""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 var context = new ValidationContext();
@@ -313,7 +313,7 @@ namespace BannerlordModEditor.Common.Tests.Services
                 
                 // Assert
                 Assert.NotNull(result);
-                Assert.Equal("test_items.xml", result.FileName);
+                Assert.Equal("items.xml", result.FileName);
                 Assert.True(result.WarningCount > 0); // 应该检测到负重量
             }
             finally
@@ -399,7 +399,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""item2"" weight=""-5"" value=""-50""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act
@@ -490,7 +490,7 @@ namespace BannerlordModEditor.Common.Tests.Services
     <Item id=""test_item"" weight=""10"" value=""100""/>
 </Items>";
                 
-                var testFile = Path.Combine(tempDir, "test_items.xml");
+                var testFile = Path.Combine(tempDir, "items.xml");
                 File.WriteAllText(testFile, testXml);
                 
                 // Act

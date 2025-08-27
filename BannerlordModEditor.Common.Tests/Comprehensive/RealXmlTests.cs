@@ -232,20 +232,27 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 try
                 {
                     // 1. 加载测试
-                    var loadedObjTask = (Task)loadMethod.Invoke(loader, new object[] { testFile });
-                    await loadedObjTask;
-                    var resultProperty = loadedObjTask.GetType().GetProperty("Result");
-                    Assert.NotNull(resultProperty);
-                    var loadedObj = resultProperty.GetValue(loadedObjTask);
-                    Assert.NotNull(loadedObj);
+                    var loadedObjTask = loadMethod.Invoke(loader, new object[] { testFile });
+                    if (loadedObjTask is Task task)
+                    {
+                        await task;
+                        var resultProperty = task.GetType().GetProperty("Result");
+                        Assert.NotNull(resultProperty);
+                        var loadedObj = resultProperty?.GetValue(task);
+                        Assert.NotNull(loadedObj);
+                        
+                        // 2. 序列化测试
+                        var originalXml = await File.ReadAllTextAsync(testFile);
+                        Assert.NotNull(originalXml);
+                        var serializedXml = (string)saveMethod.Invoke(loader, new object[] { loadedObj, originalXml }) ?? string.Empty;
+                        Assert.False(string.IsNullOrEmpty(serializedXml));
 
-                    // 2. 序列化测试
-                    var originalXml = await File.ReadAllTextAsync(testFile);
-                    Assert.NotNull(originalXml);
-                    var serializedXml = (string)saveMethod.Invoke(loader, new object[] { loadedObj, originalXml }) ?? string.Empty;
-                    Assert.False(string.IsNullOrEmpty(serializedXml));
-
-                    _output.WriteLine($"    ✓ {Path.GetFileName(testFile)} 处理成功");
+                        _output.WriteLine($"    ✓ {Path.GetFileName(testFile)} 处理成功");
+                    }
+                    else
+                    {
+                        Assert.Fail("LoadAsync method should return a Task");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -291,11 +298,13 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                         
                         if (loadMethod != null)
                         {
-                            var resultTask = (Task)loadMethod.Invoke(loader, new object[] { sampleFile });
-                            await resultTask;
-                            var resultProperty = resultTask.GetType().GetProperty("Result");
-                            Assert.NotNull(resultProperty);
-                            var result = resultProperty.GetValue(resultTask);
+                            var resultTask = loadMethod.Invoke(loader, new object[] { sampleFile });
+                            if (resultTask is Task task)
+                            {
+                                await task;
+                                var resultProperty = task.GetType().GetProperty("Result");
+                                Assert.NotNull(resultProperty);
+                                var result = resultProperty?.GetValue(task);
                             
                             if (result != null)
                             {
@@ -309,12 +318,18 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                                 _output.WriteLine($"✗ {Path.GetFileName(sampleFile)} 返回null");
                             }
                         }
+                        else
+                        {
+                            failureCount++;
+                            _output.WriteLine($"✗ {Path.GetFileName(sampleFile)} LoadAsync方法返回null");
+                        }
                     }
                     else
                     {
                         _output.WriteLine($"? {Path.GetFileName(sampleFile)} 没有对应的加载器");
                     }
                 }
+            }
                 catch (Exception ex)
                 {
                     failureCount++;
@@ -358,8 +373,12 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                     var loadMethod = loader.GetType().GetMethod("LoadAsync");
                     if (loadMethod != null)
                     {
-                        await (Task)loadMethod.Invoke(loader, new object[] { nonExistentFile });
-                        _output.WriteLine($"✓ 不存在文件处理未崩溃: {nonExistentFile}");
+                        var task = loadMethod.Invoke(loader, new object[] { nonExistentFile });
+                        if (task is Task asyncTask)
+                        {
+                            await asyncTask;
+                            _output.WriteLine($"✓ 不存在文件处理未崩溃: {nonExistentFile}");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -375,8 +394,12 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                 var loadMethod = loader.GetType().GetMethod("LoadAsync");
                 if (loadMethod != null)
                 {
-                    await (Task)loadMethod.Invoke(loader, new object[] { "" });
-                    _output.WriteLine("✓ 空路径处理未崩溃");
+                    var task = loadMethod.Invoke(loader, new object[] { "" });
+                    if (task is Task asyncTask)
+                    {
+                        await asyncTask;
+                        _output.WriteLine("✓ 空路径处理未崩溃");
+                    }
                 }
             }
             catch (Exception ex)

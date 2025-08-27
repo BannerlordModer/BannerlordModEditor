@@ -218,6 +218,36 @@ namespace BannerlordModEditor.Common.Services
             result.TotalWarnings = result.ImplicitValidation.TotalWarnings + 
                                    result.SchemaValidation.FileResults.Sum(f => f.WarningCount);
             result.TotalInfos = result.ImplicitValidation.TotalInfos;
+            
+            // 汇总所有错误信息
+            result.Errors.Clear(); // 清空可能的重复错误
+            
+            // 汇总依赖分析错误
+            foreach (var fileResult in result.DependencyAnalysis.FileResults)
+            {
+                if (fileResult.Errors.Count > 0)
+                {
+                    result.Errors.AddRange(fileResult.Errors.Select(e => $"{fileResult.FileName}: {e}"));
+                }
+            }
+            
+            // 汇总隐式验证错误
+            foreach (var fileResult in result.ImplicitValidation.FileResults)
+            {
+                if (fileResult.Errors.Count > 0)
+                {
+                    result.Errors.AddRange(fileResult.Errors.Select(e => $"{fileResult.FileName}: {e}"));
+                }
+            }
+            
+            // 汇总Schema验证错误
+            foreach (var fileResult in result.SchemaValidation.FileResults)
+            {
+                if (fileResult.Errors.Count > 0)
+                {
+                    result.Errors.AddRange(fileResult.Errors.Select(e => $"{fileResult.FileName}: {e}"));
+                }
+            }
 
             // 添加关键问题摘要
             if (result.DependencyAnalysis.CircularDependencies.Count > 0)
