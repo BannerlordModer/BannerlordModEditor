@@ -7,11 +7,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using BannerlordModEditor.Common.Models.Game;
+using BannerlordModEditor.UI.Services;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
 public partial class CraftingPieceEditorViewModel : ViewModelBase
 {
+    private readonly IValidationService _validationService;
+
     [ObservableProperty]
     private ObservableCollection<CraftingPieceDataViewModel> craftingPieces = new();
 
@@ -26,6 +29,11 @@ public partial class CraftingPieceEditorViewModel : ViewModelBase
 
     [ObservableProperty]
     private bool isLoading = false;
+
+    public CraftingPieceEditorViewModel(IValidationService? validationService = null)
+    {
+        _validationService = validationService ?? new ValidationService();
+    }
 
     [RelayCommand]
     private void LoadFile()
@@ -175,6 +183,11 @@ public partial class CraftingPieceEditorViewModel : ViewModelBase
     {
         SelectedCraftingPiece = piece;
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 public partial class CraftingPieceDataViewModel : ViewModelBase

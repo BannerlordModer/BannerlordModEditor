@@ -356,6 +356,11 @@ public partial class ItemEditorViewModel : SimpleEditorViewModel<MpItems, Item, 
     {
         UpdateFilteredItems();
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 /// <summary>

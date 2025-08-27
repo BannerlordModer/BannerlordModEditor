@@ -182,6 +182,11 @@ public partial class AttributeEditorViewModel : SimpleEditorViewModel<ArrayOfAtt
     {
         await SaveXmlFileAsync();
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 /// <summary>

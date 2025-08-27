@@ -24,17 +24,11 @@ public class UIFunctionalityTests
     public void EditorManagerViewModel_Constructor_Should_Accept_Dependencies()
     {
         // Arrange
-        var validationService = new ValidationService();
-        var logService = new LogService();
-        var errorHandlerService = new ErrorHandlerService();
         var serviceProvider = TestServiceProvider.GetServiceProvider();
+        var options = EditorManagerOptions.ForDependencyInjection(serviceProvider);
 
         // Act
-        var editorManager = new EditorManagerViewModel(
-            validationService: validationService,
-            logService: logService,
-            errorHandlerService: errorHandlerService,
-            serviceProvider: serviceProvider);
+        var editorManager = new EditorManagerViewModel(options);
 
         // Assert
         Assert.NotNull(editorManager);
@@ -128,11 +122,7 @@ public class UIFunctionalityTests
         Assert.True(attributeEditor.Attributes.Count > 0);
         
         // 验证编辑器有验证服务
-        var validationField = typeof(AttributeEditorViewModel)
-            .GetField("_validationService", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        Assert.NotNull(validationField);
-        var actualValidationService = validationField.GetValue(attributeEditor);
-        Assert.Same(validationService, actualValidationService);
+        Assert.Same(validationService, attributeEditor.ValidationService);
     }
 
     /// <summary>
@@ -153,11 +143,7 @@ public class UIFunctionalityTests
         Assert.True(itemEditor.Items.Count > 0);
         
         // 验证编辑器有验证服务
-        var validationField = typeof(ItemEditorViewModel)
-            .GetField("_validationService", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        Assert.NotNull(validationField);
-        var actualValidationService = validationField.GetValue(itemEditor);
-        Assert.Same(validationService, actualValidationService);
+        Assert.Same(validationService, itemEditor.ValidationService);
     }
 
     /// <summary>
@@ -178,11 +164,7 @@ public class UIFunctionalityTests
         Assert.NotNull(combatParameterEditor.Definitions);
         
         // 验证编辑器有验证服务
-        var validationField = typeof(CombatParameterEditorViewModel)
-            .GetField("_validationService", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        Assert.NotNull(validationField);
-        var actualValidationService = validationField.GetValue(combatParameterEditor);
-        Assert.Same(validationService, actualValidationService);
+        Assert.Same(validationService, combatParameterEditor.ValidationService);
     }
 
     /// <summary>
@@ -353,18 +335,10 @@ public class UIFunctionalityTests
     }
 
     /// <summary>
-    /// 内部方法：使用反射调用EditorManagerViewModel的CreateEditorViewModel方法
+    /// 内部方法：直接调用EditorManagerViewModel的CreateEditorViewModel方法
     /// </summary>
     private ViewModelBase CreateEditorViewModelInternal(EditorManagerViewModel editorManager, EditorItemViewModel editorItem)
     {
-        var method = typeof(EditorManagerViewModel)
-            .GetMethod("CreateEditorViewModel", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        
-        if (method == null)
-        {
-            throw new InvalidOperationException("CreateEditorViewModel method not found");
-        }
-
-        return (ViewModelBase)method.Invoke(editorManager, new object[] { editorItem })!;
+        return editorManager.CreateEditorViewModel(editorItem);
     }
 }

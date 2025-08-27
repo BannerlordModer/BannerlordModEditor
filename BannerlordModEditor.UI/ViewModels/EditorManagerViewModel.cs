@@ -12,6 +12,57 @@ using System.Linq;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
+/// <summary>
+/// EditorManagerViewModel的配置选项
+/// </summary>
+public class EditorManagerOptions
+{
+    /// <summary>
+    /// 编辑器工厂
+    /// </summary>
+    public IEditorFactory? EditorFactory { get; set; }
+    
+    /// <summary>
+    /// 日志服务
+    /// </summary>
+    public ILogService? LogService { get; set; }
+    
+    /// <summary>
+    /// 错误处理服务
+    /// </summary>
+    public IErrorHandlerService? ErrorHandlerService { get; set; }
+    
+    /// <summary>
+    /// 验证服务
+    /// </summary>
+    public IValidationService? ValidationService { get; set; }
+    
+    /// <summary>
+    /// 服务提供者
+    /// </summary>
+    public IServiceProvider? ServiceProvider { get; set; }
+    
+    /// <summary>
+    /// 创建默认配置
+    /// </summary>
+    public static EditorManagerOptions Default => new EditorManagerOptions();
+    
+    /// <summary>
+    /// 创建用于依赖注入的配置
+    /// </summary>
+    public static EditorManagerOptions ForDependencyInjection(IServiceProvider serviceProvider)
+    {
+        return new EditorManagerOptions
+        {
+            EditorFactory = serviceProvider.GetService<IEditorFactory>(),
+            LogService = serviceProvider.GetService<ILogService>(),
+            ErrorHandlerService = serviceProvider.GetService<IErrorHandlerService>(),
+            ValidationService = serviceProvider.GetService<IValidationService>(),
+            ServiceProvider = serviceProvider
+        };
+    }
+}
+
 public partial class EditorManagerViewModel : ViewModelBase
 {
     private readonly IEditorFactory? _editorFactory;
@@ -67,20 +118,42 @@ public partial class EditorManagerViewModel : ViewModelBase
         }
     }
 
+    /// <summary>
+/// 使用Options模式构造EditorManagerViewModel
+/// </summary>
+/// <param name="options">配置选项</param>
+public EditorManagerViewModel(EditorManagerOptions? options = null)
+    {
+        var config = options ?? EditorManagerOptions.Default;
+        
+        _editorFactory = config.EditorFactory;
+        _logService = config.LogService ?? new LogService();
+        _errorHandlerService = config.ErrorHandlerService ?? new ErrorHandlerService();
+        _validationService = config.ValidationService ?? new ValidationService();
+        _serviceProvider = config.ServiceProvider;
+
+        LoadEditors();
+    }
+
+    /// <summary>
+    /// 为了向后兼容保留的构造函数（不推荐使用）
+    /// </summary>
+    [Obsolete("请使用 EditorManagerViewModel(EditorManagerOptions) 构造函数")]
     public EditorManagerViewModel(
         IEditorFactory? editorFactory = null,
         ILogService? logService = null,
         IErrorHandlerService? errorHandlerService = null,
         IValidationService? validationService = null,
         IServiceProvider? serviceProvider = null)
+        : this(new EditorManagerOptions
+        {
+            EditorFactory = editorFactory,
+            LogService = logService,
+            ErrorHandlerService = errorHandlerService,
+            ValidationService = validationService,
+            ServiceProvider = serviceProvider
+        })
     {
-        _editorFactory = editorFactory;
-        _logService = logService ?? new LogService();
-        _errorHandlerService = errorHandlerService ?? new ErrorHandlerService();
-        _validationService = validationService ?? new ValidationService();
-        _serviceProvider = serviceProvider;
-
-        LoadEditors();
     }
 
     private void LoadEditors()
@@ -262,7 +335,7 @@ public partial class EditorManagerViewModel : ViewModelBase
         }
     }
 
-    private ViewModelBase CreateEditorViewModel(EditorItemViewModel editorItem)
+    internal ViewModelBase CreateEditorViewModel(EditorItemViewModel editorItem)
     {
         try
         {
@@ -280,12 +353,12 @@ public partial class EditorManagerViewModel : ViewModelBase
             return editorItem.EditorType switch
             {
                 "AttributeEditor" => new AttributeEditorViewModel(_validationService),
-                "SkillEditor" => new SkillEditorViewModel(),
+                "SkillEditor" => new SkillEditorViewModel(_validationService),
                 "CombatParameterEditor" => new CombatParameterEditorViewModel(_validationService),
                 "ItemEditor" => new ItemEditorViewModel(_validationService),
-                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
-                "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
-                "ItemModifierEditor" => new ItemModifierEditorViewModel(),
+                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(_validationService),
+                "CraftingPieceEditor" => new CraftingPieceEditorViewModel(_validationService),
+                "ItemModifierEditor" => new ItemModifierEditorViewModel(_validationService),
                 _ => throw new NotSupportedException($"不支持的编辑器类型: {editorItem.EditorType}")
             };
         }

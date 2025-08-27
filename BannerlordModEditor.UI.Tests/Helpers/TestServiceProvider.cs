@@ -135,7 +135,11 @@ public class TestServiceProvider
     private static void RegisterMainViewModels(IServiceCollection services)
     {
         services.AddTransient<MainWindowViewModel>();
-        services.AddTransient<EditorManagerViewModel>();
+        services.AddTransient<EditorManagerViewModel>(provider => 
+        {
+            var options = EditorManagerOptions.ForDependencyInjection(provider);
+            return new EditorManagerViewModel(options);
+        });
         services.AddTransient<EditorCategoryViewModel>();
         services.AddTransient<EditorItemViewModel>();
     }

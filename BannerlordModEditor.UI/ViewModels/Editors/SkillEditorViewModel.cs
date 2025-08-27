@@ -8,12 +8,15 @@ using System.IO;
 using System;
 using System.Threading.Tasks;
 using BannerlordModEditor.UI.Factories;
+using BannerlordModEditor.UI.Services;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
 [EditorType(EditorType = "SkillEditor", DisplayName = "技能编辑器", Description = "编辑角色技能数据", XmlFileName = "skills.xml", Category = "角色设定")]
 public partial class SkillEditorViewModel : ViewModelBase
 {
+    private readonly IValidationService _validationService;
+
     [ObservableProperty]
     private ObservableCollection<SkillDataViewModel> skills = new();
 
@@ -23,8 +26,10 @@ public partial class SkillEditorViewModel : ViewModelBase
     [ObservableProperty]
     private bool hasUnsavedChanges;
 
-    public SkillEditorViewModel()
+    public SkillEditorViewModel(IValidationService? validationService = null)
     {
+        _validationService = validationService ?? new ValidationService();
+        
         // 添加示例数据
         Skills.Add(new SkillDataViewModel 
         { 
@@ -177,6 +182,11 @@ public partial class SkillEditorViewModel : ViewModelBase
             System.Diagnostics.Debug.WriteLine($"Save failed: {ex.Message}");
         }
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 public partial class SkillDataViewModel : ObservableObject

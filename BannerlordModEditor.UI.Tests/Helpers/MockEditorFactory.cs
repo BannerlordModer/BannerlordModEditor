@@ -58,10 +58,12 @@ namespace BannerlordModEditor.UI.Tests.Helpers
             return editorType switch
             {
                 "AttributeEditor" => new AttributeEditorViewModel(_validationService),
-                "SkillEditor" => new SkillEditorViewModel(),
-                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
+                "SkillEditor" => new SkillEditorViewModel(_validationService),
+                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(_validationService),
                 "CombatParameterEditor" => new CombatParameterEditorViewModel(_validationService),
                 "ItemEditor" => new ItemEditorViewModel(_validationService),
+                "CraftingPieceEditor" => new CraftingPieceEditorViewModel(_validationService),
+                "ItemModifierEditor" => new ItemModifierEditorViewModel(_validationService),
                 _ => null
             };
         }
