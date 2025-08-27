@@ -104,7 +104,8 @@ public class TestServiceProvider
     /// </summary>
     private static void RegisterEditorFactory(IServiceCollection services)
     {
-        services.AddSingleton<BannerlordModEditor.UI.Factories.IEditorFactory, MockEditorFactory>();
+        services.AddSingleton<BannerlordModEditor.UI.Factories.IEditorFactory>(provider => 
+            new MockEditorFactory(provider.GetRequiredService<IValidationService>()));
     }
 
     /// <summary>

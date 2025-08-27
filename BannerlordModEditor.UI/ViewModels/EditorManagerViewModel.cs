@@ -14,9 +14,11 @@ namespace BannerlordModEditor.UI.ViewModels;
 
 public partial class EditorManagerViewModel : ViewModelBase
 {
-    private readonly IEditorFactory _editorFactory;
+    private readonly IEditorFactory? _editorFactory;
     private readonly ILogService _logService;
     private readonly IErrorHandlerService _errorHandlerService;
+    private readonly IValidationService _validationService;
+    private readonly IServiceProvider? _serviceProvider;
 
     [ObservableProperty]
     private ObservableCollection<EditorCategoryViewModel> categories = new();
@@ -68,11 +70,15 @@ public partial class EditorManagerViewModel : ViewModelBase
     public EditorManagerViewModel(
         IEditorFactory? editorFactory = null,
         ILogService? logService = null,
-        IErrorHandlerService? errorHandlerService = null)
+        IErrorHandlerService? errorHandlerService = null,
+        IValidationService? validationService = null,
+        IServiceProvider? serviceProvider = null)
     {
         _editorFactory = editorFactory;
         _logService = logService ?? new LogService();
         _errorHandlerService = errorHandlerService ?? new ErrorHandlerService();
+        _validationService = validationService ?? new ValidationService();
+        _serviceProvider = serviceProvider;
 
         LoadEditors();
     }
@@ -273,10 +279,10 @@ public partial class EditorManagerViewModel : ViewModelBase
             // 回退到直接创建（用于测试或没有工厂的情况）
             return editorItem.EditorType switch
             {
-                "AttributeEditor" => new AttributeEditorViewModel(),
+                "AttributeEditor" => new AttributeEditorViewModel(_validationService),
                 "SkillEditor" => new SkillEditorViewModel(),
-                "CombatParameterEditor" => new CombatParameterEditorViewModel(),
-                "ItemEditor" => new ItemEditorViewModel(),
+                "CombatParameterEditor" => new CombatParameterEditorViewModel(_validationService),
+                "ItemEditor" => new ItemEditorViewModel(_validationService),
                 "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
                 "CraftingPieceEditor" => new CraftingPieceEditorViewModel(),
                 "ItemModifierEditor" => new ItemModifierEditorViewModel(),
