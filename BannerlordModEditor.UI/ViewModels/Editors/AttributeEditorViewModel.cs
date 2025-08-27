@@ -32,10 +32,25 @@ public partial class AttributeEditorViewModel : SimpleEditorViewModel<ArrayOfAtt
 
     private readonly IValidationService _validationService;
 
-    public AttributeEditorViewModel(IValidationService? validationService = null) 
-        : base("attributes.xml", "属性编辑器")
+    public IRelayCommand SaveCommand { get; }
+    public IRelayCommand LoadCommand { get; }
+    public IRelayCommand ExportCommand { get; }
+
+    public AttributeEditorViewModel() 
+        : this(null, null, null)
+    {
+    }
+
+    public AttributeEditorViewModel(IValidationService? validationService = null,
+        IErrorHandlerService? errorHandler = null,
+        ILogService? logService = null) 
+        : base("attributes.xml", "属性编辑器", errorHandler, logService)
     {
         _validationService = validationService ?? new ValidationService();
+        
+        SaveCommand = new RelayCommand(() => SaveData());
+        LoadCommand = new RelayCommand(() => LoadData());
+        ExportCommand = new RelayCommand(() => ExportData());
         
         // 初始化时添加示例数据
         Attributes.Add(new AttributeDataViewModel 
@@ -181,6 +196,83 @@ public partial class AttributeEditorViewModel : SimpleEditorViewModel<ArrayOfAtt
     private async Task SaveFile()
     {
         await SaveXmlFileAsync();
+    }
+
+    private void SaveData()
+    {
+        try
+        {
+            // 保存数据到文件
+            var data = new ArrayOfAttributeData
+            {
+                AttributeData = Attributes.Select(a => ConvertToItemModel(a)).ToList()
+            };
+            
+            var loader = new GenericXmlLoader<ArrayOfAttributeData>();
+            loader.Save(data, FilePath);
+            
+            HasUnsavedChanges = false;
+            StatusMessage = "保存成功";
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"保存失败: {ex.Message}";
+            ShowError($"保存失败: {ex.Message}");
+        }
+    }
+
+    private void LoadData()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(FilePath))
+            {
+                FilePath = XmlFileName;
+            }
+            
+            var loader = new GenericXmlLoader<ArrayOfAttributeData>();
+            var data = loader.Load(FilePath);
+            
+            Attributes.Clear();
+            if (data?.AttributeData != null)
+            {
+                foreach (var item in data.AttributeData)
+                {
+                    Attributes.Add(ConvertToItemViewModel(item));
+                }
+            }
+            
+            HasUnsavedChanges = false;
+            StatusMessage = "加载成功";
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"加载失败: {ex.Message}";
+            ShowError($"加载失败: {ex.Message}");
+        }
+    }
+
+    private void ExportData()
+    {
+        try
+        {
+            // 导出数据到文件
+            var data = new ArrayOfAttributeData
+            {
+                AttributeData = Attributes.Select(a => ConvertToItemModel(a)).ToList()
+            };
+            
+            var exportPath = FilePath.Replace(".xml", "_export.xml");
+            var loader = new GenericXmlLoader<ArrayOfAttributeData>();
+            loader.Save(data, exportPath);
+            
+            StatusMessage = $"导出成功: {exportPath}";
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"导出失败: {ex.Message}";
+            ShowError($"导出失败: {ex.Message}");
+        }
     }
 }
 
@@ -338,4 +430,5 @@ public partial class AttributeDataViewModel : ObservableValidator
             DefaultValue = this.DefaultValue
         };
     }
-} 
+
+    } 

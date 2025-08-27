@@ -4,6 +4,7 @@ using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.Common.Services;
 using BannerlordModEditor.UI.Services;
+using BannerlordModEditor.UI.Tests.Extensions;
 using System;
 using System.Linq;
 
@@ -63,103 +64,11 @@ public class TestServiceProvider
     private static IServiceProvider CreateServiceProvider()
     {
         var services = new ServiceCollection();
-        
-        // 注册核心基础设施服务
-        RegisterCoreServices(services);
-        
-        // 注册编辑器工厂
-        RegisterEditorFactory(services);
-        
-        // 注册所有编辑器ViewModel
-        RegisterEditorViewModels(services);
-        
-        // 注册主要ViewModel
-        RegisterMainViewModels(services);
-        
-        // 注册Common层服务
-        RegisterCommonServices(services);
-        
-        // 注册测试专用的模拟服务
-        RegisterTestServices(services);
-        
+        services.AddTestServices();
         return services.BuildServiceProvider();
     }
 
-    /// <summary>
-    /// 注册核心基础设施服务
-    /// </summary>
-    private static void RegisterCoreServices(IServiceCollection services)
-    {
-        services.AddSingleton<ILogService, LogService>();
-        services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
-        services.AddSingleton<IValidationService, ValidationService>();
-        services.AddSingleton<IDataBindingService, DataBindingService>();
-        
-        // 注册选项模式配置（如果需要）
-        services.AddOptions();
-    }
-
-    /// <summary>
-    /// 注册编辑器工厂
-    /// </summary>
-    private static void RegisterEditorFactory(IServiceCollection services)
-    {
-        services.AddSingleton<BannerlordModEditor.UI.Factories.IEditorFactory, MockEditorFactory>();
-    }
-
-    /// <summary>
-    /// 注册所有编辑器ViewModel
-    /// </summary>
-    private static void RegisterEditorViewModels(IServiceCollection services)
-    {
-        // 基础编辑器
-        services.AddTransient<AttributeEditorViewModel>();
-        services.AddTransient<SkillEditorViewModel>();
-        services.AddTransient<CombatParameterEditorViewModel>();
-        services.AddTransient<ItemEditorViewModel>();
-        
-        // 高级编辑器
-        services.AddTransient<CraftingPieceEditorViewModel>();
-        services.AddTransient<ItemModifierEditorViewModel>();
-        services.AddTransient<BoneBodyTypeEditorViewModel>();
-        
-        // 通用编辑器（泛型类型需要具体实现，暂时注释掉）
-        // services.AddTransient<GenericEditorViewModel>();
-        // services.AddTransient<SimpleEditorViewModel>();
-    }
-
-    /// <summary>
-    /// 注册主要ViewModel
-    /// </summary>
-    private static void RegisterMainViewModels(IServiceCollection services)
-    {
-        services.AddTransient<MainWindowViewModel>();
-        services.AddTransient<EditorManagerViewModel>();
-        services.AddTransient<EditorCategoryViewModel>();
-        services.AddTransient<EditorItemViewModel>();
-    }
-
-    /// <summary>
-    /// 注册Common层服务
-    /// </summary>
-    private static void RegisterCommonServices(IServiceCollection services)
-    {
-        services.AddSingleton<IFileDiscoveryService, FileDiscoveryService>();
-        
-        // 如果有其他Common层服务，在这里注册
-        // services.AddSingleton<INamingConventionMapper, NamingConventionMapper>();
-    }
-
-    /// <summary>
-    /// 注册测试专用的模拟服务
-    /// </summary>
-    private static void RegisterTestServices(IServiceCollection services)
-    {
-        // 注册测试用的模拟ViewModel（如果需要）
-        // services.AddTransient<MockMainWindowViewModel>();
-        // services.AddTransient<MockEditorManager>();
-    }
-
+    
     /// <summary>
     /// 获取指定类型的服务实例
     /// </summary>
@@ -249,47 +158,7 @@ public class TestServiceProvider
         try
         {
             var serviceProvider = GetServiceProvider();
-            
-            // 验证核心服务
-            var requiredServices = new[]
-            {
-                typeof(ILogService),
-                typeof(IErrorHandlerService),
-                typeof(IValidationService),
-                typeof(IDataBindingService),
-                typeof(BannerlordModEditor.UI.Factories.IEditorFactory)
-            };
-            
-            foreach (var serviceType in requiredServices)
-            {
-                var service = serviceProvider.GetService(serviceType);
-                if (service == null)
-                {
-                    Console.WriteLine($"缺少必需服务: {serviceType.Name}");
-                    return false;
-                }
-            }
-            
-            // 验证编辑器ViewModel
-            var editorViewModels = new[]
-            {
-                typeof(AttributeEditorViewModel),
-                typeof(SkillEditorViewModel),
-                typeof(CombatParameterEditorViewModel),
-                typeof(ItemEditorViewModel)
-            };
-            
-            foreach (var viewModelType in editorViewModels)
-            {
-                var viewModel = serviceProvider.GetService(viewModelType);
-                if (viewModel == null)
-                {
-                    Console.WriteLine($"缺少编辑器ViewModel: {viewModelType.Name}");
-                    return false;
-                }
-            }
-            
-            return true;
+            return serviceProvider.ValidateServiceConfiguration();
         }
         catch (Exception ex)
         {

@@ -201,6 +201,9 @@ public partial class CraftingPieceDataViewModel : ViewModelBase
     private string? scaleFactor;
 
     [ObservableProperty]
+    private string? defaultValue;
+
+    [ObservableProperty]
     private string? mesh;
 
     [ObservableProperty]

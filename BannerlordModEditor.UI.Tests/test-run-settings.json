@@ -1,0 +1,151 @@
+{
+  "version": "1.0.0",
+  "description": "Test Run Configuration for Bannerlord Mod Editor UI Tests",
+  "testFramework": "xUnit",
+  "targetFramework": "net9.0",
+  "parallelExecution": {
+    "enabled": true,
+    "maxParallelThreads": 4,
+    "disableParallelizationFor": [
+      "GitHubActionsEnvironmentTests",
+      "CrossPlatformCompatibilityTests",
+      "TestDeploymentVerificationTests"
+    ]
+  },
+  "timeout": {
+    "default": 30000,
+    "longRunning": 120000,
+    "perTest": {
+      "GitHubActionsEnvironmentTests": 60000,
+      "CrossPlatformCompatibilityTests": 45000,
+      "TestDeploymentVerificationTests": 90000
+    }
+  },
+  "dataCollection": {
+    "enableCoverage": true,
+    "coverageFormat": ["cobertura", "json"],
+    "minimumCoverage": 80.0,
+    "excludePatterns": [
+      "*Tests*",
+      "Examples/*",
+      "bin/*",
+      "obj/*"
+    ],
+    "includePatterns": [
+      "BannerlordModEditor.UI/*"
+    ]
+  },
+  "logging": {
+    "level": "Information",
+    "enableConsoleOutput": true,
+    "enableFileOutput": true,
+    "logFile": "test-results.log",
+    "maxLogFileSize": "10MB",
+    "retainedLogCount": 5
+  },
+  "testData": {
+    "directory": "TestData",
+    "autoSync": true,
+    "validateOnStart": true,
+    "cleanupAfterRun": true,
+    "maxCacheSize": "100MB"
+  },
+  "environment": {
+    "variables": {
+      "DOTNET_ENVIRONMENT": "Testing",
+      "TEST_MODE": "true",
+      "LOG_LEVEL": "Debug"
+    },
+    "headlessMode": true,
+    "disableUI": true,
+    "enableDiagnosticMode": false
+  },
+  "reporting": {
+    "formats": ["junit", "html", "console"],
+    "outputDirectory": "TestResults",
+    "includePassedTests": true,
+    "includeFailedTests": true,
+    "includeSkippedTests": true,
+    "enableTiming": true,
+    "enableAttachments": true
+  },
+  "retry": {
+    "enabled": true,
+    "maxRetries": 2,
+    "retryDelay": 1000,
+    "retryOn": [
+      "IOException",
+      "TimeoutException",
+      "SystemException"
+    ]
+  },
+  "categories": {
+    "unit": {
+      "description": "Unit tests for individual components",
+      "priority": "high",
+      "timeout": 30000
+    },
+    "integration": {
+      "description": "Integration tests for component interactions",
+      "priority": "medium",
+      "timeout": 60000
+    },
+    "environment": {
+      "description": "Environment-specific tests",
+      "priority": "low",
+      "timeout": 90000,
+      "runInCI": true
+    }
+  },
+  "performance": {
+    "enableProfiling": true,
+    "maxMemoryUsage": "512MB",
+    "maxExecutionTime": 300000,
+    "enablePerformanceCounters": true,
+    "performanceThresholds": {
+      "serviceCreation": 1000,
+      "editorCreation": 2000,
+      "testExecution": 5000
+    }
+  },
+  "diagnostics": {
+    "enableDebugMode": false,
+    "breakOnFailure": false,
+    "captureStackTraces": true,
+    "enableExceptionDetails": true,
+    "maxStackTraceDepth": 10
+  },
+  "cleanup": {
+    "autoCleanup": true,
+    "cleanupInterval": 300000,
+    "maxTempFiles": 100,
+    "maxTempDirectories": 20,
+    "cleanupPatterns": [
+      "tmp_*",
+      "test_*",
+      "*.tmp",
+      "*.log"
+    ]
+  },
+  "ci": {
+    "enabled": true,
+    "parallelExecution": true,
+    "enableCoverage": true,
+    "enableReporting": true,
+    "enableArtifacts": true,
+    "timeoutMultiplier": 1.5,
+    "resourceLimits": {
+      "memory": "2GB",
+      "cpu": 2,
+      "disk": "1GB"
+    }
+  },
+  "local": {
+    "enabled": true,
+    "parallelExecution": true,
+    "enableCoverage": false,
+    "enableReporting": true,
+    "enableInteractiveMode": true,
+    "timeoutMultiplier": 1.0
+  }
+}

@@ -21,6 +21,9 @@ namespace BannerlordModEditor.UI.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     [ObservableProperty]
+    private string title = "Bannerlord Mod Editor";
+
+    [ObservableProperty]
     private EditorManagerViewModel editorManager;
 
     // 保留兼容性，但不再在界面中直接使用

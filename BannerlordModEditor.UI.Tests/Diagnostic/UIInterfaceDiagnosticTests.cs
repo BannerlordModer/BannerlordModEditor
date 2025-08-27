@@ -210,6 +210,9 @@ namespace BannerlordModEditor.UI.Tests.Diagnostic
         [Fact]
         public void Diagnostic_Check_For_ViewModel_Constructor_Issues()
         {
+            // 使用TestServiceProvider来创建ViewModel实例，而不是通过反射
+            var serviceProvider = TestServiceProvider.GetServiceProvider();
+            
             // 尝试创建每个编辑器ViewModel
             var viewModelTypes = new[]
             {
@@ -223,13 +226,13 @@ namespace BannerlordModEditor.UI.Tests.Diagnostic
             {
                 try
                 {
-                    var viewModel = Activator.CreateInstance(viewModelType);
+                    var viewModel = serviceProvider.GetService(viewModelType);
                     Assert.NotNull(viewModel);
-                    System.Diagnostics.Debug.WriteLine($"✓ {viewModelType.Name}: Created successfully");
+                    System.Diagnostics.Debug.WriteLine($"✓ {viewModelType.Name}: Created successfully via DI");
                 }
                 catch (Exception ex)
                 {
-                    Assert.Fail($"Failed to create {viewModelType.Name}: {ex.Message}");
+                    Assert.Fail($"Failed to create {viewModelType.Name} via DI: {ex.Message}");
                 }
             }
         }

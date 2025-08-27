@@ -190,6 +190,9 @@ public partial class SkillDataViewModel : ObservableObject
     [ObservableProperty]
     private string documentation = string.Empty;
 
+    [ObservableProperty]
+    private string defaultValue = string.Empty;
+
     partial void OnIdChanged(string value)
     {
         OnPropertyChanged(nameof(IsValid));

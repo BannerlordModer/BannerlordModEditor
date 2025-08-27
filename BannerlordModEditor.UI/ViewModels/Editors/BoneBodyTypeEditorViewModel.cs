@@ -184,7 +184,16 @@ public partial class BoneBodyTypeEditorViewModel : ViewModelBase
 public partial class BoneBodyTypeViewModel : ObservableObject
 {
     [ObservableProperty]
+    private string id = string.Empty;
+
+    [ObservableProperty]
+    private string name = string.Empty;
+
+    [ObservableProperty]
     private string type = string.Empty;
+
+    [ObservableProperty]
+    private string defaultValue = string.Empty;
 
     [ObservableProperty]
     private string priority = "1";

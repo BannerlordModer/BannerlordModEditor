@@ -50,6 +50,11 @@ public partial class CombatParameterEditorViewModel : GenericEditorViewModel<
 
     private readonly IValidationService _validationService;
 
+    public CombatParameterEditorViewModel() 
+        : this(null)
+    {
+    }
+
     public CombatParameterEditorViewModel(IValidationService? validationService = null) 
         : base("combat_parameters.xml", "战斗参数编辑器")
     {
@@ -386,6 +391,12 @@ public partial class CombatParameterViewModel : ObservableValidator
     [Required(ErrorMessage = "ID不能为空")]
     [StringLength(100, ErrorMessage = "ID长度不能超过100个字符")]
     private string? id;
+
+    [ObservableProperty]
+    private string? name;
+
+    [ObservableProperty]
+    private string? defaultValue;
 
     [ObservableProperty]
     [Range(0, 1, ErrorMessage = "碰撞检查起始百分比必须在0-1之间")]

@@ -37,8 +37,8 @@ namespace BannerlordModEditor.UI.ViewModels;
 /// </summary>
 public class ViewModelBase : ObservableObject
 {
-    protected IErrorHandlerService ErrorHandler { get; }
-    protected ILogService LogService { get; }
+    public IErrorHandlerService ErrorHandler { get; }
+    public ILogService LogService { get; }
 
     public ViewModelBase(
         IErrorHandlerService? errorHandler = null,

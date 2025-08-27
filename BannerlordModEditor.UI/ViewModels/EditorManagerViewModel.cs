@@ -18,6 +18,11 @@ public partial class EditorManagerViewModel : ViewModelBase
     private readonly ILogService _logService;
     private readonly IErrorHandlerService _errorHandlerService;
 
+    // 公共属性用于测试和访问
+    public IEditorFactory EditorFactory => _editorFactory;
+    public ILogService LogService => _logService;
+    public IErrorHandlerService ErrorHandlerService => _errorHandlerService;
+
     [ObservableProperty]
     private ObservableCollection<EditorCategoryViewModel> categories = new();
 

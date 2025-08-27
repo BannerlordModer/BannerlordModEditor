@@ -201,6 +201,9 @@ public partial class ItemModifierDataViewModel : ViewModelBase
     [ObservableProperty]
     private string productionDropScore = string.Empty;
 
+    [ObservableProperty]
+    private string defaultValue = string.Empty;
+
     // Weapon stats
     [ObservableProperty]
     private string? damage;

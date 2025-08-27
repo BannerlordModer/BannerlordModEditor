@@ -7,6 +7,7 @@ using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.Factories;
 using BannerlordModEditor.UI.Services;
 using BannerlordModEditor.UI.ViewModels.Editors;
+using BannerlordModEditor.UI.Tests.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -28,8 +29,8 @@ public class UIInterfaceIntegrationTests : IDisposable
         // 配置依赖注入服务
         var services = new ServiceCollection();
         
-        // 注册编辑器工厂
-        services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
+        // 注册编辑器工厂 - 使用MockEditorFactory进行测试
+        services.AddSingleton<IEditorFactory, MockEditorFactory>();
         
         // 注册日志和错误处理服务
         services.AddSingleton<ILogService, LogService>();

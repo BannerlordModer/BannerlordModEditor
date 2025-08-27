@@ -49,6 +49,11 @@ public partial class ItemEditorViewModel : SimpleEditorViewModel<MpItems, Item, 
 
     private readonly IValidationService _validationService;
 
+    public ItemEditorViewModel() 
+        : this(null)
+    {
+    }
+
     public ItemEditorViewModel(IValidationService? validationService = null) 
         : base("spitems.xml", "物品编辑器")
     {
@@ -376,6 +381,9 @@ public partial class ItemViewModel : ObservableValidator
     [ObservableProperty]
     [Required(ErrorMessage = "类型不能为空")]
     private string type = "Goods";
+
+    [ObservableProperty]
+    private string? defaultValue;
 
     [ObservableProperty]
     private string? subtype;

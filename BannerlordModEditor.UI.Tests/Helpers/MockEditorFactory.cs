@@ -2,8 +2,10 @@ using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.Factories;
+using BannerlordModEditor.UI.Services;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BannerlordModEditor.UI.Tests.Helpers
 {
@@ -13,9 +15,29 @@ namespace BannerlordModEditor.UI.Tests.Helpers
     public class MockEditorFactory : BannerlordModEditor.UI.Factories.IEditorFactory
     {
         private readonly Dictionary<string, EditorTypeInfo> _editorTypes = new();
+        
+        // 公开服务属性以供测试访问
+        public IServiceProvider ServiceProvider { get; }
+        public ILogService LogService { get; }
+        public IErrorHandlerService ErrorHandlerService { get; }
+        public IValidationService ValidationService { get; }
+        public IDataBindingService DataBindingService { get; }
 
         public MockEditorFactory()
         {
+            // 初始化服务
+            var services = new ServiceCollection();
+            services.AddSingleton<ILogService, LogService>();
+            services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
+            services.AddSingleton<IValidationService, ValidationService>();
+            services.AddSingleton<IDataBindingService, DataBindingService>();
+            
+            ServiceProvider = services.BuildServiceProvider();
+            LogService = ServiceProvider.GetRequiredService<ILogService>();
+            ErrorHandlerService = ServiceProvider.GetRequiredService<IErrorHandlerService>();
+            ValidationService = ServiceProvider.GetRequiredService<IValidationService>();
+            DataBindingService = ServiceProvider.GetRequiredService<IDataBindingService>();
+            
             // 初始化一些测试编辑器类型
             _editorTypes["AttributeEditor"] = new EditorTypeInfo 
             { 
@@ -105,9 +127,63 @@ namespace BannerlordModEditor.UI.Tests.Helpers
 
         public IEnumerable<ViewModelBase> GetAllEditors()
         {
-            // 返回一些测试用的编辑器，这些编辑器应该有正确的EditorTypeAttribute
-            // 但由于测试环境的限制，我们返回一个空列表，让EditorManager使用默认的编辑器列表
-            return new List<ViewModelBase>();
+            // 返回实际的测试编辑器实例，确保UI测试能够正常运行
+            var serviceProvider = TestServiceProvider.GetServiceProvider();
+            
+            // 创建测试编辑器实例
+            var editors = new List<ViewModelBase>();
+            
+            // 通过依赖注入创建编辑器实例
+            try
+            {
+                var attributeEditor = serviceProvider.GetRequiredService<AttributeEditorViewModel>();
+                attributeEditor.FilePath = "attributes.xml";
+                editors.Add(attributeEditor);
+                
+                var skillEditor = serviceProvider.GetRequiredService<SkillEditorViewModel>();
+                skillEditor.FilePath = "skills.xml";
+                editors.Add(skillEditor);
+                
+                var boneBodyTypeEditor = serviceProvider.GetRequiredService<BoneBodyTypeEditorViewModel>();
+                boneBodyTypeEditor.FilePath = "bone_body_types.xml";
+                editors.Add(boneBodyTypeEditor);
+                
+                var combatParameterEditor = serviceProvider.GetRequiredService<CombatParameterEditorViewModel>();
+                combatParameterEditor.FilePath = "combat_parameters.xml";
+                editors.Add(combatParameterEditor);
+                
+                var itemEditor = serviceProvider.GetRequiredService<ItemEditorViewModel>();
+                itemEditor.FilePath = "items.xml";
+                editors.Add(itemEditor);
+            }
+            catch (Exception ex)
+            {
+                // 如果依赖注入失败，回退到手动创建实例
+                Console.WriteLine($"警告: 依赖注入创建编辑器失败: {ex.Message}");
+                
+                // 手动创建编辑器实例作为回退方案
+                try
+                {
+                    editors.Add(new AttributeEditorViewModel { FilePath = "attributes.xml" });
+                    editors.Add(new SkillEditorViewModel { FilePath = "skills.xml" });
+                    editors.Add(new BoneBodyTypeEditorViewModel { FilePath = "bone_body_types.xml" });
+                    editors.Add(new CombatParameterEditorViewModel { FilePath = "combat_parameters.xml" });
+                    editors.Add(new ItemEditorViewModel { FilePath = "items.xml" });
+                }
+                catch (Exception ex2)
+                {
+                    Console.WriteLine($"警告: 手动创建编辑器也失败: {ex2.Message}");
+                    
+                    // 如果还是失败，返回一些基本的Mock编辑器
+                    editors.Add(new MockBaseEditorViewModel { FilePath = "attributes.xml", StatusMessage = "属性定义编辑器" });
+                    editors.Add(new MockBaseEditorViewModel { FilePath = "skills.xml", StatusMessage = "技能编辑器" });
+                    editors.Add(new MockBaseEditorViewModel { FilePath = "bone_body_types.xml", StatusMessage = "骨骼体型编辑器" });
+                    editors.Add(new MockBaseEditorViewModel { FilePath = "combat_parameters.xml", StatusMessage = "战斗参数编辑器" });
+                    editors.Add(new MockBaseEditorViewModel { FilePath = "items.xml", StatusMessage = "物品编辑器" });
+                }
+            }
+            
+            return editors;
         }
     }
 }

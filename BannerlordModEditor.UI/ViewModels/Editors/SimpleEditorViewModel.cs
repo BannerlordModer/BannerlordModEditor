@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using BannerlordModEditor.Common.Models;
 using BannerlordModEditor.Common.Loaders;
+using BannerlordModEditor.UI.Services;
 using System.IO;
 using System.Linq;
 using System;
@@ -34,8 +35,10 @@ public abstract partial class SimpleEditorViewModel<TModel, TItemModel, TItemVie
     [ObservableProperty]
     private ObservableCollection<TItemViewModel> filteredItems = new();
 
-    protected SimpleEditorViewModel(string xmlFileName, string editorName) 
-        : base(xmlFileName, editorName)
+    protected SimpleEditorViewModel(string xmlFileName, string editorName,
+        IErrorHandlerService? errorHandler = null,
+        ILogService? logService = null) 
+        : base(xmlFileName, editorName, errorHandler, logService)
     {
         Items.CollectionChanged += (s, e) => UpdateFilteredItems();
     }

@@ -4,7 +4,6 @@ using Avalonia.Headless.XUnit;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.Tests.Helpers;
-using System.IO;
 
 namespace BannerlordModEditor.UI.Tests;
 
@@ -97,10 +96,11 @@ public class CommandTests
         viewModel.LoadFileCommand.Execute(null);
         
         // 如果TestData/attributes.xml存在，应该加载数据
-        if (File.Exists(@"TestData\attributes.xml"))
+        if (TestDataHelper.TestDataFileExists("attributes.xml"))
         {
             Assert.True(viewModel.Attributes.Count > initialCount || viewModel.Attributes.Count >= 1);
-            Assert.Equal(@"TestData\attributes.xml", viewModel.FilePath);
+            Assert.Contains("attributes.xml", viewModel.FilePath);
+            Assert.Contains("TestData", viewModel.FilePath);
             Assert.False(viewModel.HasUnsavedChanges);
         }
     }
@@ -116,10 +116,11 @@ public class CommandTests
         viewModel.LoadFileCommand.Execute(null);
         
         // 如果TestData/bone_body_types.xml存在，应该加载数据
-        if (File.Exists(@"TestData\bone_body_types.xml"))
+        if (TestDataHelper.TestDataFileExists("bone_body_types.xml"))
         {
             Assert.True(viewModel.BoneBodyTypes.Count > initialCount || viewModel.BoneBodyTypes.Count >= 1);
-            Assert.Equal(@"TestData\bone_body_types.xml", viewModel.FilePath);
+            Assert.Contains("bone_body_types.xml", viewModel.FilePath);
+            Assert.Contains("TestData", viewModel.FilePath);
             Assert.False(viewModel.HasUnsavedChanges);
         }
     }

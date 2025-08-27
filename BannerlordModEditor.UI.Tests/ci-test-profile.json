@@ -1,0 +1,256 @@
+{
+  "version": "1.0.0",
+  "profile": "CI",
+  "description": "CI Environment Test Profile for Bannerlord Mod Editor UI Tests",
+  "environment": {
+    "type": "CI",
+    "platform": "GitHub Actions",
+    "headless": true,
+    "disableUI": true,
+    "enableNonInteractiveMode": true,
+    "enableParallelExecution": true
+  },
+  "execution": {
+    "mode": "non-interactive",
+    "timeout": 180000,
+    "retryCount": 1,
+    "failFast": true,
+    "stopOnError": false,
+    "continueOnFailure": true
+  },
+  "parallelization": {
+    "enabled": true,
+    "strategy": "test-assembly",
+    "maxDegreeOfParallelism": 4,
+    "disableParallelizationForTests": [
+      "GitHubActionsEnvironmentTests",
+      "CrossPlatformCompatibilityTests",
+      "TestDeploymentVerificationTests"
+    ],
+    "testCollectionParallelization": true
+  },
+  "resources": {
+    "limits": {
+      "memory": "2GB",
+      "cpu": 2,
+      "disk": "1GB",
+      "network": "100MB"
+    },
+    "monitoring": {
+      "enableMemoryMonitoring": true,
+      "enableCPUMonitoring": true,
+      "enableDiskMonitoring": true,
+      "samplingInterval": 5000,
+      "alertThresholds": {
+        "memoryUsage": 90,
+        "cpuUsage": 95,
+        "diskUsage": 95
+      }
+    }
+  },
+  "dataManagement": {
+    "testData": {
+      "source": "TestData",
+      "syncMode": "copy",
+      "validation": true,
+      "cleanup": true,
+      "cacheEnabled": false
+    },
+    "tempFiles": {
+      "directory": "/tmp",
+      "autoCleanup": true,
+      "maxSize": "100MB",
+      "retentionPeriod": 3600
+    },
+    "artifacts": {
+      "upload": true,
+      "retentionDays": 30,
+      "compression": true,
+      "patterns": [
+        "TestResults/**/*",
+        "coverage.*",
+        "*.log",
+        "test-reports/**/*"
+      ]
+    }
+  },
+  "reporting": {
+    "formats": [
+      "junit",
+      "html",
+      "github-actions"
+    ],
+    "output": {
+      "directory": "TestResults",
+      "namingPattern": "test-results-{timestamp}",
+      "compression": true
+    },
+    "metrics": {
+      "enableTiming": true,
+      "enableCoverage": true,
+      "enablePerformanceMetrics": true,
+      "enableMemoryMetrics": true,
+      "enableTestExecutionDetails": true
+    },
+    "notifications": {
+      "enableSlack": false,
+      "enableEmail": false,
+      "enableGitHubAnnotations": true
+    }
+  },
+  "coverage": {
+    "enabled": true,
+    "tool": "coverlet",
+    "format": ["cobertura", "json", "lcov"],
+    "output": "coverage.",
+    "minimumThreshold": 75.0,
+    "exclude": [
+      "*Tests*",
+      "Examples/*",
+      "bin/*",
+      "obj/*",
+      "BannerlordModEditor.UI.Tests/*"
+    ],
+    "include": [
+      "BannerlordModEditor.UI/*"
+    ],
+    "excludeByFile": [
+      "**/*Designer.cs",
+      "**/*.g.cs",
+      "**/*.g.i.cs"
+    ],
+    "excludeByAttribute": [
+      "GeneratedCodeAttribute",
+      "CompilerGeneratedAttribute"
+    ]
+  },
+  "logging": {
+    "level": "Information",
+    "console": {
+      "enabled": true,
+      "format": "compact",
+      "colorOutput": false
+    },
+    "file": {
+      "enabled": true,
+      "path": "ci-test.log",
+      "rolling": true,
+      "maxFiles": 5,
+      "maxFileSize": "10MB"
+    },
+    "system": {
+      "enableFrameworkLogging": true,
+      "enableTestFrameworkLogging": true,
+      "enableApplicationLogging": true
+    }
+  },
+  "performance": {
+    "profiling": {
+      "enabled": true,
+      "mode": "sampling",
+      "interval": 100,
+      "duration": 30000
+    },
+    "thresholds": {
+      "testExecution": 30000,
+      "testSetup": 5000,
+      "testTeardown": 2000,
+      "serviceCreation": 1000,
+      "editorCreation": 2000
+    },
+    "monitoring": {
+      "enableGCMonitoring": true,
+      "enableThreadMonitoring": true,
+      "enableMemoryMonitoring": true,
+      "enableCPUMonitoring": true
+    }
+  },
+  "errorHandling": {
+    "strategy": "continue",
+    "maxErrors": 10,
+    "breakOnFirstFailure": false,
+    "captureDumps": false,
+    "captureScreenshots": false,
+    "detailedErrorReporting": true
+  },
+  "environmentVariables": {
+    "DOTNET_ENVIRONMENT": "Testing",
+    "TEST_MODE": "true",
+    "CI": "true",
+    "GITHUB_ACTIONS": "true",
+    "LOG_LEVEL": "Information",
+    "DISABLE_UI": "true",
+    "HEADLESS_MODE": "true",
+    "ENABLE_COVERAGE": "true",
+    "TEST_TIMEOUT": "180000"
+  },
+  "testSelection": {
+    "includeCategories": [
+      "unit",
+      "integration",
+      "environment"
+    ],
+    "excludeCategories": [
+      "manual",
+      "performance",
+      "load"
+    ],
+    "includeTraits": [
+      "ci",
+      "automated"
+    ],
+    "excludeTraits": [
+      "manual",
+      "flaky"
+    ]
+  },
+  "setup": {
+    "preTestCommands": [
+      "dotnet restore",
+      "dotnet build --configuration Release",
+      "chmod +x ./Sync-TestData.sh",
+      "./Sync-TestData.sh"
+    ],
+    "postTestCommands": [
+      "dotnet test --configuration Release --collect:\"XPlat Code Coverage\"",
+      "dotnet reportgenerator -reports:coverage.xml -targetdir:coverage-report"
+    ],
+    "cleanupCommands": [
+      "rm -rf tmp/*",
+      "rm -f *.log",
+      "rm -f test-results.*"
+    ]
+  },
+  "security": {
+    "enableSandbox": false,
+    "restrictNetworkAccess": false,
+    "enableFileAccessMonitoring": true,
+    "enableProcessMonitoring": true,
+    "allowedPaths": [
+      "./",
+      "/tmp",
+      "/home/runner"
+    ]
+  },
+  "compatibility": {
+    "platforms": [
+      "linux",
+      "windows",
+      "macos"
+    ],
+    "frameworks": [
+      "net9.0"
+    ],
+    "architectures": [
+      "x64",
+      "arm64"
+    ]
+  },
+  "optimizations": {
+    "enableTestCaching": true,
+    "enableAssemblyCaching": true,
+    "enableTestDataCaching": false,
+    "parallelDataLoading": true,
+    "lazyServiceInitialization": true
+  }
+}
