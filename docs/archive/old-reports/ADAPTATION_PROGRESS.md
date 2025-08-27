@@ -1,0 +1,7 @@
+- [x] `collision_infos.xml`
+- [x] `combat_parameters.xml`
+- [ ] `crafting_pieces.xml`
+- [x] `crafting_templates.xml`
+- [ ] `cultures.xml`
+- [ ] `curated_calradia.xml`
+- [ ] `death_sounds.xml` 
