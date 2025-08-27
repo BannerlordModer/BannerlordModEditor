@@ -26,7 +26,7 @@ public static class LanguageBaseMapper
     {
         if (source == null) return null;
 
-        return new LanguageBaseDO
+        var result = new LanguageBaseDO
         {
             Type = source.Type,
             Tags = LanguageTagsMapper.ToDO(source.Tags),
@@ -37,6 +37,11 @@ public static class LanguageBaseMapper
                 .Select(LanguageFunctionMapper.ToDO)
                 .ToList() ?? new List<LanguageFunctionDO>()
         };
+        
+        // 从DTO的Tags中恢复HasEmptyTags标志
+        result.HasEmptyTags = source.Tags.HasEmptyTags;
+        
+        return result;
     }
 }
 
@@ -50,7 +55,8 @@ public static class LanguageTagsMapper
         {
             Tags = source.Tags?
                 .Select(LanguageTagMapper.ToDTO)
-                .ToList() ?? new List<TagDTO>()
+                .ToList() ?? new List<TagDTO>(),
+            HasEmptyTags = source.HasEmptyTags
         };
     }
 
@@ -62,7 +68,8 @@ public static class LanguageTagsMapper
         {
             Tags = source.Tags?
                 .Select(LanguageTagMapper.ToDO)
-                .ToList() ?? new List<LanguageTagDO>()
+                .ToList() ?? new List<LanguageTagDO>(),
+            HasEmptyTags = source.HasEmptyTags
         };
     }
 }

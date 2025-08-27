@@ -24,6 +24,12 @@ public class TagsDTO
 {
     [XmlElement("tag")]
     public List<TagDTO> Tags { get; set; } = new List<TagDTO>();
+
+    // 空元素标记
+    [XmlIgnore]
+    public bool HasEmptyTags { get; set; } = false;
+
+    public bool ShouldSerializeTags() => (Tags != null && Tags.Count > 0) || HasEmptyTags;
 }
 
 public class TagDTO

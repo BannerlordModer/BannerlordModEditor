@@ -11,13 +11,13 @@ public class LanguageBaseDO
     [XmlElement("tags")]
     public LanguageTagsDO Tags { get; set; } = new LanguageTagsDO();
 
-    [XmlArray("strings")]
-    [XmlArrayItem("string")]
-    public List<LanguageStringDO> Strings { get; set; } = new List<LanguageStringDO>();
-
     [XmlArray("functions")]
     [XmlArrayItem("function")]
     public List<LanguageFunctionDO> Functions { get; set; } = new List<LanguageFunctionDO>();
+
+    [XmlArray("strings")]
+    [XmlArrayItem("string")]
+    public List<LanguageStringDO> Strings { get; set; } = new List<LanguageStringDO>();
 
   
     // 强制内容属性，确保标签不会自闭合
@@ -36,7 +36,7 @@ public class LanguageBaseDO
         public bool ShouldSerializeTags() => (Tags != null && Tags.Tags.Count > 0) || HasEmptyTags;
         public bool ShouldSerializeStrings() => Strings != null && Strings.Count > 0;
         public bool ShouldSerializeFunctions() => Functions != null && Functions.Count > 0;
-        public bool ShouldSerializeXmlContent() => false; // 永远不序列化内容，但确保标签不闭合
+        public bool ShouldSerializeXmlContent() => true; // 强制序列化内容，确保标签不闭合
 
         // 运行时属性
         [XmlIgnore]
@@ -56,7 +56,11 @@ public class LanguageTagsDO
     [XmlElement("tag")]
     public List<LanguageTagDO> Tags { get; set; } = new List<LanguageTagDO>();
 
-    public bool ShouldSerializeTags() => Tags != null && Tags.Count > 0;
+    // 空元素标记
+    [XmlIgnore]
+    public bool HasEmptyTags { get; set; } = false;
+
+    public bool ShouldSerializeTags() => (Tags != null && Tags.Count > 0) || HasEmptyTags;
 }
 
 public class LanguageTagDO

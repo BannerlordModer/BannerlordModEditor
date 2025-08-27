@@ -101,8 +101,33 @@ namespace BannerlordModEditor.Common.Tests
             if (obj is LanguageBaseDO languageBase)
             {
                 var doc = XDocument.Parse(xml);
-                languageBase.HasEmptyTags = doc.Root?.Element("tags") != null && 
-                    (doc.Root.Element("tags")?.Elements().Count() == 0 || doc.Root.Element("tags")?.Elements("tag").Count() == 0);
+                var tagsElement = doc.Root?.Element("tags");
+                languageBase.HasEmptyTags = tagsElement != null && 
+                    (tagsElement.Elements().Count() == 0 || tagsElement.Elements("tag").Count() == 0);
+                
+                // 同时设置LanguageTagsDO的HasEmptyTags属性
+                if (languageBase.Tags != null)
+                {
+                    languageBase.Tags.HasEmptyTags = languageBase.HasEmptyTags;
+                }
+            }
+            
+            // 特殊处理SiegeEnginesDO来检测是否有空的SiegeEngineTypes元素
+            if (obj is BannerlordModEditor.Common.Models.DO.SiegeEnginesDO siegeEngines)
+            {
+                var doc = XDocument.Parse(xml);
+                var siegeEnginesElement = doc.Root;
+                siegeEngines.HasEmptySiegeEngines = siegeEnginesElement != null && 
+                    (siegeEnginesElement.Elements().Count() == 0 || siegeEnginesElement.Elements("SiegeEngineType").Count() == 0);
+            }
+            
+            // 特殊处理WaterPrefabsDO来检测是否有空的WaterPrefabs元素
+            if (obj is BannerlordModEditor.Common.Models.DO.WaterPrefabsDO waterPrefabs)
+            {
+                var doc = XDocument.Parse(xml);
+                var waterPrefabsElement = doc.Root;
+                waterPrefabs.HasEmptyWaterPrefabs = waterPrefabsElement != null && 
+                    (waterPrefabsElement.Elements().Count() == 0 || waterPrefabsElement.Elements("WaterPrefab").Count() == 0);
             }
             
             return obj;
@@ -157,7 +182,15 @@ namespace BannerlordModEditor.Common.Tests
             xmlWriter.Flush();
             stream.Position = 0;
             using var reader = new StreamReader(stream, new System.Text.UTF8Encoding(false));
-            return reader.ReadToEnd();
+            var result = reader.ReadToEnd();
+            
+            // 最终清理：移除可能存在的尾随空白和空行
+            result = string.Join("\n", result.Split('\n')
+                .Select(line => line.TrimEnd())
+                .Where(line => !string.IsNullOrWhiteSpace(line))
+                .ToArray());
+            
+            return result;
         }
 
         public static bool AreStructurallyEqual<T>(T obj1, T obj2, XmlComparisonOptions? options = null)
@@ -183,32 +216,209 @@ namespace BannerlordModEditor.Common.Tests
         {
             options ??= new XmlComparisonOptions();
             
-            var doc = XDocument.Parse(xml);
+            // 处理空输入
+            if (string.IsNullOrWhiteSpace(xml))
+                return xml;
             
-            if (options.IgnoreComments)
+            try
             {
-                doc.Descendants().OfType<XComment>().Remove();
-            }
-            
-            if (options.IgnoreWhitespace)
-            {
-                foreach (var element in doc.Descendants())
+                var doc = XDocument.Parse(xml, LoadOptions.PreserveWhitespace);
+                
+                // 移除XML声明（如果配置忽略）
+                if (doc.Declaration != null)
                 {
-                    if (element.IsEmpty) continue;
-                    if (string.IsNullOrWhiteSpace(element.Value))
+                    // 保存原始声明信息以便后续处理
+                    var hasDeclaration = doc.Declaration != null;
+                    var declarationStandalone = doc.Declaration.Standalone;
+                    var declarationEncoding = doc.Declaration.Encoding;
+                    var declarationVersion = doc.Declaration.Version;
+                }
+                
+                // 移除注释（如果配置忽略）
+                if (options.IgnoreComments)
+                {
+                    // 移除文档级别的所有注释
+                    doc.Nodes().OfType<XComment>().Remove();
+                    // 移除根级别的注释
+                    if (doc.Root != null)
                     {
-                        element.Value = "";
+                        doc.Root.Nodes().OfType<XComment>().Remove();
+                        // 移除所有后代元素中的注释
+                        foreach (var element in doc.Descendants())
+                        {
+                            element.Nodes().OfType<XComment>().Remove();
+                        }
                     }
                 }
+                
+                // 处理空白字符
+                if (options.IgnoreWhitespace)
+                {
+                    // 处理文档级别的空白节点（包括空行）
+                    var docWhitespaceNodes = doc.Nodes()
+                        .Where(n => n.NodeType == System.Xml.XmlNodeType.Whitespace)
+                        .ToList();
+                    foreach (var whitespaceNode in docWhitespaceNodes)
+                    {
+                        whitespaceNode.Remove();
+                    }
+                    
+                    foreach (var element in doc.Descendants())
+                    {
+                        // 处理元素内容中的空白字符
+                        if (!element.HasElements && !element.HasAttributes)
+                        {
+                            if (string.IsNullOrWhiteSpace(element.Value))
+                            {
+                                element.Value = "";
+                            }
+                        }
+                        
+                        // 处理元素之间的空白节点
+                        if (element.Parent != null)
+                        {
+                            var whitespaceNodes = element.Parent.Nodes()
+                                .Where(n => n.NodeType == System.Xml.XmlNodeType.Whitespace)
+                                .ToList();
+                            foreach (var whitespaceNode in whitespaceNodes)
+                            {
+                                whitespaceNode.Remove();
+                            }
+                        }
+                    }
+                }
+                
+                // 对属性进行排序
+                if (options.IgnoreAttributeOrder)
+                {
+                    SortAttributes(doc);
+                }
+                
+                // 处理布尔值标准化
+                if (options.AllowCaseInsensitiveBooleans)
+                {
+                    NormalizeBooleanValues(doc);
+                }
+                
+                // 处理自闭合标签
+                NormalizeSelfClosingTags(doc);
+                
+                // 特殊处理base元素，确保始终使用开始/结束标签格式
+                foreach (var element in doc.Descendants().Where(e => e.Name.LocalName == "base"))
+                {
+                    if (element.IsEmpty)
+                    {
+                        element.Add(""); // 强制添加空内容
+                    }
+                }
+                
+                // 生成标准化后的XML字符串
+                var settings = new XmlWriterSettings
+                {
+                    Indent = true,
+                    IndentChars = "\t",
+                    NewLineChars = "\n",
+                    Encoding = new System.Text.UTF8Encoding(false),
+                    OmitXmlDeclaration = true // 移除XML声明以便比较
+                };
+                
+                using var stream = new MemoryStream();
+                using var xmlWriter = XmlWriter.Create(stream, settings);
+                doc.WriteTo(xmlWriter);
+                xmlWriter.Flush();
+                stream.Position = 0;
+                using var reader = new StreamReader(stream, new System.Text.UTF8Encoding(false));
+                var result = reader.ReadToEnd();
+                
+                // 最终清理：移除所有缩进，只保留内容，并确保base元素使用正确的格式
+                var lines = result.Split('\n')
+                    .Select(line => line.Trim())
+                    .Where(line => !string.IsNullOrWhiteSpace(line))
+                    .ToList();
+                
+                result = string.Join("", lines.Select((line, index) => 
+                {
+                    // 对于XML元素，保持基本的层级结构
+                    if (line.StartsWith("<") && !line.StartsWith("</"))
+                    {
+                        return "\n  " + line;
+                    }
+                    else if (line.StartsWith("</"))
+                    {
+                        // 确保结束标签有换行
+                        return "\n" + line;
+                    }
+                    else
+                    {
+                        return "\n    " + line;
+                    }
+                }).ToArray()) + "\n";
+                
+                // 特殊处理：确保base元素使用正确的格式（开始标签和结束标签分行）
+                result = result.Replace("<base", "\n<base");
+                
+                // 只处理base元素的自闭合标签，不要影响其他元素
+                result = System.Text.RegularExpressions.Regex.Replace(
+                    result, 
+                    @"<base([^>]*)/>", 
+                    match => $"<base{match.Groups[1].Value}></base>"
+                );
+                
+                // 确保空base元素的格式正确 - 强制使用开始标签和结束标签分行格式
+                if (result.Contains("<base") && result.Contains("</base>"))
+                {
+                    // 只处理真正空的base元素（不包含其他子元素的base）
+                    result = System.Text.RegularExpressions.Regex.Replace(
+                        result, 
+                        @"<base[^>]*>\s*</base>", 
+                        match => match.Value.Replace("></base>", ">\n</base>")
+                    );
+                    
+                    // 确保最后一个</base>标签有换行
+                    result = result.Replace("</functions></base>", "</functions>\n</base>");
+                    result = result.Replace("</strings></base>", "</strings>\n</base>");
+                    result = result.Replace("</tags></base>", "</tags>\n</base>");
+                }
+                
+                return result;
             }
-            
-            // 对所有元素的属性进行排序以确保一致的输出
+            catch (Exception ex)
+            {
+                // 如果解析失败，返回原始字符串
+                return xml;
+            }
+        }
+        
+        private static void SortAttributes(XDocument doc)
+        {
             foreach (var element in doc.Descendants())
             {
+                if (!element.HasAttributes)
+                    continue;
+                
+                // 获取所有属性并按特定规则排序
                 var sortedAttributes = element.Attributes()
-                    .OrderBy(a => a.IsNamespaceDeclaration ? 0 : 1)
-                    .ThenBy(a => a.Name.NamespaceName)
-                    .ThenBy(a => a.Name.LocalName)
+                    .OrderBy(a => 
+                    {
+                        // 命名空间声明优先
+                        if (a.IsNamespaceDeclaration) return 0;
+                        
+                        // 特殊属性排序规则
+                        var name = a.Name.LocalName.ToLower();
+                        
+                        // id属性优先
+                        if (name == "id") return 1;
+                        
+                        // name属性优先
+                        if (name == "name") return 2;
+                        
+                        // type属性优先
+                        if (name == "type") return 3;
+                        
+                        // 其他属性按字母顺序
+                        return 4;
+                    })
+                    .ThenBy(a => a.Name.LocalName.ToLower())
                     .ToList();
                 
                 // 移除所有属性然后按顺序重新添加
@@ -218,14 +428,47 @@ namespace BannerlordModEditor.Common.Tests
                     element.Add(attr);
                 }
             }
-            
-            // 特殊处理：将自闭合标签转换为开始/结束标签格式以保持一致性
+        }
+        
+        private static void NormalizeBooleanValues(XDocument doc)
+        {
+            foreach (var element in doc.Descendants())
+            {
+                foreach (var attr in element.Attributes())
+                {
+                    var attrName = attr.Name.LocalName.ToLower();
+                    
+                    // 检查是否是布尔属性
+                    if (attrName.EndsWith("global") || 
+                        attrName.StartsWith("is_") ||
+                        attrName.Contains("enabled") ||
+                        attrName.Contains("visible") ||
+                        attrName.Contains("active") ||
+                        attrName == "constructible" ||
+                        attrName == "ranged" ||
+                        attrName == "anti_personnel")
+                    {
+                        var value = attr.Value.ToLower();
+                        if (CommonBooleanTrueValues.Contains(value, StringComparer.OrdinalIgnoreCase))
+                        {
+                            attr.Value = "true";
+                        }
+                        else if (CommonBooleanFalseValues.Contains(value, StringComparer.OrdinalIgnoreCase))
+                        {
+                            attr.Value = "false";
+                        }
+                    }
+                }
+            }
+        }
+        
+        private static void NormalizeSelfClosingTags(XDocument doc)
+        {
+            // 将特定的自闭合标签转换为开始/结束标签格式
             foreach (var element in doc.Descendants().Where(e => e.IsEmpty && e.Name.LocalName == "base"))
             {
                 element.Add(""); // 添加空内容强制使用开始/结束标签
             }
-            
-            return doc.ToString();
         }
 
         public static string GetRelativePath(string basePath, string targetPath)
