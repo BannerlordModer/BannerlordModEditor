@@ -7,11 +7,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using BannerlordModEditor.Common.Models.Game;
+using BannerlordModEditor.UI.Services;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
 public partial class ItemModifierEditorViewModel : ViewModelBase
 {
+    private readonly IValidationService _validationService;
+
     [ObservableProperty]
     private ObservableCollection<ItemModifierDataViewModel> itemModifiers = new();
 
@@ -26,6 +29,11 @@ public partial class ItemModifierEditorViewModel : ViewModelBase
 
     [ObservableProperty]
     private bool isLoading = false;
+
+    public ItemModifierEditorViewModel(IValidationService? validationService = null)
+    {
+        _validationService = validationService ?? new ValidationService();
+    }
 
     [RelayCommand]
     private void LoadFile()
@@ -176,6 +184,11 @@ public partial class ItemModifierEditorViewModel : ViewModelBase
     {
         SelectedItemModifier = modifier;
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 public partial class ItemModifierDataViewModel : ViewModelBase

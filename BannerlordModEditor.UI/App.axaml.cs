@@ -66,6 +66,9 @@ public partial class App : Application
         services.AddSingleton<IValidationService, ValidationService>();
         services.AddSingleton<IDataBindingService, DataBindingService>();
         
+        // 注册EditorManagerViewModel
+        services.AddTransient<EditorManagerViewModel>();
+        
         // 注册Common层服务
         services.AddTransient<BannerlordModEditor.Common.Services.IFileDiscoveryService, BannerlordModEditor.Common.Services.FileDiscoveryService>();
         

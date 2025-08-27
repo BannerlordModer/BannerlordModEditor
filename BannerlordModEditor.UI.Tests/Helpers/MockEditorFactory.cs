@@ -2,6 +2,7 @@ using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.Factories;
+using BannerlordModEditor.UI.Services;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,9 +14,12 @@ namespace BannerlordModEditor.UI.Tests.Helpers
     public class MockEditorFactory : BannerlordModEditor.UI.Factories.IEditorFactory
     {
         private readonly Dictionary<string, EditorTypeInfo> _editorTypes = new();
+        private readonly IValidationService _validationService;
 
-        public MockEditorFactory()
+        public MockEditorFactory(IValidationService? validationService = null)
         {
+            _validationService = validationService ?? new ValidationService();
+            
             // 初始化一些测试编辑器类型
             _editorTypes["AttributeEditor"] = new EditorTypeInfo 
             { 
@@ -53,11 +57,13 @@ namespace BannerlordModEditor.UI.Tests.Helpers
         {
             return editorType switch
             {
-                "AttributeEditor" => new AttributeEditorViewModel(),
-                "SkillEditor" => new SkillEditorViewModel(),
-                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(),
-                "CombatParameterEditor" => new CombatParameterEditorViewModel(),
-                "ItemEditor" => new ItemEditorViewModel(),
+                "AttributeEditor" => new AttributeEditorViewModel(_validationService),
+                "SkillEditor" => new SkillEditorViewModel(_validationService),
+                "BoneBodyTypeEditor" => new BoneBodyTypeEditorViewModel(_validationService),
+                "CombatParameterEditor" => new CombatParameterEditorViewModel(_validationService),
+                "ItemEditor" => new ItemEditorViewModel(_validationService),
+                "CraftingPieceEditor" => new CraftingPieceEditorViewModel(_validationService),
+                "ItemModifierEditor" => new ItemModifierEditorViewModel(_validationService),
                 _ => null
             };
         }

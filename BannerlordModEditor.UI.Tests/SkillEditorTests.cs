@@ -6,6 +6,7 @@ using Avalonia.LogicalTree;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.Views.Editors;
 using BannerlordModEditor.UI.ViewModels;
+using BannerlordModEditor.UI.Services;
 using System.Linq;
 using System.Threading.Tasks;
 using BannerlordModEditor.UI.Tests.Helpers;
@@ -18,7 +19,8 @@ public class SkillEditorTests
     public void SkillEditor_ShouldInitializeWithDefaultSkill()
     {
         // Arrange & Act
-        var editor = new SkillEditorViewModel();
+        var validationService = new ValidationService();
+        var editor = new SkillEditorViewModel(validationService);
         
         // Assert
         Assert.NotNull(editor.Skills);

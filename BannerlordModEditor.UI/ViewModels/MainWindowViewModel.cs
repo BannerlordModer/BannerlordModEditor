@@ -56,8 +56,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel(IServiceProvider serviceProvider)
     {
-        var editorFactory = serviceProvider.GetRequiredService<IEditorFactory>();
-        EditorManager = new EditorManagerViewModel(editorFactory);
+        EditorManager = serviceProvider.GetRequiredService<EditorManagerViewModel>();
         AttributeEditor = serviceProvider.GetRequiredService<AttributeEditorViewModel>();
         BoneBodyTypeEditor = serviceProvider.GetRequiredService<BoneBodyTypeEditorViewModel>();
         SkillEditor = serviceProvider.GetRequiredService<SkillEditorViewModel>();

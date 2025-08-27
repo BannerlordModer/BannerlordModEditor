@@ -375,6 +375,11 @@ public partial class CombatParameterEditorViewModel : GenericEditorViewModel<
     {
         return CombatParametersMapper.ToDTO(data);
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 /// <summary>

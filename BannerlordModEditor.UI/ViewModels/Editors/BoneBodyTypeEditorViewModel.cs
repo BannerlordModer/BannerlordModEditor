@@ -7,11 +7,14 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using System.Threading.Tasks;
+using BannerlordModEditor.UI.Services;
 
 namespace BannerlordModEditor.UI.ViewModels.Editors;
 
 public partial class BoneBodyTypeEditorViewModel : ViewModelBase
 {
+    private readonly IValidationService _validationService;
+
     [ObservableProperty]
     private ObservableCollection<BoneBodyTypeViewModel> boneBodyTypes = new();
 
@@ -21,8 +24,10 @@ public partial class BoneBodyTypeEditorViewModel : ViewModelBase
     [ObservableProperty]
     private bool hasUnsavedChanges;
 
-    public BoneBodyTypeEditorViewModel()
+    public BoneBodyTypeEditorViewModel(IValidationService? validationService = null)
     {
+        _validationService = validationService ?? new ValidationService();
+        
         // 添加示例数据
         BoneBodyTypes.Add(new BoneBodyTypeViewModel 
         { 
@@ -179,6 +184,11 @@ public partial class BoneBodyTypeEditorViewModel : ViewModelBase
             System.Diagnostics.Debug.WriteLine($"Save failed: {ex.Message}");
         }
     }
+
+    /// <summary>
+    /// 获取验证服务（用于测试）
+    /// </summary>
+    public IValidationService ValidationService => _validationService;
 }
 
 public partial class BoneBodyTypeViewModel : ObservableObject
