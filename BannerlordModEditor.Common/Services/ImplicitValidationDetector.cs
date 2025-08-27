@@ -677,6 +677,7 @@ namespace BannerlordModEditor.Common.Services
                             var itemIds = doc.XPathSelectElements("//Item[@id]")
                                 .Select(e => e.Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
+                                .Cast<string>()
                                 .ToList();
                             context.AvailableItems.AddRange(itemIds);
                         }
@@ -687,6 +688,7 @@ namespace BannerlordModEditor.Common.Services
                             var characterIds = doc.XPathSelectElements("//Character[@id]")
                                 .Select(e => e.Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
+                                .Cast<string>()
                                 .ToList();
                             context.AvailableCharacters.AddRange(characterIds);
                         }
@@ -697,6 +699,7 @@ namespace BannerlordModEditor.Common.Services
                             var cultureIds = doc.XPathSelectElements("//Culture[@id]")
                                 .Select(e => e.Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
+                                .Cast<string>()
                                 .ToList();
                             context.AvailableCultures.AddRange(cultureIds);
                         }
@@ -707,6 +710,7 @@ namespace BannerlordModEditor.Common.Services
                             var skillIds = doc.XPathSelectElements("//Skill[@id]")
                                 .Select(e => e.Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
+                                .Cast<string>()
                                 .ToList();
                             context.AvailableSkills.AddRange(skillIds);
                         }
@@ -717,6 +721,7 @@ namespace BannerlordModEditor.Common.Services
                             var craftingIds = doc.XPathSelectElements("//CraftingPiece[@id]")
                                 .Select(e => e.Attribute("id")?.Value)
                                 .Where(id => !string.IsNullOrEmpty(id))
+                                .Cast<string>()
                                 .ToList();
                             context.AvailableCraftingPieces.AddRange(craftingIds);
                         }

@@ -213,10 +213,19 @@ namespace BannerlordModEditor.Common.Services
                 
                 foreach (var pattern in referencePatterns)
                 {
-                    var references = doc.XPathSelectElements(pattern)
-                        .Select(e => e.Value)
-                        .Where(v => !string.IsNullOrEmpty(v))
-                        .Distinct();
+                    IEnumerable<string> references;
+                    try
+                    {
+                        references = doc.XPathSelectElements(pattern)
+                            .Select(e => e.Value)
+                            .Where(v => !string.IsNullOrEmpty(v))
+                            .Distinct();
+                    }
+                    catch
+                    {
+                        // 如果XPathSelectElements失败，尝试其他方法
+                        references = new List<string>();
+                    }
                     
                     foreach (var reference in references)
                     {

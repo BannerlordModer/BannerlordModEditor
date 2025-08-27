@@ -132,7 +132,7 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
         }
 
         [Fact]
-        public async Task AllRealXmlTypes_ShouldHaveLoaders()
+        public void AllRealXmlTypes_ShouldHaveLoaders()
         {
             // 验证所有真实存在的XML类型都有对应的加载器
             _output.WriteLine($"真实存在的XML类型数量: {_loaders.Count}");
@@ -234,12 +234,15 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                     // 1. 加载测试
                     var loadedObjTask = (Task)loadMethod.Invoke(loader, new object[] { testFile });
                     await loadedObjTask;
-                    var loadedObj = loadedObjTask.GetType().GetProperty("Result")?.GetValue(loadedObjTask);
+                    var resultProperty = loadedObjTask.GetType().GetProperty("Result");
+                    Assert.NotNull(resultProperty);
+                    var loadedObj = resultProperty.GetValue(loadedObjTask);
                     Assert.NotNull(loadedObj);
 
                     // 2. 序列化测试
                     var originalXml = await File.ReadAllTextAsync(testFile);
-                    var serializedXml = (string)saveMethod.Invoke(loader, new object[] { loadedObj, originalXml });
+                    Assert.NotNull(originalXml);
+                    var serializedXml = (string)saveMethod.Invoke(loader, new object[] { loadedObj, originalXml }) ?? string.Empty;
                     Assert.False(string.IsNullOrEmpty(serializedXml));
 
                     _output.WriteLine($"    ✓ {Path.GetFileName(testFile)} 处理成功");
@@ -290,7 +293,9 @@ namespace BannerlordModEditor.Common.Tests.Comprehensive
                         {
                             var resultTask = (Task)loadMethod.Invoke(loader, new object[] { sampleFile });
                             await resultTask;
-                            var result = resultTask.GetType().GetProperty("Result")?.GetValue(resultTask);
+                            var resultProperty = resultTask.GetType().GetProperty("Result");
+                            Assert.NotNull(resultProperty);
+                            var result = resultProperty.GetValue(resultTask);
                             
                             if (result != null)
                             {
