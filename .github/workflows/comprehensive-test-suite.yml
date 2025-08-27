@@ -362,15 +362,15 @@ jobs:
     - name: 构建项目
       run: dotnet build --configuration Release --no-restore || echo "构建完成，带有警告"
       
+    - name: 安装Xvfb
+      run: sudo apt-get update && sudo apt-get install -y xvfb
+      
     - name: 运行UI测试
-      env:
-        DOTNET_CLI_TEST_TIMEOUT: 60
       run: |
-        dotnet test ${{ env.UI_TEST_PROJECT_PATH }} \
+        xvfb-run --auto-servernum dotnet test ${{ env.UI_TEST_PROJECT_PATH }} \
           --configuration Release \
           --no-build \
           --verbosity normal \
-          --filter "Category!=Integration" \
           --results-directory TestResults \
           --logger "trx;LogFileName=ui_tests.trx" || echo "UI测试完成，带有失败"
           

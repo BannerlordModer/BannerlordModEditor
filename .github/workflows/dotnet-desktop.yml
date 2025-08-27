@@ -34,9 +34,7 @@ jobs:
       run: dotnet test BannerlordModEditor.Common.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=unit_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "单元测试完成，带有失败"
       
     - name: Run UI Tests
-      env:
-        DOTNET_CLI_TEST_TIMEOUT: 60
-      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --filter "Category!=Integration" --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
+      run: dotnet test BannerlordModEditor.UI.Tests --configuration ${{ matrix.configuration }} --no-build --verbosity normal --logger "trx;LogFileName=ui_tests.trx" --collect:"XPlat Code Coverage" --results-directory TestResults || Write-Host "UI测试完成，带有失败"
       
     - name: Generate Code Coverage Report
       if: matrix.configuration == 'Release'
@@ -123,11 +121,9 @@ jobs:
       run: dotnet build --configuration Release --no-restore || Write-Host "构建完成，带有警告"
       
     - name: Run Final Tests Before Deploy
-      env:
-        DOTNET_CLI_TEST_TIMEOUT: 60
       run: |
         dotnet test BannerlordModEditor.Common.Tests --configuration Release --no-build
-        dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build --filter "Category!=Integration"
+        dotnet test BannerlordModEditor.UI.Tests --configuration Release --no-build
         
     - name: Publish Application
       run: dotnet publish BannerlordModEditor.UI/BannerlordModEditor.UI.csproj -c Release -o publish -r win-x64 --self-contained false
@@ -136,7 +132,6 @@ jobs:
       env:
         BUILD_NUMBER: ${{github.run_number}}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       shell: pwsh
       run: |
         $Version = Get-Date -Format "yyyy.M.$env:BUILD_NUMBER"
@@ -176,31 +171,15 @@ jobs:
         # 下载之前的版本（如果存在）
         try {
           vpk download github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --channel nightly-win-x64
-          Write-Host "Previous release downloaded successfully"
         } catch {
           Write-Host "No previous releases found, creating initial release"
         }
         
         # 创建发布包
-        vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net9.0-x64
+        vpk pack -u BannerlordModEditor --channel nightly-win-x64 -v $Version -p publish --framework net9.0-x64-desktop,webview2
         
         # 上传到 GitHub Releases
-        try {
-          vpk upload github -o Releases --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag $tagName --token $env:GITHUB_TOKEN
-          Write-Host "Release uploaded successfully"
-          
-          # 添加 release notes
-          try {
-            gh release edit $tagName --notes-file releasenotes.md --repo $env:GITHUB_REPOSITORY
-            Write-Host "Release notes updated successfully"
-          } catch {
-            Write-Host "Failed to update release notes: $_"
-            exit 1
-          }
-        } catch {
-          Write-Host "Release upload failed with error: $_"
-          exit 1
-        }
+        vpk upload github --repoUrl https://github.com/BannerlordModer/BannerlordModEditor --publish --channel nightly-win-x64 --releaseName "BannerlordModEditor v$Version" --tag $tagName --token $env:GITHUB_TOKEN --releaseNotesFile releasenotes.md
         
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
