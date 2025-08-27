@@ -109,6 +109,16 @@ namespace BannerlordModEditor.Common.Services
             return ModelExists(expectedModelName, searchDirectories);
         }
 
+        public List<string> GetAllXmlFiles(string directory)
+        {
+            if (!Directory.Exists(directory))
+            {
+                return new List<string>();
+            }
+
+            return Directory.GetFiles(directory, "*.xml", SearchOption.TopDirectoryOnly).ToList();
+        }
+
         private string[] GetModelSearchDirectories()
         {
             var directories = new List<string> { _modelsRootDirectory };

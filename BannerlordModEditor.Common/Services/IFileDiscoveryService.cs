@@ -35,5 +35,12 @@ namespace BannerlordModEditor.Common.Services
         /// <param name="xmlFileName">XML文件名</param>
         /// <returns>如果文件已适配则返回 true</returns>
         bool IsFileAdapted(string xmlFileName);
+
+        /// <summary>
+        /// 获取指定目录中的所有XML文件
+        /// </summary>
+        /// <param name="directory">目录路径</param>
+        /// <returns>XML文件路径列表</returns>
+        List<string> GetAllXmlFiles(string directory);
     }
 }
