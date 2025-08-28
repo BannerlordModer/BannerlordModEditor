@@ -315,11 +315,12 @@ public class EditorManagerBoundaryTests
         var invalidEditorItem = new EditorItemViewModel("无效编辑器", "无效编辑器描述", "invalid.xml", "InvalidEditorType", "❌");
 
         // Act & Assert
+        // 验证选择无效编辑器不会抛出异常到调用者（异常被内部处理）
         var exception = Record.Exception(() => 
             editorManager.SelectEditorCommand.Execute(invalidEditorItem));
         
-        Assert.NotNull(exception);
-        mockErrorHandlerService.Verify(x => x.HandleError(It.IsAny<Exception>(), "选择编辑器失败"), Times.Once);
+        Assert.Null(exception); // 异常应该被内部处理，不会传播到调用者
+        mockErrorHandlerService.Verify(x => x.HandleError(It.IsAny<NotSupportedException>(), "选择编辑器失败"), Times.Once);
     }
 
     [Fact]

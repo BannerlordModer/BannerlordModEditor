@@ -106,6 +106,8 @@ public class EditorManagerOptionsTests
             LogService = _mockLogService.Object,
             ErrorHandlerService = _mockErrorHandlerService.Object,
             ValidationService = _mockValidationService.Object,
+            EditorFactory = _mockEditorFactory.Object,
+            ServiceProvider = _mockServiceProvider.Object,
             CreationTimeout = 30000
         };
 
