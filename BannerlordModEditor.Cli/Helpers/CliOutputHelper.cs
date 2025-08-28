@@ -1,3 +1,5 @@
+using System;
+using CliFx.Infrastructure;
 using System.Text.RegularExpressions;
 
 namespace BannerlordModEditor.Cli.Helpers
@@ -5,8 +7,57 @@ namespace BannerlordModEditor.Cli.Helpers
     /// <summary>
     /// CLI输出助手类，用于标准化和解析CLI命令的输出格式
     /// </summary>
-    public static class CliOutputHelper
+    public class CliOutputHelper
     {
+        private IConsole? _console;
+
+        /// <summary>
+        /// 初始化CLI输出助手
+        /// </summary>
+        public CliOutputHelper()
+        {
+        }
+
+        /// <summary>
+        /// 设置控制台实例
+        /// </summary>
+        public void SetConsole(IConsole console)
+        {
+            _console = console;
+        }
+
+        /// <summary>
+        /// 写入带颜色的文本
+        /// </summary>
+        public void WriteLine(string text, ConsoleColor color = ConsoleColor.White)
+        {
+            if (_console != null)
+            {
+                _console.Output.Write(text, color);
+                _console.Output.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine(text);
+            }
+        }
+
+        /// <summary>
+        /// 写入带颜色的文本（重载）
+        /// </summary>
+        public void WriteLine(string text, ConsoleColor color1, ConsoleColor color2)
+        {
+            if (_console != null)
+            {
+                _console.Output.Write(text, color1, color2);
+                _console.Output.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine(text);
+            }
+        }
+
         /// <summary>
         /// 标准化错误消息格式
         /// </summary>
