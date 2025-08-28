@@ -11,7 +11,18 @@ using BannerlordModEditor.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 
+
 namespace BannerlordModEditor.UI.ViewModels;
+
+/// <summary>
+/// 健康检查测试对象，用于验证服务的功能
+/// </summary>
+public class HealthCheckTestObject
+{
+    public string Id { get; set; } = "health-check-test";
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+    public string Purpose { get; set; } = "Health Check Validation";
+}
 
 /// <summary>
 /// EditorManagerViewModel的配置选项
@@ -521,7 +532,7 @@ public partial class EditorManagerViewModel : ViewModelBase
             // 检查验证服务
             if (_validationService != null)
             {
-                var testResult = _validationService.Validate(new object());
+                var testResult = _validationService.Validate(new HealthCheckTestObject());
                 _logService.LogDebug($"Validation service test: {testResult.IsValid}", "EditorManagerViewModel.HealthCheck");
             }
 

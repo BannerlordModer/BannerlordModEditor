@@ -125,24 +125,47 @@
 ## 测试运行说明
 
 ### 运行所有EditorManager相关测试
+
+#### Unix (bash/sh)
 ```bash
+dotnet test BannerlordModEditor.UI.Tests --verbosity normal --filter 'FullyQualifiedName~EditorManager'
+```
+
+#### Windows (cmd/powershell)
+```cmd
 dotnet test BannerlordModEditor.UI.Tests --verbosity normal --filter "FullyQualifiedName~EditorManager"
 ```
 
 ### 运行特定类型的测试
+
+#### Unix (bash/sh)
 ```bash
 # 运行单元测试
-dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Factory" --filter "FullyQualifiedName~ViewModel"
+dotnet test BannerlordModEditor.UI.Tests --filter 'FullyQualifiedName~Factory' --filter 'FullyQualifiedName~ViewModel'
 
 # 运行集成测试
-dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Extensions"
+dotnet test BannerlordModEditor.UI.Tests --filter 'FullyQualifiedName~Extensions'
 
 # 运行性能测试
-dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Performance"
+dotnet test BannerlordModEditor.UI.Tests --filter 'FullyQualifiedName~Performance'
 
 # 运行边界测试
-dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Boundary"
+dotnet test BannerlordModEditor.UI.Tests --filter 'FullyQualifiedName~Boundary'
 ```
+
+#### Windows (cmd/powershell)
+```cmd
+REM 运行单元测试
+dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Factory" --filter "FullyQualifiedName~ViewModel"
+
+REM 运行集成测试
+dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Extensions"
+
+REM 运行性能测试
+dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Performance"
+
+REM 运行边界测试
+dotnet test BannerlordModEditor.UI.Tests --filter "FullyQualifiedName~Boundary"
 
 ### 生成代码覆盖率报告
 ```bash

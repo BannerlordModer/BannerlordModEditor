@@ -165,7 +165,7 @@
   - EditorManagerViewModel正确创建
   - 编辑器分类正常显示
   - 默认编辑器列表正确加载
-  - 状态消息显示"已加载默认编辑器分类"
+  - 状态消息显示资源字符串 StatusMessage.DefaultEditorCategoryLoaded（例如："已加载默认编辑器分类"）
 
 #### AC-003: 服务依赖解析
 - **条件**: 依赖注入容器解析服务

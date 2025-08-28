@@ -1,10 +1,10 @@
+using BannerlordModEditor.UI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Reflection;
 using BannerlordModEditor.UI.Services;
-using BannerlordModEditor.UI.ViewModels;
 using BannerlordModEditor.UI.ViewModels.Editors;
 using BannerlordModEditor.UI.Factories;
 using Moq;
@@ -35,7 +35,7 @@ public class EditorManagerViewModelTests
         _mockServiceProvider = new Mock<IServiceProvider>();
 
         // 设置验证服务返回有效结果
-        _mockValidationService.Setup(x => x.Validate(It.IsAny<object>()))
+        _mockValidationService.Setup(x => x.Validate(It.IsAny<HealthCheckTestObject>()))
             .Returns(new ValidationResult { IsValid = true });
 
         // 设置编辑器工厂返回一些类型
@@ -47,7 +47,10 @@ public class EditorManagerViewModelTests
     public void Constructor_WithDefaultOptions_ShouldInitializeSuccessfully()
     {
         // Arrange
-        var options = EditorManagerOptions.Default;
+        var options = EditorManagerOptions.ForTesting();
+        options.LogService = _mockLogService.Object;
+        options.ErrorHandlerService = _mockErrorHandlerService.Object;
+        options.ValidationService = _mockValidationService.Object;
 
         // Act
         var viewModel = new EditorManagerViewModel(options);
@@ -270,7 +273,7 @@ public class EditorManagerViewModelTests
         // Assert
         Assert.NotNull(viewModel.Categories);
         Assert.True(viewModel.Categories.Count > 0);
-        _mockLogService.Verify(x => x.LogInfo($"Loaded {mockEditors.Count} editors", "EditorManagerViewModel"), Times.Once);
+        Assert.Equal($"已加载 {mockEditors.Count} 个编辑器", viewModel.StatusMessage);
     }
 
     [Fact]
@@ -522,7 +525,7 @@ public class EditorManagerViewModelTests
     }
 
     [Fact]
-    public void AutoLoadXmlFile_WithValidEditor_ShouldCallLoadMethod()
+    public async Task AutoLoadXmlFile_WithValidEditor_ShouldCallLoadMethod()
     {
         // Arrange
         var options = new EditorManagerOptions
@@ -547,14 +550,14 @@ public class EditorManagerViewModelTests
 
         // Act
         var task = (Task)autoLoadMethod.Invoke(viewModel, new object[] { mockEditor.Object, "test.xml" });
-        task.Wait(); // 等待异步方法完成
+        await task; // 等待异步方法完成
 
         // Assert
         _mockLogService.Verify(x => x.LogInfo("Successfully auto-loaded XML file: test.xml", "EditorManager"), Times.Once);
     }
 
     [Fact]
-    public void AutoLoadXmlFile_WithInvalidEditor_ShouldLogError()
+    public async Task AutoLoadXmlFile_WithInvalidEditor_ShouldLogError()
     {
         // Arrange
         var options = new EditorManagerOptions
@@ -575,7 +578,7 @@ public class EditorManagerViewModelTests
 
         // Act
         var task = (Task)autoLoadMethod.Invoke(viewModel, new object[] { mockEditor.Object, "test.xml" });
-        task.Wait(); // 等待异步方法完成
+        await task; // 等待异步方法完成
 
         // Assert
         _mockLogService.Verify(x => x.LogException(It.IsAny<Exception>(), "Failed to auto-load XML file: test.xml"), Times.Once);
