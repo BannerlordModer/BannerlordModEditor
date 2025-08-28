@@ -62,8 +62,8 @@ namespace BannerlordModEditor.Common.Tests.Models.Multiplayer
             // Verify taunt usage properties
             var firstUsage = firstSet.TauntUsages[0];
             Assert.Equal("act_taunt_01_bow", firstUsage.Action);
-            Assert.Equal("true", firstUsage.RequiresBow);
-            Assert.Equal("true", firstUsage.RequiresOnFoot);
+            Assert.Equal("True", firstUsage.RequiresBow); // 原始XML中的值是大写的True
+            Assert.Equal("True", firstUsage.RequiresOnFoot); // 原始XML中的值是大写的True
         }
 
         [Fact]
@@ -142,19 +142,19 @@ namespace BannerlordModEditor.Common.Tests.Models.Multiplayer
                 .ToList();
             
             // Should have bow requirements
-            var bowRequired = allUsages.Any(u => u.RequiresBow == "true");
+            var bowRequired = allUsages.Any(u => u.RequiresBow == "True");
             Assert.True(bowRequired);
             
             // Should have shield requirements
-            var shieldRequired = allUsages.Any(u => u.RequiresShield == "true");
+            var shieldRequired = allUsages.Any(u => u.RequiresShield == "True");
             Assert.True(shieldRequired);
             
             // Should have left stance requirements
-            var leftStanceRequired = allUsages.Any(u => u.IsLeftStance == "true");
+            var leftStanceRequired = allUsages.Any(u => u.IsLeftStance == "True");
             Assert.True(leftStanceRequired);
             
             // Should have on foot requirements
-            var onFootRequired = allUsages.Any(u => u.RequiresOnFoot == "true");
+            var onFootRequired = allUsages.Any(u => u.RequiresOnFoot == "True");
             Assert.True(onFootRequired);
         }
     }

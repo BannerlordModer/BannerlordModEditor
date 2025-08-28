@@ -33,7 +33,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? IsLeftStance
         {
             get => _isLeftStance;
-            set => _isLeftStance = value != null ? value.ToLower() : null;
+            set => _isLeftStance = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeIsLeftStance() => IsLeftStance != null;
 
@@ -42,7 +42,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? RequiresBow
         {
             get => _requiresBow;
-            set => _requiresBow = value != null ? value.ToLower() : null;
+            set => _requiresBow = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeRequiresBow() => RequiresBow != null;
 
@@ -51,7 +51,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? RequiresOnFoot
         {
             get => _requiresOnFoot;
-            set => _requiresOnFoot = value != null ? value.ToLower() : null;
+            set => _requiresOnFoot = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeRequiresOnFoot() => RequiresOnFoot != null;
 
@@ -60,7 +60,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? RequiresShield
         {
             get => _requiresShield;
-            set => _requiresShield = value != null ? value.ToLower() : null;
+            set => _requiresShield = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeRequiresShield() => RequiresShield != null;
 
@@ -69,7 +69,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? UnsuitableForShield
         {
             get => _unsuitableForShield;
-            set => _unsuitableForShield = value != null ? value.ToLower() : null;
+            set => _unsuitableForShield = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeUnsuitableForShield() => UnsuitableForShield != null;
 
@@ -78,7 +78,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? UnsuitableForBow
         {
             get => _unsuitableForBow;
-            set => _unsuitableForBow = value != null ? value.ToLower() : null;
+            set => _unsuitableForBow = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeUnsuitableForBow() => UnsuitableForBow != null;
 
@@ -87,7 +87,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? UnsuitableForCrossbow
         {
             get => _unsuitableForCrossbow;
-            set => _unsuitableForCrossbow = value != null ? value.ToLower() : null;
+            set => _unsuitableForCrossbow = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeUnsuitableForCrossbow() => UnsuitableForCrossbow != null;
 
@@ -96,7 +96,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? UnsuitableForTwoHanded
         {
             get => _unsuitableForTwoHanded;
-            set => _unsuitableForTwoHanded = value != null ? value.ToLower() : null;
+            set => _unsuitableForTwoHanded = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeUnsuitableForTwoHanded() => UnsuitableForTwoHanded != null;
 
@@ -105,7 +105,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? UnsuitableForEmpty
         {
             get => _unsuitableForEmpty;
-            set => _unsuitableForEmpty = value != null ? value.ToLower() : null;
+            set => _unsuitableForEmpty = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeUnsuitableForEmpty() => UnsuitableForEmpty != null;
 
@@ -114,7 +114,7 @@ namespace BannerlordModEditor.Common.Models.Multiplayer
         public string? UnsuitableForOneHanded
         {
             get => _unsuitableForOneHanded;
-            set => _unsuitableForOneHanded = value != null ? value.ToLower() : null;
+            set => _unsuitableForOneHanded = value; // 保持原始值，不转换大小写
         }
         public bool ShouldSerializeUnsuitableForOneHanded() => UnsuitableForOneHanded != null;
 
