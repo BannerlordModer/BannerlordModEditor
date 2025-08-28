@@ -131,6 +131,71 @@ namespace BannerlordModEditor.TUI
                     }
                     break;
                     
+                case "--check-adaptation":
+                    Console.WriteLine("运行XML适配状态检查...");
+                    try
+                    {
+                        var fileDiscoveryService = new FileDiscoveryService();
+                        var xmlTypeDetectionService = new XmlTypeDetectionService(fileDiscoveryService);
+                        var adaptationChecker = new XmlAdaptationChecker(fileDiscoveryService, xmlTypeDetectionService);
+                        
+                        var isComplete = await adaptationChecker.RunAdaptationCheckAsync();
+                        
+                        if (isComplete)
+                        {
+                            Console.WriteLine("🎉 所有XML类型已完成Excel互转适配！");
+                            Environment.Exit(0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("📋 还有XML类型需要适配");
+                            Environment.Exit(1);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"适配检查失败: {ex.Message}");
+                        Environment.Exit(1);
+                    }
+                    break;
+                    
+                case "--adapt":
+                    if (args.Length < 2)
+                    {
+                        Console.WriteLine("错误: 需要指定XML类型");
+                        Console.WriteLine("用法: --adapt <XML类型>");
+                        Environment.Exit(1);
+                    }
+                    
+                    var xmlType = args[1];
+                    Console.WriteLine($"开始适配XML类型: {xmlType}");
+                    
+                    try
+                    {
+                        var fileDiscoveryService = new FileDiscoveryService();
+                        var xmlTypeDetectionService = new XmlTypeDetectionService(fileDiscoveryService);
+                        var adaptationChecker = new XmlAdaptationChecker(fileDiscoveryService, xmlTypeDetectionService);
+                        
+                        var success = await adaptationChecker.AdaptXmlTypeAsync(xmlType);
+                        
+                        if (success)
+                        {
+                            Console.WriteLine($"✅ XML类型 {xmlType} 适配成功！");
+                            Environment.Exit(0);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"❌ XML类型 {xmlType} 适配失败");
+                            Environment.Exit(1);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"适配过程中发生错误: {ex.Message}");
+                        Environment.Exit(1);
+                    }
+                    break;
+                    
                 default:
                     Console.WriteLine($"未知命令: {command}");
                     ShowHelp();
@@ -149,6 +214,12 @@ namespace BannerlordModEditor.TUI
             Console.WriteLine("  BannerlordModEditor.TUI --version        # 显示版本信息");
             Console.WriteLine("  BannerlordModEditor.TUI --test           # 测试模式");
             Console.WriteLine("  BannerlordModEditor.TUI --convert <输入> <输出> # 命令行转换");
+            Console.WriteLine("  BannerlordModEditor.TUI --check-adaptation # 检查XML适配状态");
+            Console.WriteLine("  BannerlordModEditor.TUI --adapt <XML类型>    # 适配指定XML类型");
+            Console.WriteLine();
+            Console.WriteLine("XML适配相关命令:");
+            Console.WriteLine("  --check-adaptation  检查哪些XML已完成Excel互转适配");
+            Console.WriteLine("  --adapt <类型>      适配指定的XML类型");
             Console.WriteLine();
             Console.WriteLine("说明:");
             Console.WriteLine("  此应用程序需要支持终端交互的环境才能正常运行。");

@@ -20,6 +20,8 @@
   - **[基于TUI的XML转换框架实现指南](development/technical/基于TUI的XML转换框架实现指南.md)** - TUI集成实现指南
   - **[XML转换框架实现示例](development/technical/XML转换框架实现示例.md)** - 框架实现示例
   - **[XML转换框架测试报告](development/technical/XML转换框架测试报告.md)** - 框架测试报告
+  - **[测试架构规范](development/technical/test-architecture-specification.md)** - 系统测试架构规范
+  - **[XML验证系统架构](development/technical/XmlValidationSystemArchitecture.md)** - XML验证系统架构设计
 
 ### 📖 使用指南 (`guides/`)
 - **[TUI开发指南](guides/TUI开发指南.md)** - TUI应用程序开发指南
@@ -27,6 +29,7 @@
 - **[UAT用户验收测试指南](guides/UAT用户验收测试指南.md)** - UAT测试框架使用指南
 - **[综合测试套件指南](guides/综合测试套件指南.md)** - 完整测试套件使用指南
 - **[XML转换框架测试指南](guides/XML转换框架测试指南.md)** - XML转换框架测试指南
+- **[XML验证系统使用指南](guides/XmlValidationSystemUsageGuide.md)** - XML验证系统使用指南
 
 ### 🔧 技术参考 (`reference/`)
 - **[系统架构](reference/architecture.md)** - 系统整体架构设计
