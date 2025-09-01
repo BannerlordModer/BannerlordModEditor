@@ -402,3 +402,5 @@ CLAUDE.local.md
 
 tmp/
 test_reports/
+
+.roo/
