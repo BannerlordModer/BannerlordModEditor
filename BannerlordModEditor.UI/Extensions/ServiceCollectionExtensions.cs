@@ -145,8 +145,16 @@ public static class ServiceCollectionExtensions
         // 注册EditorManagerFactory
         services.AddSingleton<IEditorManagerFactory, EditorManagerFactory>();
 
+        // 注册EditorManagerOptions配置
+        services.AddSingleton(sp => EditorManagerOptions.ForDependencyInjection(sp));
+
         // 注册EditorManagerViewModel为Transient（每次请求都创建新实例）
-        services.AddTransient<EditorManagerViewModel>();
+        // 使用工厂方法确保依赖注入容器使用EditorManagerOptions构造函数
+        services.AddTransient<EditorManagerViewModel>(sp =>
+        {
+            var editorManagerOptions = sp.GetRequiredService<EditorManagerOptions>();
+            return new EditorManagerViewModel(editorManagerOptions);
+        });
     }
 
     /// <summary>
@@ -195,7 +203,16 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ILogService, LogService>();
         services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
         services.AddSingleton<IEditorManagerFactory, EditorManagerFactory>();
-        services.AddTransient<EditorManagerViewModel>();
+        
+        // 注册EditorManagerOptions配置
+        services.AddSingleton(sp => EditorManagerOptions.ForDependencyInjection(sp));
+        
+        // 使用工厂方法确保依赖注入容器使用EditorManagerOptions构造函数
+        services.AddTransient<EditorManagerViewModel>(sp =>
+        {
+            var editorManagerOptions = sp.GetRequiredService<EditorManagerOptions>();
+            return new EditorManagerViewModel(editorManagerOptions);
+        });
 
         return services;
     }

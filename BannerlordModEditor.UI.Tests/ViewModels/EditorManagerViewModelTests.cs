@@ -537,19 +537,18 @@ public class EditorManagerViewModelTests
         var viewModel = new EditorManagerViewModel(options);
         
         // 使用反射来测试private方法
-        var autoLoadMethod = typeof(EditorManagerViewModel).GetMethod("AutoLoadXmlFileAsync", 
+        var autoLoadMethod = typeof(EditorManagerViewModel).GetMethod("AutoLoadXmlFileAsync",
             BindingFlags.NonPublic | BindingFlags.Instance);
         
-        var mockEditor = new Mock<ViewModelBase>();
-        mockEditor.Setup(x => x.GetType())
-            .Returns(typeof(AttributeEditorViewModel));
-
-        var loadMethod = typeof(AttributeEditorViewModel).GetMethod("LoadXmlFile");
-        mockEditor.Setup(x => x.GetType().GetMethod("LoadXmlFile"))
-            .Returns(loadMethod);
+        // 创建一个具体的测试编辑器实例而不是使用Mock
+        var testEditor = new AttributeEditorViewModel(new ValidationService());
+        
+        // 使用反射来调用私有方法
+        var loadMethod = typeof(AttributeEditorViewModel).GetMethod("LoadXmlFile",
+            BindingFlags.Public | BindingFlags.Instance);
 
         // Act
-        var task = (Task)autoLoadMethod.Invoke(viewModel, new object[] { mockEditor.Object, "test.xml" });
+        var task = (Task)autoLoadMethod.Invoke(viewModel, new object[] { testEditor, "test.xml" });
         await task; // 等待异步方法完成
 
         // Assert
@@ -569,18 +568,29 @@ public class EditorManagerViewModelTests
         var viewModel = new EditorManagerViewModel(options);
         
         // 使用反射来测试private方法
-        var autoLoadMethod = typeof(EditorManagerViewModel).GetMethod("AutoLoadXmlFileAsync", 
+        var autoLoadMethod = typeof(EditorManagerViewModel).GetMethod("AutoLoadXmlFileAsync",
             BindingFlags.NonPublic | BindingFlags.Instance);
         
-        var mockEditor = new Mock<ViewModelBase>();
-        mockEditor.Setup(x => x.GetType())
-            .Throws<Exception>();
+        // 创建一个具体的测试编辑器实例，模拟异常情况
+        var testEditor = new TestEditorViewModel();
 
         // Act
-        var task = (Task)autoLoadMethod.Invoke(viewModel, new object[] { mockEditor.Object, "test.xml" });
+        var task = (Task)autoLoadMethod.Invoke(viewModel, new object[] { testEditor, "test.xml" });
         await task; // 等待异步方法完成
 
         // Assert
         _mockLogService.Verify(x => x.LogException(It.IsAny<Exception>(), "Failed to auto-load XML file: test.xml"), Times.Once);
+    }
+}
+
+/// <summary>
+/// 用于测试的编辑器视图模型
+/// </summary>
+public class TestEditorViewModel : ViewModelBase
+{
+    public void LoadXmlFile(string fileName)
+    {
+        // 模拟加载XML文件时抛出异常
+        throw new Exception("Test exception");
     }
 }

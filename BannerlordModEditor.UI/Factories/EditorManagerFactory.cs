@@ -423,6 +423,18 @@ public class EditorManagerFactory : IEditorManagerFactory
         }
         catch (Exception ex)
         {
+            // 对于特定的异常类型，直接重新抛出以保持原始异常类型
+            if (ex is TaskCanceledException ||
+                ex is ObjectDisposedException ||
+                ex is InvalidOperationException ||
+                ex is ArgumentNullException ||
+                ex is ArgumentOutOfRangeException)
+            {
+                _logService.LogException(ex, $"Failed to {context}");
+                throw;
+            }
+            
+            // 对于其他异常，包装为EditorManagerCreationException
             var errorEx = new EditorManagerCreationException($"Failed to {context}", ex);
             _logService.LogException(errorEx, $"Failed to {context}");
             throw errorEx;
@@ -443,6 +455,18 @@ public class EditorManagerFactory : IEditorManagerFactory
         }
         catch (Exception ex)
         {
+            // 对于特定的异常类型，直接重新抛出以保持原始异常类型
+            if (ex is TaskCanceledException ||
+                ex is ObjectDisposedException ||
+                ex is InvalidOperationException ||
+                ex is ArgumentNullException ||
+                ex is ArgumentOutOfRangeException)
+            {
+                _logService.LogException(ex, $"Failed to {context}");
+                throw;
+            }
+            
+            // 对于其他异常，包装为EditorManagerCreationException
             var errorEx = new EditorManagerCreationException($"Failed to {context}", ex);
             _logService.LogException(errorEx, $"Failed to {context}");
             throw errorEx;
