@@ -169,7 +169,13 @@ public class EditorIntegrationTests
     public void EditorIntegration_Should_Work_With_Dependency_Injection()
     {
         // Arrange
-        var editorManager = new EditorManagerViewModel(_editorFactory, _serviceProvider.GetRequiredService<ILogService>(), _serviceProvider.GetRequiredService<IErrorHandlerService>());
+        var editorManager = new EditorManagerViewModel(new EditorManagerOptions
+        {
+            EditorFactory = _editorFactory,
+            LogService = _serviceProvider.GetRequiredService<ILogService>(),
+            ErrorHandlerService = _serviceProvider.GetRequiredService<IErrorHandlerService>(),
+            ServiceProvider = _serviceProvider
+        });
 
         // Act
         var attributeEditor = editorManager.Categories

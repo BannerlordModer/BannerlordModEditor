@@ -132,7 +132,7 @@ public class ServiceCollectionExtensionsTests
     }
 
     [Fact]
-    public void AddMinimalEditorManagerServices_ShouldRegisterOnlyCoreServices()
+    public void AddMinimalEditorManagerServices_ShouldRegisterRequiredServices()
     {
         // Arrange
         var services = new ServiceCollection();
@@ -146,8 +146,11 @@ public class ServiceCollectionExtensionsTests
         Assert.NotNull(serviceProvider.GetService<EditorManagerViewModel>());
         Assert.NotNull(serviceProvider.GetService<ILogService>());
         Assert.NotNull(serviceProvider.GetService<IErrorHandlerService>());
-        Assert.Null(serviceProvider.GetService<IValidationService>());
-        Assert.Null(serviceProvider.GetService<IDataBindingService>());
+        
+        // 验证EditorManagerFactory所需的依赖服务已注册
+        Assert.NotNull(serviceProvider.GetService<IEditorFactory>());
+        Assert.NotNull(serviceProvider.GetService<IValidationService>());
+        Assert.NotNull(serviceProvider.GetService<IDataBindingService>());
     }
 
     [Fact]
@@ -226,9 +229,9 @@ public class ServiceCollectionExtensionsTests
         Assert.True(result.IsValid);
         Assert.True(result.IsLogServiceRegistered);
         Assert.True(result.IsErrorHandlerServiceRegistered);
-        Assert.False(result.IsValidationServiceRegistered);
-        Assert.False(result.IsDataBindingServiceRegistered);
-        Assert.False(result.IsEditorFactoryRegistered);
+        Assert.True(result.IsValidationServiceRegistered);
+        Assert.True(result.IsDataBindingServiceRegistered);
+        Assert.True(result.IsEditorFactoryRegistered);
         Assert.True(result.IsEditorManagerFactoryRegistered);
         Assert.True(result.IsEditorManagerViewModelRegistered);
     }

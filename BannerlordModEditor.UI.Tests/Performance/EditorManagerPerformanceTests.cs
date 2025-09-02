@@ -232,8 +232,8 @@ public class EditorManagerPerformanceTests
         // Arrange
         var factory = _serviceProvider.GetRequiredService<IEditorManagerFactory>();
         var editorManager = factory.CreateEditorManager();
-        var characterCategory = editorManager.Categories.FirstOrDefault(c => c.Name == "角色设定");
-        var editor = characterCategory?.Editors.FirstOrDefault();
+        var characterCategory = editorManager.Categories.FirstOrDefault(c => c.Name == "角色设定") ?? editorManager.Categories.FirstOrDefault();
+        var editor = characterCategory?.Editors.FirstOrDefault() ?? editorManager.Categories.SelectMany(c => c.Editors).FirstOrDefault();
         
         Assert.NotNull(editor);
         
@@ -277,7 +277,10 @@ public class EditorManagerPerformanceTests
             if (category?.Editors.Any() == true)
             {
                 var editor = category.Editors.First();
-                editorManager.SelectEditorCommand.Execute(editor);
+                if (editor != null)
+                {
+                    editorManager.SelectEditorCommand.Execute(editor);
+                }
             }
             
             editorManager.RefreshEditorsCommand.Execute(null);

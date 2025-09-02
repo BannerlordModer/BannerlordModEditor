@@ -64,16 +64,16 @@ public class EditorManagerFactory : IEditorManagerFactory
         IServiceProvider serviceProvider,
         ILogService logService,
         IErrorHandlerService errorHandlerService,
-        IEditorFactory editorFactory,
-        IValidationService validationService,
-        IDataBindingService dataBindingService)
+        IEditorFactory? editorFactory = null,
+        IValidationService? validationService = null,
+        IDataBindingService? dataBindingService = null)
     {
         _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
         _logService = logService ?? throw new ArgumentNullException(nameof(logService));
         _errorHandlerService = errorHandlerService ?? throw new ArgumentNullException(nameof(errorHandlerService));
-        _editorFactory = editorFactory ?? throw new ArgumentNullException(nameof(editorFactory));
-        _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
-        _dataBindingService = dataBindingService ?? throw new ArgumentNullException(nameof(dataBindingService));
+        _editorFactory = editorFactory;
+        _validationService = validationService;
+        _dataBindingService = dataBindingService;
 
         _logService.LogInfo("EditorManagerFactory initialized", "EditorManagerFactory");
     }
@@ -214,13 +214,34 @@ public class EditorManagerFactory : IEditorManagerFactory
             // 验证日志服务
             _logService.LogDebug("Testing log service", "EditorManagerFactory.HealthCheck");
 
-            // 验证编辑器工厂
-            var registeredTypes = _editorFactory.GetRegisteredEditorTypes();
-            _logService.LogDebug($"Editor factory has {registeredTypes.Count()} registered types", "EditorManagerFactory.HealthCheck");
+            // 验证编辑器工厂（如果存在）
+            if (_editorFactory != null)
+            {
+                var registeredTypes = _editorFactory.GetRegisteredEditorTypes();
+                _logService.LogDebug($"Editor factory has {registeredTypes.Count()} registered types", "EditorManagerFactory.HealthCheck");
+            }
+            else
+            {
+                _logService.LogDebug("Editor factory is null, skipping health check", "EditorManagerFactory.HealthCheck");
+            }
 
-            // 验证验证服务
-            var testValidation = _validationService.Validate(new object());
-            _logService.LogDebug($"Validation service test result: {testValidation.IsValid}", "EditorManagerFactory.HealthCheck");
+            // 验证验证服务（如果存在）
+            if (_validationService != null)
+            {
+                var testValidation = _validationService.Validate(new object());
+                if (testValidation != null)
+                {
+                    _logService.LogDebug($"Validation service test result: {testValidation.IsValid}", "EditorManagerFactory.HealthCheck");
+                }
+                else
+                {
+                    _logService.LogDebug("Validation service returned null, treating as failed", "EditorManagerFactory.HealthCheck");
+                }
+            }
+            else
+            {
+                _logService.LogDebug("Validation service is null, skipping health check", "EditorManagerFactory.HealthCheck");
+            }
 
             _logService.LogInfo("All services passed health check", "EditorManagerFactory");
         }
@@ -246,13 +267,34 @@ public class EditorManagerFactory : IEditorManagerFactory
             // 验证日志服务
             _logService.LogDebug("Testing log service", "EditorManagerFactory.HealthCheck");
 
-            // 验证编辑器工厂
-            var registeredTypes = _editorFactory.GetRegisteredEditorTypes();
-            _logService.LogDebug($"Editor factory has {registeredTypes.Count()} registered types", "EditorManagerFactory.HealthCheck");
+            // 验证编辑器工厂（如果存在）
+            if (_editorFactory != null)
+            {
+                var registeredTypes = _editorFactory.GetRegisteredEditorTypes();
+                _logService.LogDebug($"Editor factory has {registeredTypes.Count()} registered types", "EditorManagerFactory.HealthCheck");
+            }
+            else
+            {
+                _logService.LogDebug("Editor factory is null, skipping health check", "EditorManagerFactory.HealthCheck");
+            }
 
-            // 验证验证服务
-            var testValidation = _validationService.Validate(new object());
-            _logService.LogDebug($"Validation service test result: {testValidation.IsValid}", "EditorManagerFactory.HealthCheck");
+            // 验证验证服务（如果存在）
+            if (_validationService != null)
+            {
+                var testValidation = _validationService.Validate(new object());
+                if (testValidation != null)
+                {
+                    _logService.LogDebug($"Validation service test result: {testValidation.IsValid}", "EditorManagerFactory.HealthCheck");
+                }
+                else
+                {
+                    _logService.LogDebug("Validation service returned null, treating as failed", "EditorManagerFactory.HealthCheck");
+                }
+            }
+            else
+            {
+                _logService.LogDebug("Validation service is null, skipping health check", "EditorManagerFactory.HealthCheck");
+            }
 
             // 模拟异步操作（实际项目中可能有真正的异步健康检查）
             await Task.Delay(1, cancellationToken);
@@ -428,7 +470,8 @@ public class EditorManagerFactory : IEditorManagerFactory
                 ex is ObjectDisposedException ||
                 ex is InvalidOperationException ||
                 ex is ArgumentNullException ||
-                ex is ArgumentOutOfRangeException)
+                ex is ArgumentOutOfRangeException ||
+                ex is EditorManagerCreationException)
             {
                 _logService.LogException(ex, $"Failed to {context}");
                 throw;
@@ -460,7 +503,8 @@ public class EditorManagerFactory : IEditorManagerFactory
                 ex is ObjectDisposedException ||
                 ex is InvalidOperationException ||
                 ex is ArgumentNullException ||
-                ex is ArgumentOutOfRangeException)
+                ex is ArgumentOutOfRangeException ||
+                ex is EditorManagerCreationException)
             {
                 _logService.LogException(ex, $"Failed to {context}");
                 throw;
@@ -498,48 +542,55 @@ public class EditorManagerFactory : IEditorManagerFactory
 }
 
 /// <summary>
-/// EditorManagerViewModel创建选项
+/// EditorManager创建选项
 /// </summary>
 public class EditorManagerCreationOptions
 {
     /// <summary>
     /// 默认创建选项
     /// </summary>
-    public static EditorManagerCreationOptions Default => new();
+    public static readonly EditorManagerCreationOptions Default = new()
+    {
+        EnablePerformanceMonitoring = false,
+        EnableHealthChecks = false,
+        EnableDiagnostics = false,
+        EnablePostCreationConfiguration = false,
+        CreationTimeout = 30000
+    };
 
     /// <summary>
     /// 是否启用性能监控
     /// </summary>
-    public bool EnablePerformanceMonitoring { get; set; } = false;
+    public bool EnablePerformanceMonitoring { get; set; }
 
     /// <summary>
     /// 是否启用健康检查
     /// </summary>
-    public bool EnableHealthChecks { get; set; } = true;
+    public bool EnableHealthChecks { get; set; }
 
     /// <summary>
     /// 是否启用诊断
     /// </summary>
-    public bool EnableDiagnostics { get; set; } = false;
+    public bool EnableDiagnostics { get; set; }
 
     /// <summary>
     /// 是否启用创建后配置
     /// </summary>
-    public bool EnablePostCreationConfiguration { get; set; } = true;
+    public bool EnablePostCreationConfiguration { get; set; }
 
     /// <summary>
     /// 创建超时时间（毫秒）
     /// </summary>
-    public int CreationTimeout { get; set; } = 30000;
+    public int CreationTimeout { get; set; }
 }
 
 /// <summary>
-/// EditorManagerFactory统计信息
+/// EditorManager工厂统计信息
 /// </summary>
 public class EditorManagerFactoryStatistics
 {
     /// <summary>
-    /// 已创建的实例数量
+    /// 创建的实例数量
     /// </summary>
     public int InstancesCreated { get; set; }
 
@@ -549,7 +600,7 @@ public class EditorManagerFactoryStatistics
     public DateTime LastCreationTime { get; set; }
 
     /// <summary>
-    /// 是否正在创建实例
+    /// 是否正在进行创建
     /// </summary>
     public bool IsCreationInProgress { get; set; }
 }
@@ -559,7 +610,16 @@ public class EditorManagerFactoryStatistics
 /// </summary>
 public class EditorManagerCreationException : Exception
 {
+    /// <summary>
+    /// 初始化EditorManagerCreationException
+    /// </summary>
+    /// <param name="message">异常消息</param>
     public EditorManagerCreationException(string message) : base(message) { }
 
+    /// <summary>
+    /// 初始化EditorManagerCreationException
+    /// </summary>
+    /// <param name="message">异常消息</param>
+    /// <param name="innerException">内部异常</param>
     public EditorManagerCreationException(string message, Exception innerException) : base(message, innerException) { }
 }

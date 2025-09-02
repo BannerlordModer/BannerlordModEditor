@@ -113,12 +113,14 @@ public static class ServiceCollectionExtensions
         {
             services.AddSingleton<IValidationService, ValidationService>();
         }
+        // 当不使用验证服务时，不注册服务，让其为null
 
         // 注册数据绑定服务
         if (options.UseDataBindingService)
         {
             services.AddSingleton<IDataBindingService, DataBindingService>();
         }
+        // 当不使用数据绑定服务时，不注册服务，让其为null
     }
 
     /// <summary>
@@ -133,6 +135,7 @@ public static class ServiceCollectionExtensions
         {
             services.AddSingleton<IEditorFactory, UnifiedEditorFactory>();
         }
+        // 当不使用编辑器工厂时，不注册服务，让其为null
     }
 
     /// <summary>
@@ -202,6 +205,13 @@ public static class ServiceCollectionExtensions
         // 只注册最核心的服务
         services.AddSingleton<ILogService, LogService>();
         services.AddSingleton<IErrorHandlerService, ErrorHandlerService>();
+        
+        // 注册EditorManagerFactory所需的依赖服务
+        services.AddSingleton<IEditorFactory, NullEditorFactory>();
+        services.AddSingleton<IValidationService, NullValidationService>();
+        services.AddSingleton<IDataBindingService, NullDataBindingService>();
+        
+        // 注册EditorManagerFactory
         services.AddSingleton<IEditorManagerFactory, EditorManagerFactory>();
         
         // 注册EditorManagerOptions配置

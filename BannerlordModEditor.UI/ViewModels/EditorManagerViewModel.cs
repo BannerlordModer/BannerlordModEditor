@@ -556,7 +556,7 @@ public partial class EditorManagerViewModel : ViewModelBase
     }
 
     /// <summary>
-    /// 为了向后兼容保留的构造函数（已标记为过时）
+    /// 为了向后兼容保留的构造函数（已标记为过时且设为私有）
     /// </summary>
     /// <param name="editorFactory">编辑器工厂</param>
     /// <param name="logService">日志服务</param>
@@ -564,10 +564,10 @@ public partial class EditorManagerViewModel : ViewModelBase
     /// <param name="validationService">验证服务</param>
     /// <param name="serviceProvider">服务提供器</param>
     /// <remarks>
-    /// 这个构造函数已过时，请使用EditorManagerViewModel(EditorManagerOptions)构造函数
+    /// 这个构造函数已过时且设为私有，请使用EditorManagerViewModel(EditorManagerOptions)构造函数
     /// </remarks>
-    [Obsolete("请使用 EditorManagerViewModel(EditorManagerOptions) 构造函数，这个构造函数将在未来版本中被移除")]
-    public EditorManagerViewModel(
+    [Obsolete("请使用 EditorManagerViewModel(EditorManagerOptions) 构造函数，这个构造函数已设为私有")]
+    private EditorManagerViewModel(
         IEditorFactory? editorFactory = null,
         ILogService? logService = null,
         IErrorHandlerService? errorHandlerService = null,
