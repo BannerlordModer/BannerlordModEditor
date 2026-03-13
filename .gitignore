@@ -404,3 +404,5 @@ tmp/
 test_reports/
 
 .roo/
+
+.sisyphus
