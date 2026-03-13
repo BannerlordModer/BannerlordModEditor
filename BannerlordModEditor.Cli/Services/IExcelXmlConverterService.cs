@@ -1,3 +1,4 @@
+using BannerlordModEditor.Common;
 using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Services;
 using ClosedXML.Excel;
@@ -9,6 +10,11 @@ namespace BannerlordModEditor.Cli.Services
     /// </summary>
     public interface IExcelXmlConverterService
     {
+        /// <summary>
+        /// 将 Excel 文件转换为 XML 文件
+        /// </summary>
+        Task<bool> ConvertExcelToXmlAsync(string excelFilePath, string xmlFilePath, ConversionConfig config);
+
         /// <summary>
         /// 将 Excel 文件转换为 XML 文件
         /// </summary>
@@ -94,6 +100,7 @@ namespace BannerlordModEditor.Cli.Services
         public Dictionary<string, string>? ColumnMappings { get; set; }
         public string? DateFormat { get; set; }
         public string? NumberFormat { get; set; }
+        public GameVersion GameVersion { get; set; } = GameVersion.Latest;
     }
 
     /// <summary>

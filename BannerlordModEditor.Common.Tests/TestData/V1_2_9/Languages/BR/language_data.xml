@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData id="Português (BR)">
+  <LanguageFile xml_path="BR/std_action_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_bandits_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_caravans_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_comment_on_action_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_comment_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_common_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_companion_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_concept_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_heroes_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_location_complex_templates_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_lords_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_module_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_SandBox_GauntletUI-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_SandBox_View-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_SandBox_ViewModelCollection-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_settlements_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_spclans_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_spkingdoms_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_spprojects_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_spspecialcharacters_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_spworkshops_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_CampaignSystem-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_TaleWorlds_CampaignSystem_ViewModelCollection-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_trait_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_voice_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_wanderer_strings_xml-por-BR.xml" />
+  <LanguageFile xml_path="BR/std_world_lore_strings_xml-por-BR.xml" />
+</LanguageData>

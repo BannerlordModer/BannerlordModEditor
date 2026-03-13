@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="한국어" />
+  </tags>
+  <strings>
+    <string id="6QoSHiWC" text="지도자 없는 뒷골목" />
+    <string id="9NuttOBC" text="불러오기" />
+    <string id="akHsjtPh" text="아직 이 영웅을 만난 적이 없습니다." />
+    <string id="averageWealthStatus" text="평균" />
+    <string id="cc1d7mkq" text="등급" />
+    <string id="ePmSvu1s" text="{AMOUNT}{GOLD_ICON}" />
+    <string id="GZxFIeiJ" text="직업" />
+    <string id="Hxf6bzmR" text="현재 데나르" />
+    <string id="I1CMeL9R" text="기마궁수" />
+    <string id="mapbardenarvalue" text="{DENAR_AMOUNT}{VALUE_ABBREVIATION}" />
+    <string id="nFl0ufe3" text="지도자 없는 부대" />
+    <string id="oJmRg2ms" text="매우 부유함" />
+    <string id="poorWealthStatus" text="낮음" />
+    <string id="PXT6aA4J" text="캠페인 옵션" />
+    <string id="RzFyGnWJ" text="지지자" />
+    <string id="SixPXaNh" text="매우 가난함" />
+    <string id="SVJlOYCB" text="부대원 수가 부대 규모 제한의 40% 미만입니다." />
+    <string id="UbRqC0Yz" text="부유함" />
+  </strings>
+</base>

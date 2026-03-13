@@ -3,6 +3,7 @@ using CliFx.Attributes;
 using CliFx.Infrastructure;
 using BannerlordModEditor.Cli.Services;
 using BannerlordModEditor.Cli.Exceptions;
+using BannerlordModEditor.Common;
 
 namespace BannerlordModEditor.Cli.Commands
 {
@@ -38,6 +39,9 @@ namespace BannerlordModEditor.Cli.Commands
 
         [CommandOption("verbose", Description = "显示详细信息")]
         public bool Verbose { get; set; }
+
+        [CommandOption("game-version", Description = "游戏版本 (latest, v1.2.9)")]
+        public string? GameVersion { get; set; }
 
         public async ValueTask ExecuteAsync(IConsole console)
         {
@@ -103,7 +107,16 @@ namespace BannerlordModEditor.Cli.Commands
                     }
                     else
                     {
-                        success = await _converterService.ConvertExcelToXmlAsync(InputFile, OutputFile, ModelType, WorksheetName);
+                        var gameVersion = string.IsNullOrEmpty(GameVersion) 
+                            ? Common.GameVersion.Latest 
+                            : Common.GameVersionExtensions.TryParse(GameVersion) ?? Common.GameVersion.Latest;
+                        var config = new ConversionConfig
+                        {
+                            ModelType = ModelType,
+                            WorksheetName = WorksheetName,
+                            GameVersion = gameVersion
+                        };
+                        success = await _converterService.ConvertExcelToXmlAsync(InputFile, OutputFile, config);
                         console.Output.WriteLine(success ? "✓ Excel 转 XML 转换成功" : "✗ Excel 转 XML 转换失败");
                         if (!success)
                         {

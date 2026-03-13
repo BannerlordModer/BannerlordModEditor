@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Terminal.Gui;
 using BannerlordModEditor.TUI.Services;
 using BannerlordModEditor.TUI.Models;
+using BannerlordModEditor.Common;
 
 namespace BannerlordModEditor.TUI.ViewModels
 {
@@ -67,6 +68,21 @@ namespace BannerlordModEditor.TUI.ViewModels
             get => _xmlTypeInfo;
             set => SetProperty(ref _xmlTypeInfo, value);
         }
+
+        private GameVersion _selectedGameVersion = GameVersion.Latest;
+        public GameVersion SelectedGameVersion
+        {
+            get => _selectedGameVersion;
+            set
+            {
+                if (SetProperty(ref _selectedGameVersion, value))
+                {
+                    ConversionOptions.GameVersion = value;
+                }
+            }
+        }
+
+        public Array GameVersions => Enum.GetValues(typeof(GameVersion));
 
         public Command BrowseSourceFileCommand { get; }
         public Command BrowseTargetFileCommand { get; }
@@ -603,6 +619,8 @@ namespace BannerlordModEditor.TUI.ViewModels
         private readonly TextField _rowElementName;
         private readonly CheckBox _flattenNestedElements;
         private readonly TextField _nestedElementSeparator;
+        private readonly Label _gameVersionLabel;
+        private readonly RadioGroup _gameVersionRadioGroup;
 
         public OptionsDialog(ConversionOptions options)
         {
@@ -610,7 +628,7 @@ namespace BannerlordModEditor.TUI.ViewModels
 
             Title = "转换选项";
             Width = Dim.Percent(80);
-            Height = Dim.Percent(80);
+            Height = Dim.Percent(85);
 
             // 创建控件
             _includeSchemaValidation = new CheckBox("包含架构验证")
@@ -697,6 +715,19 @@ namespace BannerlordModEditor.TUI.ViewModels
                 Text = options.NestedElementSeparator ?? "_"
             };
 
+            _gameVersionLabel = new Label("游戏版本:")
+            {
+                X = 1,
+                Y = 15
+            };
+
+            var gameVersions = new NStack.ustring[] { "Latest", "v1.2.9" };
+            _gameVersionRadioGroup = new RadioGroup(gameVersions, options.GameVersion == GameVersion.v1_2_9 ? 1 : 0)
+            {
+                X = Pos.Right(_gameVersionLabel) + 1,
+                Y = 15
+            };
+
             // 按钮
             var okButton = new Button("确定")
             {
@@ -726,6 +757,8 @@ namespace BannerlordModEditor.TUI.ViewModels
                 _flattenNestedElements,
                 nestedSeparatorLabel,
                 _nestedElementSeparator,
+                _gameVersionLabel,
+                _gameVersionRadioGroup,
                 okButton,
                 cancelButton
             );
@@ -742,7 +775,8 @@ namespace BannerlordModEditor.TUI.ViewModels
                 RootElementName = string.IsNullOrEmpty(_rootElementName.Text.ToString()) ? null : _rootElementName.Text.ToString(),
                 RowElementName = string.IsNullOrEmpty(_rowElementName.Text.ToString()) ? null : _rowElementName.Text.ToString(),
                 FlattenNestedElements = _flattenNestedElements.Checked == true,
-                NestedElementSeparator = string.IsNullOrEmpty(_nestedElementSeparator.Text.ToString()) ? "_" : _nestedElementSeparator.Text.ToString()
+                NestedElementSeparator = string.IsNullOrEmpty(_nestedElementSeparator.Text.ToString()) ? "_" : _nestedElementSeparator.Text.ToString(),
+                GameVersion = _gameVersionRadioGroup.SelectedItem == 1 ? GameVersion.v1_2_9 : GameVersion.Latest
             };
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BannerlordModEditor.TUI.Models;
+using BannerlordModEditor.Common;
 
 namespace BannerlordModEditor.TUI.Services
 {
@@ -43,6 +44,7 @@ namespace BannerlordModEditor.TUI.Services
         public string? RowElementName { get; set; }
         public bool FlattenNestedElements { get; set; } = false;
         public string? NestedElementSeparator { get; set; } = "_";
+        public GameVersion GameVersion { get; set; } = GameVersion.Latest;
     }
 
     public class FileFormatInfo

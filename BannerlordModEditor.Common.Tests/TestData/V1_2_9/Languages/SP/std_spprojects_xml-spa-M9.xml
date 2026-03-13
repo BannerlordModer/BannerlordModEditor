@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Español (LA)" />
+  </tags>
+  <strings>
+    <string id="2NR2E663" text="{.MS}Vergel de palmeras" />
+    <string id="3aOIY6wl" text="Mina de sal" />
+    <string id="6WbkldyD" text="{.MS}Leñador" />
+    <string id="7dW5m6Xa" text="{.MS}Rancho de ganado" />
+    <string id="BPPG2XF7" text="{.FS}Granja de trigo" />
+    <string id="dIBuwAhe" text="{.FS}Plantación de especias" />
+    <string id="EBO1FIC9" text="{.FS}Granja de ovejas" />
+    <string id="ewrkbwI9" text="Olivos" />
+    <string id="hopZmzBi" text="{.MS}Establo de las estepas" />
+    <string id="hPq4vD4Z" text="Detener proyecto" />
+    <string id="NWUTYDQ0" text="{.MS}Templo" />
+    <string id="OSron4OZ" text="{.FS}Pescadería" />
+    <string id="pYY1UNgS" text="{.MS}Foso de arcilla" />
+    <string id="rHcVKSbA" text="Mina de hierro" />
+    <string id="vPt1OF30" text="{.MS}Establo de los desiertos" />
+    <string id="Xj8gsFrW" text="{.FS}Fábrica de seda" />
+    <string id="Z8ntYx0Y" text="Campo de lino" />
+    <string id="ZtxWTS9V" text="{.MS}Viñedo" />
+    <string id="zzQdNpXw" text="{.MS}Establo" />
+  </strings>
+</base>

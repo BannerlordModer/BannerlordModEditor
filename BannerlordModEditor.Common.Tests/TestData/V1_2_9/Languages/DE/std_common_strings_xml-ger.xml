@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Deutsch" />
+  </tags>
+  <strings>
+    <string id="6QoSHiWC" text="Eine Gasse ohne Anführer" />
+    <string id="9NuttOBC" text="Laden" />
+    <string id="akHsjtPh" text="Ihr seid diesem Helden noch nicht begegnet." />
+    <string id="averageWealthStatus" text="Durchschnitt" />
+    <string id="cc1d7mkq" text="Rang" />
+    <string id="ePmSvu1s" text="{AMOUNT}{GOLD_ICON}" />
+    <string id="GZxFIeiJ" text="Beruf" />
+    <string id="Hxf6bzmR" text="Denar aktuell" />
+    <string id="I1CMeL9R" text="Ber. Bogenschützen" />
+    <string id="mapbardenarvalue" text="{DENAR_AMOUNT}{VALUE_ABBREVIATION}" />
+    <string id="nFl0ufe3" text="Ein Trupp ohne Anführer." />
+    <string id="oJmRg2ms" text="Sehr reich" />
+    <string id="poorWealthStatus" text="Niedrig" />
+    <string id="PXT6aA4J" text="Kampagnenoptionen" />
+    <string id="RzFyGnWJ" text="Unterstützer" />
+    <string id="SixPXaNh" text="Sehr arm" />
+    <string id="SVJlOYCB" text="Die Truppgröße liegt unter 40% des Truppgrößenlimits." />
+    <string id="UbRqC0Yz" text="Reich" />
+  </strings>
+</base>

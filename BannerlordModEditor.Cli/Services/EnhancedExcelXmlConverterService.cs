@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Linq;
+using BannerlordModEditor.Common;
 using BannerlordModEditor.Common.Loaders;
 using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Models.DO.Game;
@@ -79,9 +80,19 @@ namespace BannerlordModEditor.Cli.Services
 
         public async Task<bool> ConvertExcelToXmlAsync(string excelFilePath, string xmlFilePath, string modelType, string? worksheetName = null)
         {
+            return await ConvertExcelToXmlAsync(excelFilePath, xmlFilePath, new ConversionConfig
+            {
+                ModelType = modelType,
+                WorksheetName = worksheetName
+            });
+        }
+
+        public async Task<bool> ConvertExcelToXmlAsync(string excelFilePath, string xmlFilePath, ConversionConfig config)
+        {
             try
             {
                 Console.WriteLine($"开始转换 Excel 到 XML: {excelFilePath} -> {xmlFilePath}");
+                Console.WriteLine($"游戏版本: {config.GameVersion}");
                 
                 // 验证输入文件
                 if (!File.Exists(excelFilePath))
@@ -89,28 +100,42 @@ namespace BannerlordModEditor.Cli.Services
                     throw new FileNotFoundException("Excel 文件不存在", excelFilePath);
                 }
 
-                // 获取DO模型类型
-                Console.WriteLine($"调试: 查找模型类型: {modelType}");
-                // 将模型类型转换为XML根元素名称
-                var xmlRootName = ConvertModelTypeToXmlRootName(modelType);
-                Console.WriteLine($"调试: 转换后的XML根元素名称: {xmlRootName}");
+                // 根据版本获取模型类型
+                Type? doType = null;
                 
-                if (!_doModelTypes.TryGetValue(xmlRootName, out var doType))
+                // 首先尝试从V1_2_9命名空间获取
+                if (config.GameVersion == GameVersion.v1_2_9)
+                {
+                    doType = Type.GetType($"BannerlordModEditor.Common.Models.V1_2_9.{config.ModelType}");
+                    if (doType != null)
+                    {
+                        Console.WriteLine($"调试: 使用V1_2_9模型: {doType.FullName}");
+                    }
+                }
+                
+                // 如果没找到或不是V1_2_9版本，从默认DO模型获取
+                if (doType == null)
+                {
+                    var xmlRootName = ConvertModelTypeToXmlRootName(config.ModelType);
+                    _doModelTypes.TryGetValue(xmlRootName, out doType);
+                }
+                
+                if (doType == null)
                 {
                     Console.WriteLine($"调试: 可用的DO模型类型: {string.Join(", ", _doModelTypes.Keys)}");
-                    throw new ArgumentException($"不支持的DO模型类型: {xmlRootName}");
+                    throw new ArgumentException($"不支持的DO模型类型: {config.ModelType}");
                 }
 
                 // 读取 Excel 数据
-                var excelData = await ReadExcelAsync(excelFilePath, worksheetName);
+                var excelData = await ReadExcelAsync(excelFilePath, config.WorksheetName);
                 Console.WriteLine($"读取到 {excelData.Rows.Count} 行数据，{excelData.Headers.Count} 个列");
                 
                 // 转换为 DO 对象
-                var doObject = ConvertExcelToDo(excelData, doType, modelType);
+                var doObject = ConvertExcelToDo(excelData, doType, config.ModelType);
                 Console.WriteLine($"Excel 转 DO 对象成功: {doObject.GetType().Name}");
                 
                 // 转换为 DTO 对象
-                var dtoObject = ConvertDoToDto(doObject, modelType);
+                var dtoObject = ConvertDoToDto(doObject, config.ModelType);
                 Console.WriteLine($"DO 转 DTO 对象成功: {dtoObject.GetType().Name}");
                 
                 // 保存 XML 文件

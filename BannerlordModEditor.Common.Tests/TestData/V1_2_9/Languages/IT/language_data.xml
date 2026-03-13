@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData id="Italiano">
+  <LanguageFile xml_path="IT/std_action_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_bandits_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_caravans_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_comment_on_action_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_comment_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_common_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_companion_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_concept_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_heroes_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_location_complex_templates_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_lords_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_module_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_SandBox_GauntletUI-ita.xml" />
+  <LanguageFile xml_path="IT/std_SandBox_View-ita.xml" />
+  <LanguageFile xml_path="IT/std_SandBox_ViewModelCollection-ita.xml" />
+  <LanguageFile xml_path="IT/std_settlements_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_spclans_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_spkingdoms_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_spprojects_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_spspecialcharacters_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_spworkshops_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_CampaignSystem-ita.xml" />
+  <LanguageFile xml_path="IT/std_TaleWorlds_CampaignSystem_ViewModelCollection-ita.xml" />
+  <LanguageFile xml_path="IT/std_trait_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_voice_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_wanderer_strings_xml-ita.xml" />
+  <LanguageFile xml_path="IT/std_world_lore_strings_xml-ita.xml" />
+</LanguageData>
