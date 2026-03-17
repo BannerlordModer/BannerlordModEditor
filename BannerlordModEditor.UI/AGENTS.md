@@ -1,5 +1,7 @@
 # BannerlordModEditor.UI
 
+**Generated:** 2026-03-17
+
 ## OVERVIEW
 
 Avalonia UI cross-platform desktop application for editing Mount & Blade II XML configs. Uses MVVM pattern with CommunityToolkit.Mvvm for reactive UI updates.
