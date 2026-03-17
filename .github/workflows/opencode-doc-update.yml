@@ -27,6 +27,7 @@ jobs:
         with:
           model: minimax-cn-coding-plan/MiniMax-M2.5
           prompt: |
+            /organize-documents 
             使用 gh 命令检查仓库中是否存在从 docs 分支创建的未合并 PR。
             如果存在，退出并报告"已有待合并的文档 PR，任务取消"。
             如果不存在，运行文档更新任务，完成后使用 gh pr create 创建 PR，创建完成后立即退出。
