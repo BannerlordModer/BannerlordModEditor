@@ -1,0 +1,40 @@
+name: opencode-doc-update
+
+on:
+  schedule:
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  opencode:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Run opencode
+        uses: anomalyco/opencode/github@latest
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+        with:
+          model: minimax-cn-coding-plan/MiniMax-M2.5
+          prompt: |
+            你可以使用gh命令来操作仓库
+            检查BannerlordModEditor.Common.Tests/TestData中是否有XML文档没有适配到对应版本中，如果有的话，适配上，写好测试，然后发送pr。
+      - name: Run opencode
+        uses: anomalyco/opencode/github@latest
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+        with:
+          model: minimax-cn-coding-plan/MiniMax-M2.5
+          prompt: |
+            你可以使用gh命令来操作仓库
+            检查当前分支的PR实现是否仅为XML的模型适配，如果是，自动merge这个PR，如果不是，那就close掉这个pr。
