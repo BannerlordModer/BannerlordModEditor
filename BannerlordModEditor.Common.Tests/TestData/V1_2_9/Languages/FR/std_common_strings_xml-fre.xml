@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Français" />
+  </tags>
+  <strings>
+    <string id="6QoSHiWC" text="Une ruelle sans chef" />
+    <string id="9NuttOBC" text="Charger" />
+    <string id="akHsjtPh" text="Vous n&apos;avez pas encore rencontré ce héros." />
+    <string id="averageWealthStatus" text="Moyenne" />
+    <string id="cc1d7mkq" text="Niveau" />
+    <string id="ePmSvu1s" text="{AMOUNT}{GOLD_ICON}" />
+    <string id="GZxFIeiJ" text="Métier" />
+    <string id="Hxf6bzmR" text="Deniers actuels" />
+    <string id="I1CMeL9R" text="{.M}{.P}Archers montés" />
+    <string id="mapbardenarvalue" text="{DENAR_AMOUNT}{VALUE_ABBREVIATION}" />
+    <string id="nFl0ufe3" text="Un groupe sans chef" />
+    <string id="oJmRg2ms" text="Très riche" />
+    <string id="poorWealthStatus" text="Médiocre" />
+    <string id="PXT6aA4J" text="Options de campagne" />
+    <string id="RzFyGnWJ" text="Soutiens" />
+    <string id="SixPXaNh" text="Très pauvre" />
+    <string id="SVJlOYCB" text="Le groupe contient moins de 40 % de soldats par rapport à la taille limite." />
+    <string id="UbRqC0Yz" text="Riche" />
+  </strings>
+</base>

@@ -57,6 +57,15 @@ namespace BannerlordModEditor.Cli.Services
 
         public async Task<bool> ConvertExcelToXmlAsync(string excelFilePath, string xmlFilePath, string modelType, string? worksheetName = null)
         {
+            return await ConvertExcelToXmlAsync(excelFilePath, xmlFilePath, new ConversionConfig
+            {
+                ModelType = modelType,
+                WorksheetName = worksheetName
+            });
+        }
+
+        public async Task<bool> ConvertExcelToXmlAsync(string excelFilePath, string xmlFilePath, ConversionConfig config)
+        {
             try
             {
                 // 验证输入文件
@@ -66,13 +75,18 @@ namespace BannerlordModEditor.Cli.Services
                 }
 
                 // 获取模型类型
-                if (!_modelTypes.TryGetValue(modelType, out var targetType))
+                if (!_modelTypes.TryGetValue(config.ModelType, out var targetType))
                 {
-                    throw new ArgumentException($"不支持的模型类型: {modelType}");
+                    // 尝试从V1_2_9命名空间获取
+                    targetType = Type.GetType($"BannerlordModEditor.Common.Models.V1_2_9.{config.ModelType}");
+                    if (targetType == null)
+                    {
+                        throw new ArgumentException($"不支持的模型类型: {config.ModelType}");
+                    }
                 }
 
                 // 读取 Excel 数据
-                var excelData = await ReadExcelAsync(excelFilePath, worksheetName);
+                var excelData = await ReadExcelAsync(excelFilePath, config.WorksheetName);
                 
                 // 转换为 XML 对象
                 var xmlObject = ConvertExcelToXmlObject(excelData, targetType);

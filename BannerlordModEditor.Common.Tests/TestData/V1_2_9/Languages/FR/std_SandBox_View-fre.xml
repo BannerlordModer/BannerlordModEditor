@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Français" />
+  </tags>
+  <strings>
+    <string id="0tJ1oarX" text="Continuer la campagne" />
+    <string id="171fTtIN" text="Bac à sable" />
+    <string id="5Saniypu" text="Reprendre" />
+    <string id="60LTq0tQ" text="Impossible de trouver le fichier de sauvegarde de la dernière partie sauvegardée." />
+    <string id="6mN03uTP" text="Parties sauvegardées" />
+    <string id="6WHz63af" text="Transférer la sauvegarde de la console PS4™" />
+    <string id="A7349NHy" text="Décision cruciale du royaume" />
+    <string id="aWMZQKXZ" text="Sauvegardez au moins une fois la partie pour continuer." />
+    <string id="bFzZwwjT" text="Examiner" />
+    <string id="gbm8MssI" text="Un autre fichier de sauvegarde existe sous le même nom. Voulez-vous l&apos;écraser ?" />
+    <string id="ifkdZmxr" text="Aucune sauvegarde de la console PS4™ n&apos;a été trouvée" />
+    <string id="j09m7S2E" text="Les succès sont désactivés en mode Bac à sable !" />
+    <string id="oKTBTIu2" text="Échec du transfert de la sauvegarde" />
+    <string id="PJK980ka" text="Sélectionnez un fichier de sauvegarde de la console PS4™ à transférer" />
+    <string id="qP8YxzsH" text="Quantité maximale de sauvegardes atteinte. Veuillez en supprimer quelques-unes avant de commencer un transfert." />
+    <string id="t6W3UjG0" text="Le fichier de la partie sauvegardée semble corrompu. Essayez de commencer une nouvelle campagne ou de charger une autre partie depuis le menu des parties sauvegardées." />
+    <string id="tHGHDaFH" text="Transfert de la sauvegarde de la console PS4™ effectué" />
+    <string id="XcVVE1mp" text="Aucune partie sauvegardée trouvée." />
+  </strings>
+</base>

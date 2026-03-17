@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Italiano" />
+  </tags>
+  <strings>
+    <string id="6QoSHiWC" text="Un vicolo senza un capo" />
+    <string id="9NuttOBC" text="Carica" />
+    <string id="akHsjtPh" text="Non hai ancora incontrato quest&apos;eroe." />
+    <string id="averageWealthStatus" text="Media" />
+    <string id="cc1d7mkq" text="Grado" />
+    <string id="ePmSvu1s" text="{AMOUNT}{GOLD_ICON}" />
+    <string id="GZxFIeiJ" text="Professione" />
+    <string id="Hxf6bzmR" text="Denari attuali" />
+    <string id="I1CMeL9R" text="Arcieri a cavallo" />
+    <string id="mapbardenarvalue" text="{DENAR_AMOUNT}{VALUE_ABBREVIATION}" />
+    <string id="nFl0ufe3" text="Un gruppo senza un capo" />
+    <string id="oJmRg2ms" text="Molto ricco" />
+    <string id="poorWealthStatus" text="Debole" />
+    <string id="PXT6aA4J" text="Opzioni campagna" />
+    <string id="RzFyGnWJ" text="Simpatizzanti" />
+    <string id="SixPXaNh" text="Molto povero" />
+    <string id="SVJlOYCB" text="Il gruppo è composto da meno del 40% di uomini consentiti in totale." />
+    <string id="UbRqC0Yz" text="Ricco" />
+  </strings>
+</base>

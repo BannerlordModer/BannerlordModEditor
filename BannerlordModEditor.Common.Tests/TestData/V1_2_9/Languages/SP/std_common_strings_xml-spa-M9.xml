@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Español (LA)" />
+  </tags>
+  <strings>
+    <string id="6QoSHiWC" text="Un callejón sin un líder" />
+    <string id="9NuttOBC" text="Cargar" />
+    <string id="akHsjtPh" text="Todavía no conoces a {?HERO.GENDER}esta heroína{?}este héroe{\?}." />
+    <string id="averageWealthStatus" text="Promedio" />
+    <string id="cc1d7mkq" text="Categoría" />
+    <string id="ePmSvu1s" text="{AMOUNT}{GOLD_ICON}" />
+    <string id="GZxFIeiJ" text="Ocupación" />
+    <string id="Hxf6bzmR" text="Denares actuales" />
+    <string id="I1CMeL9R" text="Arqueros montados" />
+    <string id="mapbardenarvalue" text="{DENAR_AMOUNT}{VALUE_ABBREVIATION}" />
+    <string id="nFl0ufe3" text="Un grupo sin un líder" />
+    <string id="oJmRg2ms" text="Muy rico" />
+    <string id="poorWealthStatus" text="Pobre" />
+    <string id="PXT6aA4J" text="Opciones de campaña" />
+    <string id="RzFyGnWJ" text="Partidarios" />
+    <string id="SixPXaNh" text="Muy pobre" />
+    <string id="SVJlOYCB" text="El grupo tiene un 40 % menos de hombres del límite de tamaño del grupo." />
+    <string id="UbRqC0Yz" text="Rico" />
+  </strings>
+</base>

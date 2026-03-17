@@ -26,10 +26,20 @@ public class LanguageDataDO
     [XmlElement("LanguageFile")]
     public List<LanguageFileDO> LanguageFiles { get; set; } = new List<LanguageFileDO>();
 
+    [XmlElement("VoiceFile")]
+    public List<VoiceFileDO> VoiceFiles { get; set; } = new List<VoiceFileDO>();
+
     public bool ShouldSerializeLanguageFiles() => LanguageFiles != null && LanguageFiles.Count > 0;
+    public bool ShouldSerializeVoiceFiles() => VoiceFiles != null && VoiceFiles.Count > 0;
 }
 
 public class LanguageFileDO
+{
+    [XmlAttribute("xml_path")]
+    public string XmlPath { get; set; } = string.Empty;
+}
+
+public class VoiceFileDO
 {
     [XmlAttribute("xml_path")]
     public string XmlPath { get; set; } = string.Empty;

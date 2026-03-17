@@ -15,6 +15,7 @@ using Velopack;
 using Velopack.Sources;
 using Microsoft.Extensions.DependencyInjection;
 using BannerlordModEditor.UI.Factories;
+using BannerlordModEditor.Common;
 
 namespace BannerlordModEditor.UI.ViewModels;
 
@@ -50,6 +51,9 @@ public partial class MainWindowViewModel : ViewModelBase
 
     [ObservableProperty]
     private bool showSkillEditor = false;
+
+    [ObservableProperty]
+    private GameVersion selectedGameVersion = GameVersion.Latest;
 
     public ICommand OpenSettingsCommand { get; }
     public ICommand CheckForUpdatesCommand { get; }

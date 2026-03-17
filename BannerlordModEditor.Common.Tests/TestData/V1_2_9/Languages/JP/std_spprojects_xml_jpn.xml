@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="日本語" />
+  </tags>
+  <strings>
+    <string id="2NR2E663" text="ヤシ園" />
+    <string id="3aOIY6wl" text="岩塩坑" />
+    <string id="6WbkldyD" text="木こり" />
+    <string id="7dW5m6Xa" text="牛の放牧場" />
+    <string id="BPPG2XF7" text="小麦畑" />
+    <string id="dIBuwAhe" text="スパイス用植物" />
+    <string id="EBO1FIC9" text="羊牧場" />
+    <string id="ewrkbwI9" text="オリーヴの木" />
+    <string id="hopZmzBi" text="草原地帯の厩舎" />
+    <string id="hPq4vD4Z" text="プロジェクトを止める" />
+    <string id="NWUTYDQ0" text="神殿" />
+    <string id="OSron4OZ" text="漁業" />
+    <string id="pYY1UNgS" text="粘土採掘場" />
+    <string id="rHcVKSbA" text="鉄鉱山" />
+    <string id="vPt1OF30" text="砂漠の厩舎" />
+    <string id="Xj8gsFrW" text="絹用の植物" />
+    <string id="Z8ntYx0Y" text="亜麻畑" />
+    <string id="ZtxWTS9V" text="ブドウ園" />
+    <string id="zzQdNpXw" text="厩舎" />
+  </strings>
+</base>

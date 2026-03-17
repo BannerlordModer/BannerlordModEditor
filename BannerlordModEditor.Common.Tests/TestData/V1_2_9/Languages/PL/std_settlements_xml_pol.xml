@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Polski" />
+  </tags>
+  <strings>
+    <string id="0cZmKO76" text="Miasto znane dziś jako Charas jest uważane za pierwszą kalradyjską kolonię na wybrzeżach nowego kontynentu. W okresie rozkwitu Cesarstwa, gdy stolicę przeniesiono na północ do Parawenos, Charas pozostawało najważniejszym ośrodkiem żeglarstwa i handlu, a cesarscy arystokraci budowali swoje letnie rezydencje nad ciepłym brzegiem pobliskiej zatoki i żeglowali dla rozrywki wokół jej wysp. Gdy przybyli Wlandyjczycy, Charas znalazło się pod bezwzględnym panowaniem rodu dey Kortain, a bogactwa miasta służą teraz zaspokajaniu jego ambicji." />
+    <string id="1ImuW3My" text="Kujaz było kiedyś republiką kupiecką, która kontrolowała handel pomiędzy miastami znad zachodniego oceanu a osadami Morza Peraskiego, używającymi niemal wymarłego już języka kanickiego, z tej samej rodziny co nahasawi. Rosnąca potęga Cesarstwa sprawiła jednak, że handel ten powoli zanikł, a lokalnych władców zastąpili najemnicy z Nahasy. W pewnych okresach Kujaz było nawet wprost podporządkowane Cesarstwu, ale dziś miejscem tym z dumą włada Banu Hulian, najsilniejszy klan aserajskiego sułtanatu." />
+    <string id="1SnAH5K8" text="Leżące pośród gór półwyspu Ebor Rowalatis nie było nigdy w pełni cesarskim miastem. Nordyccy imigranci, przyciągani w te strony pogłoskami o możliwości wzbogacenia się na wydobywaniu srebra lub sprzedaży futer, jeszcze przed wlandyjską inwazją przewyższyli liczebnie Kalradyjczyków. Wlandyjczycy również spostrzegli potencjał tego regionu, który pomimo surowych zim należy obecnie do najludniejszych w całym królestwie. Dzięki żyznym polom w dolinach gór jest tu dość żywności dla nieustannie napływających osadników z południa, którzy bardzo pragną się wzbogacić." />
+    <string id="4ENGzVaC" text="Opowieść o Sarpei z Oniry jest jednym z heroicznych poematów ze wschodniej granicy. Jak w przypadku wielu innych, celem jego powstania zdaje się uzasadnienie cesarskich podbojów. Sarpea, córka jednego z senatorów, zostaje schwytana przez palajskiego wodza i przewieziona do jego cytadeli. Gdy kilka lat później pod murami zjawiły się cesarskie armie, ona błagała, by się wycofały – jej straszliwy mąż zagroził, że prędzej zrzuci z murów nowo narodzonego syna Sarpei niż pozwoli, by wychowywał go jej lud. Według opowieści legiony wycofały się, lecz chłopiec wyrósł na wojownika, który dołączył do cesarskiej armii i zabił swego ojca. Obecnie region jest głównym ośrodkiem hodowli koni na wschodnich równinach." />
+    <string id="4OAz8urz" text="Pen Kannok leży na cyplu nad rzeką Trand w miejscu, w którym spływa ona z płaskowyżu Uchalion na wlandyjskie niziny. Legendy mówią, że w ciemnych sadzawkach pod skałami żyją wodne nimfy, które wabią podróżnych i najeźdźców w śmiertelną pułapkę – choć bardzo rzadko zdarza się też, że zakochują się w jakimś bohaterze i obdarzają go błogosławieństwem zwycięstwa. Tutejsi rybacy cieszą się szacunkiem za okiełznanie zagrożeń górnych partii Trandu, gdzie postawienie stopy na śliskim kamieniu może prowadzić ze skraju urwiska prosto w głębiny." />
+    <string id="4UNOQQRa" text="Miasto, które Huzajczycy obecnie nazywają Akkalat – co oznacza Białą Fortecę – zostało zbudowane przez straszliwego padyszacha Hosztara w trakcie jednej z jego prób podbicia Dewsegu. Przez dziesięciolecia święty ogień płonący na szczycie cytadeli symbolizował władzę Hosztara nad tutejszymi plemionami. Lecz wojska padyszacha, podobnie jak cesarskie, zostały zepchnięte do obrony i wycofały się na wschód. Dziś na wieżach powiewają sztandary chana." />
+    <string id="5SpYVtie" text="Rotea to dawny palajski fort stojący pośród wzgórz, w cieniu bazaltowej bryły góry Erytrys, dawniej znany jako Rotasz. Cesarstwo zdobyło go krótko po Lagecie. Słysząc o tym, co przydarzyło się sąsiadom, tutejszy palajski wódz kazał wyrżnąć tuzin obywateli Cesarstwa żyjących pod jego protektoratem. Ekscentryczny długowłosy generał Sarapios poprowadził karną kolumnę wojska, które zajęło Rotasz i spaliło go do gołej ziemi. Później miał stwierdzić: „Lagetę zajęliśmy zdradziecko, nie przelewając dużo krwi. Rotasz zajęliśmy honorowo, wylewając ogromną jej ilość. Oba te miejsca zostaną zapamiętane jako skaza na naszym honorze. Na zwycięzcach zawsze ciąży wina, lecz pozostaje im także złoto”." />
+    <string id="66Mzk0NZ" text="{.N}Zarośla{.nnp}" />
+    <string id="79R6gi4l" text="Galenda wznosi się nad obmywanym falami wybrzeżem Biskan. Trafiają do niej połowy nieustraszonych rybaków, którzy zapuszczają się daleko na zachodni ocean, a także wełna z owiec wypasanych na zielonych, mglistych wzgórzach. Obecny ród królów Wlandii wywodzi się z klanów, które osiedliły się w tym regionie podczas inwazji Osrika Żelaznorękiego." />
+    <string id="8dDNWHR4" text="{.N}Zacisze" />
+    <string id="8UJ3cPrZ" text="Od Mizei wywodzi się nazwa Mizejady, żyznego regionu wzgórz w środkowowschodnim Cesarstwie. Miejsce to jest dawnym terytorium senatora Litosa, który we względnie pokojowy sposób przywiódł tu palajskie plemiona, proponując im ochronę przed bandytami ze stepów. Jednakże kiedy popadł w konflikt ze swoimi rywalami w Senacie, próbował utworzyć przy pomocy Palajczyków „barbarzyńską” republikę na wzór niegdysiejszej wersji kalradyjskiej. Cesarstwo udaremniło jego plany, lecz tutejsi mieszkańcy, którzy wyznają dziś głównie kalradyjskie wartości, nadal są przywiązani do dawnego systemu republikańskiego." />
+    <string id="a0MVffcN" text="{.MI}Zaułek" />
+    <string id="aOn6pa0D" text="Sargot to powszechna nazwa wzgórz, cyplów, wysp i innych pozycji obronnych w zachodniej Kalradii. Odnosi się do ufortyfikowanego obozu Massów, sprzymierzonego z Wlandyjczykami plemienia, które wspierało ich inwazję. Choć Massowie opuścili te ziemie, skutki ich obecności bywały często tak destrukcyjne, że nazwa ta pozostała na długo po ich odejściu. Sargot założono na ruinach cesarskiego miasta i zasiedlili je Wlandyjczycy, co wyparło pamięć o ludzie, który mieszkał tu przed nimi." />
+    <string id="aTMypBiY" text="Warnowapol, który leży za górami Czertyg nad kryształowymi wodami jeziora Lakonis, ma niezbyt zaszczytną opinię prawdopodobnie najczęściej podbijanego miasta w Kalradii. Początkowo był kolonią Cesarstwa, niesławną przez wzgląd na zsyłanych tu na wygnanie kłopotliwych senatorów; później zajęli go Nordowie, wykorzystując jako bazę do zyskania większych wpływów w handlu futrami w Sturgii. Nordom z kolei Warnowapol odebrało plemię Akitów ze wschodnich stepów i na krótko przekształciło go w stolicę małego chanatu, aż w końcu wpadł w ręce walecznego klanu Ormidowingów." />
+    <string id="bnl7Va4c" text="Husn Fulk leży nad południowo-wschodnim skrajem Kaldei, sieci rzek i słonych lagun łączącej Cesarstwo z ziemiami Aseraju. Fulk, znany też jako Falkos, był ciemnoskórym dowódcą najemników, który przybył tu z dalekich ziem na południu. Zbudował fortecę, a następnie dzięki jej strategicznemu położeniu dorobił się fortuny, przyjmując łapówki na zmianę od Cesarstwa i Aserajczyków. Po dwudziestu latach przechodzenia z jednej strony konfliktu na drugą pożeglował do domu statkiem wyładowanym złotem, lecz wiele aserajskich klanów z dumą głosi się jego potomkami, a „Sztuczki Fulka” to stały element repertuaru wielu bazarowych gawędziarzy." />
+    <string id="bPDqyqkb" text="Makeba leży nad północnym krańcem jeziora Tanezis, na stepowym cyplu. Umożliwia dzięki temu ochronę katarakty, którą rzeka Karakaz wpada do jeziora. Miastem tym długo rządzili pomniejsi chanowie i szachowie, którzy pobierali cło od handlarzy zmuszonych do przeciągania swych łodzi wśród nurtów. Ostatni z tych władców został ścięty przez samego Urkuna po tym, jak odmówił zapłacenia daniny. Następnie władanie nad miastem objął rządzący ród Huzajczyków." />
+    <string id="Dxnj5JQE" text="Ortongard leży w suchej, centralnej części płaskowyżu Dewseg. Przez większość roku nie pada tu zbyt często, lecz wiosną pola świetnie nadają się do wypasu zwierząt. Miasto założyli posługujący się językiem Darszi kupcy, którzy wzbogacili się na kupowaniu koni, owiec i bydła z okolicznych wsi oraz wysyłaniu ich na zachodnie cesarskie targowiska w olbrzymich grupach, strzeżonych przez żołnierzy przed stepowymi bandytami. Jednakże ani mury, ani armie najemników nie zdołały powstrzymać chana Urkuna, który nadał miasto klanowi Kergitów w nagrodę za odwagę." />
+    <string id="Eb7Lgq10" text="Ostykan był pomniejszym cesarskim portem, który stał się schronieniem dla żeglarzy z północnych oceanów. Wielu z nich było utalentowanymi korsarzami, zatrudnionymi przez cesarskie stronnictwa do nękania przeciwników podczas ciągłych wojen domowych w późnym okresie rozwoju Cesarstwa. To prawda, że część z pierwszych Wlandyjczyków, którzy przybyli do Kalradii, zamieszkała przy pomniejszych uliczkach tego miasta, i bez wątpienia to od nich krajanie dowiedzieli się o bogactwach możliwych do zdobycia na drodze inwazji." />
+    <string id="EJZLzhJk" text="Saneopa leży na niskiej przełęczy prowadzącej z doliny Newis na północ, do wód Oftysu. Zamieszkujący te ziemie w antycznych czasach Palajczycy podobnie do Batów traktowali jeziora jako miejsca święte, a Oftys w szczególności uważany był za portal do innego świata. Harmider Saneopy, jednego z głównych ośrodków handlu w śródlądowej części Kalradii, wyraźnie odcina się od milczenia ciemnych wód u jej stóp." />
+    <string id="F5HlQdgf" text="Tyjal leży pośród zachodnich równin u stóp góry Iltan, przy wschodniej granicy sturgijskich ziem. Region ten przez długi czas nie angażował się w walki innych sturgijskich księstw o władzę. Jego mieszkańcy to wędrowcy, handlarze, hodowcy koni i łowcy skór. Miejscowa arystokracja często przypieczętowywała małżeństwami traktaty pokojowe i handlowe z plemionami wschodnich stepów i może poszczycić się imionami kilku wielkich chanów na liście swoich przodków." />
+    <string id="fOUsLdZR" text="{.N}Pastwisko" />
+    <string id="GChIoZdd" text="Askar wznosi się dumnie nad środkowym biegiem rzeki Damar w miejscu, gdzie ta wije się między urwiskami skarpy Czardżara. Region ten już przed tysiącami lat był gęsto zaludniony, lecz rzeka jest niespokojna i co kilka stuleci wylewa, niszcząc wszystko w swoim sąsiedztwie. Ta ostatnia stolica regionu była cesarskim obozem podczas najdalej posuniętej inwazji na Nahasę kilkaset lat temu. Gdy legiony się wycofały, Askar zajęły aserajskie plemiona." />
+    <string id="i2VkRLBg" text="Warreg, dawna nordycka kolonia, stoi na smaganej wiatrem nadmorskiej skarpie przy Półwyspie Kaczarskim, na terenach, które należały niegdyś do Batanii. Jarl, który założył tę przybrzeżną placówkę, mając nadzieję nawiązać handel z interiorem, złożył przysięgę wierności batańskiemu najwyższemu królowi Dernmachadowi, później jednak zaczął mieszać się w państwową politykę. Zirytowany Dernmachad opłacił sturgijską armię, by ta zmiotła jego krnąbrnego nowego wasala. Sturgijczycy zgodzili się i rozbili wojska nordyckie, później jednak zażądali nowo zdobytego miasta jako zapłaty. Nazwali je „Warreg”, co stanowi wypaczenie nordyckiego określenia oznaczającego wiernego kompana, aby zakpić w ten sposób z obu rywali, których spory pozwoliły im pozyskać ten wspaniały łup." />
+    <string id="IIMWPVhU" text="Powiadają, że śródlądowe miasto Hubjar powstało na ruinach rezydencji myśliwskiej zbudowanej przez zepsutego i okrutnego króla Turana, którego patriarcha Asera zabił w odwecie za uwięzienie swojej rodziny. To wspomnienie może tłumaczyć światopogląd walecznych i surowych Banu Qild, którzy dziś władają zamkiem i gardzą wszelką lekkomyślnością. Lecz zapach jaśminu przywiewany tu wraz z nocnym wietrzykiem niesie ze sobą nutę pokusy. To tutaj kresu dobiegł żywot bohaterskiego Nimra. Gdy Banu Qild schwytali go w łożu jednej ze swych dziewek, powiesili go w klatce na rynku. I w niej właśnie umarł." />
+    <string id="iXA5SttU" text="{.N}Bagno" />
+    <string id="J4bgNT0r" text="Mówi się, że legendarna królowa Eszora ukarała dżinów dręczących jej lud, zamykając ich w jednej z jaskiń nad Kazirą i wykuwając w skale mistyczną ośmioramienną gwiazdę, by zapieczętować wejście. Skazała ich na noszenie wody z głębin ziemi i dostarczanie jej do źródeł, które tryskają spośród skał i które od stuleci nawadniają daktylowe ogrody Kaziry oraz otaczające ją wsie." />
+    <string id="JhBSnWAe" text="Ortyzja to pierwsza kalradyjska kolonia na wybrzeżu Morza Peraskiego, a jej nazwa pochodzi od przepiórek zamieszkujących pobliskie bagna. W pierwszych stuleciach istnienia znalazła się pod władaniem kanickiego miasta-państwa Kujaz, lecz cesarska ekspansja wkrótce doprowadziła do jej zjednoczenia z macierzystą republiką. Przez całe stulecia żeglarze, którzy powracali z opanowanych przez piratów wysp Zatoki Charaskiej, z wdzięcznością witali widok wież wyłaniających się z mgieł zachodniej części Morza Peraskiego. Oznaczał bowiem bezpieczny powrót na strzeżone przez cesarskie statki wody." />
+    <string id="Jm2uZiwV" text="Marunat, zwany Brodzącym Koniem, wcale nie leży nad rzeką. Lecz batańscy bardowie niczego nie uwielbiają bardziej od osobliwej nazwy miejsca, wokół której można wysnuć jakąś legendę. W tym przypadku jest to opowieść o Olajganie, któremu przepowiedziano, że pokona siedmiu synów Glanys w siedmiu pojedynkach nad siedmioma brodami, i który właśnie tu napotkał swoich ostatnich wrogów. Poderżnął on gardło swego konia i przekroczył tryskający strumień krwi, pokonał ostatniego przeciwnika i w ten sposób wypełnił proroctwo." />
+    <string id="jXBnf2hQ" text="Mówi się, że Razja była bazą, z której kaniccy odkrywcy wyruszali, by kolonizować wybrzeża Morza Peraskiego setki lat przed przybyciem cesarskich wojsk. Dzioby ich okrętów miały zaś być ozdobione splątanymi winoroślami ku czci kanickiej bogini dobrobytu, wina, miłości i wojny. Dziś język kanicki zastąpiły dialekty nahasawi, a religia została zapomniana, lecz nadal wierzy się, że owe symbole mają znaczenie i chronią tych, którzy ryzykują wszystkim dla bogactw lub chwały." />
+    <string id="kghCLS9q" text="Zeonika leży nad brzegiem morza, u stóp wzgórz Iltaru, krainy wina, zboża i koni. Nazwa tego miejsca pochodzi od imienia pani Zeony, jednej z nielicznych kobiet, którym dane było rządzić Cesarstwem (co prawda jako regentce syna, nie panującej cesarzowej). Kraina znana jest z zeońskiego wiatru – wichru, który każdego lata pędzi na północ i niesie palący skwar Nahasy ku ziemiom południowego Cesarstwa. Przez resztę roku pogoda jest łagodna, co inspiruje wielu poetów do tworzenia metafor o krótkotrwałych chwilach pełnych namiętności." />
+    <string id="LqPJY4s9" text="Miasto Argoron leży w miejscu, gdzie zimne i powolne wody rzeki Newis wpadają do jeziora Lakonis. Niegdyś żyli tu Lakończycy, którzy postrzegali Cesarstwo jako obronę przed bardziej walecznymi palajskimi ludami. Witali na swych ziemiach cesarskich osadników i wydawali swe córki za ich synów. Wodzowie Lakończyków dołączali do senatu, a stary język i kultura powoli odchodziły w niepamięć." />
+    <string id="LWHIVshb" text="{.F}Polana" />
+    <string id="n9WMUuSp" text="„Niezwyciężona” Epikrotea otrzymała swoją nazwę dzięki ekscentrycznemu, długowłosemu geniuszowi militarnemu, Sarapiosowi, który zmiażdżył batański opór i zajął dla Cesarstwa ziemie na zachód od jeziora Lakonis. Z jej wież, wznoszących się nad rzeką Miron, mieszkańcy północy często jako pierwsi mogli spostrzec straszliwe i niesamowite siły z południa." />
+    <string id="NFIYqaab" text="Ijakis leży w rozpadlinie na skarpie Czardżara. Opady krótkich, lecz gwałtownych pustynnych deszczów mogą się tu gromadzić i służyć następnie do nawadniania pól. Wiele pokoleń temu znajdował się tutaj niezależny posterunek Cesarstwa o nazwie Jakios, rządzony przez klan Karazjosa. Jednak przed pięćdziesięciu laty, przeczuwając bliski upadek rządów Cesarstwa na południowych ziemiach, przedstawiciele klanu zaczęli zawierać związki małżeńskie z plemionami Nahasy. Dziś znani są jako Qaraz i zajmują stanowiska w radach sułtanatu wraz z innymi aserajskimi rodami." />
+    <string id="nhmBQIC4" text="Okshal to jedno z niewielu miast w królestwie wlandyjskim, które założono po przejęciu tych ziem od Cesarstwa. Dolina ta była niegdyś odizolowanym bastionem Batów, skupiającym się wokół Lin Modris – jeziora w wulkanicznej kalderze, która miała być siedzibą pewnego giganta. Ziemie te zdobył wlandyjski watażka Oka i to od jego imienia wywodzi się również nazwa pobliskiego jeziora Okspol. Batańskie plemiona zostały wyparte w głąb śródlądzia i zabrały swoje legendy ze sobą." />
+    <string id="Nx0qK2g6" text="Parawenos było drugą dużą kolonią założoną przez Kalradiosa Wielkiego. Szybko przerosło rozmachem Charas i zostało stolicą Kalradyjczyków. W końcu środek ciężkości Cesarstwa przeniósł się na wschód, ale Parawenos zachowało status gospodarczego centrum Zachodu. Kiedy Wlandyjczycy pod wodzą Osrika Żelaznorękiego najechali te ziemie, uznali, że Parawenos jest znacznie cenniejsze jako ośrodek władzy niż źródło dochodów, wynegocjowali więc jego poddanie z miejscowymi senatorami. Miasto zostało przekazane klanowi dey Tihr, pomniejszemu rodowi wywodzącego się z linii Osrika, i dziś znane jest jako Prawenda." />
+    <string id="pbHXtJ82" text="Omor leży na wschodnim brzegu jeziora Lakonis. Na długo przed tym, jak Sturgijczycy utworzyli księstwo, było tu święte miejsce plemion oddających cześć bogom i przodkom pośród świętych dębów pobliskich lasów. Dziś to magazyn dla łowców skór i leśniczych, którzy polują w dziczy Irkara na wschodzie, a pierwotną ciszę kniei przerywają odgłosy targowania się, piłowania i rozładowywania statków na jeziorem." />
+    <string id="PPadNxa6" text="Sibir założyli w ciemnej dolinie wśród gór Czertyg nordyccy handlarze, którzy potrzebowali bazy do kupna futer od miejscowych leśników mówiących po wakkijsku. Gdy sturgijskie plemiona stały się księstwami, a wodzowie zyskali status bojarów, oczekujących od poddanych podatków i pracy, rejon ten zaczął przyciągać Sturgijczyków, którzy nie chcieli życia w uległości. Dziś rządzą tu ambitni Izjarowingowie. Muszą jednak kontrolować swoje wojenne aspiracje, gdyż ich poddani wcale nie są chętni, aby dostarczać im ludzi oraz zasobów." />
+    <string id="QD3oaaNK" text="Kar Banset leży wysoko na klifach Ailta Druin. Patrząc w pogodny dzień na północ – poprzez ziemie będące niegdyś batańskimi, a obecnie należące do Sturgijczyków i Wlandyjczyków – można spostrzec wody zatoki Warreg. Mówi się, że ten, kto nie utraci wiary, zobaczy kiedyś z tego miejsca statki zaginionego Najwyższego Króla Mona, który powróci, by obronić swój lud przed wrogami. Lecz dziś prędzej można zobaczyć tu żagle nordyckich poszukiwaczy przygód i najemników, którzy przybywają na pomoc obcym wojskom niestrudzenie wdzierającym się na batańskie ziemie." />
+    <string id="R6YJsK89" text="Jakulan leży na południowym, cieplejszym krańcu wybrzeża Biskan, pośród falujących wzgórz znanych z upraw drzew oliwnych. Kiedyś był to ulubiony rejon wypoczynkowy cesarskich arystokratów, którzy polowali na dziki w dębowych lasach. Niezależni wieśniacy tego regionu znani są z buntowniczych umysłów. Ostatnie z serii powstań, jakie tu wybuchły, związane jest z Bractwem Kniei. Rebelie czasem są wspierane przez arystokratów, którzy uważają je za dobre narzędzie przeciw wrogim wlandyjskim rodom." />
+    <string id="rGXdJybe" text="Miasto Poros leży w pobliżu północnego brzegu Morza Peraskiego. Ciepłe, pofalowane wzgórza tego regionu świetnie nadają się pod hodowlę owiec i koni. Tutejsi pasterze znani są z dumy i skłonności do agresji, lecz arystokraci z klanu Leonipardów, którzy władają tymi ziemiami, z szacunkiem podchodzą do ich autonomii. Krwawe waśnie i kradzieże bydła nie są tutaj rzadkością i mówi się, że Leonipardzi nigdy nie interweniują, o ile nie zostaną o to poproszeni przez obie strony sporu. Lecz gdy już do tego dochodzi, wszyscy uznają ich werdykt." />
+    <string id="RL2vacqv" text="Fikaon leży nad ujściem doliny Setys i jest jednym z głównych regionów produkujących zboże w centralnym Cesarstwie. Niegdyś było to największe palajskie miasto, a jego władcy dowodzili sojuszem plemion przeciwko cesarskiej inwazji w tej okolicy. Lecz gdy zwycięstwo wroga okazało się nieuniknione, pogodzili się z nim. Dziś mieszkają tu głównie Kalradyjczycy, którzy mają reputację ludzi poważnych, szanowanych, znających się na handlu i spolegliwych, choć pozbawionych poczucia humoru." />
+    <string id="Rr1cy5Sk" text="{.MI}Brzeg" />
+    <string id="rX8oGVvV" text="Palajski wódz Amitatys miał szczególnie ponurą reputację. Był tyranem, który wyrzynał niewinnych, by zadowolić bogów z krainy zmarłych i otrzymać od nich nieśmiertelność. W końcu popadł w konflikt z Cesarstwem, a w trakcie oblężenia trzęsienie ziemi zniszczyło mur jego zamku, przez co legioniści wdarli się do miasta. W wyniku grabieży zginęło jeszcze więcej ludzi, niż Amitatys kiedykolwiek kazał zabić, lecz była to wojna, a jej wynik – przypisany woli boskiej – stał się kluczowym elementem cesarskiej propagandy podczas dalszej ekspansji w regionie." />
+    <string id="Settlements.Settlement.name.castle_A1" text="{.MI}Zamek{.nn} w Tubilis" />
+    <string id="Settlements.Settlement.name.castle_A2" text="{.MI}Zamek{.nn} w Sahel" />
+    <string id="Settlements.Settlement.name.castle_A3" text="{.MI}Zamek{.nn} w Ain Balik" />
+    <string id="Settlements.Settlement.name.castle_A4" text="{.MI}Zamek{.nn} w Medeni" />
+    <string id="Settlements.Settlement.name.castle_A5" text="{.MI}Zamek{.nn} w Dżamaje" />
+    <string id="Settlements.Settlement.name.castle_A6" text="{.MI}Zamek{.nn} w Szibal Zumr" />
+    <string id="Settlements.Settlement.name.castle_A7" text="{.MI}Zamek{.nn} w Ukbie" />
+    <string id="Settlements.Settlement.name.castle_A8" text="{.MI}Zamek{.nn} w Tamnuh" />
+    <string id="Settlements.Settlement.name.castle_A9" text="{.MI}Zamek{.nn} w Barihal" />
+    <string id="Settlements.Settlement.name.castle_B1" text="{.MI}Zamek{.nn} w Ab Komer" />
+    <string id="Settlements.Settlement.name.castle_B2" text="{.MI}Zamek{.nn} w Llanok Hen" />
+    <string id="Settlements.Settlement.name.castle_B3" text="{.MI}Zamek{.nn} w Druimmor" />
+    <string id="Settlements.Settlement.name.castle_B4" text="{.MI}Zamek{.nn} w Pendraik" />
+    <string id="Settlements.Settlement.name.castle_B5" text="{.MI}Zamek{.nn} w Remtoil" />
+    <string id="Settlements.Settlement.name.castle_B6" text="{.MI}Zamek{.nn} we Flintolg" />
+    <string id="Settlements.Settlement.name.castle_B7" text="{.MI}Zamek{.nn} w Aster" />
+    <string id="Settlements.Settlement.name.castle_B8" text="{.MI}Zamek{.nn} w Utelaim" />
+    <string id="Settlements.Settlement.name.castle_EN1" text="{.MI}Zamek{.nn} w Waragos" />
+    <string id="Settlements.Settlement.name.castle_EN2" text="{.MI}Zamek{.nn} w Lochanie" />
+    <string id="Settlements.Settlement.name.castle_EN3" text="{.MI}Zamek{.nn} w Resos" />
+    <string id="Settlements.Settlement.name.castle_EN4" text="{.MI}Zamek{.nn} w Gaos" />
+    <string id="Settlements.Settlement.name.castle_EN5" text="{.MI}Zamek{.nn} w Atrion" />
+    <string id="Settlements.Settlement.name.castle_EN7" text="{.MI}Zamek{.nn} w Epinosie" />
+    <string id="Settlements.Settlement.name.castle_EN8" text="{.MI}Zamek{.nn} w Syratos" />
+    <string id="Settlements.Settlement.name.castle_ES1" text="{.MI}Zamek{.nn} w Odrisie" />
+    <string id="Settlements.Settlement.name.castle_ES2" text="{.MI}Zamek{.nn} w Korenii" />
+    <string id="Settlements.Settlement.name.castle_ES3" text="{.MI}Zamek{.nn} w Melion" />
+    <string id="Settlements.Settlement.name.castle_ES4" text="{.MI}Zamek{.nn} w Lawenii" />
+    <string id="Settlements.Settlement.name.castle_ES5" text="{.MI}Zamek{.nn} w Morenii" />
+    <string id="Settlements.Settlement.name.castle_ES6" text="{.MI}Zamek{.nn} w Sestadaim" />
+    <string id="Settlements.Settlement.name.castle_ES7" text="{.MI}Zamek{.nn} w Dżogurys" />
+    <string id="Settlements.Settlement.name.castle_ES8" text="{.MI}Zamek{.nn} w Szanopsis" />
+    <string id="Settlements.Settlement.name.castle_EW1" text="{.MI}Zamek{.nn} w Garontor" />
+    <string id="Settlements.Settlement.name.castle_EW2" text="{.MI}Zamek{.nn} w Torios" />
+    <string id="Settlements.Settlement.name.castle_EW3" text="{.MI}Zamek{.nn} w Onice" />
+    <string id="Settlements.Settlement.name.castle_EW4" text="{.MI}Zamek{.nn} w Taraktorze" />
+    <string id="Settlements.Settlement.name.castle_EW5" text="{.MI}Zamek{.nn} w Weron" />
+    <string id="Settlements.Settlement.name.castle_EW6" text="{.MI}Zamek{.nn} w Hertogei" />
+    <string id="Settlements.Settlement.name.castle_EW7" text="{.MI}Zamek{.nn} w Oristokoris" />
+    <string id="Settlements.Settlement.name.castle_EW8" text="{.MI}Zamek{.nn} w Gersegos" />
+    <string id="Settlements.Settlement.name.castle_K1" text="{.MI}Zamek{.nn} w Usek" />
+    <string id="Settlements.Settlement.name.castle_K2" text="{.MI}Zamek{.nn} w Akiser" />
+    <string id="Settlements.Settlement.name.castle_K3" text="{.MI}Zamek{.nn} w Hakkun" />
+    <string id="Settlements.Settlement.name.castle_K4" text="{.MI}Zamek{.nn} w Tepesz" />
+    <string id="Settlements.Settlement.name.castle_K5" text="{.MI}Zamek{.nn} w Kimli" />
+    <string id="Settlements.Settlement.name.castle_K6" text="{.MI}Zamek{.nn} w Dinar" />
+    <string id="Settlements.Settlement.name.castle_K7" text="{.MI}Zamek{.nn} w Simirze" />
+    <string id="Settlements.Settlement.name.castle_K8" text="{.MI}Zamek{.nn} w Erzenur" />
+    <string id="Settlements.Settlement.name.castle_K9" text="{.MI}Zamek{.nn} w Kajsar" />
+    <string id="Settlements.Settlement.name.castle_S1" text="{.MI}Zamek{.nn} w Ustokole" />
+    <string id="Settlements.Settlement.name.castle_S2" text="{.MI}Zamek{.nn} w Mazadan" />
+    <string id="Settlements.Settlement.name.castle_S3" text="{.MI}Zamek{.nn} w Newijańsku" />
+    <string id="Settlements.Settlement.name.castle_S4" text="{.MI}Zamek{.nn} w Kranirogu" />
+    <string id="Settlements.Settlement.name.castle_S5" text="{.MI}Zamek{.nn} w Ow" />
+    <string id="Settlements.Settlement.name.castle_S6" text="{.MI}Zamek{.nn} w Takor" />
+    <string id="Settlements.Settlement.name.castle_S7" text="{.MI}Zamek{.nn} w Urikskali" />
+    <string id="Settlements.Settlement.name.castle_S8" text="{.MI}Zamek{.nn} we Władywie" />
+    <string id="Settlements.Settlement.name.castle_V1" text="{.MI}Zamek{.nn} w Usank" />
+    <string id="Settlements.Settlement.name.castle_V2" text="{.MI}Zamek{.nn} w Hongard" />
+    <string id="Settlements.Settlement.name.castle_V3" text="{.MI}Zamek{.nn} w Drapand" />
+    <string id="Settlements.Settlement.name.castle_V4" text="{.MI}Zamek{.nn} w Ormanfard" />
+    <string id="Settlements.Settlement.name.castle_V5" text="{.MI}Zamek{.nn} w Tirbie" />
+    <string id="Settlements.Settlement.name.castle_V6" text="{.MI}Zamek{.nn} w Kaleus" />
+    <string id="Settlements.Settlement.name.castle_V7" text="{.MI}Zamek{.nn} w Taliwel" />
+    <string id="Settlements.Settlement.name.castle_V8" text="{.MI}Zamek{.nn} w Wereksand" />
+    <string id="Settlements.Settlement.name.castle_village_A1_1" text="Tubilis" />
+    <string id="Settlements.Settlement.name.castle_village_A1_2" text="Fanab" />
+    <string id="Settlements.Settlement.name.castle_village_A2_1" text="Sahel" />
+    <string id="Settlements.Settlement.name.castle_village_A2_2" text="Asmait" />
+    <string id="Settlements.Settlement.name.castle_village_A3_1" text="Ain Balik" />
+    <string id="Settlements.Settlement.name.castle_village_A3_2" text="Deir Hawa" />
+    <string id="Settlements.Settlement.name.castle_village_A4_1" text="Medeni" />
+    <string id="Settlements.Settlement.name.castle_village_A4_2" text="Kidnar" />
+    <string id="Settlements.Settlement.name.castle_village_A5_1" text="Dżamaje" />
+    <string id="Settlements.Settlement.name.castle_village_A5_2" text="Hunab" />
+    <string id="Settlements.Settlement.name.castle_village_A6_1" text="Szibal Zumr" />
+    <string id="Settlements.Settlement.name.castle_village_A6_2" text="{.F}Lamesa" />
+    <string id="Settlements.Settlement.name.castle_village_A7_1" text="{.F}Ukba" />
+    <string id="Settlements.Settlement.name.castle_village_A7_2" text="Bunkaz" />
+    <string id="Settlements.Settlement.name.castle_village_A8_1" text="Tamnuh" />
+    <string id="Settlements.Settlement.name.castle_village_A8_2" text="{.F}Kuka" />
+    <string id="Settlements.Settlement.name.castle_village_A9_1" text="Barihal" />
+    <string id="Settlements.Settlement.name.castle_village_A9_2" text="Wadar" />
+    <string id="Settlements.Settlement.name.castle_village_B1_1" text="Ab Komer" />
+    <string id="Settlements.Settlement.name.castle_village_B1_2" text="Inwet" />
+    <string id="Settlements.Settlement.name.castle_village_B2_1" text="Llanok Hen" />
+    <string id="Settlements.Settlement.name.castle_village_B2_2" text="Kantrek" />
+    <string id="Settlements.Settlement.name.castle_village_B3_1" text="Druimmor" />
+    <string id="Settlements.Settlement.name.castle_village_B3_2" text="Tor Mulina" />
+    <string id="Settlements.Settlement.name.castle_village_B4_1" text="Pendraik" />
+    <string id="Settlements.Settlement.name.castle_village_B4_2" text="Lindorn" />
+    <string id="Settlements.Settlement.name.castle_village_B5_1" text="Remtoil" />
+    <string id="Settlements.Settlement.name.castle_village_B5_2" text="Claig Ban" />
+    <string id="Settlements.Settlement.name.castle_village_B6_1" text="Flintolg" />
+    <string id="Settlements.Settlement.name.castle_village_B6_2" text="Glintor" />
+    <string id="Settlements.Settlement.name.castle_village_B7_1" text="Aster" />
+    <string id="Settlements.Settlement.name.castle_village_B7_2" text="Imlag" />
+    <string id="Settlements.Settlement.name.castle_village_B8_1" text="Utelaim" />
+    <string id="Settlements.Settlement.name.castle_village_B8_2" text="Seordas" />
+    <string id="Settlements.Settlement.name.castle_village_EN1_1" text="Waragos" />
+    <string id="Settlements.Settlement.name.castle_village_EN1_2" text="{.F}Eoria" />
+    <string id="Settlements.Settlement.name.castle_village_EN2_1" text="{.F}Lochana" />
+    <string id="Settlements.Settlement.name.castle_village_EN2_2" text="{.F}Nortanisa" />
+    <string id="Settlements.Settlement.name.castle_village_EN3_1" text="Resos" />
+    <string id="Settlements.Settlement.name.castle_village_EN3_2" text="Diopalis" />
+    <string id="Settlements.Settlement.name.castle_village_EN4_1" text="Gaos" />
+    <string id="Settlements.Settlement.name.castle_village_EN4_2" text="Temis" />
+    <string id="Settlements.Settlement.name.castle_village_EN5_1" text="Atrion" />
+    <string id="Settlements.Settlement.name.castle_village_EN5_2" text="{.F}Masangara" />
+    <string id="Settlements.Settlement.name.castle_village_EN6_1" text="{.F}Atakonia" />
+    <string id="Settlements.Settlement.name.castle_village_EN6_2" text="Potamis" />
+    <string id="Settlements.Settlement.name.castle_village_EN7_1" text="{.F}Epinosa" />
+    <string id="Settlements.Settlement.name.castle_village_EN7_2" text="Pons" />
+    <string id="Settlements.Settlement.name.castle_village_EN8_1" text="Syratos" />
+    <string id="Settlements.Settlement.name.castle_village_EN8_2" text="Tememos" />
+    <string id="Settlements.Settlement.name.castle_village_EN9_1" text="{.F}Mekalowea" />
+    <string id="Settlements.Settlement.name.castle_village_EN9_2" text="Agalmon" />
+    <string id="Settlements.Settlement.name.castle_village_ES1_1" text="{.F}Odrisa" />
+    <string id="Settlements.Settlement.name.castle_village_ES1_2" text="{.F}Kaira" />
+    <string id="Settlements.Settlement.name.castle_village_ES2_1" text="{.F}Korenia" />
+    <string id="Settlements.Settlement.name.castle_village_ES2_2" text="{.F}Metachia" />
+    <string id="Settlements.Settlement.name.castle_village_ES3_1" text="Melion" />
+    <string id="Settlements.Settlement.name.castle_village_ES3_2" text="{.F}Sagolina" />
+    <string id="Settlements.Settlement.name.castle_village_ES4_1" text="{.F}Lawenia" />
+    <string id="Settlements.Settlement.name.castle_village_ES4_2" text="{.F}Etemisa" />
+    <string id="Settlements.Settlement.name.castle_village_ES5_1" text="{.F}Morenia" />
+    <string id="Settlements.Settlement.name.castle_village_ES5_2" text="{.F}Afinia" />
+    <string id="Settlements.Settlement.name.castle_village_ES6_1" text="Sestadaim" />
+    <string id="Settlements.Settlement.name.castle_village_ES6_2" text="Amikon" />
+    <string id="Settlements.Settlement.name.castle_village_ES7_1" text="Dżogurys" />
+    <string id="Settlements.Settlement.name.castle_village_ES7_2" text="{.F}Eunalika" />
+    <string id="Settlements.Settlement.name.castle_village_ES8_1" text="Szanopsis" />
+    <string id="Settlements.Settlement.name.castle_village_ES8_2" text="{.F}Popsja" />
+    <string id="Settlements.Settlement.name.castle_village_EW1_1" text="Garontor" />
+    <string id="Settlements.Settlement.name.castle_village_EW1_2" text="{.F}Lizja" />
+    <string id="Settlements.Settlement.name.castle_village_EW2_1" text="Torios" />
+    <string id="Settlements.Settlement.name.castle_village_EW2_2" text="Bergum" />
+    <string id="Settlements.Settlement.name.castle_village_EW3_1" text="{.F}Onika" />
+    <string id="Settlements.Settlement.name.castle_village_EW3_2" text="Tarkutis" />
+    <string id="Settlements.Settlement.name.castle_village_EW4_1" text="{.F}Taraktora" />
+    <string id="Settlements.Settlement.name.castle_village_EW4_2" text="Gamardan" />
+    <string id="Settlements.Settlement.name.castle_village_EW5_1" text="Weron" />
+    <string id="Settlements.Settlement.name.castle_village_EW5_2" text="Goleryn" />
+    <string id="Settlements.Settlement.name.castle_village_EW6_1" text="{.F}Hertogea" />
+    <string id="Settlements.Settlement.name.castle_village_EW6_2" text="Nideon" />
+    <string id="Settlements.Settlement.name.castle_village_EW7_1" text="Oristokoris" />
+    <string id="Settlements.Settlement.name.castle_village_EW7_2" text="{.F}Elwania" />
+    <string id="Settlements.Settlement.name.castle_village_EW8_1" text="Gersegos" />
+    <string id="Settlements.Settlement.name.castle_village_EW8_2" text="{.F}Watea" />
+    <string id="Settlements.Settlement.name.castle_village_K1_1" text="Usek" />
+    <string id="Settlements.Settlement.name.castle_village_K1_2" text="Esme" />
+    <string id="Settlements.Settlement.name.castle_village_K2_1" text="Akiser" />
+    <string id="Settlements.Settlement.name.castle_village_K2_2" text="Kamszar" />
+    <string id="Settlements.Settlement.name.castle_village_K3_1" text="Hakkun" />
+    <string id="Settlements.Settlement.name.castle_village_K3_2" text="Kiraz" />
+    <string id="Settlements.Settlement.name.castle_village_K4_1" text="Tepesz" />
+    <string id="Settlements.Settlement.name.castle_village_K4_2" text="Kuruluk" />
+    <string id="Settlements.Settlement.name.castle_village_K5_1" text="Kimli" />
+    <string id="Settlements.Settlement.name.castle_village_K5_2" text="Omrotok" />
+    <string id="Settlements.Settlement.name.castle_village_K6_1" text="Dinar" />
+    <string id="Settlements.Settlement.name.castle_village_K6_2" text="{.F}Karahala" />
+    <string id="Settlements.Settlement.name.castle_village_K7_1" text="{.F}Simira" />
+    <string id="Settlements.Settlement.name.castle_village_K7_2" text="Kohi Adżik" />
+    <string id="Settlements.Settlement.name.castle_village_K8_1" text="Erzenur" />
+    <string id="Settlements.Settlement.name.castle_village_K8_2" text="Gereden" />
+    <string id="Settlements.Settlement.name.castle_village_K9_1" text="Kajsar" />
+    <string id="Settlements.Settlement.name.castle_village_K9_2" text="Pajam" />
+    <string id="Settlements.Settlement.name.castle_village_S1_1" text="{.MI}Ustokoł" />
+    <string id="Settlements.Settlement.name.castle_village_S1_2" text="Żemian" />
+    <string id="Settlements.Settlement.name.castle_village_S2_1" text="Mazadan" />
+    <string id="Settlements.Settlement.name.castle_village_S2_2" text="Forin" />
+    <string id="Settlements.Settlement.name.castle_village_S3_1" text="{.MI}Newijańsk" />
+    <string id="Settlements.Settlement.name.castle_village_S3_2" text="{.MI}Dnin" />
+    <string id="Settlements.Settlement.name.castle_village_S4_1" text="{.MI}Kraniróg" />
+    <string id="Settlements.Settlement.name.castle_village_S4_2" text="{.MI}Izmilkorg" />
+    <string id="Settlements.Settlement.name.castle_village_S5_1" text="Ow" />
+    <string id="Settlements.Settlement.name.castle_village_S5_2" text="Ferk" />
+    <string id="Settlements.Settlement.name.castle_village_S6_1" text="Takor" />
+    <string id="Settlements.Settlement.name.castle_village_S6_2" text="{.N}Dworoujście" />
+    <string id="Settlements.Settlement.name.castle_village_S7_1" text="{.F}Urikskala" />
+    <string id="Settlements.Settlement.name.castle_village_S7_2" text="{.MI}Ałow" />
+    <string id="Settlements.Settlement.name.castle_village_S8_1" text="{.MI}Władyw" />
+    <string id="Settlements.Settlement.name.castle_village_S8_2" text="{.MI}Gławstrom" />
+    <string id="Settlements.Settlement.name.castle_village_V1_1" text="Usank" />
+    <string id="Settlements.Settlement.name.castle_village_V2_1" text="Hongard" />
+    <string id="Settlements.Settlement.name.castle_village_V2_2" text="Ferton" />
+    <string id="Settlements.Settlement.name.castle_village_V3_1" text="Drapand" />
+    <string id="Settlements.Settlement.name.castle_village_V3_2" text="Walanbi" />
+    <string id="Settlements.Settlement.name.castle_village_V4_1" text="Ormanfard" />
+    <string id="Settlements.Settlement.name.castle_village_V5_1" text="{.F}Tirba" />
+    <string id="Settlements.Settlement.name.castle_village_V5_2" text="Syrindak" />
+    <string id="Settlements.Settlement.name.castle_village_V6_1" text="Kaleus" />
+    <string id="Settlements.Settlement.name.castle_village_V6_2" text="Deriat" />
+    <string id="Settlements.Settlement.name.castle_village_V7_1" text="Taliwel" />
+    <string id="Settlements.Settlement.name.castle_village_V7_2" text="Rodetan" />
+    <string id="Settlements.Settlement.name.castle_village_V8_1" text="Wereksand" />
+    <string id="Settlements.Settlement.name.castle_village_V8_2" text="Marin" />
+    <string id="Settlements.Settlement.name.hideout_desert_1" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_10" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_11" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_12" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_13" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_14" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_15" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_16" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_17" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_18" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_19" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_2" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_20" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_3" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_4" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_5" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_6" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_7" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_8" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_desert_9" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_1" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_10" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_11" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_12" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_13" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_14" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_15" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_16" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_17" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_18" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_19" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_2" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_3" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_4" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_5" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_6" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_7" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_8" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_forest_9" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_1" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_10" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_11" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_12" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_13" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_14" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_15" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_16" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_17" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_18" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_19" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_2" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_20" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_3" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_4" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_5" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_6" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_7" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_8" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_mountain_9" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_1" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_10" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_11" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_12" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_13" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_14" text="{.F}Kryjówka{.nn} {.F}nadmorska{.aj}" />
+    <string id="Settlements.Settlement.name.hideout_seaside_15" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_16" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_17" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_18" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_19" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_2" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_20" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_3" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_4" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_5" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_6" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_7" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_8" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_seaside_9" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_1" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_10" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_11" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_12" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_13" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_14" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_15" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_16" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_17" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_18" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_19" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_2" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_20" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_3" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_4" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_5" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_6" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_7" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_8" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.hideout_steppe_9" text="{.F}Kryjówka" />
+    <string id="Settlements.Settlement.name.town_A1" text="Kujaz" />
+    <string id="Settlements.Settlement.name.town_A2" text="Husn Fulk" />
+    <string id="Settlements.Settlement.name.town_A3" text="Ijakis" />
+    <string id="Settlements.Settlement.name.town_A4" text="{.F}Razja" />
+    <string id="Settlements.Settlement.name.town_A5" text="Hubjar" />
+    <string id="Settlements.Settlement.name.town_A7" text="{.F}Askara" />
+    <string id="Settlements.Settlement.name.town_A8" text="{.F}Kazira" />
+    <string id="Settlements.Settlement.name.town_B1" text="Marunat" />
+    <string id="Settlements.Settlement.name.town_B2" text="Dunglanys" />
+    <string id="Settlements.Settlement.name.town_B3" text="Kar Banset" />
+    <string id="Settlements.Settlement.name.town_B4" text="{.F}Seonona" />
+    <string id="Settlements.Settlement.name.town_B5" text="Pen Kannok" />
+    <string id="Settlements.Settlement.name.town_EN1" text="{.F}Epikrotea" />
+    <string id="Settlements.Settlement.name.town_EN2" text="{.F}Diatma" />
+    <string id="Settlements.Settlement.name.town_EN3" text="{.F}Saneopa" />
+    <string id="Settlements.Settlement.name.town_EN4" text="Argoron" />
+    <string id="Settlements.Settlement.name.town_EN5" text="{.F}Mizea" />
+    <string id="Settlements.Settlement.name.town_EN6" text="{.F}Amprela" />
+    <string id="Settlements.Settlement.name.town_ES1" text="{.F}Danustyka" />
+    <string id="Settlements.Settlement.name.town_ES2" text="Wostrum" />
+    <string id="Settlements.Settlement.name.town_ES3" text="Poros" />
+    <string id="Settlements.Settlement.name.town_ES4" text="Likaron" />
+    <string id="Settlements.Settlement.name.town_ES5" text="{.F}Onira" />
+    <string id="Settlements.Settlement.name.town_ES6" text="Fikaon" />
+    <string id="Settlements.Settlement.name.town_ES7" text="{.F}Syronea" />
+    <string id="Settlements.Settlement.name.town_EW1" text="{.F}Lageta" />
+    <string id="Settlements.Settlement.name.town_EW2" text="{.F}Zeonika" />
+    <string id="Settlements.Settlement.name.town_EW3" text="Dżalmaris" />
+    <string id="Settlements.Settlement.name.town_EW4" text="{.F}Ortyzja" />
+    <string id="Settlements.Settlement.name.town_EW5" text="Amitatys" />
+    <string id="Settlements.Settlement.name.town_EW6" text="{.F}Rotea" />
+    <string id="Settlements.Settlement.name.town_K1" text="Baltakand" />
+    <string id="Settlements.Settlement.name.town_K2" text="Akkalat" />
+    <string id="Settlements.Settlement.name.town_K3" text="{.F}Makeba" />
+    <string id="Settlements.Settlement.name.town_K4" text="Ortongard" />
+    <string id="Settlements.Settlement.name.town_K5" text="Czajkand" />
+    <string id="Settlements.Settlement.name.town_K6" text="Odok" />
+    <string id="Settlements.Settlement.name.town_S1" text="Warreg" />
+    <string id="Settlements.Settlement.name.town_S2" text="Balgard" />
+    <string id="Settlements.Settlement.name.town_S3" text="Omor" />
+    <string id="Settlements.Settlement.name.town_S4" text="Warnowapol" />
+    <string id="Settlements.Settlement.name.town_S5" text="Tyjal" />
+    <string id="Settlements.Settlement.name.town_S6" text="Sibir" />
+    <string id="Settlements.Settlement.name.town_S7" text="Rewil" />
+    <string id="Settlements.Settlement.name.town_V1" text="Sargot" />
+    <string id="Settlements.Settlement.name.town_V2" text="Okshal" />
+    <string id="Settlements.Settlement.name.town_V3" text="{.F}Prawenda" />
+    <string id="Settlements.Settlement.name.town_V5" text="{.F}Galenda" />
+    <string id="Settlements.Settlement.name.town_V6" text="Jakulan" />
+    <string id="Settlements.Settlement.name.town_V7" text="Charas" />
+    <string id="Settlements.Settlement.name.town_V8" text="Ostykan" />
+    <string id="Settlements.Settlement.name.town_V9" text="Rowalt" />
+    <string id="Settlements.Settlement.name.village_A1_1" text="{.F}Taszeba" />
+    <string id="Settlements.Settlement.name.village_A1_2" text="Bak" />
+    <string id="Settlements.Settlement.name.village_A1_4" text="Hiblet" />
+    <string id="Settlements.Settlement.name.village_A2_2" text="Abu Kih" />
+    <string id="Settlements.Settlement.name.village_A2_3" text="Hokka" />
+    <string id="Settlements.Settlement.name.village_A3_1" text="{.F}Abba" />
+    <string id="Settlements.Settlement.name.village_A3_3" text="Bir Seif" />
+    <string id="Settlements.Settlement.name.village_A4_1" text="Kablab" />
+    <string id="Settlements.Settlement.name.village_A4_2" text="Mussum" />
+    <string id="Settlements.Settlement.name.village_A4_4" text="Doka" />
+    <string id="Settlements.Settlement.name.village_A5_1" text="Malul" />
+    <string id="Settlements.Settlement.name.village_A5_2" text="Liwas" />
+    <string id="Settlements.Settlement.name.village_A5_3" text="Waltas" />
+    <string id="Settlements.Settlement.name.village_A6_1" text="Midżajt" />
+    <string id="Settlements.Settlement.name.village_A6_2" text="Hamoszawat" />
+    <string id="Settlements.Settlement.name.village_A6_3" text="Jahazym" />
+    <string id="Settlements.Settlement.name.village_A6_4" text="Nalan" />
+    <string id="Settlements.Settlement.name.village_A7_2" text="Bait Hatif" />
+    <string id="Settlements.Settlement.name.village_A7_3" text="Mabwaz" />
+    <string id="Settlements.Settlement.name.village_A7_4" text="Zalm" />
+    <string id="Settlements.Settlement.name.village_A8_1" text="Ezbet Nahul" />
+    <string id="Settlements.Settlement.name.village_A8_2" text="Abgan" />
+    <string id="Settlements.Settlement.name.village_B1_1" text="Dalmengus" />
+    <string id="Settlements.Settlement.name.village_B1_2" text="Eberet" />
+    <string id="Settlements.Settlement.name.village_B1_3" text="Beglomuar" />
+    <string id="Settlements.Settlement.name.village_B1_4" text="At Kafal" />
+    <string id="Settlements.Settlement.name.village_B2_1" text="Diantogmail" />
+    <string id="Settlements.Settlement.name.village_B2_2" text="Glenlitrig" />
+    <string id="Settlements.Settlement.name.village_B2_3" text="Morihig" />
+    <string id="Settlements.Settlement.name.village_B3_1" text="Bog Bet" />
+    <string id="Settlements.Settlement.name.village_B3_2" text="Geunat Nal" />
+    <string id="Settlements.Settlement.name.village_B3_3" text="Tor Lejad" />
+    <string id="Settlements.Settlement.name.village_B4_1" text="Bryn Glas" />
+    <string id="Settlements.Settlement.name.village_B4_2" text="Andurn" />
+    <string id="Settlements.Settlement.name.village_B4_3" text="Mag Arba" />
+    <string id="Settlements.Settlement.name.village_B4_4" text="Swenryn" />
+    <string id="Settlements.Settlement.name.village_B5_1" text="Durn" />
+    <string id="Settlements.Settlement.name.village_B5_2" text="Gainset" />
+    <string id="Settlements.Settlement.name.village_B5_3" text="Fenon Etir" />
+    <string id="Settlements.Settlement.name.village_EN1_1" text="{.F}Maratea" />
+    <string id="Settlements.Settlement.name.village_EN1_2" text="Statymos" />
+    <string id="Settlements.Settlement.name.village_EN1_3" text="Gimoz" />
+    <string id="Settlements.Settlement.name.village_EN2_1" text="{.F}Alosea" />
+    <string id="Settlements.Settlement.name.village_EN2_2" text="Dżerakos" />
+    <string id="Settlements.Settlement.name.village_EN3_1" text="{.F}Enoisa" />
+    <string id="Settlements.Settlement.name.village_EN3_3" text="Krios" />
+    <string id="Settlements.Settlement.name.village_EN4_2" text="Alatys" />
+    <string id="Settlements.Settlement.name.village_EN4_4" text="{.F}Hetania" />
+    <string id="Settlements.Settlement.name.village_EN5_1" text="Walos" />
+    <string id="Settlements.Settlement.name.village_EN5_2" text="{.F}Ortra" />
+    <string id="Settlements.Settlement.name.village_EN5_4" text="{.F}Samata" />
+    <string id="Settlements.Settlement.name.village_EN6_1" text="Awasynton" />
+    <string id="Settlements.Settlement.name.village_EN6_2" text="{.F}Boreagora" />
+    <string id="Settlements.Settlement.name.village_ES1_2" text="{.F}Polizja" />
+    <string id="Settlements.Settlement.name.village_ES1_3" text="Tegrezos" />
+    <string id="Settlements.Settlement.name.village_ES1_4" text="Erebulos" />
+    <string id="Settlements.Settlement.name.village_ES2_2" text="Gorkoryz" />
+    <string id="Settlements.Settlement.name.village_ES2_3" text="Awalips" />
+    <string id="Settlements.Settlement.name.village_ES2_4" text="Alizjon" />
+    <string id="Settlements.Settlement.name.village_ES3_1" text="Kanoros" />
+    <string id="Settlements.Settlement.name.village_ES3_2" text="{.F}Tewea" />
+    <string id="Settlements.Settlement.name.village_ES3_3" text="{.F}Zestea" />
+    <string id="Settlements.Settlement.name.village_ES4_1" text="{.F}Sagora" />
+    <string id="Settlements.Settlement.name.village_ES4_3" text="Kanterion" />
+    <string id="Settlements.Settlement.name.village_ES5_1" text="Lantas" />
+    <string id="Settlements.Settlement.name.village_ES5_2" text="Lartuzys" />
+    <string id="Settlements.Settlement.name.village_ES5_3" text="Parazemnos" />
+    <string id="Settlements.Settlement.name.village_ES6_1" text="Saldannis" />
+    <string id="Settlements.Settlement.name.village_ES6_2" text="{.F}Spotia" />
+    <string id="Settlements.Settlement.name.village_ES7_1" text="Sotaj" />
+    <string id="Settlements.Settlement.name.village_ES7_2" text="Wargornis" />
+    <string id="Settlements.Settlement.name.village_EW1_1" text="Primessos" />
+    <string id="Settlements.Settlement.name.village_EW1_2" text="Montos" />
+    <string id="Settlements.Settlement.name.village_EW2_2" text="Neokoris" />
+    <string id="Settlements.Settlement.name.village_EW2_3" text="Alzasos" />
+    <string id="Settlements.Settlement.name.village_EW2_4" text="Zeokoris" />
+    <string id="Settlements.Settlement.name.village_EW3_2" text="{.F}Egoska" />
+    <string id="Settlements.Settlement.name.village_EW3_3" text="Dradios" />
+    <string id="Settlements.Settlement.name.village_EW4_1" text="Arpotys" />
+    <string id="Settlements.Settlement.name.village_EW4_3" text="{.F}Winela" />
+    <string id="Settlements.Settlement.name.village_EW4_4" text="{.F}Garengolia" />
+    <string id="Settlements.Settlement.name.village_EW5_1" text="{.F}Elipa" />
+    <string id="Settlements.Settlement.name.village_EW5_2" text="Fazos" />
+    <string id="Settlements.Settlement.name.village_EW6_1" text="Karpenion" />
+    <string id="Settlements.Settlement.name.village_EW6_3" text="Tersenion" />
+    <string id="Settlements.Settlement.name.village_EW6_4" text="Leblenion" />
+    <string id="Settlements.Settlement.name.village_K1_1" text="Fisnar" />
+    <string id="Settlements.Settlement.name.village_K1_2" text="Ułaan" />
+    <string id="Settlements.Settlement.name.village_K1_4" text="Asalig" />
+    <string id="Settlements.Settlement.name.village_K2_1" text="Karakalat" />
+    <string id="Settlements.Settlement.name.village_K2_2" text="Tyzmil" />
+    <string id="Settlements.Settlement.name.village_K3_1" text="Szapeszte" />
+    <string id="Settlements.Settlement.name.village_K3_2" text="Haneki" />
+    <string id="Settlements.Settlement.name.village_K3_3" text="Mazen" />
+    <string id="Settlements.Settlement.name.village_K4_2" text="Ransam" />
+    <string id="Settlements.Settlement.name.village_K4_3" text="Miwandżan" />
+    <string id="Settlements.Settlement.name.village_K4_4" text="Urundżan" />
+    <string id="Settlements.Settlement.name.village_K5_2" text="Okutan" />
+    <string id="Settlements.Settlement.name.village_K5_3" text="Ispantar" />
+    <string id="Settlements.Settlement.name.village_K5_4" text="Pabastan" />
+    <string id="Settlements.Settlement.name.village_K6_1" text="Karahan" />
+    <string id="Settlements.Settlement.name.village_K6_2" text="Nutiuk" />
+    <string id="Settlements.Settlement.name.village_K6_3" text="{.F}Danara" />
+    <string id="Settlements.Settlement.name.village_S1_1" text="Rodobas" />
+    <string id="Settlements.Settlement.name.village_S1_3" text="Kargrew" />
+    <string id="Settlements.Settlement.name.village_S2_1" text="{.F}Safna" />
+    <string id="Settlements.Settlement.name.village_S2_2" text="Marabrot" />
+    <string id="Settlements.Settlement.name.village_S3_1" text="Czernobas" />
+    <string id="Settlements.Settlement.name.village_S3_2" text="Skorin" />
+    <string id="Settlements.Settlement.name.village_S4_1" text="{.F}Borkowa{.aj} {.F}Górka{.nn}" />
+    <string id="Settlements.Settlement.name.village_S4_3" text="Omkany" />
+    <string id="Settlements.Settlement.name.village_S4_4" text="Jangutum" />
+    <string id="Settlements.Settlement.name.village_S5_1" text="Wizybrot" />
+    <string id="Settlements.Settlement.name.village_S5_2" text="Bukicz" />
+    <string id="Settlements.Settlement.name.village_S6_1" text="Kwol" />
+    <string id="Settlements.Settlement.name.village_S6_2" text="Radakmed" />
+    <string id="Settlements.Settlement.name.village_S6_3" text="Alebat" />
+    <string id="Settlements.Settlement.name.village_S7_1" text="Korsjas" />
+    <string id="Settlements.Settlement.name.village_S7_2" text="Karbur" />
+    <string id="Settlements.Settlement.name.village_V1_1" text="Kaliok" />
+    <string id="Settlements.Settlement.name.village_V1_2" text="Etirfurd" />
+    <string id="Settlements.Settlement.name.village_V2_1" text="Mareiwen" />
+    <string id="Settlements.Settlement.name.village_V2_2" text="Orytan" />
+    <string id="Settlements.Settlement.name.village_V2_3" text="Fregian" />
+    <string id="Settlements.Settlement.name.village_V3_2" text="Rulund" />
+    <string id="Settlements.Settlement.name.village_V3_3" text="Larnak" />
+    <string id="Settlements.Settlement.name.village_V3_4" text="Palisont" />
+    <string id="Settlements.Settlement.name.village_V5_1" text="Furbek" />
+    <string id="Settlements.Settlement.name.village_V5_2" text="Merok" />
+    <string id="Settlements.Settlement.name.village_V5_3" text="Nogrent" />
+    <string id="Settlements.Settlement.name.village_V6_1" text="Arromank" />
+    <string id="Settlements.Settlement.name.village_V6_2" text="Mot" />
+    <string id="Settlements.Settlement.name.village_V6_3" text="Alorstan" />
+    <string id="Settlements.Settlement.name.village_V6_4" text="Szornad" />
+    <string id="Settlements.Settlement.name.village_V7_1" text="Sawint" />
+    <string id="Settlements.Settlement.name.village_V7_2" text="Wesyn" />
+    <string id="Settlements.Settlement.name.village_V8_1" text="Horsger" />
+    <string id="Settlements.Settlement.name.village_V8_2" text="Kanank" />
+    <string id="Settlements.Settlement.name.village_V8_3" text="Remental" />
+    <string id="Settlements.Settlement.name.village_V9_1" text="Alantas" />
+    <string id="Settlements.Settlement.name.village_V9_2" text="Halizwust" />
+    <string id="Settlements.Settlement.text.castle_village_A1_1" text="Tubilis leży nad Zatoką Charaską, którą Aserajczycy nazywają Szariz. Wieśniacy przychodzą tu łowić wśród przybrzeżnych wysp tuńczyki, sardynki i rekiny." />
+    <string id="Settlements.Settlement.text.castle_village_A2_1" text="Sahel leży na skraju aserajskich ziem, wśród niskich gór Dżabal Aszabi. Nad granią zbierają się chmury deszczowe znad morza Bar-al-Jeszm, spychane przez monsuny z południowego wschodu. Skąpane deszczem pola umożliwiają uprawę prosa i pszenicy." />
+    <string id="Settlements.Settlement.text.castle_village_A2_2" text="Asmait leży we wnęce wśród gór Dżabal Aszabi, od południa granicząc z pustynią. Rzadkie burze pozwalają wieśniakom gromadzić wodę spływającą ze wzgórz i wykorzystywać ją do uprawy palm daktylowych i innych roślin." />
+    <string id="Settlements.Settlement.text.castle_village_A3_1" text="Ain Balik otacza studnię w szerokiej dolinie, która dzieli skarpę Czardżara od gór Dżabal Tamar na zachodzie. Okoliczna ziemia, choć sucha, w czasie wiosny porasta trawą, która umożliwia hodowlę koni." />
+    <string id="Settlements.Settlement.text.castle_village_A3_2" text="Deir Hawa leży na wietrznym południowym brzegu morza, które Aserajczycy nazywają Bar-al-Jeszm. Wieśniacy zbierają spływającą ze wzgórz wodę i uprawiają len na nizinach." />
+    <string id="Settlements.Settlement.text.castle_village_A4_1" text="Medeni leży na nizinach pomiędzy morzem Bar-al-Jeszm i skarpą Czardżara. Wieśniacy uprawiają daktyle w ogrodach na wybrzeżu, czerpiąc wodę ze studni i niewielkich zapór w wadi, które zatrzymują wodę spływającą ze wzgórz w porze deszczowej." />
+    <string id="Settlements.Settlement.text.castle_village_A4_2" text="Kidnar leży w rozlewisku rzeki Damar, najgęściej zaludnionej części aserajskich ziem, przecinając skarpę Czardżara. Tutejsi rolnicy uprawiają zboże w żyznym mule, który co roku wylewa rzeka." />
+    <string id="Settlements.Settlement.text.castle_village_A5_1" text="Dżamaje leży na południowym brzegu morza zwanego przez Aserajczyków Bar-al-Jeszm, czyli Nefrytowym Morzem. Klimat sprzyja uprawie drzew oliwnych, którym nie przeszkadza krótka pora deszczowa." />
+    <string id="Settlements.Settlement.text.castle_village_A6_1" text="Szibal Zumr leży nad wapienną rzeką Nar al-Kals. Wody są tutaj czyste, a gleba żyzna, co umożliwia uprawę zbóż. Lecz na niedalekim południu ziemia staje się alkaliczna i jałowa i przetrwać mogą tylko najwytrzymalsze rośliny." />
+    <string id="Settlements.Settlement.text.castle_village_A7_1" text="Ukba leży nad Morzem Peraskim. Wieśniacy gromadzą deszczówkę i spływ ze wzgórz, by nawadniać pola i ogrody palm daktylowych." />
+    <string id="Settlements.Settlement.text.castle_village_A7_2" text="Bunkaz leży u wejścia do wielkiej wadi, która oddziela skarpę Czardżara od wzgórz Dżabal Tamar. Wieśniacy drążą tu studnie, by dostać się do wód gruntowych wadi i wykorzystać je do nawodnienia gajów oliwnych." />
+    <string id="Settlements.Settlement.text.castle_village_A8_1" text="Tamnuh leży w pobliżu ogromnej laguny, oddzielone mierzeją od Morza Peraskiego. Wieśniacy wygrzebują glinę z płytkich wód i sprzedają ją miejscowym garncarzom." />
+    <string id="Settlements.Settlement.text.castle_village_A9_1" text="Oaza-wioska Barihal leży w wadi pośród ściętych wzgórz skarpy Czardżara. Okolica słynie z koni, które wypasa się na szybko wysychającej, lecz rosnącej niezwykle obficie wiosennej trawie pustyni." />
+    <string id="Settlements.Settlement.text.castle_village_B1_1" text="Ab Komer leży w stepowej przełęczy nad górnym biegiem rzeki Trand, która prowadzi na płaskowyż Uchalion. Tutejsze plemiona uprawiają na stokach wzgórz winogrona, z których robi się białe wino popularne wśród cesarskich i wlandyjskich arystokratów." />
+    <string id="Settlements.Settlement.text.castle_village_B2_1" text="Llanok Hen leży na grani masywu Uchalion. Trudniący się głównie hodowlą świń wieśniacy mają dobry widok na dwa szlaki, z których zachodni prowadzi do wlandyjskich, a wschodni do cesarskich ziem." />
+    <string id="Settlements.Settlement.text.castle_village_B2_2" text="Kantrek leży w skalistym wąwozie Balasog, który pnie się od ziem Cesarstwa do płaskowyżu Uchafion. Tutejsza ziemia nie jest zbyt żyzna, lecz wśród górzystych krzewów i zarośli pasą się świnie." />
+    <string id="Settlements.Settlement.text.castle_village_B3_1" text="Druimmor leży w dolinie Morkomb, która oddziela płaskowyż Uchalion od gór półwyspu Ebor. Tutejsi górnicy natrafili na srebro w szczelinach wzgórz." />
+    <string id="Settlements.Settlement.text.castle_village_B4_1" text="Pendraik leży na stromym północnym zboczu masywu Uchalion, zwróconym w kierunku zatoki Warreg. To kraina zimnych wichrów i nieustannych potyczek, w których spotykają się wlandyjscy, batańscy i sturgijscy grabieżcy. Wieśniacy hodują świnie, nasłuchując rogów ostrzegawczych, które w każdej chwili mogą dać znak, że trzeba wpędzić stada do kryjówek na wzgórzach." />
+    <string id="Settlements.Settlement.text.castle_village_B5_1" text="Remtoil leży za rozpadliną we wschodniej części płaskowyżu Uchalion, w pobliżu źródeł rzeki Miron, którą Batańczycy znają jako Myr. Są to jedne z najżyźniejszych ziem Batanii i uprawia się tutaj duże ilości pszenicy." />
+    <string id="Settlements.Settlement.text.castle_village_B5_2" text="Claig Ban leży u stóp stromej rozpadliny, która wrzyna się w masyw Uchalion. Tutejsi wieśniacy zbierają glinę z pobliskiej rzeki Myr i sprzedają ją garncarzom w batańskich miasteczkach." />
+    <string id="Settlements.Settlement.text.castle_village_B6_1" text="Flintolg leży na wysokiej grani we wschodniej części masywu Uchalion. Gleba nie należy do żyznych, lecz rosną tu gęste lasy, będące źródłem dużej części drewna zużywanego w Batanii." />
+    <string id="Settlements.Settlement.text.castle_village_B6_2" text="Glintor leży nad kaskadami rzeki Fiur, którymi wody Lin Tiwal spadają do zatoki Warreg. Na nizinach pasą się konie, które cenią zarówno grabieżcy, jak i kupcy ze sturgijskich ziem na północy." />
+    <string id="Settlements.Settlement.text.castle_village_B7_1" text="Aster leży w płytkiej dolinie między wzgórzami na północnym wschodzie masywu Uchalion a Skałą Glanys. Tamtejsi mieszkańcy znani są bardziej z handlu niż z wojaczki, a wodzowie plemienni wspierają plantacje krzewów morwowych, umożliwiających hodowlę jedwabiu na niewielką skalę." />
+    <string id="Settlements.Settlement.text.castle_village_B8_1" text="Utelaim leży na grani nad dopływem rzeki Myr na wschodniej granicy batańskich ziem. Tamtejsi mieszkańcy trudnią się leśnictwem i wyrębem dębów, cisów i sosen na sprzedaż dla budowniczych i cieśli okrętowych." />
+    <string id="Settlements.Settlement.text.castle_village_EN1_1" text="Waragos leży nad niewielkim strumieniem górskim Aris, który wpada do głębokiego jeziora Oftys. Ziemia nie jest tu szczególnie żyzna, nadaje się jednak do hodowli owiec." />
+    <string id="Settlements.Settlement.text.castle_village_EN2_1" text="Lochana leży na wschodnim brzegu jeziora Lakonis. Błotniste niziny świetnie nadają się pod uprawę lnu." />
+    <string id="Settlements.Settlement.text.castle_village_EN3_1" text="Resos leży na płaskowyżu wśród Gór Driatyckich. Wyżynne trawy doskonale nadają się do hodowli bydła." />
+    <string id="Settlements.Settlement.text.castle_village_EN4_1" text="Gaos leży w szerokiej, usianej wzgórzami dolinie płaskowyżu Mizea na wschodzie Cesarstwa. Niegdyś tereny te zamieszkiwali koczownicy, nazwa wsi pochodzi zaś od słowa oznaczającego w ich języku bydło." />
+    <string id="Settlements.Settlement.text.castle_village_EN5_1" text="Atrion leży w dolinie Newisu, zimnej i powolnej rzeki, która wpada do jeziora Lakonis. Płaskie, wilgotne tereny nadają się doskonale pod uprawę lnu." />
+    <string id="Settlements.Settlement.text.castle_village_EN6_1" text="Atakonia leży na płaskowyżu znajdującym się na podgórzu Gór Driatyckich. Lokalni mieszkańcy potrafią umiejętnie odnajdywać żyły srebra odsłonięte przez spływające z gór potoki." />
+    <string id="Settlements.Settlement.text.castle_village_EN7_1" text="Epinosa leży na dalekiej północy Cesarstwa, na południe od lodowcowych jezior znanych jako Iltańskie Przenoski, które umożliwiają transport statków między jeziorami Lakonis i Tanezis. Region ten nie jest zbyt ludny, ale na trawiastych nizinach wypasają się wielkie stada bydła." />
+    <string id="Settlements.Settlement.text.castle_village_EN7_2" text="Pons to jedno z najbardziej wysuniętych na północ osiedli Cesarstwa. Jego nazwa pochodzi od szlaku Iltańskich Przenosek, składającego się z polodowcowych jezior, które umożliwiają transport statków z jeziora Lakonis do jeziora Tanezis. Region ten nie jest zbyt ludny, ale na trawiastych nizinach wypasają się wielkie stada bydła." />
+    <string id="Settlements.Settlement.text.castle_village_EN8_1" text="Syratos leży u podnóża skarpy na północ od jeziora Tanezis. Wieśniacy w pobliskich wzgórzach eksploatują złoża rudy żelaza wyłaniające się spod ziemi, kiedy mroźne zimy rozsadzają okoliczne skały." />
+    <string id="Settlements.Settlement.text.castle_village_EN8_2" text="Tememos leży na gęsto zalesionym obszarze na północnym skraju jeziora Tanezis. Wielu wieśniaków trudni się leśnictwem i wycinką dębów, brzóz i sosen na sprzedaż dla nadjeziornych miast." />
+    <string id="Settlements.Settlement.text.castle_village_EN9_1" text="Mekalowea leży nad Kataraktami Galszy, rwącymi prądami i wodospadami na rzece Miron nieopodal jej ujścia do jeziora Lakonis. Osada, która jest położona na klifie dla ochrony przed grasującymi na rubieżach bandytami, bogaci się dzięki złożom żelaza odsłaniającym się za sprawą skłębionej w kataraktach wody." />
+    <string id="Settlements.Settlement.text.castle_village_EN9_2" text="Agalmon leży niedaleko miejsca, w którym łączą się Galsza i Miron – niewielkie, lecz wartko płynące północne rzeki. Ta wioska leśników utrzymuje raczej dobre stosunki ze sturgijskimi sąsiadami dzięki dekadom zawierania więzi małżeńskich, choć owe stosunki stały się w ostatnim czasie napięte z powodu wybuchu wojny." />
+    <string id="Settlements.Settlement.text.castle_village_ES1_1" text="Odrisa leży na dalekim wschodzie – w miejscu, gdzie rzeka Tiagis oddziela Cesarstwo od ziem, które obecnie są pod panowaniem Chanatu Huzajskiego. Choć ziemia jest sucha, wąwozy rzeki Tiagis i zakątki wzgórz są porośnięte przez dęby i inne gatunki drzew, co umożliwia funkcjonowanie leśnictwa na niewielką skalę." />
+    <string id="Settlements.Settlement.text.castle_village_ES2_1" text="Korenia to jedna z najdalszych cesarskich wsi, w których mówi się po kalradyjsku. Położona jest na równinach na południowy wschód od jeziora Tanezis u stóp Wzgórz Akkanu, za którymi słyszy się tylko mowę darszi i języki stepowe. Wieśniacy uprawiają tu zboże, pilnując się przed nadchodzącymi zza granic grabieżcami." />
+    <string id="Settlements.Settlement.text.castle_village_ES2_2" text="Metachia leży na południowym brzegu jeziora Tanezis, na przygranicznych terenach za rzeką Tiagis. Ta kolonia Cesarstwa, którą założono w spokojniejszych czasach, jest głównym źródłem krzewów morwowych, używanych w produkcji jedwabiu." />
+    <string id="Settlements.Settlement.text.castle_village_ES3_1" text="Melion leży w wąskiej dolinie centralnej części nierównego płaskowyżu Mizea we wschodnim Cesarstwie. Miejscowi wieśniacy uprawiają krzewy morwowe. Ich liście są zbierane i przeznaczane na pożywienie dla jedwabników, które wytwarzają nici cenione zarówno na dworach cesarskich arystokratów, jak też wśród nomadów i mieszkańców pogranicza, noszących utkane z nich ubrania pod pancerzem jako dodatkową ochronę przed strzałami." />
+    <string id="Settlements.Settlement.text.castle_village_ES3_2" text="Sagolina leży u stóp wąskiej doliny nierównego płaskowyżu Mizea we wschodniej Kalradii. Wydobywane w pobliskich wzgórzach srebro jest powodem, dla którego Cesarstwo poświęciło na podbój i obronę tych ziem tyle wysiłku i pieniędzy." />
+    <string id="Settlements.Settlement.text.castle_village_ES4_1" text="Lawenia to wioska rybacka na północno-wschodnim brzegu Morza Peraskiego. Pobliski zamek strzeże dostępu do jednego z głównych szlaków przeprawowych przez sieć jezior i słonych lagun o nazwie Kalsea. To droga do aserajskich ziem." />
+    <string id="Settlements.Settlement.text.castle_village_ES4_2" text="Etemisa leży nad Nar al-Kals, czyli Gorzką Rzeką (w nazewnictwie Aserajczyków), albo też nad Kalsą (w nazewnictwie obywateli Cesarstwa). To odcinek rzeki, na którym spływająca z nadbrzeżnych wzgórz woda nie dotarła jeszcze do zasadowych równin na południowym wschodzie. Na tutejszych polach uprawia się duże ilości zbóż." />
+    <string id="Settlements.Settlement.text.castle_village_ES5_1" text="Morenia leży nad rzeką Setys, w płytkiej przełęczy prowadzącej wśród wzgórz do doliny Likarea. Wieśniacy zbierają w korytach rzek glinę, która następnie jest wytapiana w piecach południowych ziem Cesarstwa." />
+    <string id="Settlements.Settlement.text.castle_village_ES6_1" text="Sestadaim leży po zachodniej stronie wielkiej skały Ornian, na wychodni w samym środku doliny Likarea. Ludzie mawiają, że sępy, od których pochodzi nazwa skały, niegdyś gromadziły się tu, by żerować na zwłokach nieszczęśników, którzy zginęli podczas pracy w okolicznych kopalniach srebra." />
+    <string id="Settlements.Settlement.text.castle_village_ES7_1" text="Dżogurys leży na płaskim, zachodnim brzegu jeziora Tanezis. Te ziemie, które dopiero niedawno poddano uprawie, początkowo zamieszkiwane były przez koczownicze plemiona. Koloniści z Cesarstwa dołożyli znacznych starań, by móc uprawiać tu krzewy morwowe i hodować jedwabniki, dochodowy produkt tego regionu." />
+    <string id="Settlements.Settlement.text.castle_village_ES8_1" text="Szanopsis leży w pobliżu strumieni zbiegających się w rzekę Setys na płaskowyżu zwanym Mizeą. Pszenica bujnie porasta spieczone słońcem równiny." />
+    <string id="Settlements.Settlement.text.castle_village_EW1_1" text="Nazwą Garontor ochrzczono przylądek pomiędzy Zatoką Charaską a śródlądowym Morzem Peraskim. Nadbrzeżne łąki, gdzie bujnej trawie nie przeszkadza sól niesiona znad oceanu, sprzyjają hodowli dorodnych koni." />
+    <string id="Settlements.Settlement.text.castle_village_EW2_1" text="Torios leży w dolinie Aris, w samym sercu Kalradii. Dzięki nawadnianiu pól wodą z rzek i względnie ciepłemu, śródlądowemu klimatowi tutejsze pola wraz z sąsiednim Bergum zapewniają żywność większości mieszkańców centralnego Cesarstwa." />
+    <string id="Settlements.Settlement.text.castle_village_EW2_2" text="Bergum leży w dolinie Aris, w samym sercu Kalradii. Dzięki nawadnianiu pól wodą z rzek i względnie ciepłemu, śródlądowemu klimatowi tutejsze pola wraz z sąsiednim Torios zapewniają żywność większości mieszkańców centralnego Cesarstwa." />
+    <string id="Settlements.Settlement.text.castle_village_EW3_1" text="Onika leży na północnym brzegu Morza Peraskiego. Tutejsze wzgórza są pokryte gajami oliwnymi, z których południowe Cesarstwo słynie. Z oliwek wytwarza się lekką, aromatyczną oliwę." />
+    <string id="Settlements.Settlement.text.castle_village_EW4_1" text="Taraktora leży nad niedużą zatoką, która łączy się z większą Zatoką Charaską. Ziemie te, nawadniane górskimi źródłami i owiewane gorącym powietrzem z południa, są wykorzystywane przez cesarskich właścicieli ziemskich do uprawy palm daktylowych." />
+    <string id="Settlements.Settlement.text.castle_village_EW5_1" text="Weron leży na równinach masywu Uchalion, w pobliżu miejsca, gdzie strumienie zlewają się w rzekę Garys. W letnie noce na górujących nad wioską wzgórzach jaśnieją ogniska pasterzy, którzy prowadzą swoje trzody na wyżynne pastwiska." />
+    <string id="Settlements.Settlement.text.castle_village_EW5_2" text="Goleryn leży pośród ciepłych, porośniętych dębami Wzgórz Epirskich, blisko granicy z Wlandią i Batanią. Tutejsi mieszkańcy żyją z wypasu owiec, a także z ich kradzieży. " />
+    <string id="Settlements.Settlement.text.castle_village_EW6_1" text="Hertogea leży w cieniu góry Erytrys, olbrzymiej bazaltowej płyty wypchniętej z głębin ziemi. Wieśniacy uprawiają oliwki na stokach prowadzących na jej szczyt." />
+    <string id="Settlements.Settlement.text.castle_village_EW7_1" text="Oristokoris leży nad zatoką Ortyzja, która stanowi część szlaku morskiego łączącego zachodni ocean i Morze Peraskie. Poranna mgiełka znad morza i żar południowego słońca umożliwiają hodowanie winogron." />
+    <string id="Settlements.Settlement.text.castle_village_EW7_2" text="Elwania leży nad zatoką Ortyzja, która stanowi część szlaku morskiego łączącego zachodni ocean i Morze Peraskie. Na pobliskich wzgórzach, w cieple południowego słońca, rosną drzewa oliwne." />
+    <string id="Settlements.Settlement.text.castle_village_EW8_1" text="Gersegos leży wśród wąwozów rzeki Miron w miejscu, gdzie przecina ona klify skarpy Kursjon i Gór Driatyckich. Wieśniacy wykuli kopalnie w górskiej grani nad wioską, by wydobywać z nich srebro i inne cenne metale." />
+    <string id="Settlements.Settlement.text.castle_village_K1_1" text="Usek leży u stóp Wzgórz Akkanu na wschodnim brzegu jeziora Tanezis, które Huzajczycy zwą Morzem Tanaskim. Wieśniacy, wiodący do niedawno koczowniczy tryb życia, obecnie hodują owce i pozyskują z nich długą wełnę dobrej jakości." />
+    <string id="Settlements.Settlement.text.castle_village_K1_2" text="Wioska Esme wraz z pobliskimi osadami leży na skierowanych w stronę lądu zboczach Wzgórz Akkanu, na płaskowyżu Dewseg. To główny region pasterski dla trzód Huzajczyków oraz ich sojuszników." />
+    <string id="Settlements.Settlement.text.castle_village_K2_1" text="Akiser leży na południowym skraju Wzgórz Akkanu. Tutejsza ziemia jest wyjątkowo wysuszona i spękana, a w rowach i jarach widnieją złoża żelaza." />
+    <string id="Settlements.Settlement.text.castle_village_K3_1" text="Wioska Hakkun leży na szczycie skarpy Wzgórz Akkanu. Tutejsza ludność od dawna trudni się wydobywaniem srebra w górach. Odkąd huzajscy chanowie podbili ten region, zaczęli ochoczo wspierać tę działalność mieszkańców." />
+    <string id="Settlements.Settlement.text.castle_village_K4_1" text="Tepesz leży nad dopływem rzeki Karakaz, która od północy wpada do jeziora Tanaz, przez mieszkańców Cesarstwa zwanego Tanezis. Region ten specjalizuje się w wycince drzew. Są one spławiane rzeką i sprzedawane do nadjeziornych miast." />
+    <string id="Settlements.Settlement.text.castle_village_K5_1" text="Kimli leży w niecce płaskowyżu Dewseg. Choć przez większość roku tereny te są suche, zimą pojawiają się opady śniegu i błotniste źródła. Z pozostałych po śniegu i deszczach stawów można zebrać dobrej jakości glinę." />
+    <string id="Settlements.Settlement.text.castle_village_K6_1" text="Dinar leży na dalekiej północy konfederacji huzajskiej, nad rzeką Karakaz. Choć przez większość roku leży tu śnieg, wiosną wyrasta dość trawy, by dało się na niej wypasać znaczne ilości owiec, których wełna chroni je przez lodowym wichrem." />
+    <string id="Settlements.Settlement.text.castle_village_K6_2" text="Karahala leży na dalekiej północy konfederacji huzajskiej, nieopodal lodowego Morza Bjalskiego. Choć przez większość roku leży tu śnieg, wiosną wyrasta dość trawy, by dało się na niej wypasać znaczne ilości owiec, których wełna chroni je przed lodowym wichrem wiejącym znad morza." />
+    <string id="Settlements.Settlement.text.castle_village_K7_1" text="Simira leży w miejscu, gdzie wschodnia część płaskowyżu Dewseg przechodzi w bezkresne trawiaste równiny. Tutejsi wieśniacy hodują trzodę, by móc przetrwać zarówno srogie zimy, jak i upalne lata." />
+    <string id="Settlements.Settlement.text.castle_village_K8_1" text="Erzenur leży nad rzeką Tiagis, zwaną w lokalnym dialekcie Teją. Tutejsze wody mają charakterystyczną, czerwonawą barwę z powodu zawartego w glebie żelaza, które wieśniacy wydobywają z nadbrzeżnych wychodni skalnych." />
+    <string id="Settlements.Settlement.text.castle_village_K9_1" text="Kajsar leży w północno-wschodniej części ziem pod panowaniem Huzajczyków, w dolinie rzeki Karakaz. Ten region przez większość roku jest zasypany śniegiem, lecz wieśniacy i tak hodują stada bydła, by przetrwać lodowe wichry nadchodzące wzdłuż rzeki z północy." />
+    <string id="Settlements.Settlement.text.castle_village_K9_2" text="Pajam leży nad rzeką Karakaz wśród zimnych, północnych huzajskich ziem. Choć przez większość roku region ten jest zasypany śniegiem, wieśniacy sieją pszenicę i jęczmień wraz z pierwszymi odwilżami, dzięki czemu przed nadejściem jesieni zbierają obfite plony." />
+    <string id="Settlements.Settlement.text.castle_village_S1_1" text="Ustokoł leży na smaganych wiatrem ziemiach Półwyspu Kaczarskiego, pomiędzy zatoką Warreg i Morzem Bjalskim. Hodowane tu wytrzymałe bydło żywi się karłowatą, rosnącą wśród skał trawą, nie gardząc w kryzysowych sytuacjach listownicowcami." />
+    <string id="Settlements.Settlement.text.castle_village_S2_1" text="Mazadan leży w pobliżu źródeł rzeki Galszy, na zachód od jeziora Lakonis. W tej zimnej, deszczowej krainie wieśniacy uprawiają len w błotnistych dolinkach między wzgórzami." />
+    <string id="Settlements.Settlement.text.castle_village_S3_1" text="Newijańsk leży na płaskiej równinie nad zatoką Warreg. Ziemia jest zmarznięta, lecz napływająca ze wzgórz woda nanosi na nią żyzną glebę, umożliwiając wieśniakom uprawę wytrzymałych zbóż, takich jak pszenica i jęczmień." />
+    <string id="Settlements.Settlement.text.castle_village_S3_2" text="Dnin leży pośród pastwisk nad najwęższą częścią zatoki Warreg. Na wyżynach pasą się konie, popatrując na kupieckie drakkary i łodzie rybackie przepływające poniżej." />
+    <string id="Settlements.Settlement.text.castle_village_S4_1" text="Kraniróg leży w szerokiej, zalesionej dolinie, którą przepływa rzeka Galsza. Miejscowi wieśniacy są ekspertami w tropieniu, polowaniu na kuny, lisy i króliki, których skóry są pożądanym towarem na południu." />
+    <string id="Settlements.Settlement.text.castle_village_S4_2" text="Izmilkorg leży wśród trawiastych wzgórz pomiędzy rzekami Galsza i Wastra, dwoma małymi dopływami Mironu. Tutejsi mieszkańcy zajmują się głównie hodowlą i kradzieżą bydła, od dawna też z wzajemnością nękają najazdami przygraniczne cesarskie wioski na wschodzie i batańskie na zachodzie." />
+    <string id="Settlements.Settlement.text.castle_village_S5_1" text="Ow to młoda kolonia sturgijska w lesie Irkara, na północny zachód od jeziora Lakonis. Wieśniacy zmagają się tu z zimnem, wilkami i czasem wrogimi, a czasem przyjaznymi mieszkańcami lasu w poszukiwaniu futer, skarbu północnych ziem." />
+    <string id="Settlements.Settlement.text.castle_village_S5_2" text="Ferk leży na północnym skraju lasu Irkara, na północny zachód od jeziora Lakonis. Służy jako baza dla kupców wędrujących w głąb lasu, by zmagać się z zimnem, wilkami i czasem wrogimi, a czasem przyjaznymi mieszkańcami lasu w poszukiwaniu futer, skarbu północnych ziem." />
+    <string id="Settlements.Settlement.text.castle_village_S6_1" text="Takor to wioska, której mieszkańcy trudnią się hodowlą bydła. Leży przy przełęczy nazywanej przez Batów Mynad Rhyfel, górą wojny, a przez ich sturgijskich sąsiadów – Minador. To jeden z głównych szlaków dla kupców i bandytów pomiędzy dziką północą i bardziej ucywilizowanymi ziemiami cesarskimi." />
+    <string id="Settlements.Settlement.text.castle_village_S7_1" text="Urikskala leży na szlaku Iltańskich Przenosek, to jest na polodowcowych jeziorach, którymi żeglują (i są holowane) drakkary między jeziorami Lakonis i Tanezis. Wieśniacy łowią w płytkich wodach okonie i raki, a następnie suszą je na sprzedaż dla podróżnych." />
+    <string id="Settlements.Settlement.text.castle_village_S8_1" text="Władyw leży u stóp góry Iltan w ciemnej, gęsto zalesionej dolinie. Tutejsza trzoda jest wytrzymała i potrafi rozkopywać gęsty śnieg w poszukiwaniu trawy, by móc przetrwać zimę." />
+    <string id="Settlements.Settlement.text.castle_village_V1_1" text="Usank leży nad małą zatoką, która łączy się z większą Zatoką Charaską. Ten ciepły, południowy region jest znany z uprawy drzew oliwnych." />
+    <string id="Settlements.Settlement.text.castle_village_V2_1" text="Hongard leży w ciepłym, zalesionym regionie w pobliżu meandrów rzeki Trand. Te bogate w pszenicę ziemie były niegdyś sercem Cesarstwa, a dziś stanowią centrum królestwa Wlandii." />
+    <string id="Settlements.Settlement.text.castle_village_V2_2" text="Ferton leży przy zakręcie meandrującej rzeki Trand, niedaleko od przełęczy prowadzącej do morza przez wzgórza Biskanu. Wieśniacy uprawiają oliwki na suchych, skierowanych ku lądowi zboczach wzgórz." />
+    <string id="Settlements.Settlement.text.castle_village_V3_1" text="Drapand leży w pobliżu przylądka Faal, znajdującego się tuż na południe od ujścia rzeki Trand. Wieśniacy wyprawiają się daleko w morze w poszukiwaniu bogatych skupisk dorszy, spychanych przez zimne prądy z północy." />
+    <string id="Settlements.Settlement.text.castle_village_V4_1" text="Ormanfard leży nad niewielką, wartką rzeką spływającą z Renodu do jeziora zwanego Okspol. Deszcz pada tu często, a pszenica i jęczmień bujnie porastają zbocza wzgórz." />
+    <string id="Settlements.Settlement.text.castle_village_V5_1" text="Tirba leży wśród zimnych, mglistych wód płynących z półwyspu Ebor. Północne niziny Eboru świetnie nadają się do uprawy lnu." />
+    <string id="Settlements.Settlement.text.castle_village_V5_2" text="Syrindak leży za wysokimi graniami półwyspu Ebor, które stanowią częściową ochronę przed wichrem wiejącym z północnego zachodu. Przybywający tu imigranci z wlandyjskich ziem szukają srebra w górskich potokach." />
+    <string id="Settlements.Settlement.text.castle_village_V6_1" text="Kaleus leży na mglistej nadbrzeżnej równinie na południe od Zatoki Warreg. Wieśniacy porozumiewają się mieszaniną wlandyjskiej, sturgijskiej i batańskiej mowy. Na nizinach uprawiany jest len." />
+    <string id="Settlements.Settlement.text.castle_village_V6_2" text="Deriat leży pomiędzy Zatoką Warreg a dwoma graniami półwyspu Ebor. Lokalni wieśniacy zastawiają wśród wzgórz pułapki na bobry i wydry, czasem polują też na foki w zatoce." />
+    <string id="Settlements.Settlement.text.castle_village_V7_1" text="Taliwel leży pośrodku doliny Trand w samym sercu Kalradii. Miejscowi wieśniacy sadzą oliwki na zboczach wzgórz." />
+    <string id="Settlements.Settlement.text.castle_village_V8_1" text="Wereksand leży nad wodami niewielkiego, lecz głębokiego jeziora Okspol. Tutejsi wieśniacy uprawiają pszenicę na równinach przy brzegu jeziora." />
+    <string id="Settlements.Settlement.text.village_A1_1" text="Taszeba leży na zachodnim brzegu Bar-al-Jeszm. Rybacy łowią tuńczyki i sardynki na chronionych wodach, które przez większość roku są spokojne." />
+    <string id="Settlements.Settlement.text.village_A1_2" text="Bak jest nieco oddalone od brzegów Bar-al-Jeszm i leży za wielką granitową wychodnią Dżabal Tamar. Dzięki wiatrom znad morza pada tu wystarczająco często, by można było uprawiać oliwki." />
+    <string id="Settlements.Settlement.text.village_A1_3" text="Fanab leży na nizinnym przylądku pomiędzy zatoką, którą Aserajczycy nazywają Szariz, a morzem Bar-al-Jeszm. Dzięki wiatrom znad morza pada tu wystarczająco często, by można było uprawiać oliwki." />
+    <string id="Settlements.Settlement.text.village_A1_4" text="Hiblet leży u podstaw granitowej wychodni znanej jako Dżabal Tamar. Gromadząca się w szczelinach deszczówka jest przekierowywana do nawadniania ogrodów palm daktylowych w wiosce." />
+    <string id="Settlements.Settlement.text.village_A2_1" text="Lamesa leży na rozległych równinach, poprzecinanych pasami akacjowych lasów, przy wschodnim wybrzeżu Bar-al-Jeszm. Na tutejszej trawie pasą się najbardziej cenione z aserajskich koni." />
+    <string id="Settlements.Settlement.text.village_A2_2" text="Abu Kih leży nad rzeką Nar al-Kals, która płynie w stronę południowych pustkowi. Okoliczne tereny to dno starożytnego jeziora, które staje się dziś jałowe i alkaliczne, choć nadal można zobaczyć tu palmy daktylowe." />
+    <string id="Settlements.Settlement.text.village_A2_3" text="Hokka leży na wschodnim skraju aserajskich ziem, nad rzeką Tiagis. Okolica to w większości pustynne stepy. Przez większość roku nie rośnie tu nic prócz krzewów, choć wiosną pojawia się trawa i kwiaty, co umożliwia wypasanie koni." />
+    <string id="Settlements.Settlement.text.village_A3_1" text="Abba leży na skraju pustyni, u stóp skierowanej w stronę lądu skarpy Czardżara. Spływająca ze wzgórz woda trafia tu pod ziemię, tworząc źródła, dzięki którym istnieje oaza. Na polach i w ogrodach rośnie pszenica." />
+    <string id="Settlements.Settlement.text.village_A3_2" text="Hunab leży w jednej z wadi, które przecinają spękane wzgórza skarpy Czardżara. Wieśniacy hodują tu konie, wykorzystując krótko, lecz bujnie rosnące trawy pokrywające zbocza wiosną." />
+    <string id="Settlements.Settlement.text.village_A3_3" text="Bir Seif leży pośród zbiorowiska sadzawek i studni na skarpie Czardżara. Wieśniacy dokopują się do płytkiej warstwy wód gruntowych w poszukiwaniu gliny, którą sprzedają garncarzom w Nahasie." />
+    <string id="Settlements.Settlement.text.village_A4_1" text="Kablab leży w pobliżu szerokiej zatoki na południowym brzegu Morza Peraskiego. Niska linia brzegowa świetnie nadaje się do budowy solnisk." />
+    <string id="Settlements.Settlement.text.village_A4_2" text="Mussum leży w pobliżu wschodniego brzegu morza Bar-al-Jeszm, w miejscu, gdzie pustynie Aseraju przechodzą w step porośnięty akacjami i krzewami. Tutejsi wieśniacy drążą studnie, by nawadniać gaje palm daktylowych." />
+    <string id="Settlements.Settlement.text.village_A4_3" text="Kuka leży u stóp pasma niskich wzgórz na wschód od morza Bar-al-Jeszm, w miejscu, gdzie pustynie Aseraju przechodzą w step porośnięty akacjami i krzewami. Tutejsi wieśniacy drążą studnie, by nawadniać gaje palm daktylowych." />
+    <string id="Settlements.Settlement.text.village_A4_4" text="Doka to wioska rybacka na morzu Bar-al-Jeszm. Wieśniacy wypływają w felukach, by łapać okonie, których długość potrafi czasem dorównać wzrostowi człowieka. Uważają przy tym na słonowodne krokodyle, które żyją w miejscowych zatoczkach i na bagnach i często polują na tę samą zwierzynę." />
+    <string id="Settlements.Settlement.text.village_A5_1" text="Malul leży w szerokiej dolinie pomiędzy skarpą Czardżara a wzgórzami Dżabal Aszabi, na pustynnym stepie na południowy wschód od Bar-al-Jeszm. Wód gruntowych jest akurat tyle, by można było wyhodować dość pożywienia z upraw, a zyski mieszkańców wsi pochodzą z chowu koni, hodowanych na bujnej, rosnącej po wiosennych deszczach trawie na Dżabal Aszabi." />
+    <string id="Settlements.Settlement.text.village_A5_2" text="Liwas leży w szerokiej dolinie na południe od Bar-al-Jeszm. Ziemi uprawnej jest tu mało, a okolica słynie z koni, które wypasa się na szybko wysychającej, lecz niezwykle obficie rosnącej wiosennej trawie pustyni." />
+    <string id="Settlements.Settlement.text.village_A5_3" text="Waltas leży nad Bar-al-Jeszm, Nefrytowym Morzem. Okoliczne niziny dobrze nadają się do uprawy lnu." />
+    <string id="Settlements.Settlement.text.village_A6_1" text="Midżajt leży nad ujściem rzeki Damar do morza Bar-al-Jeszm. Bogate złoża mułu nanoszonego przez rzekę sprawiają, że są to jedne z najżyźniejszych aserajskich ziem." />
+    <string id="Settlements.Settlement.text.village_A6_2" text="Hamoszawat leży nad dolnym biegiem Damaru, niedaleko miejsca, w którym ten wpada do morza Bar-al-Jeszm. Bogate złoża mułu nanoszonego przez rzekę sprawiają, że są to jedne z najżyźniejszych aserajskich ziem." />
+    <string id="Settlements.Settlement.text.village_A6_3" text="Jahazym leży nad południowym brzegiem morza, które Aserajczycy nazywają Bar-al-Jeszm. Ciepłe wody obfitują w tuńczyki, sardynki, bonito i inne ryby." />
+    <string id="Settlements.Settlement.text.village_A6_4" text="Nalan leży na podmokłych równinach rzeki Damar na skarpie Czardżara. Dzięki użyźnianej co roku przez rzeczny muł glebie mieszkańcy zbierają obfite plony pszenicy." />
+    <string id="Settlements.Settlement.text.village_A7_1" text="Wadar leży na skalistej wadi na zwróconym w stronę lądu skraju skarpy Czardżara, która przechodzi dalej w żwirowate równiny i wydmy. Wiosną i zimą z chmur znad Bar-al-Jeszm spadają tu ostatnie krople wody, dzięki czemu jest akurat tyle trawy, by można było wypasać konie." />
+    <string id="Settlements.Settlement.text.village_A7_2" text="Bait Hatif leży na podmokłych równinach rzeki Damar na skarpie Czardżara. Kamienista gleba tego regionu nie jest łatwa w nawadnianiu, lecz na rosnącej wiosną trawie na wzgórzach pasą się konie." />
+    <string id="Settlements.Settlement.text.village_A7_3" text="Mabwaz leży pośród meandrów rzeki Damar między wypłaszczonymi wzgórzami skarpy Czardżara. Wieśniacy uprawiają pszenicę i inne zboża w mule zalewowych równin." />
+    <string id="Settlements.Settlement.text.village_A7_4" text="Zalm leży przy Spopielonych Wrotach, w miejscu, w którym rzeka Damar spływa z pustyni Nahasa i rozpoczyna podróż przez skarpę Czardżara. Dzięki nanoszonemu przez rzekę mułowi plony pszenicy są bardzo obfite." />
+    <string id="Settlements.Settlement.text.village_A8_1" text="Ezbet Nahul leży na skalnej półce nad wodami morza zwanego przez Aserajczyków Bar-al-Jeszm, Nefrytowym Morzem. Zbierająca się wśród skał woda spływa do studni i jest wykorzystywana do irygacji pól pszenicy wokół wioski." />
+    <string id="Settlements.Settlement.text.village_A8_2" text="Abgan leży przy niewielkiej lagunie nad południowym brzegiem Bar-al-Jeszm, Nefrytowego Morza. Tutejsi mieszkańcy poławiają tuńczyki, sardynki, bonito i rekiny." />
+    <string id="Settlements.Settlement.text.village_B1_1" text="Dalmengus leży nad brzegiem Lin Tiwal, zwanego Ciemnym Jeziorem, w centralnej części masywu Uchalion. Płaski i dobrze nawodniony teren jest żyzny, przez co nadaje się do uprawy pszenicy i jęczmienia." />
+    <string id="Settlements.Settlement.text.village_B1_2" text="Eberet leży w przełęczy z jeziorem Lin Tiwal po jednej stronie i doliną Kafalkombu po drugiej. Miejscowi wieśniacy uprawiają winogrona do produkcji słodkiego wina, z którego Batania jest znana." />
+    <string id="Settlements.Settlement.text.village_B1_3" text="Beglomuar leży we wnęce południowej skarpy masywu Uchalion. Charakterystyczne dla tego regionu są jedynie złoża żelaza wśród wzgórz i ruda darniowa na górskich bagnach." />
+    <string id="Settlements.Settlement.text.village_B1_4" text="At Kafal leży w pobliżu najwyżej położonego obszaru stromej doliny Kafalkomb, która opada ku ziemiom Cesarstwa. W małych strumieniach spływających po wszystkich stronach wzgórz można znaleźć dobrej jakości glinę." />
+    <string id="Settlements.Settlement.text.village_B2_1" text="Diantogmail leży na skraju Lin Tiwal, zwanego Ciemnym Jeziorem. Istnieje kilka legend tłumaczących pochodzenie nazwy regionu, która oznacza „stado gronostajów”, lecz wszystkie różnią się od siebie w wielu szczegółach. Tutejsi wieśniacy uprawiają winogrona do produkcji wina." />
+    <string id="Settlements.Settlement.text.village_B2_2" text="Glenlitrig, czyli „dolina śliskiego strumienia”, leży wśród wyżyn północnego Uchalionu. Mieszkańcy trudnią się głównie leśnictwem i dostarczają drewno pobliskim miastom-twierdzom: Dunglanys i Kar Banset." />
+    <string id="Settlements.Settlement.text.village_B2_3" text="Morihig leży w niecce w samym środku masywu Uchalion. Region ten znany jest z uprawy pszenicy i jęczmienia." />
+    <string id="Settlements.Settlement.text.village_B2_4" text="Imlag leży na falistych równinach w środkowej części masywu Uchalion. Wioska specjalizuje się w produkcji białych winogron, z których powstają słodkie batańskie wina." />
+    <string id="Settlements.Settlement.text.village_B2_5" text="Lindorn leży wśród zielonych wzgórz na północny zachód od Lin Tiwal, nazywanego też Ciemnym Jeziorem. Okoliczne pola obsiewa się pszenicą i jęczmieniem." />
+    <string id="Settlements.Settlement.text.village_B3_1" text="Bog Bet leży w niskiej, zalesionej dolinie na wschodzie masywu Uchalion. W ciemnych, bagnistych lasach wieśniacy zastawiają pułapki na bobry, lisy i inne zwierzęta futerkowe." />
+    <string id="Settlements.Settlement.text.village_B3_2" text="Geunat Nal – wioska, z powodu której Nal stracił głowę – to osiedle traperów w pobliżu miejsca słynnego pojedynku z batańskich legend. Mieszkańcy są uzdolnionymi leśnikami i wspierają pobliską fortecę Kar Banset na szczycie klifu. Strzeże północnego podejścia do serca batańskich ziem przed Sturgijczykami i innymi grabieżcami." />
+    <string id="Settlements.Settlement.text.village_B3_3" text="Tor Lejad, wzgórze pełni księżyca, leży pośród porośniętych lasami pagórków w północnej Batanii. Wieśniacy karczują gęsto rosnące dęby, cisy i brzozy. Batowie pielęgnują te lasy od stuleci, dzięki czemu nigdy nie brakuje drzew, które można ściąć dla drewna i sprzedać." />
+    <string id="Settlements.Settlement.text.village_B3_4" text="Tor Mulina leży w bagnistej niecce gęstych lasów północno-zachodniego masywu Uchalion. Wieśniacy zbierają glinę z wilgotnej gleby dla garncarzy z pobliskich miasteczek." />
+    <string id="Settlements.Settlement.text.village_B4_1" text="Bryn Glas leży na grani na wschodniej skarpie masywu Uchalion. Wieśniacy wydobywają żelazo spośród wzgórz i sprzedają je uznanym kowalom w pobliskiej Seononie." />
+    <string id="Settlements.Settlement.text.village_B4_2" text="Andurn leży w rozpadlinie wśród wzgórz nad Lin Tiwal, Ciemnym Jeziorem. Tutejsi wieśniacy pielęgnują lasy i karczują brzozy, dęby i cisy na sprzedaż dla miasteczek." />
+    <string id="Settlements.Settlement.text.village_B4_3" text="Mag Arba leży na trawiastej równinie nad Lin Tiwal, noszącym też miano Ciemnego Jeziora. Wieśniacy uprawiają len w bagnistych dolinach pomiędzy wzgórzami." />
+    <string id="Settlements.Settlement.text.village_B4_4" text="Swenryn leży nad skalistą kataraktą, która wstrzymuje ciemny nurty Lin Tiwal, tworząc jezioro w środkowej części masywu Uchalion. Nad spienionymi wodospadami pasą się konie." />
+    <string id="Settlements.Settlement.text.village_B4_5" text="Seordas leży na nizinach na wschodnim skraju batańskich ziem, tuż u podnóży skarpy Uchalion. Pobliska twierdza Utelaim ochrania gospodarstwa regionu przed nadchodzącymi ze wschodu sturgijskimi grabieżcami." />
+    <string id="Settlements.Settlement.text.village_B5_1" text="Durn leży tuż za wąwozami górnego biegu rzeki Trand. Wieśniacy zbierają błoto z nadrzecznych sadzawek i mokradeł i zawożą je krętymi drogami do miasteczka Pen Kannok na szczycie górującego nad nimi klifu." />
+    <string id="Settlements.Settlement.text.village_B5_2" text="Gainset leży w ciemnej, zalesionej dolinie za wzgórzami Renodu na wschodnim skraju masywu Uchalion. Wieśniacy zbierają błoto z bagnistej ziemi i sprzedają je garncarzom z Pen Kannok." />
+    <string id="Settlements.Settlement.text.village_B5_3" text="Fenon Etir leży na wychodni nad źrodłami rzeki Etir, dopływu Trandu. Tutejsi wieśniacy uprawiają winogrona i wytwarzają mocne batańskie wina, które bardzo cenią sobie mieszkańcy Cesarstwa i Wlandyjczycy." />
+    <string id="Settlements.Settlement.text.village_B5_4" text="Inwet leży w miejscu, w którym Trand i Etir wypływają z masywu Uchalion, łączą się i kierują ku równinom centralnej Wlandii. Okoliczne wzgórza umożliwiają uprawę pszenicy." />
+    <string id="Settlements.Settlement.text.village_EN1_1" text="Maratea leży na wąskiej równinie między rzeką Miron a górą Arakatos, najwyższym szczytem Gór Driatyckich. Wieśniacy są doświadczonymi górnikami i wydobywają rudę żelaza z pobliskiego klifu." />
+    <string id="Settlements.Settlement.text.village_EN1_2" text="Statymos leży w wąskiej dolinie za wznoszącą się granią Gór Driatyckich. Wyżynne potoki zmywają żyzną glebę w dół stoków, dzięki czemu ten region jest jednym z największych spichlerzy północnego Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_EN1_3" text="Gimoz to spokojna wioska rybacka położona w zatoce Diatmik, na odległym, zachodnim wybrzeżu jeziora Lakonis. Wieśniacy poławiają szczupaki w głębinach zatoki." />
+    <string id="Settlements.Settlement.text.village_EN1_4" text="Diopalis leży w dolinie pośród Gór Driatyckich. Choć zimy bywają tu srogie, żyzne gleby sprawiają, że region ten jest jednym z największych spichlerzy północnego Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_EN2_1" text="Alosea leży u ujścia zatoki Diatmik, na odległym, zachodnim wybrzeżu jeziora Lakonis. Tutejsza ludność zarabia na wygodne życie połowem szczupaków i jesiotrów." />
+    <string id="Settlements.Settlement.text.village_EN2_2" text="Dżerakos leży pośród łąk na północnym podgórzu Gór Driatyckich. Łagodny dzięki jeziorowym bryzom klimat sprzyja hodowli koni." />
+    <string id="Settlements.Settlement.text.village_EN2_3" text="Masangara leży na brzegu Newisu, zimnej i powolnej rzeki, która wpada do jeziora Lakonis. Dawniej rosły tu bagniste lasy, dziś na osuszonych i zamienionych na łąki terenach hodowane jest bydło." />
+    <string id="Settlements.Settlement.text.village_EN3_1" text="Enoisa leży nad brzegiem Oftysu – głębokiego jeziora pośród wiejskich wzgórz na południe od Gór Driatyckich, zwanego też Okiem. Dzięki obfitym deszczom z północy rośnie tu pszenica. Według legendy niegdyś istniała tutaj kapliczka antycznych Palajczyków, którzy wierzyli, że jezioro jest portalem do innego świata." />
+    <string id="Settlements.Settlement.text.village_EN3_2" text="Eoria leży w żyznej dolinie Aris, sercu Cesarstwa. Lokalny dialekt nacechowany jest słowami z języka palajskiego, którym posługiwano się w centralnej części kontynentu przed powstaniem Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_EN3_3" text="Krios leży wśród wapiennych grani wschodniej części Gór Driatyckich. Wyżynne gleby świetnie nadają się do wypasania koni." />
+    <string id="Settlements.Settlement.text.village_EN4_1" text="Potamis leży w dolinie wśród niższych partii Gór Driatyckich. Tutejsza ludność trudni się hodowlą bydła od czasów poprzedzających powstanie Kalradii. Wytwarzane tu mleko i masło są pożądanym towarem dla kupców i podróżników przemierzających region." />
+    <string id="Settlements.Settlement.text.village_EN4_2" text="Alatys leży na płaskim południowym wybrzeżu jeziora Lakonis, w delcie utworzonej przez rzekę Newis. W płytkich i błotnistych wodach jeziora żyje dużo fląder i raków, w górnym biegu rzeki natomiast można natrafić na pstrągi." />
+    <string id="Settlements.Settlement.text.village_EN4_3" text="Nortanisa to rybacka wioska na południowym brzegu jeziora Lakonis. Jej mieszkańcy zarzucają sieci i umieszczają klatki w płytkich przybrzeżnych wodach, by łapać płocie, leszcze, okonie i raki." />
+    <string id="Settlements.Settlement.text.village_EN4_4" text="Hetania leży pod granią w północno-wschodniej części Gór Driatyckich. Podobnie jak w przypadku wielu innych okolicznych wiosek, drwale z tego regionu wciąż mówią palajskimi językami plemion, które żyły tu, nim nadeszło Cesarstwo." />
+    <string id="Settlements.Settlement.text.village_EN5_1" text="Walos leży na delikatnie wypiętrzających się wschodnich zboczach Gór Driatyckich na wschodnim krańcu Cesarstwa. Chociaż większość terenu porośnięta jest bukami i dębami, miejscowe łąki nadają się do wypasu koni. To tu tradycyjnie hoduje się wierzchowce dla cesarskiej kawalerii." />
+    <string id="Settlements.Settlement.text.village_EN5_2" text="Ortra to dość młode osiedle nazwane przez cesarskiego kapitana słowem określającym świt. Oficer był zauroczony porannym widokiem na Mizeę, region wiejskich wzgórz we wschodnim Cesarstwie. Ortrę założono jako stadninę koni ze stepów i zgodnie z tym zamysłem dostarcza ona wierzchowce cesarskim kawalerzystom." />
+    <string id="Settlements.Settlement.text.village_EN5_3" text="Temis leży pod rzędem wapiennych grani w Mizei, regionie wiejskich wzgórz w samym sercu Cesarstwa. Pofalowane, trawiaste niziny doskonale nadają się do hodowli owiec." />
+    <string id="Settlements.Settlement.text.village_EN5_4" text="Samata leży na opadającej grani na zalanej słońcem wyżynie Mizea. Na zboczach wzgórz stworzono tarasy, by można była uprawiać tam krzewy morwowe. Zbierane z nich liście trafiają do kadzi i stają się paszą dla jedwabników." />
+    <string id="Settlements.Settlement.text.village_EN6_1" text="Awasynton leży na dzikim, wschodnim krańcu Mizei, wiejskich wzgórz w centralnej części Cesarstwa. Wieśniacy wykarczowali gęstwinę i cierniste krzewy, a także ostro pachnący piołun, od którego wzięła się nazwa wioski. Umożliwiło im to uprawę krzewów morwowych, których liście są zbierane i wykorzystywane w hodowli jedwabników." />
+    <string id="Settlements.Settlement.text.village_EN6_2" text="Boreagora leży na zimnych, północnych ziemiach Cesarstwa przy polodowcowych jeziorach znanych jako Iltańskie Przenoski. Pobliskie cesarskie forty, piętrzące się nad wodnymi szlakami, strzegą regionu przed grabieżcami ze Sturgii i Huzaju. Tutejsze niziny dobrze nadają się pod uprawę lnu." />
+    <string id="Settlements.Settlement.text.village_ES1_1" text="Kaira leży pośród sieci rzek, jezior i lagun zwanej Kalseą. Choć dalej na wschód znajdują się alkaliczne i jałowe tereny, tutaj terasy zalewowe biegnących równolegle rzek Kalsa i Tiagis umożliwiają uprawę pszenicy." />
+    <string id="Settlements.Settlement.text.village_ES1_2" text="Polizja leży wśród sieci rzek i jezior zwanej Kalseą, w pobliżu ziem graniczących z Aserajem. Wieśniacy pozyskują sól z laguny na zachodzie – dawnej zatoczki Morza Peraskiego, którą odcięła mierzeja. Wielu mieszkańców Kalradii unika tych nizin, uważając panujące na nich powietrze za gęste i cuchnące, lecz tutejsza ludność jest dumna z roli strażników przygranicznych ziem." />
+    <string id="Settlements.Settlement.text.village_ES1_3" text="Tegrezos leży tuż na północ od miejsca, w którym rzeka Kalsa łączy się z siecią jezior, strumieni i lagun tworzących granicę z Aserajem. Tutejsi mieszkańcy hodują owce wśród błotnistych traw." />
+    <string id="Settlements.Settlement.text.village_ES1_4" text="Erebulos leży nad laguną, która jest zatoką Morza Peraskiego, odciętą niedawno mierzeją. Wieśniacy wygrzebują glinę z dna strumieni i sprzedają ją warsztatom garncarskim w Danustyce oraz innych pobliskich miasteczkach." />
+    <string id="Settlements.Settlement.text.village_ES2_1" text="Wioska Afinia leży w pobliżu miejsca, gdzie rzeka Setys dzieli się na trzy inne, tworząc Dolinę Trypotamską. Tutejsi wieśniacy budują solniska nieopodal ujścia Setysu do Morza Peraskiego." />
+    <string id="Settlements.Settlement.text.village_ES2_2" text="Gorkoryz leży nad Goreą, położonym najdalej na południe dopływem rzeki Setys w Dolinie Trypotamskiej. Ciemna, dobrze nawodniona gleba sprawia, że okolice te mogą być nazywane spichlerzem Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_ES2_3" text="Awalips leży w pobliżu miejsca, gdzie strumienie zlewają się w rzekę Kalsę pośród ciepłych przybrzeżnych wzgórz południowego Cesarstwa. Ciemna, dobrze nawodniona gleba sprawia, że okolice te mogą być nazywane cesarskim spichlerzem." />
+    <string id="Settlements.Settlement.text.village_ES2_4" text="Alizjon leży nad północnym brzegiem Morza Peraskiego. Choć lokalne połowy nie są zbyt obfite, mieszkańcy zbudowali solniska, które sięgają daleko pośród płytkich wód." />
+    <string id="Settlements.Settlement.text.village_ES3_1" text="Kanoros leży na płaskim, południowym skraju równiny Likarea. Jeszcze przed pojawieniem się Cesarstwa ziemie te były znane z hodowli koni, na których galopowali likarejscy jeźdźcy, którzy przed klęską i wchłonięciem do cesarskiej jazdy zdołali rozbić kilka kalradyjskich armii." />
+    <string id="Settlements.Settlement.text.village_ES3_2" text="Tewea leży w miejscu, gdzie równiny Likarei spotykają się z podstawą skały Ornian. Wieśniacy hodują owce na stokach wychodni, która swą nazwę zawdzięcza sępom zlatującym na żer wśród mglistych równin poniżej." />
+    <string id="Settlements.Settlement.text.village_ES3_3" text="Zestea leży w miejscu, w którym równiny Likarei napotykają nadbrzeżne wzgórza Ilataru. Na niskich zboczach nad mglistymi równinami pasą się owce." />
+    <string id="Settlements.Settlement.text.village_ES4_1" text="Sagora leży na niskiej grani w środkowej części równiny Likarea. Region ten jest dość skalisty i należy do mniej żyznych regionów równiny, lecz krzaczasta roślinność umożliwia hodowlę owiec." />
+    <string id="Settlements.Settlement.text.village_ES4_2" text="Popsja leży w wąskim kanionie między skałą Ornian a doliną Oftysu. Tutejsze drzewa osiągają w cieniu wzgórz pokaźne rozmiary, a wieśniacy karczują sosny i czerpią zyski ze sprzedaży drewna." />
+    <string id="Settlements.Settlement.text.village_ES4_3" text="Kanterion leży we wschodniej części równiny Likarea. Na tym łagodnie wznoszącym się terenie deszcz pada częściej niż w innych partiach równiny, a dzięki bujnie rosnącym trawom hodowla koni prosperowała tu jeszcze przed nadejściem Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_ES5_1" text="Lantas leży na szerokiej równinie na południe od jeziora Tanezis. Mieszkańcy zajmują się hodowlą owiec na dużą skalę, lecz z powodu obecności zbiegów z Cesarstwa, dzikich Elefterów i stepowych koczowników bacznie pilnują swych trzód." />
+    <string id="Settlements.Settlement.text.village_ES5_2" text="Lartuzys leży w pobliżu północnego krańca jeziora Tanezis. W pobliżu wioski znajdują się złoża soli, a na powierzchni wody czasem pojawiają się solne źródła, co stało się początkiem legendy o istnieniu nawiedzonego podziemnego morza." />
+    <string id="Settlements.Settlement.text.village_ES5_3" text="Parazemnos leży w niskiej przełęczy łączącej Równinę Tanatyjską z rzeką Kalsą. Wieśniacy hodują owce na krzaczastych terenach, które przemieniono w pastwiska." />
+    <string id="Settlements.Settlement.text.village_ES6_1" text="Saldannis leży za gipsowymi urwiskami nad rzeką Setys. Zmywana do niej żyzna gleba wzgórz zmienia się w lepką glinę, cenioną przez garncarzy południowego Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_ES6_2" text="Spotia leży nad spokojną rzeką Setys. Niskie, falujące wzgórza tego regionu stanowią jeden ze spichlerzy Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_ES6_3" text="Amikon leży pośród niewielkich, lecz ostrych grani pomiędzy skałą Ornian i doliną Aris. Mieszkańcy tej krainy są głównie hodowcami owiec i słyną z wytwarzania suchego, słonego i doprawianego kminem sera." />
+    <string id="Settlements.Settlement.text.village_ES7_1" text="Sotaj leży w pobliżu najbardziej wysuniętego na południe punktu jeziora Tanezis. Gospodarstwa na nizinnych polach są jednymi z największych dostawców zboża w rejonie wschodniego przygranicza." />
+    <string id="Settlements.Settlement.text.village_ES7_2" text="Wargornis to rybacka wioska leżąca na jeziorze Tanezis. W jego wodach można czasem natrafić na olbrzymie szczupaki, a także bardziej powszechne okonie i leszcze." />
+    <string id="Settlements.Settlement.text.village_ES7_3" text="Eunalika leży nad zachodnim brzegiem jeziora Tanezis. Ta nizinna kraina ma dobre warunki do uprawy lnu." />
+    <string id="Settlements.Settlement.text.village_EW1_1" text="Primessos leży w zalesionych, wysoko położonych terenach doliny Gawis. Karmione żołędziami z południowych dębów świnie są tu hodowane na szeroką skalę." />
+    <string id="Settlements.Settlement.text.village_EW1_2" text="Montos leży u podnóża skarpy Kursjon w pobliżu granicy z Batanią. Miejscowi leśnicy bacznie obserwują okolicę, wypatrując band grabieżców nadchodzących z położonej na zachodzie doliny rzeki Miron." />
+    <string id="Settlements.Settlement.text.village_EW1_3" text="Nideon leży na nizinie wśród meandrów rzeki Zeos, w cieniu składającej się z magmowych skał góry Erytrys. Na osuszonych rzecznych bagnach uprawia się len." />
+    <string id="Settlements.Settlement.text.village_EW2_1" text="Tarkutis leży nad brzegami Morza Peraskiego. Piaszczysta gleba i poranne mgły przychodzące znad pobliskich wysp umożliwiają uprawę winogron na wzniesieniach nad plażami." />
+    <string id="Settlements.Settlement.text.village_EW2_2" text="Neokoris to nowa wioska położona na łagodnie opadającym terenie w dolinie Temea, w której dopiero niedawno wykarczowano lasy. Miejscowi posiadacze ziemscy pozakładali stadniny zaopatrujące w konie cesarską jazdę." />
+    <string id="Settlements.Settlement.text.village_EW2_3" text="Alzasos leży na zachodnim krańcu Temei, szerokiej doliny na północ od Morza Peraskiego. Choć tutejszy klimat jest względnie suchy, studnie artezyjskie umożliwiają rolnikom zbieranie obfitych plonów pszenicy." />
+    <string id="Settlements.Settlement.text.village_EW2_4" text="Zeokoris leży u podnóży wzgórz Ilataru, które biegną wzdłuż południowych wybrzeży Cesarstwa. Choć tutejszy klimat jest względnie suchy, studnie artezyjskie umożliwiają rolnikom zbieranie obfitych plonów pszenicy." />
+    <string id="Settlements.Settlement.text.village_EW3_1" text="Gamardan leży w najwyżej położonym punkcie niewielkiej zatoki, która odbiega od większej Zatoki Charaskiej. Wytwarzane tu wina są niezwykle słodkie, mocne i cenione w całym Cesarstwie." />
+    <string id="Settlements.Settlement.text.village_EW3_2" text="Egoska leży w najwyżej położonej części Temei, szerokiej doliny w południowej Kalradii. Choć jej nazwa pochodzi od kóz, których niegdyś nie brakowało w tym regionie, obecnie większość okolicznych mieszkańców przerzuciła się na znacznie bardziej dochodową hodowlę koni." />
+    <string id="Settlements.Settlement.text.village_EW3_3" text="Dradios leży nad Małą Aminys, spływającym ze wzgórz strumieniem stanowiącym dopływ rzeki Aminys. Wieśniacy przekierowują górskie potoki, by nawadniać pola, na których bujnie rośnie zboże." />
+    <string id="Settlements.Settlement.text.village_EW4_1" text="Arpotys leży na wysokiej skarpie nad konfluencją rzek Aminys, Gawis i Zeos. Na zboczach wzgórz znajdują się tarasy, na których rośnie pszenica. Są wyposażone w zbiorniki, w których gromadzi się deszcz z przywianych znad morza chmur." />
+    <string id="Settlements.Settlement.text.village_EW4_2" text="Lizja leży nad wąskim przesmykiem o tej samej nazwie w miejscu, gdzie Morze Peraskie łączy się z zachodnim oceanem. Położona jest po stronie morza, w pobliżu rozległych plaż, które umożliwiają zbieranie soli." />
+    <string id="Settlements.Settlement.text.village_EW4_3" text="Winela leży za wodospadami, które tworzy rzeka Amynis przed ujściem do Morza Peraskiego. Wieśniacy zbierają morską sól w cieniu nadbrzeżnych klifów." />
+    <string id="Settlements.Settlement.text.village_EW4_4" text="Garengolia leży w pobliżu bogatych złóż srebra wśród wzgórz nad rzeką Gawis. To właśnie z pochodzącego stąd srebra od stuleci wybijane są cesarskie denary." />
+    <string id="Settlements.Settlement.text.village_EW5_1" text="Elipa leży w wyższych partiach doliny Aris. Te słoneczne, bogato nawodnione wyżyny zaliczane są do cesarskich spichlerzy." />
+    <string id="Settlements.Settlement.text.village_EW5_2" text="Fazos leży wśród pofalowanych wapiennych wzgórz pomiędzy dolinami Temea i Aris. Bujna trawa sprawia, że to jedna z najlepiej nadających się do hodowli koni krain w Cesarstwie." />
+    <string id="Settlements.Settlement.text.village_EW6_1" text="Karpenion leży na porośniętej lasami wyżynie pomiędzy wielką bazaltową bryłą góry Erytrys a Górami Driatyckimi. Wieśniacy hodują bydło na wyżynnych pastwiskach." />
+    <string id="Settlements.Settlement.text.village_EW6_2" text="Watea leży wysoko na stokach Gór Driatyckich, skierowanych w stronę doliny, nad którą dominuje ogromna bazaltowa bryła góry Erytrys. Wieśniacy wydobywają żelazo z szybów biegnących daleko w głąb górskich klifów." />
+    <string id="Settlements.Settlement.text.village_EW6_3" text="Tersenion leży w górnej partii doliny Amynis, w cieniu góry Erytrys, olbrzymiej bazaltowej płyty wypchniętej z głębin ziemi. Region ten jest jednym ze spichlerzy Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_EW6_4" text="Leblenion leży nad rzeką Amynis w cieniu góry Erytrys, olbrzymiej bazaltowej płyty wypchniętej z głębin ziemi. Region ten jest jednym ze spichlerzy Cesarstwa." />
+    <string id="Settlements.Settlement.text.village_K1_1" text="Fisnar leży nad rzeką Zakan, dopływem Karakazu. Choć przez większość roku leży tu śnieg, wiosną wyrasta dość trawy, by dało się na niej wypasać znaczne ilości owiec, których wełna chroni je przed lodowym wichrem." />
+    <string id="Settlements.Settlement.text.village_K1_2" text="Ułaan leży w dolinie rzeki Karkaz. Mieszkają tu nomadzi zmuszeni do osiedlenia się niedawnym rozkazem chana. Wśród tych nizinnych, bagnistych ziem nauczyli się uprawiać len." />
+    <string id="Settlements.Settlement.text.village_K1_3" text="Kuruluk leży nad rzeką Zakan, dopływem Karakazu. Choć przez większość roku leży tu śnieg, na wyrastającej wiosną trawie pasą się kałmuki, które zimą ryją w śniegu w poszukiwaniu pożywienia, chronione przed lodowym wichrem dzięki swej gęstej sierści." />
+    <string id="Settlements.Settlement.text.village_K1_4" text="Asalig leży u stóp Bars Dug, jednego ze szczytów na skraju płaskowyżu Dewseg. Wieśniacy hodują konie na dolnych partiach stoków, uważając na irbisy, którym góra zawdzięcza swą nazwę." />
+    <string id="Settlements.Settlement.text.village_K2_1" text="Karakalat leży w niecce na płaskim, wschodnim skraju płaskowyżu Dewseg. Do niedawna okolicę tę zamieszkiwali nomadzi i nadal znana jest jako doskonałe miejsce do hodowli koni." />
+    <string id="Settlements.Settlement.text.village_K2_2" text="Tyzmil leży nad rzeką Ozu, która spływa z południowego krańca płaskowyżu Dewseg. Miejscowi hodowcy owiec żyją w dostatku dzięki huzajskim chanom strzegącym regionu przed wędrownymi grabieżcami." />
+    <string id="Settlements.Settlement.text.village_K2_3" text="Gereden wraz z okolicznymi osadami leży na południowym krańcu płaskowyżu Dewseg, w pobliżu miejsca, gdzie łączą się rzeki Ozu i Teja. Chociaż teren jest tu trudny, w wąwozach można znaleźć dużo wysokiej jakości gliny." />
+    <string id="Settlements.Settlement.text.village_K2_4" text="Kiraz leży w zagłębieniu na południowym krańcu wyżyny Dewseg. Do niedawna okolicę tę zaludniali nomadzi, obecni mieszkańcy zaś wciąż utrzymują się z hodowli owiec." />
+    <string id="Settlements.Settlement.text.village_K3_1" text="Szapeszte leży tam, gdzie wody rzeki Zakan wpadają do Karakazu. Wieś utrzymuje się z wydobywania soli z pobliskich złóż." />
+    <string id="Settlements.Settlement.text.village_K3_2" text="Haneki leży na północnych szczytach Wzgórz Akkanu. Czerwone pasy na glebie i skałach wskazują na obecność w tej okolicy bogatych złóż żelaza. Wieśniacy trudnią się ich eksploatacją." />
+    <string id="Settlements.Settlement.text.village_K3_3" text="Rybacka wieś Mazen leży przy północnym brzegu jeziora Tanezis, które Huzajczycy nazywają Morzem Tanaskim. Wieśniacy zarzucają sieci w pobliskiej rzece Karakaz, łapiąc w nie rozmaite ryby migrujące między rzeką a jeziorem." />
+    <string id="Settlements.Settlement.text.village_K4_1" text="Omrotok leży u podnóży gór Sulun Dag, zamykających od wschodu płaskowyż Dewseg. Wieśniacy wykorzystują pobliskie lasy jako jedno z nielicznych na płaskowyżu źródeł drewna." />
+    <string id="Settlements.Settlement.text.village_K4_2" text="Ransam leży na południowo-wschodnich równinach płaskowyżu Dewseg. Mieszkańcy wsi prowadzili jeszcze niedawno wędrowny tryb życia, przez co specjalizują się w hodowli koni." />
+    <string id="Settlements.Settlement.text.village_K4_3" text="Miwandżan leży u podnóży gór Sulun Dag zamykających od wschodu płaskowyż Dewseg. Mieszkańcy wsi prowadzili jeszcze niedawno wędrowny tryb życia, hodują więc na zboczach wzgórz owce." />
+    <string id="Settlements.Settlement.text.village_K4_4" text="Urundżan leży w zachodniej części płaskowyżu Dewseg, u stóp Wzgórz Akkanu. Słynie z bydła, które znosi łatwo zarówno gorące lato, jak i mroźną zimę." />
+    <string id="Settlements.Settlement.text.village_K5_1" text="Kamszar leży na brzegu jeziora Tanezis, które Huzajczycy nazywają Morzem Tanaskim. Ryb nie ma tu wiele, mieszkańcy wydobywają jednak glinę, którą sprzedają następnie garncarzom z Czajkandu i innych miejscowości." />
+    <string id="Settlements.Settlement.text.village_K5_2" text="Okutan to wieś, która leży w samym sercu obszaru słynącego z hodowli pszenicy – wąskiego pasa równiny między jeziorem Tanezis, przez Huzajczyków zwanym Morzem Tanaskim, a Wzgórzami Akkanu." />
+    <string id="Settlements.Settlement.text.village_K5_3" text="Ispantar to wioska na kamienistym pasie Wzgórz Akkanu, górujących nad jeziorem Tanezis, które Huzajczycy nazywają Morzem Tanaskim. Mieszkańcy utrzymują się głównie z hodowli owiec." />
+    <string id="Settlements.Settlement.text.village_K5_4" text="Pabastan leży na wąskiej równinie między jeziorem Tanezis, które Huzajczycy nazywają Morzem Tanaskim, a Wzgórzami Akkanu. Okolica ta świetnie nadaje się do hodowli pszenicy." />
+    <string id="Settlements.Settlement.text.village_K6_1" text="Karahan leży u podnóży Kohi Rohini, czyli „gór świtu”. Miejscowi wieśniacy kupują konie od wędrownych plemion. Hodują też własne – to tu przyszło na świat wiele z wierzchowców wykorzystywanych przez huzajskie armie." />
+    <string id="Settlements.Settlement.text.village_K6_2" text="Nutiuk leży między górami znanymi pod swoją darszyjską nazwą, Koh Rohini, co znaczy „góry świtu”. Okoliczni mieszkańcy, jeszcze niedawno nomadzi, wzorem przodków hodują tu owce." />
+    <string id="Settlements.Settlement.text.village_K6_3" text="Danara leży nad słonym jeziorem znanym wśród Huzajczyków jako Tsanga Nor, co oznacza „jezioro niegaszące pragnienia”. Okoliczni mieszkańcy pozyskują z jego wód sól." />
+    <string id="Settlements.Settlement.text.village_K6_4" text="Wieś Kohi Adżik leży w wąskiej, suchej dolinie u stóp tak zwanej Góry Kochanka, od której też wzięła swoją nazwę. Mieszkańcy tej krainy kupują konie od nomadów ze wschodu i sprzedają je w miastach huzajskiej arystokracji." />
+    <string id="Settlements.Settlement.text.village_S1_1" text="Rodobas, dom Obasa, swoją nazwę wywodzi od zmarłego lata temu sturgijskiego przywódcy ze wzgórz. Miejscowość położona jest wysoko na klifie nad dziczą Irkara i służy jako baza dla traperów poszukujących futer w jej mrocznych lasach." />
+    <string id="Settlements.Settlement.text.village_S1_2" text="Forin leży pośród pól żyta i jęczmienia nad rzeką Galszą, tuż obok dziczy Irkara. Wieś żyje ze sprzedawania ziarna leśnym społecznościom traperskim." />
+    <string id="Settlements.Settlement.text.village_S1_3" text="Kargrew nazywał się kiedyś Car Gryff i był fortem batańskiego wodza Gryffa, został jednak dwa pokolenia temu podbity przez Sturgijczyków. Leży na kamienistym cyplu wybiegającym w zatokę Warreg. Rybacy ze wsi wykorzystują względny spokój wód zatoki, w których urządza sobie tarło wiele gatunków ryb." />
+    <string id="Settlements.Settlement.text.village_S2_1" text="Safna położona jest na wysokim klifie nad porywistym strumieniem, który łączy jezioro Lakonis z wąską zatoką Mazopor. Na trawiastych nadmorskich półkach skalnych wieśniacy hodują bydło." />
+    <string id="Settlements.Settlement.text.village_S2_2" text="Marabrot leży na wysokiej kamienistej grani między fiordem znanym jako Mazopor a Morzem Bjalskim. Niegościnny, górzysty teren nie zostałby zapewne nigdy zasiedlony, gdyby nie bogate złoża żelaza." />
+    <string id="Settlements.Settlement.text.village_S2_3" text="Dworoujście to wioska rybacka nieopodal porywistego strumienia łączącego zatokę Warreg z jeziorem Lakonis. Mieszkańcy schodzą codziennie w dół klifu, aby łowić przeskakujące przez kamienie łososie, a także dorsze i śledzie w wodach morza." />
+    <string id="Settlements.Settlement.text.village_S3_1" text="Czernobas, inaczej Czarny Las, leży na dawnym terenie leśnym nad kataraktą, przez którą rzeka Miron uchodzi do jeziora Lakonis. Na zraszanych mgłą wodospadów polach wieśniacy hodują żyto i jęczmień." />
+    <string id="Settlements.Settlement.text.village_S3_2" text="Skorin położony jest na cyplu oddzielającym Zatokę Diatomską od reszty jeziora Lakonis. Wieśniacy poławiają zarówno flądry z płytkich wód zatokowych, jak i większe ryby, w tym szczupaki, z głównego basenu jeziora." />
+    <string id="Settlements.Settlement.text.village_S4_1" text="Borkowa Górka leży na małym wzniesieniu przy stromych północnych wybrzeżach jeziora Lakonis. Jej mieszkańcy żyją głównie z rybołówstwa – poławiają okonie, leszcze, łososie, a czasem też duże jesiotry i szczupaki." />
+    <string id="Settlements.Settlement.text.village_S4_2" text="Gławstrom leży u podnóża góry Iltan, urwistego szczytu w północnej Kalradii nazwanego imieniem bóstwa ludów stepowych. Na tych dzikich ziemiach żyje wiele zwierząt futerkowych, jak kuny, lisy, króliki i nie tylko." />
+    <string id="Settlements.Settlement.text.village_S4_3" text="Omkany leży tam, gdzie wybrzeże jeziora Lakonis spotyka się z lodowymi górami Czertyg. Okoliczni wieśniacy hodują świnie i sprzedają smalec, wyprodukowany z dodatkiem soli i czosnku, mieszkańcom północnych krain." />
+    <string id="Settlements.Settlement.text.village_S4_4" text="Jangutum leży w zakamarku gór Czertyg na północnym wybrzeżu jeziora Lakonis. Okoliczni wieśniacy wydobywają żelazo ze zbocz gór." />
+    <string id="Settlements.Settlement.text.village_S5_1" text="Wizybrot to wieś pasterzy owiec położona w dolnej części zbocza góry Iltan, tuż pod lodowcowymi jeziorami znanymi jako Iltańskie Przenoski. Choć okolica jest zimna i trudno dostępna, stanowi ważny węzeł handlowy między jeziorami Lakonis i Tanezis, między Cesarstwem a stepami, przez co jest dość gęsto zaludniona." />
+    <string id="Settlements.Settlement.text.village_S5_2" text="Bukicz leży na wschodnich stokach góry Iltan, na huzajskim pograniczu. Wieśniacy hodują tu górskie odmiany bydła zdolne do znoszenia lodowych podmuchów, które często owiewają górskie skały." />
+    <string id="Settlements.Settlement.text.village_S5_3" text="Ałow leży nieopodal jezior lodowcowych znanych jako Iltańskie Przenoski. Wieśniacy hodują na wyżynach żyto i jęczmień, a bogactwo czarnoziemu rekompensuje im długie zimy i krótki okres, w którym możliwa jest uprawa." />
+    <string id="Settlements.Settlement.text.village_S6_1" text="Mieszkańcy wsi Kwol hodują u podnóży Gór Czertydzkich małe, lecz wytrzymałe gatunki bydła. Są oni potomkami uchodźców i awanturników z całej Kalradii, szukających miejsca odosobnienia w zimnych północnych lasach." />
+    <string id="Settlements.Settlement.text.village_S6_2" text="Radakmed leży w zagłębieniu wśród Gór Czertydzkich. Jego mieszkańcy hodują w bagnistej dolinie len." />
+    <string id="Settlements.Settlement.text.village_S6_3" text="Alebat leży głęboko w lasach północno-wschodniej Sturgii. Ten odcięty od świata region od dawna już służy za schronienie ludziom uciekającym z północnych terenów przed uciskiem, długiem czy krwawą zemstą. Miejscowy dialekt wykazuje silne wpływy języka zamieszkujących okoliczne lasy Wanów." />
+    <string id="Settlements.Settlement.text.village_S7_1" text="Korsjas leży nieopodal najwęższego punktu zatoki Warreg. W wodach na zachodzie mieszkańcy poławiają dorsze, pstrągi i inne zimnowodne ryby morskie, które pływają w zatoce." />
+    <string id="Settlements.Settlement.text.village_S7_2" text="Karbur położony jest na wyżynie Półwyspu Kaczarskiego. Mieszkańcy tej wsi, osłoniętej od północy wysoką granią, uprawiają jęczmień i pszenicę." />
+    <string id="Settlements.Settlement.text.village_S7_3" text="Żemian to wioska rybacka leżąca na północnym brzegu Półwyspu Kaczarskiego. Wieśniacy codziennie mierzą się ze wzburzonymi wodami Morza Bjalskiego, by poławiać dorsze, pstrągi, czasem zaś nawet małe wieloryby." />
+    <string id="Settlements.Settlement.text.village_V1_1" text="Kaliok leży na równinie między Wzgórzami Epirskimi i Biskanem w centralnej Wlandii. Mieszkańcy tych okolic hodują na podmokłym terenie len." />
+    <string id="Settlements.Settlement.text.village_V1_2" text="Etirfurd leży na batańskim pograniczu, w zagłębieniu na zachód od miejsca, gdzie wśród klifów masywu Uchalion ma swoje źródło rzeka Etir. Wieśniacy hodują tu pszenicę, kupowaną chętnie przez stacjonujące nieopodal wojskowe garnizony." />
+    <string id="Settlements.Settlement.text.village_V1_3" text="Rodetan swoją nazwę wziął od brunatnej, bogatej w żelazo gleby pokrywającej tę część wzgórz Renodu. Okoliczne kopalnie zaopatrują w surowiec wiele kuźni w królestwie Wlandii." />
+    <string id="Settlements.Settlement.text.village_V2_1" text="Mareiwen leży na stromych, zalesionych zboczach Renodu, górując nad Okspolem. Wieśniacy ścinają tutejsze wysokie drzewa i sprzedają pozyskany surowiec miastom na wybrzeżu." />
+    <string id="Settlements.Settlement.text.village_V2_2" text="Orytan leży nad krótką rzeką wypływającą z gór półwyspu Ebor, wpadającą zaś do jeziora Okspol. Rzeka zwalnia na jednym z meandrów, co umożliwia pozyskiwanie z jej wybrzeży gliny." />
+    <string id="Settlements.Settlement.text.village_V2_3" text="Fregian leży na równinie na północ od Prawendy, gdzie ciepło wlandyjskiego południa zaczyna ustępować chłodom północy. Pośród bagien i pastwisk wieśniacy uprawiają tu len." />
+    <string id="Settlements.Settlement.text.village_V2_4" text="Marin leży na zboczach na zachód od jeziora Okspol. Mgliste, chłodne od wiejącej na południe morskiej bryzy poranki i ciepłe popołudnia czynią okolicę doskonałą do uprawy winogron." />
+    <string id="Settlements.Settlement.text.village_V3_1" text="Walanbi leży nad estuarium rzeki Trand. Mieszkańcy wsi hodują len na wyrwanych rzece skrawkach bagien." />
+    <string id="Settlements.Settlement.text.village_V3_2" text="Wieś Rulund położona jest w zalesionych dolinach środkowego Trandu. Jej mieszkańcy specjalizują się w hodowli świń – karmią je żołędziami obficie porastającej okolicę dębiny." />
+    <string id="Settlements.Settlement.text.village_V3_3" text="Larnak leży na łagodnych zboczach dolnej części doliny Trandu. Wieśniacy uprawiają tu żyto, jęczmień i pszenicę, które następnie sprzedają nienasyconym mieszkańcom pobliskiej Prawendy." />
+    <string id="Settlements.Settlement.text.village_V3_4" text="Palisont leży przy kamienistym wąwozie dzielącym na pół trawiaste doliny na północ od rzeki Trand. Gleba jest tu uboga, wieś jednak radzi sobie, hodując świnie i inne zwierzęta." />
+    <string id="Settlements.Settlement.text.village_V5_1" text="Furbek położony jest na półce górującej nad kamienistym wybrzeżem Biskanu w centralnej Wlandii. Przez większość roku jest tu ciepło, a na zboczach wzgórz Biskanu dobrze rosną winogrona." />
+    <string id="Settlements.Settlement.text.village_V5_2" text="Merok to wieś rybacka leżąca nad zatoką na wybrzeżu Biskanu. Mieszkańcy wypływają na zachodni ocean w poszukiwaniu barwen i sumów w pobliżu wybrzeża oraz tuńczyków i sardynek wśród wysp na południu." />
+    <string id="Settlements.Settlement.text.village_V5_3" text="Nogrent leży na zboczach wzgórz Biskanu w centralnej Wlandii. Wieśniacy hodują tu owce na pastwiskach między przybrzeżnymi lasami a wysokimi wzniesieniami." />
+    <string id="Settlements.Settlement.text.village_V6_1" text="Arromank leży w Nerwalu, dolinie biegnącej między Biskanem a Wzgórzami Epirskimi. Ciepłe wlandyjskie południe doskonale nadaje się do hodowli oliwek." />
+    <string id="Settlements.Settlement.text.village_V6_2" text="Mot leży w Nerwalu, dolinie biegnącej między Biskanem a Wzgórzami Epirskimi. Ciepłe wlandyjskie południe doskonale nadaje się do hodowli oliwek." />
+    <string id="Settlements.Settlement.text.village_V6_3" text="Alorstan położony jest na górującej nad morzem półce u stóp wzgórz Biskanu. Ciepłe wlandyjskie południe doskonale nadaje się do hodowli oliwek." />
+    <string id="Settlements.Settlement.text.village_V6_4" text="Szornad położony jest nieopodal przełęczy wśród wzgórz Biskanu. Mieszkańcy regionu, jak wielu innych w centralnej części królestwa Wlandii, specjalizują się w hodowli świń." />
+    <string id="Settlements.Settlement.text.village_V7_1" text="Sawint położony jest na ciepłych, trawiastych równinach na północ od Zatoki Charaskiej. Te okolice to doskonałe pastwiska dla sławnych wlandyjskich koni." />
+    <string id="Settlements.Settlement.text.village_V7_2" text="Wieś Wesyn leży przy strumieniu płynącym ze Wzgórz Epirskich do Zatoki Charaskiej. W tym ciepłym regionie dobrze przyjmują się drzewa oliwkowe." />
+    <string id="Settlements.Settlement.text.village_V8_1" text="To właśnie w okolicach Horsgeru, jeśli wierzyć legendzie, słynny wojownik Horsa wyszedł na brzeg i wbił w piasek plaży swą włócznię. Dziś obszar ten kojarzony jest z odwagą zamieszkujących go rybaków, którzy wyruszają ku odległym, owiewanym mroźnym północnym powietrzem wybrzeżom, na wody bogate w dorsze." />
+    <string id="Settlements.Settlement.text.village_V8_2" text="Kanank leży na podmokłych, zalesionych wzgórzach północnego Renodu, gdzie korony cedrów giną pośród przywianych znad morza mgieł. Wieśniacy trudnią się tu chwytaniem bobrów, kun i zajęcy dla skór." />
+    <string id="Settlements.Settlement.text.village_V8_3" text="Remental położony jest wśród gór półwyspu Ebor. Pobliskie zbocza porastają wysokie jodły i świerki. Wieśniacy chwytają tu zwierzęta futerkowe takie jak kuny, zające czy lisy. Ten dziki region przyciąga w ostatnich czasach wielu osadników zwabionych wolnością, jaką dają lasy. Władza wlandyjskich baronów jest tutaj o wiele słabsza niż na południu." />
+    <string id="Settlements.Settlement.text.village_V9_1" text="Alantas leży pośrodku górzystego półwyspu Ebor. Gleba jest tu kiepska, a temperatury niskie, bogate złoża żelaza pozwalają jednak miejscowej gospodarce rozkwitać." />
+    <string id="Settlements.Settlement.text.village_V9_2" text="Halizwust był niegdyś bagiennym pustkowiem, lecz wlandyjscy osadnicy osuszyli okolicę i zasiali w dolinie pszenicę i żyto." />
+    <string id="SUnaVliN" text="Czajkand leży nad porośniętym trzciną, bagnistym brzegiem jeziora Tanezis. W czasach, gdy wschodnie ziemie objęte były cesarskim protektoratem, łodzie wypełnione skórami, wełną i solą kursowały po spokojnych wodach jeziora i powracały z cesarskim jedwabiem i srebrem. Po wojnach związanych z przybyciem Huzajczyków wodny handel ustał, lecz Czajkand pozostaje głównym składem handlowym i bazą wojskową, obecnie jako lenno klanu urkunajskiego. Z pawilonów swojego pałacu chan ma widok na jezioro i mgliste zarysy wzgórz, na których pewnego dnia może będzie wypasał swe konie." />
+    <string id="T2E4xKVn" text="Rewil, największe miasto skalistego Półwyspu Kaczarskiego, od zawsze rywalizowało z Balgardem. W myśl legendy balgardzka księżniczka Arkina, której męża zabili Rewilczycy, zgodziła się poślubić ich króla, by zakończyć spór. Jednakże podczas nocy poślubnej zabarykadowała drzwi sali biesiadnej monarchy i spaliła go wewnątrz wraz z setką jego rodaków i żołnierzy. Później udało się zażegnać konflikt dzięki paktom i małżeństwom, które okazały się mieć szczęśliwsze rezultaty, choć Rewilczycy wciąż niechętnie patrzą na sukcesy balgardzkiej dynastii Gundarowingów." />
+    <string id="TI3fS2xN" text="W każdej z krain znajduje się miasto, którego mieszkańcy są obiektem szyderstw z powodu swojej prowincjonalnej prostoty. W Cesarstwie takim miastem było Dżalmaris, jedna z pierwszych cesarskich kolonii oddalonych od Morza Peraskiego w stronę śródlądzia. Służyło jako baza podczas podporządkowywania Cesarstwu palajskich plemion. Parawenos z radością przyjmowało łupy i niewolników ze swojego garnizonu, lecz w ukryciu podśmiewało się z niego. Sytuacja zmieniła, się, gdy dżalmarski generał Karsos zorganizował zamach stanu. Gdy jeden z senatorów, nie zrozumiawszy jego twardego akcentu, nerwowo poprosił go o powtórzenie dekretu, Karsos wyjął miecz i spytał: „A rozumiesz to?”" />
+    <string id="UHvEEEBb" text=" Syronea leży na wschodnim brzegu jeziora Tanezis. Miasto to, niegdyś spokojne i bogate, było symbolem luksusu i zepsucia. Znajdowało się tu centrum przemysłu jedwabniczego Cesarstwa i główny skład handlowy dla towarów napływających z miejsca zwanego Transtanezją, czyli cesarskich włości i protektoratów spoza wielkiego jeziora. Lecz nadejście Huzajczyków spowodowało oderwanie Transtanezji od Cesarstwa, a senatorskie rodziny Syronei musiały przypomnieć sobie wojenne arkana, odkurzyć pozłacane zbroje i naostrzyć inkrustowane miecze, by poprowadzić swych stronników przeciwko wojownikom Urkuna." />
+    <string id="uO4dxCl8" text="Port Sanala jest bramą, przez którą przepływa ziarno z dolnego Damaru, by nakarmić wygłodzony świat. Cykliczne operacje wojskowe Cesarstwa na południe od Morza Peraskiego zwykle miały na celu zdobycie tego strategicznego miejsca. Choć legiony zostały zmuszone do wycofania się już dawno temu, Sanala pozostaje jednym z najbardziej kosmopolitycznych miast w Kalradii, a kupcy z wielu krain licytują się na jej targowiskach o hurtowe ceny." />
+    <string id="WGtzBswe" text="Naturalna forteca Likaron leży na grani wystającej z ogromnej skały Ornian. W ostatnich latach cesarskich podbojów tutejsze palajskie plemię wynegocjowało z Cesarstwem pokojową federację, po czym jego dom i tak zajął przywódca buntowników, Getuz. Doprowadziło to do pierwszego z wielu oblężeń, jakich doświadczyło Likaron w kolejnych stuleciach. Na pobliskie kopalnie srebra chciwym okiem patrzył bowiem każdy z pretendentów do władzy w cesarskich wojnach domowych. Mówi się, że chmary sępów, które zamieszkują górne partie skały, miały okazję skosztować mięsa każdej nacji w Kalradii." />
+    <string id="wKMo2CUP" text="Diatma, miasto Boskiego Dekretu, została wzniesiona pod komendą cesarskiego generała na ruinach driatyckiej kaplicy nad jeziorem Lakonis. Był to ostatni bastion Driatów, żyjącego najdalej na północy palajskiego ludu, który zbuntował się przeciw Cesarstwu, lecz został pokonany. Legenda głosi, że Driaci zostali zepchnięci na płycizny jeziora, gdzie walczyli aż do utraty sił, a następnie pochłonęła ich krwawa toń." />
+    <string id="X3MsaG39" text="Smutne miasto Seonona ma historię równie mroczną, co wody Lin Tiwal. To tu Algana Krasnolica stanęła na szczycie wieży, opłakując śmierć ukochanego Gorawana, aż duchy z zaświatów, same przepełnione smutkiem, pozwoliły jego cieniowi wznieść się poprzez toń na jeden dzień i jedną noc, by ją pocieszyć. W późniejszych czasach ziemie te były często pustoszone przez sturgijskich grabieżców. Niedaleko znajdują się też lasy, w których zniknął król Eryl, ustępując miejsca Kaladogowi." />
+    <string id="xkkI7ejQ" text="Przygraniczne miasto Danustyka wznosi się nad siecią jezior i lagun zwaną Kalseą. Od dawna stawia opór najazdom Aserajczyków oraz różnych szachów i padyszachów z Darszi z odległego wschodu. Wielu stacjonujących tu cesarskich legionistów bazgrało na murach przekleństwa na duszne lata, słonawą wodę i komary kotłujące się nad Kalseą, lecz mieszkańcy szczycą się tym, że mogą bronić granic kraju, i naśmiewają się z żołnierzy, którzy mizernieją w otaczającym ich upale." />
+    <string id="Xom9DeXZ" text="Balgard, który leży nad zamarzniętymi wodami zatoki Mazopor, został założony przez nordyckich migrantów. Legenda głosi, że pierwsze grupy Nordów arogancko żądały daniny od pobliskich wakkijskich i sturgijskich plemion, które w odpowiedzi zawiązały sojusz i odparły nowo przybyłych z powrotem do ich statków. Lecz zwycięzcy popadli w spór o łupy wojenne. Wtedy sprytny Nord, Gundar, przybył w swojej łodzi i zaoferował, że pomoże im sprawiedliwie podzielić broń i zbroje po swych zabitych krajanach. Mieszkańcy uznali władzę Gundara w regionie, a jego potomkowie, którzy wżenili się w sturgijskie rodziny, dziś są wielkimi książętami Sturgii." />
+    <string id="YERtiSUn" text="Dunglanys, zwany Skałą Glanys, leży na wysokiej grani nad Lin Tiwal, ciemną tonią w sercu batańskich ziem. Nazwano go imieniem starożytnej królowej, która według legendy poślubiła pięciu batańskich królów pod rząd, nadając im suwerenność. To stąd wywodzą się rytuały, które wzmacniają batański majestat królewski, i choć nie każdy z batańskich królów władał z tego miejsca, wszyscy chcą utrzymać je w granicach państwa." />
+    <string id="ygJkPxyc" text="Miasto Odok leży u stóp Kohi Rohini, gór świtu. To jedno z najodleglejszych miast Dewsegu i ponoć dawna siedziba króla Anaka, mitycznego tyrana, z którego ramion wyrastały węże. Nawet dziś Kohi Rohini uważa się za miejsce pełne czarnej magii i tajemnic, sprawiających, że podróżnicy trzymają się z dala. Podczas huzajskiego podboju miasto zdobył klan Harfitów, którego wielu członków zawarło małżeństwa z mieszkańcami gór. Dziś Harfici szanują ich zwyczaje, uczestniczą w rytuałach i dochowują tajemnic." />
+    <string id="YNm9vaHw" text="Twierdza Topora, Baltakand, została zasiedlona przez Iltanlarów, zamieszkujących górskie rejony kuzynów Huzajczyków. Stulecia temu ich bejowie zstąpili z gór na równiny i zbudowali fortecę, która strzeże Iltańskich Przenosek, czyli sieci jezior i rzek oddzielających sturgijskie ziemie od huzajskich krain. Srogie zimy chroniły ich przed Cesarstwem, lecz najzimniejszy wiatr nie byłby w stanie powstrzymać jeźdźców chana Urkuna, który czterdzieści lat temu siłą podporządkował to miasto chanatowi." />
+    <string id="ytBRXqt8" text="Wostrum założył kalradyjski najemnik Archakos, jeden ze zbuntowanych dowódców, którzy odcięli się od Cesarstwa podczas jego podbojów. W przeciwieństwie do tych, co próbowali pielęgnować dziedzictwo republiki cesarskiej, postanowił rządzić jako król-bóg. Jego dynastia przetrwała pokolenia, aż do czasu, gdy najechały ją cesarskie oddziały, które starły w proch wszystkie święte posągi Archakosa i jego następców. Nawet dziś senatorzy z północy i zachodu oskarżają tutejsze rody o skryte popieranie monarchii." />
+    <string id="YYYxOiCq" text="Amprela to najbardziej wysunięte na północny wschód miasto Cesarstwa. Strażnicy pełnią wartę na szczytach wież, wypatrując ogni sygnałowych rozmieszczonych wzdłuż północnych, wschodnich i zachodnich granic, ostrzegających przed zbliżającym się napadem. Konni łucznicy zwerbowani spośród wolnych Elefterów piją w koszarach, czekając na rozkaz wyruszenia do walki z jeźdźcami ze stepów. Katafrakci wyjeżdżają z miasta, by rywalizować ze sturgijskimi książętami o kontrolę nad szlakami handlowymi, które wiodą przez pobliską sieć jezior znanych jako Iltańskie Przenoski." />
+    <string id="ZAGUIKOn" text="Niesławne zdobycie Lagety przez Cesarstwo dokonało się za pomocą podstępu. Wyjęty spod prawa cesarski najemnik zamordował palajskiego wodza, który go zatrudniał. Następnie zajął cytadelę, wpuścił cesarskich kolonistów i przekazał władzę nad miastem Cesarstwu. Senat potępił to działanie, lecz przejęcia kontroli nie odmówił. Ziemie te zamieszkują teraz głównie Kalradyjczycy, ale Batowie z północy pamiętają o tych wydarzeniach. Gdy od cesarskich emisariuszy słyszą o świętości paktów i traktatów, kiwają tylko znacząco głowami i powtarzają do siebie „Lageta”." />
+  </strings>
+</base>

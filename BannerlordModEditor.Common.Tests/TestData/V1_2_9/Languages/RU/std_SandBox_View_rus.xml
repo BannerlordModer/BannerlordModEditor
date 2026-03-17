@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="Русский" />
+  </tags>
+  <strings>
+    <string id="0tJ1oarX" text="Продолжить кампанию" />
+    <string id="171fTtIN" text="Песочница" />
+    <string id="5Saniypu" text="Возобновить" />
+    <string id="60LTq0tQ" text="Последняя сохраненная игра не обнаружена." />
+    <string id="6mN03uTP" text="Сохраненные игры" />
+    <string id="6WHz63af" text="Перенести сохраненные данные с консоли PS4™" />
+    <string id="A7349NHy" text="Важное королевское решение" />
+    <string id="aWMZQKXZ" text="Чтобы продолжить, сохраните игру хотя бы один раз" />
+    <string id="bFzZwwjT" text="Проверить" />
+    <string id="gbm8MssI" text="Уже существуют данные с таким названием. Хотите перезаписать?" />
+    <string id="ifkdZmxr" text="Сохраненные данные на консоли PS4™ не найдены" />
+    <string id="j09m7S2E" text="В режиме песочницы достижения отключены!" />
+    <string id="oKTBTIu2" text="Ошибка переноса сохраненных данных" />
+    <string id="PJK980ka" text="Выбрать сохраненные данные на консоли PS4™ для переноса" />
+    <string id="qP8YxzsH" text="Достигнут лимит сохраненных данных. Чтобы продолжить, удалите часть имеющихся." />
+    <string id="t6W3UjG0" text="Файл сохраненной игры поврежден. Попробуйте начать новую кампанию или загрузите другую сохраненную игру." />
+    <string id="tHGHDaFH" text="Успешно перенесены сохраненные данные консоли PS4™" />
+    <string id="XcVVE1mp" text="Сохраненные игры не найдены." />
+  </strings>
+</base>
