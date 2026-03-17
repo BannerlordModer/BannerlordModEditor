@@ -1,0 +1,33 @@
+name: opencode-doc-update
+
+on:
+  schedule:
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  opencode:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Run opencode
+        uses: anomalyco/opencode/github@latest
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+        with:
+          model: minimax-cn-coding-plan/MiniMax-M2.5
+          prompt: |
+            使用 gh 命令检查仓库中是否存在从 docs 分支创建的未合并 PR。
+            如果存在，退出并报告"已有待合并的文档 PR，任务取消"。
+            如果不存在，运行文档更新任务，完成后使用 gh pr create 创建 PR，创建完成后立即退出。
+            文档更新任务：如果没有未合并pr，那理论上不存在docs分支，此时从master分支创建docs分支，扫描整个仓库并更新文档后提交并推送到远程仓库，推送完成后创建PR，然后就可以退出了。
