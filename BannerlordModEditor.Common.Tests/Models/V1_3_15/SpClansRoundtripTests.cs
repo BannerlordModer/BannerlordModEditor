@@ -1,7 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using BannerlordModEditor.Common.Models.V1_2_9;
+using BannerlordModEditor.Common.Models.V1_3_15;
 using Xunit;
 
 namespace BannerlordModEditor.Common.Tests.Models.V1_3_15
