@@ -11,6 +11,14 @@
     <NoWarn>$(NoWarn);CS8618;CS8603;CS8604;CS8602;CS8600;CS8625</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$([MSBuild]::IsOSPlatform(Windows))' == 'true'">
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
