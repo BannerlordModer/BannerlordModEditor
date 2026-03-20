@@ -71,6 +71,8 @@ public partial class App : Application
         
         // 注册Common层服务
         services.AddTransient<BannerlordModEditor.Common.Services.IFileDiscoveryService, BannerlordModEditor.Common.Services.FileDiscoveryService>();
+        services.AddSingleton<BannerlordModEditor.Common.Services.IGameDirectoryScanner, BannerlordModEditor.Common.Services.GameDirectoryScanner>();
+        services.AddSingleton<BannerlordModEditor.Common.Services.IProjectTypeDetector, BannerlordModEditor.Common.Services.ProjectTypeDetector>();
         
         // 注册所有编辑器ViewModel和View
         services.AddTransient<AttributeEditorViewModel>();
