@@ -5,7 +5,7 @@ namespace BannerlordModEditor.Common.Models.V1_3_15;
 
 // partyTemplates.xml - Party Templates for Bannerlord 1.2.9
 // Root element: <PartyTemplates>
-[XmlRoot("PartyTemplates")]
+[XmlRoot("partyTemplates")]
 public class PartyTemplates
 {
     [XmlElement("PartyTemplate")]
