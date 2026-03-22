@@ -256,14 +256,6 @@ public class NpcUpgradeTargets
     public bool ShouldSerializeUpgradeTargetList() => UpgradeTargetList.Count > 0;
 }
 
-public class UpgradeTarget
-{
-    [XmlAttribute("id")]
-    public string? Id { get; set; }
-
-    public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-}
-
 public class NpcEquipments
 {
     [XmlElement("EquipmentRoster")]
