@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_3_15;
 
-[XmlRoot("BanditFactions")]
+[XmlRoot("NPCCharacters")]
 public class BanditFactions
 {
     [XmlElement("BanditFaction")]
