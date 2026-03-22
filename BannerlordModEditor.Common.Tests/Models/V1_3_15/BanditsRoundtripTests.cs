@@ -12,7 +12,7 @@ namespace BannerlordModEditor.Common.Tests.Models.V1_3_15
         {
             var xmlPath = Path.Combine("TestData", "V1_3_15", "bandits.xml");
             var originalXml = await File.ReadAllTextAsync(xmlPath);
-            var obj = XmlTestUtils.Deserialize<BanditFactions>(originalXml);
+            var obj = XmlTestUtils.Deserialize<Bandits>(originalXml);
             var serialized = XmlTestUtils.Serialize(obj, originalXml);
             Assert.True(XmlTestUtils.AreStructurallyEqual(originalXml, serialized));
         }
