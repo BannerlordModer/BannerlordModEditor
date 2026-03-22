@@ -105,34 +105,6 @@ public class FaceKeyTemplate
     public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
 }
 
-public class BodyProperties
-{
-    [XmlAttribute("version")]
-    public string? Version { get; set; }
-
-    [XmlAttribute("age")]
-    public string? Age { get; set; }
-
-    [XmlAttribute("weight")]
-    public string? Weight { get; set; }
-
-    [XmlAttribute("build")]
-    public string? Build { get; set; }
-
-    [XmlAttribute("key")]
-    public string? Key { get; set; }
-
-    [XmlIgnore]
-    public bool HasContent => !string.IsNullOrEmpty(Version) || !string.IsNullOrEmpty(Age)
-        || !string.IsNullOrEmpty(Weight) || !string.IsNullOrEmpty(Build) || !string.IsNullOrEmpty(Key);
-
-    public bool ShouldSerializeVersion() => !string.IsNullOrEmpty(Version);
-    public bool ShouldSerializeAge() => !string.IsNullOrEmpty(Age);
-    public bool ShouldSerializeWeight() => !string.IsNullOrEmpty(Weight);
-    public bool ShouldSerializeBuild() => !string.IsNullOrEmpty(Build);
-    public bool ShouldSerializeKey() => !string.IsNullOrEmpty(Key);
-}
-
 public class BodyPropertiesMax
 {
     [XmlAttribute("version")]
@@ -159,84 +131,6 @@ public class BodyPropertiesMax
     public bool ShouldSerializeWeight() => !string.IsNullOrEmpty(Weight);
     public bool ShouldSerializeBuild() => !string.IsNullOrEmpty(Build);
     public bool ShouldSerializeKey() => !string.IsNullOrEmpty(Key);
-}
-
-public class HairTags
-{
-    [XmlElement("hair_tag")]
-    public List<HairTag> HairTagList { get; set; } = new List<HairTag>();
-
-    [XmlIgnore]
-    public bool HasContent => HairTagList.Count > 0;
-
-    public bool ShouldSerializeHairTagList() => HairTagList.Count > 0;
-}
-
-public class HairTag
-{
-    [XmlAttribute("name")]
-    public string? Name { get; set; }
-
-    public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-}
-
-public class BeardTags
-{
-    [XmlElement("beard_tag")]
-    public List<BeardTag> BeardTagList { get; set; } = new List<BeardTag>();
-
-    [XmlIgnore]
-    public bool HasContent => BeardTagList.Count > 0;
-
-    public bool ShouldSerializeBeardTagList() => BeardTagList.Count > 0;
-}
-
-public class BeardTag
-{
-    [XmlAttribute("name")]
-    public string? Name { get; set; }
-
-    public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-}
-
-public class TattooTags
-{
-    [XmlElement("tattoo_tag")]
-    public List<TattooTag> TattooTagList { get; set; } = new List<TattooTag>();
-
-    [XmlIgnore]
-    public bool HasContent => TattooTagList.Count > 0;
-
-    public bool ShouldSerializeTattooTagList() => TattooTagList.Count > 0;
-}
-
-public class TattooTag
-{
-    [XmlAttribute("name")]
-    public string? Name { get; set; }
-
-    public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-}
-
-public class NpcCharacterSkills
-{
-    [XmlElement("skill")]
-    public List<Skill> SkillList { get; set; } = new List<Skill>();
-
-    [XmlIgnore]
-    public bool HasContent => SkillList.Count > 0;
-}
-
-public class Skill
-{
-    [XmlAttribute("id")]
-    public string? Id { get; set; }
-
-    [XmlAttribute("value")]
-    public string? Value { get; set; }
-
-    public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
-    public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
 }
 
 public class NpcTraits
