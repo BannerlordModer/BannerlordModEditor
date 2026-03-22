@@ -139,6 +139,27 @@ public class NpcTraits
     public bool HasContent => false;
 }
 
+public class NpcCharacterSkills
+{
+    [XmlElement("skill")]
+    public List<NpcCharacterSkills.Skill> SkillList { get; set; } = new List<NpcCharacterSkills.Skill>();
+
+    [XmlIgnore]
+    public bool HasContent => SkillList.Count > 0;
+
+    public class Skill
+    {
+        [XmlAttribute("id")]
+        public string? Id { get; set; }
+
+        [XmlAttribute("value")]
+        public string? Value { get; set; }
+
+        public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
+        public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+    }
+}
+
 public class NpcUpgradeTargets
 {
     [XmlElement("upgrade_target")]
