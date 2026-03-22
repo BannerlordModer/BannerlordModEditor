@@ -228,10 +228,10 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
-            // 特殊处理：将自闭合标签转换为开始/结束标签格式以保持一致性
-            foreach (var element in doc.Descendants().Where(e => e.IsEmpty && e.Name.LocalName == "base"))
+            // 特殊处理：将所有自闭合标签转换为开始/结束标签格式以保持一致性
+            foreach (var element in doc.Descendants().Where(e => e.IsEmpty))
             {
-                element.Add(""); // 添加空内容强制使用开始/结束标签
+                element.Add("");
             }
             
             return doc.ToString();
