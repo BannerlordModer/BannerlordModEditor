@@ -47,11 +47,20 @@ namespace BannerlordModEditor.Common.Tests
             return File.ReadAllText(filePath);
         }
 
+        private static readonly byte[] Utf8Bom = new byte[] { 0xEF, 0xBB, 0xBF };
+
         public static T Deserialize<T>(string xml)
         {
             if (string.IsNullOrEmpty(xml))
                 throw new ArgumentException("XML cannot be null or empty", nameof(xml));
-                
+
+            // Strip UTF-8 BOM if present (causes XmlSerializer to fail with "error in XML document (2,2)")
+            var bytes = Encoding.UTF8.GetBytes(xml);
+            if (bytes.Length >= 3 && bytes[0] == Utf8Bom[0] && bytes[1] == Utf8Bom[1] && bytes[2] == Utf8Bom[2])
+            {
+                xml = Encoding.UTF8.GetString(bytes, 3, bytes.Length - 3);
+            }
+
             var serializer = new XmlSerializer(typeof(T));
             using var reader = new StringReader(xml);
             var obj = (T)serializer.Deserialize(reader)!;
@@ -219,10 +228,10 @@ namespace BannerlordModEditor.Common.Tests
                 }
             }
             
-            // 特殊处理：将自闭合标签转换为开始/结束标签格式以保持一致性
-            foreach (var element in doc.Descendants().Where(e => e.IsEmpty && e.Name.LocalName == "base"))
+            // 特殊处理：将所有自闭合标签转换为开始/结束标签格式以保持一致性
+            foreach (var element in doc.Descendants().Where(e => e.IsEmpty))
             {
-                element.Add(""); // 添加空内容强制使用开始/结束标签
+                element.Add("");
             }
             
             return doc.ToString();

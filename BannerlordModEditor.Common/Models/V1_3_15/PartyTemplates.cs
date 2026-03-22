@@ -3,67 +3,47 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_3_15;
 
-// partyTemplates.xml - Party Templates for Bannerlord 1.2.9
-// Root element: <PartyTemplates>
-[XmlRoot("PartyTemplates")]
+[XmlRoot("partyTemplates")]
 public class PartyTemplates
 {
-    [XmlElement("PartyTemplate")]
-    public List<PartyTemplate> PartyTemplateList { get; set; } = new List<PartyTemplate>();
+    [XmlElement("MBPartyTemplate")]
+    public List<MBPartyTemplate> MBPartyTemplateList { get; set; } = new List<MBPartyTemplate>();
+
+    public bool ShouldSerializeMBPartyTemplateList() => MBPartyTemplateList.Count > 0;
 }
 
-// PartyTemplate attributes:
-// - id, culture, name, template
-public class PartyTemplate
+public class MBPartyTemplate
 {
-    // Required attributes
     [XmlAttribute("id")]
     public string Id { get; set; } = string.Empty;
 
-    // Optional attributes
-    [XmlAttribute("culture")]
-    public string? Culture { get; set; }
+    [XmlElement("stacks")]
+    public Stacks? Stacks { get; set; }
 
-    [XmlAttribute("name")]
-    public string? Name { get; set; }
-
-    [XmlAttribute("template")]
-    public string? Template { get; set; }
-
-    // Child elements
-    [XmlElement("Roles")]
-    public Roles? Roles { get; set; }
-
-    // ShouldSerialize methods for optional attributes
-    public bool ShouldSerializeCulture() => !string.IsNullOrEmpty(Culture);
-    public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-    public bool ShouldSerializeTemplate() => !string.IsNullOrEmpty(Template);
-    public bool ShouldSerializeRoles() => Roles != null && Roles.RoleList.Count > 0;
+    public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
+    public bool ShouldSerializeStacks() => Stacks != null && Stacks.PartyTemplateStackList.Count > 0;
 }
 
-// Roles contains Role elements
-public class Roles
+public class Stacks
 {
-    [XmlElement("Role")]
-    public List<Role> RoleList { get; set; } = new List<Role>();
+    [XmlElement("PartyTemplateStack")]
+    public List<PartyTemplateStack> PartyTemplateStackList { get; set; } = new List<PartyTemplateStack>();
+
+    public bool ShouldSerializePartyTemplateStackList() => PartyTemplateStackList.Count > 0;
 }
 
-// Role attributes:
-// - id, type, value
-public class Role
+public class PartyTemplateStack
 {
-    // Required attributes
-    [XmlAttribute("id")]
-    public string Id { get; set; } = string.Empty;
+    [XmlAttribute("min_value")]
+    public string MinValue { get; set; } = string.Empty;
 
-    // Optional attributes
-    [XmlAttribute("type")]
-    public string? Type { get; set; }
+    [XmlAttribute("max_value")]
+    public string MaxValue { get; set; } = string.Empty;
 
-    [XmlAttribute("value")]
-    public string? Value { get; set; }
+    [XmlAttribute("troop")]
+    public string Troop { get; set; } = string.Empty;
 
-    // ShouldSerialize methods
-    public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
-    public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+    public bool ShouldSerializeMinValue() => !string.IsNullOrEmpty(MinValue);
+    public bool ShouldSerializeMaxValue() => !string.IsNullOrEmpty(MaxValue);
+    public bool ShouldSerializeTroop() => !string.IsNullOrEmpty(Troop);
 }

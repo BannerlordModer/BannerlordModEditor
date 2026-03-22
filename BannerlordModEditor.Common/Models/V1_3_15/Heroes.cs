@@ -3,80 +3,35 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_3_15;
 
-[XmlRoot("Characters")]
-public class Characters
+[XmlRoot("Heroes")]
+public class Heroes
 {
-    [XmlElement("Character")]
-    public List<Character> CharacterList { get; set; } = new List<Character>();
+    [XmlElement("Hero")]
+    public List<Hero> HeroList { get; set; } = new List<Hero>();
+
+    public bool ShouldSerializeHeroList() => HeroList.Count > 0;
 }
 
-public class Character
+public class Hero
 {
     [XmlAttribute("id")]
     public string Id { get; set; } = string.Empty;
 
-    [XmlAttribute("level")]
-    public string Level { get; set; } = string.Empty;
+    [XmlAttribute("alive")]
+    public string? Alive { get; set; }
 
-    [XmlAttribute("name")]
-    public string Name { get; set; } = string.Empty;
+    [XmlAttribute("faction")]
+    public string? Faction { get; set; }
 
-    [XmlAttribute("occupation")]
-    public string? Occupation { get; set; }
+    [XmlAttribute("text")]
+    public string? Text { get; set; }
 
-    [XmlElement("face_mesh")]
-    public FaceMesh? FaceMesh { get; set; }
+    [XmlAttribute("father")]
+    public string? Father { get; set; }
 
-    [XmlElement("skills")]
-    public Skills? Skills { get; set; }
-
-    [XmlElement("equipmentSet")]
-    public EquipmentSet? EquipmentSet { get; set; }
-
-    [XmlElement("formation_class")]
-    public FormationClass? FormationClass { get; set; }
-
-    public bool ShouldSerializeOccupation() => !string.IsNullOrEmpty(Occupation);
-    public bool ShouldSerializeFaceMesh() => FaceMesh != null && FaceMesh.HasContent;
-    public bool ShouldSerializeSkills() => Skills != null && Skills.HasContent;
-    public bool ShouldSerializeEquipmentSet() => EquipmentSet != null && EquipmentSet.HasContent;
-    public bool ShouldSerializeFormationClass() => FormationClass != null && FormationClass.HasContent;
-}
-
-public class FaceMesh
-{
-    [XmlElement("body_parent")]
-    public BodyParent? BodyParent { get; set; }
-
-    [XmlIgnore]
-    public bool HasContent => BodyParent != null && BodyParent.HasContent;
-}
-
-public class BodyParent
-{
-    [XmlAttribute("age")]
-    public string? Age { get; set; }
-
-    [XmlIgnore]
-    public bool HasContent => !string.IsNullOrEmpty(Age);
-
-    public bool ShouldSerializeAge() => !string.IsNullOrEmpty(Age);
-}
-
-public class Skills
-{
-    [XmlIgnore]
-    public bool HasContent => false;
-}
-
-public class EquipmentSet
-{
-    [XmlIgnore]
-    public bool HasContent => false;
-}
-
-public class FormationClass
-{
-    [XmlIgnore]
-    public bool HasContent => false;
+    public bool ShouldSerializeId() => !string.IsNullOrEmpty(Id);
+    public bool ShouldSerializeAlive() => !string.IsNullOrEmpty(Alive);
+    public bool ShouldSerializeFaction() => !string.IsNullOrEmpty(Faction);
+    public bool ShouldSerializeText() => !string.IsNullOrEmpty(Text);
+    public bool ShouldSerializeFather() => !string.IsNullOrEmpty(Father);
 }

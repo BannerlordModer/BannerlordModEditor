@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_3_15;
 
-[XmlRoot("base")]
+[XmlRoot("strings")]
 public class CompanionStrings
 {
     [XmlElement("string")]
