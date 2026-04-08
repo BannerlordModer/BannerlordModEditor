@@ -3,11 +3,11 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_2_9;
 
-[XmlRoot("base")]
+[XmlRoot("strings")]
 public class WandererStrings
 {
     [XmlElement("string")]
-    public List<StringItem> Strings { get; set; } = new List<StringItem>();
+    public List<WandererStringItem> Strings { get; set; } = new List<WandererStringItem>();
 }
 
 public class WandererStringItem

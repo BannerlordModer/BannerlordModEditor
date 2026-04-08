@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_2_9;
 
-[XmlRoot("Scenes")]
+[XmlRoot("SPBattleScenes")]
 public class SPBattleScenes
 {
     [XmlElement("Scene")]

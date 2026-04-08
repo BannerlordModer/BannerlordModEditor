@@ -3,10 +3,10 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_2_9;
 
-[XmlRoot("Characters")]
+[XmlRoot("Heroes")]
 public class Characters
 {
-    [XmlElement("Character")]
+    [XmlElement("Hero")]
     public List<Character> CharacterList { get; set; } = new List<Character>();
 }
 

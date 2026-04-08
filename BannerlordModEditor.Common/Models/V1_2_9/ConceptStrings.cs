@@ -3,10 +3,10 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_2_9;
 
-[XmlRoot("base")]
+[XmlRoot("Concepts")]
 public class ConceptStrings
 {
-    [XmlElement("string")]
+    [XmlElement("Concept")]
     public List<ConceptStringItem> Strings { get; set; } = new List<ConceptStringItem>();
 }
 
