@@ -3,67 +3,71 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_3_15;
 
-// partyTemplates.xml - Party Templates for Bannerlord 1.2.9
-// Root element: <PartyTemplates>
-[XmlRoot("PartyTemplates")]
+// partyTemplates.xml - Party Templates for Bannerlord 1.3.15
+// Root element: <partyTemplates>
+[XmlRoot("partyTemplates")]
 public class PartyTemplates
 {
-    [XmlElement("PartyTemplate")]
-    public List<PartyTemplate> PartyTemplateList { get; set; } = new List<PartyTemplate>();
+    [XmlElement("MBPartyTemplate")]
+    public List<MBPartyTemplate> PartyTemplateList { get; set; } = new List<MBPartyTemplate>();
 }
 
-// PartyTemplate attributes:
-// - id, culture, name, template
-public class PartyTemplate
+// MBPartyTemplate attributes:
+// - id, difficulty, preferred_role, max_number_of_parties, min_number_of_parties
+public class MBPartyTemplate
 {
     // Required attributes
     [XmlAttribute("id")]
     public string Id { get; set; } = string.Empty;
 
     // Optional attributes
-    [XmlAttribute("culture")]
-    public string? Culture { get; set; }
+    [XmlAttribute("difficulty")]
+    public string? Difficulty { get; set; }
 
-    [XmlAttribute("name")]
-    public string? Name { get; set; }
+    [XmlAttribute("preferred_role")]
+    public string? PreferredRole { get; set; }
 
-    [XmlAttribute("template")]
-    public string? Template { get; set; }
+    [XmlAttribute("max_number_of_parties")]
+    public string? MaxNumberOfParties { get; set; }
+
+    [XmlAttribute("min_number_of_parties")]
+    public string? MinNumberOfParties { get; set; }
 
     // Child elements
-    [XmlElement("Roles")]
-    public Roles? Roles { get; set; }
+    [XmlElement("stacks")]
+    public Stacks? Stacks { get; set; }
 
     // ShouldSerialize methods for optional attributes
-    public bool ShouldSerializeCulture() => !string.IsNullOrEmpty(Culture);
-    public bool ShouldSerializeName() => !string.IsNullOrEmpty(Name);
-    public bool ShouldSerializeTemplate() => !string.IsNullOrEmpty(Template);
-    public bool ShouldSerializeRoles() => Roles != null && Roles.RoleList.Count > 0;
+    public bool ShouldSerializeDifficulty() => !string.IsNullOrEmpty(Difficulty);
+    public bool ShouldSerializePreferredRole() => !string.IsNullOrEmpty(PreferredRole);
+    public bool ShouldSerializeMaxNumberOfParties() => !string.IsNullOrEmpty(MaxNumberOfParties);
+    public bool ShouldSerializeMinNumberOfParties() => !string.IsNullOrEmpty(MinNumberOfParties);
+    public bool ShouldSerializeStacks() => Stacks != null && Stacks.StackList.Count > 0;
 }
 
-// Roles contains Role elements
-public class Roles
+// Stacks contains PartyTemplateStack elements
+public class Stacks
 {
-    [XmlElement("Role")]
-    public List<Role> RoleList { get; set; } = new List<Role>();
+    [XmlElement("PartyTemplateStack")]
+    public List<PartyTemplateStack> StackList { get; set; } = new List<PartyTemplateStack>();
 }
 
-// Role attributes:
-// - id, type, value
-public class Role
+// PartyTemplateStack attributes:
+// - min_value, max_value, troop
+public class PartyTemplateStack
 {
-    // Required attributes
-    [XmlAttribute("id")]
-    public string Id { get; set; } = string.Empty;
-
     // Optional attributes
-    [XmlAttribute("type")]
-    public string? Type { get; set; }
+    [XmlAttribute("min_value")]
+    public string? MinValue { get; set; }
 
-    [XmlAttribute("value")]
-    public string? Value { get; set; }
+    [XmlAttribute("max_value")]
+    public string? MaxValue { get; set; }
+
+    [XmlAttribute("troop")]
+    public string? Troop { get; set; }
 
     // ShouldSerialize methods
-    public bool ShouldSerializeType() => !string.IsNullOrEmpty(Type);
-    public bool ShouldSerializeValue() => !string.IsNullOrEmpty(Value);
+    public bool ShouldSerializeMinValue() => !string.IsNullOrEmpty(MinValue);
+    public bool ShouldSerializeMaxValue() => !string.IsNullOrEmpty(MaxValue);
+    public bool ShouldSerializeTroop() => !string.IsNullOrEmpty(Troop);
 }

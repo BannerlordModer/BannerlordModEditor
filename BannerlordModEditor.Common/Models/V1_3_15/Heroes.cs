@@ -3,14 +3,14 @@ using System.Xml.Serialization;
 
 namespace BannerlordModEditor.Common.Models.V1_3_15;
 
-[XmlRoot("Characters")]
-public class Characters
+[XmlRoot("Heroes")]
+public class Heroes
 {
-    [XmlElement("Character")]
-    public List<Character> CharacterList { get; set; } = new List<Character>();
+    [XmlElement("Hero")]
+    public List<Hero> HeroList { get; set; } = new List<Hero>();
 }
 
-public class Character
+public class Hero
 {
     [XmlAttribute("id")]
     public string Id { get; set; } = string.Empty;
