@@ -28,7 +28,7 @@ namespace BannerlordModEditor.Cli.Commands
         [CommandOption("verbose", Description = "显示详细信息")]
         public bool Verbose { get; set; }
 
-        [CommandOption("game-version", Description = "游戏版本 (latest, v1.2.9)")]
+        [CommandOption("game-version", Description = "游戏版本 (latest, v1.2.9, v1.3.15)")]
         public string? GameVersion { get; set; }
 
         public async ValueTask ExecuteAsync(IConsole console)
@@ -53,7 +53,7 @@ namespace BannerlordModEditor.Cli.Commands
                     console.Output.WriteLine($"识别文件: {InputFile}");
                 }
 
-                var modelType = await _converterService.RecognizeXmlFormatAsync(InputFile);
+                var modelType = await _converterService.RecognizeXmlFormatAsync(InputFile, GameVersion);
 
                 if (!string.IsNullOrEmpty(modelType))
                 {

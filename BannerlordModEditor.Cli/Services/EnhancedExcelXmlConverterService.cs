@@ -24,18 +24,24 @@ namespace BannerlordModEditor.Cli.Services
         private readonly IFileDiscoveryService _fileDiscoveryService;
         private readonly Dictionary<string, Type> _doModelTypes;
         private readonly Dictionary<string, Type> _dtoModelTypes;
+        private readonly Dictionary<string, Type> _v1_2_9ModelTypes;
+        private readonly Dictionary<string, Type> _v1_3_15ModelTypes;
 
         public EnhancedExcelXmlConverterService(IFileDiscoveryService fileDiscoveryService)
         {
             _fileDiscoveryService = fileDiscoveryService;
             _doModelTypes = LoadModelTypes("BannerlordModEditor.Common.Models.DO");
             _dtoModelTypes = LoadModelTypes("BannerlordModEditor.Common.Models.DTO");
+            _v1_2_9ModelTypes = LoadVersionModelTypes("BannerlordModEditor.Common.Models.V1_2_9");
+            _v1_3_15ModelTypes = LoadVersionModelTypes("BannerlordModEditor.Common.Models.V1_3_15");
             
             // 调试信息
             if (Environment.GetEnvironmentVariable("CLI_DEBUG") == "1")
             {
                 Console.WriteLine($"调试: 加载了 {_doModelTypes.Count} 个DO模型类型");
                 Console.WriteLine($"调试: 加载了 {_dtoModelTypes.Count} 个DTO模型类型");
+                Console.WriteLine($"调试: 加载了 {_v1_2_9ModelTypes.Count} 个V1_2_9模型类型");
+                Console.WriteLine($"调试: 加载了 {_v1_3_15ModelTypes.Count} 个V1_3_15模型类型");
             }
         }
 
@@ -71,6 +77,54 @@ namespace BannerlordModEditor.Cli.Services
                         {
                             modelTypes[xmlRootName] = type;
                         }
+                    }
+                }
+            }
+
+            return modelTypes;
+        }
+
+        /// <summary>
+        /// 加载版本特定命名空间下的所有模型类型 (V1_2_9 / V1_3_15)
+        /// </summary>
+        private Dictionary<string, Type> LoadVersionModelTypes(string nameSpace)
+        {
+            var modelTypes = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase);
+            
+            var assembly = Assembly.GetAssembly(typeof(ActionTypesDO));
+            if (assembly != null)
+            {
+                var types = assembly.GetTypes()
+                    .Where(t => t.Namespace == nameSpace && 
+                               t.IsClass && 
+                               !t.IsAbstract && 
+                               t.GetCustomAttribute<XmlRootAttribute>() != null)
+                    .ToList();
+
+                foreach (var type in types)
+                {
+                    var xmlRootAttr = type.GetCustomAttribute<XmlRootAttribute>();
+                    if (xmlRootAttr != null)
+                    {
+                        // 使用类型名作为键
+                        var modelName = type.Name;
+                        modelTypes[modelName] = type;
+                        
+                        // 存储XML根元素名的映射
+                        var xmlRootName = xmlRootAttr.ElementName ?? type.Name;
+                        if (xmlRootName != modelName)
+                        {
+                            modelTypes[xmlRootName] = type;
+                        }
+                        
+                        // 同时存储版本前缀的名称，用于区分版本
+                        // 例如：V1_2_9.Settlements -> Settlements_V1_2_9
+                        var versionedName = $"{modelName}_v1_2_9";
+                        if (nameSpace.Contains("V1_3_15"))
+                        {
+                            versionedName = $"{modelName}_v1_3_15";
+                        }
+                        modelTypes[versionedName] = type;
                     }
                 }
             }
@@ -204,7 +258,7 @@ namespace BannerlordModEditor.Cli.Services
             }
         }
 
-        public async Task<string?> RecognizeXmlFormatAsync(string xmlFilePath)
+        public async Task<string?> RecognizeXmlFormatAsync(string xmlFilePath, string? gameVersion = null)
         {
             try
             {
@@ -218,6 +272,14 @@ namespace BannerlordModEditor.Cli.Services
 
                 var rootName = doc.Root.Name.LocalName;
                 
+                // 根据游戏版本确定要检查的模型集合
+                var versionModels = gameVersion?.ToLower() switch
+                {
+                    "v1.2.9" or "v1_2_9" => _v1_2_9ModelTypes,
+                    "latest" or "v1.3.15" or "v1_3_15" => _v1_3_15ModelTypes,
+                    _ => null // null 表示检查所有模型
+                };
+
                 // 首先检查是否有type属性（骑马与砍杀2 XML的常见模式）
                 var typeAttribute = doc.Root.Attribute("type")?.Value;
                 if (!string.IsNullOrEmpty(typeAttribute))
@@ -230,19 +292,65 @@ namespace BannerlordModEditor.Cli.Services
                     {
                         convertedTypeName,
                         convertedTypeName + "DO",
-                        convertedTypeName + "DTO"
+                        convertedTypeName + "DTO",
+                        convertedTypeName + "_v1_2_9",
+                        convertedTypeName + "_v1_3_15"
                     };
                     
                     foreach (var name in possibleNames)
                     {
-                        if (_doModelTypes.TryGetValue(name, out var typedModelType))
+                        if (_doModelTypes.TryGetValue(name, out _))
+                        {
+                            return name;
+                        }
+                        if (versionModels != null && versionModels.TryGetValue(name, out _))
                         {
                             return name;
                         }
                     }
                 }
                 
-                // 查找匹配的DO模型类型，优先查找与type属性匹配的模型
+                // 优先检查版本特定模型
+                if (versionModels != null)
+                {
+                    foreach (var kvp in versionModels)
+                    {
+                        var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
+                        if (xmlRootAttr != null && 
+                            (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
+                        {
+                            return kvp.Key;
+                        }
+                    }
+                }
+                
+                // 如果没有指定版本，检查所有版本模型
+                if (versionModels == null)
+                {
+                    // 检查V1_3_15模型
+                    foreach (var kvp in _v1_3_15ModelTypes)
+                    {
+                        var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
+                        if (xmlRootAttr != null && 
+                            (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
+                        {
+                            return kvp.Key;
+                        }
+                    }
+                    
+                    // 检查V1_2_9模型
+                    foreach (var kvp in _v1_2_9ModelTypes)
+                    {
+                        var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
+                        if (xmlRootAttr != null && 
+                            (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
+                        {
+                            return kvp.Key;
+                        }
+                    }
+                }
+                
+                // 查找匹配的DO模型类型
                 foreach (var kvp in _doModelTypes)
                 {
                     var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
@@ -259,19 +367,29 @@ namespace BannerlordModEditor.Cli.Services
                             // 检查类型名是否包含type属性的内容
                             if (typeName.Contains(typeAttrLower))
                             {
-                                Console.WriteLine($"调试: 找到精确匹配: {kvp.Key}");
                                 return kvp.Key;
                             }
                         }
                         
-                        // 如果没有type属性或者没有找到更精确的匹配，返回第一个匹配的
                         return kvp.Key;
                     }
                 }
 
                 // 如果没有直接匹配，尝试基于命名约定匹配
                 var convertedName = _fileDiscoveryService.ConvertToModelName(rootName);
-                if (_doModelTypes.TryGetValue(convertedName, out var matchedType))
+                if (_doModelTypes.TryGetValue(convertedName, out _))
+                {
+                    return convertedName;
+                }
+                
+                // 尝试V1_3_15模型
+                if (_v1_3_15ModelTypes.TryGetValue(convertedName, out _))
+                {
+                    return convertedName;
+                }
+                
+                // 尝试V1_2_9模型
+                if (_v1_2_9ModelTypes.TryGetValue(convertedName, out _))
                 {
                     return convertedName;
                 }

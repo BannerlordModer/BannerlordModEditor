@@ -142,7 +142,7 @@ namespace BannerlordModEditor.Cli.Services
             }
         }
 
-        public async Task<string?> RecognizeXmlFormatAsync(string xmlFilePath)
+        public async Task<string?> RecognizeXmlFormatAsync(string xmlFilePath, string? gameVersion = null)
         {
             try
             {
@@ -156,7 +156,57 @@ namespace BannerlordModEditor.Cli.Services
 
                 var rootName = doc.Root.Name.LocalName;
                 
-                // 查找匹配的模型类型
+                // 根据游戏版本确定要检查的模型集合
+                var versionModels = gameVersion?.ToLower() switch
+                {
+                    "v1.2.9" or "v1_2_9" => LoadVersionModelTypes("BannerlordModEditor.Common.Models.V1_2_9"),
+                    "latest" or "v1.3.15" or "v1_3_15" => LoadVersionModelTypes("BannerlordModEditor.Common.Models.V1_3_15"),
+                    _ => null // null 表示检查所有模型
+                };
+                
+                // 首先检查版本特定模型
+                if (versionModels != null)
+                {
+                    foreach (var kvp in versionModels)
+                    {
+                        var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
+                        if (xmlRootAttr != null && 
+                            (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
+                        {
+                            return kvp.Key;
+                        }
+                    }
+                }
+                
+                // 如果没有指定版本，检查所有版本模型
+                if (versionModels == null)
+                {
+                    // 检查V1_3_15模型
+                    var v1_3_15Models = LoadVersionModelTypes("BannerlordModEditor.Common.Models.V1_3_15");
+                    foreach (var kvp in v1_3_15Models)
+                    {
+                        var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
+                        if (xmlRootAttr != null && 
+                            (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
+                        {
+                            return kvp.Key;
+                        }
+                    }
+                    
+                    // 检查V1_2_9模型
+                    var v1_2_9Models = LoadVersionModelTypes("BannerlordModEditor.Common.Models.V1_2_9");
+                    foreach (var kvp in v1_2_9Models)
+                    {
+                        var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
+                        if (xmlRootAttr != null && 
+                            (xmlRootAttr.ElementName?.Equals(rootName, StringComparison.OrdinalIgnoreCase) ?? false))
+                        {
+                            return kvp.Key;
+                        }
+                    }
+                }
+                
+                // 查找匹配的DO模型类型
                 foreach (var kvp in _modelTypes)
                 {
                     var xmlRootAttr = kvp.Value.GetCustomAttribute<XmlRootAttribute>();
@@ -169,7 +219,7 @@ namespace BannerlordModEditor.Cli.Services
 
                 // 如果没有直接匹配，尝试基于命名约定匹配
                 var convertedName = _fileDiscoveryService.ConvertToModelName(rootName);
-                if (_modelTypes.TryGetValue(convertedName, out var matchedType))
+                if (_modelTypes.TryGetValue(convertedName, out _))
                 {
                     return convertedName;
                 }
@@ -180,6 +230,43 @@ namespace BannerlordModEditor.Cli.Services
             {
                 throw new XmlFormatException($"XML 格式识别失败: {ex.Message}", ex);
             }
+        }
+        
+        /// <summary>
+        /// 加载版本特定命名空间下的所有模型类型
+        /// </summary>
+        private Dictionary<string, Type> LoadVersionModelTypes(string nameSpace)
+        {
+            var modelTypes = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase);
+            
+            var assembly = Assembly.GetAssembly(typeof(ActionTypesDO));
+            if (assembly != null)
+            {
+                var types = assembly.GetTypes()
+                    .Where(t => t.Namespace == nameSpace && 
+                               t.IsClass && 
+                               !t.IsAbstract && 
+                               t.GetCustomAttribute<XmlRootAttribute>() != null)
+                    .ToList();
+
+                foreach (var type in types)
+                {
+                    var xmlRootAttr = type.GetCustomAttribute<XmlRootAttribute>();
+                    if (xmlRootAttr != null)
+                    {
+                        var modelName = type.Name;
+                        modelTypes[modelName] = type;
+                        
+                        var xmlRootName = xmlRootAttr.ElementName ?? type.Name;
+                        if (xmlRootName != modelName)
+                        {
+                            modelTypes[xmlRootName] = type;
+                        }
+                    }
+                }
+            }
+
+            return modelTypes;
         }
 
         public async Task<bool> ValidateExcelFormatAsync(string excelFilePath, string modelType, string? worksheetName = null)

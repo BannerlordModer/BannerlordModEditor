@@ -38,8 +38,9 @@ namespace BannerlordModEditor.Cli.Services
         /// 识别 XML 文件格式
         /// </summary>
         /// <param name="xmlFilePath">XML 文件路径</param>
+        /// <param name="gameVersion">游戏版本 (v1.2.9, v1.3.15, 或 null 表示自动检测)</param>
         /// <returns>识别出的模型类型</returns>
-        Task<string?> RecognizeXmlFormatAsync(string xmlFilePath);
+        Task<string?> RecognizeXmlFormatAsync(string xmlFilePath, string? gameVersion = null);
 
         /// <summary>
         /// 验证 Excel 文件格式是否符合指定的 XML 模型
