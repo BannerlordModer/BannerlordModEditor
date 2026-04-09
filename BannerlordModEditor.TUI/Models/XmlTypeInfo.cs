@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using BannerlordModEditor.Common.Models.DO;
 using BannerlordModEditor.Common.Services;
 
@@ -432,6 +434,12 @@ namespace BannerlordModEditor.TUI.Models
             AddXmlType(types, "ItemUsageSets", typeof(ItemUsageSetsDO), "物品使用集合", true);
             AddXmlType(types, "MovementSets", typeof(MovementSetsDO), "运动集合", true);
             
+            // V1_3_15 模型类型
+            AddVersionXmlTypes(types, "BannerlordModEditor.Common.Models.V1_3_15", "v1.3.15+");
+            
+            // V1_2_9 模型类型
+            AddVersionXmlTypes(types, "BannerlordModEditor.Common.Models.V1_2_9", "v1.2.9");
+            
             // 添加更多支持的XML类型（基于Common层）
             AddXmlType(types, "BasicObjects", typeof(object), "基础对象", false);
             AddXmlType(types, "BodyProperties", typeof(object), "身体属性", false);
@@ -461,6 +469,43 @@ namespace BannerlordModEditor.TUI.Models
             AddXmlType(types, "WeaponComponents", typeof(object), "武器组件", false);
 
             return types;
+        }
+        
+        private void AddVersionXmlTypes(Dictionary<string, XmlTypeInfo> types, string nameSpace, string version)
+        {
+            var assembly = typeof(ActionTypesDO).Assembly;
+            var versionTypes = assembly.GetTypes()
+                .Where(t => t.Namespace == nameSpace && t.IsClass && !t.IsAbstract)
+                .ToList();
+
+            foreach (var type in versionTypes)
+            {
+                var xmlRootAttr = type.GetCustomAttribute<XmlRootAttribute>();
+                if (xmlRootAttr != null)
+                {
+                    var xmlTypeName = xmlRootAttr.ElementName ?? type.Name;
+                    if (!types.ContainsKey(xmlTypeName))
+                    {
+                        types[xmlTypeName] = new XmlTypeInfo
+                        {
+                            XmlType = xmlTypeName,
+                            ModelType = type.AssemblyQualifiedName ?? string.Empty,
+                            Namespace = type.Namespace ?? string.Empty,
+                            Description = $"{type.Name} ({version})",
+                            IsAdapted = true,
+                            IsSupported = true,
+                            SupportedOperations = new List<SupportedOperation>
+                            {
+                                SupportedOperation.Read,
+                                SupportedOperation.Write,
+                                SupportedOperation.Validate,
+                                SupportedOperation.ConvertToExcel,
+                                SupportedOperation.ConvertFromExcel
+                            }
+                        };
+                    }
+                }
+            }
         }
 
         private void AddXmlType(Dictionary<string, XmlTypeInfo> types, string xmlType, Type modelType, string description, bool isSupported)
